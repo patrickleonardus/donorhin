@@ -22,7 +22,6 @@ extension FindController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let data = bloodRequstData![indexPath.row]
-        
         let cell : UITableViewCell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: cellId)
         cell.textLabel?.text = data.name
         cell.detailTextLabel?.text = data.status
