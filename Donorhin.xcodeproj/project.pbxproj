@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB04A7A52372C8C000EE4C8D /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB04A7A42372C8C000EE4C8D /* Storyboard.storyboard */; };
+		AB04A7A82372CA3D00EE4C8D /* TableViewCellProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB04A7A62372CA3D00EE4C8D /* TableViewCellProfile.swift */; };
+		AB04A7A92372CA3D00EE4C8D /* TableViewCellProfile.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB04A7A72372CA3D00EE4C8D /* TableViewCellProfile.xib */; };
 		E6FBB16C23718C8400B1B4DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB16B23718C8400B1B4DE /* AppDelegate.swift */; };
 		E6FBB17423718C8400B1B4DE /* Donorhin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB17223718C8400B1B4DE /* Donorhin.xcdatamodeld */; };
 		E6FBB17623718C8500B1B4DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6FBB17523718C8500B1B4DE /* Assets.xcassets */; };
@@ -47,6 +50,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AB04A7A42372C8C000EE4C8D /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		AB04A7A62372CA3D00EE4C8D /* TableViewCellProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellProfile.swift; sourceTree = "<group>"; };
+		AB04A7A72372CA3D00EE4C8D /* TableViewCellProfile.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCellProfile.xib; sourceTree = "<group>"; };
 		E6FBB16823718C8400B1B4DE /* Donorhin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Donorhin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6FBB16B23718C8400B1B4DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6FBB17323718C8400B1B4DE /* Donorhin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Donorhin.xcdatamodel; sourceTree = "<group>"; };
@@ -100,6 +106,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB04A7A32372C89D00EE4C8D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				AB04A7A42372C8C000EE4C8D /* Storyboard.storyboard */,
+				AB04A7A62372CA3D00EE4C8D /* TableViewCellProfile.swift */,
+				AB04A7A72372CA3D00EE4C8D /* TableViewCellProfile.xib */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		E6FBB15F23718C8400B1B4DE = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +180,7 @@
 		E6FBB19D23718CDD00B1B4DE /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				AB04A7A32372C89D00EE4C8D /* Profile */,
 				E6FBB19E23718CE800B1B4DE /* RootTabBarController */,
 				E6FBB19C23718CB300B1B4DE /* Authentication */,
 			);
@@ -350,6 +367,8 @@
 			files = (
 				E6FBB1A223718D8D00B1B4DE /* Authentication.storyboard in Resources */,
 				E6FBB1A923718E7F00B1B4DE /* Find.storyboard in Resources */,
+				AB04A7A52372C8C000EE4C8D /* Storyboard.storyboard in Resources */,
+				AB04A7A92372CA3D00EE4C8D /* TableViewCellProfile.xib in Resources */,
 				E6FBB17923718C8500B1B4DE /* LaunchScreen.storyboard in Resources */,
 				E6FBB17623718C8500B1B4DE /* Assets.xcassets in Resources */,
 				E6FBB1A023718D5500B1B4DE /* RootTabBarController.storyboard in Resources */,
@@ -383,6 +402,7 @@
 				E6FBB1B123718FDF00B1B4DE /* DonateController.swift in Sources */,
 				E6FBB17423718C8400B1B4DE /* Donorhin.xcdatamodeld in Sources */,
 				E6FBB1B82371933E00B1B4DE /* findBlood.swift in Sources */,
+				AB04A7A82372CA3D00EE4C8D /* TableViewCellProfile.swift in Sources */,
 				E6FBB16C23718C8400B1B4DE /* AppDelegate.swift in Sources */,
 				E6FBB1B52371901400B1B4DE /* AuthenticationController.swift in Sources */,
 				E6FBB1C32371991D00B1B4DE /* Constants.swift in Sources */,
