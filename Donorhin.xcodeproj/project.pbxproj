@@ -1,0 +1,728 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E6FBB16C23718C8400B1B4DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB16B23718C8400B1B4DE /* AppDelegate.swift */; };
+		E6FBB17423718C8400B1B4DE /* Donorhin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB17223718C8400B1B4DE /* Donorhin.xcdatamodeld */; };
+		E6FBB17623718C8500B1B4DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6FBB17523718C8500B1B4DE /* Assets.xcassets */; };
+		E6FBB17923718C8500B1B4DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6FBB17723718C8500B1B4DE /* LaunchScreen.storyboard */; };
+		E6FBB18423718C8500B1B4DE /* DonorhinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB18323718C8500B1B4DE /* DonorhinTests.swift */; };
+		E6FBB18F23718C8500B1B4DE /* DonorhinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB18E23718C8500B1B4DE /* DonorhinUITests.swift */; };
+		E6FBB1A023718D5500B1B4DE /* RootTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6FBB19F23718D5500B1B4DE /* RootTabBarController.storyboard */; };
+		E6FBB1A223718D8D00B1B4DE /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6FBB1A123718D8D00B1B4DE /* Authentication.storyboard */; };
+		E6FBB1A923718E7F00B1B4DE /* Find.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6FBB1A823718E7F00B1B4DE /* Find.storyboard */; };
+		E6FBB1AB23718EAB00B1B4DE /* Donate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6FBB1AA23718EAB00B1B4DE /* Donate.storyboard */; };
+		E6FBB1AD23718EF300B1B4DE /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6FBB1AC23718EF300B1B4DE /* Discover.storyboard */; };
+		E6FBB1AF23718FBE00B1B4DE /* DiscoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB1AE23718FBE00B1B4DE /* DiscoverController.swift */; };
+		E6FBB1B123718FDF00B1B4DE /* DonateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB1B023718FDF00B1B4DE /* DonateController.swift */; };
+		E6FBB1B323718FF500B1B4DE /* FindController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB1B223718FF500B1B4DE /* FindController.swift */; };
+		E6FBB1B52371901400B1B4DE /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB1B42371901400B1B4DE /* AuthenticationController.swift */; };
+		E6FBB1B82371933E00B1B4DE /* findBlood.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB1B62371933E00B1B4DE /* findBlood.swift */; };
+		E6FBB1B92371933E00B1B4DE /* findBlood.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6FBB1B72371933E00B1B4DE /* findBlood.xib */; };
+		E6FBB1BE2371947700B1B4DE /* FindController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB1BD2371947700B1B4DE /* FindController+UITableView.swift */; };
+		E6FBB1C0237194FB00B1B4DE /* BloodRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB1BF237194FB00B1B4DE /* BloodRequest.swift */; };
+		E6FBB1C32371991D00B1B4DE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB1C22371991D00B1B4DE /* Constants.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E6FBB18023718C8500B1B4DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E6FBB16023718C8400B1B4DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E6FBB16723718C8400B1B4DE;
+			remoteInfo = Donorhin;
+		};
+		E6FBB18B23718C8500B1B4DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E6FBB16023718C8400B1B4DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E6FBB16723718C8400B1B4DE;
+			remoteInfo = Donorhin;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E6FBB16823718C8400B1B4DE /* Donorhin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Donorhin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6FBB16B23718C8400B1B4DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E6FBB17323718C8400B1B4DE /* Donorhin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Donorhin.xcdatamodel; sourceTree = "<group>"; };
+		E6FBB17523718C8500B1B4DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E6FBB17823718C8500B1B4DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E6FBB17A23718C8500B1B4DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6FBB17F23718C8500B1B4DE /* DonorhinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DonorhinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6FBB18323718C8500B1B4DE /* DonorhinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonorhinTests.swift; sourceTree = "<group>"; };
+		E6FBB18523718C8500B1B4DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6FBB18A23718C8500B1B4DE /* DonorhinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DonorhinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6FBB18E23718C8500B1B4DE /* DonorhinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonorhinUITests.swift; sourceTree = "<group>"; };
+		E6FBB19023718C8500B1B4DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6FBB19F23718D5500B1B4DE /* RootTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RootTabBarController.storyboard; sourceTree = "<group>"; };
+		E6FBB1A123718D8D00B1B4DE /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
+		E6FBB1A823718E7F00B1B4DE /* Find.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Find.storyboard; sourceTree = "<group>"; };
+		E6FBB1AA23718EAB00B1B4DE /* Donate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Donate.storyboard; sourceTree = "<group>"; };
+		E6FBB1AC23718EF300B1B4DE /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
+		E6FBB1AE23718FBE00B1B4DE /* DiscoverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverController.swift; sourceTree = "<group>"; };
+		E6FBB1B023718FDF00B1B4DE /* DonateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateController.swift; sourceTree = "<group>"; };
+		E6FBB1B223718FF500B1B4DE /* FindController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindController.swift; sourceTree = "<group>"; };
+		E6FBB1B42371901400B1B4DE /* AuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
+		E6FBB1B62371933E00B1B4DE /* findBlood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = findBlood.swift; sourceTree = "<group>"; };
+		E6FBB1B72371933E00B1B4DE /* findBlood.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = findBlood.xib; sourceTree = "<group>"; };
+		E6FBB1BD2371947700B1B4DE /* FindController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FindController+UITableView.swift"; sourceTree = "<group>"; };
+		E6FBB1BF237194FB00B1B4DE /* BloodRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodRequest.swift; sourceTree = "<group>"; };
+		E6FBB1C22371991D00B1B4DE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E6FBB16523718C8400B1B4DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6FBB17C23718C8500B1B4DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6FBB18723718C8500B1B4DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E6FBB15F23718C8400B1B4DE = {
+			isa = PBXGroup;
+			children = (
+				E6FBB16A23718C8400B1B4DE /* Donorhin */,
+				E6FBB18223718C8500B1B4DE /* DonorhinTests */,
+				E6FBB18D23718C8500B1B4DE /* DonorhinUITests */,
+				E6FBB16923718C8400B1B4DE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E6FBB16923718C8400B1B4DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E6FBB16823718C8400B1B4DE /* Donorhin.app */,
+				E6FBB17F23718C8500B1B4DE /* DonorhinTests.xctest */,
+				E6FBB18A23718C8500B1B4DE /* DonorhinUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E6FBB16A23718C8400B1B4DE /* Donorhin */ = {
+			isa = PBXGroup;
+			children = (
+				E6FBB16B23718C8400B1B4DE /* AppDelegate.swift */,
+				E6FBB17523718C8500B1B4DE /* Assets.xcassets */,
+				E6FBB17223718C8400B1B4DE /* Donorhin.xcdatamodeld */,
+				E6FBB19D23718CDD00B1B4DE /* Pages */,
+				E6FBB1C1237198F500B1B4DE /* Utilities */,
+				E6FBB17723718C8500B1B4DE /* LaunchScreen.storyboard */,
+				E6FBB17A23718C8500B1B4DE /* Info.plist */,
+			);
+			path = Donorhin;
+			sourceTree = "<group>";
+		};
+		E6FBB18223718C8500B1B4DE /* DonorhinTests */ = {
+			isa = PBXGroup;
+			children = (
+				E6FBB18323718C8500B1B4DE /* DonorhinTests.swift */,
+				E6FBB18523718C8500B1B4DE /* Info.plist */,
+			);
+			path = DonorhinTests;
+			sourceTree = "<group>";
+		};
+		E6FBB18D23718C8500B1B4DE /* DonorhinUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E6FBB18E23718C8500B1B4DE /* DonorhinUITests.swift */,
+				E6FBB19023718C8500B1B4DE /* Info.plist */,
+			);
+			path = DonorhinUITests;
+			sourceTree = "<group>";
+		};
+		E6FBB19C23718CB300B1B4DE /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				E6FBB1A123718D8D00B1B4DE /* Authentication.storyboard */,
+				E6FBB1B42371901400B1B4DE /* AuthenticationController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		E6FBB19D23718CDD00B1B4DE /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				E6FBB19E23718CE800B1B4DE /* RootTabBarController */,
+				E6FBB19C23718CB300B1B4DE /* Authentication */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		E6FBB19E23718CE800B1B4DE /* RootTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				E6FBB19F23718D5500B1B4DE /* RootTabBarController.storyboard */,
+				E6FBB1A523718E2D00B1B4DE /* DiscoverPage */,
+				E6FBB1A423718E1100B1B4DE /* DonatePage */,
+				E6FBB1A323718DFC00B1B4DE /* FindPage */,
+			);
+			path = RootTabBarController;
+			sourceTree = "<group>";
+		};
+		E6FBB1A323718DFC00B1B4DE /* FindPage */ = {
+			isa = PBXGroup;
+			children = (
+				E6FBB1BB2371943500B1B4DE /* Model */,
+				E6FBB1BA2371942C00B1B4DE /* Controller */,
+				E6FBB1BC2371943D00B1B4DE /* View */,
+				E6FBB1A823718E7F00B1B4DE /* Find.storyboard */,
+			);
+			path = FindPage;
+			sourceTree = "<group>";
+		};
+		E6FBB1A423718E1100B1B4DE /* DonatePage */ = {
+			isa = PBXGroup;
+			children = (
+				E6FBB1AA23718EAB00B1B4DE /* Donate.storyboard */,
+				E6FBB1B023718FDF00B1B4DE /* DonateController.swift */,
+			);
+			path = DonatePage;
+			sourceTree = "<group>";
+		};
+		E6FBB1A523718E2D00B1B4DE /* DiscoverPage */ = {
+			isa = PBXGroup;
+			children = (
+				E6FBB1AC23718EF300B1B4DE /* Discover.storyboard */,
+				E6FBB1AE23718FBE00B1B4DE /* DiscoverController.swift */,
+			);
+			path = DiscoverPage;
+			sourceTree = "<group>";
+		};
+		E6FBB1BA2371942C00B1B4DE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E6FBB1B223718FF500B1B4DE /* FindController.swift */,
+				E6FBB1BD2371947700B1B4DE /* FindController+UITableView.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E6FBB1BB2371943500B1B4DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E6FBB1BF237194FB00B1B4DE /* BloodRequest.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E6FBB1BC2371943D00B1B4DE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E6FBB1B62371933E00B1B4DE /* findBlood.swift */,
+				E6FBB1B72371933E00B1B4DE /* findBlood.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E6FBB1C1237198F500B1B4DE /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E6FBB1C22371991D00B1B4DE /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E6FBB16723718C8400B1B4DE /* Donorhin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6FBB19323718C8500B1B4DE /* Build configuration list for PBXNativeTarget "Donorhin" */;
+			buildPhases = (
+				E6FBB16423718C8400B1B4DE /* Sources */,
+				E6FBB16523718C8400B1B4DE /* Frameworks */,
+				E6FBB16623718C8400B1B4DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Donorhin;
+			productName = Donorhin;
+			productReference = E6FBB16823718C8400B1B4DE /* Donorhin.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E6FBB17E23718C8500B1B4DE /* DonorhinTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6FBB19623718C8500B1B4DE /* Build configuration list for PBXNativeTarget "DonorhinTests" */;
+			buildPhases = (
+				E6FBB17B23718C8500B1B4DE /* Sources */,
+				E6FBB17C23718C8500B1B4DE /* Frameworks */,
+				E6FBB17D23718C8500B1B4DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E6FBB18123718C8500B1B4DE /* PBXTargetDependency */,
+			);
+			name = DonorhinTests;
+			productName = DonorhinTests;
+			productReference = E6FBB17F23718C8500B1B4DE /* DonorhinTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E6FBB18923718C8500B1B4DE /* DonorhinUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6FBB19923718C8500B1B4DE /* Build configuration list for PBXNativeTarget "DonorhinUITests" */;
+			buildPhases = (
+				E6FBB18623718C8500B1B4DE /* Sources */,
+				E6FBB18723718C8500B1B4DE /* Frameworks */,
+				E6FBB18823718C8500B1B4DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E6FBB18C23718C8500B1B4DE /* PBXTargetDependency */,
+			);
+			name = DonorhinUITests;
+			productName = DonorhinUITests;
+			productReference = E6FBB18A23718C8500B1B4DE /* DonorhinUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E6FBB16023718C8400B1B4DE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = Donorhin;
+				TargetAttributes = {
+					E6FBB16723718C8400B1B4DE = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					E6FBB17E23718C8500B1B4DE = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = E6FBB16723718C8400B1B4DE;
+					};
+					E6FBB18923718C8500B1B4DE = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = E6FBB16723718C8400B1B4DE;
+					};
+				};
+			};
+			buildConfigurationList = E6FBB16323718C8400B1B4DE /* Build configuration list for PBXProject "Donorhin" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E6FBB15F23718C8400B1B4DE;
+			productRefGroup = E6FBB16923718C8400B1B4DE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E6FBB16723718C8400B1B4DE /* Donorhin */,
+				E6FBB17E23718C8500B1B4DE /* DonorhinTests */,
+				E6FBB18923718C8500B1B4DE /* DonorhinUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E6FBB16623718C8400B1B4DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6FBB1A223718D8D00B1B4DE /* Authentication.storyboard in Resources */,
+				E6FBB1A923718E7F00B1B4DE /* Find.storyboard in Resources */,
+				E6FBB17923718C8500B1B4DE /* LaunchScreen.storyboard in Resources */,
+				E6FBB17623718C8500B1B4DE /* Assets.xcassets in Resources */,
+				E6FBB1A023718D5500B1B4DE /* RootTabBarController.storyboard in Resources */,
+				E6FBB1AD23718EF300B1B4DE /* Discover.storyboard in Resources */,
+				E6FBB1AB23718EAB00B1B4DE /* Donate.storyboard in Resources */,
+				E6FBB1B92371933E00B1B4DE /* findBlood.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6FBB17D23718C8500B1B4DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6FBB18823718C8500B1B4DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E6FBB16423718C8400B1B4DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6FBB1B123718FDF00B1B4DE /* DonateController.swift in Sources */,
+				E6FBB17423718C8400B1B4DE /* Donorhin.xcdatamodeld in Sources */,
+				E6FBB1B82371933E00B1B4DE /* findBlood.swift in Sources */,
+				E6FBB16C23718C8400B1B4DE /* AppDelegate.swift in Sources */,
+				E6FBB1B52371901400B1B4DE /* AuthenticationController.swift in Sources */,
+				E6FBB1C32371991D00B1B4DE /* Constants.swift in Sources */,
+				E6FBB1B323718FF500B1B4DE /* FindController.swift in Sources */,
+				E6FBB1AF23718FBE00B1B4DE /* DiscoverController.swift in Sources */,
+				E6FBB1C0237194FB00B1B4DE /* BloodRequest.swift in Sources */,
+				E6FBB1BE2371947700B1B4DE /* FindController+UITableView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6FBB17B23718C8500B1B4DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6FBB18423718C8500B1B4DE /* DonorhinTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6FBB18623718C8500B1B4DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6FBB18F23718C8500B1B4DE /* DonorhinUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E6FBB18123718C8500B1B4DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E6FBB16723718C8400B1B4DE /* Donorhin */;
+			targetProxy = E6FBB18023718C8500B1B4DE /* PBXContainerItemProxy */;
+		};
+		E6FBB18C23718C8500B1B4DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E6FBB16723718C8400B1B4DE /* Donorhin */;
+			targetProxy = E6FBB18B23718C8500B1B4DE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E6FBB17723718C8500B1B4DE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E6FBB17823718C8500B1B4DE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E6FBB19123718C8500B1B4DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E6FBB19223718C8500B1B4DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E6FBB19423718C8500B1B4DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2NJYBE4CVL;
+				INFOPLIST_FILE = Donorhin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.donorhin.Donorhin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E6FBB19523718C8500B1B4DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2NJYBE4CVL;
+				INFOPLIST_FILE = Donorhin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.donorhin.Donorhin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E6FBB19723718C8500B1B4DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2NJYBE4CVL;
+				INFOPLIST_FILE = DonorhinTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.donorhin.DonorhinTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Donorhin.app/Donorhin";
+			};
+			name = Debug;
+		};
+		E6FBB19823718C8500B1B4DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2NJYBE4CVL;
+				INFOPLIST_FILE = DonorhinTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.donorhin.DonorhinTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Donorhin.app/Donorhin";
+			};
+			name = Release;
+		};
+		E6FBB19A23718C8500B1B4DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2NJYBE4CVL;
+				INFOPLIST_FILE = DonorhinUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.donorhin.DonorhinUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Donorhin;
+			};
+			name = Debug;
+		};
+		E6FBB19B23718C8500B1B4DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2NJYBE4CVL;
+				INFOPLIST_FILE = DonorhinUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.donorhin.DonorhinUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Donorhin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E6FBB16323718C8400B1B4DE /* Build configuration list for PBXProject "Donorhin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E6FBB19123718C8500B1B4DE /* Debug */,
+				E6FBB19223718C8500B1B4DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E6FBB19323718C8500B1B4DE /* Build configuration list for PBXNativeTarget "Donorhin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E6FBB19423718C8500B1B4DE /* Debug */,
+				E6FBB19523718C8500B1B4DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E6FBB19623718C8500B1B4DE /* Build configuration list for PBXNativeTarget "DonorhinTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E6FBB19723718C8500B1B4DE /* Debug */,
+				E6FBB19823718C8500B1B4DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E6FBB19923718C8500B1B4DE /* Build configuration list for PBXNativeTarget "DonorhinUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E6FBB19A23718C8500B1B4DE /* Debug */,
+				E6FBB19B23718C8500B1B4DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E6FBB17223718C8400B1B4DE /* Donorhin.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E6FBB17323718C8400B1B4DE /* Donorhin.xcdatamodel */,
+			);
+			currentVersion = E6FBB17323718C8400B1B4DE /* Donorhin.xcdatamodel */;
+			path = Donorhin.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E6FBB16023718C8400B1B4DE /* Project object */;
+}
