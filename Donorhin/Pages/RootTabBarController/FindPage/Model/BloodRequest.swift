@@ -15,9 +15,10 @@ struct BloodRequest {
 
 
 struct DummyData {
-    func getBloodRequest(completionHandler: (([BloodRequest]) -> ())) {
+    func getBloodRequest(completionHandler: @escaping (([BloodRequest]) -> ())) {
         completionHandler(
-            [BloodRequest(name: "Idris", status: "Approved")]
+            [BloodRequest(name: "Idris", status: "Approved"),
+            BloodRequest(name: "Vebby", status: "Pending")]
         )
     }
 }

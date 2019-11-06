@@ -11,6 +11,7 @@ import UIKit
 class FindController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var findBloodSegmentedControl: UISegmentedControl!
     
     let cellId = "cellId"
     
@@ -24,11 +25,14 @@ class FindController: UIViewController {
         tableView.register(findBlood.self, forCellReuseIdentifier: cellId)
     
         DummyData().getBloodRequest { (bloodRequests) in
-            bloodRequstData = bloodRequests
+            self.bloodRequstData = bloodRequests
         }
         
     }
     
+    @IBAction func findBloodSegmentedControlDidChange() {
+        print("value changed")
+    }
 }
 
 
