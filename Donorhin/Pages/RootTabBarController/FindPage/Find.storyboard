@@ -56,7 +56,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="K2y-dF-MRx"/>
                     <connections>
-                        <outlet property="TrackerTableView" destination="c5W-zU-aeC" id="0Db-fL-4bU"/>
+                        <outlet property="trackerTableView" destination="c5W-zU-aeC" id="ZVG-kg-K4a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6a-e5-Pjx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

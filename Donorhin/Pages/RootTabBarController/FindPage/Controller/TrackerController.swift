@@ -10,15 +10,20 @@ import UIKit
 
 class TrackerController : UIViewController {
     
-    @IBOutlet weak var TrackerTableView: UITableView!
     
-    let cellId = 1
+    @IBOutlet weak var trackerTableView: UITableView!
+    let cellId = "cellId"
     var bloodRequestData : [BloodRequest]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //TrackerTableView.delegate = self
-        //TrackerTableView.dataSource = self
+        trackerTableView.delegate = self
+        trackerTableView.dataSource = self
         
+    trackerTableView.register(TrackerDonorTableViewCell.self, forCellReuseIdentifier: cellId)
+        
+        DummyData().getBloodRequest { (bloodRequests) in
+            bloodRequstData = bloodRequests
+        }
     }
 }

@@ -9,7 +9,8 @@
 import Foundation
 
 struct TrackerDonor {
-    
+    let description: String
+    let buttonStr : String
 }
 
 struct Status {
