@@ -23,7 +23,7 @@ class TrackerController : UIViewController {
     trackerTableView.register(TrackerDonorTableViewCell.self, forCellReuseIdentifier: cellId)
         
         DummyData().getBloodRequest { (bloodRequests) in
-            bloodRequstData = bloodRequests
+            bloodRequestData = bloodRequests
         }
     }
 }
