@@ -33,6 +33,7 @@ class TrackerController : UIViewController {
         trackerTableView.delegate = self
         trackerTableView.dataSource = self
         trackerTableView.register(UINib(nibName: "TrackerDonorTableViewCell", bundle: nil), forCellReuseIdentifier: "trackerCell")
+        trackerTableView.tableFooterView = UIView()
     }
     
     private func callNumber(phoneNumber: String){
