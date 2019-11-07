@@ -1,15 +1,20 @@
 //
-//  TableViewCellProfileButton.swift
+//  FirstCell.swift
 //  Donorhin
 //
-//  Created by Ni Made Ananda Ayu Permata on 06/11/19.
+//  Created by Ni Made Ananda Ayu Permata on 07/11/19.
 //  Copyright © 2019 Donorhin. All rights reserved.
 //
 
 import UIKit
 
-class TableViewCellProfileButton: UITableViewCell {
+class FirstCell: UITableViewCell {
 
+    @IBOutlet weak var imageProfile: UIImageView!
+    @IBOutlet weak var nameProfile: UILabel!
+    @IBOutlet weak var emailProfile: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +25,5 @@ class TableViewCellProfileButton: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }

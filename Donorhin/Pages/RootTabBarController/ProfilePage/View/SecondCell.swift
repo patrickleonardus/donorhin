@@ -1,14 +1,19 @@
 //
-//  TableViewCellProfile.swift
+//  SecondCell.swift
 //  Donorhin
 //
-//  Created by Ni Made Ananda Ayu Permata on 06/11/19.
+//  Created by Ni Made Ananda Ayu Permata on 07/11/19.
 //  Copyright © 2019 Donorhin. All rights reserved.
 //
 
 import UIKit
 
-class TableViewCellProfile: UITableViewCell {
+class SecondCell: UITableViewCell {
+    
+    @IBOutlet weak var imageCell: UIImageView!
+    @IBOutlet weak var textCell: UILabel!
+    
+   
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,5 +25,5 @@ class TableViewCellProfile: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }
