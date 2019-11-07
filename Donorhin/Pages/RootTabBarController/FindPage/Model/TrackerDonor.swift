@@ -8,11 +8,15 @@
 
 import Foundation
 
-struct TrackerDonor {
-    let description: String
-    let buttonStr : String
+enum Status {
+     case done
+     case onGoing
+     case toDo
 }
 
-struct Status {
-    
+struct StepItems {
+    var description: String?
+    var buttonStr : String?
+    var status : Status?
 }
+
