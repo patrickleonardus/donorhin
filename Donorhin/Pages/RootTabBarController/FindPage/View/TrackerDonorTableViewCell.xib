@@ -20,8 +20,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YFd-8I-DzS" userLabel="roundedNumber">
                         <rect key="frame" x="22" y="30.5" width="62" height="62"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zAJ-OB-HAo">
-                                <rect key="frame" x="17" y="19.5" width="28" height="24.5"/>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Checkmark28" translatesAutoresizingMaskIntoConstraints="NO" id="zAJ-OB-HAo">
+                                <rect key="frame" x="17" y="16.5" width="28" height="29"/>
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="28" id="2s9-fy-nbj"/>
@@ -31,31 +31,88 @@
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 </preferredSymbolConfiguration>
                             </imageView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riH-Yp-zS1" userLabel="Number">
+                                <rect key="frame" x="24.5" y="17" width="13.5" height="28"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="2">
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <font key="NSFont" size="24" name="SFProRounded-Bold"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzX-CH-bUF" userLabel="Active_Number">
+                                <rect key="frame" x="24.5" y="9.5" width="13.5" height="28"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="3">
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <font key="NSFont" size="24" name="SFProRounded-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hys-bL-GPd">
+                                <rect key="frame" x="20.5" y="41.5" width="21" height="12"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Aktif">
+                                        <attributes>
+                                            <font key="NSFont" size="10" name="SFProRounded-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.70196078431372544" green="0.0" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="vzX-CH-bUF" firstAttribute="centerX" secondItem="YFd-8I-DzS" secondAttribute="centerX" id="507-bf-RX5"/>
                             <constraint firstItem="zAJ-OB-HAo" firstAttribute="centerY" secondItem="YFd-8I-DzS" secondAttribute="centerY" id="6CN-Ib-uq3"/>
+                            <constraint firstItem="riH-Yp-zS1" firstAttribute="centerY" secondItem="YFd-8I-DzS" secondAttribute="centerY" id="9kG-I0-Yk7"/>
+                            <constraint firstItem="Hys-bL-GPd" firstAttribute="centerX" secondItem="YFd-8I-DzS" secondAttribute="centerX" id="HM5-c3-kcS"/>
+                            <constraint firstAttribute="bottom" secondItem="Hys-bL-GPd" secondAttribute="bottom" constant="8.4100000000000001" id="Ydt-J6-l1O"/>
+                            <constraint firstItem="Hys-bL-GPd" firstAttribute="top" secondItem="vzX-CH-bUF" secondAttribute="bottom" constant="4" id="fT5-cx-lBc"/>
                             <constraint firstItem="zAJ-OB-HAo" firstAttribute="centerX" secondItem="YFd-8I-DzS" secondAttribute="centerX" id="gGF-ic-CiN"/>
                             <constraint firstAttribute="width" constant="62" id="lxP-jt-1aV"/>
+                            <constraint firstItem="riH-Yp-zS1" firstAttribute="centerX" secondItem="YFd-8I-DzS" secondAttribute="centerX" id="rjS-j3-Ltx"/>
                             <constraint firstAttribute="width" secondItem="YFd-8I-DzS" secondAttribute="height" multiplier="1:1" id="vwZ-6E-mwb"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NOO-At-bTz" userLabel="labelContainer">
                         <rect key="frame" x="110" y="3" width="254" height="117"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXn-F7-006">
-                                <rect key="frame" x="0.0" y="35" width="254" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="257" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IXn-F7-006">
+                                <rect key="frame" x="0.0" y="29.889730075290345" width="254" height="21"/>
+                                <autoresizingMask key="autoresizingMask"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZI-uv-34f">
-                                <rect key="frame" x="0.0" y="64" width="254" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="256" ambiguous="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EZI-uv-34f">
+                                <rect key="frame" x="0.0" y="65.889730075290345" width="254" height="21.999999999999972"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="SNH-hG-CBW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="tintColor" red="0.70196078429999997" green="0.0" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title=" Button" image="Call17">
+                                    <color key="titleColor" red="0.70196078429999997" green="0.0" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="EZI-uv-34f" secondAttribute="trailing" id="5XR-5x-bfN"/>
+                            <constraint firstItem="EZI-uv-34f" firstAttribute="top" secondItem="IXn-F7-006" secondAttribute="bottom" constant="8" id="6r3-7V-Ph9"/>
+                            <constraint firstAttribute="trailing" secondItem="IXn-F7-006" secondAttribute="trailing" id="MJD-kn-cCv"/>
+                            <constraint firstItem="EZI-uv-34f" firstAttribute="leading" secondItem="NOO-At-bTz" secondAttribute="leading" id="gJN-NQ-fXS"/>
+                            <constraint firstItem="IXn-F7-006" firstAttribute="leading" secondItem="NOO-At-bTz" secondAttribute="leading" id="vTc-rj-NWZ"/>
+                        </constraints>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -69,10 +126,20 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="active_label" destination="Hys-bL-GPd" id="psY-gX-iwd"/>
+                <outlet property="active_number" destination="vzX-CH-bUF" id="Ovz-K0-sZY"/>
+                <outlet property="buttonText" destination="EZI-uv-34f" id="TjD-ls-elq"/>
+                <outlet property="checkMarkImage" destination="zAJ-OB-HAo" id="NEd-sx-alc"/>
+                <outlet property="informationText" destination="IXn-F7-006" id="Gam-xK-Gbd"/>
+                <outlet property="number" destination="riH-Yp-zS1" id="k2Y-pa-qg9"/>
+                <outlet property="redCircle" destination="YFd-8I-DzS" id="yGk-Gu-7Tm"/>
+            </connections>
             <point key="canvasLocation" x="182.60869565217394" y="161.04910714285714"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="checkmark" catalog="system" width="64" height="56"/>
+        <image name="Call17" width="17" height="17"/>
+        <image name="Checkmark28" width="23" height="22"/>
     </resources>
 </document>

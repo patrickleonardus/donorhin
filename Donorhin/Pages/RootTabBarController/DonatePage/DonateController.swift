@@ -10,21 +10,30 @@ import UIKit
 
 class DonateController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  @IBOutlet weak var switchButtonStatusDonor: UISwitch!
+  @IBOutlet weak var historyDonorSegmentedControl: UISegmentedControl!
+  @IBOutlet weak var tableview: UITableView!
+  final private let cellReuseIdentifier = "DonateCell"
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.setupTabledView()
+  }
+  
+  private func setupTabledView() {
+    self.tableview.delegate = self
+    self.tableview.dataSource = self
+    self.tableview.register(UINib(nibName: "DonateTableViewCell", bundle: nil), forCellReuseIdentifier: self.cellReuseIdentifier)
+  }
+}
 
-        // Do any additional setup after loading the view.
-    }
+extension DonateController: UITableViewDelegate, UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 0
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableview.dequeueReusableCell(withIdentifier: self.cellReuseIdentifier, for: indexPath) as! DonateTableViewCell
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    return cell
+  }
 }
