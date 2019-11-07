@@ -13,17 +13,36 @@ extension TrackerController : UITableViewDelegate {
 }
 
 extension TrackerController : UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let cell  = tableView.dequeueReusableCell(withIdentifier: "trackerCell", for: indexPath) as? TrackerDonorTableViewCell
         //masukin datanya
-//        let data = bloodRequestData![indexPath.row]
-        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: cellId)
-        //kasih data dimana pmi dan kapan waktunya
-        return cell
+        guard let data = stepItems?[indexPath.row] else {fatalError()}
+        
+        cell?.informationText?.text = data.description
+        cell?.buttonText.setTitle(data.buttonStr, for: .normal)
+        
+        switch data.status {
+        case .onGoing: cell?.setupView(status: .onGoing)
+            break
+        case .toDo: cell?.setupView(status: .toDo)
+            break
+        case .done: cell?.setupView(status: .done)
+            break
+        case .none:
+            break
+        }
+        
+        return cell!
     }
 
 }
