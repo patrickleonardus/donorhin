@@ -250,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				E6FBB1BF237194FB00B1B4DE /* BloodRequest.swift */,
+				B0B168592373FF90001DCE3C /* TrackerDonor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -411,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6FBB1B123718FDF00B1B4DE /* DonateController.swift in Sources */,
+				B0B168562373FF3F001DCE3C /* TrackerController.swift in Sources */,
 				098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */,
 				E6FBB17423718C8400B1B4DE /* Donorhin.xcdatamodeld in Sources */,
 				E6FBB1B82371933E00B1B4DE /* FindBloodCustomCell.swift in Sources */,
@@ -419,6 +421,7 @@
 				E6FBB1B52371901400B1B4DE /* AuthenticationController.swift in Sources */,
 				0925FB382373F13000874DAA /* CustomMainView.swift in Sources */,
 				E6FBB1C32371991D00B1B4DE /* Constants.swift in Sources */,
+				B0B168582373FF6E001DCE3C /* TrackerController+UITableView.swift in Sources */,
 				E6FBB1B323718FF500B1B4DE /* FindController.swift in Sources */,
 				E6B156E92373F98500F93ECF /* CustomSegmentedController.swift in Sources */,
 				E6B156ED2373FFD300F93ECF /* TrackerDonorTableViewCell.swift in Sources */,
