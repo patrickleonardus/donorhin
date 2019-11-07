@@ -122,6 +122,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0925FB39237403DF00874DAA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0925FB3A237403F100874DAA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E6FBB1AA23718EAB00B1B4DE /* Donate.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0925FB3B237403F700874DAA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E6FBB1B023718FDF00B1B4DE /* DonateController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		098FD4712372C84600AF7EC7 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +182,7 @@
 				E6FBB16B23718C8400B1B4DE /* AppDelegate.swift */,
 				E6FBB17523718C8500B1B4DE /* Assets.xcassets */,
 				E6FBB17223718C8400B1B4DE /* Donorhin.xcdatamodeld */,
+				098FD4712372C84600AF7EC7 /* CustomViews */,
 				E6FBB19D23718CDD00B1B4DE /* Pages */,
 				098FD4712372C84600AF7EC7 /* CustomViews */,
 				E6FBB1C1237198F500B1B4DE /* Utilities */,
@@ -229,8 +253,9 @@
 		E6FBB1A423718E1100B1B4DE /* DonatePage */ = {
 			isa = PBXGroup;
 			children = (
-				E6FBB1AA23718EAB00B1B4DE /* Donate.storyboard */,
-				E6FBB1B023718FDF00B1B4DE /* DonateController.swift */,
+				0925FB3B237403F700874DAA /* Controller */,
+				0925FB3A237403F100874DAA /* View */,
+				0925FB39237403DF00874DAA /* Model */,
 			);
 			path = DonatePage;
 			sourceTree = "<group>";
