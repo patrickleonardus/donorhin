@@ -8,11 +8,20 @@
 
 import UIKit
 
-class findBlood: UITableViewCell {
+class FindBloodCustomCell: UITableViewCell {
+    
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var address: UILabel!
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var status: UILabel!
+    @IBOutlet weak var buttonCallOutlet: UIButton!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        status.textColor = UIColor.green
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
