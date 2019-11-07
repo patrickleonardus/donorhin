@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0925FB382373F13000874DAA /* CustomMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925FB372373F13000874DAA /* CustomMainView.swift */; };
+		0925FB4023740E1C00874DAA /* DonateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925FB3E23740E1C00874DAA /* DonateTableViewCell.swift */; };
+		0925FB4123740E1C00874DAA /* DonateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0925FB3F23740E1C00874DAA /* DonateTableViewCell.xib */; };
 		098FD4752372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */; };
 		098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */; };
 		E6B156E5237338A800F93ECF /* FindController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B156E4237338A800F93ECF /* FindController+ScrollView.swift */; };
@@ -55,6 +57,8 @@
 
 /* Begin PBXFileReference section */
 		0925FB372373F13000874DAA /* CustomMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainView.swift; sourceTree = "<group>"; };
+		0925FB3E23740E1C00874DAA /* DonateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateTableViewCell.swift; sourceTree = "<group>"; };
+		0925FB3F23740E1C00874DAA /* DonateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DonateTableViewCell.xib; sourceTree = "<group>"; };
 		098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonSubmitRounded.swift; sourceTree = "<group>"; };
 		098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewRounded.swift; sourceTree = "<group>"; };
 		E6B156E4237338A800F93ECF /* FindController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FindController+ScrollView.swift"; sourceTree = "<group>"; };
@@ -124,7 +128,8 @@
 		0925FB3A237403F100874DAA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E6FBB1AA23718EAB00B1B4DE /* Donate.storyboard */,
+				0925FB3E23740E1C00874DAA /* DonateTableViewCell.swift */,
+				0925FB3F23740E1C00874DAA /* DonateTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 		E6FBB1A423718E1100B1B4DE /* DonatePage */ = {
 			isa = PBXGroup;
 			children = (
+				E6FBB1AA23718EAB00B1B4DE /* Donate.storyboard */,
 				0925FB3B237403F700874DAA /* Controller */,
 				0925FB3A237403F100874DAA /* View */,
 				0925FB39237403DF00874DAA /* Model */,
@@ -274,7 +280,6 @@
 			isa = PBXGroup;
 			children = (
 				E6FBB1BF237194FB00B1B4DE /* BloodRequest.swift */,
-				B0B168592373FF90001DCE3C /* TrackerDonor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -408,6 +413,7 @@
 				E6FBB17623718C8500B1B4DE /* Assets.xcassets in Resources */,
 				E6FBB1A023718D5500B1B4DE /* RootTabBarController.storyboard in Resources */,
 				E6FBB1AD23718EF300B1B4DE /* Discover.storyboard in Resources */,
+				0925FB4123740E1C00874DAA /* DonateTableViewCell.xib in Resources */,
 				E6FBB1AB23718EAB00B1B4DE /* Donate.storyboard in Resources */,
 				E6B156EC2373FFD300F93ECF /* TrackerDonorTableViewCell.xib in Resources */,
 				E6FBB1B92371933E00B1B4DE /* FindBloodCustomCell.xib in Resources */,
@@ -436,16 +442,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6FBB1B123718FDF00B1B4DE /* DonateController.swift in Sources */,
-				B0B168562373FF3F001DCE3C /* TrackerController.swift in Sources */,
 				098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */,
 				E6FBB17423718C8400B1B4DE /* Donorhin.xcdatamodeld in Sources */,
 				E6FBB1B82371933E00B1B4DE /* FindBloodCustomCell.swift in Sources */,
 				E6B156E5237338A800F93ECF /* FindController+ScrollView.swift in Sources */,
+				0925FB4023740E1C00874DAA /* DonateTableViewCell.swift in Sources */,
 				E6FBB16C23718C8400B1B4DE /* AppDelegate.swift in Sources */,
 				E6FBB1B52371901400B1B4DE /* AuthenticationController.swift in Sources */,
 				0925FB382373F13000874DAA /* CustomMainView.swift in Sources */,
 				E6FBB1C32371991D00B1B4DE /* Constants.swift in Sources */,
-				B0B168582373FF6E001DCE3C /* TrackerController+UITableView.swift in Sources */,
 				E6FBB1B323718FF500B1B4DE /* FindController.swift in Sources */,
 				E6B156E92373F98500F93ECF /* CustomSegmentedController.swift in Sources */,
 				E6B156ED2373FFD300F93ECF /* TrackerDonorTableViewCell.swift in Sources */,
