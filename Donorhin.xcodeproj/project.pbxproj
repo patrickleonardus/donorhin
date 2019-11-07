@@ -10,8 +10,10 @@
 		0925FB382373F13000874DAA /* CustomMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925FB372373F13000874DAA /* CustomMainView.swift */; };
 		098FD4752372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */; };
 		098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */; };
-		CC1C7BDD2373FA49002F7D05 /* TrackerDonorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1C7BDB2373FA49002F7D05 /* TrackerDonorTableViewCell.swift */; };
-		CC1C7BDE2373FA49002F7D05 /* TrackerDonorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC1C7BDC2373FA49002F7D05 /* TrackerDonorTableViewCell.xib */; };
+		E6B156E5237338A800F93ECF /* FindController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B156E4237338A800F93ECF /* FindController+ScrollView.swift */; };
+		E6B156E92373F98500F93ECF /* CustomSegmentedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B156E82373F98500F93ECF /* CustomSegmentedController.swift */; };
+		E6B156EC2373FFD300F93ECF /* TrackerDonorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6B156EA2373FFD300F93ECF /* TrackerDonorTableViewCell.xib */; };
+		E6B156ED2373FFD300F93ECF /* TrackerDonorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B156EB2373FFD300F93ECF /* TrackerDonorTableViewCell.swift */; };
 		E6FBB16C23718C8400B1B4DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB16B23718C8400B1B4DE /* AppDelegate.swift */; };
 		E6FBB17423718C8400B1B4DE /* Donorhin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB17223718C8400B1B4DE /* Donorhin.xcdatamodeld */; };
 		E6FBB17623718C8500B1B4DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6FBB17523718C8500B1B4DE /* Assets.xcassets */; };
@@ -27,8 +29,8 @@
 		E6FBB1B123718FDF00B1B4DE /* DonateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB1B023718FDF00B1B4DE /* DonateController.swift */; };
 		E6FBB1B323718FF500B1B4DE /* FindController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB1B223718FF500B1B4DE /* FindController.swift */; };
 		E6FBB1B52371901400B1B4DE /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB1B42371901400B1B4DE /* AuthenticationController.swift */; };
-		E6FBB1B82371933E00B1B4DE /* findBlood.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB1B62371933E00B1B4DE /* findBlood.swift */; };
-		E6FBB1B92371933E00B1B4DE /* findBlood.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6FBB1B72371933E00B1B4DE /* findBlood.xib */; };
+		E6FBB1B82371933E00B1B4DE /* FindBloodCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB1B62371933E00B1B4DE /* FindBloodCustomCell.swift */; };
+		E6FBB1B92371933E00B1B4DE /* FindBloodCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6FBB1B72371933E00B1B4DE /* FindBloodCustomCell.xib */; };
 		E6FBB1BE2371947700B1B4DE /* FindController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB1BD2371947700B1B4DE /* FindController+UITableView.swift */; };
 		E6FBB1C0237194FB00B1B4DE /* BloodRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB1BF237194FB00B1B4DE /* BloodRequest.swift */; };
 		E6FBB1C32371991D00B1B4DE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB1C22371991D00B1B4DE /* Constants.swift */; };
@@ -55,8 +57,10 @@
 		0925FB372373F13000874DAA /* CustomMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainView.swift; sourceTree = "<group>"; };
 		098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonSubmitRounded.swift; sourceTree = "<group>"; };
 		098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewRounded.swift; sourceTree = "<group>"; };
-		CC1C7BDB2373FA49002F7D05 /* TrackerDonorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerDonorTableViewCell.swift; sourceTree = "<group>"; };
-		CC1C7BDC2373FA49002F7D05 /* TrackerDonorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackerDonorTableViewCell.xib; sourceTree = "<group>"; };
+		E6B156E4237338A800F93ECF /* FindController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FindController+ScrollView.swift"; sourceTree = "<group>"; };
+		E6B156E82373F98500F93ECF /* CustomSegmentedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedController.swift; sourceTree = "<group>"; };
+		E6B156EA2373FFD300F93ECF /* TrackerDonorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackerDonorTableViewCell.xib; sourceTree = "<group>"; };
+		E6B156EB2373FFD300F93ECF /* TrackerDonorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerDonorTableViewCell.swift; sourceTree = "<group>"; };
 		E6FBB16823718C8400B1B4DE /* Donorhin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Donorhin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6FBB16B23718C8400B1B4DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6FBB17323718C8400B1B4DE /* Donorhin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Donorhin.xcdatamodel; sourceTree = "<group>"; };
@@ -78,8 +82,8 @@
 		E6FBB1B023718FDF00B1B4DE /* DonateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateController.swift; sourceTree = "<group>"; };
 		E6FBB1B223718FF500B1B4DE /* FindController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindController.swift; sourceTree = "<group>"; };
 		E6FBB1B42371901400B1B4DE /* AuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
-		E6FBB1B62371933E00B1B4DE /* findBlood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = findBlood.swift; sourceTree = "<group>"; };
-		E6FBB1B72371933E00B1B4DE /* findBlood.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = findBlood.xib; sourceTree = "<group>"; };
+		E6FBB1B62371933E00B1B4DE /* FindBloodCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindBloodCustomCell.swift; sourceTree = "<group>"; };
+		E6FBB1B72371933E00B1B4DE /* FindBloodCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FindBloodCustomCell.xib; sourceTree = "<group>"; };
 		E6FBB1BD2371947700B1B4DE /* FindController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FindController+UITableView.swift"; sourceTree = "<group>"; };
 		E6FBB1BF237194FB00B1B4DE /* BloodRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodRequest.swift; sourceTree = "<group>"; };
 		E6FBB1C22371991D00B1B4DE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -110,12 +114,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0925FB39237403DF00874DAA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0925FB3A237403F100874DAA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E6FBB1AA23718EAB00B1B4DE /* Donate.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0925FB3B237403F700874DAA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E6FBB1B023718FDF00B1B4DE /* DonateController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		098FD4712372C84600AF7EC7 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
 				098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */,
 				098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */,
 				0925FB372373F13000874DAA /* CustomMainView.swift */,
+				E6B156E82373F98500F93ECF /* CustomSegmentedController.swift */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -148,6 +176,7 @@
 				E6FBB17223718C8400B1B4DE /* Donorhin.xcdatamodeld */,
 				098FD4712372C84600AF7EC7 /* CustomViews */,
 				E6FBB19D23718CDD00B1B4DE /* Pages */,
+				098FD4712372C84600AF7EC7 /* CustomViews */,
 				E6FBB1C1237198F500B1B4DE /* Utilities */,
 				E6FBB17723718C8500B1B4DE /* LaunchScreen.storyboard */,
 				E6FBB17A23718C8500B1B4DE /* Info.plist */,
@@ -216,8 +245,9 @@
 		E6FBB1A423718E1100B1B4DE /* DonatePage */ = {
 			isa = PBXGroup;
 			children = (
-				E6FBB1AA23718EAB00B1B4DE /* Donate.storyboard */,
-				E6FBB1B023718FDF00B1B4DE /* DonateController.swift */,
+				0925FB3B237403F700874DAA /* Controller */,
+				0925FB3A237403F100874DAA /* View */,
+				0925FB39237403DF00874DAA /* Model */,
 			);
 			path = DonatePage;
 			sourceTree = "<group>";
@@ -236,6 +266,7 @@
 			children = (
 				E6FBB1B223718FF500B1B4DE /* FindController.swift */,
 				E6FBB1BD2371947700B1B4DE /* FindController+UITableView.swift */,
+				E6B156E4237338A800F93ECF /* FindController+ScrollView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -244,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				E6FBB1BF237194FB00B1B4DE /* BloodRequest.swift */,
+				B0B168592373FF90001DCE3C /* TrackerDonor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -251,10 +283,10 @@
 		E6FBB1BC2371943D00B1B4DE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CC1C7BDB2373FA49002F7D05 /* TrackerDonorTableViewCell.swift */,
-				CC1C7BDC2373FA49002F7D05 /* TrackerDonorTableViewCell.xib */,
-				E6FBB1B62371933E00B1B4DE /* findBlood.swift */,
-				E6FBB1B72371933E00B1B4DE /* findBlood.xib */,
+				E6FBB1B62371933E00B1B4DE /* FindBloodCustomCell.swift */,
+				E6FBB1B72371933E00B1B4DE /* FindBloodCustomCell.xib */,
+				E6B156EB2373FFD300F93ECF /* TrackerDonorTableViewCell.swift */,
+				E6B156EA2373FFD300F93ECF /* TrackerDonorTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -378,8 +410,8 @@
 				E6FBB1A023718D5500B1B4DE /* RootTabBarController.storyboard in Resources */,
 				E6FBB1AD23718EF300B1B4DE /* Discover.storyboard in Resources */,
 				E6FBB1AB23718EAB00B1B4DE /* Donate.storyboard in Resources */,
-				CC1C7BDE2373FA49002F7D05 /* TrackerDonorTableViewCell.xib in Resources */,
-				E6FBB1B92371933E00B1B4DE /* findBlood.xib in Resources */,
+				E6B156EC2373FFD300F93ECF /* TrackerDonorTableViewCell.xib in Resources */,
+				E6FBB1B92371933E00B1B4DE /* FindBloodCustomCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,15 +437,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6FBB1B123718FDF00B1B4DE /* DonateController.swift in Sources */,
+				B0B168562373FF3F001DCE3C /* TrackerController.swift in Sources */,
 				098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */,
 				E6FBB17423718C8400B1B4DE /* Donorhin.xcdatamodeld in Sources */,
-				CC1C7BDD2373FA49002F7D05 /* TrackerDonorTableViewCell.swift in Sources */,
-				E6FBB1B82371933E00B1B4DE /* findBlood.swift in Sources */,
+				E6FBB1B82371933E00B1B4DE /* FindBloodCustomCell.swift in Sources */,
+				E6B156E5237338A800F93ECF /* FindController+ScrollView.swift in Sources */,
 				E6FBB16C23718C8400B1B4DE /* AppDelegate.swift in Sources */,
 				E6FBB1B52371901400B1B4DE /* AuthenticationController.swift in Sources */,
 				0925FB382373F13000874DAA /* CustomMainView.swift in Sources */,
 				E6FBB1C32371991D00B1B4DE /* Constants.swift in Sources */,
+				B0B168582373FF6E001DCE3C /* TrackerController+UITableView.swift in Sources */,
 				E6FBB1B323718FF500B1B4DE /* FindController.swift in Sources */,
+				E6B156E92373F98500F93ECF /* CustomSegmentedController.swift in Sources */,
+				E6B156ED2373FFD300F93ECF /* TrackerDonorTableViewCell.swift in Sources */,
 				098FD4752372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift in Sources */,
 				E6FBB1AF23718FBE00B1B4DE /* DiscoverController.swift in Sources */,
 				E6FBB1C0237194FB00B1B4DE /* BloodRequest.swift in Sources */,
@@ -587,6 +623,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2NJYBE4CVL;
 				INFOPLIST_FILE = Donorhin/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -605,6 +642,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2NJYBE4CVL;
 				INFOPLIST_FILE = Donorhin/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

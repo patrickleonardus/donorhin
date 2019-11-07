@@ -8,6 +8,7 @@
 
 import UIKit
 
+// This custom view to configure cell view
 @IBDesignable
 class CustomViewRounded: UIView {
   override init(frame: CGRect) {
@@ -29,5 +30,6 @@ class CustomViewRounded: UIView {
   // MARK: - setup view
   private func setupView() {
     self.layer.cornerRadius = 10
+    self.layer.backgroundColor = UIColor.white.cgColor
   }
 }

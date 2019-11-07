@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//this custom view to configure uiview controller background
 @IBDesignable
 class CustomMainView: UIView {
   override init(frame: CGRect) {
