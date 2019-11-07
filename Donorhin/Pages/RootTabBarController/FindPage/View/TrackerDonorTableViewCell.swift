@@ -45,74 +45,49 @@ class TrackerDonorTableViewCell: UITableViewCell {
       // Configure the view for the selected state
    }
    
-   
    //MARK: Use this to styling the cells
    func setupView(status:Status) {
-      switch status {
-      case .done:
-         doneStyling()
-      case .onGoing:
-         onGoingStyling()
-      case .toDo:
-         toDoStyling()
+      
+      let show = true
+      //MARK: Done and Active Styling informationText and buttonText
+      if status !=  .toDo { //enable ; on going/done  processes
+         self.redCircle.backgroundColor = Colors.red
+         
+         self.informationText.textColor = .black
+         self.buttonText.tintColor = Colors.red
+         self.buttonText.titleLabel?.textColor = Colors.red
+         self.buttonText.isEnabled = true
+         
+         //MARK: Done Styling
+         if status == .done { //tampilin checklist
+            self.checkMarkImage.isHidden = show
+            self.active_label.isHidden =  !show
+            self.active_number.isHidden = !show
+            self.number.isHidden = !show
+            
+         //MARK: Active Styling
+         } else { //tampilin angka dan aktif
+            self.active_label.isHidden =  show
+            self.active_number.isHidden = show
+            self.number.isHidden = !show
+            self.checkMarkImage.isHidden = !show
+         }
+         
+      //MARK: To Do Styling
+      } else { //to do
+         self.redCircle.backgroundColor = Colors.gray_disabled
+         
+         self.informationText.textColor = Colors.gray_disabled
+         self.buttonText.tintColor = Colors.gray_disabled
+         self.buttonText.titleLabel?.textColor = Colors.gray_disabled
+         self.buttonText.isEnabled = false
+         
+         self.number.isHidden = show
+         self.active_label.isHidden =  !show
+         self.active_number.isHidden = !show
+         self.checkMarkImage.isHidden = !show
       }
    }
-   
-   
-   //MARK: Done Styling
-   func doneStyling() { //with white checkmark and red circle
-      self.checkMarkImage.isHidden = !true
-      self.number.isHidden = true
-      self.active_label.isHidden = true
-      self.active_number.isHidden = true
-      
-      self.redCircle.backgroundColor = Colors.red
-      self.informationText.textColor = .black
-      
-      self.buttonText.tintColor = Colors.red
-      self.buttonText.titleLabel?.textColor = Colors.red
-      self.buttonText.isEnabled = true
-   }
-   
-   
-   //MARK: Ongoing Styling
-   func onGoingStyling() {
-      self.checkMarkImage.isHidden = true
-      self.number.isHidden = true
-      self.active_label.isHidden = !true
-      self.active_number.isHidden = !true
-      
-      self.redCircle.backgroundColor = Colors.red
-      self.informationText.textColor = .black
-      
-      self.buttonText.tintColor = Colors.red
-      self.buttonText.titleLabel?.textColor = Colors.red
-      self.buttonText.isEnabled = true
-   }
-   
-   
-   //MARK: To Do Styling
-   func toDoStyling() {
-      let hide = true
-      self.checkMarkImage.isHidden = hide
-      self.number.isHidden = !hide
-      self.active_label.isHidden = hide
-      self.active_number.isHidden = hide
-      
-      self.redCircle.backgroundColor = Colors.gray_disabled
-      self.informationText.textColor = Colors.gray_disabled
-      
-      self.buttonText.tintColor = Colors.gray_disabled
-      self.buttonText.titleLabel?.textColor = Colors.gray_disabled
-      self.buttonText.isEnabled = false
-
-   }
-   
-   
-   
-   
-   
-   
    
    
 }
