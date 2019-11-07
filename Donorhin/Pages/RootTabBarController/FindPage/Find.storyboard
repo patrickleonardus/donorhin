@@ -14,13 +14,13 @@
         <scene sceneID="e4s-zE-OdD">
             <objects>
                 <viewController id="PPl-62-6vC" customClass="FindController" customModule="Donorhin" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="VwY-HW-Ozu">
+                    <view key="view" contentMode="scaleToFill" id="VwY-HW-Ozu" customClass="CustomMainView" customModule="Donorhin" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B93-sR-GNM">
-                                <rect key="frame" x="0.0" y="192" width="414" height="704"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B93-sR-GNM">
+                                <rect key="frame" x="20" y="192" width="374" height="704"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CF2-4p-Gr7" customClass="CustomSegmentedController" customModule="Donorhin" customModuleProvider="target">
                                 <rect key="frame" x="20" y="156" width="374" height="29"/>
@@ -32,7 +32,7 @@
                                     <action selector="findBloodSegmentedControlDidChange" destination="PPl-62-6vC" eventType="valueChanged" id="pHU-pa-AY7"/>
                                 </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFS-SC-sCV">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFS-SC-sCV" customClass="CustomMainView" customModule="Donorhin" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="192" width="414" height="704"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="find_donor" translatesAutoresizingMaskIntoConstraints="NO" id="IfR-pf-Ol2">
@@ -42,14 +42,14 @@
                                             <constraint firstAttribute="height" constant="230" id="bYS-lJ-joe"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anda Belum Melakukan Pencarian" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MvY-em-XBo">
-                                        <rect key="frame" x="56" y="260" width="302" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anda Belum Melakukan Pencarian" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MvY-em-XBo">
+                                        <rect key="frame" x="56" y="260" width="302" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awv-cT-Zg6" customClass="CustomButtonRounded" customModule="Donorhin" customModuleProvider="target">
-                                        <rect key="frame" x="56" y="289" width="302" height="44"/>
+                                        <rect key="frame" x="56" y="288.5" width="302" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="MHG-pJ-nDY"/>
                                             <constraint firstAttribute="width" constant="302" id="NAy-cR-Mdi"/>
@@ -80,16 +80,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cFS-SC-sCV" firstAttribute="top" secondItem="CF2-4p-Gr7" secondAttribute="bottom" constant="8" id="3oM-mA-Cda"/>
-                            <constraint firstItem="B93-sR-GNM" firstAttribute="trailing" secondItem="KvN-0X-LVa" secondAttribute="trailing" id="FGv-05-nnU"/>
+                            <constraint firstAttribute="bottom" secondItem="B93-sR-GNM" secondAttribute="bottom" id="8aM-tO-5JA"/>
+                            <constraint firstItem="KvN-0X-LVa" firstAttribute="trailing" secondItem="B93-sR-GNM" secondAttribute="trailing" constant="20" id="9MY-0q-X7o"/>
                             <constraint firstAttribute="bottom" secondItem="cFS-SC-sCV" secondAttribute="bottom" id="Khr-Gp-AgC"/>
                             <constraint firstItem="cFS-SC-sCV" firstAttribute="leading" secondItem="KvN-0X-LVa" secondAttribute="leading" id="Old-cu-FSm"/>
-                            <constraint firstAttribute="bottom" secondItem="B93-sR-GNM" secondAttribute="bottom" id="OoM-aI-1A9"/>
                             <constraint firstItem="cFS-SC-sCV" firstAttribute="trailing" secondItem="KvN-0X-LVa" secondAttribute="trailing" id="PQl-Sj-RZR"/>
-                            <constraint firstItem="B93-sR-GNM" firstAttribute="top" secondItem="CF2-4p-Gr7" secondAttribute="bottom" constant="8" id="YTD-oH-V0R"/>
+                            <constraint firstItem="B93-sR-GNM" firstAttribute="top" secondItem="CF2-4p-Gr7" secondAttribute="bottom" constant="8" id="adx-u0-lgg"/>
                             <constraint firstItem="CF2-4p-Gr7" firstAttribute="top" secondItem="KvN-0X-LVa" secondAttribute="top" constant="16" id="iTd-lf-Bib"/>
                             <constraint firstItem="CF2-4p-Gr7" firstAttribute="leading" secondItem="KvN-0X-LVa" secondAttribute="leading" constant="20" id="mIp-Dp-bHk"/>
                             <constraint firstItem="KvN-0X-LVa" firstAttribute="trailing" secondItem="CF2-4p-Gr7" secondAttribute="trailing" constant="20" id="tYp-9f-7tw"/>
-                            <constraint firstItem="B93-sR-GNM" firstAttribute="leading" secondItem="KvN-0X-LVa" secondAttribute="leading" id="ugN-ck-eB2"/>
+                            <constraint firstItem="B93-sR-GNM" firstAttribute="leading" secondItem="KvN-0X-LVa" secondAttribute="leading" constant="20" id="w8K-WZ-gNx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KvN-0X-LVa"/>
                     </view>

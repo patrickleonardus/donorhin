@@ -10,14 +10,19 @@ import UIKit
 
 class SecondCell: UITableViewCell {
     
+    
+    @IBOutlet weak var backgroundViewCell: UIView!
     @IBOutlet weak var imageCell: UIImageView!
     @IBOutlet weak var textCell: UILabel!
-    
-   
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        backgroundViewCell.layer.cornerRadius = 10
+        backgroundViewCell.backgroundColor = UIColor.white
+        
+        self.backgroundColor = Colors.backgroundView
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

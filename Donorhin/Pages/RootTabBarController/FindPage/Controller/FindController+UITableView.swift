@@ -16,7 +16,10 @@ extension FindController: UITableViewDelegate {
 extension FindController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        
+        let height : CGFloat = 160
+        
+        return height
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,6 +72,16 @@ extension FindController: UITableViewDataSource {
         }
         
         cell?.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+        cell?.backgroundColor = UIColor.clear
+        
+        // MARK : -Ini buat bikin kotak ditiap cellnya dan kasih space antara cell
+        let backgroundViewCell : UIView = UIView(frame: CGRect(x: 0, y: 10, width:  self.tableView.frame.size.width, height: 150))
+        
+        backgroundViewCell.layer.backgroundColor = UIColor.white.cgColor
+        backgroundViewCell.layer.masksToBounds = false
+        backgroundViewCell.layer.cornerRadius = 10
+        cell!.contentView.addSubview(backgroundViewCell)
+        cell!.contentView.sendSubviewToBack(backgroundViewCell)
         
         return cell!
     }

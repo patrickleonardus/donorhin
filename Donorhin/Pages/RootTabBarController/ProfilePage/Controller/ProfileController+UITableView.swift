@@ -18,11 +18,11 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
         }
         
         else if indexPath.section == 1 {
-            height = 50
+            height = 70
         }
         
         else if indexPath.section == 2 {
-            height = 50
+            height = 70
         }
         
         return height
@@ -97,6 +97,7 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "thirdCell", for: indexPath) as? ThirdCell
             
             cell?.logoutOutlet.setTitle("Logout", for: .normal)
+            cell?.logoutOutlet.addTarget(self, action: #selector(logoutAction), for: .touchUpInside)
             
             return cell!
         }

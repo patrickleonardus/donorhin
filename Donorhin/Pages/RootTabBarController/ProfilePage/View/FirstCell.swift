@@ -17,7 +17,11 @@ class FirstCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        imageProfile.layer.cornerRadius = imageProfile.frame.height/2
+        imageProfile.contentMode = UIView.ContentMode.scaleAspectFill
+        
+        self.backgroundColor = Colors.backgroundView
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
