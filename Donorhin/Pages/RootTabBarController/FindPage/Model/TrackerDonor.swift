@@ -8,11 +8,8 @@
 
 import Foundation
 
-struct TrackerDonor {
+struct StepItems {
+    let id:Int
     let description: String
     let buttonStr : String
-}
-
-struct Status {
-    
 }
