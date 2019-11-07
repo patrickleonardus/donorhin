@@ -14,6 +14,10 @@
 		E6B156E92373F98500F93ECF /* CustomSegmentedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B156E82373F98500F93ECF /* CustomSegmentedController.swift */; };
 		E6B156EC2373FFD300F93ECF /* TrackerDonorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6B156EA2373FFD300F93ECF /* TrackerDonorTableViewCell.xib */; };
 		E6B156ED2373FFD300F93ECF /* TrackerDonorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B156EB2373FFD300F93ECF /* TrackerDonorTableViewCell.swift */; };
+		E6DDAF1E23742AD800D6EAD1 /* TrackerDonor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF1D23742AD800D6EAD1 /* TrackerDonor.swift */; };
+		E6DDAF2123742AE000D6EAD1 /* TrackerController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF1F23742AE000D6EAD1 /* TrackerController+UITableView.swift */; };
+		E6DDAF2223742AE000D6EAD1 /* TrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF2023742AE000D6EAD1 /* TrackerController.swift */; };
+		E6DDAF2423742AE900D6EAD1 /* Tracker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6DDAF2323742AE900D6EAD1 /* Tracker.storyboard */; };
 		E6FBB16C23718C8400B1B4DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB16B23718C8400B1B4DE /* AppDelegate.swift */; };
 		E6FBB17423718C8400B1B4DE /* Donorhin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB17223718C8400B1B4DE /* Donorhin.xcdatamodeld */; };
 		E6FBB17623718C8500B1B4DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6FBB17523718C8500B1B4DE /* Assets.xcassets */; };
@@ -61,6 +65,10 @@
 		E6B156E82373F98500F93ECF /* CustomSegmentedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedController.swift; sourceTree = "<group>"; };
 		E6B156EA2373FFD300F93ECF /* TrackerDonorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackerDonorTableViewCell.xib; sourceTree = "<group>"; };
 		E6B156EB2373FFD300F93ECF /* TrackerDonorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerDonorTableViewCell.swift; sourceTree = "<group>"; };
+		E6DDAF1D23742AD800D6EAD1 /* TrackerDonor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerDonor.swift; sourceTree = "<group>"; };
+		E6DDAF1F23742AE000D6EAD1 /* TrackerController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController+UITableView.swift"; sourceTree = "<group>"; };
+		E6DDAF2023742AE000D6EAD1 /* TrackerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerController.swift; sourceTree = "<group>"; };
+		E6DDAF2323742AE900D6EAD1 /* Tracker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tracker.storyboard; sourceTree = "<group>"; };
 		E6FBB16823718C8400B1B4DE /* Donorhin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Donorhin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6FBB16B23718C8400B1B4DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6FBB17323718C8400B1B4DE /* Donorhin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Donorhin.xcdatamodel; sourceTree = "<group>"; };
@@ -242,6 +250,8 @@
 				E6FBB1B223718FF500B1B4DE /* FindController.swift */,
 				E6FBB1BD2371947700B1B4DE /* FindController+UITableView.swift */,
 				E6B156E4237338A800F93ECF /* FindController+ScrollView.swift */,
+				E6DDAF2023742AE000D6EAD1 /* TrackerController.swift */,
+				E6DDAF1F23742AE000D6EAD1 /* TrackerController+UITableView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -249,8 +259,8 @@
 		E6FBB1BB2371943500B1B4DE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E6DDAF1D23742AD800D6EAD1 /* TrackerDonor.swift */,
 				E6FBB1BF237194FB00B1B4DE /* BloodRequest.swift */,
-				B0B168592373FF90001DCE3C /* TrackerDonor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -262,6 +272,7 @@
 				E6FBB1B72371933E00B1B4DE /* FindBloodCustomCell.xib */,
 				E6B156EB2373FFD300F93ECF /* TrackerDonorTableViewCell.swift */,
 				E6B156EA2373FFD300F93ECF /* TrackerDonorTableViewCell.xib */,
+				E6DDAF2323742AE900D6EAD1 /* Tracker.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -387,6 +398,7 @@
 				E6FBB1AB23718EAB00B1B4DE /* Donate.storyboard in Resources */,
 				E6B156EC2373FFD300F93ECF /* TrackerDonorTableViewCell.xib in Resources */,
 				E6FBB1B92371933E00B1B4DE /* FindBloodCustomCell.xib in Resources */,
+				E6DDAF2423742AE900D6EAD1 /* Tracker.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,22 +424,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6FBB1B123718FDF00B1B4DE /* DonateController.swift in Sources */,
-				B0B168562373FF3F001DCE3C /* TrackerController.swift in Sources */,
 				098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */,
 				E6FBB17423718C8400B1B4DE /* Donorhin.xcdatamodeld in Sources */,
 				E6FBB1B82371933E00B1B4DE /* FindBloodCustomCell.swift in Sources */,
 				E6B156E5237338A800F93ECF /* FindController+ScrollView.swift in Sources */,
 				E6FBB16C23718C8400B1B4DE /* AppDelegate.swift in Sources */,
+				E6DDAF1E23742AD800D6EAD1 /* TrackerDonor.swift in Sources */,
 				E6FBB1B52371901400B1B4DE /* AuthenticationController.swift in Sources */,
 				0925FB382373F13000874DAA /* CustomMainView.swift in Sources */,
 				E6FBB1C32371991D00B1B4DE /* Constants.swift in Sources */,
-				B0B168582373FF6E001DCE3C /* TrackerController+UITableView.swift in Sources */,
 				E6FBB1B323718FF500B1B4DE /* FindController.swift in Sources */,
 				E6B156E92373F98500F93ECF /* CustomSegmentedController.swift in Sources */,
 				E6B156ED2373FFD300F93ECF /* TrackerDonorTableViewCell.swift in Sources */,
 				098FD4752372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift in Sources */,
 				E6FBB1AF23718FBE00B1B4DE /* DiscoverController.swift in Sources */,
 				E6FBB1C0237194FB00B1B4DE /* BloodRequest.swift in Sources */,
+				E6DDAF2123742AE000D6EAD1 /* TrackerController+UITableView.swift in Sources */,
+				E6DDAF2223742AE000D6EAD1 /* TrackerController.swift in Sources */,
 				E6FBB1BE2371947700B1B4DE /* FindController+UITableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
