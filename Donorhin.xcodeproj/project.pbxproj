@@ -11,6 +11,7 @@
 		098FD4752372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */; };
 		098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */; };
 		E6B156E5237338A800F93ECF /* FindController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B156E4237338A800F93ECF /* FindController+ScrollView.swift */; };
+		E6B156E92373F98500F93ECF /* CustomSegmentedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B156E82373F98500F93ECF /* CustomSegmentedController.swift */; };
 		E6FBB16C23718C8400B1B4DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB16B23718C8400B1B4DE /* AppDelegate.swift */; };
 		E6FBB17423718C8400B1B4DE /* Donorhin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB17223718C8400B1B4DE /* Donorhin.xcdatamodeld */; };
 		E6FBB17623718C8500B1B4DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6FBB17523718C8500B1B4DE /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonSubmitRounded.swift; sourceTree = "<group>"; };
 		098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewRounded.swift; sourceTree = "<group>"; };
 		E6B156E4237338A800F93ECF /* FindController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FindController+ScrollView.swift"; sourceTree = "<group>"; };
+		E6B156E82373F98500F93ECF /* CustomSegmentedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedController.swift; sourceTree = "<group>"; };
 		E6FBB16823718C8400B1B4DE /* Donorhin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Donorhin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6FBB16B23718C8400B1B4DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6FBB17323718C8400B1B4DE /* Donorhin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Donorhin.xcdatamodel; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */,
 				098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */,
 				0925FB372373F13000874DAA /* CustomMainView.swift */,
+				E6B156E82373F98500F93ECF /* CustomSegmentedController.swift */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -141,11 +144,11 @@
 		E6FBB16A23718C8400B1B4DE /* Donorhin */ = {
 			isa = PBXGroup;
 			children = (
-				098FD4712372C84600AF7EC7 /* CustomViews */,
 				E6FBB16B23718C8400B1B4DE /* AppDelegate.swift */,
 				E6FBB17523718C8500B1B4DE /* Assets.xcassets */,
 				E6FBB17223718C8400B1B4DE /* Donorhin.xcdatamodeld */,
 				E6FBB19D23718CDD00B1B4DE /* Pages */,
+				098FD4712372C84600AF7EC7 /* CustomViews */,
 				E6FBB1C1237198F500B1B4DE /* Utilities */,
 				E6FBB17723718C8500B1B4DE /* LaunchScreen.storyboard */,
 				E6FBB17A23718C8500B1B4DE /* Info.plist */,
@@ -410,6 +413,7 @@
 				0925FB382373F13000874DAA /* CustomMainView.swift in Sources */,
 				E6FBB1C32371991D00B1B4DE /* Constants.swift in Sources */,
 				E6FBB1B323718FF500B1B4DE /* FindController.swift in Sources */,
+				E6B156E92373F98500F93ECF /* CustomSegmentedController.swift in Sources */,
 				098FD4752372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift in Sources */,
 				E6FBB1AF23718FBE00B1B4DE /* DiscoverController.swift in Sources */,
 				E6FBB1C0237194FB00B1B4DE /* BloodRequest.swift in Sources */,
