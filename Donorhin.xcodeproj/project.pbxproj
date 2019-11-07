@@ -12,14 +12,21 @@
 		0925FB4123740E1C00874DAA /* DonateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0925FB3F23740E1C00874DAA /* DonateTableViewCell.xib */; };
 		098FD4752372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */; };
 		098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */; };
+		AB7357862374309E00A6099B /* CustomSegmentedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7357852374309E00A6099B /* CustomSegmentedController.swift */; };
+		AB735789237430B400A6099B /* TrackerDonorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB735787237430B400A6099B /* TrackerDonorTableViewCell.xib */; };
+		AB73578A237430B400A6099B /* TrackerDonorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB735788237430B400A6099B /* TrackerDonorTableViewCell.swift */; };
+		AB73578C237430BD00A6099B /* FindController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB73578B237430BD00A6099B /* FindController+ScrollView.swift */; };
+		AB73578E2374310600A6099B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB73578D2374310600A6099B /* Profile.swift */; };
+		AB7357912374311400A6099B /* ProfileController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB73578F2374311400A6099B /* ProfileController+UITableView.swift */; };
+		AB7357922374311400A6099B /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7357902374311400A6099B /* ProfileController.swift */; };
+		AB7357962374313500A6099B /* FirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7357932374313500A6099B /* FirstCell.swift */; };
+		AB7357972374313500A6099B /* SecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7357942374313500A6099B /* SecondCell.swift */; };
+		AB7357982374313500A6099B /* ThirdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7357952374313500A6099B /* ThirdCell.swift */; };
+		AB73579A2374316900A6099B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB7357992374316900A6099B /* Profile.storyboard */; };
 		B0B1685C23740389001DCE3C /* Tracker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0B1685B23740389001DCE3C /* Tracker.storyboard */; };
 		B0B1685F23740394001DCE3C /* TrackerController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1685D23740394001DCE3C /* TrackerController+UITableView.swift */; };
 		B0B1686023740394001DCE3C /* TrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1685E23740394001DCE3C /* TrackerController.swift */; };
 		B0B168622374039B001DCE3C /* TrackerDonor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B168612374039B001DCE3C /* TrackerDonor.swift */; };
-		E6B156E5237338A800F93ECF /* FindController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B156E4237338A800F93ECF /* FindController+ScrollView.swift */; };
-		E6B156E92373F98500F93ECF /* CustomSegmentedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B156E82373F98500F93ECF /* CustomSegmentedController.swift */; };
-		E6B156EC2373FFD300F93ECF /* TrackerDonorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6B156EA2373FFD300F93ECF /* TrackerDonorTableViewCell.xib */; };
-		E6B156ED2373FFD300F93ECF /* TrackerDonorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B156EB2373FFD300F93ECF /* TrackerDonorTableViewCell.swift */; };
 		E6FBB16C23718C8400B1B4DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB16B23718C8400B1B4DE /* AppDelegate.swift */; };
 		E6FBB17423718C8400B1B4DE /* Donorhin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB17223718C8400B1B4DE /* Donorhin.xcdatamodeld */; };
 		E6FBB17623718C8500B1B4DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6FBB17523718C8500B1B4DE /* Assets.xcassets */; };
@@ -65,6 +72,17 @@
 		0925FB3F23740E1C00874DAA /* DonateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DonateTableViewCell.xib; sourceTree = "<group>"; };
 		098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonSubmitRounded.swift; sourceTree = "<group>"; };
 		098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewRounded.swift; sourceTree = "<group>"; };
+		AB7357852374309E00A6099B /* CustomSegmentedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedController.swift; sourceTree = "<group>"; };
+		AB735787237430B400A6099B /* TrackerDonorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackerDonorTableViewCell.xib; sourceTree = "<group>"; };
+		AB735788237430B400A6099B /* TrackerDonorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerDonorTableViewCell.swift; sourceTree = "<group>"; };
+		AB73578B237430BD00A6099B /* FindController+ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FindController+ScrollView.swift"; sourceTree = "<group>"; };
+		AB73578D2374310600A6099B /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		AB73578F2374311400A6099B /* ProfileController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProfileController+UITableView.swift"; sourceTree = "<group>"; };
+		AB7357902374311400A6099B /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		AB7357932374313500A6099B /* FirstCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstCell.swift; sourceTree = "<group>"; };
+		AB7357942374313500A6099B /* SecondCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondCell.swift; sourceTree = "<group>"; };
+		AB7357952374313500A6099B /* ThirdCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdCell.swift; sourceTree = "<group>"; };
+		AB7357992374316900A6099B /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		B0B1685B23740389001DCE3C /* Tracker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tracker.storyboard; sourceTree = "<group>"; };
 		B0B1685D23740394001DCE3C /* TrackerController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController+UITableView.swift"; sourceTree = "<group>"; };
 		B0B1685E23740394001DCE3C /* TrackerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerController.swift; sourceTree = "<group>"; };
@@ -157,12 +175,50 @@
 		098FD4712372C84600AF7EC7 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				AB7357852374309E00A6099B /* CustomSegmentedController.swift */,
 				098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */,
 				098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */,
 				0925FB372373F13000874DAA /* CustomMainView.swift */,
-				E6B156E82373F98500F93ECF /* CustomSegmentedController.swift */,
 			);
 			name = CustomViews;
+			sourceTree = "<group>";
+		};
+		AB3B8D2F2374034C008D7AB1 /* ProfilePage */ = {
+			isa = PBXGroup;
+			children = (
+				AB7357992374316900A6099B /* Profile.storyboard */,
+				AB3B8D6823740FF1008D7AB1 /* Model */,
+				AB3B8D6123740C71008D7AB1 /* Controller */,
+				AB3B8D6023740C64008D7AB1 /* View */,
+			);
+			path = ProfilePage;
+			sourceTree = "<group>";
+		};
+		AB3B8D6023740C64008D7AB1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AB7357932374313500A6099B /* FirstCell.swift */,
+				AB7357942374313500A6099B /* SecondCell.swift */,
+				AB7357952374313500A6099B /* ThirdCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AB3B8D6123740C71008D7AB1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AB7357902374311400A6099B /* ProfileController.swift */,
+				AB73578F2374311400A6099B /* ProfileController+UITableView.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AB3B8D6823740FF1008D7AB1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AB73578D2374310600A6099B /* Profile.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E6FBB15F23718C8400B1B4DE = {
@@ -240,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				E6FBB19F23718D5500B1B4DE /* RootTabBarController.storyboard */,
+				AB3B8D2F2374034C008D7AB1 /* ProfilePage */,
 				E6FBB1A523718E2D00B1B4DE /* DiscoverPage */,
 				E6FBB1A423718E1100B1B4DE /* DonatePage */,
 				E6FBB1A323718DFC00B1B4DE /* FindPage */,
@@ -280,6 +337,7 @@
 		E6FBB1BA2371942C00B1B4DE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				AB73578B237430BD00A6099B /* FindController+ScrollView.swift */,
 				B0B1685E23740394001DCE3C /* TrackerController.swift */,
 				B0B1685D23740394001DCE3C /* TrackerController+UITableView.swift */,
 				E6FBB1B223718FF500B1B4DE /* FindController.swift */,
@@ -303,6 +361,8 @@
 		E6FBB1BC2371943D00B1B4DE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AB735788237430B400A6099B /* TrackerDonorTableViewCell.swift */,
+				AB735787237430B400A6099B /* TrackerDonorTableViewCell.xib */,
 				E6FBB1B62371933E00B1B4DE /* FindBloodCustomCell.swift */,
 				B0B1685B23740389001DCE3C /* Tracker.storyboard */,
 				E6FBB1B72371933E00B1B4DE /* FindBloodCustomCell.xib */,
@@ -428,12 +488,13 @@
 				E6FBB1A223718D8D00B1B4DE /* Authentication.storyboard in Resources */,
 				E6FBB1A923718E7F00B1B4DE /* Find.storyboard in Resources */,
 				E6FBB17923718C8500B1B4DE /* LaunchScreen.storyboard in Resources */,
+				AB735789237430B400A6099B /* TrackerDonorTableViewCell.xib in Resources */,
 				E6FBB17623718C8500B1B4DE /* Assets.xcassets in Resources */,
 				E6FBB1A023718D5500B1B4DE /* RootTabBarController.storyboard in Resources */,
+				AB73579A2374316900A6099B /* Profile.storyboard in Resources */,
 				E6FBB1AD23718EF300B1B4DE /* Discover.storyboard in Resources */,
 				0925FB4123740E1C00874DAA /* DonateTableViewCell.xib in Resources */,
 				E6FBB1AB23718EAB00B1B4DE /* Donate.storyboard in Resources */,
-				E6B156EC2373FFD300F93ECF /* TrackerDonorTableViewCell.xib in Resources */,
 				E6FBB1B92371933E00B1B4DE /* FindBloodCustomCell.xib in Resources */,
 				B0B1685C23740389001DCE3C /* Tracker.storyboard in Resources */,
 			);
@@ -462,22 +523,28 @@
 			files = (
 				E6FBB1B123718FDF00B1B4DE /* DonateController.swift in Sources */,
 				098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */,
+				AB7357962374313500A6099B /* FirstCell.swift in Sources */,
 				E6FBB17423718C8400B1B4DE /* Donorhin.xcdatamodeld in Sources */,
 				E6FBB1B82371933E00B1B4DE /* FindBloodCustomCell.swift in Sources */,
-				E6B156E5237338A800F93ECF /* FindController+ScrollView.swift in Sources */,
 				0925FB4023740E1C00874DAA /* DonateTableViewCell.swift in Sources */,
 				E6FBB16C23718C8400B1B4DE /* AppDelegate.swift in Sources */,
 				E6FBB1B52371901400B1B4DE /* AuthenticationController.swift in Sources */,
+				AB7357972374313500A6099B /* SecondCell.swift in Sources */,
+				AB7357982374313500A6099B /* ThirdCell.swift in Sources */,
+				AB7357862374309E00A6099B /* CustomSegmentedController.swift in Sources */,
 				0925FB382373F13000874DAA /* CustomMainView.swift in Sources */,
+				AB7357922374311400A6099B /* ProfileController.swift in Sources */,
+				AB7357912374311400A6099B /* ProfileController+UITableView.swift in Sources */,
 				E6FBB1C32371991D00B1B4DE /* Constants.swift in Sources */,
+				AB73578E2374310600A6099B /* Profile.swift in Sources */,
 				E6FBB1B323718FF500B1B4DE /* FindController.swift in Sources */,
-				E6B156E92373F98500F93ECF /* CustomSegmentedController.swift in Sources */,
-				E6B156ED2373FFD300F93ECF /* TrackerDonorTableViewCell.swift in Sources */,
 				B0B1685F23740394001DCE3C /* TrackerController+UITableView.swift in Sources */,
+				AB73578C237430BD00A6099B /* FindController+ScrollView.swift in Sources */,
 				B0B168622374039B001DCE3C /* TrackerDonor.swift in Sources */,
 				098FD4752372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift in Sources */,
 				E6FBB1AF23718FBE00B1B4DE /* DiscoverController.swift in Sources */,
 				E6FBB1C0237194FB00B1B4DE /* BloodRequest.swift in Sources */,
+				AB73578A237430B400A6099B /* TrackerDonorTableViewCell.swift in Sources */,
 				B0B1686023740394001DCE3C /* TrackerController.swift in Sources */,
 				E6FBB1BE2371947700B1B4DE /* FindController+UITableView.swift in Sources */,
 			);
@@ -647,7 +714,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2NJYBE4CVL;
+				DEVELOPMENT_TEAM = 493XMCZ775;
 				INFOPLIST_FILE = Donorhin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -666,7 +733,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2NJYBE4CVL;
+				DEVELOPMENT_TEAM = 493XMCZ775;
 				INFOPLIST_FILE = Donorhin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

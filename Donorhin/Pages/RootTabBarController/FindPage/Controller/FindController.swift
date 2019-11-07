@@ -85,7 +85,10 @@ class FindController: UIViewController {
     }
     
     @objc private func profileButton(){
-        print("profileimagetapped!")
+        let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "profileStoryboard") as! ProfileController
+        navigationController?.pushViewController(vc,
+         animated: true)
     }
     
     //MARK: Action Outlet
