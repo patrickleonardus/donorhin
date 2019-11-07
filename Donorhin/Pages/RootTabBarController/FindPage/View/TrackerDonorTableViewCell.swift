@@ -50,7 +50,7 @@ class TrackerDonorTableViewCell: UITableViewCell {
       
       let show = true
       //MARK: Done and Active Styling informationText and buttonText
-      if status !=  .toDo { //enable ; on going/done  processes
+      if status !=  .toDo { //enable ; on going/done  processes
          self.redCircle.backgroundColor = Colors.red
          
          self.informationText.textColor = .black
@@ -67,10 +67,10 @@ class TrackerDonorTableViewCell: UITableViewCell {
             
          //MARK: Active Styling
          } else { //tampilin angka dan aktif
-            self.number.isHidden = show
+            self.active_label.isHidden =  show
+            self.active_number.isHidden = show
+            self.number.isHidden = !show
             self.checkMarkImage.isHidden = !show
-            self.active_label.isHidden =  !show
-            self.active_number.isHidden = !show
          }
          
       //MARK: To Do Styling
@@ -81,6 +81,11 @@ class TrackerDonorTableViewCell: UITableViewCell {
          self.buttonText.tintColor = Colors.gray_disabled
          self.buttonText.titleLabel?.textColor = Colors.gray_disabled
          self.buttonText.isEnabled = false
+         
+         self.number.isHidden = show
+         self.active_label.isHidden =  !show
+         self.active_number.isHidden = !show
+         self.checkMarkImage.isHidden = !show
       }
    }
    
