@@ -36,21 +36,6 @@
             </objects>
             <point key="canvasLocation" x="2378.2608695652175" y="-155.35714285714286"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="KYq-ij-ehp">
-            <objects>
-                <viewController id="xyM-xH-YDg" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="JhQ-rO-WJC" customClass="CustomMainView" customModule="Donorhin" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="OTX-a9-Khn"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7iK-ax-gcs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3346" y="-101"/>
-        </scene>
         <!--Cari-->
         <scene sceneID="SmQ-9U-bDk">
             <objects>
