@@ -32,11 +32,11 @@ extension TrackerController : UITableViewDataSource {
         cell?.buttonText.setTitle(data.buttonStr, for: .normal)
         
         switch data.status {
-        case .onGoing: cell?.setupView(status: .onGoing)
+        case .onGoing?: cell?.setupView(status: .onGoing)
             break
-        case .toDo: cell?.setupView(status: .toDo)
+        case .toDo?: cell?.setupView(status: .toDo)
             break
-        case .done: cell?.setupView(status: .done)
+        case .done?: cell?.setupView(status: .done)
             break
         case .none:
             break

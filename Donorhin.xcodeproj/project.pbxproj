@@ -20,10 +20,6 @@
 		E6B156E92373F98500F93ECF /* CustomSegmentedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B156E82373F98500F93ECF /* CustomSegmentedController.swift */; };
 		E6B156EC2373FFD300F93ECF /* TrackerDonorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6B156EA2373FFD300F93ECF /* TrackerDonorTableViewCell.xib */; };
 		E6B156ED2373FFD300F93ECF /* TrackerDonorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B156EB2373FFD300F93ECF /* TrackerDonorTableViewCell.swift */; };
-		E6DDAF1E23742AD800D6EAD1 /* TrackerDonor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF1D23742AD800D6EAD1 /* TrackerDonor.swift */; };
-		E6DDAF2123742AE000D6EAD1 /* TrackerController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF1F23742AE000D6EAD1 /* TrackerController+UITableView.swift */; };
-		E6DDAF2223742AE000D6EAD1 /* TrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF2023742AE000D6EAD1 /* TrackerController.swift */; };
-		E6DDAF2423742AE900D6EAD1 /* Tracker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6DDAF2323742AE900D6EAD1 /* Tracker.storyboard */; };
 		E6FBB16C23718C8400B1B4DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB16B23718C8400B1B4DE /* AppDelegate.swift */; };
 		E6FBB17423718C8400B1B4DE /* Donorhin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB17223718C8400B1B4DE /* Donorhin.xcdatamodeld */; };
 		E6FBB17623718C8500B1B4DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6FBB17523718C8500B1B4DE /* Assets.xcassets */; };
@@ -77,7 +73,6 @@
 		E6B156E82373F98500F93ECF /* CustomSegmentedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedController.swift; sourceTree = "<group>"; };
 		E6B156EA2373FFD300F93ECF /* TrackerDonorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackerDonorTableViewCell.xib; sourceTree = "<group>"; };
 		E6B156EB2373FFD300F93ECF /* TrackerDonorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerDonorTableViewCell.swift; sourceTree = "<group>"; };
-		E6DDAF1D23742AD800D6EAD1 /* TrackerDonor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerDonor.swift; sourceTree = "<group>"; };
 		E6DDAF1F23742AE000D6EAD1 /* TrackerController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController+UITableView.swift"; sourceTree = "<group>"; };
 		E6DDAF2023742AE000D6EAD1 /* TrackerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerController.swift; sourceTree = "<group>"; };
 		E6DDAF2323742AE900D6EAD1 /* Tracker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tracker.storyboard; sourceTree = "<group>"; };
@@ -137,6 +132,7 @@
 		0925FB39237403DF00874DAA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E6FBB1AA23718EAB00B1B4DE /* Donate.storyboard */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -265,7 +261,6 @@
 		E6FBB1A423718E1100B1B4DE /* DonatePage */ = {
 			isa = PBXGroup;
 			children = (
-				E6FBB1AA23718EAB00B1B4DE /* Donate.storyboard */,
 				0925FB3B237403F700874DAA /* Controller */,
 				0925FB3A237403F100874DAA /* View */,
 				0925FB39237403DF00874DAA /* Model */,
@@ -472,7 +467,6 @@
 				E6B156E5237338A800F93ECF /* FindController+ScrollView.swift in Sources */,
 				0925FB4023740E1C00874DAA /* DonateTableViewCell.swift in Sources */,
 				E6FBB16C23718C8400B1B4DE /* AppDelegate.swift in Sources */,
-				E6DDAF1E23742AD800D6EAD1 /* TrackerDonor.swift in Sources */,
 				E6FBB1B52371901400B1B4DE /* AuthenticationController.swift in Sources */,
 				0925FB382373F13000874DAA /* CustomMainView.swift in Sources */,
 				E6FBB1C32371991D00B1B4DE /* Constants.swift in Sources */,
