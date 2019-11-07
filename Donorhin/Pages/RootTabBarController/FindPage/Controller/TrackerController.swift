@@ -10,10 +10,7 @@ import UIKit
 
 class TrackerController : UIViewController {
     
-    
-    
     @IBOutlet weak var trackerTableView: UITableView!
-    let cellId = "cellId"
     
     var stepItems : [StepItems]?
     var bloodRequest : [BloodRequest]?
@@ -23,7 +20,6 @@ class TrackerController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadTableView()
-        
         DummyData().getCurrentBloodRequest { (bloodRequest) in
             self.bloodRequest = bloodRequest
         }
@@ -31,23 +27,32 @@ class TrackerController : UIViewController {
         getTrackerItems { (stepItems) in
             self.stepItems = stepItems
         }
-        
     }
     
     func loadTableView(){
         trackerTableView.delegate = self
         trackerTableView.dataSource = self
-        trackerTableView.register(UINib(nibName: "TrackerDonorTableViewCell", bundle: nil), forCellReuseIdentifier: cellId)
+        trackerTableView.register(UINib(nibName: "TrackerDonorTableViewCell", bundle: nil), forCellReuseIdentifier: "trackerCell")
     }
+    
+    private func callNumber(phoneNumber: String){
+        if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
+            let application:UIApplication = UIApplication.shared
+            if (application.canOpenURL(phoneCallURL)) {
+                application.open(phoneCallURL, options: [:], completionHandler: nil)
+            }
+        }
+    }
+    
     
     func getTrackerItems(completionHandler: @escaping (([StepItems]) -> ())) {
            completionHandler(
-            [StepItems(id: 1, description: "Anda dapat memberitahukan PMI bahwa Anda menggunakan aplikasi untuk mencari donor", buttonStr: "Hubungi \(bloodRequest!.first!.address)"),
-                StepItems(id: 2, description: "Pendonor Anda Telah Ditemukan Lokasi: \(donorAddress) Mendonor pada \(donorDate)", buttonStr: "Hubungi \(donorAddress)"),
-                StepItems(id: 3, description: "Pendonor Akan Melakukan Verifikasi Kelengkapan Surat", buttonStr: ""),
-                StepItems(id: 4, description: "Donor Sukses! Mohon untuk konfirmasi apabila sudah mendapatkan kantong darah", buttonStr: "Konfirmasi"),
-                StepItems(id: 5, description: "Ayo Gabung Dengan Komunitas Rhesus Negatif", buttonStr: "More info")
-               ]
+            [StepItems(description: "Anda dapat memberitahukan PMI bahwa Anda menggunakan aplikasi untuk mencari donor", buttonStr: " Hubungi \(String((bloodRequest?.first?.address)!))", status: .done),
+             StepItems(description: "Pendonor Anda Telah Ditemukan Lokasi: \(String(donorAddress!)) Mendonor pada \(String(donorDate!))", buttonStr: " Hubungi \(String(donorAddress!))", status: .onGoing),
+             StepItems(description: "Pendonor Akan Melakukan Verifikasi Kelengkapan Surat", buttonStr: "", status: .toDo),
+             StepItems(description: "Donor Sukses! Mohon untuk konfirmasi apabila sudah mendapatkan kantong darah", buttonStr: " Konfirmasi", status: .toDo),
+             StepItems(description: "Ayo Gabung Dengan Komunitas Rhesus Negatif", buttonStr: " More info", status: .toDo)
+            ]
            )
     }
         
