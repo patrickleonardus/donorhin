@@ -43,17 +43,17 @@
                                     </view>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="FcW-Xc-bHo">
                                         <rect key="frame" x="16" y="66" width="382" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="gYQ-jB-vZs"/>
+                                        </constraints>
                                         <segments>
                                             <segment title="Aktif"/>
                                             <segment title="Riwayat"/>
                                         </segments>
                                     </segmentedControl>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eFu-Dz-OJB">
-                                        <rect key="frame" x="16" y="135" width="382" height="194"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eFu-Dz-OJB">
+                                        <rect key="frame" x="16" y="135" width="382" height="587"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="194" id="9Og-uo-d0Z"/>
-                                        </constraints>
                                     </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BkS-wn-4gr">
                                         <rect key="frame" x="332" y="109" width="66" height="26"/>
@@ -74,6 +74,7 @@
                                     <constraint firstAttribute="trailing" secondItem="eFu-Dz-OJB" secondAttribute="trailing" constant="16" id="09p-Mw-7Lv"/>
                                     <constraint firstAttribute="trailing" secondItem="BkS-wn-4gr" secondAttribute="trailing" constant="16" id="BVp-2x-POv"/>
                                     <constraint firstItem="FcW-Xc-bHo" firstAttribute="centerX" secondItem="wjh-sG-CRv" secondAttribute="centerX" id="Gmu-gg-D8x"/>
+                                    <constraint firstAttribute="bottom" secondItem="eFu-Dz-OJB" secondAttribute="bottom" id="O1j-SL-R00"/>
                                     <constraint firstItem="ntr-t6-vqj" firstAttribute="top" secondItem="wjh-sG-CRv" secondAttribute="top" constant="5" id="O9q-Qs-3cj"/>
                                     <constraint firstItem="FcW-Xc-bHo" firstAttribute="leading" secondItem="wjh-sG-CRv" secondAttribute="leading" constant="16" id="OQv-F6-fTb"/>
                                     <constraint firstItem="eFu-Dz-OJB" firstAttribute="leading" secondItem="wjh-sG-CRv" secondAttribute="leading" constant="16" id="SSJ-Bs-Pf4"/>
@@ -98,6 +99,11 @@
                         <viewLayoutGuide key="safeArea" id="HI5-Ki-6mV"/>
                     </view>
                     <navigationItem key="navigationItem" title="Donor Darah" id="h9E-Jm-ghe"/>
+                    <connections>
+                        <outlet property="historyDonorSegmentedControl" destination="FcW-Xc-bHo" id="I54-Rl-EHF"/>
+                        <outlet property="switchButtonStatusDonor" destination="xTx-fo-hKC" id="W6Z-sl-Xqt"/>
+                        <outlet property="tableview" destination="eFu-Dz-OJB" id="3He-aD-J6E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fwf-e6-5KF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -20,7 +20,7 @@ extension TrackerController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //masukin datanya
-        let data = bloodRequestData![indexPath.row]
+//        let data = bloodRequestData![indexPath.row]
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: cellId)
         //kasih data dimana pmi dan kapan waktunya
         return cell
