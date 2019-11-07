@@ -48,16 +48,10 @@ class TrackerDonorTableViewCell: UITableViewCell {
       self.contentView.layer.cornerRadius = 10
       redCircle.layer.cornerRadius = redCircle.frame.size.height/2
       buttonText.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-      
-      let containerHeight = informationText.frame.size.height + buttonText.frame.size.height
-      print (containerHeight)
-      let container = UIView(frame: CGRect(x: 99, y: 10, width: 100, height: 100))
-      
-      
    }
    
    //MARK: Use this to styling the cells
-   func setupView(status:Status) {
+   func setupView(status:Status,number:Int) {
       
       let hide = false
       //MARK: Done and Active Styling informationText and buttonText
@@ -80,6 +74,7 @@ class TrackerDonorTableViewCell: UITableViewCell {
          } else { //tampilin angka dan aktif
             self.active_label.isHidden =  hide
             self.active_number.isHidden = hide
+            self.active_number.text = "\(number)"
             self.number.isHidden = !hide
             self.checkMarkImage.isHidden = !hide
          }
@@ -94,6 +89,7 @@ class TrackerDonorTableViewCell: UITableViewCell {
          self.buttonText.isEnabled = false
          
          self.number.isHidden = hide
+         self.number.text =  "\(number)"
          self.active_label.isHidden =  !hide
          self.active_number.isHidden = !hide
          self.checkMarkImage.isHidden = !hide
