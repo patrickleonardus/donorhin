@@ -187,7 +187,6 @@
 				E6FBB16B23718C8400B1B4DE /* AppDelegate.swift */,
 				E6FBB17523718C8500B1B4DE /* Assets.xcassets */,
 				E6FBB17223718C8400B1B4DE /* Donorhin.xcdatamodeld */,
-				098FD4712372C84600AF7EC7 /* CustomViews */,
 				E6FBB19D23718CDD00B1B4DE /* Pages */,
 				098FD4712372C84600AF7EC7 /* CustomViews */,
 				E6FBB1C1237198F500B1B4DE /* Utilities */,
