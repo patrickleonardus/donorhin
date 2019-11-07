@@ -34,8 +34,7 @@ class TrackerDonorTableViewCell: UITableViewCell {
    
    override func awakeFromNib() {
       super.awakeFromNib()
-      self.contentView.layer.cornerRadius = 10
-      redCircle.layer.cornerRadius = redCircle.frame.size.height/2
+      self.generalStyling()
       // Initialization code
    }
    
@@ -45,10 +44,22 @@ class TrackerDonorTableViewCell: UITableViewCell {
       // Configure the view for the selected state
    }
    
+   func generalStyling() {
+      self.contentView.layer.cornerRadius = 10
+      redCircle.layer.cornerRadius = redCircle.frame.size.height/2
+      buttonText.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+      
+      let containerHeight = informationText.frame.size.height + buttonText.frame.size.height
+      print (containerHeight)
+      let container = UIView(frame: CGRect(x: 99, y: 10, width: 100, height: 100))
+      
+      
+   }
+   
    //MARK: Use this to styling the cells
    func setupView(status:Status) {
       
-      let show = true
+      let hide = false
       //MARK: Done and Active Styling informationText and buttonText
       if status !=  .toDo { //enable ; on going/done  processes
          self.redCircle.backgroundColor = Colors.red
@@ -60,17 +71,17 @@ class TrackerDonorTableViewCell: UITableViewCell {
          
          //MARK: Done Styling
          if status == .done { //tampilin checklist
-            self.checkMarkImage.isHidden = show
-            self.active_label.isHidden =  !show
-            self.active_number.isHidden = !show
-            self.number.isHidden = !show
+            self.checkMarkImage.isHidden = hide
+            self.active_label.isHidden =  !hide
+            self.active_number.isHidden = !hide
+            self.number.isHidden = !hide
             
          //MARK: Active Styling
          } else { //tampilin angka dan aktif
-            self.active_label.isHidden =  show
-            self.active_number.isHidden = show
-            self.number.isHidden = !show
-            self.checkMarkImage.isHidden = !show
+            self.active_label.isHidden =  hide
+            self.active_number.isHidden = hide
+            self.number.isHidden = !hide
+            self.checkMarkImage.isHidden = !hide
          }
          
       //MARK: To Do Styling
@@ -82,12 +93,13 @@ class TrackerDonorTableViewCell: UITableViewCell {
          self.buttonText.titleLabel?.textColor = Colors.gray_disabled
          self.buttonText.isEnabled = false
          
-         self.number.isHidden = show
-         self.active_label.isHidden =  !show
-         self.active_number.isHidden = !show
-         self.checkMarkImage.isHidden = !show
+         self.number.isHidden = hide
+         self.active_label.isHidden =  !hide
+         self.active_number.isHidden = !hide
+         self.checkMarkImage.isHidden = !hide
       }
    }
    
    
 }
+
