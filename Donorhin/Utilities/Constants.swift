@@ -16,8 +16,8 @@ enum BloodType: String {
 }
 
 enum Colors{
-   static let red = UIColor(red: 179, green: 0, blue: 27, alpha: 1)
-   static let gray_disabled = UIColor(red: 199, green: 199, blue: 199, alpha: 1)
-   static let green = UIColor(red: 52, green: 199, blue: 89, alpha: 100)
+   static let red = UIColor(red: 179/255, green: 0/255, blue: 27/255, alpha: 1)
+   static let gray_disabled = UIColor(red: 199/255, green: 199/255, blue: 199/255, alpha: 1)
+   static let green = UIColor(red: 52/255, green: 199/255, blue: 89/255, alpha: 1)
 }
 

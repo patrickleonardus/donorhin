@@ -17,6 +17,8 @@ class FindController: UIViewController {
     
     let cellId = "cellId"
     
+    var profileImage : UIImageView?
+    
     var bloodRequestHistory: [BloodRequest]?
     var bloodRequestCurrent: [BloodRequest]?
     
@@ -58,25 +60,24 @@ class FindController: UIViewController {
     
     private func setProfileImageNavBar(){
         
-        let profileImage = UIImageView(image: UIImage(named: "user_profile_default"))
-        navigationController?.navigationBar.addSubview(profileImage)
+        profileImage = UIImageView(image: UIImage(named: "user_profile_default"))
+        navigationController?.navigationBar.addSubview(profileImage!)
         
-        profileImage.isUserInteractionEnabled = true
-        profileImage.layer.cornerRadius = ProfileImageSize.imageSize/2
-        profileImage.clipsToBounds = true
+        profileImage!.isUserInteractionEnabled = true
+        profileImage!.layer.cornerRadius = ProfileImageSize.imageSize/2
+        profileImage!.clipsToBounds = true
         
         
-        profileImage.translatesAutoresizingMaskIntoConstraints = false
-        profileImage.rightAnchor.constraint(equalTo: (navigationController?.navigationBar.rightAnchor)!, constant: -ProfileImageSize.marginRight).isActive = true
-        profileImage.bottomAnchor.constraint(equalTo: (navigationController?.navigationBar.bottomAnchor)!, constant: -ProfileImageSize.marginBottom).isActive = true
-        profileImage.heightAnchor.constraint(equalToConstant: ProfileImageSize.imageSize).isActive = true
-        profileImage.widthAnchor.constraint(equalToConstant: ProfileImageSize.imageSize).isActive = true
+        profileImage!.translatesAutoresizingMaskIntoConstraints = false
+        profileImage!.rightAnchor.constraint(equalTo: (navigationController?.navigationBar.rightAnchor)!, constant: -ProfileImageSize.marginRight).isActive = true
+        profileImage!.bottomAnchor.constraint(equalTo: (navigationController?.navigationBar.bottomAnchor)!, constant: -ProfileImageSize.marginBottom).isActive = true
+        profileImage!.heightAnchor.constraint(equalToConstant: ProfileImageSize.imageSize).isActive = true
+        profileImage!.widthAnchor.constraint(equalToConstant: ProfileImageSize.imageSize).isActive = true
         
         let profileTap = UITapGestureRecognizer(target: self, action: #selector(profileButton))
-        profileImage.addGestureRecognizer(profileTap)
+        profileImage!.addGestureRecognizer(profileTap)
         
     }
-    
     
     //MARK: Action
     
@@ -87,8 +88,8 @@ class FindController: UIViewController {
     @objc private func profileButton(){
         let storyboard = UIStoryboard(name: "Profile", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "profileStoryboard") as! ProfileController
-        navigationController?.pushViewController(vc,
-         animated: true)
+        let navBarOnModal: UINavigationController = UINavigationController(rootViewController: vc)
+        self.present(navBarOnModal, animated: true, completion: nil)
     }
     
     //MARK: Action Outlet

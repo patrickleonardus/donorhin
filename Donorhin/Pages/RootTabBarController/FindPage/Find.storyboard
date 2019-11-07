@@ -32,24 +32,28 @@
                                     <action selector="findBloodSegmentedControlDidChange" destination="PPl-62-6vC" eventType="valueChanged" id="pHU-pa-AY7"/>
                                 </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cFS-SC-sCV">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFS-SC-sCV">
                                 <rect key="frame" x="0.0" y="192" width="414" height="704"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="find_donor" translatesAutoresizingMaskIntoConstraints="NO" id="IfR-pf-Ol2">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="find_donor" translatesAutoresizingMaskIntoConstraints="NO" id="IfR-pf-Ol2">
                                         <rect key="frame" x="56" y="22" width="302" height="230"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="302" id="I21-NC-s4j"/>
+                                            <constraint firstAttribute="height" constant="230" id="bYS-lJ-joe"/>
+                                        </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Anda Belum Melakukan Pencarian" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MvY-em-XBo">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anda Belum Melakukan Pencarian" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MvY-em-XBo">
                                         <rect key="frame" x="56" y="260" width="302" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awv-cT-Zg6" customClass="CustomButtonRounded" customModule="Donorhin" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awv-cT-Zg6" customClass="CustomButtonRounded" customModule="Donorhin" customModuleProvider="target">
                                         <rect key="frame" x="56" y="289" width="302" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="MHG-pJ-nDY"/>
+                                            <constraint firstAttribute="width" constant="302" id="NAy-cR-Mdi"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Cari Pendonor">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -60,12 +64,27 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="IfR-pf-Ol2" firstAttribute="top" secondItem="cFS-SC-sCV" secondAttribute="top" constant="22" id="INn-Sb-oGr"/>
+                                    <constraint firstItem="IfR-pf-Ol2" firstAttribute="leading" secondItem="cFS-SC-sCV" secondAttribute="leading" constant="56" id="SrD-yD-fha"/>
+                                    <constraint firstAttribute="trailing" secondItem="awv-cT-Zg6" secondAttribute="trailing" constant="56" id="WI1-xu-PCC"/>
+                                    <constraint firstItem="MvY-em-XBo" firstAttribute="top" secondItem="IfR-pf-Ol2" secondAttribute="bottom" constant="8" id="aPg-iM-SaJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="IfR-pf-Ol2" secondAttribute="trailing" constant="56" id="eQa-an-5Yw"/>
+                                    <constraint firstAttribute="trailing" secondItem="MvY-em-XBo" secondAttribute="trailing" constant="56" id="egy-O6-2Vf"/>
+                                    <constraint firstItem="awv-cT-Zg6" firstAttribute="leading" secondItem="cFS-SC-sCV" secondAttribute="leading" constant="56" id="fbc-kI-Jgp"/>
+                                    <constraint firstItem="MvY-em-XBo" firstAttribute="leading" secondItem="cFS-SC-sCV" secondAttribute="leading" constant="56" id="whU-cC-UjD"/>
+                                    <constraint firstItem="awv-cT-Zg6" firstAttribute="top" secondItem="MvY-em-XBo" secondAttribute="bottom" constant="8" id="xo2-QP-ddf"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="cFS-SC-sCV" firstAttribute="top" secondItem="CF2-4p-Gr7" secondAttribute="bottom" constant="8" id="3oM-mA-Cda"/>
                             <constraint firstItem="B93-sR-GNM" firstAttribute="trailing" secondItem="KvN-0X-LVa" secondAttribute="trailing" id="FGv-05-nnU"/>
+                            <constraint firstAttribute="bottom" secondItem="cFS-SC-sCV" secondAttribute="bottom" id="Khr-Gp-AgC"/>
+                            <constraint firstItem="cFS-SC-sCV" firstAttribute="leading" secondItem="KvN-0X-LVa" secondAttribute="leading" id="Old-cu-FSm"/>
                             <constraint firstAttribute="bottom" secondItem="B93-sR-GNM" secondAttribute="bottom" id="OoM-aI-1A9"/>
+                            <constraint firstItem="cFS-SC-sCV" firstAttribute="trailing" secondItem="KvN-0X-LVa" secondAttribute="trailing" id="PQl-Sj-RZR"/>
                             <constraint firstItem="B93-sR-GNM" firstAttribute="top" secondItem="CF2-4p-Gr7" secondAttribute="bottom" constant="8" id="YTD-oH-V0R"/>
                             <constraint firstItem="CF2-4p-Gr7" firstAttribute="top" secondItem="KvN-0X-LVa" secondAttribute="top" constant="16" id="iTd-lf-Bib"/>
                             <constraint firstItem="CF2-4p-Gr7" firstAttribute="leading" secondItem="KvN-0X-LVa" secondAttribute="leading" constant="20" id="mIp-Dp-bHk"/>

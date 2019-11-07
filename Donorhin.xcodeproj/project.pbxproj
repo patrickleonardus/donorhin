@@ -15,7 +15,6 @@
 		AB7357862374309E00A6099B /* CustomSegmentedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7357852374309E00A6099B /* CustomSegmentedController.swift */; };
 		AB735789237430B400A6099B /* TrackerDonorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB735787237430B400A6099B /* TrackerDonorTableViewCell.xib */; };
 		AB73578A237430B400A6099B /* TrackerDonorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB735788237430B400A6099B /* TrackerDonorTableViewCell.swift */; };
-		AB73578C237430BD00A6099B /* FindController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB73578B237430BD00A6099B /* FindController+ScrollView.swift */; };
 		AB73578E2374310600A6099B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB73578D2374310600A6099B /* Profile.swift */; };
 		AB7357912374311400A6099B /* ProfileController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB73578F2374311400A6099B /* ProfileController+UITableView.swift */; };
 		AB7357922374311400A6099B /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7357902374311400A6099B /* ProfileController.swift */; };
@@ -24,9 +23,10 @@
 		AB7357982374313500A6099B /* ThirdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7357952374313500A6099B /* ThirdCell.swift */; };
 		AB73579A2374316900A6099B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB7357992374316900A6099B /* Profile.storyboard */; };
 		B0B1685C23740389001DCE3C /* Tracker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0B1685B23740389001DCE3C /* Tracker.storyboard */; };
-		B0B1685F23740394001DCE3C /* TrackerController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1685D23740394001DCE3C /* TrackerController+UITableView.swift */; };
-		B0B1686023740394001DCE3C /* TrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1685E23740394001DCE3C /* TrackerController.swift */; };
 		B0B168622374039B001DCE3C /* TrackerDonor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B168612374039B001DCE3C /* TrackerDonor.swift */; };
+		E6DDAF2A237435B300D6EAD1 /* TrackerController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF27237435B300D6EAD1 /* TrackerController+UITableView.swift */; };
+		E6DDAF2B237435B300D6EAD1 /* FindController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF28237435B300D6EAD1 /* FindController+ScrollView.swift */; };
+		E6DDAF2C237435B300D6EAD1 /* TrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF29237435B300D6EAD1 /* TrackerController.swift */; };
 		E6FBB16C23718C8400B1B4DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB16B23718C8400B1B4DE /* AppDelegate.swift */; };
 		E6FBB17423718C8400B1B4DE /* Donorhin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB17223718C8400B1B4DE /* Donorhin.xcdatamodeld */; };
 		E6FBB17623718C8500B1B4DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6FBB17523718C8500B1B4DE /* Assets.xcassets */; };
@@ -75,7 +75,6 @@
 		AB7357852374309E00A6099B /* CustomSegmentedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedController.swift; sourceTree = "<group>"; };
 		AB735787237430B400A6099B /* TrackerDonorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackerDonorTableViewCell.xib; sourceTree = "<group>"; };
 		AB735788237430B400A6099B /* TrackerDonorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerDonorTableViewCell.swift; sourceTree = "<group>"; };
-		AB73578B237430BD00A6099B /* FindController+ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FindController+ScrollView.swift"; sourceTree = "<group>"; };
 		AB73578D2374310600A6099B /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		AB73578F2374311400A6099B /* ProfileController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProfileController+UITableView.swift"; sourceTree = "<group>"; };
 		AB7357902374311400A6099B /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
@@ -84,16 +83,13 @@
 		AB7357952374313500A6099B /* ThirdCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdCell.swift; sourceTree = "<group>"; };
 		AB7357992374316900A6099B /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		B0B1685B23740389001DCE3C /* Tracker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tracker.storyboard; sourceTree = "<group>"; };
-		B0B1685D23740394001DCE3C /* TrackerController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController+UITableView.swift"; sourceTree = "<group>"; };
-		B0B1685E23740394001DCE3C /* TrackerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerController.swift; sourceTree = "<group>"; };
 		B0B168612374039B001DCE3C /* TrackerDonor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerDonor.swift; sourceTree = "<group>"; };
-		E6B156E4237338A800F93ECF /* FindController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FindController+ScrollView.swift"; sourceTree = "<group>"; };
-		E6B156E82373F98500F93ECF /* CustomSegmentedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedController.swift; sourceTree = "<group>"; };
 		E6B156EA2373FFD300F93ECF /* TrackerDonorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackerDonorTableViewCell.xib; sourceTree = "<group>"; };
 		E6B156EB2373FFD300F93ECF /* TrackerDonorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerDonorTableViewCell.swift; sourceTree = "<group>"; };
-		E6DDAF1F23742AE000D6EAD1 /* TrackerController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController+UITableView.swift"; sourceTree = "<group>"; };
-		E6DDAF2023742AE000D6EAD1 /* TrackerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerController.swift; sourceTree = "<group>"; };
 		E6DDAF2323742AE900D6EAD1 /* Tracker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tracker.storyboard; sourceTree = "<group>"; };
+		E6DDAF27237435B300D6EAD1 /* TrackerController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController+UITableView.swift"; sourceTree = "<group>"; };
+		E6DDAF28237435B300D6EAD1 /* FindController+ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FindController+ScrollView.swift"; sourceTree = "<group>"; };
+		E6DDAF29237435B300D6EAD1 /* TrackerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerController.swift; sourceTree = "<group>"; };
 		E6FBB16823718C8400B1B4DE /* Donorhin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Donorhin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6FBB16B23718C8400B1B4DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6FBB17323718C8400B1B4DE /* Donorhin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Donorhin.xcdatamodel; sourceTree = "<group>"; };
@@ -337,14 +333,11 @@
 		E6FBB1BA2371942C00B1B4DE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				AB73578B237430BD00A6099B /* FindController+ScrollView.swift */,
-				B0B1685E23740394001DCE3C /* TrackerController.swift */,
-				B0B1685D23740394001DCE3C /* TrackerController+UITableView.swift */,
 				E6FBB1B223718FF500B1B4DE /* FindController.swift */,
 				E6FBB1BD2371947700B1B4DE /* FindController+UITableView.swift */,
-				E6B156E4237338A800F93ECF /* FindController+ScrollView.swift */,
-				E6DDAF2023742AE000D6EAD1 /* TrackerController.swift */,
-				E6DDAF1F23742AE000D6EAD1 /* TrackerController+UITableView.swift */,
+				E6DDAF28237435B300D6EAD1 /* FindController+ScrollView.swift */,
+				E6DDAF29237435B300D6EAD1 /* TrackerController.swift */,
+				E6DDAF27237435B300D6EAD1 /* TrackerController+UITableView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -531,21 +524,21 @@
 				E6FBB1B52371901400B1B4DE /* AuthenticationController.swift in Sources */,
 				AB7357972374313500A6099B /* SecondCell.swift in Sources */,
 				AB7357982374313500A6099B /* ThirdCell.swift in Sources */,
+				E6DDAF2A237435B300D6EAD1 /* TrackerController+UITableView.swift in Sources */,
 				AB7357862374309E00A6099B /* CustomSegmentedController.swift in Sources */,
+				E6DDAF2B237435B300D6EAD1 /* FindController+ScrollView.swift in Sources */,
 				0925FB382373F13000874DAA /* CustomMainView.swift in Sources */,
+				E6DDAF2C237435B300D6EAD1 /* TrackerController.swift in Sources */,
 				AB7357922374311400A6099B /* ProfileController.swift in Sources */,
 				AB7357912374311400A6099B /* ProfileController+UITableView.swift in Sources */,
 				E6FBB1C32371991D00B1B4DE /* Constants.swift in Sources */,
 				AB73578E2374310600A6099B /* Profile.swift in Sources */,
 				E6FBB1B323718FF500B1B4DE /* FindController.swift in Sources */,
-				B0B1685F23740394001DCE3C /* TrackerController+UITableView.swift in Sources */,
-				AB73578C237430BD00A6099B /* FindController+ScrollView.swift in Sources */,
 				B0B168622374039B001DCE3C /* TrackerDonor.swift in Sources */,
 				098FD4752372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift in Sources */,
 				E6FBB1AF23718FBE00B1B4DE /* DiscoverController.swift in Sources */,
 				E6FBB1C0237194FB00B1B4DE /* BloodRequest.swift in Sources */,
 				AB73578A237430B400A6099B /* TrackerDonorTableViewCell.swift in Sources */,
-				B0B1686023740394001DCE3C /* TrackerController.swift in Sources */,
 				E6FBB1BE2371947700B1B4DE /* FindController+UITableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -714,7 +707,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 493XMCZ775;
+				DEVELOPMENT_TEAM = 2NJYBE4CVL;
 				INFOPLIST_FILE = Donorhin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -733,7 +726,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 493XMCZ775;
+				DEVELOPMENT_TEAM = 2NJYBE4CVL;
 				INFOPLIST_FILE = Donorhin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -27,6 +27,13 @@ class ProfileController: UIViewController {
     
     private func setupUI(){
         tableView.tableFooterView = UIView()
+        
+        let doneButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(doneAction))
+        navigationItem.rightBarButtonItem = doneButton
+    }
+    
+    @objc private func doneAction(){
+        dismiss(animated: true, completion: nil)
     }
     
 }

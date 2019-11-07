@@ -20,7 +20,7 @@ class FindBloodCustomCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        status.textColor = UIColor.green
+        status.textColor = Colors.green
         
     }
 
