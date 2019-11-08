@@ -12,6 +12,7 @@
 		0925FB4123740E1C00874DAA /* DonateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0925FB3F23740E1C00874DAA /* DonateTableViewCell.xib */; };
 		098FD4752372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */; };
 		098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */; };
+		09DC193A23754BCD004BEFB5 /* DonateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC193923754BCD004BEFB5 /* DonateModel.swift */; };
 		AB7357862374309E00A6099B /* CustomSegmentedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7357852374309E00A6099B /* CustomSegmentedController.swift */; };
 		AB73578E2374310600A6099B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB73578D2374310600A6099B /* Profile.swift */; };
 		AB7357912374311400A6099B /* ProfileController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB73578F2374311400A6099B /* ProfileController+UITableView.swift */; };
@@ -77,6 +78,7 @@
 		0925FB3F23740E1C00874DAA /* DonateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DonateTableViewCell.xib; sourceTree = "<group>"; };
 		098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonSubmitRounded.swift; sourceTree = "<group>"; };
 		098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewRounded.swift; sourceTree = "<group>"; };
+		09DC193923754BCD004BEFB5 /* DonateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateModel.swift; sourceTree = "<group>"; };
 		AB7357852374309E00A6099B /* CustomSegmentedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedController.swift; sourceTree = "<group>"; };
 		AB73578D2374310600A6099B /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		AB73578F2374311400A6099B /* ProfileController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProfileController+UITableView.swift"; sourceTree = "<group>"; };
@@ -153,7 +155,7 @@
 		0925FB39237403DF00874DAA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E6FBB1AA23718EAB00B1B4DE /* Donate.storyboard */,
+				09DC193923754BCD004BEFB5 /* DonateModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -357,6 +359,7 @@
 		E6FBB1A423718E1100B1B4DE /* DonatePage */ = {
 			isa = PBXGroup;
 			children = (
+				E6FBB1AA23718EAB00B1B4DE /* Donate.storyboard */,
 				0925FB3B237403F700874DAA /* Controller */,
 				0925FB3A237403F100874DAA /* View */,
 				0925FB39237403DF00874DAA /* Model */,
@@ -582,6 +585,7 @@
 				B0B168622374039B001DCE3C /* TrackerDonor.swift in Sources */,
 				098FD4752372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift in Sources */,
 				E6FBB1AF23718FBE00B1B4DE /* DiscoverController.swift in Sources */,
+				09DC193A23754BCD004BEFB5 /* DonateModel.swift in Sources */,
 				E6DDAF3A237563AC00D6EAD1 /* ScanFormController.swift in Sources */,
 				E6FBB1C0237194FB00B1B4DE /* BloodRequest.swift in Sources */,
 				E6FBB1BE2371947700B1B4DE /* FindController+UITableView.swift in Sources */,
