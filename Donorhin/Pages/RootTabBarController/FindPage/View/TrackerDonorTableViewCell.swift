@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class TrackerDonorTableViewCell: UITableViewCell {
    /**
     Note:Pake fungsi setupView setelah manggil cell di Table View.
@@ -21,7 +19,6 @@ class TrackerDonorTableViewCell: UITableViewCell {
       case toDo
    }
    
-   
    @IBOutlet var redCircle: UIView!
    
    @IBOutlet var checkMarkImage: UIImageView!
@@ -31,16 +28,16 @@ class TrackerDonorTableViewCell: UITableViewCell {
    @IBOutlet var stackView: UIStackView!
    @IBOutlet var informationText: UILabel!
    @IBOutlet var buttonText: UIButton!
+   let confirmButton = CustomButtonRounded(frame: CGRect(x: 0, y: 0, width: 118, height: 43))
+   let phoneNumber : String?
    
    override func awakeFromNib() {
       super.awakeFromNib()
       self.generalStyling()
-      // Initialization code
    }
    
    override func setSelected(_ selected: Bool, animated: Bool) {
       super.setSelected(selected, animated: animated)
-      
       // Configure the view for the selected state
    }
    
@@ -94,73 +91,51 @@ class TrackerDonorTableViewCell: UITableViewCell {
          self.active_number.isHidden = !hide
          self.checkMarkImage.isHidden = !hide
       }
-      if number == 4 {
-         stylingNumber4(status: status)
-      }
       
+      if number == 4 {stylingNumber4(status: status) }
    }
    
-   //   func stylingNumber4(status:Status) {
-   //      self.buttonText.setImage(nil, for: .normal)
-   ////      buttonText.isHidden = false
-   //      if status == .toDo {
-   //         self.buttonText.setTitleColor(.white, for: .normal)
-   //         self.buttonText.backgroundColor = Colors.gray_disabled
-   //         self.buttonText.frame.size = CGSize(width: 118, height: 43)
-   //         //self.buttonText.titleLabel!.textColor = Colors.gray_disabled
-   //         //self.buttonText.titleLabel?.tintColor = Colors.gray_disabled
-   //         self.buttonText.isEnabled = false
-   //
-   //      }
-   //   }
-   
-   //   func stylingNumber4(status:Status) {
-   //         self.buttonText.setImage(nil, for: .normal)
-   //      let confirmButton: UIButton = UIButton()
-   //         if status == .toDo {
-   //            self.buttonText.setTitleColor(.white, for: .normal)
-   //            self.buttonText.backgroundColor = Colors.gray_disabled
-   //            self.buttonText.frame.size = CGSize(width: 118, height: 43)
-   //            //self.buttonText.titleLabel!.textColor = Colors.gray_disabled
-   //            //self.buttonText.titleLabel?.tintColor = Colors.gray_disabled
-   //            self.buttonText.isEnabled = false
-   //
-   //         }
-   //      }
-   
    func stylingNumber4(status:Status) {
-      let confirmButton = CustomButtonRounded(frame: CGRect(x: 0, y: 0, width: 118, height: 43))
+      //add and styling new button
+      confirmButton.addTarget(self, action: #selector(buttonConfirmedPressed(_:)), for: .touchUpInside)
       confirmButton.setTitle("Konfirmasi", for: .normal)
       confirmButton.setTitleColor(.white, for: .normal)
       confirmButton.layer.cornerRadius = 10
+      
+      //add constraint so  it will keep the size
       confirmButton.addConstraint(NSLayoutConstraint(item: confirmButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: 118))
       confirmButton.addConstraint(NSLayoutConstraint(item: confirmButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 43))
-      //      confirmButton.titleLabel?.attributedText = NSAttributedString(
+      
+      //styling for different cases
       if status == .toDo {
          confirmButton.backgroundColor = Colors.gray_disabled
+         confirmButton.isEnabled = false
       } else {
          confirmButton.backgroundColor = Colors.red
+         confirmButton.isEnabled = true
       }
+      
+      //embedding to stackview
       stackView.alignment = .leading
       stackView.distribution = .fillProportionally
-//      stackView.addArrangedSubview(confirmButton)
-//      stackView.addSubview(confirmButton)
-      if stackView.arrangedSubviews[1] != nil {
+      if stackView.arrangedSubviews[1] != nil { //so it won't repeat adding the same
          stackView.arrangedSubviews[1].removeFromSuperview()
       }
-//      if let view = stackView.arrangedSubviews[1]?
       stackView.insertArrangedSubview(confirmButton, at: 1)
-      //      stackView.layoutIfNeeded()
-      //      self.addSubview(confirmButton)
-      
-      print (confirmButton.frame.size.height)
-      print (confirmButton.frame.size.width)
-      
-      
-      //Setting constraint for confirm button
-      
-      
    }
+   
+   //MARK: Button text (call) pressed
+   @IBAction func buttonTextPressed(_ sender: UIButton) {
+      //TO DO: add  function to call PMI
+      print ("Button text (call UTD) pressed")
+   }
+   
+   //MARK: Button confirm pressed
+   @objc func buttonConfirmedPressed(_ sender: UIButton) { //for confirmButton
+      //TO DO: add  action confirm
+      print ("Button confirm pressed")
+   }
+   
    
 }
 

@@ -80,6 +80,9 @@
                                     <color key="titleColor" red="0.64261484150000003" green="0.1303341985" blue="0.14504945280000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonTextPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="2Sx-Pj-bVz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
