@@ -119,7 +119,7 @@
         <scene sceneID="SmQ-9U-bDk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eZI-AD-7bz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Cari" id="EBA-jj-ucV"/>
+                    <tabBarItem key="tabBarItem" title="Cari" image="tab_bar_find" id="EBA-jj-ucV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="eSW-sg-lyd">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -137,5 +137,6 @@
     </scenes>
     <resources>
         <image name="find_donor" width="604" height="460"/>
+        <image name="tab_bar_find" width="25" height="25"/>
     </resources>
 </document>

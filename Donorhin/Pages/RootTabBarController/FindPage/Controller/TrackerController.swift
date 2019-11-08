@@ -21,6 +21,7 @@ class TrackerController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        super.view.backgroundColor = Colors.backgroundView
         loadTableView()
         setNavBarTitle()
         DummyData().getCurrentBloodRequest { (bloodRequest) in

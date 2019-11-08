@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nxa-dh-GSn">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nxa-dh-GSn">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,7 +34,7 @@
                                                 <rect key="frame" x="317" y="7" width="51" height="31"/>
                                             </switch>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="9w6-Cu-paN"/>
                                             <constraint firstItem="tQP-Es-H4K" firstAttribute="leading" secondItem="ntr-t6-vqj" secondAttribute="leading" constant="16" id="B3P-az-FJ6"/>
@@ -65,14 +67,14 @@
                                                 </constraints>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="dNC-P9-hdm" firstAttribute="top" secondItem="oLF-f0-iNN" secondAttribute="top" constant="14" id="PZ6-Kc-W5d"/>
                                             <constraint firstItem="dNC-P9-hdm" firstAttribute="centerX" secondItem="oLF-f0-iNN" secondAttribute="centerX" id="x7b-pm-5i6"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="eFu-Dz-OJB" secondAttribute="trailing" constant="16" id="09p-Mw-7Lv"/>
                                     <constraint firstAttribute="trailing" secondItem="oLF-f0-iNN" secondAttribute="trailing" id="ELE-Ev-wn9"/>
@@ -119,7 +121,7 @@
         <scene sceneID="Eo3-eG-7kJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nxa-dh-GSn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Donor" id="DHq-IY-YcF"/>
+                    <tabBarItem key="tabBarItem" title="Donor" image="tab_bar_donor" id="DHq-IY-YcF"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Hwn-X8-TNz">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -137,5 +139,6 @@
     </scenes>
     <resources>
         <image name="permintaanKososngGambar" width="313" height="196"/>
+        <image name="tab_bar_donor" width="30" height="31"/>
     </resources>
 </document>

@@ -20,11 +20,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="MIk-3s-Axt"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Jelajah" id="jWW-tm-fhL"/>
+                    <tabBarItem key="tabBarItem" title="Jelajah" image="tab_bar_discover" id="jWW-tm-fhL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VxP-oX-IJv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="57" y="603"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tab_bar_discover" width="31" height="31"/>
+    </resources>
 </document>

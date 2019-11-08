@@ -58,15 +58,15 @@
                     <constraint firstItem="Xh9-A5-3s3" firstAttribute="top" secondItem="MMe-PK-hl2" secondAttribute="bottom" constant="8" id="MUo-12-X2W"/>
                     <constraint firstItem="MMe-PK-hl2" firstAttribute="top" secondItem="L6R-Dm-BNZ" secondAttribute="bottom" constant="8" id="QOf-eK-4Vj"/>
                     <constraint firstItem="W3e-v7-2DC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="QSX-IN-IEy"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="L6R-Dm-BNZ" secondAttribute="trailing" constant="4" id="T3Y-1A-Sbn"/>
+                    <constraint firstItem="L6R-Dm-BNZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Qmd-uO-nx4"/>
                     <constraint firstItem="W3e-v7-2DC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="ThO-D4-ajj"/>
                     <constraint firstItem="Y3F-hJ-ebc" firstAttribute="top" secondItem="W3e-v7-2DC" secondAttribute="bottom" constant="8" id="ZCD-fp-13h"/>
                     <constraint firstItem="Y3F-hJ-ebc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="a9g-M8-6Yz"/>
+                    <constraint firstAttribute="trailing" secondItem="L6R-Dm-BNZ" secondAttribute="trailing" constant="20" id="cL3-93-eGQ"/>
                     <constraint firstAttribute="trailing" secondItem="Y3F-hJ-ebc" secondAttribute="trailing" constant="20" id="pww-N4-eM3"/>
                     <constraint firstAttribute="trailing" secondItem="Xh9-A5-3s3" secondAttribute="trailing" id="qz8-CJ-LFH"/>
                     <constraint firstItem="Xh9-A5-3s3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="yNz-fv-pv4"/>
                     <constraint firstAttribute="trailing" secondItem="W3e-v7-2DC" secondAttribute="trailing" constant="20" id="yk8-ZO-BMm"/>
-                    <constraint firstItem="L6R-Dm-BNZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="4" id="zqA-Ei-hCn"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
