@@ -29,6 +29,11 @@ class TrackerController : UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
     func loadTableView(){
         trackerTableView.delegate = self
         trackerTableView.dataSource = self
@@ -45,6 +50,8 @@ class TrackerController : UIViewController {
             }
         }
     }
+    
+    
     
     @objc func callButton(){
            callNumber(phoneNumber: "081317019898")
