@@ -86,7 +86,7 @@ extension FindController: UITableViewDataSource {
         return cell!
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { 
         performSegue(withIdentifier: "moveToTracker", sender: self)
     }
     
