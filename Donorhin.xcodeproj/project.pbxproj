@@ -29,6 +29,11 @@
 		E6DDAF2A237435B300D6EAD1 /* TrackerController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF27237435B300D6EAD1 /* TrackerController+UITableView.swift */; };
 		E6DDAF2B237435B300D6EAD1 /* FindController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF28237435B300D6EAD1 /* FindController+ScrollView.swift */; };
 		E6DDAF2C237435B300D6EAD1 /* TrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF29237435B300D6EAD1 /* TrackerController.swift */; };
+		E6DDAF312375630800D6EAD1 /* LineLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF2E2375630700D6EAD1 /* LineLayer.swift */; };
+		E6DDAF322375630800D6EAD1 /* AnnularLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF2F2375630800D6EAD1 /* AnnularLayer.swift */; };
+		E6DDAF332375630800D6EAD1 /* StepIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF302375630800D6EAD1 /* StepIndicatorView.swift */; };
+		E6DDAF382375638E00D6EAD1 /* ScanFormPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6DDAF372375638E00D6EAD1 /* ScanFormPage.storyboard */; };
+		E6DDAF3A237563AC00D6EAD1 /* ScanFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF39237563AC00D6EAD1 /* ScanFormController.swift */; };
 		E6FBB16C23718C8400B1B4DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB16B23718C8400B1B4DE /* AppDelegate.swift */; };
 		E6FBB17423718C8400B1B4DE /* Donorhin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB17223718C8400B1B4DE /* Donorhin.xcdatamodeld */; };
 		E6FBB17623718C8500B1B4DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6FBB17523718C8500B1B4DE /* Assets.xcassets */; };
@@ -89,6 +94,11 @@
 		E6DDAF27237435B300D6EAD1 /* TrackerController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController+UITableView.swift"; sourceTree = "<group>"; };
 		E6DDAF28237435B300D6EAD1 /* FindController+ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FindController+ScrollView.swift"; sourceTree = "<group>"; };
 		E6DDAF29237435B300D6EAD1 /* TrackerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerController.swift; sourceTree = "<group>"; };
+		E6DDAF2E2375630700D6EAD1 /* LineLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineLayer.swift; sourceTree = "<group>"; };
+		E6DDAF2F2375630800D6EAD1 /* AnnularLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnularLayer.swift; sourceTree = "<group>"; };
+		E6DDAF302375630800D6EAD1 /* StepIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepIndicatorView.swift; sourceTree = "<group>"; };
+		E6DDAF372375638E00D6EAD1 /* ScanFormPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScanFormPage.storyboard; sourceTree = "<group>"; };
+		E6DDAF39237563AC00D6EAD1 /* ScanFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanFormController.swift; sourceTree = "<group>"; };
 		E6FBB16823718C8400B1B4DE /* Donorhin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Donorhin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6FBB16B23718C8400B1B4DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6FBB17323718C8400B1B4DE /* Donorhin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Donorhin.xcdatamodel; sourceTree = "<group>"; };
@@ -214,6 +224,41 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		E6DDAF2D237562EF00D6EAD1 /* StepIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				E6DDAF2F2375630800D6EAD1 /* AnnularLayer.swift */,
+				E6DDAF2E2375630700D6EAD1 /* LineLayer.swift */,
+				E6DDAF302375630800D6EAD1 /* StepIndicatorView.swift */,
+			);
+			path = StepIndicator;
+			sourceTree = "<group>";
+		};
+		E6DDAF342375631800D6EAD1 /* ScanFormPage */ = {
+			isa = PBXGroup;
+			children = (
+				E6DDAF362375637B00D6EAD1 /* View */,
+				E6DDAF352375636E00D6EAD1 /* Controller */,
+			);
+			path = ScanFormPage;
+			sourceTree = "<group>";
+		};
+		E6DDAF352375636E00D6EAD1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E6DDAF39237563AC00D6EAD1 /* ScanFormController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E6DDAF362375637B00D6EAD1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E6DDAF372375638E00D6EAD1 /* ScanFormPage.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E6FBB15F23718C8400B1B4DE = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +338,7 @@
 				E6FBB1A523718E2D00B1B4DE /* DiscoverPage */,
 				E6FBB1A423718E1100B1B4DE /* DonatePage */,
 				E6FBB1A323718DFC00B1B4DE /* FindPage */,
+				E6DDAF342375631800D6EAD1 /* ScanFormPage */,
 			);
 			path = RootTabBarController;
 			sourceTree = "<group>";
@@ -363,6 +409,7 @@
 		E6FBB1C1237198F500B1B4DE /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				E6DDAF2D237562EF00D6EAD1 /* StepIndicator */,
 				E6FBB1C22371991D00B1B4DE /* Constants.swift */,
 			);
 			path = Utilities;
@@ -479,6 +526,7 @@
 				E6FBB17923718C8500B1B4DE /* LaunchScreen.storyboard in Resources */,
 				CC88A08A23749D16001A982E /* Tracker.storyboard in Resources */,
 				E6FBB17623718C8500B1B4DE /* Assets.xcassets in Resources */,
+				E6DDAF382375638E00D6EAD1 /* ScanFormPage.storyboard in Resources */,
 				E6FBB1A023718D5500B1B4DE /* RootTabBarController.storyboard in Resources */,
 				AB73579A2374316900A6099B /* Profile.storyboard in Resources */,
 				E6FBB1AD23718EF300B1B4DE /* Discover.storyboard in Resources */,
@@ -515,9 +563,11 @@
 				AB7357962374313500A6099B /* FirstCell.swift in Sources */,
 				E6FBB17423718C8400B1B4DE /* Donorhin.xcdatamodeld in Sources */,
 				0925FB4023740E1C00874DAA /* DonateTableViewCell.swift in Sources */,
+				E6DDAF312375630800D6EAD1 /* LineLayer.swift in Sources */,
 				E6FBB16C23718C8400B1B4DE /* AppDelegate.swift in Sources */,
 				E6FBB1B52371901400B1B4DE /* AuthenticationController.swift in Sources */,
 				AB7357972374313500A6099B /* SecondCell.swift in Sources */,
+				E6DDAF332375630800D6EAD1 /* StepIndicatorView.swift in Sources */,
 				AB7357982374313500A6099B /* ThirdCell.swift in Sources */,
 				E6DDAF2A237435B300D6EAD1 /* TrackerController+UITableView.swift in Sources */,
 				AB7357862374309E00A6099B /* CustomSegmentedController.swift in Sources */,
@@ -532,8 +582,10 @@
 				B0B168622374039B001DCE3C /* TrackerDonor.swift in Sources */,
 				098FD4752372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift in Sources */,
 				E6FBB1AF23718FBE00B1B4DE /* DiscoverController.swift in Sources */,
+				E6DDAF3A237563AC00D6EAD1 /* ScanFormController.swift in Sources */,
 				E6FBB1C0237194FB00B1B4DE /* BloodRequest.swift in Sources */,
 				E6FBB1BE2371947700B1B4DE /* FindController+UITableView.swift in Sources */,
+				E6DDAF322375630800D6EAD1 /* AnnularLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
