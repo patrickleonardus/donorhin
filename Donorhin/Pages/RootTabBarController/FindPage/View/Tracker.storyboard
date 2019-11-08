@@ -17,21 +17,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="U2s-MK-wD1">
-                                <rect key="frame" x="0.0" y="105" width="414" height="805"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="910"/>
                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="U2s-MK-wD1" secondAttribute="height" multiplier="18:35" id="FVv-8Q-0zz"/>
-                                    <constraint firstAttribute="height" constant="805" id="Kz6-pB-6ZW"/>
-                                    <constraint firstAttribute="width" constant="414" id="TZC-bD-MkJ"/>
+                                    <constraint firstAttribute="width" constant="414" id="6Dn-uD-1ij"/>
+                                    <constraint firstAttribute="width" secondItem="U2s-MK-wD1" secondAttribute="height" multiplier="207:455" id="NdC-0m-Ypg"/>
+                                    <constraint firstAttribute="height" constant="910" id="QnD-Ox-wuc"/>
                                 </constraints>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="U2s-MK-wD1" firstAttribute="trailing" secondItem="9tG-dj-ird" secondAttribute="trailing" id="4Pe-Wj-uyE"/>
-                            <constraint firstItem="U2s-MK-wD1" firstAttribute="leading" secondItem="9tG-dj-ird" secondAttribute="leading" id="mWS-12-XU0"/>
-                            <constraint firstAttribute="bottom" secondItem="U2s-MK-wD1" secondAttribute="bottom" constant="-14" id="xOg-80-Usg"/>
-                            <constraint firstItem="U2s-MK-wD1" firstAttribute="top" secondItem="9tG-dj-ird" secondAttribute="top" constant="61" id="yoP-52-VIM"/>
+                            <constraint firstItem="U2s-MK-wD1" firstAttribute="leading" secondItem="9tG-dj-ird" secondAttribute="leading" id="MFe-yT-cVl"/>
+                            <constraint firstItem="U2s-MK-wD1" firstAttribute="trailing" secondItem="9tG-dj-ird" secondAttribute="trailing" id="oGJ-M6-mfk"/>
+                            <constraint firstItem="U2s-MK-wD1" firstAttribute="top" secondItem="8sb-ne-Et9" secondAttribute="top" id="uoY-X0-Zgo"/>
+                            <constraint firstAttribute="bottom" secondItem="U2s-MK-wD1" secondAttribute="bottom" constant="-14" id="v0B-Fs-RNa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9tG-dj-ird"/>
                     </view>
