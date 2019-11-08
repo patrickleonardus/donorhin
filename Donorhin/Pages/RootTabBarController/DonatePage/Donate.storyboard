@@ -16,10 +16,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wjh-sG-CRv" customClass="CustomMainView" customModule="Donorhin" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wjh-sG-CRv" userLabel="Main View" customClass="CustomMainView" customModule="Donorhin" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ntr-t6-vqj" customClass="CustomViewRounded" customModule="Donorhin" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ntr-t6-vqj" userLabel="View Status Donor" customClass="CustomViewRounded" customModule="Donorhin" customModuleProvider="target">
                                         <rect key="frame" x="16" y="5" width="382" height="45"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bersedia Mendonor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQP-Es-H4K">
@@ -52,40 +52,45 @@
                                         </segments>
                                     </segmentedControl>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eFu-Dz-OJB">
-                                        <rect key="frame" x="16" y="135" width="382" height="587"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <rect key="frame" x="16" y="113" width="382" height="609"/>
                                     </tableView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BkS-wn-4gr">
-                                        <rect key="frame" x="332" y="109" width="66" height="26"/>
-                                        <color key="tintColor" red="0.70196078431372544" green="0.0" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="Lihat semua">
-                                                    <attributes>
-                                                        <font key="NSFont" size="12" name="SFProText-Regular"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                        </state>
-                                    </button>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oLF-f0-iNN" userLabel="Cover View" customClass="CustomMainView" customModule="Donorhin" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="113" width="414" height="609"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="permintaanKososngGambar" translatesAutoresizingMaskIntoConstraints="NO" id="dNC-P9-hdm">
+                                                <rect key="frame" x="51" y="14" width="312" height="196"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="196" id="V1N-AK-RCK"/>
+                                                    <constraint firstAttribute="width" constant="312" id="xbt-7Q-0iJ"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="dNC-P9-hdm" firstAttribute="top" secondItem="oLF-f0-iNN" secondAttribute="top" constant="14" id="PZ6-Kc-W5d"/>
+                                            <constraint firstItem="dNC-P9-hdm" firstAttribute="centerX" secondItem="oLF-f0-iNN" secondAttribute="centerX" id="x7b-pm-5i6"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="eFu-Dz-OJB" secondAttribute="trailing" constant="16" id="09p-Mw-7Lv"/>
-                                    <constraint firstAttribute="trailing" secondItem="BkS-wn-4gr" secondAttribute="trailing" constant="16" id="BVp-2x-POv"/>
+                                    <constraint firstAttribute="trailing" secondItem="oLF-f0-iNN" secondAttribute="trailing" id="ELE-Ev-wn9"/>
                                     <constraint firstItem="FcW-Xc-bHo" firstAttribute="centerX" secondItem="wjh-sG-CRv" secondAttribute="centerX" id="Gmu-gg-D8x"/>
+                                    <constraint firstItem="oLF-f0-iNN" firstAttribute="leading" secondItem="wjh-sG-CRv" secondAttribute="leading" id="MVB-ct-M7C"/>
                                     <constraint firstAttribute="bottom" secondItem="eFu-Dz-OJB" secondAttribute="bottom" id="O1j-SL-R00"/>
                                     <constraint firstItem="ntr-t6-vqj" firstAttribute="top" secondItem="wjh-sG-CRv" secondAttribute="top" constant="5" id="O9q-Qs-3cj"/>
                                     <constraint firstItem="FcW-Xc-bHo" firstAttribute="leading" secondItem="wjh-sG-CRv" secondAttribute="leading" constant="16" id="OQv-F6-fTb"/>
                                     <constraint firstItem="eFu-Dz-OJB" firstAttribute="leading" secondItem="wjh-sG-CRv" secondAttribute="leading" constant="16" id="SSJ-Bs-Pf4"/>
-                                    <constraint firstItem="eFu-Dz-OJB" firstAttribute="top" secondItem="BkS-wn-4gr" secondAttribute="bottom" id="XdL-gR-rlq"/>
-                                    <constraint firstItem="eFu-Dz-OJB" firstAttribute="top" secondItem="FcW-Xc-bHo" secondAttribute="bottom" constant="38" id="Z8J-kc-aBT"/>
+                                    <constraint firstItem="eFu-Dz-OJB" firstAttribute="top" secondItem="FcW-Xc-bHo" secondAttribute="bottom" constant="16" id="Z8J-kc-aBT"/>
                                     <constraint firstItem="FcW-Xc-bHo" firstAttribute="top" secondItem="ntr-t6-vqj" secondAttribute="bottom" constant="16" id="dal-T0-UG1"/>
                                     <constraint firstAttribute="trailing" secondItem="ntr-t6-vqj" secondAttribute="trailing" constant="16" id="fDa-SX-isq"/>
+                                    <constraint firstAttribute="bottom" secondItem="oLF-f0-iNN" secondAttribute="bottom" id="lGK-3Z-Xlb"/>
                                     <constraint firstItem="ntr-t6-vqj" firstAttribute="centerX" secondItem="wjh-sG-CRv" secondAttribute="centerX" id="nGw-91-Ibc"/>
                                     <constraint firstItem="eFu-Dz-OJB" firstAttribute="centerX" secondItem="wjh-sG-CRv" secondAttribute="centerX" id="nf3-5X-6kr"/>
                                     <constraint firstItem="ntr-t6-vqj" firstAttribute="leading" secondItem="wjh-sG-CRv" secondAttribute="leading" constant="16" id="oxc-8v-kk0"/>
                                     <constraint firstAttribute="trailing" secondItem="FcW-Xc-bHo" secondAttribute="trailing" constant="16" id="rXN-49-UYR"/>
+                                    <constraint firstItem="oLF-f0-iNN" firstAttribute="top" secondItem="FcW-Xc-bHo" secondAttribute="bottom" constant="16" id="rwG-9C-O7O"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -129,4 +134,7 @@
             <point key="canvasLocation" x="966.66666666666674" y="602.67857142857144"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="permintaanKososngGambar" width="313" height="196"/>
+    </resources>
 </document>

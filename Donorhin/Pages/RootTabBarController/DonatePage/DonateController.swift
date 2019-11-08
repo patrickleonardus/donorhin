@@ -14,6 +14,7 @@ class DonateController: UIViewController {
   @IBOutlet weak var historyDonorSegmentedControl: UISegmentedControl!
   @IBOutlet weak var tableview: UITableView!
   final private let cellReuseIdentifier = "DonateCell"
+  var listData = ListDonate.list
   override func viewDidLoad() {
     super.viewDidLoad()
     self.setupTabledView()
