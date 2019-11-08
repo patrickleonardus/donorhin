@@ -134,7 +134,7 @@ class TrackerDonorTableViewCell: UITableViewCell {
       confirmButton.setTitleColor(.white, for: .normal)
       confirmButton.layer.cornerRadius = 10
       confirmButton.addConstraint(NSLayoutConstraint(item: confirmButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: 118))
-//      confirmButton.addConstraint(NSLayoutConstraint(item: confirmButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 43))
+      confirmButton.addConstraint(NSLayoutConstraint(item: confirmButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 43))
 //      confirmButton.titleLabel?.attributedText = NSAttributedString(
       if status == .toDo {
          confirmButton.backgroundColor = Colors.gray_disabled
@@ -142,10 +142,10 @@ class TrackerDonorTableViewCell: UITableViewCell {
          confirmButton.backgroundColor = Colors.red
       }
 //       stackView.addSubview(confirmButton)
-      stackView.alignment = .top
-      stackView.distribution = .equalSpacing
+      stackView.alignment = .leading
+      stackView.distribution = .fillProportionally
       stackView.addArrangedSubview(confirmButton)
-      stackView.layoutIfNeeded()
+//      stackView.layoutIfNeeded()
 //      self.addSubview(confirmButton)
    
       print (confirmButton.frame.size.height)

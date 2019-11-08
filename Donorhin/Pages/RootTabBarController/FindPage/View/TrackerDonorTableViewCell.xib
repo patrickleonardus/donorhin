@@ -64,7 +64,7 @@
                             <constraint firstAttribute="width" secondItem="YFd-8I-DzS" secondAttribute="height" multiplier="1:1" id="vwZ-6E-mwb"/>
                         </constraints>
                     </view>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="1" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UVn-l3-yXO">
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="UVn-l3-yXO">
                         <rect key="frame" x="99" y="11.5" width="268" height="100"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uot-Wt-b71">
@@ -74,7 +74,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25k-wB-MTA">
-                                <rect key="frame" x="0.0" y="26.5" width="268" height="73.5"/>
+                                <rect key="frame" x="0.0" y="48" width="268" height="52"/>
                                 <color key="tintColor" red="0.64261484150000003" green="0.1303341985" blue="0.14504945280000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title=" Button" image="Call17">
                                     <color key="titleColor" red="0.64261484150000003" green="0.1303341985" blue="0.14504945280000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
