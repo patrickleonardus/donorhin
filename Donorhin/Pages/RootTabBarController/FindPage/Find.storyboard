@@ -100,11 +100,20 @@
                         <outlet property="findBloodSegmentedControl" destination="CF2-4p-Gr7" id="XeO-KO-yRa"/>
                         <outlet property="tableView" destination="B93-sR-GNM" id="OZ5-fU-zcA"/>
                         <outlet property="viewNoData" destination="cFS-SC-sCV" id="x84-y1-cIg"/>
+                        <segue destination="4O9-P2-cmw" kind="show" identifier="moveToTracker" id="FQm-34-Okn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ovo-ry-ZIu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2378.2608695652175" y="-155.35714285714286"/>
+        </scene>
+        <!--Tracker-->
+        <scene sceneID="WYw-Gi-d3k">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Tracker" id="4O9-P2-cmw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r35-A7-3Ox" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3043" y="-155"/>
         </scene>
         <!--Cari-->
         <scene sceneID="SmQ-9U-bDk">

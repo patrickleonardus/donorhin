@@ -87,13 +87,7 @@ extension FindController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if findBloodSegmentedControl.selectedSegmentIndex == 0 {
-            let storyboard = UIStoryboard(name: "Tracker", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "profileStoryboard") as! ProfileController
-            let navBarOnModal: UINavigationController = UINavigationController(rootViewController: vc)
-            self.present(navBarOnModal, animated: true, completion: nil)
-        }
+        performSegue(withIdentifier: "moveToTracker", sender: self)
     }
     
 }
