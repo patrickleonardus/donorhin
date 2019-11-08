@@ -16,8 +16,11 @@ class DonateController: UIViewController {
   @IBOutlet weak var coverView: CustomMainView!
   final private let cellReuseIdentifier = "DonateCell"
   var listData = ListDonate.list
+  var profileImage = UIImageView()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.setProfileImageNavBar(self.profileImage)
     self.setupTabledView()
     if self.listData.count > 0 {
       self.coverView.isHidden = true
