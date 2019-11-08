@@ -22,11 +22,12 @@ class FindController: UIViewController {
     var bloodRequestHistory: [BloodRequest]?
     var bloodRequestCurrent: [BloodRequest]?
     
+    var navBarTitle: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initTableView()
-        setupUI()
         
         DummyData().getCurrentBloodRequest { (bloodRequest) in
             self.bloodRequestCurrent = bloodRequest
@@ -38,6 +39,17 @@ class FindController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setProfileImageNavBar()
+        setupNavBarToLarge()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        removeProfileImageNavBar()
+    }
+    
+    
+    //MARK: - initialize variable
     private func initTableView(){
         tableView.delegate = self
         tableView.dataSource = self
@@ -45,10 +57,11 @@ class FindController: UIViewController {
         tableView.tableFooterView = UIView()
     }
     
-    private func setupUI(){
-        setProfileImageNavBar()
+    private func setupNavBarToLarge(){
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .always
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
-    
+        
     private func callNumber(phoneNumber: String){
         if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
             let application:UIApplication = UIApplication.shared
@@ -61,6 +74,7 @@ class FindController: UIViewController {
     private func setProfileImageNavBar(){
         
         profileImage = UIImageView(image: UIImage(named: "user_profile_default"))
+        profileImage?.alpha = 0
         navigationController?.navigationBar.addSubview(profileImage!)
         
         profileImage!.isUserInteractionEnabled = true
@@ -77,6 +91,24 @@ class FindController: UIViewController {
         let profileTap = UITapGestureRecognizer(target: self, action: #selector(profileButton))
         profileImage!.addGestureRecognizer(profileTap)
         
+        UIView.animate(withDuration: 1.0) {
+            self.profileImage?.alpha = 1
+        }
+        
+    }
+    
+    private func removeProfileImageNavBar(){
+        
+        UIView.animate(withDuration: 0.15) {
+            self.profileImage?.alpha = 0
+        }
+        
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! TrackerController
+        destination.navigationBarTitle =  navBarTitle
     }
     
     //MARK: Action

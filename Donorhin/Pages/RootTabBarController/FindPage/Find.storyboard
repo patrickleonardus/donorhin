@@ -93,7 +93,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KvN-0X-LVa"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Cari Darah" id="1ws-QB-lWU">
+                    <navigationItem key="navigationItem" title="Cari Darah" largeTitleDisplayMode="always" id="1ws-QB-lWU">
                         <barButtonItem key="backBarButtonItem" title="Cari Darah" id="DKH-SR-vty"/>
                     </navigationItem>
                     <connections>

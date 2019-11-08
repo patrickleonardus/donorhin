@@ -163,7 +163,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eG1-sY-TSc"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Data Pribadi" largeTitleDisplayMode="never" id="K5I-3y-jja"/>
+                    <navigationItem key="navigationItem" title="Data Pribadi" id="K5I-3y-jja"/>
                     <connections>
                         <outlet property="tableView" destination="L17-Y2-ZPi" id="0NY-b7-E0V"/>
                     </connections>

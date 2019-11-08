@@ -17,9 +17,12 @@ class TrackerController : UIViewController {
     var donorAddress : String? = "PMI Tangsel"
     var donorDate : String? = "31 Nov 2019"
     
+    var navigationBarTitle: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadTableView()
+        setNavBarTitle()
         DummyData().getCurrentBloodRequest { (bloodRequest) in
             self.bloodRequest = bloodRequest
         }
@@ -32,6 +35,10 @@ class TrackerController : UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationItem.largeTitleDisplayMode = .never
         self.navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
+    func setNavBarTitle(){
+        navigationItem.title = navigationBarTitle
     }
     
     func loadTableView(){
