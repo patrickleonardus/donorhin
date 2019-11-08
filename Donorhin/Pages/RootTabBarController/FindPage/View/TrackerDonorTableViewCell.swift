@@ -29,7 +29,7 @@ class TrackerDonorTableViewCell: UITableViewCell {
    @IBOutlet var informationText: UILabel!
    @IBOutlet var buttonText: UIButton!
    let confirmButton = CustomButtonRounded(frame: CGRect(x: 0, y: 0, width: 118, height: 43))
-   let phoneNumber : String?
+   var phoneNumber : String?
    
    override func awakeFromNib() {
       super.awakeFromNib()
