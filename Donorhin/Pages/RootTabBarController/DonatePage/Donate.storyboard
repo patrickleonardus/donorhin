@@ -105,6 +105,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Donor Darah" id="h9E-Jm-ghe"/>
                     <connections>
+                        <outlet property="coverView" destination="oLF-f0-iNN" id="bmr-y5-Uxd"/>
                         <outlet property="historyDonorSegmentedControl" destination="FcW-Xc-bHo" id="I54-Rl-EHF"/>
                         <outlet property="switchButtonStatusDonor" destination="xTx-fo-hKC" id="W6Z-sl-Xqt"/>
                         <outlet property="tableview" destination="eFu-Dz-OJB" id="3He-aD-J6E"/>
