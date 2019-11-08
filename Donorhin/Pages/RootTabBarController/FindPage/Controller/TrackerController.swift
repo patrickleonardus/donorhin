@@ -46,6 +46,9 @@ class TrackerController : UIViewController {
         }
     }
     
+    @objc func callButton(){
+           callNumber(phoneNumber: "081317019898")
+    }
     
     func getTrackerItems(completionHandler: @escaping (([StepItems]) -> ())) {
            completionHandler(
