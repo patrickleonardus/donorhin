@@ -20,7 +20,7 @@ class TrackerDonorTableViewCell: UITableViewCell {
       case onGoing
       case toDo
    }
-  
+   
    
    @IBOutlet var redCircle: UIView!
    
@@ -70,7 +70,7 @@ class TrackerDonorTableViewCell: UITableViewCell {
             self.active_number.isHidden = !hide
             self.number.isHidden = !hide
             
-         //MARK: Active Styling
+            //MARK: Active Styling
          } else { //tampilin angka dan aktif
             self.active_label.isHidden =  hide
             self.active_number.isHidden = hide
@@ -79,7 +79,7 @@ class TrackerDonorTableViewCell: UITableViewCell {
             self.checkMarkImage.isHidden = !hide
          }
          
-      //MARK: To Do Styling
+         //MARK: To Do Styling
       } else { //to do
          self.redCircle.backgroundColor = Colors.gray_disabled
          
@@ -100,33 +100,33 @@ class TrackerDonorTableViewCell: UITableViewCell {
       
    }
    
-//   func stylingNumber4(status:Status) {
-//      self.buttonText.setImage(nil, for: .normal)
-////      buttonText.isHidden = false
-//      if status == .toDo {
-//         self.buttonText.setTitleColor(.white, for: .normal)
-//         self.buttonText.backgroundColor = Colors.gray_disabled
-//         self.buttonText.frame.size = CGSize(width: 118, height: 43)
-//         //self.buttonText.titleLabel!.textColor = Colors.gray_disabled
-//         //self.buttonText.titleLabel?.tintColor = Colors.gray_disabled
-//         self.buttonText.isEnabled = false
-//
-//      }
-//   }
+   //   func stylingNumber4(status:Status) {
+   //      self.buttonText.setImage(nil, for: .normal)
+   ////      buttonText.isHidden = false
+   //      if status == .toDo {
+   //         self.buttonText.setTitleColor(.white, for: .normal)
+   //         self.buttonText.backgroundColor = Colors.gray_disabled
+   //         self.buttonText.frame.size = CGSize(width: 118, height: 43)
+   //         //self.buttonText.titleLabel!.textColor = Colors.gray_disabled
+   //         //self.buttonText.titleLabel?.tintColor = Colors.gray_disabled
+   //         self.buttonText.isEnabled = false
+   //
+   //      }
+   //   }
    
-//   func stylingNumber4(status:Status) {
-//         self.buttonText.setImage(nil, for: .normal)
-//      let confirmButton: UIButton = UIButton()
-//         if status == .toDo {
-//            self.buttonText.setTitleColor(.white, for: .normal)
-//            self.buttonText.backgroundColor = Colors.gray_disabled
-//            self.buttonText.frame.size = CGSize(width: 118, height: 43)
-//            //self.buttonText.titleLabel!.textColor = Colors.gray_disabled
-//            //self.buttonText.titleLabel?.tintColor = Colors.gray_disabled
-//            self.buttonText.isEnabled = false
-//
-//         }
-//      }
+   //   func stylingNumber4(status:Status) {
+   //         self.buttonText.setImage(nil, for: .normal)
+   //      let confirmButton: UIButton = UIButton()
+   //         if status == .toDo {
+   //            self.buttonText.setTitleColor(.white, for: .normal)
+   //            self.buttonText.backgroundColor = Colors.gray_disabled
+   //            self.buttonText.frame.size = CGSize(width: 118, height: 43)
+   //            //self.buttonText.titleLabel!.textColor = Colors.gray_disabled
+   //            //self.buttonText.titleLabel?.tintColor = Colors.gray_disabled
+   //            self.buttonText.isEnabled = false
+   //
+   //         }
+   //      }
    
    func stylingNumber4(status:Status) {
       let confirmButton = CustomButtonRounded(frame: CGRect(x: 0, y: 0, width: 118, height: 43))
@@ -135,19 +135,24 @@ class TrackerDonorTableViewCell: UITableViewCell {
       confirmButton.layer.cornerRadius = 10
       confirmButton.addConstraint(NSLayoutConstraint(item: confirmButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: 118))
       confirmButton.addConstraint(NSLayoutConstraint(item: confirmButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 43))
-//      confirmButton.titleLabel?.attributedText = NSAttributedString(
+      //      confirmButton.titleLabel?.attributedText = NSAttributedString(
       if status == .toDo {
          confirmButton.backgroundColor = Colors.gray_disabled
       } else {
          confirmButton.backgroundColor = Colors.red
       }
-//       stackView.addSubview(confirmButton)
       stackView.alignment = .leading
       stackView.distribution = .fillProportionally
-      stackView.addArrangedSubview(confirmButton)
-//      stackView.layoutIfNeeded()
-//      self.addSubview(confirmButton)
-   
+//      stackView.addArrangedSubview(confirmButton)
+//      stackView.addSubview(confirmButton)
+      if stackView.arrangedSubviews[1] != nil {
+         stackView.arrangedSubviews[1].removeFromSuperview()
+      }
+//      if let view = stackView.arrangedSubviews[1]?
+      stackView.insertArrangedSubview(confirmButton, at: 1)
+      //      stackView.layoutIfNeeded()
+      //      self.addSubview(confirmButton)
+      
       print (confirmButton.frame.size.height)
       print (confirmButton.frame.size.width)
       
