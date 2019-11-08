@@ -105,6 +105,10 @@ class FindController: UIViewController {
         
     }
     
+    private func setupTabBarImage(){
+        self.tabBarController?.tabBar.items![0].image = UIImage(named: "tab_bar_find")
+        self.tabBarController?.tabBar.items![0].selectedImage = UIImage(named: "tab_bar_find")
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! TrackerController
