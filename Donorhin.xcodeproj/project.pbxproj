@@ -12,6 +12,7 @@
 		0925FB4123740E1C00874DAA /* DonateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0925FB3F23740E1C00874DAA /* DonateTableViewCell.xib */; };
 		098FD4752372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */; };
 		098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */; };
+		0996E74D237561610028BB9C /* ProfileExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0996E74C237561610028BB9C /* ProfileExtended.swift */; };
 		09DC193A23754BCD004BEFB5 /* DonateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC193923754BCD004BEFB5 /* DonateModel.swift */; };
 		AB7357862374309E00A6099B /* CustomSegmentedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7357852374309E00A6099B /* CustomSegmentedController.swift */; };
 		AB73578E2374310600A6099B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB73578D2374310600A6099B /* Profile.swift */; };
@@ -73,6 +74,7 @@
 		0925FB3F23740E1C00874DAA /* DonateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DonateTableViewCell.xib; sourceTree = "<group>"; };
 		098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonSubmitRounded.swift; sourceTree = "<group>"; };
 		098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewRounded.swift; sourceTree = "<group>"; };
+		0996E74C237561610028BB9C /* ProfileExtended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileExtended.swift; sourceTree = "<group>"; };
 		09DC193923754BCD004BEFB5 /* DonateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateModel.swift; sourceTree = "<group>"; };
 		AB7357852374309E00A6099B /* CustomSegmentedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedController.swift; sourceTree = "<group>"; };
 		AB73578D2374310600A6099B /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -178,6 +180,14 @@
 			name = CustomViews;
 			sourceTree = "<group>";
 		};
+		0996E749237561070028BB9C /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				0996E74C237561610028BB9C /* ProfileExtended.swift */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
 		AB3B8D2F2374034C008D7AB1 /* ProfilePage */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +252,7 @@
 				E6FBB16B23718C8400B1B4DE /* AppDelegate.swift */,
 				E6FBB17523718C8500B1B4DE /* Assets.xcassets */,
 				E6FBB17223718C8400B1B4DE /* Donorhin.xcdatamodeld */,
+				0996E749237561070028BB9C /* Libraries */,
 				E6FBB19D23718CDD00B1B4DE /* Pages */,
 				098FD4712372C84600AF7EC7 /* CustomViews */,
 				E6FBB1C1237198F500B1B4DE /* Utilities */,
@@ -520,6 +531,7 @@
 				0925FB4023740E1C00874DAA /* DonateTableViewCell.swift in Sources */,
 				E6FBB16C23718C8400B1B4DE /* AppDelegate.swift in Sources */,
 				E6FBB1B52371901400B1B4DE /* AuthenticationController.swift in Sources */,
+				0996E74D237561610028BB9C /* ProfileExtended.swift in Sources */,
 				AB7357972374313500A6099B /* SecondCell.swift in Sources */,
 				AB7357982374313500A6099B /* ThirdCell.swift in Sources */,
 				E6DDAF2A237435B300D6EAD1 /* TrackerController+UITableView.swift in Sources */,

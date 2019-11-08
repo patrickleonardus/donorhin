@@ -17,7 +17,7 @@ class FindController: UIViewController {
     
     let cellId = "cellId"
     
-    var profileImage : UIImageView?
+    var profileImage = UIImageView()
     
     var bloodRequestHistory: [BloodRequest]?
     var bloodRequestCurrent: [BloodRequest]?
@@ -26,8 +26,7 @@ class FindController: UIViewController {
         super.viewDidLoad()
         
         initTableView()
-        setupUI()
-        
+      self.setProfileImageNavBar(self.profileImage)
         DummyData().getCurrentBloodRequest { (bloodRequest) in
             self.bloodRequestCurrent = bloodRequest
         }
@@ -45,10 +44,6 @@ class FindController: UIViewController {
         tableView.tableFooterView = UIView()
     }
     
-    private func setupUI(){
-        setProfileImageNavBar()
-    }
-    
     private func callNumber(phoneNumber: String){
         if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
             let application:UIApplication = UIApplication.shared
@@ -58,42 +53,14 @@ class FindController: UIViewController {
         }
     }
     
-    private func setProfileImageNavBar(){
-        
-        profileImage = UIImageView(image: UIImage(named: "user_profile_default"))
-        navigationController?.navigationBar.addSubview(profileImage!)
-        
-        profileImage!.isUserInteractionEnabled = true
-        profileImage!.layer.cornerRadius = ProfileImageSize.imageSize/2
-        profileImage!.clipsToBounds = true
-        
-        
-        profileImage!.translatesAutoresizingMaskIntoConstraints = false
-        profileImage!.rightAnchor.constraint(equalTo: (navigationController?.navigationBar.rightAnchor)!, constant: -ProfileImageSize.marginRight).isActive = true
-        profileImage!.bottomAnchor.constraint(equalTo: (navigationController?.navigationBar.bottomAnchor)!, constant: -ProfileImageSize.marginBottom).isActive = true
-        profileImage!.heightAnchor.constraint(equalToConstant: ProfileImageSize.imageSize).isActive = true
-        profileImage!.widthAnchor.constraint(equalToConstant: ProfileImageSize.imageSize).isActive = true
-        
-        let profileTap = UITapGestureRecognizer(target: self, action: #selector(profileButton))
-        profileImage!.addGestureRecognizer(profileTap)
-        
-    }
-    
     //MARK: Action
     
     @objc func callButton(){
         callNumber(phoneNumber: "081317019898")
     }
     
-    @objc private func profileButton(){
-        let storyboard = UIStoryboard(name: "Profile", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "profileStoryboard") as! ProfileController
-        let navBarOnModal: UINavigationController = UINavigationController(rootViewController: vc)
-        self.present(navBarOnModal, animated: true, completion: nil)
-    }
-    
     //MARK: Action Outlet
-    
+
     @IBAction func findBloodSegmentedControlDidChange() {
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         tableView.reloadData()
