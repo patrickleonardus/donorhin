@@ -30,6 +30,10 @@ extension UIViewController {
       
       let profileTap = UITapGestureRecognizer(target: self, action: #selector(profileButton))
       profileImage.addGestureRecognizer(profileTap)
+    
+    UIView.animate(withDuration: 1.0) {
+      profileImage.alpha = 1
+    }
       
   }
   
@@ -40,6 +44,14 @@ extension UIViewController {
       self.present(navBarOnModal, animated: true, completion: nil)
   }
   
+  //MARK: - remove profile image when move to other page
+  func removeProfileImageNavBar(_ profileImage: UIImageView){
+      
+      UIView.animate(withDuration: 0.15) {
+          profileImage.alpha = 0
+      }
+      
+  }
 }
 
 

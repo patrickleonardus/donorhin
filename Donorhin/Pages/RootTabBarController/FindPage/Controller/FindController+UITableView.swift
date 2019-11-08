@@ -61,7 +61,7 @@ extension FindController: UITableViewDataSource {
         
         else {
         
-            let data = bloodRequestHistory![indexPath.row]
+            guard let data = bloodRequestHistory?[indexPath.row] else {fatalError()}
             
             cell?.title.text = data.name
             cell?.address.text = data.address
@@ -86,5 +86,20 @@ extension FindController: UITableViewDataSource {
         return cell!
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if findBloodSegmentedControl.selectedSegmentIndex == 0 {
+            guard let data = bloodRequestCurrent?[indexPath.row] else {fatalError()}
+            navBarTitle = data.name
+        }
+        
+        else {
+            guard let data = bloodRequestHistory?[indexPath.row] else {fatalError()}
+            navBarTitle = data.name
+        }
+        
+        performSegue(withIdentifier: "moveToTracker", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
 }

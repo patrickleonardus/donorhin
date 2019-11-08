@@ -15,7 +15,10 @@ extension TrackerController : UITableViewDelegate {
 extension TrackerController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+       if indexPath.section == 3 {
+           return 160
+       }
+        return 123
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -25,7 +28,6 @@ extension TrackerController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-    
     
     // Make the background color show through
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -48,11 +50,15 @@ extension TrackerController : UITableViewDataSource {
         
         cell?.informationText?.text = data.description
         cell?.buttonText.setTitle(data.buttonStr, for: .normal)
+        
         cell?.backgroundColor = UIColor.white
         cell?.layer.cornerRadius = 10
         cell?.clipsToBounds = true
+       
+        if indexPath.section < 2 {
+        cell?.buttonText.addTarget(self, action: #selector(callButton), for: .touchUpOutside)
+        }
         
-
         switch data.status {
         case .onGoing?: cell?.setupView(status: .onGoing, number: indexPath.section+1)
             break

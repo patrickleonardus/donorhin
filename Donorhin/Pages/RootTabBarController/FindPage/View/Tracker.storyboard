@@ -16,13 +16,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="U2s-MK-wD1">
-                                <rect key="frame" x="0.0" y="105" width="414" height="805"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="U2s-MK-wD1">
+                                <rect key="frame" x="16" y="0.0" width="382" height="896"/>
                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="U2s-MK-wD1" firstAttribute="top" secondItem="8sb-ne-Et9" secondAttribute="top" id="FRN-tA-CRs"/>
+                            <constraint firstAttribute="bottom" secondItem="U2s-MK-wD1" secondAttribute="bottom" id="LFy-cw-ykV"/>
+                            <constraint firstItem="9tG-dj-ird" firstAttribute="trailing" secondItem="U2s-MK-wD1" secondAttribute="trailing" constant="16" id="cnQ-6Y-fWp"/>
+                            <constraint firstItem="U2s-MK-wD1" firstAttribute="leading" secondItem="9tG-dj-ird" secondAttribute="leading" constant="16" id="zPQ-Lu-ZAT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9tG-dj-ird"/>
                     </view>
                     <connections>

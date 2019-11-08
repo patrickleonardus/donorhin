@@ -17,9 +17,13 @@ class TrackerController : UIViewController {
     var donorAddress : String? = "PMI Tangsel"
     var donorDate : String? = "31 Nov 2019"
     
+    var navigationBarTitle: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        super.view.backgroundColor = Colors.backgroundView
         loadTableView()
+        setNavBarTitle()
         DummyData().getCurrentBloodRequest { (bloodRequest) in
             self.bloodRequest = bloodRequest
         }
@@ -27,6 +31,15 @@ class TrackerController : UIViewController {
         getTrackerItems { (stepItems) in
             self.stepItems = stepItems
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
+    func setNavBarTitle(){
+        navigationItem.title = navigationBarTitle
     }
     
     func loadTableView(){
@@ -46,6 +59,11 @@ class TrackerController : UIViewController {
         }
     }
     
+    
+    
+    @objc func callButton(){
+           callNumber(phoneNumber: "081317019898")
+    }
     
     func getTrackerItems(completionHandler: @escaping (([StepItems]) -> ())) {
            completionHandler(

@@ -22,11 +22,13 @@ class FindController: UIViewController {
     var bloodRequestHistory: [BloodRequest]?
     var bloodRequestCurrent: [BloodRequest]?
     
+    var navBarTitle: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initTableView()
-      self.setProfileImageNavBar(self.profileImage)
+        
         DummyData().getCurrentBloodRequest { (bloodRequest) in
             self.bloodRequestCurrent = bloodRequest
         }
@@ -37,6 +39,17 @@ class FindController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+      self.setProfileImageNavBar(self.profileImage)
+      setupNavBarToLarge()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+      self.removeProfileImageNavBar(self.profileImage)
+    }
+    
+    
+    //MARK: - initialize variable
     private func initTableView(){
         tableView.delegate = self
         tableView.dataSource = self
@@ -44,6 +57,11 @@ class FindController: UIViewController {
         tableView.tableFooterView = UIView()
     }
     
+    private func setupNavBarToLarge(){
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .always
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+        
     private func callNumber(phoneNumber: String){
         if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
             let application:UIApplication = UIApplication.shared
@@ -51,6 +69,11 @@ class FindController: UIViewController {
                 application.open(phoneCallURL, options: [:], completionHandler: nil)
             }
         }
+    }
+  
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! TrackerController
+        destination.navigationBarTitle =  navBarTitle
     }
     
     //MARK: Action
