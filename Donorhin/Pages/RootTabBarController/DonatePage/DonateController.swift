@@ -13,10 +13,15 @@ class DonateController: UIViewController {
   @IBOutlet weak var switchButtonStatusDonor: UISwitch!
   @IBOutlet weak var historyDonorSegmentedControl: UISegmentedControl!
   @IBOutlet weak var tableview: UITableView!
+  @IBOutlet weak var coverView: CustomMainView!
   final private let cellReuseIdentifier = "DonateCell"
+  var listData = ListDonate.list
   override func viewDidLoad() {
     super.viewDidLoad()
     self.setupTabledView()
+    if self.listData.count > 0 {
+      self.coverView.isHidden = true
+    }
   }
   
   private func setupTabledView() {
@@ -28,12 +33,12 @@ class DonateController: UIViewController {
 
 extension DonateController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 0
+    return self.listData.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableview.dequeueReusableCell(withIdentifier: self.cellReuseIdentifier, for: indexPath) as! DonateTableViewCell
-    
+    cell.titleLabel.text = self.listData[indexPath.row].user
     return cell
   }
 }
