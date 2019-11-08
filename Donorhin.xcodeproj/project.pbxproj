@@ -14,6 +14,8 @@
 		098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */; };
 		0996E74D237561610028BB9C /* ProfileExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0996E74C237561610028BB9C /* ProfileExtended.swift */; };
 		09DC193A23754BCD004BEFB5 /* DonateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC193923754BCD004BEFB5 /* DonateModel.swift */; };
+		AB4BD9AA2375997E0016DDF1 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB4BD9A92375997E0016DDF1 /* Onboarding.storyboard */; };
+		AB4BD9AC237599870016DDF1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BD9AB237599870016DDF1 /* OnboardingViewController.swift */; };
 		AB7357862374309E00A6099B /* CustomSegmentedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7357852374309E00A6099B /* CustomSegmentedController.swift */; };
 		AB73578E2374310600A6099B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB73578D2374310600A6099B /* Profile.swift */; };
 		AB7357912374311400A6099B /* ProfileController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB73578F2374311400A6099B /* ProfileController+UITableView.swift */; };
@@ -81,6 +83,8 @@
 		098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewRounded.swift; sourceTree = "<group>"; };
 		0996E74C237561610028BB9C /* ProfileExtended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileExtended.swift; sourceTree = "<group>"; };
 		09DC193923754BCD004BEFB5 /* DonateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateModel.swift; sourceTree = "<group>"; };
+		AB4BD9A92375997E0016DDF1 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		AB4BD9AB237599870016DDF1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		AB7357852374309E00A6099B /* CustomSegmentedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedController.swift; sourceTree = "<group>"; };
 		AB73578D2374310600A6099B /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		AB73578F2374311400A6099B /* ProfileController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProfileController+UITableView.swift"; sourceTree = "<group>"; };
@@ -236,6 +240,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		AB4BD9A8237599340016DDF1 /* Onboard */ = {
+			isa = PBXGroup;
+			children = (
+				AB4BD9AB237599870016DDF1 /* OnboardingViewController.swift */,
+				AB4BD9A92375997E0016DDF1 /* Onboarding.storyboard */,
+			);
+			path = Onboard;
+			sourceTree = "<group>";
+		};
 		E6DDAF2D237562EF00D6EAD1 /* StepIndicator */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,6 +352,7 @@
 			children = (
 				E6FBB19E23718CE800B1B4DE /* RootTabBarController */,
 				E6FBB19C23718CB300B1B4DE /* Authentication */,
+				AB4BD9A8237599340016DDF1 /* Onboard */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -544,6 +558,7 @@
 				E6FBB1A023718D5500B1B4DE /* RootTabBarController.storyboard in Resources */,
 				AB73579A2374316900A6099B /* Profile.storyboard in Resources */,
 				E6FBB1AD23718EF300B1B4DE /* Discover.storyboard in Resources */,
+				AB4BD9AA2375997E0016DDF1 /* Onboarding.storyboard in Resources */,
 				0925FB4123740E1C00874DAA /* DonateTableViewCell.xib in Resources */,
 				E6FBB1AB23718EAB00B1B4DE /* Donate.storyboard in Resources */,
 			);
@@ -601,6 +616,7 @@
 				E6DDAF3A237563AC00D6EAD1 /* ScanFormController.swift in Sources */,
 				E6FBB1C0237194FB00B1B4DE /* BloodRequest.swift in Sources */,
 				E6FBB1BE2371947700B1B4DE /* FindController+UITableView.swift in Sources */,
+				AB4BD9AC237599870016DDF1 /* OnboardingViewController.swift in Sources */,
 				E6DDAF322375630800D6EAD1 /* AnnularLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
