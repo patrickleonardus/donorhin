@@ -133,16 +133,21 @@ class TrackerDonorTableViewCell: UITableViewCell {
       confirmButton.setTitle("Konfirmasi", for: .normal)
       confirmButton.setTitleColor(.white, for: .normal)
       confirmButton.layer.cornerRadius = 10
-      confirmButton.translatesAutoresizingMaskIntoConstraints = false
+      confirmButton.addConstraint(NSLayoutConstraint(item: confirmButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: 118))
+//      confirmButton.addConstraint(NSLayoutConstraint(item: confirmButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 43))
+//      confirmButton.titleLabel?.attributedText = NSAttributedString(
       if status == .toDo {
          confirmButton.backgroundColor = Colors.gray_disabled
-         
+      } else {
+         confirmButton.backgroundColor = Colors.red
       }
 //       stackView.addSubview(confirmButton)
-      stackView.alignment = .leading
-      stackView.distribution = .fillProportionally
+      stackView.alignment = .top
+      stackView.distribution = .equalSpacing
       stackView.addArrangedSubview(confirmButton)
-      confirmButton.frame.size.width = 118
+      stackView.layoutIfNeeded()
+//      self.addSubview(confirmButton)
+   
       print (confirmButton.frame.size.height)
       print (confirmButton.frame.size.width)
       
