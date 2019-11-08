@@ -65,16 +65,16 @@
                         </constraints>
                     </view>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="1" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UVn-l3-yXO">
-                        <rect key="frame" x="99" y="10" width="268" height="103"/>
+                        <rect key="frame" x="99" y="11.5" width="268" height="100"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uot-Wt-b71">
-                                <rect key="frame" x="0.0" y="0.0" width="268" height="48.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uot-Wt-b71">
+                                <rect key="frame" x="0.0" y="0.0" width="268" height="47"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25k-wB-MTA">
-                                <rect key="frame" x="0.0" y="28" width="268" height="75"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25k-wB-MTA">
+                                <rect key="frame" x="0.0" y="26.5" width="268" height="73.5"/>
                                 <color key="tintColor" red="0.64261484150000003" green="0.1303341985" blue="0.14504945280000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title=" Button" image="Call17">
                                     <color key="titleColor" red="0.64261484150000003" green="0.1303341985" blue="0.14504945280000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -84,8 +84,10 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="25k-wB-MTA" firstAttribute="leading" secondItem="UVn-l3-yXO" secondAttribute="leading" id="Ckq-7Q-hdO"/>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="150" id="ReQ-6T-3ff"/>
                             <constraint firstAttribute="trailing" secondItem="uot-Wt-b71" secondAttribute="trailing" id="fbM-Fj-AIo"/>
                             <constraint firstItem="uot-Wt-b71" firstAttribute="leading" secondItem="UVn-l3-yXO" secondAttribute="leading" id="hrQ-PB-gut"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="pog-Ii-kgF"/>
                             <constraint firstAttribute="trailing" secondItem="25k-wB-MTA" secondAttribute="trailing" id="wBD-ph-gJR"/>
                         </constraints>
                     </stackView>
@@ -93,11 +95,10 @@
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="YFd-8I-DzS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="4ek-49-h8Y"/>
-                    <constraint firstAttribute="bottom" secondItem="UVn-l3-yXO" secondAttribute="bottom" constant="10" id="MPU-7U-POc"/>
                     <constraint firstItem="UVn-l3-yXO" firstAttribute="leading" secondItem="YFd-8I-DzS" secondAttribute="trailing" constant="15" id="YSo-NI-4y4"/>
                     <constraint firstItem="YFd-8I-DzS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="22" id="ZB3-RT-v5B"/>
+                    <constraint firstItem="UVn-l3-yXO" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="d3Q-xi-yf1"/>
                     <constraint firstAttribute="trailing" secondItem="UVn-l3-yXO" secondAttribute="trailing" constant="15" id="mVe-K8-GzW"/>
-                    <constraint firstItem="UVn-l3-yXO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="wQd-3e-2zt"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -109,6 +110,7 @@
                 <outlet property="informationText" destination="uot-Wt-b71" id="wC7-VU-A4a"/>
                 <outlet property="number" destination="riH-Yp-zS1" id="k2Y-pa-qg9"/>
                 <outlet property="redCircle" destination="YFd-8I-DzS" id="yGk-Gu-7Tm"/>
+                <outlet property="stackView" destination="UVn-l3-yXO" id="kro-bm-GIT"/>
             </connections>
             <point key="canvasLocation" x="95.652173913043484" y="151.67410714285714"/>
         </tableViewCell>
