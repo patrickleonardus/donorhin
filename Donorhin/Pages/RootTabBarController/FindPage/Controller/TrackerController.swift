@@ -34,6 +34,7 @@ class TrackerController : UIViewController {
         trackerTableView.dataSource = self
         trackerTableView.register(UINib(nibName: "TrackerDonorTableViewCell", bundle: nil), forCellReuseIdentifier: "trackerCell")
         trackerTableView.tableFooterView = UIView()
+        trackerTableView.reloadData()
     }
     
     private func callNumber(phoneNumber: String){
