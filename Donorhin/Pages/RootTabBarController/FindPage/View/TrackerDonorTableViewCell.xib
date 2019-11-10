@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -68,20 +66,20 @@
                         <rect key="frame" x="99" y="11.5" width="268" height="100"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uot-Wt-b71">
-                                <rect key="frame" x="0.0" y="0.0" width="268" height="47"/>
+                                <rect key="frame" x="0.0" y="0.0" width="268" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25k-wB-MTA">
-                                <rect key="frame" x="0.0" y="48" width="268" height="52"/>
+                                <rect key="frame" x="0.0" y="38" width="268" height="62"/>
                                 <color key="tintColor" red="0.64261484150000003" green="0.1303341985" blue="0.14504945280000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title=" Button" image="Call17">
                                     <color key="titleColor" red="0.64261484150000003" green="0.1303341985" blue="0.14504945280000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonTextPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="2Sx-Pj-bVz"/>
+                                    <action selector="makeACall:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="2Sx-Pj-bVz"/>
                                 </connections>
                             </button>
                         </subviews>

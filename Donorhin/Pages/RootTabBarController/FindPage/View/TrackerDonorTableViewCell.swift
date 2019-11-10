@@ -29,7 +29,7 @@ class TrackerDonorTableViewCell: UITableViewCell {
    @IBOutlet var informationText: UILabel!
    @IBOutlet var buttonText: UIButton!
    let confirmButton = CustomButtonRounded(frame: CGRect(x: 0, y: 0, width: 118, height: 43))
-   var phoneNumber : String?
+   var phoneNumber : String? = "082285250866"
    
    override func awakeFromNib() {
       super.awakeFromNib()
@@ -47,11 +47,11 @@ class TrackerDonorTableViewCell: UITableViewCell {
       buttonText.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
    }
    
-   //MARK: Use this to styling the cells
+   //MARK: Styling the cell
    func setupView(status:Status,number:Int) {
       
       let hide = false
-      //MARK: Done and Active Styling informationText and buttonText
+      //Done and Active Styling informationText and buttonText
       if status !=  .toDo { //enable ; on going/done  processes
          self.redCircle.backgroundColor = Colors.red
          
@@ -60,14 +60,14 @@ class TrackerDonorTableViewCell: UITableViewCell {
          self.buttonText.titleLabel?.textColor = Colors.red
          self.buttonText.isEnabled = true
          
-         //MARK: Done Styling
+         //Done Styling
          if status == .done { //tampilin checklist
             self.checkMarkImage.isHidden = hide
             self.active_label.isHidden =  !hide
             self.active_number.isHidden = !hide
             self.number.isHidden = !hide
             
-            //MARK: Active Styling
+            //Active Styling
          } else { //tampilin angka dan aktif
             self.active_label.isHidden =  hide
             self.active_number.isHidden = hide
@@ -76,7 +76,7 @@ class TrackerDonorTableViewCell: UITableViewCell {
             self.checkMarkImage.isHidden = !hide
          }
          
-         //MARK: To Do Styling
+         //To Do Styling
       } else { //to do
          self.redCircle.backgroundColor = Colors.gray_disabled
          
@@ -118,16 +118,26 @@ class TrackerDonorTableViewCell: UITableViewCell {
       //embedding to stackview
       stackView.alignment = .leading
       stackView.distribution = .fillProportionally
-      if stackView.arrangedSubviews[1] != nil { //so it won't repeat adding the same
-         stackView.arrangedSubviews[1].removeFromSuperview()
-      }
+      stackView.arrangedSubviews[1].removeFromSuperview()//so it won't repeat adding the same
       stackView.insertArrangedSubview(confirmButton, at: 1)
    }
    
    //MARK: Button text (call) pressed
-   @IBAction func buttonTextPressed(_ sender: UIButton) {
-      //TO DO: add  function to call PMI
+   @IBAction func makeACall(_ sender: UIButton) {
       print ("Button text (call UTD) pressed")
+      if let redCrossPhone = phoneNumber {
+         if let phoneCallURL = URL(string: "telprompt://\(redCrossPhone)") {
+            UIApplication.shared.open(phoneCallURL, options: [:], completionHandler: nil)
+         }
+         else {
+            print("Invalid phone number")
+            //TODO: what to do when the phone enumber is invalid?
+         }
+      }
+      else {
+         //TODO: What to do when the phone number is nil?
+         print("System do not have this Blood Tranfusion Unit's phone number")
+      }
    }
    
    //MARK: Button confirm pressed
