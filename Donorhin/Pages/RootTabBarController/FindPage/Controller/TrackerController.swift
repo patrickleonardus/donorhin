@@ -14,8 +14,7 @@ class TrackerController : UIViewController {
     
     var stepItems : [StepItems]?
     var bloodRequest : [BloodRequest]?
-    var donorAddress : String? = "PMI Tangsel"
-    var donorDate : String? = "31 Nov 2019"
+    var donorData : [Pendonor]?
     
     var navigationBarTitle: String?
     
@@ -28,9 +27,14 @@ class TrackerController : UIViewController {
             self.bloodRequest = bloodRequest
         }
         
+        PendonorDummyData().getCurrentPendonor { (donorData) in
+            self.donorData = donorData
+        }
+        
         getTrackerItems { (stepItems) in
             self.stepItems = stepItems
         }
+        trackerTableView.showsVerticalScrollIndicator = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,8 +63,6 @@ class TrackerController : UIViewController {
         }
     }
     
-    
-    
     @objc func callButton(){
            callNumber(phoneNumber: "081317019898")
     }
@@ -68,7 +70,7 @@ class TrackerController : UIViewController {
     func getTrackerItems(completionHandler: @escaping (([StepItems]) -> ())) {
            completionHandler(
             [StepItems(description: "Anda dapat memberitahukan PMI bahwa Anda menggunakan aplikasi untuk mencari donor", buttonStr: " Hubungi \(String((bloodRequest?.first?.address)!))", status: .done),
-             StepItems(description: "Pendonor Anda Telah Ditemukan Lokasi: \(String(donorAddress!)) Mendonor pada \(String(donorDate!))", buttonStr: " Hubungi \(String(donorAddress!))", status: .onGoing),
+             StepItems(description: "Pendonor Anda Telah Ditemukan Lokasi: \(String((donorData?.first?.address)!)) Mendonor pada \(String((donorData?.first?.date!)!))", buttonStr: " Hubungi \(String((donorData?.first?.address!)!))", status: .onGoing),
              StepItems(description: "Pendonor Akan Melakukan Verifikasi Kelengkapan Surat", buttonStr: "", status: .toDo),
              StepItems(description: "Donor Sukses! Mohon untuk konfirmasi apabila sudah mendapatkan kantong darah", buttonStr: " Konfirmasi", status: .toDo),
              StepItems(description: "Ayo Gabung Dengan Komunitas Rhesus Negatif", buttonStr: " More info", status: .toDo)
