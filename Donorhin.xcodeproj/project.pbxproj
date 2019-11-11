@@ -266,7 +266,6 @@
 			children = (
 				E6DDAF29237435B300D6EAD1 /* TrackerController.swift */,
 				E6DDAF27237435B300D6EAD1 /* TrackerController+UITableView.swift */,
-				CC88A08523749D16001A982E /* Tracker.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -276,6 +275,7 @@
 			children = (
 				CC88A08223749D16001A982E /* TrackerDonorTableViewCell.swift */,
 				CC88A08423749D16001A982E /* TrackerDonorTableViewCell.xib */,
+				CC88A08523749D16001A982E /* Tracker.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
