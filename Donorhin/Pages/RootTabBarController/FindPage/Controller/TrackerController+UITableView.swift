@@ -56,7 +56,7 @@ extension TrackerController : UITableViewDataSource {
         cell?.clipsToBounds = true
        
         if indexPath.section < 2 {
-        cell?.buttonText.addTarget(self, action: #selector(callButton), for: .touchUpOutside)
+            cell?.buttonText.addTarget(self, action: #selector(callButton), for: .touchUpInside)
         }
         
         switch data.status {

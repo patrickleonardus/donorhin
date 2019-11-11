@@ -20,3 +20,24 @@ struct StepItems {
     var status : Status?
 }
 
+enum donorStatus {
+    case searching
+    case found
+    case verified
+    case done
+}
+
+struct Pendonor {
+    let id : String?
+    let name : String?
+    let address : String?
+    let date : String?
+    let donorStatus : donorStatus?
+}
+
+struct PendonorDummyData {
+    func getCurrentPendonor(completionHandler: @escaping (([Pendonor]) -> ())){
+        completionHandler(
+            [Pendonor(id: "190", name: "Vebby", address: "PMI Tangsel", date: "31 Nov 2019", donorStatus: .found)])
+    }
+}
