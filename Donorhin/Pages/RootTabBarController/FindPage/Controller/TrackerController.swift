@@ -34,6 +34,7 @@ class TrackerController : UIViewController {
         getTrackerItems { (stepItems) in
             self.stepItems = stepItems
         }
+        trackerTableView.showsVerticalScrollIndicator = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
