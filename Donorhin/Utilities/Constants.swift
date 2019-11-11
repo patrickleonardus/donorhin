@@ -22,3 +22,9 @@ enum Colors{
     static let backgroundView = UIColor(red: 242/255, green: 242/255, blue: 247/255, alpha: 1)
 }
 
+enum UDDevice{
+   // get from user default
+   static let heightScreen = UserDefaults.standard.integer(forKey:"userScreenHeight")
+   static let widthScreen = UserDefaults.standard.integer(forKey:"userScreenWidth")
+}
+

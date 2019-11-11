@@ -19,10 +19,25 @@ extension FindController: UIScrollViewDelegate{
                 }
             }
             else if offsetPoint.y >= 0.0{
-                UIView.animate(withDuration: 0.3) {
+                UIView.animate(withDuration: 0.2) {
                     self.findBloodSegmentedControl.alpha = 1
                 }
             }
+
+            let navBarHeight = Double((navigationController?.navigationBar.frame.height)!)
+            
+            if navBarHeight < 90.0 {
+                UIView.animate(withDuration: 0.2) {
+                    self.profileImage.alpha = 0.0
+                }
+                
+            }
+            else if navBarHeight >= 90.0 {
+                UIView.animate(withDuration: 0.2) {
+                    self.profileImage.alpha = 1.0
+                }
+            }
+            
         }
     }
 }
