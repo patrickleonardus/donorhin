@@ -65,6 +65,7 @@ class TrackerDonorTableViewCell: UITableViewCell {
             self.checkMarkImage.isHidden = hide
             self.active_label.isHidden =  !hide
             self.active_number.isHidden = !hide
+            
             self.number.isHidden = !hide
             
             //Active Styling
@@ -83,7 +84,6 @@ class TrackerDonorTableViewCell: UITableViewCell {
          self.informationText.textColor = Colors.gray_disabled
          self.buttonText.tintColor = Colors.gray_disabled
          self.buttonText.titleLabel?.textColor = Colors.gray_disabled
-         self.buttonText.isHidden = true
          
          self.number.isHidden = hide
          self.number.text =  "\(number)"
@@ -93,6 +93,11 @@ class TrackerDonorTableViewCell: UITableViewCell {
       }
       
       if number == 4 {stylingNumber4(status: status) }
+      if number == 1 || number == 2 {
+         self.buttonText.isHidden = false
+      } else {
+         self.buttonText.isHidden = true
+      }
    }
    
    func stylingNumber4(status:Status) {

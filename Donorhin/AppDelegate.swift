@@ -91,6 +91,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+   
+   func saveUserPhoneDetail() {
+      let screenSize: CGRect = UIScreen.main.bounds
+      UserDefaults.standard.set(screenSize.height, forKey: "userScreenHeight")
+      UserDefaults.standard.set(screenSize.width, forKey: "userScreenWidth")
+   }
 
 }
 
