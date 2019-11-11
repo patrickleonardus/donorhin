@@ -15,9 +15,18 @@ extension TrackerController : UITableViewDelegate {
 extension TrackerController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       if indexPath.section == 3 {
-           return 160
-       }
+        let height = self.view.frame.height
+        if height < 1334 {
+            if indexPath.section == 3 {
+               return 200
+            }
+            return 160
+        }
+        else {
+            if indexPath.section == 3 {
+               return 160
+            }
+        }
         return 123
     }
     
@@ -56,7 +65,7 @@ extension TrackerController : UITableViewDataSource {
         cell?.clipsToBounds = true
        
         if indexPath.section < 2 {
-        cell?.buttonText.addTarget(self, action: #selector(callButton), for: .touchUpOutside)
+            cell?.buttonText.addTarget(self, action: #selector(callButton), for: .touchUpInside)
         }
         
         switch data.status {
