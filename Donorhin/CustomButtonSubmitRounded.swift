@@ -28,8 +28,8 @@ class CustomButtonRounded: UIButton {
    
    //MARK: - setup button
    private func setupButton() {
-      self.layer.backgroundColor = UIColor(red: 179/255, green: 0, blue: 27/255, alpha: 1).cgColor
-      self.layer.cornerRadius = 10
-      self.backgroundColor = Colors.red
+    self.layer.backgroundColor = UIColor(red: 179/255, green: 0, blue: 27/255, alpha: 1).cgColor
+    self.layer.cornerRadius = 10
+    self.backgroundColor = Colors.red
    }
 }
