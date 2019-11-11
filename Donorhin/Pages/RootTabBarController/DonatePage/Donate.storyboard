@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nxa-dh-GSn">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nxa-dh-GSn">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -60,7 +58,7 @@
                                         <rect key="frame" x="0.0" y="113" width="414" height="609"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="permintaanKososngGambar" translatesAutoresizingMaskIntoConstraints="NO" id="dNC-P9-hdm">
-                                                <rect key="frame" x="51" y="14" width="312" height="196"/>
+                                                <rect key="frame" x="51" y="14" width="312" height="196.00000000000006"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="196" id="V1N-AK-RCK"/>
                                                     <constraint firstAttribute="width" constant="312" id="xbt-7Q-0iJ"/>
@@ -111,11 +109,28 @@
                         <outlet property="historyDonorSegmentedControl" destination="FcW-Xc-bHo" id="I54-Rl-EHF"/>
                         <outlet property="switchButtonStatusDonor" destination="xTx-fo-hKC" id="W6Z-sl-Xqt"/>
                         <outlet property="tableview" destination="eFu-Dz-OJB" id="3He-aD-J6E"/>
+                        <segue destination="fJI-CD-VWe" kind="show" id="vni-ar-6ad"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fwf-e6-5KF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1876.8115942028987" y="602.67857142857144"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="LEG-qS-srw">
+            <objects>
+                <viewController id="fJI-CD-VWe" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b4r-Pc-OUw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="1r3-Ja-w7E"/>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="bl0-kp-moW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ju4-s7-s1j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2790" y="603"/>
         </scene>
         <!--Donor-->
         <scene sceneID="Eo3-eG-7kJ">
@@ -139,6 +154,6 @@
     </scenes>
     <resources>
         <image name="permintaanKososngGambar" width="313" height="196"/>
-        <image name="tab_bar_donor" width="30" height="31"/>
+        <image name="tab_bar_donor" width="26" height="25"/>
     </resources>
 </document>
