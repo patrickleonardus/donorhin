@@ -202,14 +202,6 @@
 			name = CustomViews;
 			sourceTree = "<group>";
 		};
-		0996E749237561070028BB9C /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				0996E74C237561610028BB9C /* ProfileExtended.swift */,
-			);
-			name = Libraries;
-			sourceTree = "<group>";
-		};
 		AB3B8D2F2374034C008D7AB1 /* ProfilePage */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +247,43 @@
 				AB4BD9A92375997E0016DDF1 /* Onboarding.storyboard */,
 			);
 			path = Onboard;
+			sourceTree = "<group>";
+		};
+		CC07A64923796AFB00DE2FBE /* Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				CC3F75C12379804300F7C9D0 /* Model */,
+				CC3F75C02379803E00F7C9D0 /* View */,
+				CC3F75BF2379803800F7C9D0 /* Controller */,
+			);
+			path = Tracker;
+			sourceTree = "<group>";
+		};
+		CC3F75BF2379803800F7C9D0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E6DDAF29237435B300D6EAD1 /* TrackerController.swift */,
+				E6DDAF27237435B300D6EAD1 /* TrackerController+UITableView.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CC3F75C02379803E00F7C9D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CC88A08223749D16001A982E /* TrackerDonorTableViewCell.swift */,
+				CC88A08423749D16001A982E /* TrackerDonorTableViewCell.xib */,
+				CC88A08523749D16001A982E /* Tracker.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CC3F75C12379804300F7C9D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B0B168612374039B001DCE3C /* TrackerDonor.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E6DDAF2D237562EF00D6EAD1 /* StepIndicator */ = {
@@ -318,7 +347,6 @@
 				E6FBB16B23718C8400B1B4DE /* AppDelegate.swift */,
 				E6FBB17523718C8500B1B4DE /* Assets.xcassets */,
 				E6FBB17223718C8400B1B4DE /* Donorhin.xcdatamodeld */,
-				0996E749237561070028BB9C /* Libraries */,
 				E6FBB19D23718CDD00B1B4DE /* Pages */,
 				098FD4712372C84600AF7EC7 /* CustomViews */,
 				E6FBB1C1237198F500B1B4DE /* Utilities */,
@@ -384,6 +412,7 @@
 				E6FBB1BB2371943500B1B4DE /* Model */,
 				E6FBB1BA2371942C00B1B4DE /* Controller */,
 				E6FBB1BC2371943D00B1B4DE /* View */,
+				CC07A64923796AFB00DE2FBE /* Tracker */,
 				E6FBB1A823718E7F00B1B4DE /* Find.storyboard */,
 			);
 			path = FindPage;
@@ -415,8 +444,6 @@
 				E6FBB1B223718FF500B1B4DE /* FindController.swift */,
 				E6FBB1BD2371947700B1B4DE /* FindController+UITableView.swift */,
 				E6DDAF28237435B300D6EAD1 /* FindController+ScrollView.swift */,
-				E6DDAF29237435B300D6EAD1 /* TrackerController.swift */,
-				E6DDAF27237435B300D6EAD1 /* TrackerController+UITableView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -424,7 +451,6 @@
 		E6FBB1BB2371943500B1B4DE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B0B168612374039B001DCE3C /* TrackerDonor.swift */,
 				E6FBB1BF237194FB00B1B4DE /* BloodRequest.swift */,
 			);
 			path = Model;
@@ -435,9 +461,6 @@
 			children = (
 				CC88A08323749D16001A982E /* FindBloodCustomCell.swift */,
 				CC88A08123749D16001A982E /* FindBloodCustomCell.xib */,
-				CC88A08523749D16001A982E /* Tracker.storyboard */,
-				CC88A08223749D16001A982E /* TrackerDonorTableViewCell.swift */,
-				CC88A08423749D16001A982E /* TrackerDonorTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -604,7 +627,6 @@
 				E6DDAF312375630800D6EAD1 /* LineLayer.swift in Sources */,
 				E6FBB16C23718C8400B1B4DE /* AppDelegate.swift in Sources */,
 				E6FBB1B52371901400B1B4DE /* AuthenticationController.swift in Sources */,
-				0996E74D237561610028BB9C /* ProfileExtended.swift in Sources */,
 				AB7357972374313500A6099B /* SecondCell.swift in Sources */,
 				E6DDAF332375630800D6EAD1 /* StepIndicatorView.swift in Sources */,
 				AB7357982374313500A6099B /* ThirdCell.swift in Sources */,
@@ -797,7 +819,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2NJYBE4CVL;
+				DEVELOPMENT_TEAM = D8V7US36NT;
 				INFOPLIST_FILE = Donorhin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -816,7 +838,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2NJYBE4CVL;
+				DEVELOPMENT_TEAM = D8V7US36NT;
 				INFOPLIST_FILE = Donorhin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
