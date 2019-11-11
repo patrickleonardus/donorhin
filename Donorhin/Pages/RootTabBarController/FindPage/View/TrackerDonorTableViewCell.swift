@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class TrackerDonorTableViewCell: UITableViewCell {
    /**
     Note:Pake fungsi setupView setelah manggil cell di Table View.
@@ -20,7 +18,6 @@ class TrackerDonorTableViewCell: UITableViewCell {
       case onGoing
       case toDo
    }
-  
    
    @IBOutlet var redCircle: UIView!
    
@@ -28,19 +25,19 @@ class TrackerDonorTableViewCell: UITableViewCell {
    @IBOutlet var number: UILabel!
    @IBOutlet var active_number: UILabel!
    @IBOutlet var active_label: UILabel!
-   
+   @IBOutlet var stackView: UIStackView!
    @IBOutlet var informationText: UILabel!
    @IBOutlet var buttonText: UIButton!
+   let confirmButton = CustomButtonRounded(frame: CGRect(x: 0, y: 0, width: 118, height: 43))
+   var phoneNumber : String? = "082285250866"
    
    override func awakeFromNib() {
       super.awakeFromNib()
       self.generalStyling()
-      // Initialization code
    }
    
    override func setSelected(_ selected: Bool, animated: Bool) {
       super.setSelected(selected, animated: animated)
-      
       // Configure the view for the selected state
    }
    
@@ -50,11 +47,11 @@ class TrackerDonorTableViewCell: UITableViewCell {
       buttonText.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
    }
    
-   //MARK: Use this to styling the cells
+   //MARK: Styling the cell
    func setupView(status:Status,number:Int) {
       
       let hide = false
-      //MARK: Done and Active Styling informationText and buttonText
+      //Done and Active Styling informationText and buttonText
       if status !=  .toDo { //enable ; on going/done  processes
          self.redCircle.backgroundColor = Colors.red
          
@@ -63,14 +60,14 @@ class TrackerDonorTableViewCell: UITableViewCell {
          self.buttonText.titleLabel?.textColor = Colors.red
          self.buttonText.isEnabled = true
          
-         //MARK: Done Styling
+         //Done Styling
          if status == .done { //tampilin checklist
             self.checkMarkImage.isHidden = hide
             self.active_label.isHidden =  !hide
             self.active_number.isHidden = !hide
             self.number.isHidden = !hide
             
-         //MARK: Active Styling
+            //Active Styling
          } else { //tampilin angka dan aktif
             self.active_label.isHidden =  hide
             self.active_number.isHidden = hide
@@ -79,14 +76,14 @@ class TrackerDonorTableViewCell: UITableViewCell {
             self.checkMarkImage.isHidden = !hide
          }
          
-      //MARK: To Do Styling
+         //To Do Styling
       } else { //to do
          self.redCircle.backgroundColor = Colors.gray_disabled
          
          self.informationText.textColor = Colors.gray_disabled
          self.buttonText.tintColor = Colors.gray_disabled
          self.buttonText.titleLabel?.textColor = Colors.gray_disabled
-         self.buttonText.isEnabled = false
+         self.buttonText.isHidden = true
          
          self.number.isHidden = hide
          self.number.text =  "\(number)"
@@ -94,6 +91,59 @@ class TrackerDonorTableViewCell: UITableViewCell {
          self.active_number.isHidden = !hide
          self.checkMarkImage.isHidden = !hide
       }
+      
+      if number == 4 {stylingNumber4(status: status) }
+   }
+   
+   func stylingNumber4(status:Status) {
+      //add and styling new button
+      confirmButton.addTarget(self, action: #selector(buttonConfirmedPressed(_:)), for: .touchUpInside)
+      confirmButton.setTitle("Konfirmasi", for: .normal)
+      confirmButton.setTitleColor(.white, for: .normal)
+      confirmButton.layer.cornerRadius = 10
+      
+      //add constraint so  it will keep the size
+      confirmButton.addConstraint(NSLayoutConstraint(item: confirmButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: 118))
+      confirmButton.addConstraint(NSLayoutConstraint(item: confirmButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 43))
+      
+      //styling for different cases
+      if status == .toDo {
+         confirmButton.backgroundColor = Colors.gray_disabled
+         confirmButton.isEnabled = false
+      } else {
+         confirmButton.backgroundColor = Colors.red
+         confirmButton.isEnabled = true
+      }
+      
+      //embedding to stackview
+      stackView.alignment = .leading
+      stackView.distribution = .fillProportionally
+      stackView.arrangedSubviews[1].removeFromSuperview()//so it won't repeat adding the same
+      stackView.insertArrangedSubview(confirmButton, at: 1)
+   }
+   
+   //MARK: Button text (call) pressed
+   @IBAction func makeACall(_ sender: UIButton) {
+      print ("Button text (call UTD) pressed")
+      if let redCrossPhone = phoneNumber {
+         if let phoneCallURL = URL(string: "telprompt://\(redCrossPhone)") {
+            UIApplication.shared.open(phoneCallURL, options: [:], completionHandler: nil)
+         }
+         else {
+            print("Invalid phone number")
+            //TODO: what to do when the phone enumber is invalid?
+         }
+      }
+      else {
+         //TODO: What to do when the phone number is nil?
+         print("System do not have this Blood Tranfusion Unit's phone number")
+      }
+   }
+   
+   //MARK: Button confirm pressed
+   @objc func buttonConfirmedPressed(_ sender: UIButton) { //for confirmButton
+      //TO DO: add  action confirm
+      print ("Button confirm pressed")
    }
    
    

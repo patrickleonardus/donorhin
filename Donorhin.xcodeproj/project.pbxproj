@@ -30,6 +30,7 @@
 		CC88A08823749D16001A982E /* FindBloodCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC88A08323749D16001A982E /* FindBloodCustomCell.swift */; };
 		CC88A08923749D16001A982E /* TrackerDonorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC88A08423749D16001A982E /* TrackerDonorTableViewCell.xib */; };
 		CC88A08A23749D16001A982E /* Tracker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC88A08523749D16001A982E /* Tracker.storyboard */; };
+		E63335422378440600F5157D /* FixImageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63335412378440600F5157D /* FixImageOrientation.swift */; };
 		E6DDAF2A237435B300D6EAD1 /* TrackerController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF27237435B300D6EAD1 /* TrackerController+UITableView.swift */; };
 		E6DDAF2B237435B300D6EAD1 /* FindController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF28237435B300D6EAD1 /* FindController+ScrollView.swift */; };
 		E6DDAF2C237435B300D6EAD1 /* TrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF29237435B300D6EAD1 /* TrackerController.swift */; };
@@ -99,6 +100,7 @@
 		CC88A08323749D16001A982E /* FindBloodCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindBloodCustomCell.swift; sourceTree = "<group>"; };
 		CC88A08423749D16001A982E /* TrackerDonorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackerDonorTableViewCell.xib; sourceTree = "<group>"; };
 		CC88A08523749D16001A982E /* Tracker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tracker.storyboard; sourceTree = "<group>"; };
+		E63335412378440600F5157D /* FixImageOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixImageOrientation.swift; sourceTree = "<group>"; };
 		E6DDAF27237435B300D6EAD1 /* TrackerController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController+UITableView.swift"; sourceTree = "<group>"; };
 		E6DDAF28237435B300D6EAD1 /* FindController+ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FindController+ScrollView.swift"; sourceTree = "<group>"; };
 		E6DDAF29237435B300D6EAD1 /* TrackerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerController.swift; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 			children = (
 				E6DDAF2D237562EF00D6EAD1 /* StepIndicator */,
 				E6FBB1C22371991D00B1B4DE /* Constants.swift */,
+				E63335412378440600F5157D /* FixImageOrientation.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				098FD4752372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift in Sources */,
 				E6FBB1AF23718FBE00B1B4DE /* DiscoverController.swift in Sources */,
 				09DC193A23754BCD004BEFB5 /* DonateModel.swift in Sources */,
+				E63335422378440600F5157D /* FixImageOrientation.swift in Sources */,
 				E6DDAF3A237563AC00D6EAD1 /* ScanFormController.swift in Sources */,
 				E6FBB1C0237194FB00B1B4DE /* BloodRequest.swift in Sources */,
 				E6FBB1BE2371947700B1B4DE /* FindController+UITableView.swift in Sources */,
