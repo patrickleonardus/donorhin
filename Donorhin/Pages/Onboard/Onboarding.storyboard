@@ -24,39 +24,80 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user_profile" translatesAutoresizingMaskIntoConstraints="NO" id="fNf-G9-xT5">
-                                <rect key="frame" x="12" y="192" width="382" height="250"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Selamat Datang! " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQW-Gg-lNg">
-                                <rect key="frame" x="16" y="513" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rhelpus adalah tempat untuk mencari dan mendonasikan darah Rhesus Negatif." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gO-28-v2h">
-                                <rect key="frame" x="54" y="555" width="300" height="112"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ChU-sv-ZTD">
-                                <rect key="frame" x="333" y="44" width="53" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="LEWATI">
-                                    <color key="titleColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QfV-mY-JiM" userLabel="Top View">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ChU-sv-ZTD">
+                                        <rect key="frame" x="180" y="209" width="53" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="LEWATI">
+                                            <color key="titleColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="belum_ada_pencarian" translatesAutoresizingMaskIntoConstraints="NO" id="fNf-G9-xT5">
+                                        <rect key="frame" x="16" y="178" width="382" height="230"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="fNf-G9-xT5" secondAttribute="trailing" constant="16" id="3e4-bD-DII"/>
+                                    <constraint firstItem="fNf-G9-xT5" firstAttribute="centerX" secondItem="QfV-mY-JiM" secondAttribute="centerX" id="4Nr-rJ-l9l"/>
+                                    <constraint firstAttribute="bottom" secondItem="fNf-G9-xT5" secondAttribute="bottom" constant="40" id="Zbc-9c-NGj"/>
+                                    <constraint firstItem="fNf-G9-xT5" firstAttribute="leading" secondItem="QfV-mY-JiM" secondAttribute="leading" constant="16" id="xzC-6C-Rdp"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dtS-9K-t1I" userLabel="Bottom View">
+                                <rect key="frame" x="0.0" y="448" width="414" height="448"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selamat Datang! " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQW-Gg-lNg">
+                                        <rect key="frame" x="20" y="72" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rhelpus adalah tempat untuk mencari dan mendonasikan darah Rhesus Negatif." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gO-28-v2h">
+                                        <rect key="frame" x="57" y="114" width="300" height="112"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="112" id="jw0-jP-HRX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="bQW-Gg-lNg" firstAttribute="leading" secondItem="dtS-9K-t1I" secondAttribute="leading" constant="20" id="RcW-FS-BTS"/>
+                                    <constraint firstItem="6gO-28-v2h" firstAttribute="top" secondItem="bQW-Gg-lNg" secondAttribute="bottom" constant="8" id="TzX-IY-1tA"/>
+                                    <constraint firstAttribute="trailing" secondItem="6gO-28-v2h" secondAttribute="trailing" constant="57" id="YFW-xg-dHZ"/>
+                                    <constraint firstItem="6gO-28-v2h" firstAttribute="leading" secondItem="dtS-9K-t1I" secondAttribute="leading" constant="57" id="ZWE-R2-Eyj"/>
+                                    <constraint firstItem="bQW-Gg-lNg" firstAttribute="top" secondItem="dtS-9K-t1I" secondAttribute="top" constant="72" id="aGu-kM-TMg"/>
+                                    <constraint firstItem="6gO-28-v2h" firstAttribute="top" secondItem="bQW-Gg-lNg" secondAttribute="bottom" constant="8" id="gRC-BE-VNY"/>
+                                    <constraint firstItem="bQW-Gg-lNg" firstAttribute="centerX" secondItem="dtS-9K-t1I" secondAttribute="centerX" id="rZl-1O-gpu"/>
+                                    <constraint firstAttribute="trailing" secondItem="bQW-Gg-lNg" secondAttribute="trailing" constant="20" id="xHA-fD-i7A"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="dtS-9K-t1I" firstAttribute="trailing" secondItem="aXV-E1-89S" secondAttribute="trailing" id="2dL-pc-NmJ"/>
+                            <constraint firstItem="QfV-mY-JiM" firstAttribute="leading" secondItem="aXV-E1-89S" secondAttribute="leading" id="9cm-ce-3NI"/>
+                            <constraint firstItem="dtS-9K-t1I" firstAttribute="height" secondItem="QfV-mY-JiM" secondAttribute="height" id="Cmp-sq-mTd"/>
+                            <constraint firstItem="dtS-9K-t1I" firstAttribute="width" secondItem="QfV-mY-JiM" secondAttribute="width" id="KUP-aB-vef"/>
+                            <constraint firstItem="QfV-mY-JiM" firstAttribute="top" secondItem="Jh9-BH-SlZ" secondAttribute="top" id="Sya-Nf-LOW"/>
+                            <constraint firstItem="QfV-mY-JiM" firstAttribute="trailing" secondItem="aXV-E1-89S" secondAttribute="trailing" id="TkH-pX-vyE"/>
+                            <constraint firstItem="dtS-9K-t1I" firstAttribute="leading" secondItem="aXV-E1-89S" secondAttribute="leading" id="aHR-na-XLH"/>
+                            <constraint firstItem="QfV-mY-JiM" firstAttribute="centerX" secondItem="Jh9-BH-SlZ" secondAttribute="centerX" id="bUj-kK-tLq"/>
+                            <constraint firstItem="dtS-9K-t1I" firstAttribute="top" secondItem="QfV-mY-JiM" secondAttribute="bottom" id="hWr-qj-3Yz"/>
+                            <constraint firstItem="dtS-9K-t1I" firstAttribute="top" secondItem="QfV-mY-JiM" secondAttribute="bottom" id="sy3-me-Ssn"/>
+                            <constraint firstAttribute="bottom" secondItem="dtS-9K-t1I" secondAttribute="bottom" id="yRe-zp-XUV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="aXV-E1-89S"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T5J-h5-iy5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="361" y="-83"/>
+            <point key="canvasLocation" x="310" y="-83"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="0iE-8s-kmg">
@@ -66,39 +107,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user_profile" translatesAutoresizingMaskIntoConstraints="NO" id="Fta-R2-Q1k">
-                                <rect key="frame" x="16" y="192" width="382" height="250"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lacak" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zyl-ed-af7">
-                                <rect key="frame" x="20" y="513" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Track didesain agar Anda dapat memantau pencarian kebutuhan darah Anda." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8L-jq-ES4">
-                                <rect key="frame" x="58" y="555" width="300" height="112"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Gd-S6-fpM">
-                                <rect key="frame" x="337" y="44" width="53" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="LEWATI">
-                                    <color key="titleColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="poN-Pf-rJr" userLabel="Top View">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Gd-S6-fpM">
+                                        <rect key="frame" x="180" y="209" width="53" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="LEWATI">
+                                            <color key="titleColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lacak" translatesAutoresizingMaskIntoConstraints="NO" id="Fta-R2-Q1k">
+                                        <rect key="frame" x="16" y="120" width="382" height="288"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="Fta-R2-Q1k" firstAttribute="leading" secondItem="poN-Pf-rJr" secondAttribute="leading" constant="16" id="9ZM-sg-OQO"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fta-R2-Q1k" secondAttribute="trailing" constant="16" id="9zK-nz-z1Z"/>
+                                    <constraint firstItem="Fta-R2-Q1k" firstAttribute="centerX" secondItem="poN-Pf-rJr" secondAttribute="centerX" id="Rv5-K2-loX"/>
+                                    <constraint firstAttribute="bottom" secondItem="Fta-R2-Q1k" secondAttribute="bottom" constant="40" id="q4f-H1-CjN"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DDs-q7-gNp" userLabel="Bottom View">
+                                <rect key="frame" x="0.0" y="448" width="414" height="448"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lacak" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zyl-ed-af7">
+                                        <rect key="frame" x="20" y="72" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track didesain agar Anda dapat memantau pencarian kebutuhan darah Anda." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8L-jq-ES4">
+                                        <rect key="frame" x="57" y="114" width="300" height="112"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="112" id="ANb-NL-muU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="Zyl-ed-af7" firstAttribute="leading" secondItem="DDs-q7-gNp" secondAttribute="leading" constant="20" id="3az-96-26I"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zyl-ed-af7" secondAttribute="trailing" constant="20" id="658-Ag-pNA"/>
+                                    <constraint firstItem="x8L-jq-ES4" firstAttribute="top" secondItem="Zyl-ed-af7" secondAttribute="bottom" constant="8" id="8Dd-jp-NuT"/>
+                                    <constraint firstItem="Zyl-ed-af7" firstAttribute="top" secondItem="DDs-q7-gNp" secondAttribute="top" constant="72" id="HyH-UC-Gob"/>
+                                    <constraint firstItem="Zyl-ed-af7" firstAttribute="centerX" secondItem="DDs-q7-gNp" secondAttribute="centerX" id="QZT-dw-S4c"/>
+                                    <constraint firstItem="x8L-jq-ES4" firstAttribute="centerX" secondItem="DDs-q7-gNp" secondAttribute="centerX" id="coe-06-WUp"/>
+                                    <constraint firstItem="x8L-jq-ES4" firstAttribute="leading" secondItem="DDs-q7-gNp" secondAttribute="leading" constant="57" id="jmc-lD-TE7"/>
+                                    <constraint firstAttribute="trailing" secondItem="x8L-jq-ES4" secondAttribute="trailing" constant="57" id="pqm-N8-gNG"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="poN-Pf-rJr" firstAttribute="trailing" secondItem="EgL-ow-REl" secondAttribute="trailing" id="9wW-ZQ-3am"/>
+                            <constraint firstItem="DDs-q7-gNp" firstAttribute="top" secondItem="poN-Pf-rJr" secondAttribute="bottom" id="IWd-yf-RTy"/>
+                            <constraint firstItem="DDs-q7-gNp" firstAttribute="trailing" secondItem="EgL-ow-REl" secondAttribute="trailing" id="MPN-65-Wcg"/>
+                            <constraint firstItem="DDs-q7-gNp" firstAttribute="top" secondItem="poN-Pf-rJr" secondAttribute="bottom" id="NME-cI-pwA"/>
+                            <constraint firstItem="poN-Pf-rJr" firstAttribute="leading" secondItem="EgL-ow-REl" secondAttribute="leading" id="OXF-PX-did"/>
+                            <constraint firstItem="DDs-q7-gNp" firstAttribute="width" secondItem="poN-Pf-rJr" secondAttribute="width" id="SER-4M-fhn"/>
+                            <constraint firstItem="poN-Pf-rJr" firstAttribute="top" secondItem="E7V-vv-oIi" secondAttribute="top" id="e4Q-sj-eYk"/>
+                            <constraint firstAttribute="bottom" secondItem="DDs-q7-gNp" secondAttribute="bottom" id="tbb-lS-ivJ"/>
+                            <constraint firstItem="DDs-q7-gNp" firstAttribute="leading" secondItem="EgL-ow-REl" secondAttribute="leading" id="uZI-hk-cCI"/>
+                            <constraint firstItem="DDs-q7-gNp" firstAttribute="height" secondItem="poN-Pf-rJr" secondAttribute="height" id="xft-jF-NuP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="EgL-ow-REl"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iem-LQ-K4e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1010" y="-83"/>
+            <point key="canvasLocation" x="966.66666666666674" y="-83.035714285714278"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="gmb-x1-sUe">
@@ -108,39 +189,81 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user_profile" translatesAutoresizingMaskIntoConstraints="NO" id="tBe-aD-sfU">
-                                <rect key="frame" x="12" y="192" width="382" height="250"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Privasi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pdg-JZ-VRE">
-                                <rect key="frame" x="16" y="513" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data pendonor dan resipien tidak dapat dilihat oleh kedua belah pihak untuk keamanan privasi Anda." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzA-ZU-Z0m">
-                                <rect key="frame" x="54" y="555" width="300" height="112"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UtT-Et-5vC">
-                                <rect key="frame" x="333" y="44" width="53" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="LEWATI">
-                                    <color key="titleColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ssX-s3-fTh" userLabel="Top View">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="privasi" translatesAutoresizingMaskIntoConstraints="NO" id="tBe-aD-sfU">
+                                        <rect key="frame" x="16" y="102" width="382" height="306"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UtT-Et-5vC">
+                                        <rect key="frame" x="180" y="209" width="53" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="LEWATI">
+                                            <color key="titleColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="448" id="JAQ-i0-6fe"/>
+                                    <constraint firstItem="tBe-aD-sfU" firstAttribute="centerX" secondItem="ssX-s3-fTh" secondAttribute="centerX" id="TOb-n6-kuS"/>
+                                    <constraint firstAttribute="bottom" secondItem="tBe-aD-sfU" secondAttribute="bottom" constant="40" id="pwH-hl-sdC"/>
+                                    <constraint firstAttribute="trailing" secondItem="tBe-aD-sfU" secondAttribute="trailing" constant="16" id="qfE-mg-PXD"/>
+                                    <constraint firstItem="tBe-aD-sfU" firstAttribute="leading" secondItem="ssX-s3-fTh" secondAttribute="leading" constant="16" id="zIG-M1-gLF"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UnH-MN-wHH" userLabel="Bottom View">
+                                <rect key="frame" x="0.0" y="448" width="414" height="448"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privasi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pdg-JZ-VRE">
+                                        <rect key="frame" x="20" y="72" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data pendonor dan resipien tidak dapat dilihat oleh kedua belah pihak untuk keamanan privasi Anda." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzA-ZU-Z0m">
+                                        <rect key="frame" x="57" y="114" width="300" height="112"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="112" id="nql-Ux-3R6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="wzA-ZU-Z0m" firstAttribute="leading" secondItem="UnH-MN-wHH" secondAttribute="leading" constant="57" id="0Vk-qm-vzV"/>
+                                    <constraint firstAttribute="trailing" secondItem="wzA-ZU-Z0m" secondAttribute="trailing" constant="57" id="Dfb-9f-qpC"/>
+                                    <constraint firstItem="wzA-ZU-Z0m" firstAttribute="centerX" secondItem="UnH-MN-wHH" secondAttribute="centerX" id="FIW-d8-Gik"/>
+                                    <constraint firstItem="Pdg-JZ-VRE" firstAttribute="top" secondItem="UnH-MN-wHH" secondAttribute="top" constant="72" id="MaP-Wr-9T3"/>
+                                    <constraint firstItem="Pdg-JZ-VRE" firstAttribute="centerX" secondItem="UnH-MN-wHH" secondAttribute="centerX" id="SCD-W7-bNv"/>
+                                    <constraint firstAttribute="height" constant="448" id="Xmt-2V-4Ew"/>
+                                    <constraint firstItem="wzA-ZU-Z0m" firstAttribute="top" secondItem="Pdg-JZ-VRE" secondAttribute="bottom" constant="8" id="dV5-oj-Hg0"/>
+                                    <constraint firstItem="Pdg-JZ-VRE" firstAttribute="leading" secondItem="UnH-MN-wHH" secondAttribute="leading" constant="20" id="im8-tZ-PJb"/>
+                                    <constraint firstAttribute="trailing" secondItem="Pdg-JZ-VRE" secondAttribute="trailing" constant="20" id="yeT-AP-QMg"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ssX-s3-fTh" firstAttribute="trailing" secondItem="cvy-TE-etn" secondAttribute="trailing" id="4nd-q2-1qS"/>
+                            <constraint firstItem="ssX-s3-fTh" firstAttribute="leading" secondItem="cvy-TE-etn" secondAttribute="leading" id="6Po-8S-aaW"/>
+                            <constraint firstItem="UnH-MN-wHH" firstAttribute="centerX" secondItem="aeC-3Q-HgJ" secondAttribute="centerX" id="Dzs-mF-kSi"/>
+                            <constraint firstItem="UnH-MN-wHH" firstAttribute="leading" secondItem="cvy-TE-etn" secondAttribute="leading" id="Gha-rQ-J7M"/>
+                            <constraint firstAttribute="bottom" secondItem="UnH-MN-wHH" secondAttribute="bottom" id="LJU-G5-3kX"/>
+                            <constraint firstItem="ssX-s3-fTh" firstAttribute="top" secondItem="aeC-3Q-HgJ" secondAttribute="top" id="OJI-Lb-Tf2"/>
+                            <constraint firstItem="UnH-MN-wHH" firstAttribute="trailing" secondItem="cvy-TE-etn" secondAttribute="trailing" id="aZU-gz-Jej"/>
+                            <constraint firstItem="ssX-s3-fTh" firstAttribute="centerX" secondItem="aeC-3Q-HgJ" secondAttribute="centerX" id="des-6P-3uZ"/>
+                            <constraint firstItem="UnH-MN-wHH" firstAttribute="top" secondItem="ssX-s3-fTh" secondAttribute="bottom" id="pgj-uQ-Xjw"/>
+                            <constraint firstItem="UnH-MN-wHH" firstAttribute="top" secondItem="ssX-s3-fTh" secondAttribute="bottom" id="rz7-V7-ZD5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cvy-TE-etn"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PgP-2B-1Nd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1649" y="-84"/>
+            <point key="canvasLocation" x="1647.826086956522" y="-84.375"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="TDU-iU-T2A">
@@ -150,41 +273,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Langkah Penggunaan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j96-5M-Pal">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Langkah Penggunaan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j96-5M-Pal">
                                 <rect key="frame" x="20" y="98" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A6U-su-NgB">
-                                <rect key="frame" x="62" y="179" width="40" height="46"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="map_pin" translatesAutoresizingMaskIntoConstraints="NO" id="A6U-su-NgB">
+                                <rect key="frame" x="48" y="207" width="40" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tfj-r5-0la">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="people_count" translatesAutoresizingMaskIntoConstraints="NO" id="Tfj-r5-0la">
                                 <rect key="frame" x="62" y="354" width="40" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lvu-Va-MGJ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="smile_emo" translatesAutoresizingMaskIntoConstraints="NO" id="lvu-Va-MGJ">
                                 <rect key="frame" x="62" y="506" width="40" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tiy-qJ-X4a">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Anda hanya perlu ke PMI untuk memberikan surat keterangan butuh darah" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tiy-qJ-X4a">
                                 <rect key="frame" x="140" y="174" width="206" height="112"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9G-Sl-HqR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Menentukan berapa pendonor yang dibutuhkan dalam aplikasi" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9G-Sl-HqR">
                                 <rect key="frame" x="140" y="321" width="206" height="112"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Menentukan berapa pendonor yang dibutuhkan dalam aplikasi" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSG-E4-OEe">
+                                <rect key="frame" x="140" y="473" width="206" height="112"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xlb-vQ-N4C" customClass="CustomButtonRounded" customModule="Donorhin" customModuleProvider="target">
+                                <rect key="frame" x="51" y="670" width="312" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Masuk ke Akun">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blY-Iw-Tye">
+                                <rect key="frame" x="162" y="730" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Masuk Nanti">
+                                    <color key="titleColor" red="0.6453691721" green="0.00067493994720000002" blue="0.098007641729999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="j96-5M-Pal" firstAttribute="centerX" secondItem="V6q-Mp-nrP" secondAttribute="centerX" id="7Hx-ez-nJs"/>
+                            <constraint firstItem="j96-5M-Pal" firstAttribute="top" secondItem="7At-5k-cmz" secondAttribute="top" constant="54" id="YUB-0S-QqF"/>
+                            <constraint firstItem="j96-5M-Pal" firstAttribute="leading" secondItem="7At-5k-cmz" secondAttribute="leading" constant="20" id="dwn-pd-RDO"/>
+                            <constraint firstItem="7At-5k-cmz" firstAttribute="trailing" secondItem="j96-5M-Pal" secondAttribute="trailing" constant="20" id="snp-sm-CaL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7At-5k-cmz"/>
                     </view>
                 </viewController>
@@ -194,6 +345,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="user_profile" width="1439" height="960"/>
+        <image name="belum_ada_pencarian" width="302" height="230"/>
+        <image name="lacak" width="330" height="288"/>
+        <image name="map_pin" width="41" height="49"/>
+        <image name="people_count" width="55" height="38"/>
+        <image name="privasi" width="339" height="306"/>
+        <image name="smile_emo" width="52" height="52"/>
     </resources>
 </document>
