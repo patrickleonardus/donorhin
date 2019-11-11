@@ -45,6 +45,7 @@ class TrackerDonorTableViewCell: UITableViewCell {
       self.contentView.layer.cornerRadius = 10
       buttonText.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
       
+//      add width constraint for red circle
       let width : CGFloat
       if UDDevice.widthScreen < 375 {
          width = 50
@@ -53,7 +54,6 @@ class TrackerDonorTableViewCell: UITableViewCell {
       }
       print (width,UDDevice.widthScreen)
       let heightConstraint = NSLayoutConstraint( item: self.redCircle!, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: width)
-      
       redCircle.addConstraint(heightConstraint)
       redCircle.layer.cornerRadius = width/2
       redCircle.layoutIfNeeded()
