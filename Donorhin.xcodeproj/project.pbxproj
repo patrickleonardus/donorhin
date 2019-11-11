@@ -264,6 +264,8 @@
 		CC3F75BF2379803800F7C9D0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E6DDAF29237435B300D6EAD1 /* TrackerController.swift */,
+				E6DDAF27237435B300D6EAD1 /* TrackerController+UITableView.swift */,
 				CC88A08523749D16001A982E /* Tracker.storyboard */,
 			);
 			path = Controller;
@@ -281,8 +283,7 @@
 		CC3F75C12379804300F7C9D0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E6DDAF29237435B300D6EAD1 /* TrackerController.swift */,
-				E6DDAF27237435B300D6EAD1 /* TrackerController+UITableView.swift */,
+				B0B168612374039B001DCE3C /* TrackerDonor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -453,7 +454,6 @@
 		E6FBB1BB2371943500B1B4DE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B0B168612374039B001DCE3C /* TrackerDonor.swift */,
 				E6FBB1BF237194FB00B1B4DE /* BloodRequest.swift */,
 			);
 			path = Model;
