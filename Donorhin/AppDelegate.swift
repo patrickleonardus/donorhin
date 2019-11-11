@@ -17,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        saveUserPhoneDetail()
+      
         self.window?.tintColor = Colors.red
         
         return true
@@ -91,6 +92,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+   
+   func saveUserPhoneDetail() {
+      let screenSize: CGRect = UIScreen.main.bounds
+      UserDefaults.standard.set(screenSize.height, forKey: "userScreenHeight")
+      UserDefaults.standard.set(screenSize.width, forKey: "userScreenWidth")
+   }
 
 }
 
