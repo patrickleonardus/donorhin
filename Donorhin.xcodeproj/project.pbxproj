@@ -12,10 +12,10 @@
 		0925FB4123740E1C00874DAA /* DonateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0925FB3F23740E1C00874DAA /* DonateTableViewCell.xib */; };
 		098FD4752372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */; };
 		098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */; };
-		0996E74D237561610028BB9C /* ProfileExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0996E74C237561610028BB9C /* ProfileExtended.swift */; };
 		0996E78F237950600028BB9C /* DonateStepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0996E78E237950600028BB9C /* DonateStepsViewController.swift */; };
 		0996E7912379810C0028BB9C /* UTDDonorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0996E7902379810C0028BB9C /* UTDDonorTableViewController.swift */; };
 		09DC193A23754BCD004BEFB5 /* DonateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC193923754BCD004BEFB5 /* DonateModel.swift */; };
+		4D62876BC1070EE048A5F62F /* Pods_Donorhin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C98DEBBA0D86B93AA87AF459 /* Pods_Donorhin.framework */; };
 		AB4BD9AA2375997E0016DDF1 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB4BD9A92375997E0016DDF1 /* Onboarding.storyboard */; };
 		AB4BD9AC237599870016DDF1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BD9AB237599870016DDF1 /* OnboardingViewController.swift */; };
 		AB7357862374309E00A6099B /* CustomSegmentedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7357852374309E00A6099B /* CustomSegmentedController.swift */; };
@@ -26,6 +26,7 @@
 		AB7357972374313500A6099B /* SecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7357942374313500A6099B /* SecondCell.swift */; };
 		AB7357982374313500A6099B /* ThirdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7357952374313500A6099B /* ThirdCell.swift */; };
 		AB73579A2374316900A6099B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB7357992374316900A6099B /* Profile.storyboard */; };
+		AB74F73882CFF8E8CDE9CCEC /* Pods_DonorhinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BEFCDAEF3408D1F8C21AF72 /* Pods_DonorhinTests.framework */; };
 		B0B168622374039B001DCE3C /* TrackerDonor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B168612374039B001DCE3C /* TrackerDonor.swift */; };
 		CC88A08623749D16001A982E /* FindBloodCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC88A08123749D16001A982E /* FindBloodCustomCell.xib */; };
 		CC88A08723749D16001A982E /* TrackerDonorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC88A08223749D16001A982E /* TrackerDonorTableViewCell.swift */; };
@@ -59,6 +60,7 @@
 		E6FBB1BE2371947700B1B4DE /* FindController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB1BD2371947700B1B4DE /* FindController+UITableView.swift */; };
 		E6FBB1C0237194FB00B1B4DE /* BloodRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB1BF237194FB00B1B4DE /* BloodRequest.swift */; };
 		E6FBB1C32371991D00B1B4DE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB1C22371991D00B1B4DE /* Constants.swift */; };
+		E9F621D199C9C10664138AE3 /* Pods_Donorhin_DonorhinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BC63D1B1F89DC5202D65DC3 /* Pods_Donorhin_DonorhinUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,10 +86,15 @@
 		0925FB3F23740E1C00874DAA /* DonateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DonateTableViewCell.xib; sourceTree = "<group>"; };
 		098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonSubmitRounded.swift; sourceTree = "<group>"; };
 		098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewRounded.swift; sourceTree = "<group>"; };
-		0996E74C237561610028BB9C /* ProfileExtended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileExtended.swift; sourceTree = "<group>"; };
 		0996E78E237950600028BB9C /* DonateStepsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateStepsViewController.swift; sourceTree = "<group>"; };
 		0996E7902379810C0028BB9C /* UTDDonorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTDDonorTableViewController.swift; sourceTree = "<group>"; };
 		09DC193923754BCD004BEFB5 /* DonateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateModel.swift; sourceTree = "<group>"; };
+		21AC1E73C7AF06DEE2607A84 /* Pods-DonorhinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DonorhinTests.release.xcconfig"; path = "Target Support Files/Pods-DonorhinTests/Pods-DonorhinTests.release.xcconfig"; sourceTree = "<group>"; };
+		30A2677729EC576074A29BB3 /* Pods-Donorhin-DonorhinUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Donorhin-DonorhinUITests.debug.xcconfig"; path = "Target Support Files/Pods-Donorhin-DonorhinUITests/Pods-Donorhin-DonorhinUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3FA76CA5EF18EF91731EF1C5 /* Pods-DonorhinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DonorhinTests.debug.xcconfig"; path = "Target Support Files/Pods-DonorhinTests/Pods-DonorhinTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4BC63D1B1F89DC5202D65DC3 /* Pods_Donorhin_DonorhinUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Donorhin_DonorhinUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BEFCDAEF3408D1F8C21AF72 /* Pods_DonorhinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DonorhinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96A7FF2327D1FF937D64BC77 /* Pods-Donorhin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Donorhin.release.xcconfig"; path = "Target Support Files/Pods-Donorhin/Pods-Donorhin.release.xcconfig"; sourceTree = "<group>"; };
 		AB4BD9A92375997E0016DDF1 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		AB4BD9AB237599870016DDF1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		AB7357852374309E00A6099B /* CustomSegmentedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedController.swift; sourceTree = "<group>"; };
@@ -99,11 +106,14 @@
 		AB7357952374313500A6099B /* ThirdCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdCell.swift; sourceTree = "<group>"; };
 		AB7357992374316900A6099B /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		B0B168612374039B001DCE3C /* TrackerDonor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerDonor.swift; sourceTree = "<group>"; };
+		C98DEBBA0D86B93AA87AF459 /* Pods_Donorhin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Donorhin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB6A9DE4015C4744C6FBDB38 /* Pods-Donorhin-DonorhinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Donorhin-DonorhinUITests.release.xcconfig"; path = "Target Support Files/Pods-Donorhin-DonorhinUITests/Pods-Donorhin-DonorhinUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CC88A08123749D16001A982E /* FindBloodCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindBloodCustomCell.xib; sourceTree = "<group>"; };
 		CC88A08223749D16001A982E /* TrackerDonorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerDonorTableViewCell.swift; sourceTree = "<group>"; };
 		CC88A08323749D16001A982E /* FindBloodCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindBloodCustomCell.swift; sourceTree = "<group>"; };
 		CC88A08423749D16001A982E /* TrackerDonorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackerDonorTableViewCell.xib; sourceTree = "<group>"; };
 		CC88A08523749D16001A982E /* Tracker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tracker.storyboard; sourceTree = "<group>"; };
+		DF39C9AAF4336AFDDBB98675 /* Pods-Donorhin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Donorhin.debug.xcconfig"; path = "Target Support Files/Pods-Donorhin/Pods-Donorhin.debug.xcconfig"; sourceTree = "<group>"; };
 		E63335412378440600F5157D /* FixImageOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixImageOrientation.swift; sourceTree = "<group>"; };
 		E6DDAF27237435B300D6EAD1 /* TrackerController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController+UITableView.swift"; sourceTree = "<group>"; };
 		E6DDAF28237435B300D6EAD1 /* FindController+ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FindController+ScrollView.swift"; sourceTree = "<group>"; };
@@ -144,6 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D62876BC1070EE048A5F62F /* Pods_Donorhin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB74F73882CFF8E8CDE9CCEC /* Pods_DonorhinTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9F621D199C9C10664138AE3 /* Pods_Donorhin_DonorhinUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +213,30 @@
 				0925FB372373F13000874DAA /* CustomMainView.swift */,
 			);
 			name = CustomViews;
+			sourceTree = "<group>";
+		};
+		3BD606E9D9066D2A72D9FF2F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C98DEBBA0D86B93AA87AF459 /* Pods_Donorhin.framework */,
+				4BC63D1B1F89DC5202D65DC3 /* Pods_Donorhin_DonorhinUITests.framework */,
+				5BEFCDAEF3408D1F8C21AF72 /* Pods_DonorhinTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3E5EBF841F5B54AAA61197C4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DF39C9AAF4336AFDDBB98675 /* Pods-Donorhin.debug.xcconfig */,
+				96A7FF2327D1FF937D64BC77 /* Pods-Donorhin.release.xcconfig */,
+				30A2677729EC576074A29BB3 /* Pods-Donorhin-DonorhinUITests.debug.xcconfig */,
+				CB6A9DE4015C4744C6FBDB38 /* Pods-Donorhin-DonorhinUITests.release.xcconfig */,
+				3FA76CA5EF18EF91731EF1C5 /* Pods-DonorhinTests.debug.xcconfig */,
+				21AC1E73C7AF06DEE2607A84 /* Pods-DonorhinTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		AB3B8D2F2374034C008D7AB1 /* ProfilePage */ = {
@@ -328,6 +365,8 @@
 				E6FBB18223718C8500B1B4DE /* DonorhinTests */,
 				E6FBB18D23718C8500B1B4DE /* DonorhinUITests */,
 				E6FBB16923718C8400B1B4DE /* Products */,
+				3E5EBF841F5B54AAA61197C4 /* Pods */,
+				3BD606E9D9066D2A72D9FF2F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -482,9 +521,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E6FBB19323718C8500B1B4DE /* Build configuration list for PBXNativeTarget "Donorhin" */;
 			buildPhases = (
+				2494A8B0C3E76A8E60160071 /* [CP] Check Pods Manifest.lock */,
 				E6FBB16423718C8400B1B4DE /* Sources */,
 				E6FBB16523718C8400B1B4DE /* Frameworks */,
 				E6FBB16623718C8400B1B4DE /* Resources */,
+				0FED76315AB550075BDF545F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -499,6 +540,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E6FBB19623718C8500B1B4DE /* Build configuration list for PBXNativeTarget "DonorhinTests" */;
 			buildPhases = (
+				5C42177B09359AABF6649A62 /* [CP] Check Pods Manifest.lock */,
 				E6FBB17B23718C8500B1B4DE /* Sources */,
 				E6FBB17C23718C8500B1B4DE /* Frameworks */,
 				E6FBB17D23718C8500B1B4DE /* Resources */,
@@ -517,9 +559,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E6FBB19923718C8500B1B4DE /* Build configuration list for PBXNativeTarget "DonorhinUITests" */;
 			buildPhases = (
+				64744531414979525FB12EF5 /* [CP] Check Pods Manifest.lock */,
 				E6FBB18623718C8500B1B4DE /* Sources */,
 				E6FBB18723718C8500B1B4DE /* Frameworks */,
 				E6FBB18823718C8500B1B4DE /* Resources */,
+				A7788E45EF3AA4E5DA807288 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -611,6 +655,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0FED76315AB550075BDF545F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Donorhin/Pods-Donorhin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Donorhin/Pods-Donorhin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Donorhin/Pods-Donorhin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2494A8B0C3E76A8E60160071 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Donorhin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5C42177B09359AABF6649A62 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DonorhinTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		64744531414979525FB12EF5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Donorhin-DonorhinUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7788E45EF3AA4E5DA807288 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Donorhin-DonorhinUITests/Pods-Donorhin-DonorhinUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Donorhin-DonorhinUITests/Pods-Donorhin-DonorhinUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Donorhin-DonorhinUITests/Pods-Donorhin-DonorhinUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E6FBB16423718C8400B1B4DE /* Sources */ = {
@@ -816,6 +963,7 @@
 		};
 		E6FBB19423718C8500B1B4DE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF39C9AAF4336AFDDBB98675 /* Pods-Donorhin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -835,6 +983,7 @@
 		};
 		E6FBB19523718C8500B1B4DE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96A7FF2327D1FF937D64BC77 /* Pods-Donorhin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -854,6 +1003,7 @@
 		};
 		E6FBB19723718C8500B1B4DE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FA76CA5EF18EF91731EF1C5 /* Pods-DonorhinTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -875,6 +1025,7 @@
 		};
 		E6FBB19823718C8500B1B4DE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21AC1E73C7AF06DEE2607A84 /* Pods-DonorhinTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -896,6 +1047,7 @@
 		};
 		E6FBB19A23718C8500B1B4DE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30A2677729EC576074A29BB3 /* Pods-Donorhin-DonorhinUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -916,6 +1068,7 @@
 		};
 		E6FBB19B23718C8500B1B4DE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB6A9DE4015C4744C6FBDB38 /* Pods-Donorhin-DonorhinUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

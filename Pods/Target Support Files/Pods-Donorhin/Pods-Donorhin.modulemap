@@ -1,0 +1,6 @@
+framework module Pods_Donorhin {
+  umbrella header "Pods-Donorhin-umbrella.h"
+
+  export *
+  module * { export * }
+}
