@@ -67,6 +67,7 @@ extension TrackerController : UITableViewDataSource {
         if indexPath.section < 2 {
             cell?.buttonText.addTarget(self, action: #selector(callButton), for: .touchUpInside)
         }
+        cell?.confirmButton.addTarget(self, action: #selector(confirmed), for: .touchUpInside)
         
         switch data.status {
         case .onGoing?: cell?.setupView(status: .onGoing, number: indexPath.section+1)

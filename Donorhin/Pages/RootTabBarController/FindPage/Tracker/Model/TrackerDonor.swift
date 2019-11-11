@@ -20,7 +20,7 @@ struct StepItems {
     var status : Status?
 }
 
-enum donorStatus {
+enum DonorStatus {
     case searching
     case found
     case verified
@@ -32,12 +32,12 @@ struct Pendonor {
     let name : String?
     let address : String?
     let date : String?
-    let donorStatus : donorStatus?
+    let donorStatus : DonorStatus?
 }
 
 struct PendonorDummyData {
     func getCurrentPendonor(completionHandler: @escaping (([Pendonor]) -> ())){
         completionHandler(
-            [Pendonor(id: "190", name: "Vebby", address: "PMI Tangsel", date: "31 Nov 2019", donorStatus: .found)])
+            [Pendonor(id: "190", name: "Vebby", address: "PMI Tangsel", date: "31 Nov 2019", donorStatus: .done)])
     }
 }

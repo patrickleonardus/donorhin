@@ -15,8 +15,9 @@ class TrackerController : UIViewController {
     var stepItems : [StepItems]?
     var bloodRequest : [BloodRequest]?
     var donorData : [Pendonor]?
-    
+    var status : [Status]?  = []
     var navigationBarTitle: String?
+    var isConfirmed : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,13 +68,34 @@ class TrackerController : UIViewController {
            callNumber(phoneNumber: "081317019898")
     }
     
+    @objc func confirmed(){
+        isConfirmed = true
+    }
+    
     func getTrackerItems(completionHandler: @escaping (([StepItems]) -> ())) {
+        
+        if donorData?.first?.donorStatus ==  .searching {
+            status = [.onGoing, .toDo, .toDo, .toDo, .toDo]
+        }
+        else if donorData?.first?.donorStatus == .found {
+            status = [.done, .onGoing, .toDo, .toDo, .toDo]
+        }
+        else if donorData?.first?.donorStatus == .verified {
+            status = [.done, .done, .onGoing, .toDo, .toDo]
+        }
+        else if donorData?.first?.donorStatus == .done || isConfirmed == false {
+            status = [.done, .done, .done, .onGoing, .toDo]
+        }
+        else if donorData?.first?.donorStatus == .done || isConfirmed == true {
+            status = [.done, .done, .done, .done, .done]
+        }
+        
            completionHandler(
-            [StepItems(description: "Anda dapat memberitahukan PMI bahwa Anda menggunakan aplikasi untuk mencari donor", buttonStr: " Hubungi \(String((bloodRequest?.first?.address)!))", status: .done),
-             StepItems(description: "Pendonor Anda Telah Ditemukan Lokasi: \(String((donorData?.first?.address)!)) Mendonor pada \(String((donorData?.first?.date!)!))", buttonStr: " Hubungi \(String((donorData?.first?.address!)!))", status: .onGoing),
-             StepItems(description: "Pendonor Akan Melakukan Verifikasi Kelengkapan Surat", buttonStr: "", status: .toDo),
-             StepItems(description: "Donor Sukses! Mohon untuk konfirmasi apabila sudah mendapatkan kantong darah", buttonStr: " Konfirmasi", status: .toDo),
-             StepItems(description: "Ayo Gabung Dengan Komunitas Rhesus Negatif", buttonStr: " More info", status: .toDo)
+            [StepItems(description: "Anda dapat memberitahukan PMI bahwa Anda menggunakan aplikasi untuk mencari donor", buttonStr: " Hubungi \(String((bloodRequest?.first?.address)!))", status: status![0]),
+             StepItems(description: "Pendonor Anda Telah Ditemukan Lokasi: \(String((donorData?.first?.address)!)) Mendonor pada \(String((donorData?.first?.date!)!))", buttonStr: " Hubungi \(String((donorData?.first?.address!)!))", status: status![1]),
+             StepItems(description: "Pendonor Akan Melakukan Verifikasi Kelengkapan Surat", buttonStr: "", status: status![2]),
+             StepItems(description: "Donor Sukses! Mohon untuk konfirmasi apabila sudah mendapatkan kantong darah", buttonStr: " Konfirmasi", status: status![3]),
+             StepItems(description: "Ayo Gabung Dengan Komunitas Rhesus Negatif", buttonStr: " More info", status: status![4])
             ]
            )
     }
