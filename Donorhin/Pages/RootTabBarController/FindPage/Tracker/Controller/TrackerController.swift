@@ -17,7 +17,6 @@ class TrackerController : UIViewController {
     var donorData : [Pendonor]?
     var status : [Status]?  = []
     var navigationBarTitle: String?
-    var isConfirmed : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,8 +68,11 @@ class TrackerController : UIViewController {
     }
     
     @objc func confirmed(){
-        isConfirmed = true
-        self.viewDidLoad()
+        donorData?[0].donorStatus = .confirmed
+        self.getTrackerItems { (stepItems) in
+            self.stepItems = stepItems
+        }
+        trackerTableView.reloadData()
     }
     
     func getTrackerItems(completionHandler: @escaping (([StepItems]) -> ())) {
@@ -84,10 +86,10 @@ class TrackerController : UIViewController {
         else if donorData?.first?.donorStatus == .verified {
             status = [.done, .done, .onGoing, .toDo, .toDo]
         }
-        else if donorData?.first?.donorStatus == .done && isConfirmed == false {
+        else if donorData?.first?.donorStatus == .done {
             status = [.done, .done, .done, .onGoing, .toDo]
         }
-        else if donorData?.first?.donorStatus == .done && isConfirmed == true {
+        else if donorData?.first?.donorStatus == .confirmed {
             status = [.done, .done, .done, .done, .done]
         }
         
