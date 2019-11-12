@@ -61,7 +61,7 @@ class FindController: UIViewController {
         self.navigationController?.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
-    
+        
     private func callNumber(phoneNumber: String){
         if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
             let application:UIApplication = UIApplication.shared
@@ -70,7 +70,7 @@ class FindController: UIViewController {
             }
         }
     }
-    
+  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! TrackerController
         destination.navigationBarTitle =  navBarTitle
@@ -102,11 +102,11 @@ class FindController: UIViewController {
                 }
             }
         }
-            
+        
         else {
             UIView.animate(withDuration: 0.1) {
                 self.profileImage.alpha = 0.0
-                
+               
             }
         }
     }
@@ -125,7 +125,7 @@ class FindController: UIViewController {
     }
     
     //MARK: Action Outlet
-    
+
     @IBAction func findBloodSegmentedControlDidChange() {
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         tableView.reloadData()

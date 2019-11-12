@@ -23,7 +23,7 @@ extension FindController: UIScrollViewDelegate{
                     self.findBloodSegmentedControl.alpha = 1
                 }
             }
-            
+
             let navBarHeight = Double((navigationController?.navigationBar.frame.height)!)
             
             if navBarHeight < 90.0 {

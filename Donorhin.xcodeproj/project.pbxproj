@@ -23,12 +23,16 @@
 		AB7357972374313500A6099B /* SecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7357942374313500A6099B /* SecondCell.swift */; };
 		AB7357982374313500A6099B /* ThirdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7357952374313500A6099B /* ThirdCell.swift */; };
 		AB73579A2374316900A6099B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB7357992374316900A6099B /* Profile.storyboard */; };
-		B0B168622374039B001DCE3C /* TrackerDonor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B168612374039B001DCE3C /* TrackerDonor.swift */; };
 		CC88A08623749D16001A982E /* FindBloodCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC88A08123749D16001A982E /* FindBloodCustomCell.xib */; };
-		CC88A08723749D16001A982E /* TrackerDonorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC88A08223749D16001A982E /* TrackerDonorTableViewCell.swift */; };
 		CC88A08823749D16001A982E /* FindBloodCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC88A08323749D16001A982E /* FindBloodCustomCell.swift */; };
-		CC88A08923749D16001A982E /* TrackerDonorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC88A08423749D16001A982E /* TrackerDonorTableViewCell.xib */; };
-		CC88A08A23749D16001A982E /* Tracker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC88A08523749D16001A982E /* Tracker.storyboard */; };
+		E6AC8D43237B29DF00820100 /* TrackerController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D3A237B29DF00820100 /* TrackerController+UITableView.swift */; };
+		E6AC8D44237B29DF00820100 /* TrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D3B237B29DF00820100 /* TrackerController.swift */; };
+		E6AC8D45237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D3C237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift */; };
+		E6AC8D46237B29DF00820100 /* TrackerDonor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D3E237B29DF00820100 /* TrackerDonor.swift */; };
+		E6AC8D47237B29DF00820100 /* TrackerDonorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D40237B29DF00820100 /* TrackerDonorTableViewCell.swift */; };
+		E6AC8D48237B29DF00820100 /* TrackerDonorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6AC8D41237B29DF00820100 /* TrackerDonorTableViewCell.xib */; };
+		E6AC8D49237B29DF00820100 /* Tracker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6AC8D42237B29DF00820100 /* Tracker.storyboard */; };
+		E6AC8D4B237B2A4100820100 /* FixImageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D4A237B2A4100820100 /* FixImageOrientation.swift */; };
 		E6BA6E38237B1E080017A330 /* InfoTableViewCell+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BA6E29237B1E080017A330 /* InfoTableViewCell+UITableView.swift */; };
 		E6BA6E39237B1E080017A330 /* EventTableViewCell+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BA6E2A237B1E080017A330 /* EventTableViewCell+UICollectionView.swift */; };
 		E6BA6E3A237B1E080017A330 /* DiscoverController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BA6E2B237B1E080017A330 /* DiscoverController+UITableView.swift */; };
@@ -45,9 +49,7 @@
 		E6BA6E4A237B23040017A330 /* SecondStepTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BA6E46237B23040017A330 /* SecondStepTableViewController.swift */; };
 		E6BA6E4B237B23040017A330 /* PMIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BA6E47237B23040017A330 /* PMIModel.swift */; };
 		E6BA6E4C237B23040017A330 /* DonateStepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BA6E48237B23040017A330 /* DonateStepsViewController.swift */; };
-		E6DDAF2A237435B300D6EAD1 /* TrackerController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF27237435B300D6EAD1 /* TrackerController+UITableView.swift */; };
 		E6DDAF2B237435B300D6EAD1 /* FindController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF28237435B300D6EAD1 /* FindController+ScrollView.swift */; };
-		E6DDAF2C237435B300D6EAD1 /* TrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF29237435B300D6EAD1 /* TrackerController.swift */; };
 		E6DDAF312375630800D6EAD1 /* LineLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF2E2375630700D6EAD1 /* LineLayer.swift */; };
 		E6DDAF322375630800D6EAD1 /* AnnularLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF2F2375630800D6EAD1 /* AnnularLayer.swift */; };
 		E6DDAF332375630800D6EAD1 /* StepIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF302375630800D6EAD1 /* StepIndicatorView.swift */; };
@@ -105,12 +107,16 @@
 		AB7357942374313500A6099B /* SecondCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondCell.swift; sourceTree = "<group>"; };
 		AB7357952374313500A6099B /* ThirdCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdCell.swift; sourceTree = "<group>"; };
 		AB7357992374316900A6099B /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		B0B168612374039B001DCE3C /* TrackerDonor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerDonor.swift; sourceTree = "<group>"; };
 		CC88A08123749D16001A982E /* FindBloodCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindBloodCustomCell.xib; sourceTree = "<group>"; };
-		CC88A08223749D16001A982E /* TrackerDonorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerDonorTableViewCell.swift; sourceTree = "<group>"; };
 		CC88A08323749D16001A982E /* FindBloodCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindBloodCustomCell.swift; sourceTree = "<group>"; };
-		CC88A08423749D16001A982E /* TrackerDonorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackerDonorTableViewCell.xib; sourceTree = "<group>"; };
-		CC88A08523749D16001A982E /* Tracker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tracker.storyboard; sourceTree = "<group>"; };
+		E6AC8D3A237B29DF00820100 /* TrackerController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController+UITableView.swift"; sourceTree = "<group>"; };
+		E6AC8D3B237B29DF00820100 /* TrackerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerController.swift; sourceTree = "<group>"; };
+		E6AC8D3C237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController + TrackerCellDelegate.swift"; sourceTree = "<group>"; };
+		E6AC8D3E237B29DF00820100 /* TrackerDonor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerDonor.swift; sourceTree = "<group>"; };
+		E6AC8D40237B29DF00820100 /* TrackerDonorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerDonorTableViewCell.swift; sourceTree = "<group>"; };
+		E6AC8D41237B29DF00820100 /* TrackerDonorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackerDonorTableViewCell.xib; sourceTree = "<group>"; };
+		E6AC8D42237B29DF00820100 /* Tracker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tracker.storyboard; sourceTree = "<group>"; };
+		E6AC8D4A237B2A4100820100 /* FixImageOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixImageOrientation.swift; sourceTree = "<group>"; };
 		E6BA6E29237B1E080017A330 /* InfoTableViewCell+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "InfoTableViewCell+UITableView.swift"; sourceTree = "<group>"; };
 		E6BA6E2A237B1E080017A330 /* EventTableViewCell+UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventTableViewCell+UICollectionView.swift"; sourceTree = "<group>"; };
 		E6BA6E2B237B1E080017A330 /* DiscoverController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DiscoverController+UITableView.swift"; sourceTree = "<group>"; };
@@ -127,9 +133,7 @@
 		E6BA6E46237B23040017A330 /* SecondStepTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondStepTableViewController.swift; sourceTree = "<group>"; };
 		E6BA6E47237B23040017A330 /* PMIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMIModel.swift; sourceTree = "<group>"; };
 		E6BA6E48237B23040017A330 /* DonateStepsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonateStepsViewController.swift; sourceTree = "<group>"; };
-		E6DDAF27237435B300D6EAD1 /* TrackerController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController+UITableView.swift"; sourceTree = "<group>"; };
 		E6DDAF28237435B300D6EAD1 /* FindController+ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FindController+ScrollView.swift"; sourceTree = "<group>"; };
-		E6DDAF29237435B300D6EAD1 /* TrackerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerController.swift; sourceTree = "<group>"; };
 		E6DDAF2E2375630700D6EAD1 /* LineLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineLayer.swift; sourceTree = "<group>"; };
 		E6DDAF2F2375630800D6EAD1 /* AnnularLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnularLayer.swift; sourceTree = "<group>"; };
 		E6DDAF302375630800D6EAD1 /* StepIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepIndicatorView.swift; sourceTree = "<group>"; };
@@ -269,6 +273,44 @@
 				AB4BD9A92375997E0016DDF1 /* Onboarding.storyboard */,
 			);
 			path = Onboard;
+			sourceTree = "<group>";
+		};
+		E6AC8D38237B29DF00820100 /* Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				E6AC8D39237B29DF00820100 /* Controller */,
+				E6AC8D3D237B29DF00820100 /* Model */,
+				E6AC8D3F237B29DF00820100 /* View */,
+			);
+			path = Tracker;
+			sourceTree = "<group>";
+		};
+		E6AC8D39237B29DF00820100 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E6AC8D3A237B29DF00820100 /* TrackerController+UITableView.swift */,
+				E6AC8D3B237B29DF00820100 /* TrackerController.swift */,
+				E6AC8D3C237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E6AC8D3D237B29DF00820100 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E6AC8D3E237B29DF00820100 /* TrackerDonor.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E6AC8D3F237B29DF00820100 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E6AC8D40237B29DF00820100 /* TrackerDonorTableViewCell.swift */,
+				E6AC8D41237B29DF00820100 /* TrackerDonorTableViewCell.xib */,
+				E6AC8D42237B29DF00820100 /* Tracker.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E6BA6E27237B1E080017A330 /* DiscoverPage */ = {
@@ -453,6 +495,7 @@
 		E6FBB1A323718DFC00B1B4DE /* FindPage */ = {
 			isa = PBXGroup;
 			children = (
+				E6AC8D38237B29DF00820100 /* Tracker */,
 				E6FBB1BB2371943500B1B4DE /* Model */,
 				E6FBB1BA2371942C00B1B4DE /* Controller */,
 				E6FBB1BC2371943D00B1B4DE /* View */,
@@ -478,8 +521,6 @@
 				E6FBB1B223718FF500B1B4DE /* FindController.swift */,
 				E6FBB1BD2371947700B1B4DE /* FindController+UITableView.swift */,
 				E6DDAF28237435B300D6EAD1 /* FindController+ScrollView.swift */,
-				E6DDAF29237435B300D6EAD1 /* TrackerController.swift */,
-				E6DDAF27237435B300D6EAD1 /* TrackerController+UITableView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -487,7 +528,6 @@
 		E6FBB1BB2371943500B1B4DE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B0B168612374039B001DCE3C /* TrackerDonor.swift */,
 				E6FBB1BF237194FB00B1B4DE /* BloodRequest.swift */,
 			);
 			path = Model;
@@ -498,9 +538,6 @@
 			children = (
 				CC88A08323749D16001A982E /* FindBloodCustomCell.swift */,
 				CC88A08123749D16001A982E /* FindBloodCustomCell.xib */,
-				CC88A08523749D16001A982E /* Tracker.storyboard */,
-				CC88A08223749D16001A982E /* TrackerDonorTableViewCell.swift */,
-				CC88A08423749D16001A982E /* TrackerDonorTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -509,6 +546,7 @@
 			isa = PBXGroup;
 			children = (
 				E6DDAF2D237562EF00D6EAD1 /* StepIndicator */,
+				E6AC8D4A237B2A4100820100 /* FixImageOrientation.swift */,
 				E6FBB1C22371991D00B1B4DE /* Constants.swift */,
 			);
 			path = Utilities;
@@ -619,16 +657,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6FBB1A223718D8D00B1B4DE /* Authentication.storyboard in Resources */,
+				E6AC8D49237B29DF00820100 /* Tracker.storyboard in Resources */,
 				E6FBB1A923718E7F00B1B4DE /* Find.storyboard in Resources */,
 				CC88A08623749D16001A982E /* FindBloodCustomCell.xib in Resources */,
-				CC88A08923749D16001A982E /* TrackerDonorTableViewCell.xib in Resources */,
 				E6FBB17923718C8500B1B4DE /* LaunchScreen.storyboard in Resources */,
 				E6BA6E44237B1E4F0017A330 /* Discover.storyboard in Resources */,
-				CC88A08A23749D16001A982E /* Tracker.storyboard in Resources */,
 				E6FBB17623718C8500B1B4DE /* Assets.xcassets in Resources */,
 				E6DDAF382375638E00D6EAD1 /* ScanFormPage.storyboard in Resources */,
 				E6FBB1A023718D5500B1B4DE /* RootTabBarController.storyboard in Resources */,
 				AB73579A2374316900A6099B /* Profile.storyboard in Resources */,
+				E6AC8D48237B29DF00820100 /* TrackerDonorTableViewCell.xib in Resources */,
 				AB4BD9AA2375997E0016DDF1 /* Onboarding.storyboard in Resources */,
 				0925FB4123740E1C00874DAA /* DonateTableViewCell.xib in Resources */,
 				E6FBB1AB23718EAB00B1B4DE /* Donate.storyboard in Resources */,
@@ -656,7 +694,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC88A08723749D16001A982E /* TrackerDonorTableViewCell.swift in Sources */,
+				E6AC8D45237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift in Sources */,
 				E6BA6E3F237B1E080017A330 /* InfoTableViewCell.swift in Sources */,
 				E6FBB1B123718FDF00B1B4DE /* DonateController.swift in Sources */,
 				E6BA6E40237B1E080017A330 /* AddEventCollectionViewCell.swift in Sources */,
@@ -667,6 +705,7 @@
 				E6FBB17423718C8400B1B4DE /* Donorhin.xcdatamodeld in Sources */,
 				0925FB4023740E1C00874DAA /* DonateTableViewCell.swift in Sources */,
 				E6DDAF312375630800D6EAD1 /* LineLayer.swift in Sources */,
+				E6AC8D43237B29DF00820100 /* TrackerController+UITableView.swift in Sources */,
 				E6FBB16C23718C8400B1B4DE /* AppDelegate.swift in Sources */,
 				E6FBB1B52371901400B1B4DE /* AuthenticationController.swift in Sources */,
 				AB7357972374313500A6099B /* SecondCell.swift in Sources */,
@@ -674,16 +713,16 @@
 				E6BA6E3B237B1E080017A330 /* DiscoverController.swift in Sources */,
 				AB7357982374313500A6099B /* ThirdCell.swift in Sources */,
 				E6BA6E41237B1E080017A330 /* EventTableViewCell.swift in Sources */,
+				E6AC8D46237B29DF00820100 /* TrackerDonor.swift in Sources */,
 				E6BA6E3A237B1E080017A330 /* DiscoverController+UITableView.swift in Sources */,
 				E6BA6E3C237B1E080017A330 /* EventModel.swift in Sources */,
 				E6BA6E49237B23040017A330 /* UTDDonorTableViewController.swift in Sources */,
-				E6DDAF2A237435B300D6EAD1 /* TrackerController+UITableView.swift in Sources */,
 				AB7357862374309E00A6099B /* CustomSegmentedController.swift in Sources */,
 				E6DDAF2B237435B300D6EAD1 /* FindController+ScrollView.swift in Sources */,
 				E6BA6E38237B1E080017A330 /* InfoTableViewCell+UITableView.swift in Sources */,
 				E6BA6E4C237B23040017A330 /* DonateStepsViewController.swift in Sources */,
 				0925FB382373F13000874DAA /* CustomMainView.swift in Sources */,
-				E6DDAF2C237435B300D6EAD1 /* TrackerController.swift in Sources */,
+				E6AC8D44237B29DF00820100 /* TrackerController.swift in Sources */,
 				AB7357922374311400A6099B /* ProfileController.swift in Sources */,
 				AB7357912374311400A6099B /* ProfileController+UITableView.swift in Sources */,
 				E6FBB1C32371991D00B1B4DE /* Constants.swift in Sources */,
@@ -691,13 +730,14 @@
 				E6BA6E4B237B23040017A330 /* PMIModel.swift in Sources */,
 				AB73578E2374310600A6099B /* Profile.swift in Sources */,
 				E6FBB1B323718FF500B1B4DE /* FindController.swift in Sources */,
-				B0B168622374039B001DCE3C /* TrackerDonor.swift in Sources */,
 				098FD4752372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift in Sources */,
 				09DC193A23754BCD004BEFB5 /* DonateModel.swift in Sources */,
 				E6DDAF3A237563AC00D6EAD1 /* ScanFormController.swift in Sources */,
 				E6BA6E4A237B23040017A330 /* SecondStepTableViewController.swift in Sources */,
 				E6FBB1C0237194FB00B1B4DE /* BloodRequest.swift in Sources */,
 				E6BA6E42237B1E080017A330 /* EventListCollectionViewCell.swift in Sources */,
+				E6AC8D4B237B2A4100820100 /* FixImageOrientation.swift in Sources */,
+				E6AC8D47237B29DF00820100 /* TrackerDonorTableViewCell.swift in Sources */,
 				E6FBB1BE2371947700B1B4DE /* FindController+UITableView.swift in Sources */,
 				E6BA6E3D237B1E080017A330 /* InfoModel.swift in Sources */,
 				AB4BD9AC237599870016DDF1 /* OnboardingViewController.swift in Sources */,
