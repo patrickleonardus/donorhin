@@ -39,13 +39,13 @@ class FindController: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-      self.setProfileImageNavBar(self.profileImage)
-      setupNavBarToLarge()
+    override func viewDidAppear(_ animated: Bool) {
+        profileImageNavBar(show: true)
+        setupNavBarToLarge()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-      self.removeProfileImageNavBar(self.profileImage)
+        profileImageNavBar(show: false)
     }
     
     
@@ -61,7 +61,7 @@ class FindController: UIViewController {
         self.navigationController?.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
-        
+    
     private func callNumber(phoneNumber: String){
         if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
             let application:UIApplication = UIApplication.shared
@@ -70,10 +70,45 @@ class FindController: UIViewController {
             }
         }
     }
-  
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! TrackerController
         destination.navigationBarTitle =  navBarTitle
+    }
+    
+    func profileImageNavBar(show: Bool){
+        
+        let navBarHeight = Double((navigationController?.navigationBar.frame.height)!)
+        
+        if show {
+            if navBarHeight >= 90.0 {
+                profileImage = UIImageView(image: UIImage(named: "user_profile_default"))
+                navigationController?.navigationBar.addSubview(profileImage)
+                profileImage.isUserInteractionEnabled = true
+                profileImage.layer.cornerRadius = ProfileImageSize.imageSize/2
+                profileImage.clipsToBounds = true
+                
+                profileImage.translatesAutoresizingMaskIntoConstraints = false
+                profileImage.rightAnchor.constraint(equalTo: (navigationController?.navigationBar.rightAnchor)!, constant: -ProfileImageSize.marginRight).isActive = true
+                profileImage.bottomAnchor.constraint(equalTo: (navigationController?.navigationBar.bottomAnchor)!, constant: -ProfileImageSize.marginBottom).isActive = true
+                profileImage.heightAnchor.constraint(equalToConstant: ProfileImageSize.imageSize).isActive = true
+                profileImage.widthAnchor.constraint(equalToConstant: ProfileImageSize.imageSize).isActive = true
+                
+                let profileTap = UITapGestureRecognizer(target: self, action: #selector(profileButton))
+                profileImage.addGestureRecognizer(profileTap)
+                
+                UIView.animate(withDuration: 1.0) {
+                    self.profileImage.alpha = 1.0
+                }
+            }
+        }
+            
+        else {
+            UIView.animate(withDuration: 0.1) {
+                self.profileImage.alpha = 0.0
+                
+            }
+        }
     }
     
     //MARK: Action
@@ -82,8 +117,15 @@ class FindController: UIViewController {
         callNumber(phoneNumber: "081317019898")
     }
     
+    @objc private func profileButton(){
+        let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "profileStoryboard") as! ProfileController
+        let navBarOnModal: UINavigationController = UINavigationController(rootViewController: vc)
+        self.present(navBarOnModal, animated: true, completion: nil)
+    }
+    
     //MARK: Action Outlet
-
+    
     @IBAction func findBloodSegmentedControlDidChange() {
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         tableView.reloadData()

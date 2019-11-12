@@ -16,11 +16,23 @@ enum History {
 struct Request {
   let user: String
   let step: Int
-  let status: History = .active
+  var status: History
   let date: String
 }
 
-struct ListDonate {
-  static let list = [Request(user: "Idris", step: 2, date: "20-12-2019")]
+struct DummyDataDonate {
+  static let list = [Request(user: "Idris", step: 2,status: .active, date: "20-12-2019"),Request(user: "Somad", step: 3,status: .history, date: "20-12-2019")]
+  static func getData(_ status: History,completion: @escaping ([Request]?) -> Void) {
+    var temp = [Request]()
+    temp = self.list.filter({ (key) -> Bool in
+      key.status == status
+    })
+    if temp.count > 0 {
+      completion(temp)
+    }
+    else {
+      completion(nil)
+    }
+  }
 }
 
