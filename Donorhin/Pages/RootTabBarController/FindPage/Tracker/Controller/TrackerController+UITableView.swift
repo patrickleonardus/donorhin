@@ -64,9 +64,13 @@ extension TrackerController : UITableViewDataSource {
         cell?.layer.cornerRadius = 10
         cell?.clipsToBounds = true
        
-        if indexPath.section < 2 {
-            cell?.buttonText.addTarget(self, action: #selector(callButton), for: .touchUpInside)
+        if indexPath.section == 0 {
+            cell?.buttonText.addTarget(self, action: #selector(callPMIResepien), for: .touchUpInside)
         }
+        else if indexPath.section == 1 {
+            cell?.buttonText.addTarget(self, action: #selector(callPMIPendonor), for: .touchUpInside)
+        }
+        
         cell?.confirmButton.addTarget(self, action: #selector(confirmed), for: .touchUpInside)
         
         switch data.status {

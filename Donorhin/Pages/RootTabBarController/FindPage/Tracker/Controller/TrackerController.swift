@@ -63,8 +63,12 @@ class TrackerController : UIViewController {
         }
     }
     
-    @objc func callButton(){
-           callNumber(phoneNumber: "081317019898")
+    @objc func callPMIResepien(){
+        callNumber(phoneNumber: "56789")
+    }
+    
+    @objc func callPMIPendonor(){
+        callNumber(phoneNumber: "12345")
     }
     
     @objc func confirmed(){
