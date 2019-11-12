@@ -9,9 +9,9 @@
 import Foundation
 
 enum Status {
-     case done
-     case onGoing
-     case toDo
+    case done
+    case onGoing
+    case toDo
 }
 
 struct StepItems {
