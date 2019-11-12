@@ -10,6 +10,8 @@
 		0925FB382373F13000874DAA /* CustomMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925FB372373F13000874DAA /* CustomMainView.swift */; };
 		0925FB4023740E1C00874DAA /* DonateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925FB3E23740E1C00874DAA /* DonateTableViewCell.swift */; };
 		0925FB4123740E1C00874DAA /* DonateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0925FB3F23740E1C00874DAA /* DonateTableViewCell.xib */; };
+		0932FB02237A8F1600FFCA9E /* PMIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0932FB01237A8F1600FFCA9E /* PMIModel.swift */; };
+		0932FB04237A960E00FFCA9E /* SecondStepTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0932FB03237A960E00FFCA9E /* SecondStepTableViewController.swift */; };
 		098FD4752372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */; };
 		098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */; };
 		0996E78F237950600028BB9C /* DonateStepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0996E78E237950600028BB9C /* DonateStepsViewController.swift */; };
@@ -81,6 +83,8 @@
 		0925FB372373F13000874DAA /* CustomMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainView.swift; sourceTree = "<group>"; };
 		0925FB3E23740E1C00874DAA /* DonateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateTableViewCell.swift; sourceTree = "<group>"; };
 		0925FB3F23740E1C00874DAA /* DonateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DonateTableViewCell.xib; sourceTree = "<group>"; };
+		0932FB01237A8F1600FFCA9E /* PMIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMIModel.swift; sourceTree = "<group>"; };
+		0932FB03237A960E00FFCA9E /* SecondStepTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondStepTableViewController.swift; sourceTree = "<group>"; };
 		098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonSubmitRounded.swift; sourceTree = "<group>"; };
 		098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewRounded.swift; sourceTree = "<group>"; };
 		0996E78E237950600028BB9C /* DonateStepsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateStepsViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				09DC193923754BCD004BEFB5 /* DonateModel.swift */,
+				0932FB01237A8F1600FFCA9E /* PMIModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 				E6FBB1B023718FDF00B1B4DE /* DonateController.swift */,
 				0996E78E237950600028BB9C /* DonateStepsViewController.swift */,
 				0996E7902379810C0028BB9C /* UTDDonorTableViewController.swift */,
+				0932FB03237A960E00FFCA9E /* SecondStepTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -616,9 +622,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC88A08723749D16001A982E /* TrackerDonorTableViewCell.swift in Sources */,
+				0932FB04237A960E00FFCA9E /* SecondStepTableViewController.swift in Sources */,
 				E6FBB1B123718FDF00B1B4DE /* DonateController.swift in Sources */,
 				CC88A08823749D16001A982E /* FindBloodCustomCell.swift in Sources */,
 				098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */,
+				0932FB02237A8F1600FFCA9E /* PMIModel.swift in Sources */,
 				AB7357962374313500A6099B /* FirstCell.swift in Sources */,
 				E6FBB17423718C8400B1B4DE /* Donorhin.xcdatamodeld in Sources */,
 				0925FB4023740E1C00874DAA /* DonateTableViewCell.swift in Sources */,
