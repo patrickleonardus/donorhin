@@ -20,7 +20,6 @@ class TrackerDonorTableViewCell: UITableViewCell {
    }
    
    @IBOutlet var redCircle: UIView!
-   
    @IBOutlet var checkMarkImage: UIImageView!
    @IBOutlet var number: UILabel!
    @IBOutlet var active_number: UILabel!
@@ -28,10 +27,10 @@ class TrackerDonorTableViewCell: UITableViewCell {
    @IBOutlet var stackView: UIStackView!
    @IBOutlet var informationText: UILabel!
    @IBOutlet var buttonText: UIButton!
+   
    let confirmButton = CustomButtonRounded(frame: CGRect(x: 0, y: 0, width: 118, height: 43))
    var phoneNumber : String?
    var numberr : Int!
-   
    
    override func awakeFromNib() {
       super.awakeFromNib()
@@ -121,7 +120,7 @@ class TrackerDonorTableViewCell: UITableViewCell {
       self.buttonText.isHidden = false
       buttonText.setTitle("Lihat info lengkap", for: .normal)
       buttonText.setImage(nil, for: .normal)
-      
+      confirmButton.isHidden = true
       if status == .toDo {
          buttonText.tintColor = Colors.gray_disabled
          buttonText.setTitleColor(Colors.gray_disabled, for: .normal)
@@ -130,7 +129,6 @@ class TrackerDonorTableViewCell: UITableViewCell {
          buttonText.tintColor = Colors.red
          buttonText.setTitleColor(Colors.red, for: .normal)
          buttonText.isEnabled = true
-
       }
    }
    

@@ -12,17 +12,11 @@ import UIKit
 class CustomButtonRounded: UIButton {
    override init(frame: CGRect) {
       super.init(frame: frame)
+      self.setupButton()
    }
    
    required init?(coder: NSCoder) {
       super.init(coder: coder)
-   }
-   
-   override func prepareForInterfaceBuilder() {
-      self.setupButton()
-   }
-   
-   override func awakeFromNib() {
       self.setupButton()
    }
    
