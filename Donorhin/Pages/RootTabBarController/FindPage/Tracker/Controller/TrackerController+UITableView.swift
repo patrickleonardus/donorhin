@@ -70,6 +70,9 @@ extension TrackerController : UITableViewDataSource {
         else if indexPath.section == 1 {
             cell?.buttonText.addTarget(self, action: #selector(callPMIPendonor), for: .touchUpInside)
         }
+        else if indexPath.section == 4 {
+            cell?.buttonText.addTarget(self, action: #selector(goToMoreInfo), for: .touchUpInside)
+        }
         
         cell?.confirmButton.addTarget(self, action: #selector(confirmed), for: .touchUpInside)
         

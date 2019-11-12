@@ -26,6 +26,7 @@
 		AB7357982374313500A6099B /* ThirdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7357952374313500A6099B /* ThirdCell.swift */; };
 		AB73579A2374316900A6099B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB7357992374316900A6099B /* Profile.storyboard */; };
 		B0B168622374039B001DCE3C /* TrackerDonor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B168612374039B001DCE3C /* TrackerDonor.swift */; };
+		B0B16869237AC346001DCE3C /* Information.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0B16868237AC346001DCE3C /* Information.storyboard */; };
 		CC88A08623749D16001A982E /* FindBloodCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC88A08123749D16001A982E /* FindBloodCustomCell.xib */; };
 		CC88A08723749D16001A982E /* TrackerDonorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC88A08223749D16001A982E /* TrackerDonorTableViewCell.swift */; };
 		CC88A08823749D16001A982E /* FindBloodCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC88A08323749D16001A982E /* FindBloodCustomCell.swift */; };
@@ -97,6 +98,7 @@
 		AB7357952374313500A6099B /* ThirdCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdCell.swift; sourceTree = "<group>"; };
 		AB7357992374316900A6099B /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		B0B168612374039B001DCE3C /* TrackerDonor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerDonor.swift; sourceTree = "<group>"; };
+		B0B16868237AC346001DCE3C /* Information.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Information.storyboard; sourceTree = "<group>"; };
 		CC88A08123749D16001A982E /* FindBloodCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindBloodCustomCell.xib; sourceTree = "<group>"; };
 		CC88A08223749D16001A982E /* TrackerDonorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerDonorTableViewCell.swift; sourceTree = "<group>"; };
 		CC88A08323749D16001A982E /* FindBloodCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindBloodCustomCell.swift; sourceTree = "<group>"; };
@@ -245,6 +247,38 @@
 				AB4BD9A92375997E0016DDF1 /* Onboarding.storyboard */,
 			);
 			path = Onboard;
+			sourceTree = "<group>";
+		};
+		B0B16864237AC2D5001DCE3C /* Information */ = {
+			isa = PBXGroup;
+			children = (
+				B0B16866237AC30E001DCE3C /* View */,
+				B0B16867237AC31A001DCE3C /* Controller */,
+				B0B16865237AC2FE001DCE3C /* Model */,
+				B0B16868237AC346001DCE3C /* Information.storyboard */,
+			);
+			path = Information;
+			sourceTree = "<group>";
+		};
+		B0B16865237AC2FE001DCE3C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B0B16866237AC30E001DCE3C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B0B16867237AC31A001DCE3C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		CC07A64923796AFB00DE2FBE /* Tracker */ = {
@@ -411,6 +445,7 @@
 				E6FBB1BA2371942C00B1B4DE /* Controller */,
 				E6FBB1BC2371943D00B1B4DE /* View */,
 				CC07A64923796AFB00DE2FBE /* Tracker */,
+				B0B16864237AC2D5001DCE3C /* Information */,
 				E6FBB1A823718E7F00B1B4DE /* Find.storyboard */,
 			);
 			path = FindPage;
@@ -589,6 +624,7 @@
 				AB73579A2374316900A6099B /* Profile.storyboard in Resources */,
 				E6FBB1AD23718EF300B1B4DE /* Discover.storyboard in Resources */,
 				AB4BD9AA2375997E0016DDF1 /* Onboarding.storyboard in Resources */,
+				B0B16869237AC346001DCE3C /* Information.storyboard in Resources */,
 				0925FB4123740E1C00874DAA /* DonateTableViewCell.xib in Resources */,
 				E6FBB1AB23718EAB00B1B4DE /* Donate.storyboard in Resources */,
 			);
