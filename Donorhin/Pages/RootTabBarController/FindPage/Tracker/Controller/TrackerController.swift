@@ -31,11 +31,11 @@ class TrackerController : UIViewController {
         PendonorDummyData().getCurrentPendonor { (donorData) in
             self.donorData = donorData
         }
-        
         getTrackerItems { (stepItems) in
             self.stepItems = stepItems
         }
         trackerTableView.showsVerticalScrollIndicator = false
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,6 +70,7 @@ class TrackerController : UIViewController {
     
     @objc func confirmed(){
         isConfirmed = true
+        self.viewDidLoad()
     }
     
     func getTrackerItems(completionHandler: @escaping (([StepItems]) -> ())) {
@@ -83,10 +84,10 @@ class TrackerController : UIViewController {
         else if donorData?.first?.donorStatus == .verified {
             status = [.done, .done, .onGoing, .toDo, .toDo]
         }
-        else if donorData?.first?.donorStatus == .done || isConfirmed == false {
+        else if donorData?.first?.donorStatus == .done && isConfirmed == false {
             status = [.done, .done, .done, .onGoing, .toDo]
         }
-        else if donorData?.first?.donorStatus == .done || isConfirmed == true {
+        else if donorData?.first?.donorStatus == .done && isConfirmed == true {
             status = [.done, .done, .done, .done, .done]
         }
         
