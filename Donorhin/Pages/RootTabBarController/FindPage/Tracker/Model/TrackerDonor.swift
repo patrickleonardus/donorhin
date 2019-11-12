@@ -25,14 +25,15 @@ enum DonorStatus {
     case found
     case verified
     case done
+    case confirmed
 }
 
 struct Pendonor {
-    let id : String?
-    let name : String?
-    let address : String?
-    let date : String?
-    let donorStatus : DonorStatus?
+    var id : String?
+    var name : String?
+    var address : String?
+    var date : String?
+    var donorStatus : DonorStatus?
 }
 
 struct PendonorDummyData {
