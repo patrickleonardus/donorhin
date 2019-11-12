@@ -61,7 +61,7 @@
                                         <rect key="frame" x="0.0" y="113" width="414" height="609"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="permintaanKososngGambar" translatesAutoresizingMaskIntoConstraints="NO" id="dNC-P9-hdm">
-                                                <rect key="frame" x="51" y="14" width="312" height="196"/>
+                                                <rect key="frame" x="51" y="14" width="312" height="196.00000000000006"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="196" id="V1N-AK-RCK"/>
                                                     <constraint firstAttribute="width" constant="312" id="xbt-7Q-0iJ"/>
@@ -184,24 +184,38 @@
                                             <segue destination="Zos-n3-EnO" kind="embed" id="a2J-ns-6No"/>
                                         </connections>
                                     </containerView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAQ-v0-lva" customClass="CustomButtonRounded" customModule="Donorhin" customModuleProvider="target">
-                                        <rect key="frame" x="51" y="298" width="312" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltf-TF-Y5i" customClass="CustomButtonRounded" customModule="Donorhin" customModuleProvider="target">
+                                        <rect key="frame" x="51" y="245" width="312" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="0Fo-Y4-Va9"/>
+                                            <constraint firstAttribute="width" constant="312" id="Rzo-KT-5nU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Bersedia">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gpe-Sh-8yH">
+                                        <rect key="frame" x="51" y="306" width="312" height="45"/>
+                                        <state key="normal" title="Batal">
+                                            <color key="titleColor" red="0.70196078429999997" green="0.0" blue="0.062745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="lAQ-v0-lva" secondAttribute="trailing" constant="51" id="1jF-TE-Aog"/>
+                                    <constraint firstItem="Gpe-Sh-8yH" firstAttribute="width" secondItem="ltf-TF-Y5i" secondAttribute="width" id="5cE-Ml-egd"/>
+                                    <constraint firstItem="Gpe-Sh-8yH" firstAttribute="top" secondItem="ltf-TF-Y5i" secondAttribute="bottom" constant="16" id="8aa-0e-Tqw"/>
+                                    <constraint firstItem="ltf-TF-Y5i" firstAttribute="top" secondItem="Aqo-1g-sEQ" secondAttribute="bottom" constant="30" id="ALI-4o-st7"/>
                                     <constraint firstItem="Aqo-1g-sEQ" firstAttribute="leading" secondItem="Ag8-Iw-E8w" secondAttribute="leading" constant="16" id="EeF-gJ-eV3"/>
                                     <constraint firstItem="Aqo-1g-sEQ" firstAttribute="top" secondItem="JSr-yi-DPn" secondAttribute="bottom" constant="16" id="JRu-Pl-x72"/>
+                                    <constraint firstItem="Gpe-Sh-8yH" firstAttribute="height" secondItem="ltf-TF-Y5i" secondAttribute="height" id="MyV-Id-LaC"/>
                                     <constraint firstItem="JSr-yi-DPn" firstAttribute="top" secondItem="Ag8-Iw-E8w" secondAttribute="top" constant="18" id="PkA-MJ-EMW"/>
                                     <constraint firstAttribute="trailing" secondItem="JSr-yi-DPn" secondAttribute="trailing" constant="36" id="WfT-kq-miH"/>
+                                    <constraint firstItem="ltf-TF-Y5i" firstAttribute="centerX" secondItem="Ag8-Iw-E8w" secondAttribute="centerX" id="XIu-EM-rVK"/>
+                                    <constraint firstItem="Gpe-Sh-8yH" firstAttribute="centerX" secondItem="Ag8-Iw-E8w" secondAttribute="centerX" id="e3g-ly-jzt"/>
                                     <constraint firstItem="JSr-yi-DPn" firstAttribute="leading" secondItem="Ag8-Iw-E8w" secondAttribute="leading" constant="36" id="fDN-97-Z8n"/>
-                                    <constraint firstItem="lAQ-v0-lva" firstAttribute="leading" secondItem="Ag8-Iw-E8w" secondAttribute="leading" constant="51" id="nOH-Lz-EEc"/>
                                     <constraint firstAttribute="trailing" secondItem="Aqo-1g-sEQ" secondAttribute="trailing" constant="16" id="q19-3K-upT"/>
-                                    <constraint firstItem="lAQ-v0-lva" firstAttribute="top" secondItem="Aqo-1g-sEQ" secondAttribute="bottom" constant="83" id="sCQ-0S-LRd"/>
                                 </constraints>
                             </view>
                         </subviews>
