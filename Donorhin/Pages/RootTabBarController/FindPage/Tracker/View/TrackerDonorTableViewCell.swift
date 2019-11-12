@@ -29,7 +29,9 @@ class TrackerDonorTableViewCell: UITableViewCell {
    @IBOutlet var informationText: UILabel!
    @IBOutlet var buttonText: UIButton!
    let confirmButton = CustomButtonRounded(frame: CGRect(x: 0, y: 0, width: 118, height: 43))
-   var phoneNumber : String? = "082285250866"
+   var phoneNumber : String?
+   var numberr : Int!
+   
    
    override func awakeFromNib() {
       super.awakeFromNib()
@@ -45,7 +47,7 @@ class TrackerDonorTableViewCell: UITableViewCell {
       self.contentView.layer.cornerRadius = 10
       buttonText.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
       
-//      add width constraint for red circle
+      //      add width constraint for red circle
       let width : CGFloat
       if UDDevice.widthScreen < 375 {
          width = 50
@@ -61,7 +63,7 @@ class TrackerDonorTableViewCell: UITableViewCell {
    
    //MARK: Styling the cell
    func setupView(status:Status,number:Int) {
-      
+      self.numberr = number
       let hide = false
       //Done and Active Styling informationText and buttonText
       if status !=  .toDo { //enable ; on going/done  processes
@@ -110,6 +112,26 @@ class TrackerDonorTableViewCell: UITableViewCell {
       } else {
          self.buttonText.isHidden = true
       }
+      if number == 5 {
+         stylingNo5(status:status)
+      }
+   }
+   
+   func stylingNo5(status:Status){
+      self.buttonText.isHidden = false
+      buttonText.setTitle("Lihat info lengkap", for: .normal)
+      buttonText.setImage(nil, for: .normal)
+      
+      if status == .toDo {
+         buttonText.tintColor = Colors.gray_disabled
+         buttonText.setTitleColor(Colors.gray_disabled, for: .normal)
+         buttonText.isEnabled = false
+      } else {
+         buttonText.tintColor = Colors.red
+         buttonText.setTitleColor(Colors.red, for: .normal)
+         buttonText.isEnabled = true
+
+      }
    }
    
    func stylingNumber4(status:Status) {
@@ -141,6 +163,7 @@ class TrackerDonorTableViewCell: UITableViewCell {
    
    //MARK: Button text (call) pressed
    @IBAction func makeACall(_ sender: UIButton) {
+      
       print ("Button text (call UTD) pressed")
       if let redCrossPhone = phoneNumber {
          if let phoneCallURL = URL(string: "telprompt://\(redCrossPhone)") {
