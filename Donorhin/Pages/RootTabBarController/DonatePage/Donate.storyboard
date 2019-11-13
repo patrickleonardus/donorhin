@@ -138,7 +138,7 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="currentStep">
-                                        <integer key="value" value="1"/>
+                                        <integer key="value" value="3"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="displayNumbers" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="directionRaw">

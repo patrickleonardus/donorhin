@@ -14,17 +14,17 @@ class RequestStepsPageViewController: UIPageViewController {
     let sb = UIStoryboard(name: "RequestStepsPageViewController", bundle: nil)
     switch self.id {
       case 1:
-        return [sb.instantiateViewController(withIdentifier: "1")]
+        return [sb.instantiateViewController(withIdentifier: "langkah1")]
       case 2:
-      return [sb.instantiateViewController(withIdentifier: "2")]
+      return [sb.instantiateViewController(withIdentifier: "langkah2")]
       case 3:
-        return [sb.instantiateViewController(withIdentifier: "3")]
+        return [sb.instantiateViewController(withIdentifier: "langkah3")]
       case 4:
-        return [sb.instantiateViewController(withIdentifier: "4")]
+        return [sb.instantiateViewController(withIdentifier: "langkah4")]
       case 5:
-      return [sb.instantiateViewController(withIdentifier: "5")]
+      return [sb.instantiateViewController(withIdentifier: "langkah5")]
     default:
-      return [sb.instantiateViewController(withIdentifier: "1")]
+      return [sb.instantiateViewController(withIdentifier: "langkah1")]
     }
   }()
       
