@@ -11,6 +11,7 @@ import UIKit
 class EventTableViewCell: UITableViewCell {
     
     var eventData : [EventModel]?
+    var moveToAddEventDelegate : MoveToAddEvent?
     
     @IBOutlet weak var collectionViewDiscover: UICollectionView!
     

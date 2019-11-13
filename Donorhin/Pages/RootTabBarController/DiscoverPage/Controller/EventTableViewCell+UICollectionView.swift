@@ -67,4 +67,12 @@ extension EventTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if indexPath.section == 0 {
+            self.moveToAddEventDelegate?.moveToAddEventClass()
+        }
+        
+    }
+    
 }
