@@ -50,6 +50,8 @@
 		E6BA6E4B237B23040017A330 /* PMIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BA6E47237B23040017A330 /* PMIModel.swift */; };
 		E6BA6E4C237B23040017A330 /* DonateStepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BA6E48237B23040017A330 /* DonateStepsViewController.swift */; };
 		E6D0747D237BCDCD00CF5531 /* DiscoverController+UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D0747C237BCDCD00CF5531 /* DiscoverController+UIScrollView.swift */; };
+		E6D0748B237BE7CB00CF5531 /* AddEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D0748A237BE7CB00CF5531 /* AddEventController.swift */; };
+		E6D0748F237BEAE400CF5531 /* AddEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6D0748E237BEAE400CF5531 /* AddEvent.storyboard */; };
 		E6DDAF2B237435B300D6EAD1 /* FindController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF28237435B300D6EAD1 /* FindController+ScrollView.swift */; };
 		E6DDAF312375630800D6EAD1 /* LineLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF2E2375630700D6EAD1 /* LineLayer.swift */; };
 		E6DDAF322375630800D6EAD1 /* AnnularLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF2F2375630800D6EAD1 /* AnnularLayer.swift */; };
@@ -135,6 +137,8 @@
 		E6BA6E47237B23040017A330 /* PMIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMIModel.swift; sourceTree = "<group>"; };
 		E6BA6E48237B23040017A330 /* DonateStepsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonateStepsViewController.swift; sourceTree = "<group>"; };
 		E6D0747C237BCDCD00CF5531 /* DiscoverController+UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiscoverController+UIScrollView.swift"; sourceTree = "<group>"; };
+		E6D0748A237BE7CB00CF5531 /* AddEventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventController.swift; sourceTree = "<group>"; };
+		E6D0748E237BEAE400CF5531 /* AddEvent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddEvent.storyboard; sourceTree = "<group>"; };
 		E6DDAF28237435B300D6EAD1 /* FindController+ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FindController+ScrollView.swift"; sourceTree = "<group>"; };
 		E6DDAF2E2375630700D6EAD1 /* LineLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineLayer.swift; sourceTree = "<group>"; };
 		E6DDAF2F2375630800D6EAD1 /* AnnularLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnularLayer.swift; sourceTree = "<group>"; };
@@ -375,6 +379,31 @@
 			path = "Event Cell View";
 			sourceTree = "<group>";
 		};
+		E6D07487237BE79200CF5531 /* AddEventPage */ = {
+			isa = PBXGroup;
+			children = (
+				E6D07489237BE7A600CF5531 /* Controller */,
+				E6D07488237BE7A000CF5531 /* View */,
+				E6D0748E237BEAE400CF5531 /* AddEvent.storyboard */,
+			);
+			path = AddEventPage;
+			sourceTree = "<group>";
+		};
+		E6D07488237BE7A000CF5531 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E6D07489237BE7A600CF5531 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E6D0748A237BE7CB00CF5531 /* AddEventController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		E6DDAF2D237562EF00D6EAD1 /* StepIndicator */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,6 +515,7 @@
 			isa = PBXGroup;
 			children = (
 				E6FBB19F23718D5500B1B4DE /* RootTabBarController.storyboard */,
+				E6D07487237BE79200CF5531 /* AddEventPage */,
 				AB3B8D2F2374034C008D7AB1 /* ProfilePage */,
 				E6BA6E27237B1E080017A330 /* DiscoverPage */,
 				E6FBB1A423718E1100B1B4DE /* DonatePage */,
@@ -669,6 +699,7 @@
 				E6DDAF382375638E00D6EAD1 /* ScanFormPage.storyboard in Resources */,
 				E6FBB1A023718D5500B1B4DE /* RootTabBarController.storyboard in Resources */,
 				AB73579A2374316900A6099B /* Profile.storyboard in Resources */,
+				E6D0748F237BEAE400CF5531 /* AddEvent.storyboard in Resources */,
 				E6AC8D48237B29DF00820100 /* TrackerDonorTableViewCell.xib in Resources */,
 				AB4BD9AA2375997E0016DDF1 /* Onboarding.storyboard in Resources */,
 				0925FB4123740E1C00874DAA /* DonateTableViewCell.xib in Resources */,
@@ -738,6 +769,7 @@
 				09DC193A23754BCD004BEFB5 /* DonateModel.swift in Sources */,
 				E6DDAF3A237563AC00D6EAD1 /* ScanFormController.swift in Sources */,
 				E6BA6E4A237B23040017A330 /* SecondStepTableViewController.swift in Sources */,
+				E6D0748B237BE7CB00CF5531 /* AddEventController.swift in Sources */,
 				E6FBB1C0237194FB00B1B4DE /* BloodRequest.swift in Sources */,
 				E6BA6E42237B1E080017A330 /* EventListCollectionViewCell.swift in Sources */,
 				E6AC8D4B237B2A4100820100 /* FixImageOrientation.swift in Sources */,
