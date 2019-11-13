@@ -27,7 +27,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QfV-mY-JiM" userLabel="Top View">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_profile" translatesAutoresizingMaskIntoConstraints="NO" id="fNf-G9-xT5">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome_onboard" translatesAutoresizingMaskIntoConstraints="NO" id="fNf-G9-xT5">
                                         <rect key="frame" x="16" y="208" width="382" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="2FX-GM-HPa"/>
@@ -108,7 +108,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="poN-Pf-rJr" userLabel="Top View">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_profile" translatesAutoresizingMaskIntoConstraints="NO" id="Fta-R2-Q1k">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="track_onboard" translatesAutoresizingMaskIntoConstraints="NO" id="Fta-R2-Q1k">
                                         <rect key="frame" x="16" y="208" width="382" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="5eg-zN-Sep"/>
@@ -188,7 +188,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ssX-s3-fTh" userLabel="Top View">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_profile" translatesAutoresizingMaskIntoConstraints="NO" id="tBe-aD-sfU">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="privacy_onboard" translatesAutoresizingMaskIntoConstraints="NO" id="tBe-aD-sfU">
                                         <rect key="frame" x="16" y="208" width="382" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="fcK-Au-iWG"/>
@@ -263,12 +263,12 @@
         <scene sceneID="TDU-iU-T2A">
             <objects>
                 <viewController storyboardIdentifier="Page4" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kBm-Yd-jWI" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="V6q-Mp-nrP">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="V6q-Mp-nrP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="105" translatesAutoresizingMaskIntoConstraints="NO" id="EGj-LW-dRd" userLabel="Stack View Label">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="946"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="105" translatesAutoresizingMaskIntoConstraints="NO" id="EGj-LW-dRd" userLabel="Stack View Label">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y2a-KA-bcC">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
@@ -289,12 +289,12 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ALm-wZ-xCm">
-                                        <rect key="frame" x="0.0" y="225" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="225" width="414" height="0.0"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hDd-Og-Pdh">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="0.0"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="user_profile" translatesAutoresizingMaskIntoConstraints="NO" id="A6U-su-NgB">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="map_onboard" translatesAutoresizingMaskIntoConstraints="NO" id="A6U-su-NgB">
                                                         <rect key="frame" x="60" y="30" width="40" height="40.000000000000014"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="40" id="NUi-Xv-EXi"/>
@@ -310,7 +310,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ak9-VI-57b">
-                                                <rect key="frame" x="100" y="0.0" width="314" height="50"/>
+                                                <rect key="frame" x="100" y="0.0" width="314" height="0.0"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="241" verticalCompressionResistancePriority="742" ambiguous="YES" placeholderIntrinsicWidth="264" placeholderIntrinsicHeight="72" text="Anda hanya perlu ke PMI untuk memberikan surat keterangan butuh darah" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Tiy-qJ-X4a">
                                                         <rect key="frame" x="40" y="14" width="234" height="72"/>
@@ -335,12 +335,12 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NZv-bX-Bfq">
-                                        <rect key="frame" x="0.0" y="380" width="414" height="56"/>
+                                        <rect key="frame" x="0.0" y="330" width="414" height="56"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6G1-dm-qHt">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="56"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="user_profile" translatesAutoresizingMaskIntoConstraints="NO" id="Tfj-r5-0la">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="people_onboard" translatesAutoresizingMaskIntoConstraints="NO" id="Tfj-r5-0la">
                                                         <rect key="frame" x="60" y="30" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="40" id="OGw-aV-ZOD"/>
@@ -377,13 +377,13 @@
                                             <constraint firstItem="Irn-qV-0pW" firstAttribute="top" secondItem="NZv-bX-Bfq" secondAttribute="top" id="96Y-hq-kb7"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aBd-h8-3nq">
-                                        <rect key="frame" x="0.0" y="541" width="414" height="100"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aBd-h8-3nq">
+                                        <rect key="frame" x="0.0" y="491" width="414" height="100"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8To-Np-zX8">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_profile" translatesAutoresizingMaskIntoConstraints="NO" id="lvu-Va-MGJ">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smile_onboard" translatesAutoresizingMaskIntoConstraints="NO" id="lvu-Va-MGJ">
                                                         <rect key="frame" x="60" y="30" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="0rh-ka-OSH"/>
@@ -422,8 +422,8 @@
                                             <constraint firstAttribute="height" constant="100" id="sl2-zG-2aG"/>
                                         </constraints>
                                     </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dEL-ae-juZ">
-                                        <rect key="frame" x="0.0" y="746" width="414" height="200"/>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dEL-ae-juZ">
+                                        <rect key="frame" x="0.0" y="696" width="414" height="200"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blY-Iw-Tye">
                                                 <rect key="frame" x="161" y="90" width="92" height="20"/>
@@ -435,9 +435,13 @@
                                                 <state key="normal" title="Masuk Nanti">
                                                     <color key="titleColor" red="0.6453691721" green="0.00067493994720000002" blue="0.098007641729999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="lm8-9v-Wbb" kind="showDetail" id="eYB-qR-m6q"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xlb-vQ-N4C" customClass="CustomButtonRounded" customModule="Donorhin" customModuleProvider="target">
                                                 <rect key="frame" x="51" y="36" width="312" height="44"/>
+                                                <color key="backgroundColor" red="0.6453691721" green="0.00067493994720000002" blue="0.098007641729999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="LEd-BI-I8Z"/>
                                                     <constraint firstAttribute="width" constant="312" id="N2c-Sh-UcB"/>
@@ -446,6 +450,9 @@
                                                 <state key="normal" title="Masuk ke Akun">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="lm8-9v-Wbb" kind="showDetail" id="26b-4E-fhO"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -482,8 +489,24 @@
             </objects>
             <point key="canvasLocation" x="2289.8550724637685" y="-83.035714285714278"/>
         </scene>
+        <!--Find-->
+        <scene sceneID="n9W-9F-Q3M">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Find" id="lm8-9v-Wbb" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jXZ-bS-eeK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2849" y="17"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="user_profile" width="1439" height="960"/>
+        <image name="map_onboard" width="41" height="49"/>
+        <image name="people_onboard" width="55" height="38"/>
+        <image name="privacy_onboard" width="339" height="306"/>
+        <image name="smile_onboard" width="52" height="52"/>
+        <image name="track_onboard" width="330" height="288"/>
+        <image name="welcome_onboard" width="382" height="250"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="26b-4E-fhO"/>
+    </inferredMetricsTieBreakers>
 </document>
