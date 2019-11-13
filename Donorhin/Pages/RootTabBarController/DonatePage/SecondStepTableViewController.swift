@@ -20,6 +20,7 @@ class SecondStepTableViewController: UITableViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       setupDatePicker()
+      self.view.layer.cornerRadius = 10
    }
    
    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -38,7 +39,8 @@ class SecondStepTableViewController: UITableViewController {
       print(indexPath.row)
       if  indexPath.row == 0 {
          self.delegate?.handleDatePickerData(picker:self.picker)
-         //TODO: Date picker harus ditampilin di parentnya table view controller ini a.k.a tampilan penuh dari Step 2. Ntar pake self.view.addSubview(picker) & self.view.bringSubviewToFront(picker)
+         print ("Show the picker on the parent!")
+         //TODO: Date picker harus ditampilin di parentnya table view controller ini a.k.a tampilan penuh dari Step 2. Ntar pake self.view.addSubview(picker) & self.view.bringSubviewToFront(picker) buat nampilin dia di Donor Controller
       }  else if indexPath.row == 1 {
          performSegue(withIdentifier: "GoToUTD", sender: nil)
       }
@@ -67,21 +69,17 @@ class SecondStepTableViewController: UITableViewController {
        toolbar.sizeToFit()
 
       /**nambahin toolbar Ini Harusnya di pake di parent view sekalian sama Date Picker Handlers di baris 89
-      let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(donePicker))
+       let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(donePicker))
        doneButton.tintColor = UIColor.black
-      let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-      let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(cancelPicker))
+       let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+       let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(cancelPicker))
        cancelButton.tintColor = UIColor.black
-
+       
        toolbar.setItems([cancelButton, spaceButton, doneButton], animated: false)
        toolbar.isUserInteractionEnabled = true
-
-//       picker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: .valueChanged)
- */
-
-       //add the picker to your view or tableView if you use UITableViewController
-//      self.tableView.addSubview(picker)
-//      self.tableView.bringSubview(toFront: picker)
+       picker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: .valueChanged)
+       */
+//
    }
    
    //MARK: Date Picker Handlers: Harusnya di taro di parent view, you can move these line of code below
