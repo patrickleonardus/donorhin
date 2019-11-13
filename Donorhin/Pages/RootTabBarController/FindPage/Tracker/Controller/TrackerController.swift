@@ -63,11 +63,7 @@ class TrackerController : UIViewController {
             }
         }
     }
-    
-    @objc func goToMoreInfo(){
-        
-    }
-    
+
     @objc func callPMIResepien(){
         callNumber(phoneNumber: "56789")
     }

@@ -11,7 +11,12 @@ import UIKit
 extension TrackerController : TrackerCellDelegate {
    func showMoreInfo() {
       //TODO: Add segue ke info lengkap
-      print ("add segue here")
+    print ("add segue here")
+    let storyboard = UIStoryboard(name: "Information", bundle: nil)
+    let vc = storyboard.instantiateViewController(withIdentifier: "infoViewController") as! InformationController
+    vc.sectionTotal = 2
+    let navBarOnModal: UINavigationController = UINavigationController(rootViewController: vc)
+    self.present(navBarOnModal, animated: true, completion: nil)
    }
    
    @objc func didConfirmed() {
