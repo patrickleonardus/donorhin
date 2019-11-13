@@ -34,11 +34,6 @@
 		CC88A08623749D16001A982E /* FindBloodCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC88A08123749D16001A982E /* FindBloodCustomCell.xib */; };
 		CC88A08823749D16001A982E /* FindBloodCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC88A08323749D16001A982E /* FindBloodCustomCell.swift */; };
 		CCAAE4EB237C1FF700BEFB44 /* RequestStepsPageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4EA237C1FF700BEFB44 /* RequestStepsPageViewController.storyboard */; };
-		CCAAE4F1237C202000BEFB44 /* FifthStepRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4EC237C202000BEFB44 /* FifthStepRequest.storyboard */; };
-		CCAAE4F2237C202000BEFB44 /* SecondStepRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4ED237C202000BEFB44 /* SecondStepRequest.storyboard */; };
-		CCAAE4F3237C202000BEFB44 /* ThirdStepRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4EE237C202000BEFB44 /* ThirdStepRequest.storyboard */; };
-		CCAAE4F4237C202000BEFB44 /* FirstStepRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4EF237C202000BEFB44 /* FirstStepRequest.storyboard */; };
-		CCAAE4F5237C202000BEFB44 /* FourthStepRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4F0237C202000BEFB44 /* FourthStepRequest.storyboard */; };
 		CCAAE4FD237C205900BEFB44 /* FourthStepRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAAE4F6237C205900BEFB44 /* FourthStepRequestViewController.swift */; };
 		CCAAE4FE237C205900BEFB44 /* SecondStepTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAAE4F7237C205900BEFB44 /* SecondStepTableViewController.swift */; };
 		CCAAE4FF237C205900BEFB44 /* FirstStepRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAAE4F8237C205900BEFB44 /* FirstStepRequestViewController.swift */; };
@@ -155,11 +150,6 @@
 		CCAAE4D6237C1BC600BEFB44 /* FirstStepRequest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirstStepRequest.storyboard; sourceTree = "<group>"; };
 		CCAAE4D8237C1C1100BEFB44 /* RequestStepsRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestStepsRequestModel.swift; sourceTree = "<group>"; };
 		CCAAE4EA237C1FF700BEFB44 /* RequestStepsPageViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RequestStepsPageViewController.storyboard; sourceTree = "<group>"; };
-		CCAAE4EC237C202000BEFB44 /* FifthStepRequest.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FifthStepRequest.storyboard; sourceTree = "<group>"; };
-		CCAAE4ED237C202000BEFB44 /* SecondStepRequest.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SecondStepRequest.storyboard; sourceTree = "<group>"; };
-		CCAAE4EE237C202000BEFB44 /* ThirdStepRequest.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ThirdStepRequest.storyboard; sourceTree = "<group>"; };
-		CCAAE4EF237C202000BEFB44 /* FirstStepRequest.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FirstStepRequest.storyboard; sourceTree = "<group>"; };
-		CCAAE4F0237C202000BEFB44 /* FourthStepRequest.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FourthStepRequest.storyboard; sourceTree = "<group>"; };
 		CCAAE4F6237C205900BEFB44 /* FourthStepRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthStepRequestViewController.swift; sourceTree = "<group>"; };
 		CCAAE4F7237C205900BEFB44 /* SecondStepTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondStepTableViewController.swift; sourceTree = "<group>"; };
 		CCAAE4F8237C205900BEFB44 /* FirstStepRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstStepRequestViewController.swift; sourceTree = "<group>"; };
@@ -433,11 +423,6 @@
 		CCAAE4DF237C1F9200BEFB44 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CCAAE4EF237C202000BEFB44 /* FirstStepRequest.storyboard */,
-				CCAAE4ED237C202000BEFB44 /* SecondStepRequest.storyboard */,
-				CCAAE4EE237C202000BEFB44 /* ThirdStepRequest.storyboard */,
-				CCAAE4F0237C202000BEFB44 /* FourthStepRequest.storyboard */,
-				CCAAE4EC237C202000BEFB44 /* FifthStepRequest.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -867,14 +852,11 @@
 				E6FBB1A223718D8D00B1B4DE /* Authentication.storyboard in Resources */,
 				E6AC8D49237B29DF00820100 /* Tracker.storyboard in Resources */,
 				E6FBB1A923718E7F00B1B4DE /* Find.storyboard in Resources */,
-				CCAAE4F2237C202000BEFB44 /* SecondStepRequest.storyboard in Resources */,
 				CC88A08623749D16001A982E /* FindBloodCustomCell.xib in Resources */,
 				E6FBB17923718C8500B1B4DE /* LaunchScreen.storyboard in Resources */,
 				E6BA6E44237B1E4F0017A330 /* Discover.storyboard in Resources */,
 				CCAAE4EB237C1FF700BEFB44 /* RequestStepsPageViewController.storyboard in Resources */,
-				CCAAE4F3237C202000BEFB44 /* ThirdStepRequest.storyboard in Resources */,
 				E6FBB17623718C8500B1B4DE /* Assets.xcassets in Resources */,
-				CCAAE4F5237C202000BEFB44 /* FourthStepRequest.storyboard in Resources */,
 				E6DDAF382375638E00D6EAD1 /* ScanFormPage.storyboard in Resources */,
 				E6FBB1A023718D5500B1B4DE /* RootTabBarController.storyboard in Resources */,
 				AB73579A2374316900A6099B /* Profile.storyboard in Resources */,
@@ -884,8 +866,6 @@
 				B0B16875237BEA7C001DCE3C /* InformationCustomCell.xib in Resources */,
 				B0B1686F237BE7E5001DCE3C /* Information.storyboard in Resources */,
 				0925FB4123740E1C00874DAA /* DonateTableViewCell.xib in Resources */,
-				CCAAE4F4237C202000BEFB44 /* FirstStepRequest.storyboard in Resources */,
-				CCAAE4F1237C202000BEFB44 /* FifthStepRequest.storyboard in Resources */,
 				E6FBB1AB23718EAB00B1B4DE /* Donate.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

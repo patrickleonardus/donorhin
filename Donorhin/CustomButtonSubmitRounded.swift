@@ -30,5 +30,7 @@ class CustomButtonRounded: UIButton {
   private func setupButton() {
     self.layer.backgroundColor = UIColor(red: 179/255, green: 0, blue: 27/255, alpha: 1).cgColor
     self.layer.cornerRadius = 10
+    self.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+   self.titleLabel?.textColor = .white
   }
 }
