@@ -10,10 +10,10 @@ import UIKit
 
 class RequestStepsPageViewController: UIPageViewController {
    
-   lazy var vcList: [UIViewController] = {
-      let 
-      return
-   }()
+   lazy var vcList: [UIViewController] = []
+      //let sb = UIStoryboard
+      //return
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
