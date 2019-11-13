@@ -9,15 +9,29 @@
 import UIKit
 
 class RequestStepsPageViewController: UIPageViewController {
-   
-   lazy var vcList: [UIViewController] = []
-      //let sb = UIStoryboard
-      //return
-
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+  var id: Int!
+  lazy var vcList: [UIViewController] = {
+    let sb = UIStoryboard(name: "RequestStepsPageViewController", bundle: nil)
+    switch self.id {
+      case 1:
+        return [sb.instantiateViewController(withIdentifier: "langkah1")]
+      case 2:
+      return [sb.instantiateViewController(withIdentifier: "langkah2")]
+      case 3:
+        return [sb.instantiateViewController(withIdentifier: "langkah3")]
+      case 4:
+        return [sb.instantiateViewController(withIdentifier: "langkah4")]
+      case 5:
+      return [sb.instantiateViewController(withIdentifier: "langkah5")]
+    default:
+      return [sb.instantiateViewController(withIdentifier: "langkah1")]
     }
-    
+  }()
+      
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    if let firstViewController = self.vcList.first {
+      self.setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
+    }
+  }
 }
