@@ -20,6 +20,8 @@ enum Colors{
     static let gray_disabled = UIColor(red: 199/255, green: 199/255, blue: 199/255, alpha: 1)
     static let green = UIColor(red: 52/255, green: 199/255, blue: 89/255, alpha: 1)
     static let backgroundView = UIColor(red: 242/255, green: 242/255, blue: 247/255, alpha: 1)
+    static let gray_line = UIColor(red: 60/255, green: 60/255, blue: 67/255, alpha: 0.4)
+    static let gray = UIColor(red: 60/255, green: 60/255, blue: 67/255, alpha: 0.6)
 }
 
 enum UDDevice{

@@ -8,8 +8,8 @@
 
 import UIKit
 
-class DiscoverController: UIViewController {
-    
+class DiscoverController: UIViewController, MoveToAddEvent{
+
     @IBOutlet weak var tableViewDiscover: UITableView!
     
     var sectionHeaderTitleArray = ["Acara","Info"]
@@ -76,5 +76,12 @@ class DiscoverController: UIViewController {
         self.present(navBarOnModal, animated: true, completion: nil)
     }
     
+    func moveToAddEventClass() {
+        self.performSegue(withIdentifier: "MoveToAdd", sender: self)
+    }
 
+}
+
+protocol MoveToAddEvent {
+    func moveToAddEventClass()
 }

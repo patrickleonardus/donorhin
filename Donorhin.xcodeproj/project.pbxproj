@@ -85,6 +85,8 @@
 		E6D0747D237BCDCD00CF5531 /* DiscoverController+UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D0747C237BCDCD00CF5531 /* DiscoverController+UIScrollView.swift */; };
 		E6D0748B237BE7CB00CF5531 /* AddEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D0748A237BE7CB00CF5531 /* AddEventController.swift */; };
 		E6D0748F237BEAE400CF5531 /* AddEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6D0748E237BEAE400CF5531 /* AddEvent.storyboard */; };
+		E6D07491237C05BA00CF5531 /* LabelAndTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D07490237C05BA00CF5531 /* LabelAndTextFieldCell.swift */; };
+		E6D07494237C1E1000CF5531 /* ModelEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D07493237C1E1000CF5531 /* ModelEvent.swift */; };
 		E6DDAF2B237435B300D6EAD1 /* FindController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF28237435B300D6EAD1 /* FindController+ScrollView.swift */; };
 		E6DDAF312375630800D6EAD1 /* LineLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF2E2375630700D6EAD1 /* LineLayer.swift */; };
 		E6DDAF322375630800D6EAD1 /* AnnularLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF2F2375630800D6EAD1 /* AnnularLayer.swift */; };
@@ -205,6 +207,8 @@
 		E6D0747C237BCDCD00CF5531 /* DiscoverController+UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiscoverController+UIScrollView.swift"; sourceTree = "<group>"; };
 		E6D0748A237BE7CB00CF5531 /* AddEventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventController.swift; sourceTree = "<group>"; };
 		E6D0748E237BEAE400CF5531 /* AddEvent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddEvent.storyboard; sourceTree = "<group>"; };
+		E6D07490237C05BA00CF5531 /* LabelAndTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelAndTextFieldCell.swift; sourceTree = "<group>"; };
+		E6D07493237C1E1000CF5531 /* ModelEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelEvent.swift; sourceTree = "<group>"; };
 		E6DDAF28237435B300D6EAD1 /* FindController+ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FindController+ScrollView.swift"; sourceTree = "<group>"; };
 		E6DDAF2E2375630700D6EAD1 /* LineLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineLayer.swift; sourceTree = "<group>"; };
 		E6DDAF2F2375630800D6EAD1 /* AnnularLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnularLayer.swift; sourceTree = "<group>"; };
@@ -550,6 +554,7 @@
 		E6D07487237BE79200CF5531 /* AddEventPage */ = {
 			isa = PBXGroup;
 			children = (
+				E6D07492237C1DFA00CF5531 /* Model */,
 				E6D07489237BE7A600CF5531 /* Controller */,
 				E6D07488237BE7A000CF5531 /* View */,
 				E6D0748E237BEAE400CF5531 /* AddEvent.storyboard */,
@@ -560,6 +565,7 @@
 		E6D07488237BE7A000CF5531 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E6D07490237C05BA00CF5531 /* LabelAndTextFieldCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -570,6 +576,14 @@
 				E6D0748A237BE7CB00CF5531 /* AddEventController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		E6D07492237C1DFA00CF5531 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E6D07493237C1E1000CF5531 /* ModelEvent.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E6DDAF2D237562EF00D6EAD1 /* StepIndicator */ = {
@@ -948,6 +962,7 @@
 				AB7357862374309E00A6099B /* CustomSegmentedController.swift in Sources */,
 				E6DDAF2B237435B300D6EAD1 /* FindController+ScrollView.swift in Sources */,
 				E6BA6E38237B1E080017A330 /* InfoTableViewCell+UITableView.swift in Sources */,
+				E6D07494237C1E1000CF5531 /* ModelEvent.swift in Sources */,
 				E6BA6E4C237B23040017A330 /* DonateStepsViewController.swift in Sources */,
 				0925FB382373F13000874DAA /* CustomMainView.swift in Sources */,
 				CCAAE4C9237C1AE800BEFB44 /* FourthStepRequestViewController.swift in Sources */,
@@ -962,6 +977,7 @@
 				E6D0747D237BCDCD00CF5531 /* DiscoverController+UIScrollView.swift in Sources */,
 				AB73578E2374310600A6099B /* Profile.swift in Sources */,
 				E6FBB1B323718FF500B1B4DE /* FindController.swift in Sources */,
+				E6D07491237C05BA00CF5531 /* LabelAndTextFieldCell.swift in Sources */,
 				098FD4752372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift in Sources */,
 				CCAAE4FD237C205900BEFB44 /* FourthStepRequestViewController.swift in Sources */,
 				09DC193A23754BCD004BEFB5 /* DonateModel.swift in Sources */,
@@ -1150,7 +1166,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D8V7US36NT;
+				DEVELOPMENT_TEAM = 2NJYBE4CVL;
 				INFOPLIST_FILE = Donorhin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1169,7 +1185,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D8V7US36NT;
+				DEVELOPMENT_TEAM = 2NJYBE4CVL;
 				INFOPLIST_FILE = Donorhin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
