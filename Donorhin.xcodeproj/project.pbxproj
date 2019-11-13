@@ -29,22 +29,11 @@
 		B0B16877237BED39001DCE3C /* InformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B16876237BED39001DCE3C /* InformationTableViewCell.swift */; };
 		B0B16879237BEF7C001DCE3C /* InformationController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B16878237BEF7C001DCE3C /* InformationController+UITableView.swift */; };
 		B0B1687B237BF250001DCE3C /* InfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1687A237BF250001DCE3C /* InfoItem.swift */; };
+		CC6DF683237C2AFF00F99B5D /* RequestStepsPageViewController.swift in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4F9237C205900BEFB44 /* RequestStepsPageViewController.swift */; };
+		CC6DF685237C2CB200F99B5D /* UTDDonorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DF684237C2CB100F99B5D /* UTDDonorTableViewController.swift */; };
 		CC88A08623749D16001A982E /* FindBloodCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC88A08123749D16001A982E /* FindBloodCustomCell.xib */; };
 		CC88A08823749D16001A982E /* FindBloodCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC88A08323749D16001A982E /* FindBloodCustomCell.swift */; };
-		CCAAE4BE237C19B700BEFB44 /* RequestSteps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4BD237C19B700BEFB44 /* RequestSteps.storyboard */; };
-		CCAAE4C0237C1A8400BEFB44 /* RequestStepsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAAE4BF237C1A8400BEFB44 /* RequestStepsPageViewController.swift */; };
-		CCAAE4C3237C1ABB00BEFB44 /* FirstStepRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAAE4C2237C1ABB00BEFB44 /* FirstStepRequestViewController.swift */; };
-		CCAAE4C5237C1ACB00BEFB44 /* SecondStepRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAAE4C4237C1ACB00BEFB44 /* SecondStepRequestViewController.swift */; };
-		CCAAE4C7237C1ADD00BEFB44 /* ThirdStepRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAAE4C6237C1ADD00BEFB44 /* ThirdStepRequestViewController.swift */; };
-		CCAAE4C9237C1AE800BEFB44 /* FourthStepRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAAE4C8237C1AE800BEFB44 /* FourthStepRequestViewController.swift */; };
-		CCAAE4CB237C1AF100BEFB44 /* FifthStepRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAAE4CA237C1AF100BEFB44 /* FifthStepRequestViewController.swift */; };
-		CCAAE4CF237C1B7300BEFB44 /* SecondStepRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4CE237C1B7300BEFB44 /* SecondStepRequest.storyboard */; };
-		CCAAE4D1237C1B7900BEFB44 /* ThirdStepRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4D0237C1B7900BEFB44 /* ThirdStepRequest.storyboard */; };
-		CCAAE4D3237C1B8000BEFB44 /* FourthStepRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4D2237C1B8000BEFB44 /* FourthStepRequest.storyboard */; };
-		CCAAE4D5237C1B8500BEFB44 /* FifthStepRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4D4237C1B8500BEFB44 /* FifthStepRequest.storyboard */; };
-		CCAAE4D7237C1BC600BEFB44 /* FirstStepRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4D6237C1BC600BEFB44 /* FirstStepRequest.storyboard */; };
-		CCAAE4D9237C1C1100BEFB44 /* RequestStepsRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAAE4D8237C1C1100BEFB44 /* RequestStepsRequestModel.swift */; };
-		CCAAE4EB237C1FF700BEFB44 /* RequestSteps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4EA237C1FF700BEFB44 /* RequestSteps.storyboard */; };
+		CCAAE4EB237C1FF700BEFB44 /* RequestStepsPageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4EA237C1FF700BEFB44 /* RequestStepsPageViewController.storyboard */; };
 		CCAAE4F1237C202000BEFB44 /* FifthStepRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4EC237C202000BEFB44 /* FifthStepRequest.storyboard */; };
 		CCAAE4F2237C202000BEFB44 /* SecondStepRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4ED237C202000BEFB44 /* SecondStepRequest.storyboard */; };
 		CCAAE4F3237C202000BEFB44 /* ThirdStepRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4EE237C202000BEFB44 /* ThirdStepRequest.storyboard */; };
@@ -78,8 +67,6 @@
 		E6BA6E41237B1E080017A330 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BA6E36237B1E080017A330 /* EventTableViewCell.swift */; };
 		E6BA6E42237B1E080017A330 /* EventListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BA6E37237B1E080017A330 /* EventListCollectionViewCell.swift */; };
 		E6BA6E44237B1E4F0017A330 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6BA6E43237B1E4E0017A330 /* Discover.storyboard */; };
-		E6BA6E49237B23040017A330 /* UTDDonorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BA6E45237B23040017A330 /* UTDDonorTableViewController.swift */; };
-		E6BA6E4A237B23040017A330 /* SecondStepTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BA6E46237B23040017A330 /* SecondStepTableViewController.swift */; };
 		E6BA6E4B237B23040017A330 /* PMIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BA6E47237B23040017A330 /* PMIModel.swift */; };
 		E6BA6E4C237B23040017A330 /* DonateStepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BA6E48237B23040017A330 /* DonateStepsViewController.swift */; };
 		E6D0747D237BCDCD00CF5531 /* DiscoverController+UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D0747C237BCDCD00CF5531 /* DiscoverController+UIScrollView.swift */; };
@@ -151,6 +138,7 @@
 		B0B16876237BED39001DCE3C /* InformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationTableViewCell.swift; sourceTree = "<group>"; };
 		B0B16878237BEF7C001DCE3C /* InformationController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InformationController+UITableView.swift"; sourceTree = "<group>"; };
 		B0B1687A237BF250001DCE3C /* InfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoItem.swift; sourceTree = "<group>"; };
+		CC6DF684237C2CB100F99B5D /* UTDDonorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UTDDonorTableViewController.swift; sourceTree = "<group>"; };
 		CC88A08123749D16001A982E /* FindBloodCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindBloodCustomCell.xib; sourceTree = "<group>"; };
 		CC88A08323749D16001A982E /* FindBloodCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindBloodCustomCell.swift; sourceTree = "<group>"; };
 		CCAAE4BD237C19B700BEFB44 /* RequestSteps.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RequestSteps.storyboard; sourceTree = "<group>"; };
@@ -166,7 +154,7 @@
 		CCAAE4D4237C1B8500BEFB44 /* FifthStepRequest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FifthStepRequest.storyboard; sourceTree = "<group>"; };
 		CCAAE4D6237C1BC600BEFB44 /* FirstStepRequest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirstStepRequest.storyboard; sourceTree = "<group>"; };
 		CCAAE4D8237C1C1100BEFB44 /* RequestStepsRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestStepsRequestModel.swift; sourceTree = "<group>"; };
-		CCAAE4EA237C1FF700BEFB44 /* RequestSteps.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RequestSteps.storyboard; sourceTree = "<group>"; };
+		CCAAE4EA237C1FF700BEFB44 /* RequestStepsPageViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RequestStepsPageViewController.storyboard; sourceTree = "<group>"; };
 		CCAAE4EC237C202000BEFB44 /* FifthStepRequest.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FifthStepRequest.storyboard; sourceTree = "<group>"; };
 		CCAAE4ED237C202000BEFB44 /* SecondStepRequest.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SecondStepRequest.storyboard; sourceTree = "<group>"; };
 		CCAAE4EE237C202000BEFB44 /* ThirdStepRequest.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ThirdStepRequest.storyboard; sourceTree = "<group>"; };
@@ -411,7 +399,7 @@
 		CCAAE4DC237C1F7700BEFB44 /* RequestSteps */ = {
 			isa = PBXGroup;
 			children = (
-				CCAAE4EA237C1FF700BEFB44 /* RequestSteps.storyboard */,
+				CCAAE4EA237C1FF700BEFB44 /* RequestStepsPageViewController.storyboard */,
 				CCAAE4DE237C1F8A00BEFB44 /* Model */,
 				CCAAE4DF237C1F9200BEFB44 /* View */,
 				CCAAE4DD237C1F8600BEFB44 /* Controller */,
@@ -426,6 +414,7 @@
 				CCAAE4F8237C205900BEFB44 /* FirstStepRequestViewController.swift */,
 				CCAAE4FA237C205900BEFB44 /* SecondStepRequestViewController.swift */,
 				CCAAE4F7237C205900BEFB44 /* SecondStepTableViewController.swift */,
+				CC6DF684237C2CB100F99B5D /* UTDDonorTableViewController.swift */,
 				CCAAE4FB237C205900BEFB44 /* ThirdStepRequestViewController.swift */,
 				CCAAE4F6237C205900BEFB44 /* FourthStepRequestViewController.swift */,
 				CCAAE4FC237C205900BEFB44 /* FifthStepRequestViewController.swift */,
@@ -874,7 +863,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCAAE4D3237C1B8000BEFB44 /* FourthStepRequest.storyboard in Resources */,
+				CC6DF683237C2AFF00F99B5D /* RequestStepsPageViewController.swift in Resources */,
 				E6FBB1A223718D8D00B1B4DE /* Authentication.storyboard in Resources */,
 				E6AC8D49237B29DF00820100 /* Tracker.storyboard in Resources */,
 				E6FBB1A923718E7F00B1B4DE /* Find.storyboard in Resources */,
@@ -882,26 +871,21 @@
 				CC88A08623749D16001A982E /* FindBloodCustomCell.xib in Resources */,
 				E6FBB17923718C8500B1B4DE /* LaunchScreen.storyboard in Resources */,
 				E6BA6E44237B1E4F0017A330 /* Discover.storyboard in Resources */,
-				CCAAE4EB237C1FF700BEFB44 /* RequestSteps.storyboard in Resources */,
+				CCAAE4EB237C1FF700BEFB44 /* RequestStepsPageViewController.storyboard in Resources */,
 				CCAAE4F3237C202000BEFB44 /* ThirdStepRequest.storyboard in Resources */,
-				CCAAE4BE237C19B700BEFB44 /* RequestSteps.storyboard in Resources */,
 				E6FBB17623718C8500B1B4DE /* Assets.xcassets in Resources */,
 				CCAAE4F5237C202000BEFB44 /* FourthStepRequest.storyboard in Resources */,
-				CCAAE4D7237C1BC600BEFB44 /* FirstStepRequest.storyboard in Resources */,
 				E6DDAF382375638E00D6EAD1 /* ScanFormPage.storyboard in Resources */,
 				E6FBB1A023718D5500B1B4DE /* RootTabBarController.storyboard in Resources */,
 				AB73579A2374316900A6099B /* Profile.storyboard in Resources */,
 				AB1CD2D4237C198300CB3C56 /* Onboarding.storyboard in Resources */,
 				E6D0748F237BEAE400CF5531 /* AddEvent.storyboard in Resources */,
-				CCAAE4CF237C1B7300BEFB44 /* SecondStepRequest.storyboard in Resources */,
 				E6AC8D48237B29DF00820100 /* TrackerDonorTableViewCell.xib in Resources */,
 				B0B16875237BEA7C001DCE3C /* InformationCustomCell.xib in Resources */,
 				B0B1686F237BE7E5001DCE3C /* Information.storyboard in Resources */,
 				0925FB4123740E1C00874DAA /* DonateTableViewCell.xib in Resources */,
 				CCAAE4F4237C202000BEFB44 /* FirstStepRequest.storyboard in Resources */,
-				CCAAE4D5237C1B8500BEFB44 /* FifthStepRequest.storyboard in Resources */,
 				CCAAE4F1237C202000BEFB44 /* FifthStepRequest.storyboard in Resources */,
-				CCAAE4D1237C1B7900BEFB44 /* ThirdStepRequest.storyboard in Resources */,
 				E6FBB1AB23718EAB00B1B4DE /* Donate.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -935,19 +919,15 @@
 				CC88A08823749D16001A982E /* FindBloodCustomCell.swift in Sources */,
 				CCAAE502237C205900BEFB44 /* ThirdStepRequestViewController.swift in Sources */,
 				E6BA6E39237B1E080017A330 /* EventTableViewCell+UICollectionView.swift in Sources */,
-				CCAAE4C5237C1ACB00BEFB44 /* SecondStepRequestViewController.swift in Sources */,
 				098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */,
 				CCAAE4FE237C205900BEFB44 /* SecondStepTableViewController.swift in Sources */,
 				AB7357962374313500A6099B /* FirstCell.swift in Sources */,
 				E6FBB17423718C8400B1B4DE /* Donorhin.xcdatamodeld in Sources */,
 				0925FB4023740E1C00874DAA /* DonateTableViewCell.swift in Sources */,
 				E6DDAF312375630800D6EAD1 /* LineLayer.swift in Sources */,
-				CCAAE4CB237C1AF100BEFB44 /* FifthStepRequestViewController.swift in Sources */,
 				E6AC8D43237B29DF00820100 /* TrackerController+UITableView.swift in Sources */,
 				E6FBB16C23718C8400B1B4DE /* AppDelegate.swift in Sources */,
-				CCAAE4C7237C1ADD00BEFB44 /* ThirdStepRequestViewController.swift in Sources */,
 				E6FBB1B52371901400B1B4DE /* AuthenticationController.swift in Sources */,
-				CCAAE4C0237C1A8400BEFB44 /* RequestStepsPageViewController.swift in Sources */,
 				AB7357972374313500A6099B /* SecondCell.swift in Sources */,
 				E6DDAF332375630800D6EAD1 /* StepIndicatorView.swift in Sources */,
 				E6BA6E3B237B1E080017A330 /* DiscoverController.swift in Sources */,
@@ -958,14 +938,13 @@
 				CCAAE500237C205900BEFB44 /* RequestStepsPageViewController.swift in Sources */,
 				E6BA6E3A237B1E080017A330 /* DiscoverController+UITableView.swift in Sources */,
 				E6BA6E3C237B1E080017A330 /* EventModel.swift in Sources */,
-				E6BA6E49237B23040017A330 /* UTDDonorTableViewController.swift in Sources */,
 				AB7357862374309E00A6099B /* CustomSegmentedController.swift in Sources */,
 				E6DDAF2B237435B300D6EAD1 /* FindController+ScrollView.swift in Sources */,
 				E6BA6E38237B1E080017A330 /* InfoTableViewCell+UITableView.swift in Sources */,
 				E6D07494237C1E1000CF5531 /* ModelEvent.swift in Sources */,
 				E6BA6E4C237B23040017A330 /* DonateStepsViewController.swift in Sources */,
+				CC6DF685237C2CB200F99B5D /* UTDDonorTableViewController.swift in Sources */,
 				0925FB382373F13000874DAA /* CustomMainView.swift in Sources */,
-				CCAAE4C9237C1AE800BEFB44 /* FourthStepRequestViewController.swift in Sources */,
 				E6AC8D44237B29DF00820100 /* TrackerController.swift in Sources */,
 				AB7357922374311400A6099B /* ProfileController.swift in Sources */,
 				AB7357912374311400A6099B /* ProfileController+UITableView.swift in Sources */,
@@ -982,8 +961,6 @@
 				CCAAE4FD237C205900BEFB44 /* FourthStepRequestViewController.swift in Sources */,
 				09DC193A23754BCD004BEFB5 /* DonateModel.swift in Sources */,
 				E6DDAF3A237563AC00D6EAD1 /* ScanFormController.swift in Sources */,
-				E6BA6E4A237B23040017A330 /* SecondStepTableViewController.swift in Sources */,
-				CCAAE4D9237C1C1100BEFB44 /* RequestStepsRequestModel.swift in Sources */,
 				E6D0748B237BE7CB00CF5531 /* AddEventController.swift in Sources */,
 				CCAAE501237C205900BEFB44 /* SecondStepRequestViewController.swift in Sources */,
 				E6FBB1C0237194FB00B1B4DE /* BloodRequest.swift in Sources */,
@@ -997,7 +974,6 @@
 				AB4BD9AC237599870016DDF1 /* OnboardingViewController.swift in Sources */,
 				E6DDAF322375630800D6EAD1 /* AnnularLayer.swift in Sources */,
 				CCAAE505237C206000BEFB44 /* RequestStepsRequestModel.swift in Sources */,
-				CCAAE4C3237C1ABB00BEFB44 /* FirstStepRequestViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1166,7 +1142,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2NJYBE4CVL;
+				DEVELOPMENT_TEAM = C5K4FW28Q2;
 				INFOPLIST_FILE = Donorhin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1185,7 +1161,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2NJYBE4CVL;
+				DEVELOPMENT_TEAM = C5K4FW28Q2;
 				INFOPLIST_FILE = Donorhin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
