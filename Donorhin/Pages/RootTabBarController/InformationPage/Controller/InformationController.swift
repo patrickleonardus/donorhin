@@ -13,17 +13,27 @@ class InformationController : UIViewController {
     @IBOutlet weak var sectionTable: UITableView!
     
     var infoItems : [InfoItems]?
-    var navigationBarTitle : String? = "Info Komunitas"
+    var navigationBarTitle : String? 
     var sectionTotal : Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavBarTitle()
         self.view.backgroundColor = Colors.backgroundView
-        if sectionTotal == 2 {
-        InfoData().getInfoCommunity { (infoItems) in
+        if navigationBarTitle == "Info Komunitas"{
+            InfoData().getInfoCommunity { (infoItems) in
             self.infoItems = infoItems
+            }
         }
+        else if navigationBarTitle == "Info Donor" {
+            InfoData().getInfoSyaratPendonor { (infoItems) in
+            self.infoItems = infoItems
+            }
+        }
+        else if navigationBarTitle == "Info Pengguna Donorhin" {
+            InfoData().getInfoWithVideo { (infoItems) in
+            self.infoItems = infoItems
+            }
         }
         loadTableView()
     }

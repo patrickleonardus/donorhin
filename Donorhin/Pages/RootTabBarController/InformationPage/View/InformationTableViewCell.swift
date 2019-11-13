@@ -23,9 +23,14 @@ class InformationTableViewCell: UITableViewCell {
         super.awakeFromNib()
         if infoType == .text {
             videoLayer.isHidden = true
+            titleLabel.isHidden = false
+            longTextLabel.isHidden = false
         }
-        else {
+        else if infoType == .video {
             loadVideo()
+            titleLabel.isHidden = true
+            longTextLabel.isHidden = true
+            videoLayer.isHidden = true
         }
     }
     
@@ -35,7 +40,7 @@ class InformationTableViewCell: UITableViewCell {
         let playerLayer = AVPlayerLayer(player: player)
         videoLayer.frame = self.bounds
         self.layer.addSublayer(playerLayer)
-        player.play()
+        videoLayer.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

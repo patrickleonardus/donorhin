@@ -12,11 +12,7 @@ extension TrackerController : TrackerCellDelegate {
    func showMoreInfo() {
       //TODO: Add segue ke info lengkap
     print ("add segue here")
-    let storyboard = UIStoryboard(name: "Information", bundle: nil)
-    let vc = storyboard.instantiateViewController(withIdentifier: "infoViewController") as! InformationController
-    vc.sectionTotal = 2
-    let navBarOnModal: UINavigationController = UINavigationController(rootViewController: vc)
-    self.present(navBarOnModal, animated: true, completion: nil)
+    performSegue(withIdentifier: "goToInformationPage", sender: self)
    }
    
    @objc func didConfirmed() {
@@ -27,4 +23,10 @@ extension TrackerController : TrackerCellDelegate {
       }
       trackerTableView.reloadData()
    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! InformationController
+        destination.navigationBarTitle =  "Info Komunitas"
+        destination.sectionTotal = 2
+    }
 }

@@ -11,7 +11,7 @@
         <!--Information Controller-->
         <scene sceneID="Zvk-Qo-jPI">
             <objects>
-                <viewController storyboardIdentifier="infoViewController" id="1yp-mw-wza" customClass="InformationController" customModule="Donorhin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="infoStoryboard" id="1yp-mw-wza" customClass="InformationController" customModule="Donorhin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O2h-Et-HTO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
