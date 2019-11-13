@@ -246,11 +246,20 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableViewDiscover" destination="a8h-v7-MeA" id="LL6-qG-Xv0"/>
+                        <segue destination="xC0-Wj-Dk2" kind="presentation" identifier="MoveToAdd" id="UyG-fj-k8L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VxP-oX-IJv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="857.97101449275374" y="602.67857142857144"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="acZ-M5-Mld">
+            <objects>
+                <viewControllerPlaceholder id="xC0-Wj-Dk2" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sE5-Y2-aBN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1411" y="631"/>
         </scene>
         <!--Jelajah-->
         <scene sceneID="Xak-g9-VYV">
