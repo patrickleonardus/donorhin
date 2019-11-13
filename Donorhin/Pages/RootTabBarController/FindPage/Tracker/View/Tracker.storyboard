@@ -32,11 +32,22 @@
                     </view>
                     <connections>
                         <outlet property="trackerTableView" destination="U2s-MK-wD1" id="kNM-X1-idb"/>
+                        <segue destination="dR0-ov-VK4" kind="show" identifier="goToInformationPage" id="Z0f-xI-w2I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g5o-bC-Ppf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="15.942028985507248" y="88.392857142857139"/>
+        </scene>
+        <!--Information-->
+        <scene sceneID="LSA-GK-Zyx">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="infoStoryboard" storyboardName="Information" id="dR0-ov-VK4" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="udp-4h-zQQ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="brs-89-2U5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="751" y="88"/>
         </scene>
     </scenes>
 </document>
