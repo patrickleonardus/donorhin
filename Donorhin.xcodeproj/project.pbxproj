@@ -23,6 +23,12 @@
 		AB7357972374313500A6099B /* SecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7357942374313500A6099B /* SecondCell.swift */; };
 		AB7357982374313500A6099B /* ThirdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7357952374313500A6099B /* ThirdCell.swift */; };
 		AB73579A2374316900A6099B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB7357992374316900A6099B /* Profile.storyboard */; };
+		B0B1686F237BE7E5001DCE3C /* Information.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0B1686E237BE7E5001DCE3C /* Information.storyboard */; };
+		B0B16871237BE840001DCE3C /* InformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B16870237BE840001DCE3C /* InformationController.swift */; };
+		B0B16875237BEA7C001DCE3C /* InformationCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0B16874237BEA7C001DCE3C /* InformationCustomCell.xib */; };
+		B0B16877237BED39001DCE3C /* InformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B16876237BED39001DCE3C /* InformationTableViewCell.swift */; };
+		B0B16879237BEF7C001DCE3C /* InformationController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B16878237BEF7C001DCE3C /* InformationController+UITableView.swift */; };
+		B0B1687B237BF250001DCE3C /* InfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1687A237BF250001DCE3C /* InfoItem.swift */; };
 		CC88A08623749D16001A982E /* FindBloodCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC88A08123749D16001A982E /* FindBloodCustomCell.xib */; };
 		CC88A08823749D16001A982E /* FindBloodCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC88A08323749D16001A982E /* FindBloodCustomCell.swift */; };
 		E6AC8D43237B29DF00820100 /* TrackerController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D3A237B29DF00820100 /* TrackerController+UITableView.swift */; };
@@ -107,6 +113,12 @@
 		AB7357942374313500A6099B /* SecondCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondCell.swift; sourceTree = "<group>"; };
 		AB7357952374313500A6099B /* ThirdCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdCell.swift; sourceTree = "<group>"; };
 		AB7357992374316900A6099B /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		B0B1686E237BE7E5001DCE3C /* Information.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Information.storyboard; sourceTree = "<group>"; };
+		B0B16870237BE840001DCE3C /* InformationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationController.swift; sourceTree = "<group>"; };
+		B0B16874237BEA7C001DCE3C /* InformationCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationCustomCell.xib; sourceTree = "<group>"; };
+		B0B16876237BED39001DCE3C /* InformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationTableViewCell.swift; sourceTree = "<group>"; };
+		B0B16878237BEF7C001DCE3C /* InformationController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InformationController+UITableView.swift"; sourceTree = "<group>"; };
+		B0B1687A237BF250001DCE3C /* InfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoItem.swift; sourceTree = "<group>"; };
 		CC88A08123749D16001A982E /* FindBloodCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindBloodCustomCell.xib; sourceTree = "<group>"; };
 		CC88A08323749D16001A982E /* FindBloodCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindBloodCustomCell.swift; sourceTree = "<group>"; };
 		E6AC8D3A237B29DF00820100 /* TrackerController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController+UITableView.swift"; sourceTree = "<group>"; };
@@ -273,6 +285,43 @@
 				AB4BD9A92375997E0016DDF1 /* Onboarding.storyboard */,
 			);
 			path = Onboard;
+			sourceTree = "<group>";
+		};
+		B0B1686A237BE76D001DCE3C /* InformationPage */ = {
+			isa = PBXGroup;
+			children = (
+				B0B1686D237BE7CC001DCE3C /* Controller */,
+				B0B1686C237BE7C6001DCE3C /* View */,
+				B0B1686B237BE7BC001DCE3C /* Model */,
+			);
+			path = InformationPage;
+			sourceTree = "<group>";
+		};
+		B0B1686B237BE7BC001DCE3C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B0B1687A237BF250001DCE3C /* InfoItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B0B1686C237BE7C6001DCE3C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B0B1686E237BE7E5001DCE3C /* Information.storyboard */,
+				B0B16874237BEA7C001DCE3C /* InformationCustomCell.xib */,
+				B0B16876237BED39001DCE3C /* InformationTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B0B1686D237BE7CC001DCE3C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B0B16870237BE840001DCE3C /* InformationController.swift */,
+				B0B16878237BEF7C001DCE3C /* InformationController+UITableView.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		E6AC8D38237B29DF00820100 /* Tracker */ = {
@@ -487,6 +536,7 @@
 				E6BA6E27237B1E080017A330 /* DiscoverPage */,
 				E6FBB1A423718E1100B1B4DE /* DonatePage */,
 				E6FBB1A323718DFC00B1B4DE /* FindPage */,
+				B0B1686A237BE76D001DCE3C /* InformationPage */,
 				E6DDAF342375631800D6EAD1 /* ScanFormPage */,
 			);
 			path = RootTabBarController;
@@ -667,7 +717,9 @@
 				E6FBB1A023718D5500B1B4DE /* RootTabBarController.storyboard in Resources */,
 				AB73579A2374316900A6099B /* Profile.storyboard in Resources */,
 				E6AC8D48237B29DF00820100 /* TrackerDonorTableViewCell.xib in Resources */,
+				B0B16875237BEA7C001DCE3C /* InformationCustomCell.xib in Resources */,
 				AB4BD9AA2375997E0016DDF1 /* Onboarding.storyboard in Resources */,
+				B0B1686F237BE7E5001DCE3C /* Information.storyboard in Resources */,
 				0925FB4123740E1C00874DAA /* DonateTableViewCell.xib in Resources */,
 				E6FBB1AB23718EAB00B1B4DE /* Donate.storyboard in Resources */,
 			);
@@ -697,6 +749,7 @@
 				E6AC8D45237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift in Sources */,
 				E6BA6E3F237B1E080017A330 /* InfoTableViewCell.swift in Sources */,
 				E6FBB1B123718FDF00B1B4DE /* DonateController.swift in Sources */,
+				B0B1687B237BF250001DCE3C /* InfoItem.swift in Sources */,
 				E6BA6E40237B1E080017A330 /* AddEventCollectionViewCell.swift in Sources */,
 				CC88A08823749D16001A982E /* FindBloodCustomCell.swift in Sources */,
 				E6BA6E39237B1E080017A330 /* EventTableViewCell+UICollectionView.swift in Sources */,
@@ -727,6 +780,8 @@
 				AB7357912374311400A6099B /* ProfileController+UITableView.swift in Sources */,
 				E6FBB1C32371991D00B1B4DE /* Constants.swift in Sources */,
 				E6BA6E3E237B1E080017A330 /* InfoInsideTableViewCell.swift in Sources */,
+				B0B16879237BEF7C001DCE3C /* InformationController+UITableView.swift in Sources */,
+				B0B16871237BE840001DCE3C /* InformationController.swift in Sources */,
 				E6BA6E4B237B23040017A330 /* PMIModel.swift in Sources */,
 				AB73578E2374310600A6099B /* Profile.swift in Sources */,
 				E6FBB1B323718FF500B1B4DE /* FindController.swift in Sources */,
@@ -739,6 +794,7 @@
 				E6AC8D4B237B2A4100820100 /* FixImageOrientation.swift in Sources */,
 				E6AC8D47237B29DF00820100 /* TrackerDonorTableViewCell.swift in Sources */,
 				E6FBB1BE2371947700B1B4DE /* FindController+UITableView.swift in Sources */,
+				B0B16877237BED39001DCE3C /* InformationTableViewCell.swift in Sources */,
 				E6BA6E3D237B1E080017A330 /* InfoModel.swift in Sources */,
 				AB4BD9AC237599870016DDF1 /* OnboardingViewController.swift in Sources */,
 				E6DDAF322375630800D6EAD1 /* AnnularLayer.swift in Sources */,
@@ -845,6 +901,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -909,7 +966,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2NJYBE4CVL;
+				DEVELOPMENT_TEAM = D8V7US36NT;
 				INFOPLIST_FILE = Donorhin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -928,7 +985,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2NJYBE4CVL;
+				DEVELOPMENT_TEAM = D8V7US36NT;
 				INFOPLIST_FILE = Donorhin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
