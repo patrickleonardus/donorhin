@@ -39,6 +39,10 @@
 		B0B16892237D6049001DCE3C /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B16891237D6049001DCE3C /* RegisterController.swift */; };
 		B0B16894237D62ED001DCE3C /* RegisterController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B16893237D62ED001DCE3C /* RegisterController+UITableView.swift */; };
 		B0B16896237D636E001DCE3C /* RegisterController+CellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B16895237D636E001DCE3C /* RegisterController+CellDelegate.swift */; };
+		B0B16898237D658B001DCE3C /* RegisterDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B16897237D658B001DCE3C /* RegisterDetailController.swift */; };
+		B0B1689A237D65B8001DCE3C /* RegisterDetailController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B16899237D65B8001DCE3C /* RegisterDetailController+UITableView.swift */; };
+		B0B168A0237D660A001DCE3C /* RegisterDetailController+CellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1689F237D660A001DCE3C /* RegisterDetailController+CellDelegate.swift */; };
+		B0B168A2237D6630001DCE3C /* RegisterDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0B168A1237D6630001DCE3C /* RegisterDetail.storyboard */; };
 		CC6DF683237C2AFF00F99B5D /* RequestStepsPageViewController.swift in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4F9237C205900BEFB44 /* RequestStepsPageViewController.swift */; };
 		CC6DF685237C2CB200F99B5D /* UTDDonorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DF684237C2CB100F99B5D /* UTDDonorTableViewController.swift */; };
 		CC88A08623749D16001A982E /* FindBloodCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC88A08123749D16001A982E /* FindBloodCustomCell.xib */; };
@@ -152,6 +156,10 @@
 		B0B16891237D6049001DCE3C /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		B0B16893237D62ED001DCE3C /* RegisterController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterController+UITableView.swift"; sourceTree = "<group>"; };
 		B0B16895237D636E001DCE3C /* RegisterController+CellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterController+CellDelegate.swift"; sourceTree = "<group>"; };
+		B0B16897237D658B001DCE3C /* RegisterDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDetailController.swift; sourceTree = "<group>"; };
+		B0B16899237D65B8001DCE3C /* RegisterDetailController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterDetailController+UITableView.swift"; sourceTree = "<group>"; };
+		B0B1689F237D660A001DCE3C /* RegisterDetailController+CellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterDetailController+CellDelegate.swift"; sourceTree = "<group>"; };
+		B0B168A1237D6630001DCE3C /* RegisterDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterDetail.storyboard; sourceTree = "<group>"; };
 		CC6DF684237C2CB100F99B5D /* UTDDonorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UTDDonorTableViewController.swift; sourceTree = "<group>"; };
 		CC88A08123749D16001A982E /* FindBloodCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindBloodCustomCell.xib; sourceTree = "<group>"; };
 		CC88A08323749D16001A982E /* FindBloodCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindBloodCustomCell.swift; sourceTree = "<group>"; };
@@ -413,6 +421,7 @@
 		B0B16883237D415E001DCE3C /* RegisterPage */ = {
 			isa = PBXGroup;
 			children = (
+				B0B1689B237D65C1001DCE3C /* RegisterDetailPage */,
 				B0B16886237D4183001DCE3C /* Model */,
 				B0B16885237D4176001DCE3C /* Controller */,
 				B0B16884237D4171001DCE3C /* View */,
@@ -443,6 +452,41 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B0B1689B237D65C1001DCE3C /* RegisterDetailPage */ = {
+			isa = PBXGroup;
+			children = (
+				B0B1689E237D65DE001DCE3C /* Controller */,
+				B0B1689D237D65D9001DCE3C /* View */,
+				B0B1689C237D65D1001DCE3C /* Model */,
+			);
+			path = RegisterDetailPage;
+			sourceTree = "<group>";
+		};
+		B0B1689C237D65D1001DCE3C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B0B1689D237D65D9001DCE3C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B0B168A1237D6630001DCE3C /* RegisterDetail.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B0B1689E237D65DE001DCE3C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B0B16897237D658B001DCE3C /* RegisterDetailController.swift */,
+				B0B16899237D65B8001DCE3C /* RegisterDetailController+UITableView.swift */,
+				B0B1689F237D660A001DCE3C /* RegisterDetailController+CellDelegate.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		CCAAE4DB237C1F4000BEFB44 /* Recovered References */ = {
@@ -951,6 +995,7 @@
 				B0B16875237BEA7C001DCE3C /* InformationCustomCell.xib in Resources */,
 				B0B1686F237BE7E5001DCE3C /* Information.storyboard in Resources */,
 				0925FB4123740E1C00874DAA /* DonateTableViewCell.xib in Resources */,
+				B0B168A2237D6630001DCE3C /* RegisterDetail.storyboard in Resources */,
 				E6FBB1AB23718EAB00B1B4DE /* Donate.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -989,6 +1034,7 @@
 				B0B16882237D3E61001DCE3C /* FormTableViewCell.swift in Sources */,
 				CCAAE4FE237C205900BEFB44 /* SecondStepTableViewController.swift in Sources */,
 				AB7357962374313500A6099B /* FirstCell.swift in Sources */,
+				B0B1689A237D65B8001DCE3C /* RegisterDetailController+UITableView.swift in Sources */,
 				E6FBB17423718C8400B1B4DE /* Donorhin.xcdatamodeld in Sources */,
 				0925FB4023740E1C00874DAA /* DonateTableViewCell.swift in Sources */,
 				E6DDAF312375630800D6EAD1 /* LineLayer.swift in Sources */,
@@ -1024,6 +1070,7 @@
 				E6D0747D237BCDCD00CF5531 /* DiscoverController+UIScrollView.swift in Sources */,
 				AB73578E2374310600A6099B /* Profile.swift in Sources */,
 				E6FBB1B323718FF500B1B4DE /* FindController.swift in Sources */,
+				B0B16898237D658B001DCE3C /* RegisterDetailController.swift in Sources */,
 				E6D07491237C05BA00CF5531 /* LabelAndTextFieldCell.swift in Sources */,
 				098FD4752372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift in Sources */,
 				CCAAE4FD237C205900BEFB44 /* FourthStepRequestViewController.swift in Sources */,
@@ -1045,6 +1092,7 @@
 				B0B16892237D6049001DCE3C /* RegisterController.swift in Sources */,
 				AB4BD9AC237599870016DDF1 /* OnboardingViewController.swift in Sources */,
 				E6DDAF322375630800D6EAD1 /* AnnularLayer.swift in Sources */,
+				B0B168A0237D660A001DCE3C /* RegisterDetailController+CellDelegate.swift in Sources */,
 				CCAAE505237C206000BEFB44 /* RequestStepsRequestModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
