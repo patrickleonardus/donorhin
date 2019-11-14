@@ -14,6 +14,10 @@
 		098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */; };
 		09DC193A23754BCD004BEFB5 /* DonateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC193923754BCD004BEFB5 /* DonateModel.swift */; };
 		AB1CD2D4237C198300CB3C56 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB1CD2D3237C198300CB3C56 /* Onboarding.storyboard */; };
+		AB498AC3237D735F006CDA7A /* Page1OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB498AC2237D735F006CDA7A /* Page1OnboardViewController.swift */; };
+		AB498AC5237D73E7006CDA7A /* Page2OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB498AC4237D73E7006CDA7A /* Page2OnboardViewController.swift */; };
+		AB498AC7237D743D006CDA7A /* Page3OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB498AC6237D743D006CDA7A /* Page3OnboardViewController.swift */; };
+		AB498AC9237D74D2006CDA7A /* Page4OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB498AC8237D74D2006CDA7A /* Page4OnboardViewController.swift */; };
 		AB4BD9AC237599870016DDF1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BD9AB237599870016DDF1 /* OnboardingViewController.swift */; };
 		AB7357862374309E00A6099B /* CustomSegmentedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7357852374309E00A6099B /* CustomSegmentedController.swift */; };
 		AB73578E2374310600A6099B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB73578D2374310600A6099B /* Profile.swift */; };
@@ -118,6 +122,10 @@
 		098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewRounded.swift; sourceTree = "<group>"; };
 		09DC193923754BCD004BEFB5 /* DonateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateModel.swift; sourceTree = "<group>"; };
 		AB1CD2D3237C198300CB3C56 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		AB498AC2237D735F006CDA7A /* Page1OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page1OnboardViewController.swift; sourceTree = "<group>"; };
+		AB498AC4237D73E7006CDA7A /* Page2OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2OnboardViewController.swift; sourceTree = "<group>"; };
+		AB498AC6237D743D006CDA7A /* Page3OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page3OnboardViewController.swift; sourceTree = "<group>"; };
+		AB498AC8237D74D2006CDA7A /* Page4OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page4OnboardViewController.swift; sourceTree = "<group>"; };
 		AB4BD9AB237599870016DDF1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		AB7357852374309E00A6099B /* CustomSegmentedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedController.swift; sourceTree = "<group>"; };
 		AB73578D2374310600A6099B /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -323,6 +331,10 @@
 			children = (
 				AB4BD9AB237599870016DDF1 /* OnboardingViewController.swift */,
 				AB1CD2D3237C198300CB3C56 /* Onboarding.storyboard */,
+				AB498AC2237D735F006CDA7A /* Page1OnboardViewController.swift */,
+				AB498AC4237D73E7006CDA7A /* Page2OnboardViewController.swift */,
+				AB498AC6237D743D006CDA7A /* Page3OnboardViewController.swift */,
+				AB498AC8237D74D2006CDA7A /* Page4OnboardViewController.swift */,
 			);
 			path = Onboard;
 			sourceTree = "<group>";
@@ -902,6 +914,7 @@
 				098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */,
 				CCAAE4FE237C205900BEFB44 /* SecondStepTableViewController.swift in Sources */,
 				AB7357962374313500A6099B /* FirstCell.swift in Sources */,
+				AB498AC5237D73E7006CDA7A /* Page2OnboardViewController.swift in Sources */,
 				E6FBB17423718C8400B1B4DE /* Donorhin.xcdatamodeld in Sources */,
 				0925FB4023740E1C00874DAA /* DonateTableViewCell.swift in Sources */,
 				E6DDAF312375630800D6EAD1 /* LineLayer.swift in Sources */,
@@ -917,6 +930,8 @@
 				E6AC8D46237B29DF00820100 /* TrackerDonor.swift in Sources */,
 				CCAAE500237C205900BEFB44 /* RequestStepsPageViewController.swift in Sources */,
 				E6BA6E3A237B1E080017A330 /* DiscoverController+UITableView.swift in Sources */,
+				AB498AC3237D735F006CDA7A /* Page1OnboardViewController.swift in Sources */,
+				AB498AC7237D743D006CDA7A /* Page3OnboardViewController.swift in Sources */,
 				E6BA6E3C237B1E080017A330 /* EventModel.swift in Sources */,
 				AB7357862374309E00A6099B /* CustomSegmentedController.swift in Sources */,
 				E6DDAF2B237435B300D6EAD1 /* FindController+ScrollView.swift in Sources */,
@@ -944,6 +959,7 @@
 				E6D0748B237BE7CB00CF5531 /* AddEventController.swift in Sources */,
 				CCAAE501237C205900BEFB44 /* SecondStepRequestViewController.swift in Sources */,
 				E6FBB1C0237194FB00B1B4DE /* BloodRequest.swift in Sources */,
+				AB498AC9237D74D2006CDA7A /* Page4OnboardViewController.swift in Sources */,
 				E6BA6E42237B1E080017A330 /* EventListCollectionViewCell.swift in Sources */,
 				E6AC8D4B237B2A4100820100 /* FixImageOrientation.swift in Sources */,
 				E6AC8D47237B29DF00820100 /* TrackerDonorTableViewCell.swift in Sources */,
