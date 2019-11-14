@@ -104,12 +104,34 @@
                     </view>
                     <connections>
                         <outlet property="formTableView" destination="XGe-jO-LLV" id="thX-BU-Kft"/>
+                        <segue destination="zgr-e9-cXC" kind="show" identifier="goToRegister" id="rKu-rC-Cgd"/>
+                        <segue destination="OyY-Ep-8he" kind="show" identifier="goToHome" id="54u-if-3Vb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lad-hc-28G" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="UWG-iA-Ph3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="389.85507246376812" y="-165.40178571428569"/>
+        </scene>
+        <!--RootTabBarController-->
+        <scene sceneID="Mcb-YV-bjI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RootTabBarController" id="OyY-Ep-8he" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Gcb-wj-Wld"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RYO-fK-ERn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="972" y="248"/>
+        </scene>
+        <!--Register-->
+        <scene sceneID="yz3-iY-jNE">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Register" id="zgr-e9-cXC" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Vfl-Id-u8L"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rvK-HC-5A2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="914" y="-457"/>
         </scene>
     </scenes>
 </document>

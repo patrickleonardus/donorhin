@@ -35,15 +35,20 @@ class RegisterController : UIViewController{
         self.navigationController?.navigationItem.largeTitleDisplayMode = .never
         self.navigationController?.navigationBar.prefersLargeTitles = false
         
-        navigationItem.title =  "Daftar"
+        navigationItem.title = "Daftar"
+    }
+    
+    
+    @IBAction func goToPersonalData(_ sender: Any) {
+        performSegue(withIdentifier: "goToPersonalData", sender: self)
     }
     
 }
 
 class CheckBox: UIButton {
     // Images
-    let checkedImage = UIImage(named: "ic_check_box")! as UIImage
-    let uncheckedImage = UIImage(named: "ic_check_box_outline_blank")! as UIImage
+    let checkedImage = UIImage(named: "checkbox_isChecked")! as UIImage
+    let uncheckedImage = UIImage(named: "checkbox_isNotChecked")! as UIImage
 
     // Bool property
     var isChecked: Bool = false {

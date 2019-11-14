@@ -44,12 +44,12 @@ struct FormBuilder {
     
     func getItemsForRegisterDetail(completionHandler: @escaping (([FormItems]) -> ())){
     completionHandler(
-        [FormItems(img: "", placeholder: "Fullname", textFieldType: .defaultTextField) ,
-         FormItems(img: "", placeholder: "Jenis Kelamin", textFieldType: .picker),
-         FormItems(img: "", placeholder: "Tanggal Lahir", textFieldType: .datePicker),
-         FormItems(img: "", placeholder: "Golongan Darah", textFieldType: .picker) ,
-         FormItems(img: "", placeholder: "Donor Terakhir", textFieldType: .datePicker),
-         FormItems(img: "", placeholder: "Kode Referral", textFieldType: .defaultTextField)
+        [FormItems(img: "Fn", placeholder: "Fullname", textFieldType: .defaultTextField) ,
+         FormItems(img: "gender_profile", placeholder: "Jenis Kelamin", textFieldType: .picker),
+         FormItems(img: "birthday_profile", placeholder: "Tanggal Lahir", textFieldType: .datePicker),
+         FormItems(img: "bloodtype_profile", placeholder: "Golongan Darah", textFieldType: .picker) ,
+         FormItems(img: "lastdonor_profile", placeholder: "Donor Terakhir", textFieldType: .datePicker),
+         FormItems(img: "codeReferral", placeholder: "Kode Referral", textFieldType: .defaultTextField)
         ])
     }
 }

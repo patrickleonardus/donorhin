@@ -15,7 +15,7 @@ class LoginController : UIViewController {
     var formItems: [FormItems]?
     
     @IBAction func goToRegister(_ sender: Any) {
-        
+        performSegue(withIdentifier: "goToRegister", sender: self)
     }
     
     @IBAction func goToCari(_ sender: Any) {
