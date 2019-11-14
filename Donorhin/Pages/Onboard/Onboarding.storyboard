@@ -16,10 +16,10 @@
             </objects>
             <point key="canvasLocation" x="-444" y="-83"/>
         </scene>
-        <!--View Controller-->
+        <!--Page1 View Controller-->
         <scene sceneID="2KQ-Aa-O9o">
             <objects>
-                <viewController storyboardIdentifier="Page1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zM7-Yb-KNV" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Page1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zM7-Yb-KNV" customClass="Page1ViewController" customModule="Donorhin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jh9-BH-SlZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,15 +92,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aXV-E1-89S"/>
                     </view>
+                    <connections>
+                        <outlet property="welcomeLabel" destination="6gO-28-v2h" id="E6P-qy-5Zp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T5J-h5-iy5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="308.69565217391306" y="-83.035714285714278"/>
         </scene>
-        <!--View Controller-->
+        <!--Page2 View Controller-->
         <scene sceneID="0iE-8s-kmg">
             <objects>
-                <viewController storyboardIdentifier="Page2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Czk-RS-cpW" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Page2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Czk-RS-cpW" customClass="Page2ViewController" customModule="Donorhin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E7V-vv-oIi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -172,15 +175,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EgL-ow-REl"/>
                     </view>
+                    <connections>
+                        <outlet property="lacakLabel" destination="x8L-jq-ES4" id="ozD-19-QVF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iem-LQ-K4e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="966.66666666666674" y="-83.035714285714278"/>
         </scene>
-        <!--View Controller-->
+        <!--Page3 View Controller-->
         <scene sceneID="gmb-x1-sUe">
             <objects>
-                <viewController storyboardIdentifier="Page3" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HC4-Fv-1Mx" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Page3" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HC4-Fv-1Mx" customClass="Page3ViewController" customModule="Donorhin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aeC-3Q-HgJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -254,15 +260,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cvy-TE-etn"/>
                     </view>
+                    <connections>
+                        <outlet property="privasiLabel" destination="wzA-ZU-Z0m" id="hrS-I3-uQv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PgP-2B-1Nd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1647.826086956522" y="-84.375"/>
         </scene>
-        <!--View Controller-->
+        <!--Page4 View Controller-->
         <scene sceneID="TDU-iU-T2A">
             <objects>
-                <viewController storyboardIdentifier="Page4" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kBm-Yd-jWI" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Page4" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kBm-Yd-jWI" customClass="Page4ViewController" customModule="Donorhin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V6q-Mp-nrP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -469,6 +478,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7At-5k-cmz"/>
                     </view>
+                    <connections>
+                        <outlet property="label1" destination="Tiy-qJ-X4a" id="zpn-8K-7jQ"/>
+                        <outlet property="label2" destination="PXs-Dy-9Zz" id="jUz-Sb-ezy"/>
+                        <outlet property="label3" destination="erv-Up-0EY" id="eOI-dQ-baA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K70-10-YTO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
