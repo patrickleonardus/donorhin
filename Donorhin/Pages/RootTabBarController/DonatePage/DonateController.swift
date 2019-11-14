@@ -16,6 +16,7 @@ class DonateController: UIViewController {
   @IBOutlet weak var coverView: CustomMainView!
   final private let cellReuseIdentifier = "DonateCell"
   var selectedRow:Request?
+  var statusDonor = false
   var segmented: History {
       if historyDonorSegmentedControl.selectedSegmentIndex == 0 {
         return .active
@@ -36,6 +37,7 @@ class DonateController: UIViewController {
     else {
       self.coverView.isHidden = false
     }
+    self.checkStatusDonor()
   }
   
   //MARK: - get data from database
@@ -48,13 +50,19 @@ class DonateController: UIViewController {
     }
   }
     
-    override func viewDidAppear(_ animated: Bool) {
-        profileImageNavBar(show: true)
+  override func viewDidAppear(_ animated: Bool) {
+      profileImageNavBar(show: true)
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+      profileImageNavBar(show: false)
+  }
+  
+  private func checkStatusDonor() {
+    if !self.statusDonor {
+      self.switchButtonStatusDonor.isEnabled = false
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        profileImageNavBar(show: false)
-    }
+  }
   
   //MARK: - setup tableview
   private func setupTabledView() {
