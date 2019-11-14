@@ -48,6 +48,22 @@
                                 <state key="normal" title="Bersedia">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonAcceptTapped:" destination="g1d-q5-ksx" eventType="touchUpInside" id="ljy-pI-mb1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M11-K7-yUq">
+                                <rect key="frame" x="51" y="174" width="312" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="MVJ-ny-7Il"/>
+                                    <constraint firstAttribute="width" constant="312" id="nT7-qj-1is"/>
+                                </constraints>
+                                <state key="normal" title="Batal">
+                                    <color key="titleColor" red="0.70196078429999997" green="0.0" blue="0.062745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonTapped:" destination="g1d-q5-ksx" eventType="touchUpInside" id="kHz-VB-1cY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -55,9 +71,11 @@
                             <constraint firstItem="dPK-IJ-PJk" firstAttribute="trailing" secondItem="e7V-DG-iL6" secondAttribute="trailing" constant="39" id="BGJ-VC-BHE"/>
                             <constraint firstItem="RHV-jA-3qo" firstAttribute="top" secondItem="e7V-DG-iL6" secondAttribute="bottom" constant="30" id="KUm-Rh-AH6"/>
                             <constraint firstItem="MSS-o1-XUC" firstAttribute="top" secondItem="67P-9Z-VDu" secondAttribute="top" constant="8" id="Kvq-tW-OfH"/>
+                            <constraint firstItem="M11-K7-yUq" firstAttribute="centerX" secondItem="67P-9Z-VDu" secondAttribute="centerX" id="Nw6-W7-BKY"/>
                             <constraint firstItem="e7V-DG-iL6" firstAttribute="leading" secondItem="dPK-IJ-PJk" secondAttribute="leading" constant="39" id="OqB-jW-oJC"/>
                             <constraint firstItem="MSS-o1-XUC" firstAttribute="leading" secondItem="dPK-IJ-PJk" secondAttribute="leading" constant="36" id="QKC-hx-2mj"/>
                             <constraint firstItem="dPK-IJ-PJk" firstAttribute="trailing" secondItem="MSS-o1-XUC" secondAttribute="trailing" constant="36" id="YmV-zZ-6nI"/>
+                            <constraint firstItem="M11-K7-yUq" firstAttribute="top" secondItem="RHV-jA-3qo" secondAttribute="bottom" constant="15" id="ddM-Vv-d84"/>
                             <constraint firstItem="RHV-jA-3qo" firstAttribute="centerX" secondItem="67P-9Z-VDu" secondAttribute="centerX" id="t0D-6o-1Vo"/>
                             <constraint firstItem="e7V-DG-iL6" firstAttribute="top" secondItem="MSS-o1-XUC" secondAttribute="bottom" constant="5" id="tma-oj-nkM"/>
                         </constraints>
@@ -86,6 +104,9 @@
                                 <state key="normal" title="Batal">
                                     <color key="titleColor" red="0.70196078429999997" green="0.0" blue="0.062745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonCancelTapped:" destination="PmJ-zj-V0j" eventType="touchUpInside" id="3Jo-Rh-Vfa"/>
+                                </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="edE-PP-oNd">
                                 <rect key="frame" x="16" y="85" width="382" height="120"/>
@@ -112,6 +133,9 @@
                                 <state key="normal" title="Bersedia">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonAcceptTapped:" destination="PmJ-zj-V0j" eventType="touchUpInside" id="dBQ-kd-y6F"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -250,6 +274,9 @@
                                 <state key="normal" title="Sudah Konfirmasi">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonAcceptTapped:" destination="Sh2-FD-qA1" eventType="touchUpInside" id="hIT-t3-ej2"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Informasikan PMI Tangerang Selatan bahwa Anda akan melakukan donor darah" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPP-sh-TCE">
                                 <rect key="frame" x="20" y="117.5" width="374" height="38.5"/>
@@ -267,6 +294,9 @@
                                 <state key="normal" title="Batal">
                                     <color key="titleColor" red="0.70196078429999997" green="0.0" blue="0.062745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonCancelTapped:" destination="Sh2-FD-qA1" eventType="touchUpInside" id="fgQ-fq-6uN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lG-A1-Ue3">
                                 <rect key="frame" x="50" y="77.5" width="344" height="18"/>
@@ -335,6 +365,9 @@
                                 <state key="normal" title="Sudah Donor">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonAcceptTapped:" destination="rAp-Fj-Z5G" eventType="touchUpInside" id="vlh-6t-xhG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2Q-qG-fHe">
                                 <rect key="frame" x="57" y="164" width="300" height="45"/>
@@ -346,6 +379,9 @@
                                 <state key="normal" title="Batal">
                                     <color key="titleColor" red="0.70196078429999997" green="0.0" blue="0.062745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonCancelTapped:" destination="rAp-Fj-Z5G" eventType="touchUpInside" id="dra-ln-oIZ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Silahkan mendonorkan darah Anda di PMI Tangerang Selatan" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iid-Sv-JRE">
                                 <rect key="frame" x="36" y="52" width="342" height="41"/>
