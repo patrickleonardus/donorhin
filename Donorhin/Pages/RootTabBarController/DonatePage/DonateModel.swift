@@ -21,7 +21,7 @@ struct Request {
 }
 
 struct DummyDataDonate {
-  static let list = [Request(user: "Idris", step: 2,status: .active, date: "20-12-2019"),Request(user: "Somad", step: 3,status: .history, date: "20-12-2019")]
+  static let list = [Request(user: "Idris", step: 4,status: .active, date: "20-12-2019"),Request(user: "Somad", step: 3,status: .history, date: "20-12-2019")]
   static func getData(_ status: History,completion: @escaping ([Request]?) -> Void) {
     var temp = [Request]()
     temp = self.list.filter({ (key) -> Bool in
