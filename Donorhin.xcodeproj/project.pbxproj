@@ -498,28 +498,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		CCAAE4DB237C1F4000BEFB44 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				CCAAE4C4237C1ACB00BEFB44 /* SecondStepRequestViewController.swift */,
-				CCAAE4CA237C1AF100BEFB44 /* FifthStepRequestViewController.swift */,
-				CCAAE4C6237C1ADD00BEFB44 /* ThirdStepRequestViewController.swift */,
-				CCAAE4BF237C1A8400BEFB44 /* RequestStepsPageViewController.swift */,
-				E6BA6E45237B23040017A330 /* UTDDonorTableViewController.swift */,
-				CCAAE4C8237C1AE800BEFB44 /* FourthStepRequestViewController.swift */,
-				E6BA6E46237B23040017A330 /* SecondStepTableViewController.swift */,
-				CCAAE4D8237C1C1100BEFB44 /* RequestStepsRequestModel.swift */,
-				CCAAE4C2237C1ABB00BEFB44 /* FirstStepRequestViewController.swift */,
-				CCAAE4D2237C1B8000BEFB44 /* FourthStepRequest.storyboard */,
-				CCAAE4BD237C19B700BEFB44 /* RequestSteps.storyboard */,
-				CCAAE4D6237C1BC600BEFB44 /* FirstStepRequest.storyboard */,
-				CCAAE4CE237C1B7300BEFB44 /* SecondStepRequest.storyboard */,
-				CCAAE4D4237C1B8500BEFB44 /* FifthStepRequest.storyboard */,
-				CCAAE4D0237C1B7900BEFB44 /* ThirdStepRequest.storyboard */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		CCAAE4DC237C1F7700BEFB44 /* RequestSteps */ = {
 			isa = PBXGroup;
 			children = (
@@ -1055,7 +1033,6 @@
 				E6DDAF312375630800D6EAD1 /* LineLayer.swift in Sources */,
 				E6AC8D43237B29DF00820100 /* TrackerController+UITableView.swift in Sources */,
 				E6FBB16C23718C8400B1B4DE /* AppDelegate.swift in Sources */,
-				E6FBB1B52371901400B1B4DE /* AuthenticationController.swift in Sources */,
 				E62918EB237C6A2800E8D559 /* CheckboxAgreementCell.swift in Sources */,
 				AB7357972374313500A6099B /* SecondCell.swift in Sources */,
 				B0B1688C237D487A001DCE3C /* FormItems.swift in Sources */,
