@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PnU-Jn-Aed">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PnU-Jn-Aed">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -433,7 +433,7 @@
                                             <color key="titleColor" red="0.6453691721" green="0.00067493994720000002" blue="0.098007641729999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
-                                            <segue destination="lm8-9v-Wbb" kind="show" id="eYB-qR-m6q"/>
+                                            <segue destination="DRq-W1-eO5" kind="showDetail" id="A7U-Px-qjn"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xlb-vQ-N4C" customClass="CustomButtonRounded" customModule="Donorhin" customModuleProvider="target">
@@ -447,7 +447,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="lm8-9v-Wbb" kind="show" id="26b-4E-fhO"/>
+                                            <segue destination="lm8-9v-Wbb" kind="showDetail" id="26b-4E-fhO"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -491,12 +491,18 @@
         <!--Authentication-->
         <scene sceneID="n9W-9F-Q3M">
             <objects>
-                <viewControllerPlaceholder storyboardName="Authentication" id="lm8-9v-Wbb" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="pTt-bS-Tmo"/>
-                </viewControllerPlaceholder>
+                <viewControllerPlaceholder storyboardName="Authentication" id="lm8-9v-Wbb" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jXZ-bS-eeK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2849" y="17"/>
+        </scene>
+        <!--RootTabBarController-->
+        <scene sceneID="un4-hE-Cke">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RootTabBarController" id="DRq-W1-eO5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G8a-b4-HVh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2882" y="141"/>
         </scene>
     </scenes>
     <resources>
@@ -507,7 +513,4 @@
         <image name="track_onboard" width="330" height="288"/>
         <image name="welcome_onboard" width="382" height="250"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="26b-4E-fhO"/>
-    </inferredMetricsTieBreakers>
 </document>
