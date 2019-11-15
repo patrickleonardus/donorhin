@@ -25,20 +25,45 @@ extension AddEventController : CheckboxDelegate {
 extension AddEventController : AnswerDelegate {
     
     func didFilled(cell: LabelAndTextFieldCell, isFilled: Bool) {
-        if isFilled {
-            checkFormFilledCount += 1
-        }
-        else {
-            checkFormFilledCount -= 1
-        }
-        
-        if checkFormFilledCount == 7 {
-            shareBarButton?.isEnabled = true
-        }
-        else if checkFormFilledCount != 7 {
+        if !isFilled {
             shareBarButton?.isEnabled = false
         }
-        
-        print(checkFormFilledCount)
     }
+    
+    func getTitle(cell: LabelAndTextFieldCell, data: String) {
+        titleEvent = data
+        checkValidity()
+    }
+    
+    func getDesc(cell: LabelAndTextFieldCell, data: String) {
+        descEvent = data
+        checkValidity()
+    }
+    
+    func getloc(cell: LabelAndTextFieldCell, data: String) {
+        locEvent = data
+        checkValidity()
+    }
+    
+    func getStart(cell: LabelAndTextFieldCell, data: String) {
+        startEvent = data
+        checkValidity()
+    }
+    
+    func getEnd(cell: LabelAndTextFieldCell, data: String) {
+        endEvent = data
+        checkValidity()
+    }
+    
+    func getName(cell: LabelAndTextFieldCell, data: String) {
+        nameEvent = data
+        checkValidity()
+    }
+    
+    func getPhone(cell: LabelAndTextFieldCell, data: String) {
+        phoneEvent = data
+        checkValidity()
+    }
+    
+    
 }

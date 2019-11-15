@@ -20,15 +20,22 @@ class AddEventController: UIViewController {
     var shareBarButton : UIBarButtonItem?
     
     var checkboxValidation = false
-    var checkFormFilledCount = 0
     
-    var eventText = ""
+    //MARK: - Initialize data jawaban user
+    var titleEvent: String?
+    var descEvent: String?
+    var locEvent: String?
+    var startEvent: String?
+    var endEvent: String?
+    var nameEvent: String?
+    var phoneEvent: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setNavBar()
         closeKeyboard()
+        handleTableView()
         
         EventData().getEvent { (title) in
             self.cellName = title
@@ -56,6 +63,23 @@ class AddEventController: UIViewController {
         view.addGestureRecognizer(tap)
     }
     
+    private func handleTableView(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc private func keyboardWillShow(notification: NSNotification){
+        let info = notification.userInfo
+        let keyboardFrame = info![UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue
+        
+        if let keyboardSize = keyboardFrame?.cgRectValue.size {
+            tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+        }
+    }
+    
+    @objc private func keyboardWillHide(notification: NSNotification){
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
     //MARK: - Action
     
     @objc func shareAction(){
@@ -146,6 +170,25 @@ class AddEventController: UIViewController {
         
         if let endDateCell = tableView.cellForRow(at: IndexPath.init(row: 2, section: 1)) as? LabelAndTextFieldCell {
             endDateCell.answer.text = dateFormatter.string(from: sender.date)
+        }
+    }
+    
+    //MARK: - Handle Validasi
+    
+    func checkValidity(){
+        if  (titleEvent != nil &&
+            descEvent != nil &&
+            locEvent != nil &&
+            startEvent != nil &&
+            endEvent != nil &&
+            nameEvent != nil &&
+            phoneEvent !=  nil) {
+            
+            shareBarButton?.isEnabled = true
+        }
+            
+        else {
+            shareBarButton?.isEnabled = false
         }
     }
 }

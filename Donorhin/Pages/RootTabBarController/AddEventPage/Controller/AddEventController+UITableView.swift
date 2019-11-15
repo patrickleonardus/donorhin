@@ -113,12 +113,43 @@ extension AddEventController: UITableViewDelegate, UITableViewDataSource {
             guard let titleData = cellName?[indexPath.row] else {fatalError()}
             guard let placeholderData = cellPlaceholder?[indexPath.row] else {fatalError()}
             
-            if indexPath.row < 2 {
-                cell.name.text = titleData.name
-                cell.answer.placeholder = placeholderData.placeholder
+            if indexPath.row == 0 {
+                
+                if titleEvent == nil {
+                    cell.tableViewRow = indexPath.row
+                    cell.tableViewSection = indexPath.section
+                    cell.name.text = titleData.name
+                    cell.answer.placeholder = placeholderData.placeholder
+                }
+                
+                else  {
+                    cell.tableViewRow = indexPath.row
+                    cell.tableViewSection = indexPath.section
+                    cell.name.text = titleData.name
+                    cell.answer.text = titleEvent
+                }
+                
+            }
+                
+            else if indexPath.row == 1 {
+                
+                if descEvent == nil {
+                    cell.tableViewRow = indexPath.row
+                    cell.tableViewSection = indexPath.section
+                    cell.name.text = titleData.name
+                    cell.answer.placeholder = placeholderData.placeholder
+                }
+                    
+                else  {
+                    cell.tableViewRow = indexPath.row
+                    cell.tableViewSection = indexPath.section
+                    cell.name.text = titleData.name
+                    cell.answer.text = descEvent
+                }
+                
             }
             
-            if indexPath.row == 2 {
+            else if indexPath.row == 2 {
                 
                 let cell = tableView.dequeueReusableCell(withIdentifier: "pickPictureCell") as! PickPictureCell
                 
@@ -141,13 +172,63 @@ extension AddEventController: UITableViewDelegate, UITableViewDataSource {
             
             guard let titleData = cellName?[indexPath.row + 3] else {fatalError()}
             guard let placeholderData = cellPlaceholder?[indexPath.row + 2] else {fatalError()}
-            cell.name.text = titleData.name
-            cell.answer.placeholder = placeholderData.placeholder
+          
+            if indexPath.row == 0 {
+                
+                if locEvent == nil {
+                    cell.tableViewRow = indexPath.row
+                    cell.tableViewSection = indexPath.section
+                    cell.name.text = titleData.name
+                    cell.answer.placeholder = placeholderData.placeholder
+                }
+                    
+                else  {
+                    cell.tableViewRow = indexPath.row
+                    cell.tableViewSection = indexPath.section
+                    cell.name.text = titleData.name
+                    cell.answer.text = locEvent
+                }
+                
+                cell.answer.removeTarget(self, action: #selector(showDatePickerStart(sender:)), for: .editingDidBegin)
+                cell.answer.removeTarget(self, action: #selector(showDatePickerEnd(sender:)), for: .editingDidBegin)
+                
+            }
             
-            if indexPath.row == 1 {
+            else if indexPath.row == 1 {
+                
+                if startEvent == nil {
+                    cell.tableViewRow = indexPath.row
+                    cell.tableViewSection = indexPath.section
+                    cell.name.text = titleData.name
+                    cell.answer.placeholder = placeholderData.placeholder
+                }
+                    
+                else  {
+                    cell.tableViewRow = indexPath.row
+                    cell.tableViewSection = indexPath.section
+                    cell.name.text = titleData.name
+                    cell.answer.text = startEvent
+                }
+                
                 cell.answer.addTarget(self, action: #selector(showDatePickerStart(sender:)), for: .editingDidBegin)
+                
             }
             else if indexPath.row == 2 {
+                
+                if endEvent == nil {
+                    cell.tableViewRow = indexPath.row
+                    cell.tableViewSection = indexPath.section
+                    cell.name.text = titleData.name
+                    cell.answer.placeholder = placeholderData.placeholder
+                }
+                    
+                else  {
+                    cell.tableViewRow = indexPath.row
+                    cell.tableViewSection = indexPath.section
+                    cell.name.text = titleData.name
+                    cell.answer.text = endEvent
+                }
+                
                 cell.answer.addTarget(self, action: #selector(showDatePickerEnd(sender:)), for: .editingDidBegin)
             }
             
@@ -159,9 +240,42 @@ extension AddEventController: UITableViewDelegate, UITableViewDataSource {
             
             guard let titleData = cellName?[indexPath.row + 6] else {fatalError()}
             guard let placeholderData = cellPlaceholder?[indexPath.row + 5] else {fatalError()}
-            cell.name.text = titleData.name
-            cell.answer.placeholder = placeholderData.placeholder
+           
+            if indexPath.row == 0 {
+                
+                if nameEvent == nil {
+                    cell.tableViewRow = indexPath.row
+                    cell.tableViewSection = indexPath.section
+                    cell.name.text = titleData.name
+                    cell.answer.placeholder = placeholderData.placeholder
+                }
+                    
+                else  {
+                    cell.tableViewRow = indexPath.row
+                    cell.tableViewSection = indexPath.section
+                    cell.name.text = titleData.name
+                    cell.answer.text = nameEvent
+                }
+                
+            }
             
+            else if indexPath.row == 1 {
+                
+                if phoneEvent == nil {
+                    cell.tableViewRow = indexPath.row
+                    cell.tableViewSection = indexPath.section
+                    cell.name.text = titleData.name
+                    cell.answer.placeholder = placeholderData.placeholder
+                }
+                    
+                else  {
+                    cell.tableViewRow = indexPath.row
+                    cell.tableViewSection = indexPath.section
+                    cell.name.text = titleData.name
+                    cell.answer.text = phoneEvent
+                }
+                
+            }
             return cell
         }
         else if indexPath.section == 3 {
