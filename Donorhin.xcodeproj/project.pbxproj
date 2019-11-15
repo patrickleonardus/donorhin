@@ -31,6 +31,12 @@
 		B0B1687B237BF250001DCE3C /* InfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B1687A237BF250001DCE3C /* InfoItem.swift */; };
 		CC88A08623749D16001A982E /* FindBloodCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC88A08123749D16001A982E /* FindBloodCustomCell.xib */; };
 		CC88A08823749D16001A982E /* FindBloodCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC88A08323749D16001A982E /* FindBloodCustomCell.swift */; };
+		E62918EB237C6A2800E8D559 /* CheckboxAgreementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62918EA237C6A2800E8D559 /* CheckboxAgreementCell.swift */; };
+		E62918ED237CFC0F00E8D559 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62918EC237CFC0F00E8D559 /* CheckBox.swift */; };
+		E62918EF237D2DAD00E8D559 /* PickPictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62918EE237D2DAD00E8D559 /* PickPictureCell.swift */; };
+		E62918F1237E437E00E8D559 /* AddEventController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62918F0237E437E00E8D559 /* AddEventController+UITableView.swift */; };
+		E62918F3237E43C300E8D559 /* AddEventController+UIImagePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62918F2237E43C300E8D559 /* AddEventController+UIImagePickerDelegate.swift */; };
+		E62918F5237E43F100E8D559 /* AddEventController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62918F4237E43F100E8D559 /* AddEventController+Delegate.swift */; };
 		E6AC8D43237B29DF00820100 /* TrackerController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D3A237B29DF00820100 /* TrackerController+UITableView.swift */; };
 		E6AC8D44237B29DF00820100 /* TrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D3B237B29DF00820100 /* TrackerController.swift */; };
 		E6AC8D45237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D3C237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift */; };
@@ -59,7 +65,7 @@
 		E6D0748B237BE7CB00CF5531 /* AddEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D0748A237BE7CB00CF5531 /* AddEventController.swift */; };
 		E6D0748F237BEAE400CF5531 /* AddEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6D0748E237BEAE400CF5531 /* AddEvent.storyboard */; };
 		E6D07491237C05BA00CF5531 /* LabelAndTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D07490237C05BA00CF5531 /* LabelAndTextFieldCell.swift */; };
-		E6D07494237C1E1000CF5531 /* ModelEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D07493237C1E1000CF5531 /* ModelEvent.swift */; };
+		E6D07494237C1E1000CF5531 /* TitleModelEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D07493237C1E1000CF5531 /* TitleModelEvent.swift */; };
 		E6DDAF2B237435B300D6EAD1 /* FindController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF28237435B300D6EAD1 /* FindController+ScrollView.swift */; };
 		E6DDAF312375630800D6EAD1 /* LineLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF2E2375630700D6EAD1 /* LineLayer.swift */; };
 		E6DDAF322375630800D6EAD1 /* AnnularLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF2F2375630800D6EAD1 /* AnnularLayer.swift */; };
@@ -126,6 +132,12 @@
 		B0B1687A237BF250001DCE3C /* InfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoItem.swift; sourceTree = "<group>"; };
 		CC88A08123749D16001A982E /* FindBloodCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindBloodCustomCell.xib; sourceTree = "<group>"; };
 		CC88A08323749D16001A982E /* FindBloodCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindBloodCustomCell.swift; sourceTree = "<group>"; };
+		E62918EA237C6A2800E8D559 /* CheckboxAgreementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxAgreementCell.swift; sourceTree = "<group>"; };
+		E62918EC237CFC0F00E8D559 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		E62918EE237D2DAD00E8D559 /* PickPictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPictureCell.swift; sourceTree = "<group>"; };
+		E62918F0237E437E00E8D559 /* AddEventController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddEventController+UITableView.swift"; sourceTree = "<group>"; };
+		E62918F2237E43C300E8D559 /* AddEventController+UIImagePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddEventController+UIImagePickerDelegate.swift"; sourceTree = "<group>"; };
+		E62918F4237E43F100E8D559 /* AddEventController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddEventController+Delegate.swift"; sourceTree = "<group>"; };
 		E6AC8D3A237B29DF00820100 /* TrackerController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController+UITableView.swift"; sourceTree = "<group>"; };
 		E6AC8D3B237B29DF00820100 /* TrackerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerController.swift; sourceTree = "<group>"; };
 		E6AC8D3C237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController + TrackerCellDelegate.swift"; sourceTree = "<group>"; };
@@ -154,7 +166,7 @@
 		E6D0748A237BE7CB00CF5531 /* AddEventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventController.swift; sourceTree = "<group>"; };
 		E6D0748E237BEAE400CF5531 /* AddEvent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddEvent.storyboard; sourceTree = "<group>"; };
 		E6D07490237C05BA00CF5531 /* LabelAndTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelAndTextFieldCell.swift; sourceTree = "<group>"; };
-		E6D07493237C1E1000CF5531 /* ModelEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelEvent.swift; sourceTree = "<group>"; };
+		E6D07493237C1E1000CF5531 /* TitleModelEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleModelEvent.swift; sourceTree = "<group>"; };
 		E6DDAF28237435B300D6EAD1 /* FindController+ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FindController+ScrollView.swift"; sourceTree = "<group>"; };
 		E6DDAF2E2375630700D6EAD1 /* LineLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineLayer.swift; sourceTree = "<group>"; };
 		E6DDAF2F2375630800D6EAD1 /* AnnularLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnularLayer.swift; sourceTree = "<group>"; };
@@ -447,6 +459,8 @@
 			isa = PBXGroup;
 			children = (
 				E6D07490237C05BA00CF5531 /* LabelAndTextFieldCell.swift */,
+				E62918EA237C6A2800E8D559 /* CheckboxAgreementCell.swift */,
+				E62918EE237D2DAD00E8D559 /* PickPictureCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -455,6 +469,9 @@
 			isa = PBXGroup;
 			children = (
 				E6D0748A237BE7CB00CF5531 /* AddEventController.swift */,
+				E62918F0237E437E00E8D559 /* AddEventController+UITableView.swift */,
+				E62918F2237E43C300E8D559 /* AddEventController+UIImagePickerDelegate.swift */,
+				E62918F4237E43F100E8D559 /* AddEventController+Delegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -462,7 +479,7 @@
 		E6D07492237C1DFA00CF5531 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E6D07493237C1E1000CF5531 /* ModelEvent.swift */,
+				E6D07493237C1E1000CF5531 /* TitleModelEvent.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -644,6 +661,7 @@
 			children = (
 				E6DDAF2D237562EF00D6EAD1 /* StepIndicator */,
 				E6AC8D4A237B2A4100820100 /* FixImageOrientation.swift */,
+				E62918EC237CFC0F00E8D559 /* CheckBox.swift */,
 				E6FBB1C22371991D00B1B4DE /* Constants.swift */,
 			);
 			path = Utilities;
@@ -809,6 +827,7 @@
 				E6AC8D43237B29DF00820100 /* TrackerController+UITableView.swift in Sources */,
 				E6FBB16C23718C8400B1B4DE /* AppDelegate.swift in Sources */,
 				E6FBB1B52371901400B1B4DE /* AuthenticationController.swift in Sources */,
+				E62918EB237C6A2800E8D559 /* CheckboxAgreementCell.swift in Sources */,
 				AB7357972374313500A6099B /* SecondCell.swift in Sources */,
 				E6DDAF332375630800D6EAD1 /* StepIndicatorView.swift in Sources */,
 				E6BA6E3B237B1E080017A330 /* DiscoverController.swift in Sources */,
@@ -818,10 +837,13 @@
 				E6BA6E3A237B1E080017A330 /* DiscoverController+UITableView.swift in Sources */,
 				E6BA6E3C237B1E080017A330 /* EventModel.swift in Sources */,
 				E6BA6E49237B23040017A330 /* UTDDonorTableViewController.swift in Sources */,
+				E62918EF237D2DAD00E8D559 /* PickPictureCell.swift in Sources */,
+				E62918F1237E437E00E8D559 /* AddEventController+UITableView.swift in Sources */,
+				E62918F5237E43F100E8D559 /* AddEventController+Delegate.swift in Sources */,
 				AB7357862374309E00A6099B /* CustomSegmentedController.swift in Sources */,
 				E6DDAF2B237435B300D6EAD1 /* FindController+ScrollView.swift in Sources */,
 				E6BA6E38237B1E080017A330 /* InfoTableViewCell+UITableView.swift in Sources */,
-				E6D07494237C1E1000CF5531 /* ModelEvent.swift in Sources */,
+				E6D07494237C1E1000CF5531 /* TitleModelEvent.swift in Sources */,
 				E6BA6E4C237B23040017A330 /* DonateStepsViewController.swift in Sources */,
 				0925FB382373F13000874DAA /* CustomMainView.swift in Sources */,
 				E6AC8D44237B29DF00820100 /* TrackerController.swift in Sources */,
@@ -837,8 +859,10 @@
 				E6FBB1B323718FF500B1B4DE /* FindController.swift in Sources */,
 				E6D07491237C05BA00CF5531 /* LabelAndTextFieldCell.swift in Sources */,
 				098FD4752372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift in Sources */,
+				E62918ED237CFC0F00E8D559 /* CheckBox.swift in Sources */,
 				09DC193A23754BCD004BEFB5 /* DonateModel.swift in Sources */,
 				E6DDAF3A237563AC00D6EAD1 /* ScanFormController.swift in Sources */,
+				E62918F3237E43C300E8D559 /* AddEventController+UIImagePickerDelegate.swift in Sources */,
 				E6BA6E4A237B23040017A330 /* SecondStepTableViewController.swift in Sources */,
 				E6D0748B237BE7CB00CF5531 /* AddEventController.swift in Sources */,
 				E6FBB1C0237194FB00B1B4DE /* BloodRequest.swift in Sources */,
@@ -955,6 +979,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
 			};
 			name = Debug;
 		};
@@ -1009,6 +1034,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

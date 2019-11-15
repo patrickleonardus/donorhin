@@ -8,21 +8,28 @@
 
 import UIKit
 
-class LabelAndTextFieldCell: UITableViewCell {
+class LabelAndTextFieldCell: UITableViewCell, UITextFieldDelegate {
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var answer: UITextField!
-    
 
+    var delegate : AnswerDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.answer.delegate = self
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if answer.text!.isEmpty {
+            delegate?.didFilled(cell: self, isFilled: false)
+        }
+        else if !answer.text!.isEmpty{
+            delegate?.didFilled(cell: self, isFilled: true)
+        }
     }
+}
 
+protocol AnswerDelegate {
+    func didFilled(cell: LabelAndTextFieldCell, isFilled: Bool)
 }
