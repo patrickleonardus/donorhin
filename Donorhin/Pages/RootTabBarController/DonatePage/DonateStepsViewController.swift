@@ -11,7 +11,13 @@ import UIKit
 class DonateStepsViewController: UIViewController {
   var request:Request?
   @IBOutlet weak var stepIndicatorView: StepIndicatorView!
-  
+  lazy var stepIndicator: Int = {
+    if let request = self.request {
+      self.stepIndicatorView.currentStep = request.step
+      return request.step
+    }
+    return 1
+  }()
   override func viewDidLoad() {
     super.viewDidLoad()
     if let request = request {
@@ -22,7 +28,7 @@ class DonateStepsViewController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "GoToSteps" {
       let destinationVC = segue.destination as! RequestStepsPageViewController
-      destinationVC.id = self.stepIndicatorView.currentStep + 1
+      destinationVC.id = self.stepIndicator + 1
     }
   }
 }
