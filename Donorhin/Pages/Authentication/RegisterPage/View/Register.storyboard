@@ -16,27 +16,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q2L-fm-4oC">
-                                <rect key="frame" x="20" y="91" width="374" height="271"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q2L-fm-4oC">
+                                <rect key="frame" x="0.0" y="135" width="414" height="761"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfF-gy-w5e" customClass="CustomButtonRounded" customModule="Donorhin">
-                                <rect key="frame" x="36" y="382" width="343" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Lanjut"/>
-                                <connections>
-                                    <action selector="goToPersonalData:" destination="40z-RV-CJJ" eventType="touchUpInside" id="STz-12-J5Z"/>
-                                    <segue destination="zy3-eL-Ri7" kind="show" identifier="goToPersonalData" id="JBP-uN-cgT"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Q2L-fm-4oC" firstAttribute="leading" secondItem="6pH-9n-QHr" secondAttribute="leading" id="1Qv-F3-lyF"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Q2L-fm-4oC" secondAttribute="bottom" constant="-34" id="FE9-Ra-Qj6"/>
+                            <constraint firstItem="Q2L-fm-4oC" firstAttribute="centerX" secondItem="eBh-LW-9cb" secondAttribute="centerX" id="Imv-kF-13c"/>
+                            <constraint firstItem="Q2L-fm-4oC" firstAttribute="top" secondItem="6pH-9n-QHr" secondAttribute="top" constant="91" id="wQa-ma-kiW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6pH-9n-QHr"/>
                     </view>
                     <connections>
                         <outlet property="formTableView" destination="Q2L-fm-4oC" id="0va-sy-2IS"/>
+                        <segue destination="zy3-eL-Ri7" kind="show" identifier="goToPersonalData" id="a9B-v8-Bdo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqB-nC-dos" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

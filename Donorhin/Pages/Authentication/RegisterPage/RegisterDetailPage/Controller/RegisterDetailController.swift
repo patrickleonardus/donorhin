@@ -23,10 +23,16 @@ class RegisterDetailController : UIViewController {
         loadFormTable()
     }
     
+    @objc func goToFind(){
+        performSegue(withIdentifier: "goToFind", sender: self)
+    }
+    
     func loadFormTable(){
            formTableView.delegate = self
            formTableView.dataSource = self
            formTableView.register(UINib(nibName: "FormCustomCell", bundle: nil), forCellReuseIdentifier: "formCell")
+           formTableView.register(UINib(nibName: "AgreementViewCell", bundle: nil), forCellReuseIdentifier: "agreementCell")
+           formTableView.register(UINib(nibName: "ButtonViewCell", bundle: nil), forCellReuseIdentifier: "buttonCell")
            formTableView.tableFooterView = UIView()
            formTableView.showsVerticalScrollIndicator = false
     }
