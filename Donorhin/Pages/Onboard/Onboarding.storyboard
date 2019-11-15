@@ -302,7 +302,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_onboard" translatesAutoresizingMaskIntoConstraints="NO" id="A6U-su-NgB">
-                                                        <rect key="frame" x="60" y="30" width="40" height="40.000000000000014"/>
+                                                        <rect key="frame" x="60" y="30" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="40" id="NUi-Xv-EXi"/>
                                                             <constraint firstAttribute="height" constant="40" id="eVd-7k-ZCY"/>
@@ -433,7 +433,7 @@
                                             <color key="titleColor" red="0.6453691721" green="0.00067493994720000002" blue="0.098007641729999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
-                                            <segue destination="lm8-9v-Wbb" kind="showDetail" id="eYB-qR-m6q"/>
+                                            <segue destination="DRq-W1-eO5" kind="showDetail" id="A7U-Px-qjn"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xlb-vQ-N4C" customClass="CustomButtonRounded" customModule="Donorhin" customModuleProvider="target">
@@ -488,13 +488,21 @@
             </objects>
             <point key="canvasLocation" x="2289.8550724637685" y="-83.035714285714278"/>
         </scene>
-        <!--Find-->
+        <!--Authentication-->
         <scene sceneID="n9W-9F-Q3M">
             <objects>
-                <viewControllerPlaceholder storyboardName="Find" id="lm8-9v-Wbb" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Authentication" id="lm8-9v-Wbb" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jXZ-bS-eeK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2849" y="17"/>
+        </scene>
+        <!--RootTabBarController-->
+        <scene sceneID="un4-hE-Cke">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RootTabBarController" id="DRq-W1-eO5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G8a-b4-HVh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2882" y="141"/>
         </scene>
     </scenes>
     <resources>
@@ -505,7 +513,4 @@
         <image name="track_onboard" width="330" height="288"/>
         <image name="welcome_onboard" width="382" height="250"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="eYB-qR-m6q"/>
-    </inferredMetricsTieBreakers>
 </document>
