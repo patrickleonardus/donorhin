@@ -18,7 +18,7 @@ extension RegisterDetailController : UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return formItems!.count
+        return 8
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,17 +39,34 @@ extension RegisterDetailController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell  = tableView.dequeueReusableCell(withIdentifier: "formCell", for: indexPath) as? FormTableViewCell
-        //masukin datanya
-        guard let data = formItems?[indexPath.section] else {fatalError()}
+        if indexPath.section < formItems!.count {
+              let cell  = tableView.dequeueReusableCell(withIdentifier: "formCell", for: indexPath) as? FormTableViewCell
+              //masukin datanya
+              guard let data = formItems?[indexPath.section] else {fatalError()}
+              
+              cell?.formTextField.placeholder = data.placeholder
+              cell?.iconImageView.image = UIImage(named: data.img!)
+              cell?.delegate = self
+              
+              cell?.backgroundColor = UIColor.white
+              cell?.layer.cornerRadius = 10
+              return cell!
+              }
+                  
+            else if indexPath.section == 6{
+                let cell  = tableView.dequeueReusableCell(withIdentifier: "agreementCell", for: indexPath) as? AgreementTableViewCell
+                return cell!
+            }
         
-        cell?.formTextField.placeholder = data.placeholder
-        cell?.iconImageView.image = UIImage(named: data.img!)
-        //cell?.delegate = self
+            else if indexPath.section == 7{
+                let cell  = tableView.dequeueReusableCell(withIdentifier: "buttonCell", for: indexPath) as? ButtonTableViewCell
+                  cell?.buttonOutlet.layer.cornerRadius = 10
+                  cell?.buttonOutlet.setTitle("Daftar", for: .normal)
+                  cell?.buttonOutlet.addTarget(self, action: #selector(goToFind), for: .touchUpInside)
+                return cell!
+              }
         
-        cell?.backgroundColor = UIColor.white
-        cell?.layer.cornerRadius = 10
-        
-        return cell!
+              
+        return UITableViewCell()
     }
 }

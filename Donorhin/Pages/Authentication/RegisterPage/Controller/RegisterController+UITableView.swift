@@ -18,7 +18,7 @@ extension RegisterController : UITableViewDataSource{
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,6 +39,7 @@ extension RegisterController : UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section < 3 {
         let cell  = tableView.dequeueReusableCell(withIdentifier: "formCell", for: indexPath) as? FormTableViewCell
         //masukin datanya
         guard let data = formItems?[indexPath.section] else {fatalError()}
@@ -49,7 +50,17 @@ extension RegisterController : UITableViewDataSource{
         
         cell?.backgroundColor = UIColor.white
         cell?.layer.cornerRadius = 10
-        
         return cell!
+        }
+            
+        else if indexPath.section == 3{
+        let cell  = tableView.dequeueReusableCell(withIdentifier: "buttonCell", for: indexPath) as? ButtonTableViewCell
+            cell?.buttonOutlet.layer.cornerRadius = 10
+            cell?.buttonOutlet.setTitle("Lanjut", for: .normal)
+            cell?.buttonOutlet.addTarget(self, action: #selector(goToPersonalData), for: .touchUpInside)
+        return cell!
+        }
+        
+        return UITableViewCell()
     }
 }
