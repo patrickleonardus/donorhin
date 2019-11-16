@@ -11,6 +11,7 @@
 		0925FB4023740E1C00874DAA /* DonateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925FB3E23740E1C00874DAA /* DonateTableViewCell.swift */; };
 		0925FB4123740E1C00874DAA /* DonateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0925FB3F23740E1C00874DAA /* DonateTableViewCell.xib */; };
 		094B6EDA237EC7D300716862 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094B6ED9237EC7D300716862 /* Helper.swift */; };
+		094B6EDD238044D300716862 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094B6EDC238044D300716862 /* Steps.swift */; };
 		098FD4752372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */; };
 		098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */; };
 		09DC193A23754BCD004BEFB5 /* DonateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC193923754BCD004BEFB5 /* DonateModel.swift */; };
@@ -137,6 +138,7 @@
 		0925FB3E23740E1C00874DAA /* DonateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateTableViewCell.swift; sourceTree = "<group>"; };
 		0925FB3F23740E1C00874DAA /* DonateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DonateTableViewCell.xib; sourceTree = "<group>"; };
 		094B6ED9237EC7D300716862 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		094B6EDC238044D300716862 /* Steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
 		098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonSubmitRounded.swift; sourceTree = "<group>"; };
 		098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewRounded.swift; sourceTree = "<group>"; };
 		09DC193923754BCD004BEFB5 /* DonateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateModel.swift; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				094B6ED9237EC7D300716862 /* Helper.swift */,
+				094B6EDC238044D300716862 /* Steps.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1089,6 +1092,7 @@
 				0925FB4023740E1C00874DAA /* DonateTableViewCell.swift in Sources */,
 				E6DDAF312375630800D6EAD1 /* LineLayer.swift in Sources */,
 				E6AC8D43237B29DF00820100 /* TrackerController+UITableView.swift in Sources */,
+				094B6EDD238044D300716862 /* Steps.swift in Sources */,
 				E6FBB16C23718C8400B1B4DE /* AppDelegate.swift in Sources */,
 				AB7357972374313500A6099B /* SecondCell.swift in Sources */,
 				B0B1688C237D487A001DCE3C /* FormItems.swift in Sources */,
