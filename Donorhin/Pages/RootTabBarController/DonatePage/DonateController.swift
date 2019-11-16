@@ -7,14 +7,14 @@
 //
 
 import UIKit
-
+import CloudKit
 class DonateController: UIViewController {
-
   @IBOutlet weak var switchButtonStatusDonor: UISwitch!
   @IBOutlet weak var historyDonorSegmentedControl: UISegmentedControl!
   @IBOutlet weak var tableview: UITableView!
   @IBOutlet weak var coverView: CustomMainView!
   final private let cellReuseIdentifier = "DonateCell"
+  var listRequest = [CKRecord]()
   var selectedRow:Request?
   var statusDonor = false
   var segmented: History {
@@ -42,10 +42,10 @@ class DonateController: UIViewController {
   
   //MARK: - get data from database
   private func getData() {
-    DummyDataDonate.getData(self.segmented) { (res) in
-      if let res = res {
-        self.listData = res
-        self.tableview.reloadData()
+    let query = CKQuery(recordType: "Tracker", predicate: NSPredicate(value: true))
+    Helper.getAllData(query) { (results) in
+      if let results = results {
+        print(results)
       }
     }
   }
@@ -74,12 +74,12 @@ class DonateController: UIViewController {
   //MARK: - when segmented control tapped
   @IBAction func segmentedControlTapped(_ sender: UISegmentedControl) {
     self.historyDonorSegmentedControl = sender
-    DummyDataDonate.getData(self.segmented) { (req) in
-      if let req = req {
-        self.listData = req
-        self.tableview.reloadData()
-      }
-    }
+//    DummyDataDonate.getData(self.segmented) { (req) in
+//      if let req = req {
+//        self.listData = req
+//        self.tableview.reloadData()
+//      }
+//    }
   }
   
     private func profileImageNavBar(show: Bool){
@@ -136,8 +136,8 @@ extension DonateController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableview.dequeueReusableCell(withIdentifier: self.cellReuseIdentifier, for: indexPath) as! DonateTableViewCell
-    cell.titleLabel.text = self.listData[indexPath.row].user
-    cell.subtitleLabel.text = "\(self.listData[indexPath.row].step)"
+//    cell.titleLabel.text = self.listData[indexPath.row].user
+//    cell.subtitleLabel.text = "\(self.listData[indexPath.row].step)"
     return cell
   }
   

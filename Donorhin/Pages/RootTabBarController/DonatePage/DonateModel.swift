@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CloudKit
 
 enum History {
   case active
@@ -14,25 +15,18 @@ enum History {
 }
 
 struct Request {
-  let user: String
-  let step: Int
-  var status: History
-  let date: String
+  let idTracker: CKRecord
+  let donorDate: String
+  let idPendonor: CKRecord
+  let idRequest: CKRecord
+  let idUTDPendonor: CKRecord
+  let currentStep: Int
 }
 
-struct DummyDataDonate {
-  static let list = [Request(user: "Idris", step: 4,status: .active, date: "20-12-2019"),Request(user: "Somad", step: 3,status: .history, date: "20-12-2019")]
-  static func getData(_ status: History,completion: @escaping ([Request]?) -> Void) {
-    var temp = [Request]()
-    temp = self.list.filter({ (key) -> Bool in
-      key.status == status
-    })
-    if temp.count > 0 {
-      completion(temp)
-    }
-    else {
-      completion(nil)
-    }
+struct ListRequest {
+  let requests: [Request]
+  init(_ requests: [Request]) {
+    self.requests = requests
   }
 }
 

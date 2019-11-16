@@ -10,9 +10,9 @@ import Foundation
 import CloudKit
 struct Helper {
   static let database = CKContainer.default().publicCloudDatabase
-  typealias results = ([Any]?) -> Void
-  typealias result = (Any?) -> Void
-  static func getAllData(_ ckQuery: CKQuery, completion: @escaping result) {
+  typealias results = ([CKRecord]?) -> Void
+  typealias result = (CKRecord?) -> Void
+  static func getAllData(_ ckQuery: CKQuery, completion: @escaping results) {
     self.database.perform(ckQuery, inZoneWith: .default) { (results, error) in
       if let results = results {
         completion(results)
