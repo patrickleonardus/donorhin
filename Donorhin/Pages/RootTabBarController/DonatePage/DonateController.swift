@@ -7,14 +7,14 @@
 //
 
 import UIKit
-
+import CloudKit
 class DonateController: UIViewController {
-
   @IBOutlet weak var switchButtonStatusDonor: UISwitch!
   @IBOutlet weak var historyDonorSegmentedControl: UISegmentedControl!
   @IBOutlet weak var tableview: UITableView!
   @IBOutlet weak var coverView: CustomMainView!
   final private let cellReuseIdentifier = "DonateCell"
+  var listRequest = [CKRecord]()
   var selectedRow:Request?
   var statusDonor = false
   var segmented: History {
@@ -24,28 +24,37 @@ class DonateController: UIViewController {
         return.history
       }
   }
-  var listData: [Request] = []
   var profileImage = UIImageView()
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.tableview.delegate = self
+    self.tableview.dataSource = self
+    self.tableview.register(UINib(nibName: "DonateTableViewCell", bundle: nil), forCellReuseIdentifier: self.cellReuseIdentifier)
     self.setupTabledView()
-    self.getData()
-    if self.listData.count > 0 {
+    self.checkStatusDonor()
+  }
+  
+  //MARK: - data if 0 image will show up
+  private func checkCountListData() {
+    if self.listRequest.count > 0 {
       self.coverView.isHidden = true
     }
     else {
       self.coverView.isHidden = false
     }
-    self.checkStatusDonor()
   }
   
   //MARK: - get data from database
   private func getData() {
-    DummyDataDonate.getData(self.segmented) { (res) in
-      if let res = res {
-        self.listData = res
-        self.tableview.reloadData()
+    let query = CKQuery(recordType: "Tracker", predicate: NSPredicate(value: true))
+    Helper.getAllData(query) { (results) in
+      if let results = results {
+        DispatchQueue.main.async {
+          self.listRequest = results
+          self.checkCountListData()
+          self.tableview.reloadData()
+        }
       }
     }
   }
@@ -66,20 +75,18 @@ class DonateController: UIViewController {
   
   //MARK: - setup tableview
   private func setupTabledView() {
-    self.tableview.delegate = self
-    self.tableview.dataSource = self
-    self.tableview.register(UINib(nibName: "DonateTableViewCell", bundle: nil), forCellReuseIdentifier: self.cellReuseIdentifier)
+    self.getData()
   }
   
   //MARK: - when segmented control tapped
   @IBAction func segmentedControlTapped(_ sender: UISegmentedControl) {
     self.historyDonorSegmentedControl = sender
-    DummyDataDonate.getData(self.segmented) { (req) in
-      if let req = req {
-        self.listData = req
-        self.tableview.reloadData()
-      }
-    }
+//    DummyDataDonate.getData(self.segmented) { (req) in
+//      if let req = req {
+//        self.listData = req
+//        self.tableview.reloadData()
+//      }
+//    }
   }
   
     private func profileImageNavBar(show: Bool){
@@ -131,18 +138,32 @@ class DonateController: UIViewController {
 
 extension DonateController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.listData.count
+    return self.listRequest.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableview.dequeueReusableCell(withIdentifier: self.cellReuseIdentifier, for: indexPath) as! DonateTableViewCell
-    cell.titleLabel.text = self.listData[indexPath.row].user
-    cell.subtitleLabel.text = "\(self.listData[indexPath.row].step)"
+    cell.titleLabel.text = "Permintaan donor \(indexPath.row+1)"
+    cell.subtitleLabel.text = Steps.checkStep(self.listRequest[indexPath.row].value(forKey: "current_step") as! Int)
     return cell
   }
   
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == .delete {
+      print("ok")
+    }
+  }
+  
+  func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+      let deleteButton = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
+      self.tableview.dataSource?.tableView?(self.tableview, commit: .delete, forRowAt: indexPath)
+      })
+      deleteButton.backgroundColor = Colors.red
+      return [deleteButton]
+  }
+  
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    self.selectedRow = self.listData[indexPath.row]
+//    self.selectedRow = self.listRequest[indexPath.row]
     performSegue(withIdentifier: "GoToStep", sender: nil)
   }
   

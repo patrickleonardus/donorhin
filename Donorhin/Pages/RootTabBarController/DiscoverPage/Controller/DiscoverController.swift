@@ -8,13 +8,14 @@
 
 import UIKit
 
-class DiscoverController: UIViewController, MoveToAddEvent{
+class DiscoverController: UIViewController, MoveToAddEvent, navigationBarTitleDelegate{
 
     @IBOutlet weak var tableViewDiscover: UITableView!
     
     var sectionHeaderTitleArray = ["Acara","Info"]
     var profileImage = UIImageView()
     
+    var navigationBarTitle : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,7 @@ class DiscoverController: UIViewController, MoveToAddEvent{
     
     override func viewDidAppear(_ animated: Bool) {
         profileImageNavBar(show: true)
+        setupNavBarToLarge()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -67,6 +69,11 @@ class DiscoverController: UIViewController, MoveToAddEvent{
         }
     }
     
+    private func setupNavBarToLarge(){
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .always
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     //MARK:- Action Func
     
     @objc private func profileButton(){
@@ -78,6 +85,21 @@ class DiscoverController: UIViewController, MoveToAddEvent{
     
     func moveToAddEventClass() {
         self.performSegue(withIdentifier: "MoveToAdd", sender: self)
+    }
+    
+    func getNavigationTitle(cell: InfoTableViewCell, title: String) {
+        self.navigationBarTitle = title
+        self.performSegue(withIdentifier: "MoveToInformation", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "MoveToInformation" {
+            let destination = segue.destination as! InformationController
+            destination.navigationBarTitle = self.navigationBarTitle
+            destination.sectionTotal = 2
+        }
+        
     }
 
 }

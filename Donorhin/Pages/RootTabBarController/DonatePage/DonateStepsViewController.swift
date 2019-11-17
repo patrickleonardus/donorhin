@@ -13,15 +13,15 @@ class DonateStepsViewController: UIViewController {
   @IBOutlet weak var stepIndicatorView: StepIndicatorView!
   lazy var stepIndicator: Int = {
     if let request = self.request {
-      self.stepIndicatorView.currentStep = request.step
-      return request.step
+      self.stepIndicatorView.currentStep = request.currentStep
+      return request.currentStep
     }
     return 1
   }()
   override func viewDidLoad() {
     super.viewDidLoad()
     if let request = request {
-      self.title = request.user
+      self.title = "Pendonor 1"
     }
   }
   

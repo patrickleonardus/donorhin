@@ -22,6 +22,8 @@ class FindController: UIViewController {
     var bloodRequestHistory: [BloodRequest]?
     var bloodRequestCurrent: [BloodRequest]?
     
+    var requestDelegate : ControlValidationViewDelegate?
+    
     var navBarTitle: String?
     
     override func viewDidLoad() {
@@ -72,8 +74,22 @@ class FindController: UIViewController {
     }
   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! TrackerController
-        destination.navigationBarTitle =  navBarTitle
+        
+        if segue.identifier == "moveToForm" {
+            
+            guard let navigationController = segue.destination as? UINavigationController else {return}
+            guard let formController = navigationController.viewControllers.first as? FormController else {return}
+            
+            formController.viewValidationDelegate = sender as? ControlValidationViewDelegate
+            
+        }
+        else if segue.identifier == "moveToTracker" {
+            
+            let destination = segue.destination as! TrackerController
+            destination.navigationBarTitle =  navBarTitle
+            
+        }
+        
     }
     
     func profileImageNavBar(show: Bool){
@@ -132,7 +148,14 @@ class FindController: UIViewController {
     }
     
     @IBAction func findBloodAction(_ sender: Any) {
-        viewNoData.isHidden = true
+//        viewNoData.isHidden = true
+        
+        performSegue(withIdentifier: "moveToForm", sender: self)
+        
     }
     
+}
+
+protocol ControlValidationViewDelegate {
+    func didRequestData()
 }

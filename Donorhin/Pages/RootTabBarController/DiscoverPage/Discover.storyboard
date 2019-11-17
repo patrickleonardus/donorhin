@@ -160,7 +160,7 @@
                                             <subviews>
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="klD-2R-tUN">
                                                     <rect key="frame" x="20" y="0.0" width="374" height="462"/>
-                                                    <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <prototypes>
                                                         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="infoInsideCell" rowHeight="85" id="BFY-u6-gw0" customClass="InfoInsideTableViewCell" customModule="Donorhin" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="28" width="374" height="85"/>
@@ -247,6 +247,7 @@
                     <connections>
                         <outlet property="tableViewDiscover" destination="a8h-v7-MeA" id="LL6-qG-Xv0"/>
                         <segue destination="xC0-Wj-Dk2" kind="presentation" identifier="MoveToAdd" id="UyG-fj-k8L"/>
+                        <segue destination="rXk-kw-fOp" kind="show" identifier="MoveToInformation" id="Zmn-kk-mgg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VxP-oX-IJv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -260,6 +261,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sE5-Y2-aBN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1443" y="603"/>
+        </scene>
+        <!--Information-->
+        <scene sceneID="DQh-Gr-Hpm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Information" id="rXk-kw-fOp" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kxx-JL-VzB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1423" y="679"/>
         </scene>
         <!--Jelajah-->
         <scene sceneID="Xak-g9-VYV">

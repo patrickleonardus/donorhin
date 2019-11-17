@@ -14,19 +14,6 @@ class LoginController : UIViewController {
     var navigationBarTitle : String?
     var formItems: [FormItems]?
     
-    @IBAction func goToRegister(_ sender: Any) {
-        performSegue(withIdentifier: "goToRegister", sender: self)
-    }
-    
-    @IBAction func goToCari(_ sender: Any) {
-        
-    }
-    
-    
-    @IBAction func login(_ sender: Any) {
-        
-    }
-    
     override func viewDidLoad(){
         super.viewDidLoad()
         FormBuilder().getItemsForLogin { (formItems) in
@@ -41,9 +28,25 @@ class LoginController : UIViewController {
         formTableView.delegate = self
         formTableView.dataSource = self
         formTableView.register(UINib(nibName: "FormCustomCell", bundle: nil), forCellReuseIdentifier: "formCell")
+        formTableView.register(UINib(nibName: "ButtonViewCell", bundle: nil), forCellReuseIdentifier: "buttonCell")
+        formTableView.register(UINib(nibName: "TwoButtonCell", bundle: nil), forCellReuseIdentifier: "twoButtonCell")
         formTableView.tableFooterView = UIView()
         formTableView.showsVerticalScrollIndicator = false
     }
+    
+    @objc func login(){
+        performSegue(withIdentifier: "goToHome", sender: self)
+    }
+    
+    @objc func goToFindWithoutLogin(){
+        performSegue(withIdentifier: "goToHome", sender: self)
+    }
+    
+    @objc func goToRegister(){
+        performSegue(withIdentifier: "goToRegister", sender: self)
+    }
+    
+    
     
     func setNavBarTitle() {
         navigationItem.title =  "Masuk"
