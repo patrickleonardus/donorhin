@@ -27,11 +27,11 @@ UITableViewDataSource {
    }
    
    func numberOfSections(in tableView: UITableView) -> Int {
-      1
+      return 1
    }
    
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      2
+      return 2
    }
    
    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
