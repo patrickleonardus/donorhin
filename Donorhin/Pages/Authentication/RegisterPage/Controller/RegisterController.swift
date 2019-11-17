@@ -27,6 +27,7 @@ class RegisterController : UIViewController{
         formTableView.delegate = self
         formTableView.dataSource = self
         formTableView.register(UINib(nibName: "FormCustomCell", bundle: nil), forCellReuseIdentifier: "formCell")
+        formTableView.register(UINib(nibName: "ButtonViewCell", bundle: nil), forCellReuseIdentifier: "buttonCell")
         formTableView.tableFooterView = UIView()
         formTableView.showsVerticalScrollIndicator = false
     }
@@ -38,8 +39,7 @@ class RegisterController : UIViewController{
         navigationItem.title = "Daftar"
     }
     
-    
-    @IBAction func goToPersonalData(_ sender: Any) {
+    @objc func goToPersonalData(){
         performSegue(withIdentifier: "goToPersonalData", sender: self)
     }
     
