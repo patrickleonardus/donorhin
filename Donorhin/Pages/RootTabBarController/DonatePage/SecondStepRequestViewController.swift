@@ -9,9 +9,15 @@
 import UIKit
 
 class SecondStepRequestViewController: UIViewController {
+   
+   var delegate : SecondStepTableDelegate?
+   @IBOutlet var tableView: UITableView!
+   var chosenDate : Date?
+   var chosenUTD: PMIModel?
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    stylingTableView()
   }
   
   
@@ -43,4 +49,15 @@ class SecondStepRequestViewController: UIViewController {
     alert.addAction(cancel)
     self.present(alert, animated: true, completion: nil)
   }
+   
+   //MARK:- Setting up Table View
+   private func stylingTableView () {
+      self.tableView.delegate = self
+      self.tableView.dataSource = self
+      self.tableView.isScrollEnabled = false
+      self.tableView.backgroundColor = .white
+      self.tableView.separatorStyle = .singleLine
+      self.tableView.layer.cornerRadius = 10
+   }
+   
 }
