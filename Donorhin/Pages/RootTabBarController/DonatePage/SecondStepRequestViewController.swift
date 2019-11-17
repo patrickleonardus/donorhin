@@ -8,16 +8,27 @@
 
 import UIKit
 
-class SecondStepRequestViewController: UIViewController {
+class SecondStepRequestViewController: UIViewController{
    
-   var delegate : SecondStepTableDelegate?
    @IBOutlet var tableView: UITableView!
-   var chosenDate : Date?
+   @IBOutlet var tapRecognizer: UITapGestureRecognizer!
    var chosenUTD: PMIModel?
-
+   var picker = UIDatePicker()
+   var chosenDate : Date? {
+      didSet {
+         print (chosenDate)
+         let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0))
+         cell?.accessoryView = .none
+         let desc = self.chosenDate?.description.prefix(10)
+         cell?.detailTextLabel?.text = String(desc ?? "")
+      }
+   }
+   
   override func viewDidLoad() {
     super.viewDidLoad()
     stylingTableView()
+    picker.styling()
+    self.tapRecognizer.isEnabled = false
   }
   
   
@@ -60,4 +71,33 @@ class SecondStepRequestViewController: UIViewController {
       self.tableView.layer.cornerRadius = 10
    }
    
+   //MARK:- Setting up date picker
+   func showDatePicker () {
+      self.tapRecognizer.isEnabled = true
+      picker.datePickerMode = .date
+      self.view.addSubview(picker)
+      self.constrainingDatePicker()
+      self.view.bringSubviewToFront(picker)
+      self.picker.addTarget(self, action: #selector(datePickerDidChanged), for: .valueChanged)
+   }
+   
+   @objc private func datePickerDidChanged () {
+      self.chosenDate = picker.date
+   }
+   
+   private func constrainingDatePicker() {
+      let safeArea = self.view.safeAreaLayoutGuide
+      picker.translatesAutoresizingMaskIntoConstraints = false
+      NSLayoutConstraint.activate([
+         picker.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+         picker.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+         picker.heightAnchor.constraint(equalToConstant: picker.frame.height),
+         picker.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
+      ])
+   }
+   
+   @IBAction func handleTap(_ sender: Any) {
+      self.picker.removeFromSuperview()
+      self.tapRecognizer.isEnabled = false
+   }
 }

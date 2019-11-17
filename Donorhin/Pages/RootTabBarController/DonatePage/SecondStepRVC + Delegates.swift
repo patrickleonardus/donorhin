@@ -8,23 +8,7 @@
 
 import UIKit
 
-protocol SecondStepTableDelegate {
-   func handleDateData()
-   func showPageUTD()
-}
-
-extension SecondStepRequestViewController :
-   SecondStepTableDelegate,
-   UITableViewDelegate,
-UITableViewDataSource {
-   
-   func handleDateData() {
-      
-   }
-   
-   func showPageUTD() {
-      
-   }
+extension SecondStepRequestViewController : UITableViewDelegate, UITableViewDataSource {
    
    func numberOfSections(in tableView: UITableView) -> Int {
       1
@@ -51,10 +35,8 @@ UITableViewDataSource {
    }
    
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      print(indexPath.row)
       if  indexPath.row == 0 {
-         self.delegate?.handleDateData()
-         print ("Show the picker on the parent!")
+         showDatePicker()
       }  else if indexPath.row == 1 {
          performSegue(withIdentifier: "GoToUTD", sender: nil)
       }
@@ -67,6 +49,8 @@ UITableViewDataSource {
          utdVC.delegate = self
       }
    }
+   
+   
 }
 
 extension SecondStepRequestViewController: DelegateUTD {
