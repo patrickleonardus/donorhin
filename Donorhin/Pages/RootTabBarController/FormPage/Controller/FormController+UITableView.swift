@@ -126,6 +126,7 @@ extension FormController : UITableViewDelegate, UITableViewDataSource {
                 }
                 
                 else if indexPath.row == 1 {
+                    cell.secondTextField.keyboardType = .numbersAndPunctuation
                     cell.separatorInset = UIEdgeInsets(top: 0, left: cell.bounds.size.width, bottom: 0, right: 0)
                 }
                 
