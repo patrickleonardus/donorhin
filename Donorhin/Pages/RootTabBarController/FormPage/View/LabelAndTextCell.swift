@@ -58,6 +58,11 @@ class LabelAndTextCell: UITableViewCell, UITextFieldDelegate {
             }
         }
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.endEditing(true)
+        return false
+    }
 }
 
 protocol FormAnswerDelegate {
