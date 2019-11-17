@@ -77,6 +77,7 @@ extension DiscoverController: UITableViewDataSource, UITableViewDelegate {
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell") as! InfoTableViewCell
                 
+                cell.delegate = self
                 cell.tableViewInfo.layer.cornerRadius = 10
                 
                 return cell

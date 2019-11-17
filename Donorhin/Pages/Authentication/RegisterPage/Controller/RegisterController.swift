@@ -57,7 +57,7 @@ class RegisterController : UIViewController{
 //                self.setImage(checkedImage, for: UIControl.State.normal)
 //            } else {
 //                self.setImage(uncheckedImage, for: UIControl.State.normal)
-//            }
+//
 //        }
 //    }
 //

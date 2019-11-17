@@ -108,7 +108,7 @@ class AddEventController: UIViewController {
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let takePhoto = UIAlertAction(title: "Ambil Foto", style: .default) { (action) in
+        let takePhoto = UIAlertAction(title: "Ambil Foto dari Kamera", style: .default) { (action) in
             
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
                 let imagePicker = UIImagePickerController()

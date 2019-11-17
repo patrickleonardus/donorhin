@@ -37,5 +37,28 @@ extension InfoTableViewCell: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            navigationBarTitle = "Info Pengguna Donorhin"
+            delegate?.getNavigationTitle(cell: self, title: navigationBarTitle!)
+        }
+        else if indexPath.row == 1 {
+            navigationBarTitle = "Info Donor"
+            delegate?.getNavigationTitle(cell: self, title: navigationBarTitle!)
+        }
+        else if indexPath.row == 2 {
+            navigationBarTitle = "Info Komunitas"
+            delegate?.getNavigationTitle(cell: self, title: navigationBarTitle!)
+        }
+        else if indexPath.row == 3 {
+            navigationBarTitle = "Info Komunitas"
+            delegate?.getNavigationTitle(cell: self, title: navigationBarTitle!)
+        }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+protocol navigationBarTitleDelegate {
+    func getNavigationTitle(cell: InfoTableViewCell, title : String)
 }

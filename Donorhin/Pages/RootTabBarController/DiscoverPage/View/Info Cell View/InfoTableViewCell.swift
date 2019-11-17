@@ -12,6 +12,10 @@ class InfoTableViewCell: UITableViewCell {
     
     @IBOutlet weak var tableViewInfo: UITableView!
     
+    var navigationBarTitle : String?
+    
+    var delegate : navigationBarTitleDelegate?
+    
     var infoData : [InfoModel]?
     
     override func awakeFromNib() {
