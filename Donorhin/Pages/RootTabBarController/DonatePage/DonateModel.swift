@@ -14,7 +14,7 @@ enum History {
   case history
 }
 
-struct Request {
+struct TrackerModel {
   let idTracker: CKRecord
   let donorDate: String
   let idPendonor: CKRecord
@@ -24,8 +24,8 @@ struct Request {
 }
 
 struct ListRequest {
-  let requests: [Request]
-  init(_ requests: [Request]) {
+  let requests: [TrackerModel]
+  init(_ requests: [TrackerModel]) {
     self.requests = requests
   }
 }
