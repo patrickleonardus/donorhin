@@ -82,6 +82,13 @@ extension FindController: UITableViewDataSource {
         cell!.contentView.addSubview(backgroundViewCell)
         cell!.contentView.sendSubviewToBack(backgroundViewCell)
         
+        if cell!.isSelected {
+            backgroundViewCell.layer.backgroundColor = UIColor.gray.cgColor
+        }
+        else if !cell!.isSelected{
+            backgroundViewCell.layer.backgroundColor = UIColor.white.cgColor
+        }
+        
         return cell!
     }
     
