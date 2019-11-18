@@ -15,7 +15,7 @@ class DonateController: UIViewController {
   @IBOutlet weak var coverView: CustomMainView!
   final private let cellReuseIdentifier = "DonateCell"
   var listRequest = [CKRecord]()
-  var selectedRow:Request?
+  var selectedRow: TrackerModel?
   var statusDonor = false
   var segmented: History {
       if historyDonorSegmentedControl.selectedSegmentIndex == 0 {

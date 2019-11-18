@@ -9,7 +9,7 @@
 import UIKit
 
 class DonateStepsViewController: UIViewController {
-  var request:Request?
+  var request:TrackerModel?
   @IBOutlet weak var stepIndicatorView: StepIndicatorView!
   lazy var stepIndicator: Int = {
     if let request = self.request {
