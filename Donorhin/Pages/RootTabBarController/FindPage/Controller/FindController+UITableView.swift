@@ -71,7 +71,6 @@ extension FindController: UITableViewDataSource {
             cell?.buttonCallOutlet.isHidden = true
         }
         
-        cell?.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         cell?.backgroundColor = UIColor.clear
         
         // MARK : -Ini buat bikin kotak ditiap cellnya dan kasih space antara cell
