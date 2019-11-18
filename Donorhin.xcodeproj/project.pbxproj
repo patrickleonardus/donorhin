@@ -67,6 +67,7 @@
 		CCAAE502237C205900BEFB44 /* ThirdStepRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAAE4FB237C205900BEFB44 /* ThirdStepRequestViewController.swift */; };
 		CCAAE503237C205900BEFB44 /* FifthStepRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAAE4FC237C205900BEFB44 /* FifthStepRequestViewController.swift */; };
 		CCAAE505237C206000BEFB44 /* RequestStepsRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAAE504237C206000BEFB44 /* RequestStepsRequestModel.swift */; };
+		CCBEC20323829CBB004AC408 /* Helper + DatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBEC20223829CBB004AC408 /* Helper + DatabaseModel.swift */; };
 		E62918EB237C6A2800E8D559 /* CheckboxAgreementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62918EA237C6A2800E8D559 /* CheckboxAgreementCell.swift */; };
 		E62918ED237CFC0F00E8D559 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62918EC237CFC0F00E8D559 /* CheckBox.swift */; };
 		E62918EF237D2DAD00E8D559 /* PickPictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62918EE237D2DAD00E8D559 /* PickPictureCell.swift */; };
@@ -211,6 +212,7 @@
 		CCAAE4FB237C205900BEFB44 /* ThirdStepRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdStepRequestViewController.swift; sourceTree = "<group>"; };
 		CCAAE4FC237C205900BEFB44 /* FifthStepRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FifthStepRequestViewController.swift; sourceTree = "<group>"; };
 		CCAAE504237C206000BEFB44 /* RequestStepsRequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestStepsRequestModel.swift; sourceTree = "<group>"; };
+		CCBEC20223829CBB004AC408 /* Helper + DatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Helper + DatabaseModel.swift"; sourceTree = "<group>"; };
 		E62918EA237C6A2800E8D559 /* CheckboxAgreementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxAgreementCell.swift; sourceTree = "<group>"; };
 		E62918EC237CFC0F00E8D559 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		E62918EE237D2DAD00E8D559 /* PickPictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPictureCell.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 			children = (
 				094B6ED9237EC7D300716862 /* Helper.swift */,
 				094B6EDC238044D300716862 /* Steps.swift */,
+				CCBEC20223829CBB004AC408 /* Helper + DatabaseModel.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -844,11 +847,11 @@
 				E6FBB16B23718C8400B1B4DE /* AppDelegate.swift */,
 				E6FBB17523718C8500B1B4DE /* Assets.xcassets */,
 				E6FBB17223718C8400B1B4DE /* Donorhin.xcdatamodeld */,
+				CC6540622381939F005BE635 /* Extensions */,
+				098FD4712372C84600AF7EC7 /* CustomViews */,
+				E6FBB1C1237198F500B1B4DE /* Utilities */,
 				094B6EDB237ECA5400716862 /* Helper */,
 				E6FBB19D23718CDD00B1B4DE /* Pages */,
-				098FD4712372C84600AF7EC7 /* CustomViews */,
-				CC6540622381939F005BE635 /* Extensions */,
-				E6FBB1C1237198F500B1B4DE /* Utilities */,
 				E6FBB17723718C8500B1B4DE /* LaunchScreen.storyboard */,
 				E6FBB17A23718C8500B1B4DE /* Info.plist */,
 			);
@@ -965,10 +968,10 @@
 		E6FBB1C1237198F500B1B4DE /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				E6DDAF2D237562EF00D6EAD1 /* StepIndicator */,
 				E6AC8D4A237B2A4100820100 /* FixImageOrientation.swift */,
 				E62918EC237CFC0F00E8D559 /* CheckBox.swift */,
 				E6FBB1C22371991D00B1B4DE /* Constants.swift */,
+				E6DDAF2D237562EF00D6EAD1 /* StepIndicator */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1135,6 +1138,7 @@
 				E6BA6E40237B1E080017A330 /* AddEventCollectionViewCell.swift in Sources */,
 				B0B16896237D636E001DCE3C /* RegisterController+CellDelegate.swift in Sources */,
 				CC88A08823749D16001A982E /* FindBloodCustomCell.swift in Sources */,
+				CCBEC20323829CBB004AC408 /* Helper + DatabaseModel.swift in Sources */,
 				CCAAE502237C205900BEFB44 /* ThirdStepRequestViewController.swift in Sources */,
 				E6BA6E39237B1E080017A330 /* EventTableViewCell+UICollectionView.swift in Sources */,
 				098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */,
