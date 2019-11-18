@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVKit
 
 extension InformationController : UITableViewDelegate{
     
@@ -18,7 +19,7 @@ extension InformationController : UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionTotal!
+        return infoItems!.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -32,9 +33,25 @@ extension InformationController : UITableViewDataSource {
         
         cell?.titleLabel.text = data.title
         cell?.backgroundColor = Colors.backgroundView
-        cell?.infoType = data.type
-        cell?.videoURLStr = data.videoURL
         cell?.longTextLabel.text = data.longText
+        
+        if data.type == .text {
+            cell?.videoLayer.isHidden = true
+            cell?.titleLabel.isHidden = false
+            cell?.longTextLabel.isHidden = false
+        }
+        else if data.type == .video {
+            cell?.titleLabel.isHidden = true
+            cell?.longTextLabel.isHidden = true
+            cell?.videoLayer.isHidden = false
+
+            let videoURL = URL(string: data.videoURL!)
+            let player = AVPlayer(url: videoURL!)
+            let playerLayer = AVPlayerLayer(player: player)
+            playerLayer.videoGravity = AVLayerVideoGravity.resize
+            playerLayer.frame = cell!.videoLayer.bounds
+            cell?.videoLayer.layer.addSublayer(playerLayer)
+        }
         
         return cell!
     }

@@ -39,8 +39,8 @@ class RegisterController : UIViewController{
         navigationItem.title = "Daftar"
     }
     
-    @objc func goToPersonalData(){
-        performSegue(withIdentifier: "goToPersonalData", sender: self)
+    func validationCredential(email:String, password:String, confirmPassword:String?){
+        
     }
     
 }

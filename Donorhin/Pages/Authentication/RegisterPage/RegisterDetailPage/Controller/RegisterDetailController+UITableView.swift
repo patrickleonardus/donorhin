@@ -46,7 +46,7 @@ extension RegisterDetailController : UITableViewDataSource {
               
               cell?.formTextField.placeholder = data.placeholder
               cell?.iconImageView.image = UIImage(named: data.img!)
-              cell?.delegate = self
+//              cell?.delegate = self
               
               cell?.backgroundColor = UIColor.white
               cell?.layer.cornerRadius = 10
@@ -55,6 +55,7 @@ extension RegisterDetailController : UITableViewDataSource {
                   
             else if indexPath.section == 6{
                 let cell  = tableView.dequeueReusableCell(withIdentifier: "agreementCell", for: indexPath) as? AgreementTableViewCell
+                //bikin delegate buat checkbox ny udh kecentang atau blm
                 return cell!
             }
         
@@ -62,7 +63,8 @@ extension RegisterDetailController : UITableViewDataSource {
                 let cell  = tableView.dequeueReusableCell(withIdentifier: "buttonCell", for: indexPath) as? ButtonTableViewCell
                   cell?.buttonOutlet.layer.cornerRadius = 10
                   cell?.buttonOutlet.setTitle("Daftar", for: .normal)
-                  cell?.buttonOutlet.addTarget(self, action: #selector(goToFind), for: .touchUpInside)
+                  cell?.delegate = self
+                  //cell?.buttonOutlet.addTarget(self, action: #selector(goToFind), for: .touchUpInside)
                 return cell!
               }
         

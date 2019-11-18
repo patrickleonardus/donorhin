@@ -13,6 +13,8 @@ class LoginController : UIViewController {
     @IBOutlet weak var formTableView: UITableView!
     var navigationBarTitle : String?
     var formItems: [FormItems]?
+    var email:String?
+    var password:String?
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -52,4 +54,7 @@ class LoginController : UIViewController {
         navigationItem.title =  "Masuk"
     }
     
+    func validationCredential(email: String?, password: String?) {
+        
+    }
 }
