@@ -10,11 +10,11 @@ import UIKit
 import CloudKit
 
 struct TrackerModel {
-  let idTracker: CKRecord
-  let donorDate: String
-  let idPendonor: CKRecord
-  let idRequest: CKRecord
-  let idUTDPendonor: CKRecord
+   let idTracker: CKRecord.ID
+  let donorDate: Date
+   let idPendonor: CKRecord.Reference
+   let idRequest: CKRecord.Reference
+   let idUTDPendonor: CKRecord.Reference
   let currentStep: Int
    
 }
@@ -48,7 +48,7 @@ struct Event {
    let endTime: Date
    let cpPhone: String
    let cpName: String
-   let idUser: CKRecord
+   let idUser: CKRecord.Reference
 }
 
 struct Request {
@@ -58,5 +58,5 @@ struct Request {
    let dateNeed: Date
    let isEmergency: Bool
    let imageOfLetter: UIImage
-   let idUTDPatient: CKRecord
+   let idUTDPatient: CKRecord.Reference
 }
