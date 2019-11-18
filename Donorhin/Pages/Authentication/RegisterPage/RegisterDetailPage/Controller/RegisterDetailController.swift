@@ -11,7 +11,7 @@ import UIKit
 class RegisterDetailController : UIViewController {
     var navigationBarTitle : String?
     var formItems: [FormItems]?
-    
+    var userCredentials:[String:String] = [:]
     @IBOutlet weak var formTableView: UITableView!
     
     override func viewDidLoad() {
