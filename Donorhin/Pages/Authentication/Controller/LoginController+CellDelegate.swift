@@ -9,7 +9,11 @@
 import UIKit
 
 extension LoginController : FormCellDelegate{
-    func getData() {
-        
+    func buttonDidTap() {
+        print("buttonDidTap")
+        guard let emailCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FormTableViewCell else {return}
+        guard let passCell = formTableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? FormTableViewCell else {return}
+
+        validationCredential(email: emailCell.formTextField.text, password: passCell.formTextField.text)
     }
 }

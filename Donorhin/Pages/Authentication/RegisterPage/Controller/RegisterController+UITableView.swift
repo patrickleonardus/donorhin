@@ -46,7 +46,7 @@ extension RegisterController : UITableViewDataSource{
         
         cell?.formTextField.placeholder = data.placeholder
         cell?.iconImageView.image = UIImage(named: data.img!)
-        cell?.delegate = self
+//        cell?.delegate = self
         
         cell?.backgroundColor = UIColor.white
         cell?.layer.cornerRadius = 10
@@ -57,7 +57,8 @@ extension RegisterController : UITableViewDataSource{
         let cell  = tableView.dequeueReusableCell(withIdentifier: "buttonCell", for: indexPath) as? ButtonTableViewCell
             cell?.buttonOutlet.layer.cornerRadius = 10
             cell?.buttonOutlet.setTitle("Lanjut", for: .normal)
-            cell?.buttonOutlet.addTarget(self, action: #selector(goToPersonalData), for: .touchUpInside)
+            cell?.delegate = self
+            //cell?.buttonOutlet.addTarget(self, action: #selector(goToPersonalData), for: .touchUpInside)
         return cell!
         }
         

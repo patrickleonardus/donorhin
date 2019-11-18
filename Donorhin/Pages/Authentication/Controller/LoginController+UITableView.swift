@@ -46,30 +46,33 @@ extension LoginController : UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        //formnya
         if indexPath.section < 2 {
-        let cell  = tableView.dequeueReusableCell(withIdentifier: "formCell", for: indexPath) as? FormTableViewCell
-        //masukin datanya
-        guard let data = formItems?[indexPath.section] else {fatalError()}
-        
-        cell?.formTextField.placeholder = data.placeholder
-        cell?.iconImageView.image = UIImage(named: data.img!)
-        cell?.delegate = self
-        
-        cell?.backgroundColor = UIColor.white
-        cell?.layer.cornerRadius = 10
-        return cell!
-        }
+            //masukin datanya
+            let cell  = tableView.dequeueReusableCell(withIdentifier: "formCell", for: indexPath) as? FormTableViewCell
+            guard let data = formItems?[indexPath.section] else {fatalError()}
             
-        else if indexPath.section == 2{
-            let cell  = tableView.dequeueReusableCell(withIdentifier: "buttonCell", for: indexPath) as? ButtonTableViewCell
-            cell?.buttonOutlet.setTitle("Masuk", for: .normal)
-            cell?.buttonOutlet.layer.cornerRadius = 10
-            cell?.buttonOutlet.addTarget(self, action: #selector(login), for: .touchUpInside)
+            cell?.formTextField.placeholder = data.placeholder
+            cell?.iconImageView.image = UIImage(named: data.img!)
+            
+            cell?.backgroundColor = UIColor.white
+            cell?.layer.cornerRadius = 10
             return cell!
         }
             
+        //pas klik login
+        else if indexPath.section == 2{
+             let cell  = tableView.dequeueReusableCell(withIdentifier: "buttonCell", for: indexPath) as? ButtonTableViewCell
+            cell?.buttonOutlet.setTitle("Masuk", for: .normal)
+            cell?.buttonOutlet.layer.cornerRadius = 10
+            cell?.delegate = self
+            //cell?.buttonOutlet.addTarget(self, action: #selector(login), for: .touchUpInside)
+            return cell!
+        }
+        
+        //pas mau masuk nanti atau daftar
         else if indexPath.section == 3{
-        let cell  = tableView.dequeueReusableCell(withIdentifier: "twoButtonCell", for: indexPath) as? TwoButtonTableViewCell
+            let cell  = tableView.dequeueReusableCell(withIdentifier: "twoButtonCell", for: indexPath) as? TwoButtonTableViewCell
             cell?.daftarOutlet.addTarget(self, action: #selector(goToRegister), for: .touchUpInside)
             cell?.masukNantiOutlet.addTarget(self, action: #selector(goToFindWithoutLogin), for: .touchUpInside)
         return cell!

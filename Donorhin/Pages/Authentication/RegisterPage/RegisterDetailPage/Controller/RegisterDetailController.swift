@@ -23,10 +23,6 @@ class RegisterDetailController : UIViewController {
         loadFormTable()
     }
     
-    @objc func goToFind(){
-        performSegue(withIdentifier: "goToFind", sender: self)
-    }
-    
     func loadFormTable(){
            formTableView.delegate = self
            formTableView.dataSource = self

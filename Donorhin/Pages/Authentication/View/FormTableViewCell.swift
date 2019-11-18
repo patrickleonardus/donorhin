@@ -9,12 +9,10 @@
 import UIKit
 
 protocol FormCellDelegate {
-   func getData()
+    func buttonDidTap()
 }
 
 class FormTableViewCell: UITableViewCell {
-
-    var delegate : FormCellDelegate?
     
     @IBOutlet var whiteBackgroundView: UIView!
     @IBOutlet weak var iconImageView: UIImageView!
@@ -35,6 +33,8 @@ class ButtonTableViewCell: UITableViewCell{
     
     @IBOutlet weak var buttonOutlet: CustomButtonRounded!
     
+    var delegate: FormCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.contentView.backgroundColor = Colors.backgroundView
@@ -43,6 +43,9 @@ class ButtonTableViewCell: UITableViewCell{
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    @IBAction func buttonDidTap(_ sender: Any) {
+        delegate?.buttonDidTap()
     }
 }
 

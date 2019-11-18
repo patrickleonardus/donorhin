@@ -9,7 +9,7 @@
 import Foundation
 
 extension RegisterDetailController : FormCellDelegate{
-    func getData() {
+    func buttonDidTap() {
         
     }
 }
