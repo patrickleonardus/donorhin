@@ -53,6 +53,9 @@
 		B0B168AC237ECE83001DCE3C /* ButtonViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0B168AB237ECE83001DCE3C /* ButtonViewCell.xib */; };
 		B0B168AE237ECEAC001DCE3C /* TwoButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0B168AD237ECEAC001DCE3C /* TwoButtonCell.xib */; };
 		B0B168B0237ECED0001DCE3C /* AgreementViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0B168AF237ECED0001DCE3C /* AgreementViewCell.xib */; };
+		B0FF322523829ABA0001C0F5 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FF322423829ABA0001C0F5 /* ButtonTableViewCell.swift */; };
+		B0FF322723829B230001C0F5 /* AgreementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FF322623829B230001C0F5 /* AgreementTableViewCell.swift */; };
+		B0FF322923829B580001C0F5 /* TwoButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FF322823829B580001C0F5 /* TwoButtonTableViewCell.swift */; };
 		CC654064238193B8005BE635 /* UIDatePicker + Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC654063238193B8005BE635 /* UIDatePicker + Styling.swift */; };
 		CC6DF683237C2AFF00F99B5D /* RequestStepsPageViewController.swift in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4F9237C205900BEFB44 /* RequestStepsPageViewController.swift */; };
 		CC6DF685237C2CB200F99B5D /* UTDDonorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DF684237C2CB100F99B5D /* UTDDonorTableViewController.swift */; };
@@ -198,6 +201,9 @@
 		B0B168AB237ECE83001DCE3C /* ButtonViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonViewCell.xib; sourceTree = "<group>"; };
 		B0B168AD237ECEAC001DCE3C /* TwoButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TwoButtonCell.xib; sourceTree = "<group>"; };
 		B0B168AF237ECED0001DCE3C /* AgreementViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgreementViewCell.xib; sourceTree = "<group>"; };
+		B0FF322423829ABA0001C0F5 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
+		B0FF322623829B230001C0F5 /* AgreementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementTableViewCell.swift; sourceTree = "<group>"; };
+		B0FF322823829B580001C0F5 /* TwoButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoButtonTableViewCell.swift; sourceTree = "<group>"; };
 		CC654063238193B8005BE635 /* UIDatePicker + Styling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDatePicker + Styling.swift"; sourceTree = "<group>"; };
 		CC6DF684237C2CB100F99B5D /* UTDDonorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UTDDonorTableViewController.swift; sourceTree = "<group>"; };
 		CC88A08123749D16001A982E /* FindBloodCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindBloodCustomCell.xib; sourceTree = "<group>"; };
@@ -469,6 +475,9 @@
 				B0B168AB237ECE83001DCE3C /* ButtonViewCell.xib */,
 				B0B168AD237ECEAC001DCE3C /* TwoButtonCell.xib */,
 				B0B168AF237ECED0001DCE3C /* AgreementViewCell.xib */,
+				B0FF322423829ABA0001C0F5 /* ButtonTableViewCell.swift */,
+				B0FF322623829B230001C0F5 /* AgreementTableViewCell.swift */,
+				B0FF322823829B580001C0F5 /* TwoButtonTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1141,6 +1150,7 @@
 				B0B16882237D3E61001DCE3C /* FormTableViewCell.swift in Sources */,
 				AB7357962374313500A6099B /* FirstCell.swift in Sources */,
 				AB498AC5237D73E7006CDA7A /* Page2OnboardViewController.swift in Sources */,
+				B0FF322923829B580001C0F5 /* TwoButtonTableViewCell.swift in Sources */,
 				B0B1689A237D65B8001DCE3C /* RegisterDetailController+UITableView.swift in Sources */,
 				E62918FC237EBBF600E8D559 /* FormController.swift in Sources */,
 				E6FBB17423718C8400B1B4DE /* Donorhin.xcdatamodeld in Sources */,
@@ -1159,6 +1169,7 @@
 				AB7357982374313500A6099B /* ThirdCell.swift in Sources */,
 				E6BA6E41237B1E080017A330 /* EventTableViewCell.swift in Sources */,
 				E6AC8D46237B29DF00820100 /* TrackerDonor.swift in Sources */,
+				B0FF322723829B230001C0F5 /* AgreementTableViewCell.swift in Sources */,
 				CCAAE500237C205900BEFB44 /* RequestStepsPageViewController.swift in Sources */,
 				E6BA6E3A237B1E080017A330 /* DiscoverController+UITableView.swift in Sources */,
 				AB498AC3237D735F006CDA7A /* Page1OnboardViewController.swift in Sources */,
@@ -1178,6 +1189,7 @@
 				0925FB382373F13000874DAA /* CustomMainView.swift in Sources */,
 				E6AC8D44237B29DF00820100 /* TrackerController.swift in Sources */,
 				AB7357922374311400A6099B /* ProfileController.swift in Sources */,
+				B0FF322523829ABA0001C0F5 /* ButtonTableViewCell.swift in Sources */,
 				AB7357912374311400A6099B /* ProfileController+UITableView.swift in Sources */,
 				E6291900237EC9E400E8D559 /* FormController+UITableView.swift in Sources */,
 				E6FBB1C32371991D00B1B4DE /* Constants.swift in Sources */,
