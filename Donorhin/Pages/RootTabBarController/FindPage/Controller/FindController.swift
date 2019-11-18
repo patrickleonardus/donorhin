@@ -148,10 +148,7 @@ class FindController: UIViewController {
     }
     
     @IBAction func findBloodAction(_ sender: Any) {
-//        viewNoData.isHidden = true
-        
         performSegue(withIdentifier: "moveToForm", sender: self)
-        
     }
     
 }
