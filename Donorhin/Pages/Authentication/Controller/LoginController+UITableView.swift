@@ -66,7 +66,6 @@ extension LoginController : UITableViewDataSource{
             cell?.buttonOutlet.setTitle("Masuk", for: .normal)
             cell?.buttonOutlet.layer.cornerRadius = 10
             cell?.delegate = self
-            //cell?.buttonOutlet.addTarget(self, action: #selector(login), for: .touchUpInside)
             return cell!
         }
         

@@ -7,14 +7,13 @@
 //
 
 import UIKit
+import CoreLocation
 
 class LoginController : UIViewController {
     
     @IBOutlet weak var formTableView: UITableView!
     var navigationBarTitle : String?
     var formItems: [FormItems]?
-    var email:String?
-    var password:String?
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -54,7 +53,29 @@ class LoginController : UIViewController {
         navigationItem.title =  "Masuk"
     }
     
-    func validationCredential(email: String?, password: String?) {
-        
+    func validationCredential(email: String, password: String) {
+        DataFetcher().getUserDataByEmail(email: email, password: password){(userModel) in
+            guard userModel != nil else {
+                print("email or password not valid")
+                return
+            }
+            print("Processing...")
+            UserDefaults.standard.set(userModel?.email, forKey: "email")
+            UserDefaults.standard.set(userModel?.password, forKey: "password")
+            UserDefaults.standard.set(userModel?.name, forKey: "name")
+            UserDefaults.standard.set(userModel?.bloodType, forKey: "blood_type")
+            UserDefaults.standard.set(userModel?.birthDate, forKey: "birth_date")
+            UserDefaults.standard.set(userModel?.gender, forKey: "gender")
+            UserDefaults.standard.set(userModel?.isVerified, forKey: "isVerified")
+            UserDefaults.standard.set(userModel?.lastDonor, forKey: "last_donor")
+            //convert CLLocation to NSData
+            UserDefaults.standard.set(userModel?.location, forKey: "locationData")
+            UserDefaults.standard.set(userModel?.imageData, forKey: "image")
+            UserDefaults.standard.set(userModel?.donorStatus, forKey: "donor_status")
+            print("Data saved to user default...")
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "goToHome", sender: self)
+            }
+        }
     }
 }

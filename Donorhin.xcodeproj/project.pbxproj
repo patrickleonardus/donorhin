@@ -56,6 +56,7 @@
 		B0FF322523829ABA0001C0F5 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FF322423829ABA0001C0F5 /* ButtonTableViewCell.swift */; };
 		B0FF322723829B230001C0F5 /* AgreementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FF322623829B230001C0F5 /* AgreementTableViewCell.swift */; };
 		B0FF322923829B580001C0F5 /* TwoButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FF322823829B580001C0F5 /* TwoButtonTableViewCell.swift */; };
+		B0FF322B23829CC50001C0F5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FF322A23829CC50001C0F5 /* UserModel.swift */; };
 		CC654064238193B8005BE635 /* UIDatePicker + Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC654063238193B8005BE635 /* UIDatePicker + Styling.swift */; };
 		CC6DF683237C2AFF00F99B5D /* RequestStepsPageViewController.swift in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4F9237C205900BEFB44 /* RequestStepsPageViewController.swift */; };
 		CC6DF685237C2CB200F99B5D /* UTDDonorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DF684237C2CB100F99B5D /* UTDDonorTableViewController.swift */; };
@@ -204,6 +205,7 @@
 		B0FF322423829ABA0001C0F5 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
 		B0FF322623829B230001C0F5 /* AgreementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementTableViewCell.swift; sourceTree = "<group>"; };
 		B0FF322823829B580001C0F5 /* TwoButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoButtonTableViewCell.swift; sourceTree = "<group>"; };
+		B0FF322A23829CC50001C0F5 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		CC654063238193B8005BE635 /* UIDatePicker + Styling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDatePicker + Styling.swift"; sourceTree = "<group>"; };
 		CC6DF684237C2CB100F99B5D /* UTDDonorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UTDDonorTableViewController.swift; sourceTree = "<group>"; };
 		CC88A08123749D16001A982E /* FindBloodCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindBloodCustomCell.xib; sourceTree = "<group>"; };
@@ -462,6 +464,7 @@
 			isa = PBXGroup;
 			children = (
 				B0B1688B237D487A001DCE3C /* FormItems.swift */,
+				B0FF322A23829CC50001C0F5 /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1179,6 +1182,7 @@
 				E62918F1237E437E00E8D559 /* AddEventController+UITableView.swift in Sources */,
 				E62918F5237E43F100E8D559 /* AddEventController+Delegate.swift in Sources */,
 				AB7357862374309E00A6099B /* CustomSegmentedController.swift in Sources */,
+				B0FF322B23829CC50001C0F5 /* UserModel.swift in Sources */,
 				B0B16888237D44A8001DCE3C /* LoginController.swift in Sources */,
 				E6DDAF2B237435B300D6EAD1 /* FindController+ScrollView.swift in Sources */,
 				E6BA6E38237B1E080017A330 /* InfoTableViewCell+UITableView.swift in Sources */,
