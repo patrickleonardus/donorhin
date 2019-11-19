@@ -17,6 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+                let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+                if launchedBefore  {
+                    print("Not first launch.")
+                } else {
+                    let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+                    let viewController = storyboard.instantiateViewController(withIdentifier: "Onboarding")
+                    self.window?.rootViewController = viewController
+                    self.window?.makeKeyAndVisible()
+                    print("First launch, setting UserDefault.")
+                    UserDefaults.standard.set(true, forKey: "launchedBefore")
+                }
         
         self.window?.tintColor = Colors.red
         
