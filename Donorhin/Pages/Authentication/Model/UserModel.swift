@@ -33,21 +33,21 @@ class DataFetcher {
         var data : CKRecord? = nil
         
         let query = CKQuery(recordType: "Account", predicate: NSPredicate(format: "email = %@ AND password = %@", argumentArray: [email,password]))
+        
         Helper.getAllData(query) { (results) in
             //print("result: \(results)")
-
             let userModel:UserData?
-            if results != nil{
+            if results?.count != 0{
                 for record in results!{
                     UserDefaults.standard.set(record.recordID.recordName, forKey: "currentUser") //save record name to user default
                     data = record
                 }
                 userModel = self.appendUser(userData: data)
+                completionHandler(userModel)
             }
             else{
-                userModel = nil
+                completionHandler(nil)
             }
-            completionHandler(userModel)
         }
     }
     
@@ -64,7 +64,8 @@ class DataFetcher {
         let isVerified : Int = userData?.value(forKey: "isVerified") as? Int,
         let donorStatus : Int = userData?.value(forKey: "donor_status") as? Int,
         let image : CKAsset = userData?.value(forKey: "image") as? CKAsset,
-        let imageData : NSData = NSData(contentsOf: image.fileURL!) else {fatalError()}
+        let imageData : NSData = NSData(contentsOf: image.fileURL!)
+        else {fatalError()}
         
         let locationData : NSData = NSKeyedArchiver.archivedData(withRootObject: location) as NSData
         user = UserData(email: email, password: password, name: name, location: locationData, bloodType: bloodType, birthDate: birthdate, gender: gender, donorStatus: donorStatus, lastDonor: lastDonor, isVerified: isVerified, imageData: imageData)
