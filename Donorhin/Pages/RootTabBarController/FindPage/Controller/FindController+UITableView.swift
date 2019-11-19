@@ -71,7 +71,6 @@ extension FindController: UITableViewDataSource {
             cell?.buttonCallOutlet.isHidden = true
         }
         
-        cell?.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         cell?.backgroundColor = UIColor.clear
         
         // MARK : -Ini buat bikin kotak ditiap cellnya dan kasih space antara cell
@@ -82,6 +81,13 @@ extension FindController: UITableViewDataSource {
         backgroundViewCell.layer.cornerRadius = 10
         cell!.contentView.addSubview(backgroundViewCell)
         cell!.contentView.sendSubviewToBack(backgroundViewCell)
+        
+        if cell!.isSelected {
+            backgroundViewCell.layer.backgroundColor = UIColor.gray.cgColor
+        }
+        else if !cell!.isSelected{
+            backgroundViewCell.layer.backgroundColor = UIColor.white.cgColor
+        }
         
         return cell!
     }
