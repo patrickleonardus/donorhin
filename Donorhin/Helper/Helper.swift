@@ -12,6 +12,7 @@ struct Helper {
   static let database = CKContainer.default().publicCloudDatabase
   typealias results = ([CKRecord]?) -> Void
   typealias result = (CKRecord?) -> Void
+  typealias isSuccessSave = (Bool) -> Void
   static func getAllData(_ ckQuery: CKQuery, completion: @escaping results) {
     self.database.perform(ckQuery, inZoneWith: .default) { (results, error) in
       if let results = results {
@@ -32,5 +33,17 @@ struct Helper {
         completion(nil)
       }
     }
+  }
+  
+  static func saveData(_ ckRecord: CKRecord, completion: @escaping isSuccessSave) {
+    self.database.save(ckRecord) { (res, err) in
+      if let res = res {
+        completion(true)
+      }
+      else {
+        completion(false)
+      }
+    }
+         
   }
 }

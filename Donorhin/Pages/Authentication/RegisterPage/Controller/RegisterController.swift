@@ -9,7 +9,7 @@
 import UIKit
 
 class RegisterController : UIViewController{
-    
+  var userCredentials:[String:String] = [:]
     @IBOutlet weak var formTableView: UITableView!
     var navigationBarTitle : String?
     var formItems: [FormItems]?
@@ -38,10 +38,48 @@ class RegisterController : UIViewController{
         
         navigationItem.title = "Daftar"
     }
-    
-    @objc func goToPersonalData(){
-        performSegue(withIdentifier: "goToPersonalData", sender: self)
+  
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      if segue.identifier == "goToPersonalData" {
+        let destinationVC = segue.destination as! RegisterDetailController
+        destinationVC.userCredentials = self.userCredentials
+      }
     }
+    
+    func validationCredential(email: String, password: String, confirmPassword: String) -> Bool{
+      if email == "" || password == "" || confirmPassword == ""{
+        let alert = UIAlertController(title: "Peringatan", message: "email, password, and confirm harus diisi", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Oke", style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+        return false
+      }
+      
+      if !self.isValidEmail(email) {
+        let alert = UIAlertController(title: "Peringatan", message: "Format email tidak valid", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Oke", style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+        return false
+      }
+      
+      if password != confirmPassword {
+        let alert = UIAlertController(title: "Peringatan", message: "Password tidak sesuai dengan konfirmasi password", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Oke", style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+        return false
+      }
+      
+      return true
+    }
+  
+  private func isValidEmail(_ email: String) -> Bool {
+    let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+    let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+    return emailPred.evaluate(with: email)
+  }
     
 }
 

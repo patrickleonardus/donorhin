@@ -7,12 +7,7 @@
 //
 
 import UIKit
-
-extension RegisterController :UITableViewDelegate{
-    
-}
-
-extension RegisterController : UITableViewDataSource{
+extension RegisterController : UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
@@ -39,26 +34,27 @@ extension RegisterController : UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     
         if indexPath.section < 3 {
-        let cell  = tableView.dequeueReusableCell(withIdentifier: "formCell", for: indexPath) as? FormTableViewCell
-        //masukin datanya
-        guard let data = formItems?[indexPath.section] else {fatalError()}
-        
-        cell?.formTextField.placeholder = data.placeholder
-        cell?.iconImageView.image = UIImage(named: data.img!)
-        cell?.delegate = self
-        
-        cell?.backgroundColor = UIColor.white
-        cell?.layer.cornerRadius = 10
-        return cell!
+          let cell  = tableView.dequeueReusableCell(withIdentifier: "formCell", for: indexPath) as? FormTableViewCell
+          guard let data = formItems?[indexPath.section] else {fatalError()}
+          
+          cell?.formTextField.placeholder = data.placeholder
+          cell?.iconImageView.image = UIImage(named: data.img!)
+          if indexPath.section == 1 || indexPath.section == 2  {
+             cell?.formTextField.isSecureTextEntry = true
+          }
+          cell?.backgroundColor = UIColor.white
+          cell?.layer.cornerRadius = 10
+          return cell!
         }
             
         else if indexPath.section == 3{
-        let cell  = tableView.dequeueReusableCell(withIdentifier: "buttonCell", for: indexPath) as? ButtonTableViewCell
-            cell?.buttonOutlet.layer.cornerRadius = 10
-            cell?.buttonOutlet.setTitle("Lanjut", for: .normal)
-            cell?.buttonOutlet.addTarget(self, action: #selector(goToPersonalData), for: .touchUpInside)
-        return cell!
+          let cell  = tableView.dequeueReusableCell(withIdentifier: "buttonCell", for: indexPath) as? ButtonTableViewCell
+              cell?.buttonOutlet.layer.cornerRadius = 10
+              cell?.buttonOutlet.setTitle("Lanjut", for: .normal)
+              cell?.delegate = self
+          return cell!
         }
         
         return UITableViewCell()

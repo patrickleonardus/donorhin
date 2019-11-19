@@ -14,14 +14,6 @@ enum History {
   case history
 }
 
-struct TrackerModel {
-  let idTracker: CKRecord
-  let donorDate: String
-  let idPendonor: CKRecord
-  let idRequest: CKRecord
-  let idUTDPendonor: CKRecord
-  let currentStep: Int
-}
 
 struct ListRequest {
   let requests: [TrackerModel]

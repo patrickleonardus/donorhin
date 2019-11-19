@@ -9,7 +9,7 @@
 import UIKit
 
 extension RegisterDetailController : UITableViewDelegate{
-    
+  
 }
 
 extension RegisterDetailController : UITableViewDataSource {
@@ -40,21 +40,33 @@ extension RegisterDetailController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section < formItems!.count {
-              let cell  = tableView.dequeueReusableCell(withIdentifier: "formCell", for: indexPath) as? FormTableViewCell
-              //masukin datanya
-              guard let data = formItems?[indexPath.section] else {fatalError()}
-              
-              cell?.formTextField.placeholder = data.placeholder
-              cell?.iconImageView.image = UIImage(named: data.img!)
-              cell?.delegate = self
-              
-              cell?.backgroundColor = UIColor.white
-              cell?.layer.cornerRadius = 10
-              return cell!
-              }
+            let cell  = tableView.dequeueReusableCell(withIdentifier: "formCell", for: indexPath) as? FormTableViewCell
+            //masukin datanya
+            guard let data = formItems?[indexPath.section] else {fatalError()}
+            
+            cell?.formTextField.placeholder = data.placeholder
+            cell?.formTextField.delegate = self
+            cell?.iconImageView.image = UIImage(named: data.img!)
+            if indexPath.section == 1 {
+              cell?.formTextField.inputView = self.generalPicker
+            }
+          if indexPath.section == 2 {
+            cell?.formTextField.inputView = self.datePicker
+          }
+          if indexPath.section == 3 {
+            cell?.formTextField.inputView = self.generalPicker
+          }
+          if indexPath.section == 4 {
+            cell?.formTextField.inputView = self.datePicker
+          }
+            cell?.backgroundColor = UIColor.white
+            cell?.layer.cornerRadius = 10
+            return cell!
+        }
                   
             else if indexPath.section == 6{
                 let cell  = tableView.dequeueReusableCell(withIdentifier: "agreementCell", for: indexPath) as? AgreementTableViewCell
+                //bikin delegate buat checkbox ny udh kecentang atau blm
                 return cell!
             }
         
@@ -62,11 +74,57 @@ extension RegisterDetailController : UITableViewDataSource {
                 let cell  = tableView.dequeueReusableCell(withIdentifier: "buttonCell", for: indexPath) as? ButtonTableViewCell
                   cell?.buttonOutlet.layer.cornerRadius = 10
                   cell?.buttonOutlet.setTitle("Daftar", for: .normal)
-                  cell?.buttonOutlet.addTarget(self, action: #selector(goToFind), for: .touchUpInside)
+                  cell?.delegate = self
                 return cell!
               }
         
               
         return UITableViewCell()
     }
+}
+
+
+extension RegisterDetailController: UIPickerViewDataSource, UIPickerViewDelegate {
+  func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    return 1
+  }
+  
+  func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    let genderCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! FormTableViewCell
+    let bloodTypeCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 3)) as! FormTableViewCell
+    if genderCell.formTextField.isFirstResponder {
+      return self.gender.count
+    }
+    else if bloodTypeCell.formTextField.isFirstResponder {
+      return self.bloodType.count
+    }
+    return 0
+  }
+  
+  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    let genderCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! FormTableViewCell
+    let bloodTypeCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 3)) as! FormTableViewCell
+    if genderCell.formTextField.isFirstResponder {
+      genderCell.formTextField.text = self.gender[row]
+      return self.gender[row]
+    }
+    else if bloodTypeCell.formTextField.isFirstResponder {
+      bloodTypeCell.formTextField.text = self.bloodType[row]
+      return self.bloodType[row]
+    }
+    return ""
+  }
+  
+  func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    let genderCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! FormTableViewCell
+    let bloodTypeCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 3)) as! FormTableViewCell
+    if genderCell.formTextField.isFirstResponder {
+      genderCell.formTextField.text = self.gender[row]
+      self.detailUserCredentials["gender"] = self.gender[row]
+    }
+    else if bloodTypeCell.formTextField.isFirstResponder {
+      bloodTypeCell.formTextField.text = self.bloodType[row]
+      self.detailUserCredentials["bloodType"] = self.bloodType[row]
+    }
+  }
 }
