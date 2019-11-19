@@ -38,7 +38,7 @@ struct UTDModel {
    let name: String
    let address: String
    let location: CLLocation
-   let phone: [String]?
+   let phoneNumbers: [String]?
    let province: String
 }
 

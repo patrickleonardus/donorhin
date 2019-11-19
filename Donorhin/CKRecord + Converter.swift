@@ -75,7 +75,6 @@ extension CKRecord {
                                       isEmergency: (isEmergency==1),
                                        idUTDPatient: idUTDPatient)
       
-      
       return requestModel
    }
    
@@ -113,7 +112,7 @@ extension CKRecord {
       guard let email = self.value(forKey: "email") as? String ?? nil else { return nil }
       guard let password = self.value(forKey: "password") as? String ?? nil else { return nil }
       guard let birthdate = self.value(forKey: "birth_date") as? Date ?? nil else { return nil }
-      guard let lastDonor = self.value(forKey: "last_donot") as? Date ?? nil else { return nil }
+      guard let lastDonor = self.value(forKey: "last_donor") as? Date ?? nil else { return nil }
 
       guard let isVerif = self.value(forKey: "isVerified") as? Int ?? nil else { return nil }
       
@@ -145,18 +144,29 @@ extension CKRecord {
       return userModel
    }
    
-//   func convertUTDToUTDModel () -> UTDModel? {
-//      guard let name = self.value(forKey: "name") as? String ?? nil else { return nil }
-//      guard let address = self.value(forKey: "address") as? String ?? nil else { return nil }
-//      guard let location = self.value(forKey: "location" as? CLLocation ?? nil) else { return nil }
-//      let phone = self.value(forKey: "telephone") as? String ?? nil
-//      
-//      
-//      let utdModel = UTDModel(idUTD: self.recordID,
-//                              name: name,
-//                              address: address,
-//                              location: location,
-//                              phone: <#T##[String]?#>,
-//                              province: <#T##String#>)
-//   }
+   func convertUTDToUTDModel () -> UTDModel? {
+      guard let name = self.value(forKey: "name") as? String ?? nil else { return nil }
+      guard let address = self.value(forKey: "address") as? String ?? nil else { return nil }
+      guard let location = self.object(forKey: "location") as? CLLocation ?? nil else { return nil }
+      guard let phoneNumbers = self.object(forKey: "telephone") as? NSArray ?? nil else { return nil }
+      guard let province = self.value(forKey: "province") as? String ?? nil else { return nil }
+
+      var phones : [String]?
+      if phoneNumbers.count == 0 {
+         phones = nil
+      } else {
+         phones = []
+         for number in phoneNumbers {
+            phones?.append(number as? String ?? "")
+         }
+      }
+      
+      let utdModel = UTDModel(idUTD: self.recordID,
+                              name: name,
+                              address: address,
+                              location: location,
+                              phoneNumbers: phones,
+                              province: province)
+      return utdModel
+   }
 }
