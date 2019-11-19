@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="a8h-v7-MeA">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="a8h-v7-MeA">
                                 <rect key="frame" x="0.0" y="140" width="414" height="756"/>
                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="sectionIndexBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -248,11 +248,20 @@
                         <outlet property="tableViewDiscover" destination="a8h-v7-MeA" id="LL6-qG-Xv0"/>
                         <segue destination="xC0-Wj-Dk2" kind="presentation" identifier="MoveToAdd" id="UyG-fj-k8L"/>
                         <segue destination="rXk-kw-fOp" kind="show" identifier="MoveToInformation" id="Zmn-kk-mgg"/>
+                        <segue destination="Vk0-J6-M4L" kind="show" identifier="MoveToDetailEvent" id="ifS-ao-ppl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VxP-oX-IJv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="857.97101449275374" y="602.67857142857144"/>
+        </scene>
+        <!--DetailEvent-->
+        <scene sceneID="aU3-o6-HHK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DetailEvent" id="Vk0-J6-M4L" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xKE-jG-Oxd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1404" y="525"/>
         </scene>
         <!--AddEvent-->
         <scene sceneID="acZ-M5-Mld">

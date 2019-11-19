@@ -69,10 +69,13 @@ extension EventTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        guard let data = eventData?[indexPath.row] else {fatalError()}
+        
         if indexPath.section == 0 {
             self.moveToAddEventDelegate?.moveToAddEventClass()
         }
-        
+        else {
+            self.moveToDetailEventDelegate?.moveToAddEventDetailClass(image: data.image!, title: data.title!, desc: data.description!, address: data.address!, date: data.date!, name: data.nameEvent!, phone: data.phoneEvent!)
+        }
     }
-    
 }

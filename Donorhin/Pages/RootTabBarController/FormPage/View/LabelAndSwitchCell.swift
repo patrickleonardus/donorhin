@@ -13,10 +13,26 @@ class LabelAndSwitchCell: UITableViewCell {
     @IBOutlet weak var labelText: UILabel!
     @IBOutlet weak var switchOutlet: UISwitch!
     
+    var delegate: EmergencySwitchDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        switchOutlet.addTarget(self, action: #selector(switchChanged(_:)), for: .valueChanged)
+        
     }
+    
+    @objc func switchChanged(_ sender: UISwitch){
+        if sender.isOn {
+            delegate?.toogleSwitch(cell: self, isOn: true)
+        }
+        else {
+            delegate?.toogleSwitch(cell: self, isOn: false)
+        }
+    }
+    
+}
 
+protocol EmergencySwitchDelegate {
+    func toogleSwitch(cell: LabelAndSwitchCell, isOn: Bool)
 }
