@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import CloudKit
 
-struct UserModel {
+struct UserData {
     var email:String?
     var password:String?
     var name:String?
@@ -25,9 +25,9 @@ struct UserModel {
 }
 
 class DataFetcher {
-    var user : UserModel? = nil
+    var user : UserData? = nil
     
-    func getUserDataByEmail(email:String, password:String, completionHandler: @escaping ((UserModel?) -> Void)){
+    func getUserDataByEmail(email:String, password:String, completionHandler: @escaping ((UserData?) -> Void)){
         print(email)
         print(password)
         var data : CKRecord? = nil
@@ -36,7 +36,7 @@ class DataFetcher {
         Helper.getAllData(query) { (results) in
             //print("result: \(results)")
 
-            let userModel:UserModel?
+            let userModel:UserData?
             if results != nil{
                 for record in results!{
                     UserDefaults.standard.set(record.recordID.recordName, forKey: "currentUser") //save record name to user default
@@ -51,7 +51,7 @@ class DataFetcher {
         }
     }
     
-    func appendUser(userData:CKRecord?) -> UserModel? {
+    func appendUser(userData:CKRecord?) -> UserData? {
         guard
         let email : String = userData?.value(forKey: "email") as? String,
         let password : String = userData?.value(forKey: "password") as? String,
@@ -67,7 +67,7 @@ class DataFetcher {
         let imageData : NSData = NSData(contentsOf: image.fileURL!) else {fatalError()}
         
         let locationData : NSData = NSKeyedArchiver.archivedData(withRootObject: location) as NSData
-        user = UserModel(email: email, password: password, name: name, location: locationData, bloodType: bloodType, birthDate: birthdate, gender: gender, donorStatus: donorStatus, lastDonor: lastDonor, isVerified: isVerified, imageData: imageData)
+        user = UserData(email: email, password: password, name: name, location: locationData, bloodType: bloodType, birthDate: birthdate, gender: gender, donorStatus: donorStatus, lastDonor: lastDonor, isVerified: isVerified, imageData: imageData)
         return user
     }
 }
