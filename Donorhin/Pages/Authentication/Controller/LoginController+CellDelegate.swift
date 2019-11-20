@@ -8,7 +8,18 @@
 
 import UIKit
 
-extension LoginController : FormCellDelegate{
+extension LoginController : FormCellDelegate, CustomProtocol{
+    func dismissed() {
+        var vc : UIViewController?
+        if #available(iOS 13.0, *) {
+            vc = storyboard!.instantiateViewController(identifier: "authStoryboard") as! LoginController
+        } else {
+            // Fallback on earlier versions
+        }
+        guard let navigationController = self.navigationController else {return}
+        navigationController.pushViewController(vc!, animated: true)
+    }
+    
     func buttonDidTap() {
         print("buttonDidTap")
         guard let emailCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FormTableViewCell else {return}
@@ -17,4 +28,5 @@ extension LoginController : FormCellDelegate{
         let password: String = String(passCell.formTextField.text!)
         validationCredential(email: email, password: password)
     }
+    
 }

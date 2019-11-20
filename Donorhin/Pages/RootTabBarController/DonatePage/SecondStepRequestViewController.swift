@@ -10,17 +10,17 @@ import UIKit
 
 class SecondStepRequestViewController: UIViewController{
    
+   //MARK:- Variables
    @IBOutlet var tableView: UITableView!
    @IBOutlet var tapRecognizer: UITapGestureRecognizer!
-   var chosenUTD: PMIModel?
+   var chosenUTD: DonatePMIModel?
    var picker = UIDatePicker()
    var chosenDate : Date? {
       didSet {
-         print (chosenDate)
-         let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0))
-         cell?.accessoryView = .none
+         let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0))!
+         cell.accessoryView = .none
          let desc = self.chosenDate?.description.prefix(10)
-         cell?.detailTextLabel?.text = String(desc ?? "")
+         cell.detailTextLabel?.text = String(desc ?? "")
       }
    }
    
@@ -31,14 +31,7 @@ class SecondStepRequestViewController: UIViewController{
     self.tapRecognizer.isEnabled = false
   }
   
-  
-  @IBAction func buttonAcceptTapped(_ sender: UIButton) {
-    self.setupAlertAccept()
-  }
-  @IBAction func buttonCancelTapped(_ sender: UIButton) {
-    self.setupAlertDecline()
-  }
-  
+  //MARK: Setting up alerts
   private func setupAlertAccept() {
     let alert = UIAlertController(title: "Apakah Anda yakin bersedia?", message: "Resipien akan langsung diinformasikan mengenai keputusan kesediaan Anda", preferredStyle: .alert)
     let accept = UIAlertAction(title: "Ya", style: .default) { (_) in
@@ -96,8 +89,16 @@ class SecondStepRequestViewController: UIViewController{
       ])
    }
    
-   @IBAction func handleTap(_ sender: Any) {
+   @IBAction func closeDatePicker(_ sender: Any) {
       self.picker.removeFromSuperview()
       self.tapRecognizer.isEnabled = false
+   }
+   
+   //MARK: - Action of pressed button
+   @IBAction func buttonAcceptTapped(_ sender: UIButton) {
+     self.setupAlertAccept()
+   }
+   @IBAction func buttonCancelTapped(_ sender: UIButton) {
+     self.setupAlertDecline()
    }
 }

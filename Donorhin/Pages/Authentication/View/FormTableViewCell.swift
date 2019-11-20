@@ -17,7 +17,6 @@ class FormTableViewCell: UITableViewCell {
     @IBOutlet var whiteBackgroundView: UIView!
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var formTextField: UITextField!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.whiteBackgroundView.layer.cornerRadius = 10

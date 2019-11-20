@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ndh-uI-tfD">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="Lnq-99-ahG">
+            <objects>
+                <viewController id="ndh-uI-tfD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YlD-SV-a8I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="837"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MzX-Nq-jGv">
+                                <rect key="frame" x="0.0" y="-0.33333333333331439" width="375" height="837.66666666666652"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ct-jH-bxZ" customClass="CustomMainView" customModule="Donorhin" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="829.66666666666663"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bloodtype_profile" translatesAutoresizingMaskIntoConstraints="NO" id="xAS-Tg-uMT">
+                                                <rect key="frame" x="121" y="113" width="133" height="172"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="172" id="Wmu-za-vMB"/>
+                                                    <constraint firstAttribute="width" constant="133" id="oKv-QN-Ik6"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Donorhin dan Privasi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mg1-Y2-JT5">
+                                                <rect key="frame" x="63.666666666666657" y="327" width="247.99999999999997" height="34"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Akun Pengguna" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9E3-dZ-d57">
+                                                <rect key="frame" x="39" y="386" width="297" height="27"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Akun Pengguna" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qea-dv-smt">
+                                                <rect key="frame" x="39" y="666" width="297" height="27"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xFH-u8-piO">
+                                                <rect key="frame" x="39" y="413" width="297" height="246"/>
+                                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="246" id="pPv-Q3-IDZ"/>
+                                                </constraints>
+                                                <string key="text">Data pengguna tidak dapat dilihat oleh 
+resipien (pencari donor) atau pendonor 
+(donatur darah). Hal ini dilakukan
+untuk menjaga privasi pengguna serta
+meminimalisir penjualan darah. Proses 
+verifikasi kebutuhan darah resipien dilakukan
+oleh pendonor dengan menanyakan PMI
+dimana resipien memberikan surat. 
+Resipien perlu untuk memberikan surat 
+keterangan butuh darah ke PMI agar proses 
+verifikasi oleh pendonor berhasil.
+</string>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gtS-FZ-X56">
+                                                <rect key="frame" x="39" y="693" width="297" height="88"/>
+                                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="88" id="8Qa-ri-rlD"/>
+                                                </constraints>
+                                                <string key="text">Selalu menghidupkan lokasi untuk aplikasi
+Rhelpus perlu dilakukan karena Rhelpus 
+membutuhkan hal tersebut pada saat 
+pencarian donor terdekat.</string>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="gtS-FZ-X56" firstAttribute="top" secondItem="qea-dv-smt" secondAttribute="bottom" id="1JS-BA-Q40"/>
+                                            <constraint firstItem="9E3-dZ-d57" firstAttribute="leading" secondItem="0Ct-jH-bxZ" secondAttribute="leading" constant="39" id="5bd-rE-sdI"/>
+                                            <constraint firstAttribute="trailing" secondItem="xFH-u8-piO" secondAttribute="trailing" constant="39" id="5nR-Gh-HFn"/>
+                                            <constraint firstAttribute="trailing" secondItem="9E3-dZ-d57" secondAttribute="trailing" constant="39" id="7rI-ux-dsy"/>
+                                            <constraint firstAttribute="trailing" secondItem="qea-dv-smt" secondAttribute="trailing" constant="39" id="8rN-HC-CAw"/>
+                                            <constraint firstItem="mg1-Y2-JT5" firstAttribute="centerX" secondItem="0Ct-jH-bxZ" secondAttribute="centerX" id="9yY-MN-TFu"/>
+                                            <constraint firstItem="xFH-u8-piO" firstAttribute="leading" secondItem="0Ct-jH-bxZ" secondAttribute="leading" constant="39" id="RdG-6q-qcX"/>
+                                            <constraint firstItem="9E3-dZ-d57" firstAttribute="top" secondItem="mg1-Y2-JT5" secondAttribute="bottom" constant="25" id="UPM-7K-7u3"/>
+                                            <constraint firstItem="mg1-Y2-JT5" firstAttribute="top" secondItem="xAS-Tg-uMT" secondAttribute="bottom" constant="42" id="XgT-29-gt6"/>
+                                            <constraint firstItem="qea-dv-smt" firstAttribute="leading" secondItem="0Ct-jH-bxZ" secondAttribute="leading" constant="39" id="Zo9-V8-L5V"/>
+                                            <constraint firstItem="xFH-u8-piO" firstAttribute="top" secondItem="9E3-dZ-d57" secondAttribute="bottom" id="aLT-QZ-1wM"/>
+                                            <constraint firstItem="xAS-Tg-uMT" firstAttribute="top" secondItem="0Ct-jH-bxZ" secondAttribute="top" constant="113" id="cgM-hx-RCi"/>
+                                            <constraint firstItem="gtS-FZ-X56" firstAttribute="leading" secondItem="0Ct-jH-bxZ" secondAttribute="leading" constant="39" id="e50-BU-J46"/>
+                                            <constraint firstItem="qea-dv-smt" firstAttribute="top" secondItem="xFH-u8-piO" secondAttribute="bottom" constant="7" id="ft3-lc-F9b"/>
+                                            <constraint firstItem="xAS-Tg-uMT" firstAttribute="centerX" secondItem="0Ct-jH-bxZ" secondAttribute="centerX" id="lyw-LY-Ozl"/>
+                                            <constraint firstAttribute="trailing" secondItem="gtS-FZ-X56" secondAttribute="trailing" constant="39" id="xrb-d5-pmr"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="0Ct-jH-bxZ" firstAttribute="leading" secondItem="MzX-Nq-jGv" secondAttribute="leading" id="M6B-wn-gMR"/>
+                                    <constraint firstItem="0Ct-jH-bxZ" firstAttribute="centerX" secondItem="MzX-Nq-jGv" secondAttribute="centerX" id="PqA-0s-YgS"/>
+                                    <constraint firstItem="all-FM-zmU" firstAttribute="bottom" secondItem="0Ct-jH-bxZ" secondAttribute="bottom" constant="8" id="YMm-HQ-cwZ"/>
+                                    <constraint firstItem="0Ct-jH-bxZ" firstAttribute="top" secondItem="MzX-Nq-jGv" secondAttribute="top" id="gZH-KF-u7O"/>
+                                    <constraint firstAttribute="bottom" secondItem="0Ct-jH-bxZ" secondAttribute="bottom" constant="8" id="mbt-dl-SEu"/>
+                                    <constraint firstAttribute="trailing" secondItem="0Ct-jH-bxZ" secondAttribute="trailing" id="pji-oq-Jvc"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Pld-pd-ul5"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="all-FM-zmU"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="MzX-Nq-jGv" firstAttribute="centerY" secondItem="YlD-SV-a8I" secondAttribute="centerY" id="2xR-0T-KNl"/>
+                            <constraint firstItem="0Ct-jH-bxZ" firstAttribute="width" secondItem="YlD-SV-a8I" secondAttribute="width" id="58V-IW-WPw"/>
+                            <constraint firstItem="0Ct-jH-bxZ" firstAttribute="height" secondItem="YlD-SV-a8I" secondAttribute="height" multiplier="0.991071" id="Oxc-TS-wQT"/>
+                            <constraint firstItem="MzX-Nq-jGv" firstAttribute="centerX" secondItem="YlD-SV-a8I" secondAttribute="centerX" id="UjF-p8-KDO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BuN-z1-TrM"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="837"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hz7-ve-18J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-338.39999999999998" y="8.8669950738916263"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bloodtype_profile" width="41" height="66.666664123535156"/>
+    </resources>
+</document>

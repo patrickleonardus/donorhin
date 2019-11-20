@@ -16,32 +16,38 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Saya membaca dan menyetujui syarat dan kondisi persyaratan yang ada pada aplikasi" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bln-pA-Qhk">
-                        <rect key="frame" x="80" y="-3" width="301" height="66"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saya membaca dan menyetujui syarat dan kondisi persyaratan yang ada pada aplikasi" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bln-pA-Qhk">
+                        <rect key="frame" x="74" y="-3" width="309" height="66"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5e-GO-Qmf">
-                        <rect key="frame" x="297" y="33" width="74" height="12"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rYT-Ph-iW3" customClass="CheckBox" customModule="Donorhin" customModuleProvider="target">
+                        <rect key="frame" x="34" y="16" width="28" height="29"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5e-GO-Qmf">
+                        <rect key="frame" x="290" y="31" width="74" height="15"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                         <state key="normal" title="Lihat Privasi"/>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jHz-c6-QLa" customClass="CheckBox" customModule="Donorhin" customModuleProvider="target">
-                        <rect key="frame" x="30" y="15" width="34" height="30"/>
+                        <connections>
+                            <action selector="buttonDidTap:" destination="u7f-IC-nip" eventType="touchUpInside" id="KPa-B5-Zlr"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="W5e-GO-Qmf" secondAttribute="trailing" constant="23" id="4Rm-Qo-FvJ"/>
-                    <constraint firstItem="jHz-c6-QLa" firstAttribute="centerY" secondItem="bln-pA-Qhk" secondAttribute="centerY" id="DbL-bH-aqx"/>
-                    <constraint firstItem="jHz-c6-QLa" firstAttribute="leading" secondItem="XwM-3P-XkO" secondAttribute="leadingMargin" constant="10" id="QiT-s6-yTV"/>
-                    <constraint firstItem="bln-pA-Qhk" firstAttribute="top" secondItem="XwM-3P-XkO" secondAttribute="topMargin" constant="-58" id="Vzx-Fi-2U4"/>
-                    <constraint firstItem="jHz-c6-QLa" firstAttribute="bottom" secondItem="W5e-GO-Qmf" secondAttribute="bottom" id="Zuz-Dx-dJa"/>
-                    <constraint firstItem="jHz-c6-QLa" firstAttribute="top" secondItem="XwM-3P-XkO" secondAttribute="topMargin" constant="-40" id="epE-gL-EhU"/>
-                    <constraint firstItem="W5e-GO-Qmf" firstAttribute="top" secondItem="XwM-3P-XkO" secondAttribute="topMargin" constant="-22" id="hlA-nQ-IMH"/>
-                    <constraint firstItem="jHz-c6-QLa" firstAttribute="centerY" secondItem="XwM-3P-XkO" secondAttribute="centerY" id="jjH-nc-w6u"/>
-                    <constraint firstItem="bln-pA-Qhk" firstAttribute="leading" secondItem="jHz-c6-QLa" secondAttribute="trailing" constant="16" id="nDj-f5-Zp3"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="bln-pA-Qhk" secondAttribute="trailing" constant="13" id="vJd-4A-9vf"/>
+                    <constraint firstItem="bln-pA-Qhk" firstAttribute="leading" secondItem="rYT-Ph-iW3" secondAttribute="trailing" constant="12" id="73W-Na-SOJ"/>
+                    <constraint firstItem="bln-pA-Qhk" firstAttribute="leading" secondItem="rYT-Ph-iW3" secondAttribute="trailing" constant="12" id="7Hv-uX-LRu"/>
+                    <constraint firstItem="bln-pA-Qhk" firstAttribute="top" secondItem="XwM-3P-XkO" secondAttribute="top" constant="-3" id="7QE-d8-asT"/>
+                    <constraint firstAttribute="bottom" secondItem="bln-pA-Qhk" secondAttribute="bottom" constant="-3" id="9jc-7b-qBT"/>
+                    <constraint firstAttribute="bottom" secondItem="rYT-Ph-iW3" secondAttribute="bottom" constant="15" id="Fp3-mZ-R9g"/>
+                    <constraint firstAttribute="trailing" secondItem="W5e-GO-Qmf" secondAttribute="trailing" constant="50" id="HrE-CW-zNL"/>
+                    <constraint firstItem="rYT-Ph-iW3" firstAttribute="top" secondItem="XwM-3P-XkO" secondAttribute="top" constant="16" id="Lwk-yR-AQX"/>
+                    <constraint firstItem="W5e-GO-Qmf" firstAttribute="leading" secondItem="rYT-Ph-iW3" secondAttribute="trailing" constant="228" id="MKJ-io-Ss3"/>
+                    <constraint firstItem="W5e-GO-Qmf" firstAttribute="top" secondItem="XwM-3P-XkO" secondAttribute="top" constant="31" id="QVN-VV-nal"/>
+                    <constraint firstItem="rYT-Ph-iW3" firstAttribute="leading" secondItem="XwM-3P-XkO" secondAttribute="leading" constant="34" id="sb6-uI-8th"/>
+                    <constraint firstAttribute="bottom" secondItem="W5e-GO-Qmf" secondAttribute="bottom" constant="14" id="uqx-KT-q0o"/>
+                    <constraint firstAttribute="trailing" secondItem="bln-pA-Qhk" secondAttribute="trailing" constant="31" id="xba-Ed-yVv"/>
                 </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="113.04347826086958" y="113.83928571428571"/>

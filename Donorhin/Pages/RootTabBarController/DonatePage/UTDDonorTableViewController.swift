@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DelegateUTD {
-  func seletedUTD(utd: PMIModel?)
+  func seletedUTD(utd: DonatePMIModel?)
 }
 
 class UTDDonorTableViewController: UITableViewController {

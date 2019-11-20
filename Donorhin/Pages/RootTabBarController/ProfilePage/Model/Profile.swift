@@ -9,21 +9,51 @@
 import UIKit
 
 struct Profile {
-    let profileImage : String?
-    let profileName : String?
-    let profileEmail : String?
-    let profileGender : String?
-    let profileBirthday : String?
-    let profileBloodType : String?
-    let profileLastDonor : String?
+    var profileName : String?
+    var profileEmail : String?
+    var profileGender : Int?
+    var profileBirthday : Date?
+    var profileBloodType : String?
+    var profileLastDonor : Date?
 }
 
-struct DummyDataProfile {
+class ProfileDataFetcher {
+    var profileData:Profile? = nil
     
-       func getProfileData(completionHandler: @escaping (([Profile]) -> ())){
-         completionHandler(
-            [Profile(profileImage: "user_profile", profileName: "Nanda", profileEmail: "nanda@gmail.com", profileGender: "Perempuan", profileBirthday: "21 Feb 2000", profileBloodType: "O-", profileLastDonor: "01 Jan 2019")]
-         )
-     }
+    func getProfileFromUserDefaults(completionHandler: @escaping ((Profile?) -> Void)){
+        let ud = UserDefaults.standard
+        var profile : Profile? = nil
+        if ud.string(forKey: "currentUser") != nil {
+            profile = self.appendUser()
+        }
+        else {
+            completionHandler(nil)
+        }
+        completionHandler(profile)
+    }
     
+    func appendUser() -> Profile? {
+        let ud = UserDefaults.standard
+        guard
+        let email : String = ud.string(forKey: "email"),
+        let name : String = ud.string(forKey: "name"),
+        let birthdate : Date = ud.object(forKey: "birth_date") as? Date,
+        let bloodType : String = ud.string(forKey: "blood_type"),
+        let lastDonor : Date = ud.object(forKey: "last_donor") as? Date
+        else { fatalError() }
+        
+        let gender : Int = ud.integer(forKey: "gender")
+        profileData = Profile(profileName: name, profileEmail: email, profileGender: gender, profileBirthday: birthdate, profileBloodType: bloodType, profileLastDonor: lastDonor)
+        return profileData
+    }
 }
+
+//struct DummyDataProfile {
+//
+//       func getProfileData(completionHandler: @escaping (([Profile]) -> ())){
+//         completionHandler(
+//            [Profile(profileImage: "user_profile", profileName: "Nanda", profileEmail: "nanda@gmail.com", profileGender: "Perempuan", profileBirthday: "21 Feb 2000", profileBloodType: "O-", profileLastDonor: "01 Jan 2019")]
+//         )
+//     }
+//
+//}

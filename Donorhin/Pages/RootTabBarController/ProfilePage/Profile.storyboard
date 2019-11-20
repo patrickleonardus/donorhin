@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NbJ-zp-JqF">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NbJ-zp-JqF">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -70,22 +68,22 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="secondCell" rowHeight="64" id="z7X-rc-qQ6" customClass="SecondCell" customModule="Donorhin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="220" width="414" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z7X-rc-qQ6" id="0Hu-Wy-O7e">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z7X-rc-qQ6" id="0Hu-Wy-O7e">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GE8-Wy-g14">
-                                                    <rect key="frame" x="20" y="11" width="374" height="44"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="42"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oEl-ve-Cey">
-                                                            <rect key="frame" x="8" y="8" width="43" height="28"/>
+                                                            <rect key="frame" x="8" y="7" width="43" height="28"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="43" id="3rZ-OI-Ttk"/>
                                                                 <constraint firstAttribute="height" constant="28" id="sEX-6B-9o5"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBB-tY-BVH">
-                                                            <rect key="frame" x="59" y="12" width="307" height="20"/>
+                                                            <rect key="frame" x="59" y="12" width="307" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="307" id="HQ6-iZ-32L"/>
                                                             </constraints>
@@ -166,11 +164,22 @@
                     <navigationItem key="navigationItem" title="Data Pribadi" id="K5I-3y-jja"/>
                     <connections>
                         <outlet property="tableView" destination="L17-Y2-ZPi" id="0NY-b7-E0V"/>
+                        <segue destination="YC9-Fe-mAj" kind="show" identifier="goToLogin" id="E7o-n4-SGh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ey-y5-Z0z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-691.304347826087" y="146.65178571428569"/>
+        </scene>
+        <!--Authentication-->
+        <scene sceneID="hSQ-YL-Xos">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Authentication" id="YC9-Fe-mAj" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="d5h-V7-k00"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tna-zc-V2Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="168" y="147"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AMc-Pa-3lh">

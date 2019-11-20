@@ -15,7 +15,7 @@ class DonateController: UIViewController {
   @IBOutlet weak var coverView: CustomMainView!
   final private let cellReuseIdentifier = "DonateCell"
   var listRequest = [CKRecord]()
-  var selectedRow: TrackerModel?
+  var selectedData: TrackerModel?
   var statusDonor = false
   var segmented: History {
       if historyDonorSegmentedControl.selectedSegmentIndex == 0 {
@@ -28,6 +28,7 @@ class DonateController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+   self.showSpinner(onView: self.view)
     self.tableview.delegate = self
     self.tableview.dataSource = self
     self.tableview.register(UINib(nibName: "DonateTableViewCell", bundle: nil), forCellReuseIdentifier: self.cellReuseIdentifier)
@@ -54,6 +55,7 @@ class DonateController: UIViewController {
           self.listRequest = results
           self.checkCountListData()
           self.tableview.reloadData()
+          self.removeSpinner()
         }
       }
     }
@@ -137,40 +139,45 @@ class DonateController: UIViewController {
 }
 
 extension DonateController: UITableViewDelegate, UITableViewDataSource {
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.listRequest.count
-  }
-  
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableview.dequeueReusableCell(withIdentifier: self.cellReuseIdentifier, for: indexPath) as! DonateTableViewCell
-    cell.titleLabel.text = "Permintaan donor \(indexPath.row+1)"
-    cell.subtitleLabel.text = Steps.checkStep(self.listRequest[indexPath.row].value(forKey: "current_step") as! Int)
-    return cell
-  }
-  
-  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    if editingStyle == .delete {
-      print("ok")
-    }
-  }
-  
-  func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      return self.listRequest.count
+   }
+   
+   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      let cell = tableview.dequeueReusableCell(withIdentifier: self.cellReuseIdentifier, for: indexPath) as! DonateTableViewCell
+      cell.personImage.image = UIImage(named: "person_50")
+      cell.titleLabel.text = "Permintaan donor \(indexPath.row+1)"
+      cell.subtitleLabel.text = Steps.checkStep(
+            self.listRequest[indexPath.row].value(
+               forKey: "current_step") as! Int)
+      return cell
+   }
+   
+   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+      if editingStyle == .delete {
+         print("ok")
+      }
+   }
+   
+   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
       let deleteButton = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
-      self.tableview.dataSource?.tableView?(self.tableview, commit: .delete, forRowAt: indexPath)
+         self.tableview.dataSource?.tableView?(self.tableview, commit: .delete, forRowAt: indexPath)
       })
       deleteButton.backgroundColor = Colors.red
       return [deleteButton]
-  }
-  
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//    self.selectedRow = self.listRequest[indexPath.row]
-    performSegue(withIdentifier: "GoToStep", sender: nil)
-  }
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "GoToStep" {
-      let stepVC = segue.destination as! DonateStepsViewController
-      stepVC.request = self.selectedRow
-    }
-  }
+   }
+   
+   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      self.selectedData = self.listRequest[indexPath.row].convertTrackerToTrackerModel()
+      performSegue(withIdentifier: "GoToStep", sender: tableView.cellForRow(at: indexPath))
+   }
+   
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      if segue.identifier == "GoToStep" {
+         let senderr = sender as? DonateTableViewCell
+         let stepVC = segue.destination as! DonateStepsViewController
+         stepVC.request = self.selectedData
+         stepVC.title = senderr?.titleLabel.text
+      }
+   }
 }
