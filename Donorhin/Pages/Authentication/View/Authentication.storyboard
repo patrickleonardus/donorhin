@@ -11,7 +11,7 @@
         <!--Masuk-->
         <scene sceneID="9Uy-vz-pi1">
             <objects>
-                <viewController storyboardIdentifier="authStoryboard" id="sUs-WR-ySd" customClass="LoginController" customModule="Donorhin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="authStoryboard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sUs-WR-ySd" customClass="LoginController" customModule="Donorhin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EPs-Ji-ZpA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

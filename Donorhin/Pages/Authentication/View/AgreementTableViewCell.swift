@@ -7,20 +7,26 @@
 //
 
 import UIKit
-
+protocol AgreementDelegate {
+  func checkAgreementCheckBox(_ isCheck: Bool)
+  func goToPrivacy()
+}
 class AgreementTableViewCell: UITableViewCell {
-    var delegate : FormCellDelegate?
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.contentView.backgroundColor = Colors.backgroundView
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
-    @IBAction func buttonDidTap(_ sender: Any) {
-        //delegate?.goToLihatPrivasi()
-    }
-    
+  var delegate: AgreementDelegate!
+  @IBOutlet weak var checkBoxAgreement: CheckBox!
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    self.contentView.backgroundColor = Colors.backgroundView
+  }
+  
+  override func setSelected(_ selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
+  }
+  @IBAction func checkValueCheckBox(_ sender: CheckBox) {
+    self.delegate.checkAgreementCheckBox(sender.isChecked)
+  }
+  
+  @IBAction func buttonDidTap(_ sender: Any) {
+    self.delegate.goToPrivacy()
+  }
 }
