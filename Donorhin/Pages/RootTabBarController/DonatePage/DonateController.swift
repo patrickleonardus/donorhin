@@ -15,7 +15,7 @@ class DonateController: UIViewController {
   @IBOutlet weak var coverView: CustomMainView!
   final private let cellReuseIdentifier = "DonateCell"
   var listRequest = [CKRecord]()
-  var selectedRow: TrackerModel?
+  var selectedData: TrackerModel?
   var statusDonor = false
   var segmented: History {
       if historyDonorSegmentedControl.selectedSegmentIndex == 0 {
@@ -164,15 +164,17 @@ extension DonateController: UITableViewDelegate, UITableViewDataSource {
       return [deleteButton]
   }
   
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//    self.selectedRow = self.listRequest[indexPath.row]
-    performSegue(withIdentifier: "GoToStep", sender: nil)
-  }
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "GoToStep" {
-      let stepVC = segue.destination as! DonateStepsViewController
-      stepVC.request = self.selectedRow
-    }
-  }
+   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      self.selectedData = self.listRequest[indexPath.row].convertTrackerToTrackerModel()
+      performSegue(withIdentifier: "GoToStep", sender: tableView.cellForRow(at: indexPath))
+   }
+   
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      if segue.identifier == "GoToStep" {
+         let senderr = sender as? DonateTableViewCell
+         let stepVC = segue.destination as! DonateStepsViewController
+         stepVC.request = self.selectedData
+         stepVC.title = senderr?.titleLabel.text
+      }
+   }
 }
