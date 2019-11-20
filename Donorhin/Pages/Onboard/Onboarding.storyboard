@@ -511,6 +511,6 @@
         <image name="privacy_onboard" width="339" height="306"/>
         <image name="smile_onboard" width="52" height="52"/>
         <image name="track_onboard" width="330" height="288"/>
-        <image name="welcome_onboard" width="382" height="250"/>
+        <image name="welcome_onboard" width="398" height="249"/>
     </resources>
 </document>

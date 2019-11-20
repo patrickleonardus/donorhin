@@ -84,10 +84,6 @@ extension LoginController : UITableViewDataSource{
             let cell  = tableView.dequeueReusableCell(withIdentifier: "twoButtonCell", for: indexPath) as? TwoButtonTableViewCell
             cell?.daftarOutlet.addTarget(self, action: #selector(goToRegister), for: .touchUpInside)
             cell?.masukNantiOutlet.addTarget(self, action: #selector(goToFindWithoutLogin), for: .touchUpInside)
-//            if UDDevice.widthScreen < 751 {
-//                cell?.daftarOutlet.titleLabel?.font =  cell?.daftarOutlet.titleLabel?.font.withSize(14)
-//                cell?.masukNantiOutlet.titleLabel?.font =  cell?.masukNantiOutlet.titleLabel?.font.withSize(14)
-//            }
         return cell!
         }
         
