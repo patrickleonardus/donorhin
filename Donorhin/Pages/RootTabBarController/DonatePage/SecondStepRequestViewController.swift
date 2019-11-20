@@ -8,8 +8,7 @@
 
 import UIKit
 
-class SecondStepRequestViewController: UIViewController{
-   
+class SecondStepRequestViewController: DonateStepViewController{
    //MARK:- Variables
    @IBOutlet var tableView: UITableView!
    @IBOutlet var tapRecognizer: UITapGestureRecognizer!
