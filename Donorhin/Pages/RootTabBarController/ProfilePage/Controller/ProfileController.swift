@@ -19,9 +19,9 @@ class ProfileController: UIViewController {
         
         setupUI()
         
-        DummyDataProfile().getProfileData { (profileData) in
-            self.profileData = profileData
-        }
+//        DummyDataProfile().getProfileData { (profileData) in
+//            self.profileData = profileData
+//        }
         
     }
     
