@@ -33,11 +33,22 @@
                     <connections>
                         <outlet property="formTableView" destination="6XM-H8-YHl" id="sU8-t9-ANc"/>
                         <segue destination="15c-eT-ang" kind="show" identifier="goToFind" id="6Jq-67-UOh"/>
+                        <segue destination="TQ4-Sb-h7F" kind="show" identifier="GoToAgreement" id="Cia-bB-EXb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qhi-lR-hwM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-94.20289855072464" y="99.776785714285708"/>
+        </scene>
+        <!--Agreement-->
+        <scene sceneID="cRp-we-ZNw">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Agreement" id="TQ4-Sb-h7F" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="P6F-WF-XRw"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lZw-iI-MXA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="741" y="2"/>
         </scene>
         <!--Authentication-->
         <scene sceneID="gSb-GV-Cci">

@@ -15,8 +15,8 @@ class RegisterDetailController : UIViewController{
     var detailUserCredentials:[String:String] = [:]
     @IBOutlet weak var formTableView: UITableView!
     let generalPicker = UIPickerView()
-  let database = CKContainer.default().publicCloudDatabase
-  let datePicker = UIDatePicker()
+    let database = CKContainer.default().publicCloudDatabase
+    let datePicker = UIDatePicker()
     let gender = ["Pria","Wanita"]
     let bloodType = ["A-","B-","O-","AB-"]
   
