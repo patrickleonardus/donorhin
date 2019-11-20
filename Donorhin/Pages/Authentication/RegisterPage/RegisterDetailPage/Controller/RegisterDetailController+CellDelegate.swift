@@ -24,10 +24,19 @@ extension RegisterDetailController : FormCellDelegate{
         record.setValue(0, forKey: "donor_status")
         record.setValue(self.userCredentials["email"], forKey: "email")
         record.setValue(self.userCredentials["password"], forKey: "password")
-        record.setValue(0, forKey: "isVerified")
+        
         record.setValue(fullNameCell.formTextField.text!, forKey: "name")
         record.setValue(self.checkGender(genderCell.formTextField.text!), forKey: "gender")
         record.setValue(self.covertDateFromString(birthDateCell.formTextField.text!), forKey: "birth_date")
+        if lastDonoCell.formTextField.text! != "" {
+          record.setValue(self.covertDateFromString(lastDonoCell.formTextField.text!), forKey: "last_donor")
+        }
+        if referralCell.formTextField.text! != "" {
+          record.setValue(1, forKey: "isVerified")
+        }
+        else {
+          record.setValue(0, forKey: "isVerified")
+        }
         Helper.saveData(record) {[weak self] (isSuccess) in
           if isSuccess {
             DispatchQueue.main.async {

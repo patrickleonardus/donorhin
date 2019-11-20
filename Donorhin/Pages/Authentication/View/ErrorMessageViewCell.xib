@@ -16,18 +16,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Error Message]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9b-ue-rni">
-                        <rect key="frame" x="20" y="-32" width="374" height="108"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="[Error Message]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9b-ue-rni">
+                        <rect key="frame" x="32" y="0.0" width="362" height="44"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                         <color key="textColor" red="0.70196078429999997" green="0.0" blue="0.1058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="U9b-ue-rni" firstAttribute="leading" secondItem="Nnt-Wr-UIi" secondAttribute="leadingMargin" id="GEO-Q3-ZG4"/>
-                    <constraint firstItem="U9b-ue-rni" firstAttribute="centerY" secondItem="Nnt-Wr-UIi" secondAttribute="centerY" id="O5Z-wy-euF"/>
-                    <constraint firstItem="U9b-ue-rni" firstAttribute="trailing" secondItem="Nnt-Wr-UIi" secondAttribute="trailingMargin" id="TKn-HA-mFH"/>
-                    <constraint firstItem="U9b-ue-rni" firstAttribute="top" secondItem="Nnt-Wr-UIi" secondAttribute="topMargin" constant="-43" id="bC6-NS-6gC"/>
+                    <constraint firstItem="U9b-ue-rni" firstAttribute="leading" secondItem="Nnt-Wr-UIi" secondAttribute="leadingMargin" constant="12" id="1Ws-L4-ipp"/>
+                    <constraint firstItem="U9b-ue-rni" firstAttribute="trailing" secondItem="Nnt-Wr-UIi" secondAttribute="trailingMargin" id="IL7-lb-oeI"/>
+                    <constraint firstItem="U9b-ue-rni" firstAttribute="top" secondItem="Nnt-Wr-UIi" secondAttribute="topMargin" constant="-55" id="Lyo-x7-CES"/>
+                    <constraint firstItem="U9b-ue-rni" firstAttribute="centerY" secondItem="Nnt-Wr-UIi" secondAttribute="centerY" id="fRR-he-WYY"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
