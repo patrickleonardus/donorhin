@@ -165,7 +165,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uBq-7x-u6k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="C3X-Ux-cuQ">
                     <connections>
-                        <action selector="handleTap:" destination="PmJ-zj-V0j" id="4aG-LD-XL0"/>
+                        <action selector="closeDatePicker:" destination="PmJ-zj-V0j" id="4aG-LD-XL0"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -181,7 +181,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Ketik nama UTD" id="S2Q-dh-idA">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="228" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>

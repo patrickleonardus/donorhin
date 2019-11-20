@@ -27,7 +27,7 @@ class DonateStepsViewController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "GoToSteps" {
       let destinationVC = segue.destination as! RequestStepsPageViewController
-      destinationVC.id = self.stepIndicator + 1
+      destinationVC.step = self.stepIndicator + 1
     }
   }
 }

@@ -127,7 +127,7 @@
 		E6BA6E41237B1E080017A330 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BA6E36237B1E080017A330 /* EventTableViewCell.swift */; };
 		E6BA6E42237B1E080017A330 /* EventListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BA6E37237B1E080017A330 /* EventListCollectionViewCell.swift */; };
 		E6BA6E44237B1E4F0017A330 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6BA6E43237B1E4E0017A330 /* Discover.storyboard */; };
-		E6BA6E4B237B23040017A330 /* PMIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BA6E47237B23040017A330 /* PMIModel.swift */; };
+		E6BA6E4B237B23040017A330 /* DonatePMIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BA6E47237B23040017A330 /* DonatePMIModel.swift */; };
 		E6BA6E4C237B23040017A330 /* DonateStepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BA6E48237B23040017A330 /* DonateStepsViewController.swift */; };
 		E6D0747D237BCDCD00CF5531 /* DiscoverController+UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D0747C237BCDCD00CF5531 /* DiscoverController+UIScrollView.swift */; };
 		E6D0748B237BE7CB00CF5531 /* AddEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D0748A237BE7CB00CF5531 /* AddEventController.swift */; };
@@ -295,7 +295,7 @@
 		E6BA6E36237B1E080017A330 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		E6BA6E37237B1E080017A330 /* EventListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListCollectionViewCell.swift; sourceTree = "<group>"; };
 		E6BA6E43237B1E4E0017A330 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
-		E6BA6E47237B23040017A330 /* PMIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMIModel.swift; sourceTree = "<group>"; };
+		E6BA6E47237B23040017A330 /* DonatePMIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonatePMIModel.swift; sourceTree = "<group>"; };
 		E6BA6E48237B23040017A330 /* DonateStepsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonateStepsViewController.swift; sourceTree = "<group>"; };
 		E6D0747C237BCDCD00CF5531 /* DiscoverController+UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiscoverController+UIScrollView.swift"; sourceTree = "<group>"; };
 		E6D0748A237BE7CB00CF5531 /* AddEventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventController.swift; sourceTree = "<group>"; };
@@ -360,7 +360,7 @@
 		0925FB39237403DF00874DAA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E6BA6E47237B23040017A330 /* PMIModel.swift */,
+				E6BA6E47237B23040017A330 /* DonatePMIModel.swift */,
 				09DC193923754BCD004BEFB5 /* DonateModel.swift */,
 			);
 			name = Model;
@@ -1332,7 +1332,7 @@
 				E629190F23805E2500E8D559 /* FormController+UIPickerView.swift in Sources */,
 				B0B16879237BEF7C001DCE3C /* InformationController+UITableView.swift in Sources */,
 				B0B16871237BE840001DCE3C /* InformationController.swift in Sources */,
-				E6BA6E4B237B23040017A330 /* PMIModel.swift in Sources */,
+				E6BA6E4B237B23040017A330 /* DonatePMIModel.swift in Sources */,
 				E6D0747D237BCDCD00CF5531 /* DiscoverController+UIScrollView.swift in Sources */,
 				AB73578E2374310600A6099B /* Profile.swift in Sources */,
 				E6FBB1B323718FF500B1B4DE /* FindController.swift in Sources */,
@@ -1546,7 +1546,7 @@
 				CODE_SIGN_ENTITLEMENTS = Donorhin/Donorhin.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2NJYBE4CVL;
+				DEVELOPMENT_TEAM = C5K4FW28Q2;
 				INFOPLIST_FILE = Donorhin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

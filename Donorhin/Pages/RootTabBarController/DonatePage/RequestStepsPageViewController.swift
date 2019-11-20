@@ -9,10 +9,10 @@
 import UIKit
 
 class RequestStepsPageViewController: UIPageViewController {
-  var id: Int!
+  var step: Int!
   lazy var vcList: [UIViewController] = {
     let sb = UIStoryboard(name: "RequestStepsPageViewController", bundle: nil)
-    switch self.id {
+    switch self.step {
       case 1:
         return [sb.instantiateViewController(withIdentifier: "langkah1")]
       case 2:

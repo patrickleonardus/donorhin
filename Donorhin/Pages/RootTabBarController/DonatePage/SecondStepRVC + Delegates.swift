@@ -54,7 +54,7 @@ extension SecondStepRequestViewController : UITableViewDelegate, UITableViewData
 }
 
 extension SecondStepRequestViewController: DelegateUTD {
-   func seletedUTD(utd: PMIModel?) {
+   func seletedUTD(utd: DonatePMIModel?) {
       if let utd = utd {
          let tableViewCell = self.tableView.cellForRow(at: IndexPath(row: 1, section: 0))
          tableViewCell?.detailTextLabel!.text = utd.name
