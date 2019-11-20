@@ -81,7 +81,7 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
             
             else if indexPath.row == 1 {
                 cell?.imageCell.image = UIImage(named: "birthday_profile")
-                cell?.textCell.text = dateFormatter.string(from: user.profileBirthday)
+                cell?.textCell.text = dateFormatter.string(from: user.profileBirthday!)
             }
             
             else if indexPath.row == 2 {
@@ -91,7 +91,7 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
             
             else if indexPath.row == 3 {
                 cell?.imageCell.image = UIImage(named: "lastdonor_profile")
-                cell?.textCell.text = dateFormatter.string(from: user.profileLastDonor)
+                cell?.textCell.text = dateFormatter.string(from: user.profileLastDonor!)
             }
             
             return cell!

@@ -9,21 +9,40 @@
 import UIKit
 
 struct Profile {
-    let profileName : String?
-    let profileEmail : String?
-    let profileGender : String?
-    let profileBirthday : Date
-    let profileBloodType : String?
-    let profileLastDonor : Date
+    var profileName : String?
+    var profileEmail : String?
+    var profileGender : String?
+    var profileBirthday : Date?
+    var profileBloodType : String?
+    var profileLastDonor : Date?
+}
+
+class ProfileDataFetcher {
+    var profileData:Profile? = nil
     
-    init() {
+    func getProfileFromUserDefaults(completionHandler: @escaping ((Profile?) -> Void)){
         let ud = UserDefaults.standard
-        self.profileName = ud.string(forKey: "name") ?? ""
-        self.profileEmail = ud.string(forKey: "email") ?? ""
-        self.profileGender = ud.string(forKey: "gender") ?? ""
-        self.profileBirthday = ud.object(forKey: "birthday") as! Date
-        self.profileBloodType = ud.string(forKey: "bloodType") ?? ""
-        self.profileLastDonor = ud.object(forKey: "lastDonor") as! Date
+        var profile : Profile? = nil
+        if ud.string(forKey: "currentUser") != nil {
+            profile = self.appendUser()
+        }
+        else {
+            completionHandler(nil)
+        }
+        completionHandler(profile)
+    }
+    
+    func appendUser() -> Profile? {
+        let ud = UserDefaults.standard
+        guard
+        let email : String = ud.string(forKey: "email"),
+        let name : String = ud.string(forKey: "name"),
+        let gender : String = ud.string(forKey: "gender"),
+        let birthdate : Date = ud.object(forKey: "birthday") as? Date,
+        let bloodType : String = ud.string(forKey: "blood_type"),
+        let lastDonor : Date = ud.object(forKey: "last_donor") as? Date else {fatalError()}
+        profileData = Profile(profileName: name, profileEmail: email, profileGender: gender, profileBirthday: birthdate, profileBloodType: bloodType, profileLastDonor: lastDonor)
+        return profileData
     }
 }
 
