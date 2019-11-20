@@ -66,7 +66,7 @@ extension RegisterDetailController : UITableViewDataSource {
                   
             else if indexPath.section == 6{
                 let cell  = tableView.dequeueReusableCell(withIdentifier: "agreementCell", for: indexPath) as? AgreementTableViewCell
-                //bikin delegate buat checkbox ny udh kecentang atau blm
+          cell?.delegate = self
                 return cell!
             }
         
@@ -74,6 +74,7 @@ extension RegisterDetailController : UITableViewDataSource {
                 let cell  = tableView.dequeueReusableCell(withIdentifier: "buttonCell", for: indexPath) as? ButtonTableViewCell
                   cell?.buttonOutlet.layer.cornerRadius = 10
                   cell?.buttonOutlet.setTitle("Daftar", for: .normal)
+                  cell?.buttonOutlet.isHidden = true
                   cell?.delegate = self
                 return cell!
               }
@@ -126,5 +127,21 @@ extension RegisterDetailController: UIPickerViewDataSource, UIPickerViewDelegate
       bloodTypeCell.formTextField.text = self.bloodType[row]
       self.detailUserCredentials["bloodType"] = self.bloodType[row]
     }
+  }
+}
+
+
+extension RegisterDetailController: AgreementDelegate {
+  func checkAgreementCheckBox(_ isCheck: Bool) {
+    let buttonCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 7)) as! ButtonTableViewCell
+    if isCheck {
+      buttonCell.buttonOutlet.isHidden = false
+    } else {
+      buttonCell.buttonOutlet.isHidden = true
+    }
+  }
+  
+  func goToPrivacy() {
+    performSegue(withIdentifier: "GoToAgreement", sender: nil)
   }
 }
