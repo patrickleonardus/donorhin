@@ -9,6 +9,10 @@
 import UIKit
 import CoreLocation
 
+protocol CustomProtocol {
+    func dismissed();
+}
+
 class LoginController : UIViewController {
     
     @IBOutlet weak var formTableView: UITableView!
