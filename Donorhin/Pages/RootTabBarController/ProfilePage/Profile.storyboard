@@ -133,9 +133,6 @@
                                                     <state key="normal" title="Button">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
-                                                    <connections>
-                                                        <segue destination="YC9-Fe-mAj" kind="show" id="HEX-c9-8ey"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -167,6 +164,7 @@
                     <navigationItem key="navigationItem" title="Data Pribadi" id="K5I-3y-jja"/>
                     <connections>
                         <outlet property="tableView" destination="L17-Y2-ZPi" id="0NY-b7-E0V"/>
+                        <segue destination="YC9-Fe-mAj" kind="show" identifier="goToLogin" id="E7o-n4-SGh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ey-y5-Z0z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -181,7 +179,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tna-zc-V2Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="160" y="124"/>
+            <point key="canvasLocation" x="168" y="147"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AMc-Pa-3lh">

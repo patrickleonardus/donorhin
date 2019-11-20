@@ -37,10 +37,12 @@ class ProfileDataFetcher {
         guard
         let email : String = ud.string(forKey: "email"),
         let name : String = ud.string(forKey: "name"),
-        let gender : Int = ud.integer(forKey: "gender"),
-        let birthdate : Date = ud.object(forKey: "birthday") as? Date,
+        let birthdate : Date = ud.object(forKey: "birth_date") as? Date,
         let bloodType : String = ud.string(forKey: "blood_type"),
-        let lastDonor : Date = ud.object(forKey: "last_donor") as? Date else {fatalError()}
+        let lastDonor : Date = ud.object(forKey: "last_donor") as? Date
+        else { fatalError() }
+        
+        let gender : Int = ud.integer(forKey: "gender")
         profileData = Profile(profileName: name, profileEmail: email, profileGender: gender, profileBirthday: birthdate, profileBloodType: bloodType, profileLastDonor: lastDonor)
         return profileData
     }
