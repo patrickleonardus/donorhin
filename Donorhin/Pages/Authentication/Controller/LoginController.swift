@@ -7,14 +7,13 @@
 //
 
 import UIKit
+import CoreLocation
 
 class LoginController : UIViewController {
     
     @IBOutlet weak var formTableView: UITableView!
     var navigationBarTitle : String?
     var formItems: [FormItems]?
-    var email:String?
-    var password:String?
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -31,13 +30,10 @@ class LoginController : UIViewController {
         formTableView.dataSource = self
         formTableView.register(UINib(nibName: "FormCustomCell", bundle: nil), forCellReuseIdentifier: "formCell")
         formTableView.register(UINib(nibName: "ButtonViewCell", bundle: nil), forCellReuseIdentifier: "buttonCell")
+        formTableView.register(UINib(nibName: "ErrorMessageViewCell", bundle: nil), forCellReuseIdentifier: "errorMsgCell")
         formTableView.register(UINib(nibName: "TwoButtonCell", bundle: nil), forCellReuseIdentifier: "twoButtonCell")
         formTableView.tableFooterView = UIView()
         formTableView.showsVerticalScrollIndicator = false
-    }
-    
-    @objc func login(){
-        performSegue(withIdentifier: "goToHome", sender: self)
     }
     
     @objc func goToFindWithoutLogin(){
@@ -48,13 +44,40 @@ class LoginController : UIViewController {
         performSegue(withIdentifier: "goToRegister", sender: self)
     }
     
-    
-    
     func setNavBarTitle() {
         navigationItem.title =  "Masuk"
     }
     
-    func validationCredential(email: String?, password: String?) {
+    func validationCredential(email: String, password: String) {
+        guard let buttonCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? ErrorMessageTableViewCell else {return}
         
+        DataFetcher().getUserDataByEmail(email: email, password: password){(userModel) in
+            guard userModel != nil else {
+                print("*Email or password not valid")
+                DispatchQueue.main.async {
+                    buttonCell.errorMsg.isHidden = false
+                    buttonCell.errorMsg.text = "*Email atau password tidak valid"
+                }
+                return
+            }
+            buttonCell.errorMsg.isHidden = true
+            print("Processing...")
+            UserDefaults.standard.set(userModel?.email, forKey: "email")
+            UserDefaults.standard.set(userModel?.password, forKey: "password")
+            UserDefaults.standard.set(userModel?.name, forKey: "name")
+            UserDefaults.standard.set(userModel?.bloodType, forKey: "blood_type")
+            UserDefaults.standard.set(userModel?.birthDate, forKey: "birth_date")
+            UserDefaults.standard.set(userModel?.gender, forKey: "gender")
+            UserDefaults.standard.set(userModel?.isVerified, forKey: "isVerified")
+            UserDefaults.standard.set(userModel?.lastDonor, forKey: "last_donor")
+            //convert CLLocation to NSData
+            UserDefaults.standard.set(userModel?.location, forKey: "locationData")
+            UserDefaults.standard.set(userModel?.imageData, forKey: "image")
+            UserDefaults.standard.set(userModel?.donorStatus, forKey: "donor_status")
+            print("Data saved to user default...")
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "goToHome", sender: self)
+            }
+        }
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DiscoverController: UIViewController, MoveToAddEvent, navigationBarTitleDelegate{
+class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, navigationBarTitleDelegate{
 
     @IBOutlet weak var tableViewDiscover: UITableView!
     
@@ -16,6 +16,15 @@ class DiscoverController: UIViewController, MoveToAddEvent, navigationBarTitleDe
     var profileImage = UIImageView()
     
     var navigationBarTitle : String?
+    
+    //initialize var for collectio view
+    var imageEvent: String?
+    var titleEvent: String?
+    var descEvent: String?
+    var addressEvent: String?
+    var dateEvent: String?
+    var nameEvent: String?
+    var phoneEvent: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +96,19 @@ class DiscoverController: UIViewController, MoveToAddEvent, navigationBarTitleDe
         self.performSegue(withIdentifier: "MoveToAdd", sender: self)
     }
     
+    func moveToAddEventDetailClass(image: String, title: String, desc: String, address: String, date: String, name : String, phone : String) {
+        
+        imageEvent = image
+        titleEvent = title
+        descEvent = desc
+        addressEvent = address
+        dateEvent = date
+        nameEvent = name
+        phoneEvent = phone
+        
+        self.performSegue(withIdentifier: "MoveToDetailEvent", sender: self)
+    }
+    
     func getNavigationTitle(cell: InfoTableViewCell, title: String) {
         self.navigationBarTitle = title
         self.performSegue(withIdentifier: "MoveToInformation", sender: self)
@@ -99,11 +121,24 @@ class DiscoverController: UIViewController, MoveToAddEvent, navigationBarTitleDe
             destination.navigationBarTitle = self.navigationBarTitle
             destination.sectionTotal = 2
         }
-        
+        else if segue.identifier == "MoveToDetailEvent" {
+            let destination = segue.destination as! DetailEventController
+            destination.imageEvent = imageEvent
+            destination.titleEvent = titleEvent
+            destination.descEvent = descEvent
+            destination.addressEvent = addressEvent
+            destination.dateEvent = dateEvent
+            destination.nameEvent = nameEvent
+            destination.phoneEvent = phoneEvent
+        }
     }
 
 }
 
 protocol MoveToAddEvent {
     func moveToAddEventClass()
+}
+
+protocol MoveToEventDetail {
+    func moveToAddEventDetailClass(image : String, title: String, desc: String, address: String, date : String, name : String, phone : String)
 }

@@ -50,9 +50,28 @@ class InformationController : UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationItem.largeTitleDisplayMode = .never
         self.navigationController?.navigationBar.prefersLargeTitles = false
+        
+        setTabBar(show: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        setTabBar(show: true)
     }
     
     func setNavBarTitle(){
         navigationItem.title = navigationBarTitle
+    }
+    
+    func setTabBar(show: Bool){
+        if show {
+            UIView.animate(withDuration: 0.2) {
+                self.tabBarController?.tabBar.alpha = 1
+            }
+        }
+        else {
+            UIView.animate(withDuration: 0.2) {
+                self.tabBarController?.tabBar.alpha = 0
+            }
+        }
     }
 }

@@ -11,15 +11,16 @@ import CloudKit
 
 struct TrackerModel {
    let idTracker: CKRecord.ID
-  let donorDate: Date
+   let donorDate: Date
    let idPendonor: CKRecord.Reference
    let idRequest: CKRecord.Reference
    let idUTDPendonor: CKRecord.Reference
-  let currentStep: Int
+   let currentStep: Int
    
 }
 
 struct UserModel  {
+   let idUser: CKRecord.ID
    let name: String
    let location: CLLocation?
    let bloodType: BloodType
@@ -33,13 +34,16 @@ struct UserModel  {
 }
 
 struct UTDModel {
+   let idUTD: CKRecord.ID
    let name: String
    let address: String
    let location: CLLocation
-   let phone: String?
+   let phoneNumbers: [String]?
+   let province: String
 }
 
-struct Event {
+struct EventGlobalModel {
+   let idEvent: CKRecord.ID
    let title: String
    let description: String
    let image: UIImage?
@@ -51,12 +55,12 @@ struct Event {
    let idUser: CKRecord.Reference
 }
 
-struct Request {
+struct RequestModel {
+   let idRequest: CKRecord.ID
    let patientName: String
    let bloodTypePatient: BloodType
    let amount: Int
    let dateNeed: Date
    let isEmergency: Bool
-   let imageOfLetter: UIImage
    let idUTDPatient: CKRecord.Reference
 }

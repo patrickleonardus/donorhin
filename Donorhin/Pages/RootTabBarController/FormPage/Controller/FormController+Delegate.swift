@@ -49,3 +49,16 @@ extension FormController : FormAnswerDelegate {
     }
     
 }
+
+extension FormController: EmergencySwitchDelegate {
+    
+    func toogleSwitch(cell: LabelAndSwitchCell, isOn: Bool) {
+        if isOn {
+            patientEmergency = "1"
+        }
+        else {
+            patientEmergency = "0"
+        }
+    }
+    
+}

@@ -104,6 +104,8 @@ extension FormController : UITableViewDelegate, UITableViewDataSource {
                 
                 cell.labelText.text = formQuestion.questionName
                 
+                cell.delegate = self
+                
                 return cell
             }
             

@@ -69,6 +69,7 @@ extension DiscoverController: UITableViewDataSource, UITableViewDelegate {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell") as! EventTableViewCell
                 cell.backgroundColor = Colors.backgroundView
                 cell.moveToAddEventDelegate = self
+                cell.moveToDetailEventDelegate = self
                 return cell
             }
         }
