@@ -228,11 +228,20 @@ agar sesuai dengan surat permintaan darah</string>
                         <outlet property="agreementSwitch" destination="T7K-MD-GrM" id="zSw-sP-xIw"/>
                         <outlet property="detailTableView" destination="q1g-sA-gWF" id="4oK-us-nCk"/>
                         <outlet property="personalTableView" destination="J3W-So-x4H" id="mwM-Ct-M5E"/>
+                        <segue destination="ixK-Lg-KGC" kind="show" identifier="MoveToHospital" id="XMG-ph-Unx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OLA-tZ-EXu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="682.60869565217399" y="136.60714285714286"/>
+        </scene>
+        <!--Hospital-->
+        <scene sceneID="I91-3S-P62">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Hospital" id="ixK-Lg-KGC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VAD-wm-2eK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1280" y="124"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="W1O-dh-DqO">
