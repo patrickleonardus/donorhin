@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4aN-zS-Wxz">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--UTD (Unit Transfusi Darah)-->
+        <scene sceneID="pKU-TA-a4i">
+            <objects>
+                <viewController id="4aN-zS-Wxz" customClass="HospitalController" customModule="Donorhin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o7A-6c-MjE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o7h-p0-X4m">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="hopitalListCell" textLabel="TZh-4A-ak1" detailTextLabel="Rgj-fH-hLl" style="IBUITableViewCellStyleSubtitle" id="mrb-Nh-Fd0">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mrb-Nh-Fd0" id="Tm9-iC-eYP">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TZh-4A-ak1">
+                                                    <rect key="frame" x="20" y="5" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rgj-fH-hLl">
+                                                    <rect key="frame" x="20" y="25.5" width="44" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="4aN-zS-Wxz" id="fGa-Th-CrS"/>
+                                    <outlet property="delegate" destination="4aN-zS-Wxz" id="TPc-2Z-1Zc"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d68-3n-kbi">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UTD tidak ditemukan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGe-AI-bdx">
+                                        <rect key="frame" x="20" y="310" width="374" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mohon periksa kembali kata kunci yang anda masukan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfj-fa-55J">
+                                        <rect key="frame" x="20" y="346" width="374" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Kfj-fa-55J" firstAttribute="top" secondItem="pGe-AI-bdx" secondAttribute="bottom" constant="15" id="0ur-Wy-jgD"/>
+                                    <constraint firstItem="Kfj-fa-55J" firstAttribute="leading" secondItem="d68-3n-kbi" secondAttribute="leading" constant="20" id="681-fY-bJd"/>
+                                    <constraint firstItem="pGe-AI-bdx" firstAttribute="top" secondItem="d68-3n-kbi" secondAttribute="top" constant="310" id="It4-Jc-xrw"/>
+                                    <constraint firstItem="pGe-AI-bdx" firstAttribute="leading" secondItem="d68-3n-kbi" secondAttribute="leading" constant="20" id="Jjz-n0-JYX"/>
+                                    <constraint firstAttribute="trailing" secondItem="Kfj-fa-55J" secondAttribute="trailing" constant="20" id="UIN-ji-zgT"/>
+                                    <constraint firstAttribute="trailing" secondItem="pGe-AI-bdx" secondAttribute="trailing" constant="20" id="j7u-hG-e1V"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="o7h-p0-X4m" firstAttribute="top" secondItem="n6P-L4-eER" secondAttribute="top" id="2Js-cT-UfB"/>
+                            <constraint firstItem="o7h-p0-X4m" firstAttribute="leading" secondItem="n6P-L4-eER" secondAttribute="leading" id="8Xu-jo-Mb2"/>
+                            <constraint firstItem="n6P-L4-eER" firstAttribute="bottom" secondItem="o7h-p0-X4m" secondAttribute="bottom" id="9m7-N7-goY"/>
+                            <constraint firstItem="n6P-L4-eER" firstAttribute="trailing" secondItem="o7h-p0-X4m" secondAttribute="trailing" id="BGn-0c-htA"/>
+                            <constraint firstItem="o7h-p0-X4m" firstAttribute="leading" secondItem="n6P-L4-eER" secondAttribute="leading" id="BTg-w2-yCb"/>
+                            <constraint firstAttribute="bottom" secondItem="d68-3n-kbi" secondAttribute="bottom" id="L2s-X7-zpa"/>
+                            <constraint firstItem="o7h-p0-X4m" firstAttribute="trailing" secondItem="n6P-L4-eER" secondAttribute="trailing" id="VjK-IR-1Z7"/>
+                            <constraint firstItem="d68-3n-kbi" firstAttribute="top" secondItem="o7A-6c-MjE" secondAttribute="top" id="jjQ-EM-5Gq"/>
+                            <constraint firstItem="o7h-p0-X4m" firstAttribute="bottom" secondItem="n6P-L4-eER" secondAttribute="bottom" id="qIb-Aa-89T"/>
+                            <constraint firstItem="d68-3n-kbi" firstAttribute="leading" secondItem="n6P-L4-eER" secondAttribute="leading" id="sw0-ol-YKo"/>
+                            <constraint firstItem="o7h-p0-X4m" firstAttribute="top" secondItem="n6P-L4-eER" secondAttribute="top" id="tOE-6E-f0c"/>
+                            <constraint firstItem="d68-3n-kbi" firstAttribute="trailing" secondItem="n6P-L4-eER" secondAttribute="trailing" id="tWF-by-feO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="n6P-L4-eER"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="UTD (Unit Transfusi Darah)" id="Pau-R8-Ju6"/>
+                    <connections>
+                        <outlet property="tableView" destination="o7h-p0-X4m" id="3rI-rP-g7Y"/>
+                        <outlet property="viewValidation" destination="d68-3n-kbi" id="JER-y7-qqf"/>
+                        <segue destination="Ymw-ZH-s9c" kind="unwind" identifier="unwindToForm" unwindAction="unwindFromSearchWithSegue:" id="JjC-bP-o7g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c7N-il-9Nh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Ymw-ZH-s9c" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="86.956521739130437" y="49.553571428571423"/>
+        </scene>
+    </scenes>
+</document>

@@ -48,6 +48,10 @@ extension FormController : FormAnswerDelegate {
         checkValidity()
     }
     
+    func didBeginEditingHospitalRow(cell: LabelAndTextCell) {
+        self.performSegue(withIdentifier: "MoveToHospital", sender: self)
+    }
+    
 }
 
 extension FormController: EmergencySwitchDelegate {
