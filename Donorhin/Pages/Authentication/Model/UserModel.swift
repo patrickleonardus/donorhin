@@ -36,17 +36,19 @@ class DataFetcher {
         
         Helper.getAllData(query) { (results) in
             //print("result: \(results)")
-            let userModel:UserModel?
-            if results?.count != 0{
-                for record in results!{
-                    UserDefaults.standard.set(record.recordID.recordName, forKey: "currentUser") //save record name to user default
-                    data = record
+            DispatchQueue.main.async {
+                let userModel:UserModel?
+                if results?.count != 0{
+                    for record in results!{
+                        UserDefaults.standard.set(record.recordID.recordName, forKey: "currentUser") //save record name to user default
+                        data = record
+                    }
+                    userModel = data?.convertAccountToUserModel()
+                    completionHandler(userModel)
                 }
-                userModel = data?.convertAccountToUserModel()
-                completionHandler(userModel)
-            }
-            else{
-                completionHandler(nil)
+                else{
+                    completionHandler(nil)
+                }
             }
         }
     }

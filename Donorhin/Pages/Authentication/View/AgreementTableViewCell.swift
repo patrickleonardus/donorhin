@@ -8,7 +8,8 @@
 
 import UIKit
 
-class AgreementTableViewCell: UITableViewCell{
+class AgreementTableViewCell: UITableViewCell {
+    var delegate : FormCellDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
         self.contentView.backgroundColor = Colors.backgroundView
@@ -17,4 +18,9 @@ class AgreementTableViewCell: UITableViewCell{
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+    @IBAction func buttonDidTap(_ sender: Any) {
+        //delegate?.goToLihatPrivasi()
+    }
+    
 }
