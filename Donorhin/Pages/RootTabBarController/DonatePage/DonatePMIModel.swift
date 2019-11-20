@@ -7,12 +7,12 @@
 //
 
 import Foundation
-struct PMIModel {
+struct DonatePMIModel {
   let id: String
   let name: String
   let alamat: String
 }
 
 struct DummyPMI {
-  static var list: [PMIModel] = [PMIModel(id: "1", name: "PMI Tangerang Selatan", alamat: "Tangerang Selatan")]
+  static var list: [DonatePMIModel] = [DonatePMIModel(id: "1", name: "PMI Tangerang Selatan", alamat: "Tangerang Selatan")]
 }

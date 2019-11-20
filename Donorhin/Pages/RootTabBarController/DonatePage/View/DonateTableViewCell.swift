@@ -12,6 +12,7 @@ class DonateTableViewCell: UITableViewCell {
 
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var subtitleLabel: UILabel!
+  @IBOutlet weak var personImage: UIImageView!
   override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

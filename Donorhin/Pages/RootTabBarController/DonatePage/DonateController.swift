@@ -139,31 +139,34 @@ class DonateController: UIViewController {
 }
 
 extension DonateController: UITableViewDelegate, UITableViewDataSource {
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.listRequest.count
-  }
-  
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableview.dequeueReusableCell(withIdentifier: self.cellReuseIdentifier, for: indexPath) as! DonateTableViewCell
-    cell.titleLabel.text = "Permintaan donor \(indexPath.row+1)"
-    cell.subtitleLabel.text = Steps.checkStep(self.listRequest[indexPath.row].value(forKey: "current_step") as! Int)
-    return cell
-  }
-  
-  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    if editingStyle == .delete {
-      print("ok")
-    }
-  }
-  
-  func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      return self.listRequest.count
+   }
+   
+   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      let cell = tableview.dequeueReusableCell(withIdentifier: self.cellReuseIdentifier, for: indexPath) as! DonateTableViewCell
+      cell.personImage.image = UIImage(named: "person_50")
+      cell.titleLabel.text = "Permintaan donor \(indexPath.row+1)"
+      cell.subtitleLabel.text = Steps.checkStep(
+            self.listRequest[indexPath.row].value(
+               forKey: "current_step") as! Int)
+      return cell
+   }
+   
+   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+      if editingStyle == .delete {
+         print("ok")
+      }
+   }
+   
+   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
       let deleteButton = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
-      self.tableview.dataSource?.tableView?(self.tableview, commit: .delete, forRowAt: indexPath)
+         self.tableview.dataSource?.tableView?(self.tableview, commit: .delete, forRowAt: indexPath)
       })
       deleteButton.backgroundColor = Colors.red
       return [deleteButton]
-  }
-  
+   }
+   
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       self.selectedData = self.listRequest[indexPath.row].convertTrackerToTrackerModel()
       performSegue(withIdentifier: "GoToStep", sender: tableView.cellForRow(at: indexPath))
