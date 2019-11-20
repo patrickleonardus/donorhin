@@ -32,6 +32,15 @@ class LabelAndTextCell: UITableViewCell, UITextFieldDelegate {
         
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if personalTableViewSection == 0 {
+            if personalTableViewRow == 1 {
+                delegate?.didBeginEditingHospitalRow(cell: self)
+                textField.endEditing(true)
+            }
+        }
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         
         if firstTextField.text!.isEmpty {
@@ -73,4 +82,5 @@ protocol FormAnswerDelegate {
     func getPatientBloodType(cell: LabelAndTextCell, answer: String)
     func getPatientDueDate(cell: LongLabelAndTextCell, answer: String)
     func getPatientBloodAmount(cell: LongLabelAndTextCell, answer: String)
+    func didBeginEditingHospitalRow(cell: LabelAndTextCell)
 }

@@ -201,5 +201,14 @@ class FormController: UIViewController{
         view.endEditing(true)
     }
     
+    @IBAction func unwindFromSearch(segue: UIStoryboardSegue){
+        
+        let indexPath = IndexPath(row: 1, section: 0)
+        let cell = personalTableView.cellForRow(at: indexPath) as! LabelAndTextCell
+        cell.firstTextField.text = patientHospital
+        personalTableView.reloadData()
+        
+    }
+    
 }
 

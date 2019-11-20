@@ -37,6 +37,7 @@ class LoginController : UIViewController {
     }
     
     @objc func goToFindWithoutLogin(){
+        navigationController?.navigationBar.isHidden = true
         performSegue(withIdentifier: "goToHome", sender: self)
     }
     
@@ -46,6 +47,7 @@ class LoginController : UIViewController {
     
     func setNavBarTitle() {
         navigationItem.title =  "Masuk"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     func validationCredential(email: String, password: String) {
@@ -76,6 +78,7 @@ class LoginController : UIViewController {
             UserDefaults.standard.set(userModel?.donorStatus, forKey: "donor_status")
             print("Data saved to user default...")
             DispatchQueue.main.async {
+                self.navigationController?.navigationBar.isHidden = true
                 self.performSegue(withIdentifier: "goToHome", sender: self)
             }
         }
