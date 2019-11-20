@@ -54,8 +54,10 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
         
-        var user = Profile()
+        //var user = Profile()
+        var date: Date? = Date()
         
 //        guard let data = profileData?[0] else {fatalError()}
         
@@ -63,11 +65,11 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "firstCell", for: indexPath) as? FirstCell
                                            
-            cell?.nameProfile.text = user.profileName
-            cell?.emailProfile.text = user.profileEmail
+            cell?.nameProfile.text = user?.profileName
+            cell?.emailProfile.text = user?.profileEmail
             cell?.imageProfile.image = UIImage(named: "user_profile")
             
-            print(user.profileName)
+            print(user?.profileName)
             
             
             return cell!
@@ -78,22 +80,31 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
         
             if indexPath.row == 0 {
                 cell?.imageCell.image = UIImage(named: "gender_profile")
-                cell?.textCell.text = "\(user.profileGender)"
+                var gender : String = "Laki-Laki"
+                
+                switch user?.profileGender {
+                case 0: gender = "Perempuan"
+                    break
+                case 1: gender = "Laki-Laki"
+                    break
+                default: break
+                }
+                cell?.textCell.text = "\(gender)"
             }
             
             else if indexPath.row == 1 {
                 cell?.imageCell.image = UIImage(named: "birthday_profile")
-//                cell?.textCell.text = dateFormatter.string(from: user.profileBirthday!)
+                cell?.textCell.text = dateFormatter.string(from: user?.profileBirthday ?? date!)
             }
             
             else if indexPath.row == 2 {
                 cell?.imageCell.image = UIImage(named: "bloodtype_profile")
-                cell?.textCell.text = user.profileBloodType
+                cell?.textCell.text = user?.profileBloodType
             }
             
             else if indexPath.row == 3 {
                 cell?.imageCell.image = UIImage(named: "lastdonor_profile")
-//                cell?.textCell.text = dateFormatter.string(from: user.profileLastDonor!)
+                cell?.textCell.text = dateFormatter.string(from: user?.profileLastDonor ?? date!)
             }
             
             return cell!

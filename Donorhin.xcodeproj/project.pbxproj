@@ -15,6 +15,7 @@
 		098FD4752372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */; };
 		098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */; };
 		09DC193A23754BCD004BEFB5 /* DonateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC193923754BCD004BEFB5 /* DonateModel.swift */; };
+		09E8CA1E23853C01009A11A9 /* Agreement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09E8CA1D23853C01009A11A9 /* Agreement.storyboard */; };
 		AB1CD2D4237C198300CB3C56 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB1CD2D3237C198300CB3C56 /* Onboarding.storyboard */; };
 		AB498AC3237D735F006CDA7A /* Page1OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB498AC2237D735F006CDA7A /* Page1OnboardViewController.swift */; };
 		AB498AC5237D73E7006CDA7A /* Page2OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB498AC4237D73E7006CDA7A /* Page2OnboardViewController.swift */; };
@@ -182,6 +183,7 @@
 		098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonSubmitRounded.swift; sourceTree = "<group>"; };
 		098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewRounded.swift; sourceTree = "<group>"; };
 		09DC193923754BCD004BEFB5 /* DonateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateModel.swift; sourceTree = "<group>"; };
+		09E8CA1D23853C01009A11A9 /* Agreement.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Agreement.storyboard; sourceTree = "<group>"; };
 		AB1CD2D3237C198300CB3C56 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		AB498AC2237D735F006CDA7A /* Page1OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page1OnboardViewController.swift; sourceTree = "<group>"; };
 		AB498AC4237D73E7006CDA7A /* Page2OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2OnboardViewController.swift; sourceTree = "<group>"; };
@@ -593,6 +595,7 @@
 			isa = PBXGroup;
 			children = (
 				B0B168A1237D6630001DCE3C /* RegisterDetail.storyboard */,
+				09E8CA1D23853C01009A11A9 /* Agreement.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1227,6 +1230,7 @@
 				E6D0748F237BEAE400CF5531 /* AddEvent.storyboard in Resources */,
 				E6AC8D48237B29DF00820100 /* TrackerDonorTableViewCell.xib in Resources */,
 				B0B16875237BEA7C001DCE3C /* InformationCustomCell.xib in Resources */,
+				09E8CA1E23853C01009A11A9 /* Agreement.storyboard in Resources */,
 				B0B1686F237BE7E5001DCE3C /* Information.storyboard in Resources */,
 				0925FB4123740E1C00874DAA /* DonateTableViewCell.xib in Resources */,
 				B0B168A2237D6630001DCE3C /* RegisterDetail.storyboard in Resources */,
