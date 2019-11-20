@@ -55,29 +55,26 @@ class LoginController : UIViewController {
         
         DataFetcher().getUserDataByEmail(email: email, password: password){(userModel) in
             guard userModel != nil else {
-                print("*Email or password not valid")
                 DispatchQueue.main.async {
+                    print("*Email or password not valid")
                     buttonCell.errorMsg.isHidden = false
                     buttonCell.errorMsg.text = "*Email atau password tidak valid"
                 }
                 return
             }
-            buttonCell.errorMsg.isHidden = true
             print("Processing...")
             UserDefaults.standard.set(userModel?.email, forKey: "email")
             UserDefaults.standard.set(userModel?.password, forKey: "password")
             UserDefaults.standard.set(userModel?.name, forKey: "name")
-            UserDefaults.standard.set(userModel?.bloodType, forKey: "blood_type")
-            UserDefaults.standard.set(userModel?.birthDate, forKey: "birth_date")
-            UserDefaults.standard.set(userModel?.gender, forKey: "gender")
+            UserDefaults.standard.set(userModel?.bloodType.rawValue, forKey: "blood_type")
+            UserDefaults.standard.set(userModel?.birthdate, forKey: "birth_date")
+            UserDefaults.standard.set(userModel?.gender.rawValue, forKey: "gender")
             UserDefaults.standard.set(userModel?.isVerified, forKey: "isVerified")
             UserDefaults.standard.set(userModel?.lastDonor, forKey: "last_donor")
-            //convert CLLocation to NSData
-            UserDefaults.standard.set(userModel?.location, forKey: "locationData")
-            UserDefaults.standard.set(userModel?.imageData, forKey: "image")
-            UserDefaults.standard.set(userModel?.donorStatus, forKey: "donor_status")
+            UserDefaults.standard.set(userModel?.statusDonor, forKey: "donor_status")
             print("Data saved to user default...")
             DispatchQueue.main.async {
+                buttonCell.errorMsg.isHidden = true
                 self.navigationController?.navigationBar.isHidden = true
                 self.performSegue(withIdentifier: "goToHome", sender: self)
             }
