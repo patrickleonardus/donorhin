@@ -16,27 +16,27 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="33"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QVL-co-cka">
-                        <rect key="frame" x="44" y="1" width="150" height="30"/>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QVL-co-cka">
+                        <rect key="frame" x="46" y="1" width="150" height="30"/>
                         <accessibility key="accessibilityConfiguration">
                             <accessibilityTraits key="traits" button="YES" adjustable="YES"/>
                         </accessibility>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="150" id="ETS-GH-O8c"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <state key="normal" title="Daftar Baru">
                             <color key="titleColor" red="0.70196078429999997" green="0.0" blue="0.1058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbS-mS-BxV">
-                        <rect key="frame" x="220" y="1" width="150" height="30"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="l" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v09-qx-KUS">
+                        <rect key="frame" x="205" y="6" width="5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        <color key="textColor" red="0.70196078429999997" green="0.0" blue="0.1058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbS-mS-BxV">
+                        <rect key="frame" x="218" y="1" width="150" height="30"/>
                         <accessibility key="accessibilityConfiguration">
                             <accessibilityTraits key="traits" button="YES" adjustable="YES"/>
                         </accessibility>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="150" id="y3Z-Yd-Q5L"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <state key="normal" title="Masuk Nanti">
                             <color key="titleColor" red="0.70196078429999997" green="0.0" blue="0.1058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -44,13 +44,17 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="wbS-mS-BxV" firstAttribute="leading" secondItem="QVL-co-cka" secondAttribute="trailing" constant="26" id="6Zi-hs-NQy"/>
-                    <constraint firstAttribute="trailing" secondItem="wbS-mS-BxV" secondAttribute="trailing" constant="44" id="CaA-Oc-rrQ"/>
-                    <constraint firstItem="wbS-mS-BxV" firstAttribute="top" secondItem="UPb-lC-Mc1" secondAttribute="top" constant="1" id="Kph-8V-fSk"/>
-                    <constraint firstItem="QVL-co-cka" firstAttribute="top" secondItem="UPb-lC-Mc1" secondAttribute="top" constant="1" id="N2s-cR-ach"/>
-                    <constraint firstAttribute="bottom" secondItem="wbS-mS-BxV" secondAttribute="bottom" constant="2" id="PPV-Ol-Inm"/>
-                    <constraint firstItem="QVL-co-cka" firstAttribute="leading" secondItem="UPb-lC-Mc1" secondAttribute="leading" constant="44" id="vo0-51-JMy"/>
-                    <constraint firstAttribute="bottom" secondItem="QVL-co-cka" secondAttribute="bottom" constant="2" id="xTs-YA-cQP"/>
+                    <constraint firstItem="wbS-mS-BxV" firstAttribute="leading" secondItem="v09-qx-KUS" secondAttribute="trailing" constant="8" id="0Wq-h0-a6T"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="wbS-mS-BxV" secondAttribute="trailing" constant="26" id="8yO-bG-ab8"/>
+                    <constraint firstItem="QVL-co-cka" firstAttribute="top" secondItem="wbS-mS-BxV" secondAttribute="top" id="Dvy-J5-v8J"/>
+                    <constraint firstItem="v09-qx-KUS" firstAttribute="centerY" secondItem="wbS-mS-BxV" secondAttribute="centerY" id="IZX-Ob-Pqb"/>
+                    <constraint firstItem="QVL-co-cka" firstAttribute="top" secondItem="UPb-lC-Mc1" secondAttribute="topMargin" constant="-37.5" id="Kiy-FJ-SYy"/>
+                    <constraint firstItem="QVL-co-cka" firstAttribute="baseline" secondItem="wbS-mS-BxV" secondAttribute="firstBaseline" id="N5N-cJ-mdB"/>
+                    <constraint firstItem="v09-qx-KUS" firstAttribute="leading" secondItem="QVL-co-cka" secondAttribute="trailing" constant="9" id="TWc-Wx-ggz"/>
+                    <constraint firstItem="v09-qx-KUS" firstAttribute="centerX" secondItem="UPb-lC-Mc1" secondAttribute="centerX" id="UyS-Qr-1QL"/>
+                    <constraint firstItem="QVL-co-cka" firstAttribute="leading" secondItem="UPb-lC-Mc1" secondAttribute="leadingMargin" constant="26" id="l94-Ik-cr2"/>
+                    <constraint firstItem="QVL-co-cka" firstAttribute="centerY" secondItem="UPb-lC-Mc1" secondAttribute="centerY" id="shp-hv-ero"/>
+                    <constraint firstItem="v09-qx-KUS" firstAttribute="top" secondItem="UPb-lC-Mc1" secondAttribute="topMargin" constant="-32.5" id="xRQ-mR-df4"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
