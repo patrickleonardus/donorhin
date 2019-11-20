@@ -11,7 +11,7 @@ import UIKit
 struct Profile {
     var profileName : String?
     var profileEmail : String?
-    var profileGender : String?
+    var profileGender : Int?
     var profileBirthday : Date?
     var profileBloodType : String?
     var profileLastDonor : Date?
@@ -37,7 +37,7 @@ class ProfileDataFetcher {
         guard
         let email : String = ud.string(forKey: "email"),
         let name : String = ud.string(forKey: "name"),
-        let gender : String = ud.string(forKey: "gender"),
+        let gender : Int = ud.integer(forKey: "gender"),
         let birthdate : Date = ud.object(forKey: "birthday") as? Date,
         let bloodType : String = ud.string(forKey: "blood_type"),
         let lastDonor : Date = ud.object(forKey: "last_donor") as? Date else {fatalError()}
