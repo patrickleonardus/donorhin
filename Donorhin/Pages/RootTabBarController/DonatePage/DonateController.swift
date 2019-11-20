@@ -28,6 +28,7 @@ class DonateController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+   self.showSpinner(onView: self.view)
     self.tableview.delegate = self
     self.tableview.dataSource = self
     self.tableview.register(UINib(nibName: "DonateTableViewCell", bundle: nil), forCellReuseIdentifier: self.cellReuseIdentifier)
@@ -54,6 +55,7 @@ class DonateController: UIViewController {
           self.listRequest = results
           self.checkCountListData()
           self.tableview.reloadData()
+          self.removeSpinner()
         }
       }
     }
