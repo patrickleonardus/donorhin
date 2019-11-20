@@ -115,42 +115,15 @@ class FormController: UIViewController{
     
     //MARK: - Save to cloud kit
     
-//    func saveData(patientName : CKRecordValue, patientHospital: CKRecordValue, patientBloodType: CKRecordValue, patientDueDate: CKRecordValue, patientBloodAmount: CKRecordValue, patientEmergency: CKRecordValue){
-//
-//        let record = CKRecord(recordType: "Request")
-//        record["date_need"] = patientDueDate
-//        record["patient_blood_type"] = patientBloodType
-//        record["isEmergency"] = patientEmergency
-//        record["UTD_patient"] = patientHospital
-//        record["amount"] = patientBloodAmount
-//        record["patient_name"] = patientName
-//
-//
-//        let database = CKContainer.default().publicCloudDatabase
-//
-//        database.save(record) { (record, error) in
-//            if error != nil {
-//                print("Error while saving data to CloudKit. ",error!.localizedDescription as Any)
-//            }
-//            else {
-//                print("Successfully saved data to CloudKit")
-//            }
-//        }
-//
-//    }
-    
-    func saveData(patientName : String, patientHospital: String, patientBloodType: String, patientDueDate: String, patientBloodAmount: String, patientEmergency: String){
+    func saveData(patientName : String, patientHospital: String, patientBloodType: String, patientDueDate: Date, patientBloodAmount: Int64, patientEmergency: Int64){
         
         let record = CKRecord(recordType: "Request")
-//        record["date_need"] = patientDueDate
-//        record["patient_blood_type"] = patientBloodType
-//        record["isEmergency"] = patientEmergency
-//        record["UTD_patient"] = CKRecord.ID(recordName: patientHospital)
-//        record["amount"] = patientBloodAmount
-//        record["patient_name"] = patientName
-//        record.setValue(, forKey: "date_need")
+        record.setValue(patientDueDate, forKey: "date_need")
+        record.setValue(patientBloodType, forKey: "patient_blood_type")
+        record.setValue(patientEmergency, forKey: "isEmergency")
         record.setValue(CKRecord.Reference(recordID: CKRecord.ID(recordName: patientHospital), action: .none), forKey: "UTD_patient")
-        
+        record.setValue(patientBloodAmount, forKey: "amount")
+        record.setValue(patientName, forKey: "patient_name")
         
         let database = CKContainer.default().publicCloudDatabase
         
@@ -188,13 +161,28 @@ class FormController: UIViewController{
         
         else if agreementSwitch.isOn {
             
+            // casting blood amount
+            let patientBloodAmountCast : Int64 = Int64(patientBloodAmount!)!
+            
+            // casting isEmergency
+            let patientEmergencyCast : Int64 = Int64(patientEmergency)!
+            
+            // casting date to timestamp
+            let dateFromatter = DateFormatter()
+            dateFromatter.dateFormat = "dd MMMM yyyy"
+            let patientDueDateCast = dateFromatter.date(from: patientDueDate!)
+            
             self.dismiss(animated: true) {
                 self.viewValidationDelegate?.didRequestData()
-//                self.saveData(patientName: self.patientName! as CKRecordValue, patientHospital: self.patientHospital! as CKRecordValue, patientBloodType: self.patientBloodType! as CKRecordValue, patientDueDate: self.patientDueDate! as CKRecordValue, patientBloodAmount: self.patientBloodAmount! as CKRecordValue, patientEmergency: self.patientEmergency as CKRecordValue)
-                
+                self.saveData(
+                    patientName: self.patientName!,
+                    patientHospital: self.patientHospital!,
+                    patientBloodType: self.patientBloodType!,
+                    patientDueDate: patientDueDateCast!,
+                    patientBloodAmount: patientBloodAmountCast,
+                    patientEmergency: patientEmergencyCast)
             }
         }
-        
     }
     
     @objc func closeKeyboard(){

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class HospitalController: UIViewController {
     
@@ -25,17 +26,17 @@ class HospitalController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        HospitalList().getHospitalList { (hospitalList) in
-            self.hospitalList = hospitalList
-        }
-
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        
+        loadData()
+//        setupTableView()
         setupSearchBar()
         setupUI()
         
     }
     
     func setupUI(){
-        tableView.tableFooterView = UIView()
         viewValidation.alpha = 0
     }
     
@@ -47,6 +48,30 @@ class HospitalController: UIViewController {
         searchController.searchBar.placeholder = "Ketik nama UTD"
         searchController.searchBar.isHidden = false
         searchController.obscuresBackgroundDuringPresentation = false
+    }
+    
+    func setupTableView(){
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        loadData()
+    }
+    
+    private func loadData(){
+        
+        HospitalList().getHospitalList { (hospitalList) in
+            self.hospitalList = hospitalList
+            print(hospitalList)
+        }
+        
+        DispatchQueue.main.async {
+            
+            HospitalList().getHospitalList { (hospitalList) in
+                self.hospitalList = hospitalList
+                self.tableView.reloadData()
+            }
+            
+            
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
