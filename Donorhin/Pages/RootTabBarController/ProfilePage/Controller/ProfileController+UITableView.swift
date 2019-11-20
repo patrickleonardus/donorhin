@@ -56,6 +56,7 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
         let dateFormatter = DateFormatter()
         
         var user = Profile()
+        var date: Date? = Date()
         
 //        guard let data = profileData?[0] else {fatalError()}
         
@@ -78,12 +79,12 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
         
             if indexPath.row == 0 {
                 cell?.imageCell.image = UIImage(named: "gender_profile")
-                cell?.textCell.text = "\(user.profileGender)"
+                cell?.textCell.text = "\(user.profileGender ?? 1)"
             }
             
             else if indexPath.row == 1 {
                 cell?.imageCell.image = UIImage(named: "birthday_profile")
-//                cell?.textCell.text = dateFormatter.string(from: user.profileBirthday!)
+                cell?.textCell.text = dateFormatter.string(from: user.profileBirthday ?? date!)
             }
             
             else if indexPath.row == 2 {
@@ -93,7 +94,7 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
             
             else if indexPath.row == 3 {
                 cell?.imageCell.image = UIImage(named: "lastdonor_profile")
-//                cell?.textCell.text = dateFormatter.string(from: user.profileLastDonor!)
+                cell?.textCell.text = dateFormatter.string(from: user.profileLastDonor ?? date!)
             }
             
             return cell!

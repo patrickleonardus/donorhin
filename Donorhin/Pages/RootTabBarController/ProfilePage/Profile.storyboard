@@ -133,6 +133,9 @@
                                                     <state key="normal" title="Button">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <segue destination="YC9-Fe-mAj" kind="show" id="HEX-c9-8ey"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -169,6 +172,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ey-y5-Z0z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-691.304347826087" y="146.65178571428569"/>
+        </scene>
+        <!--Authentication-->
+        <scene sceneID="hSQ-YL-Xos">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Authentication" id="YC9-Fe-mAj" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="d5h-V7-k00"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tna-zc-V2Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="160" y="124"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AMc-Pa-3lh">
