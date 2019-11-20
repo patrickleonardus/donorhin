@@ -21,7 +21,7 @@ enum TextFieldType {
     case defaultTextField
 }
 
-enum Gender {
+enum Gender:Int {
     case female
     case male
 }
