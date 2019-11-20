@@ -26,11 +26,8 @@ class HospitalController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        
         loadData()
-//        setupTableView()
+        setupTableView()
         setupSearchBar()
         setupUI()
         
