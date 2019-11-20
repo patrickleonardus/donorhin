@@ -9,11 +9,9 @@
 import UIKit
     
 class ProfileController: UIViewController {
-    
     @IBOutlet weak var tableView: UITableView!
     
     var user : Profile?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -50,12 +48,6 @@ class ProfileController: UIViewController {
         UserDefaults.standard.removePersistentDomain(forName: domain)
         UserDefaults.standard.synchronize()
     print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
-        
-        let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "authStoryboard") as! LoginController
-        
-        self.navigationController?.pushViewController(vc, animated: true)
-        
         performSegue(withIdentifier: "goToLogin", sender: self)
     }
     
