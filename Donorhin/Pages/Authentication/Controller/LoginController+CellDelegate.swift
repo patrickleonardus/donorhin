@@ -12,7 +12,7 @@ extension LoginController : FormCellDelegate, CustomProtocol{
     func dismissed() {
         var vc : UIViewController?
         if #available(iOS 13.0, *) {
-            vc = storyboard!.instantiateViewController(identifier: "authStoryboard") as! LoginController
+            vc = storyboard!.instantiateViewController(withIdentifier: "authStoryboard") as! LoginController
         } else {
             // Fallback on earlier versions
         }

@@ -20,11 +20,14 @@ class HospitalController: UIViewController {
     var searching = false
     
     var choosenHospital : String?
+    var choosenHospitalId : CKRecord.ID?
     
     var searchController = UISearchController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.showSpinner(onView: self.view)
         
         loadData()
         setupTableView()
@@ -48,26 +51,20 @@ class HospitalController: UIViewController {
     }
     
     func setupTableView(){
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        loadData()
+        tableView.tableFooterView = UIView()
     }
     
     private func loadData(){
         
         HospitalList().getHospitalList { (hospitalList) in
-            self.hospitalList = hospitalList
-            print(hospitalList)
-        }
-        
-        DispatchQueue.main.async {
             
-            HospitalList().getHospitalList { (hospitalList) in
+            DispatchQueue.main.async {
                 self.hospitalList = hospitalList
+                self.tableView.dataSource = self
+                self.tableView.delegate = self
                 self.tableView.reloadData()
+                self.removeSpinner()
             }
-            
-            
         }
     }
     
@@ -76,6 +73,7 @@ class HospitalController: UIViewController {
         if segue.identifier == "unwindToForm" {
             let destination = segue.destination as! FormController
             destination.patientHospital = choosenHospital
+            destination.patientHospitalId = choosenHospitalId
         }
         
     }

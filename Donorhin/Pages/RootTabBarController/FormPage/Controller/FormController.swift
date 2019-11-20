@@ -27,6 +27,7 @@ class FormController: UIViewController{
     
     var patientName: String?
     var patientHospital: String?
+    var patientHospitalId: CKRecord.ID?
     var patientBloodType: String?
     var patientDueDate: String?
     var patientBloodAmount: String?
@@ -86,7 +87,7 @@ class FormController: UIViewController{
     
     @objc func datePickerValueChanged(sender: UIDatePicker){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = DateFormatter.Style.long
+        dateFormatter.dateStyle = DateFormatter.Style.medium
         
         if let cell = detailTableView.cellForRow(at: IndexPath.init(row: 0, section: 1)) as? LongLabelAndTextCell {
             cell.secondTextField.text = dateFormatter.string(from: sender.date)
@@ -115,13 +116,13 @@ class FormController: UIViewController{
     
     //MARK: - Save to cloud kit
     
-    func saveData(patientName : String, patientHospital: String, patientBloodType: String, patientDueDate: Date, patientBloodAmount: Int64, patientEmergency: Int64){
+    func saveData(patientName : String, patientHospital: CKRecord.ID, patientBloodType: String, patientDueDate: Date, patientBloodAmount: Int64, patientEmergency: Int64){
         
         let record = CKRecord(recordType: "Request")
         record.setValue(patientDueDate, forKey: "date_need")
         record.setValue(patientBloodType, forKey: "patient_blood_type")
         record.setValue(patientEmergency, forKey: "isEmergency")
-        record.setValue(CKRecord.Reference(recordID: CKRecord.ID(recordName: patientHospital), action: .none), forKey: "UTD_patient")
+        record.setValue(CKRecord.Reference(recordID: patientHospital, action: .none), forKey: "UTD_patient")
         record.setValue(patientBloodAmount, forKey: "amount")
         record.setValue(patientName, forKey: "patient_name")
         
@@ -169,16 +170,21 @@ class FormController: UIViewController{
             
             // casting date to timestamp
             let dateFromatter = DateFormatter()
-            dateFromatter.dateFormat = "dd MMMM yyyy"
-            let patientDueDateCast = dateFromatter.date(from: patientDueDate!)
+            var patientDueDateCast = Date()
+            if dateFromatter.dateFormat == "MM dd, yyyy" {
+                patientDueDateCast = dateFromatter.date(from: patientDueDate!)!
+            }
+            else if dateFromatter.dateFormat == "dd MM yyyy" {
+                patientDueDateCast = dateFromatter.date(from: patientDueDate!)!
+            }
             
             self.dismiss(animated: true) {
                 self.viewValidationDelegate?.didRequestData()
                 self.saveData(
                     patientName: self.patientName!,
-                    patientHospital: self.patientHospital!,
+                    patientHospital: self.patientHospitalId!,
                     patientBloodType: self.patientBloodType!,
-                    patientDueDate: patientDueDateCast!,
+                    patientDueDate: patientDueDateCast,
                     patientBloodAmount: patientBloodAmountCast,
                     patientEmergency: patientEmergencyCast)
             }

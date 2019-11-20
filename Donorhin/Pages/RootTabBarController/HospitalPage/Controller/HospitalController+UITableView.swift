@@ -56,10 +56,12 @@ extension HospitalController : UITableViewDelegate, UITableViewDataSource {
         if !searching {
             guard let data = hospitalList?[indexPath.row] else {fatalError()}
             choosenHospital = data.name
+            choosenHospitalId = data.id
         }
         else if searching {
             guard let data = hospitalListFilter?[indexPath.row] else {fatalError()}
             choosenHospital = data.name
+            choosenHospitalId = data.id
         }
         
         self.performSegue(withIdentifier: "unwindToForm", sender: self)
