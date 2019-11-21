@@ -61,6 +61,7 @@ extension SecondStepRequestViewController: DelegateUTD {
          tableViewCell?.detailTextLabel!.text = utd.name
          tableViewCell?.accessoryType = .none
          tableViewCell?.isSelected = false
+         self.buttonBersedia.isEnabled = isFilled
       }
    }
 }

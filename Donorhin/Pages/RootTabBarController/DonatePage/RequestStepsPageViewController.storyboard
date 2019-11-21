@@ -157,6 +157,7 @@
                     </view>
                     <size key="freeformSize" width="414" height="707"/>
                     <connections>
+                        <outlet property="buttonBersedia" destination="u7f-fN-xHi" id="qoA-GB-fSo"/>
                         <outlet property="tableView" destination="jsi-5Q-FQe" id="doM-hH-l0N"/>
                         <outlet property="tapRecognizer" destination="C3X-Ux-cuQ" id="ejv-Un-25E"/>
                         <segue destination="ccO-3b-T1g" kind="show" identifier="GoToUTD" id="pDz-E0-j7o"/>

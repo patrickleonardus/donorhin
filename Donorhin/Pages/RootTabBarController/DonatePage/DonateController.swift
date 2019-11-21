@@ -180,12 +180,8 @@ extension DonateController: UITableViewDelegate, UITableViewDataSource {
       if segue.identifier == "GoToStep" {
          let senderr = sender as? DonateTableViewCell
          let stepVC = segue.destination as! DonateStepsViewController
-//         stepVC.request = self.selectedData
 
-        //FIXME: Dummy data
-        self.selectedData?.currentStep = 4
         stepVC.request = self.selectedData
-        
         
          stepVC.title = senderr?.titleLabel.text
       }
