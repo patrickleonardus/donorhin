@@ -9,7 +9,6 @@
 import UIKit
 
 extension SecondStepRequestViewController : UITableViewDelegate, UITableViewDataSource {
-   
    func numberOfSections(in tableView: UITableView) -> Int {
       return 1
    }

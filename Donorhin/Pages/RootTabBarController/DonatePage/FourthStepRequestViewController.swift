@@ -8,8 +8,7 @@
 
 import UIKit
 
-class FourthStepRequestViewController: UIViewController {
-
+class FourthStepRequestViewController: DonateStepViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
   }
