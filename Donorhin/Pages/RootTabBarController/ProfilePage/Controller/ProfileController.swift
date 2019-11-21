@@ -10,6 +10,8 @@ import UIKit
     
 class ProfileController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var viewValidation: CustomMainView!
+    
     
     var user : Profile?
     override func viewDidLoad() {
@@ -35,6 +37,18 @@ class ProfileController: UIViewController {
         navigationItem.rightBarButtonItem = doneButton
     }
     
+    private func setValidation(){
+        
+        let checkLogin = UserDefaults.standard.string(forKey: "currentUser")
+        if checkLogin != nil {
+            viewValidation.alpha = 0
+        }
+        else if checkLogin == nil {
+            viewValidation.alpha = 1
+        }
+
+    }
+    
     
     //MARK: -Action
     // dissmiss modal view
@@ -47,7 +61,7 @@ class ProfileController: UIViewController {
         let domain = Bundle.main.bundleIdentifier!
         UserDefaults.standard.removePersistentDomain(forName: domain)
         UserDefaults.standard.synchronize()
-    print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
+        print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
         performSegue(withIdentifier: "goToLogin", sender: self)
     }
     

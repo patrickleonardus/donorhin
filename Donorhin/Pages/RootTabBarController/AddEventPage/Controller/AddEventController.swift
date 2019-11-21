@@ -31,7 +31,7 @@ class AddEventController: UIViewController {
     var endEvent: String?
     var nameEvent: String?
     var phoneEvent: String?
-    var userUID: CKRecord.ID?
+    var userUID: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,8 +93,11 @@ class AddEventController: UIViewController {
         }
         
         else {
+            
+            userUID = UserDefaults.standard.string(forKey: "currentUser")
+            
             let record = CKRecord(recordType: "Request")
-            record.setValue(CKRecord.Reference(recordID: userUID!, action: .none), forKey: "reference_account")
+            record.setValue(CKRecord.Reference(recordID: CKRecord.ID(recordName: userUID!), action: .none), forKey: "reference_account")
             record.setValue(titleEvent, forKey: "title")
             record.setValue(descEvent, forKey: "description")
             record.setValue(locEvent, forKey: "address")
