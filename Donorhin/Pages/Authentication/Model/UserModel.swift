@@ -10,19 +10,9 @@ import UIKit
 import CoreLocation
 import CloudKit
 
-//struct UserData {
-//    var email:String?
-//    var password:String?
-//    var name:String?
-//    var location: NSData?
-//    var bloodType: String?
-//    var birthDate: Date?
-//    var gender: Int?
-//    var donorStatus: Int?
-//    var lastDonor: Date?
-//    var isVerified: Int?
-//    var imageData: NSData?
-//}
+enum AuthenticationState {
+    case loggedin, loggedout
+}
 
 class DataFetcher {
  //   var user : UserData? = nil

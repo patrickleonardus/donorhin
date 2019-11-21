@@ -8,15 +8,31 @@
 
 import UIKit
 import CoreLocation
+import LocalAuthentication
 
 class LoginController : UIViewController {
     
     @IBOutlet weak var formTableView: UITableView!
     var navigationBarTitle : String?
     var formItems: [FormItems]?
+    var context = LAContext()
     
+    //available states
+    var state = AuthenticationState.loggedout {
+        didSet {
+            
+        }
+    }
+        
     override func viewDidLoad(){
         super.viewDidLoad()
+        if state == .loggedin {
+            let domain = Bundle.main.bundleIdentifier!
+            UserDefaults.standard.removePersistentDomain(forName: domain)
+            UserDefaults.standard.synchronize()
+            print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
+            state = .loggedout
+        }
         FormBuilder().getItemsForLogin { (formItems) in
             self.formItems = formItems
         }
@@ -74,6 +90,7 @@ class LoginController : UIViewController {
             UserDefaults.standard.set(userModel?.statusDonor, forKey: "donor_status")
             print("Data saved to user default...")
             DispatchQueue.main.async {
+                self.state = .loggedin
                 buttonCell.errorMsg.isHidden = true
                 self.navigationController?.navigationBar.isHidden = true
                 self.performSegue(withIdentifier: "goToHome", sender: self)
