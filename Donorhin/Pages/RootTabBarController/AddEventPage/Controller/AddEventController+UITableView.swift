@@ -159,6 +159,7 @@ extension AddEventController: UITableViewDelegate, UITableViewDataSource {
                 
                 if fixedImage != nil {
                     cell.imageEvent.image = fixedImage
+                    imageEvent = fixedImage
                 }
                 
                 return cell

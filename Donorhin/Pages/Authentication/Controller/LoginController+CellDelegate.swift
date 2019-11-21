@@ -8,17 +8,7 @@
 
 import UIKit
 
-extension LoginController : FormCellDelegate, CustomProtocol{
-    func dismissed() {
-        var vc : UIViewController?
-        if #available(iOS 13.0, *) {
-            vc = storyboard!.instantiateViewController(withIdentifier: "authStoryboard") as! LoginController
-        } else {
-            // Fallback on earlier versions
-        }
-        guard let navigationController = self.navigationController else {return}
-        navigationController.pushViewController(vc!, animated: true)
-    }
+extension LoginController : FormCellDelegate{
     
     func buttonDidTap() {
         print("buttonDidTap")

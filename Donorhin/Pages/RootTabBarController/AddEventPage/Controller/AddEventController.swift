@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class AddEventController: UIViewController {
     
@@ -24,11 +25,13 @@ class AddEventController: UIViewController {
     //MARK: - Initialize data jawaban user
     var titleEvent: String?
     var descEvent: String?
+    var imageEvent: UIImage?
     var locEvent: String?
     var startEvent: String?
     var endEvent: String?
     var nameEvent: String?
     var phoneEvent: String?
+    var userUID: CKRecord.ID?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,20 +83,40 @@ class AddEventController: UIViewController {
     @objc private func keyboardWillHide(notification: NSNotification){
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
+    
     //MARK: - Action
     
     @objc func shareAction(){
         
         if !checkboxValidation {
-            let alert = UIAlertController(title: "Formulir Belum Lengkap", message: "Harap mencentang kotak untuk memberikan persetujuan", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            self.present(alert,animated: true)
+            errorAlert(title: "Formulir Belum Lengkap", message: "Harap mencentang kotak untuk memberikan persetujuan")
         }
         
         else {
-           dismiss(animated: true, completion: nil)
+            let record = CKRecord(recordType: "Request")
+            record.setValue(CKRecord.Reference(recordID: userUID!, action: .none), forKey: "reference_account")
+            record.setValue(titleEvent, forKey: "title")
+            record.setValue(descEvent, forKey: "description")
+            record.setValue(locEvent, forKey: "address")
+            record.setValue(imageEvent, forKey: "image")
+            record.setValue(startEvent, forKey: "start_time")
+            record.setValue(endEvent, forKey: "end_time")
+            record.setValue(nameEvent, forKey: "contact_name")
+            record.setValue(phoneEvent, forKey: "contact_phone")
+            
+            let database = CKContainer.default().publicCloudDatabase
+            
+            database.save(record) { (resutls, error) in
+                if error != nil {
+                    print("Error while saving to CloudKit [AddEventController.swift]\n", error!.localizedDescription)
+                    self.errorAlert(title: "Terjadi Kesalahan", message: "Tidak dapat memposting acara, mohon periksa kembali bagian yang sudah anda isi dan coba kembali dalam beberapa saat")
+                }
+                else {
+                    print("Successfully saved data to CloudKit")
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
         }
-        
     }
     
     @objc func cancelAction(){
@@ -190,5 +213,13 @@ class AddEventController: UIViewController {
         else {
             shareBarButton?.isEnabled = false
         }
+    }
+    
+    //MARK: - show alert
+    
+    func errorAlert(title: String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert,animated: true)
     }
 }

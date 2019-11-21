@@ -130,7 +130,9 @@ class FormController: UIViewController{
         
         database.save(record) { (record, error) in
             if error != nil {
-                print("Error while saving data to CloudKit. ",error!.localizedDescription as Any)
+                print("Error while saving data to CloudKit [FormController.swift].\n",error!.localizedDescription as Any)
+                
+                self.errorAlert(title: "Terjadi Kesalahan", message: "Tidak dapat melakukan request darah, mohon periksa kembali bagian yang sudah anda isi dan coba kembali dalam beberapa saat")
             }
             else {
                 print("Successfully saved data to CloudKit")
@@ -154,10 +156,7 @@ class FormController: UIViewController{
     @objc func submitAction(){
         
         if !agreementSwitch.isOn {
-            let alert = UIAlertController(title: "Peringatan", message: "Anda harus mengajukan surat permintaan darah ke PMI sebelum melakukan pencarian darah", preferredStyle: .alert)
-            let submit = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(submit)
-            self.present(alert,animated: true)
+            errorAlert(title: "Peringatan", message: "Anda harus mengajukan surat permintaan darah ke PMI sebelum melakukan pencarian darah")
         }
         
         else if agreementSwitch.isOn {
@@ -193,6 +192,12 @@ class FormController: UIViewController{
     
     @objc func closeKeyboard(){
         view.endEditing(true)
+    }
+    
+    func errorAlert(title: String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert,animated: true)
     }
     
     @IBAction func unwindFromSearch(segue: UIStoryboardSegue){
