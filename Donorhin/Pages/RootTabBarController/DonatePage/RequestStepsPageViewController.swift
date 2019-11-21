@@ -7,15 +7,17 @@
 //
 
 import UIKit
-protocol MovingDelegate {
-   /**
-    What this protocol do: Gimana biar step view nya bisa pindah2waktu di pencet button/ whatever it is.
-    */
-   func moveTo(step:Int)
+
+//MARK: Change View Protocol
+protocol StepViewChangingDelegate {
+  func changeShowedView(toStep: Int)
 }
 
+//MARK: Class
 class RequestStepsPageViewController: UIPageViewController {
+  
   var step: Int!
+  
   lazy var vcList: [DonateStepViewController] = {
     let sb = UIStoryboard(name: "RequestStepsPageViewController", bundle: nil)
     switch self.step {
@@ -41,4 +43,19 @@ class RequestStepsPageViewController: UIPageViewController {
       
     }
   }
+}
+
+//MARK:- StepViewChangingDelegate Application
+extension RequestStepsPageViewController : StepViewChangingDelegate{
+  func changeShowedView(toStep: Int) {
+    self.step =  toStep
+    
+    let sb = UIStoryboard(name: "RequestStepsPageViewController", bundle: nil)
+    let viewControllers = [sb.instantiateViewController(withIdentifier: "langkah\(toStep)") as! DonateStepViewController]
+    
+    self.setViewControllers(viewControllers, direction: .forward, animated: true, completion: nil)
+    
+  }
+  
+  
 }

@@ -11,7 +11,7 @@
         <!--Request Steps Page View Controller-->
         <scene sceneID="z5f-Wq-dcN">
             <objects>
-                <pageViewController storyboardIdentifier="requestStepsPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="k1A-a8-ZaC" customClass="RequestStepsPageViewController" customModule="Donorhin" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController storyboardIdentifier="requestStepsPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="k1A-a8-ZaC" customClass="RequestStepsPageViewController" customModule="Donorhin" customModuleProvider="target" sceneMemberID="viewController">
                     <size key="freeformSize" width="414" height="707"/>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z8K-T0-Uj8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -181,7 +181,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Ketik nama UTD" id="S2Q-dh-idA">
-                            <rect key="frame" x="0.0" y="0.0" width="228" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
