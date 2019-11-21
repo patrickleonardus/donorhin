@@ -8,7 +8,8 @@
 
 import UIKit
 
-extension LoginController : FormCellDelegate {
+extension LoginController : FormCellDelegate{
+    
     func buttonDidTap() {
         print("buttonDidTap")
         guard let emailCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FormTableViewCell else {return}

@@ -47,10 +47,6 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="4aN-zS-Wxz" id="fGa-Th-CrS"/>
-                                    <outlet property="delegate" destination="4aN-zS-Wxz" id="TPc-2Z-1Zc"/>
-                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d68-3n-kbi">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>

@@ -27,6 +27,7 @@ class FormController: UIViewController{
     
     var patientName: String?
     var patientHospital: String?
+    var patientHospitalId: CKRecord.ID?
     var patientBloodType: String?
     var patientDueDate: String?
     var patientBloodAmount: String?
@@ -86,7 +87,7 @@ class FormController: UIViewController{
     
     @objc func datePickerValueChanged(sender: UIDatePicker){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = DateFormatter.Style.long
+        dateFormatter.dateStyle = DateFormatter.Style.medium
         
         if let cell = detailTableView.cellForRow(at: IndexPath.init(row: 0, section: 1)) as? LongLabelAndTextCell {
             cell.secondTextField.text = dateFormatter.string(from: sender.date)
@@ -115,48 +116,23 @@ class FormController: UIViewController{
     
     //MARK: - Save to cloud kit
     
-//    func saveData(patientName : CKRecordValue, patientHospital: CKRecordValue, patientBloodType: CKRecordValue, patientDueDate: CKRecordValue, patientBloodAmount: CKRecordValue, patientEmergency: CKRecordValue){
-//
-//        let record = CKRecord(recordType: "Request")
-//        record["date_need"] = patientDueDate
-//        record["patient_blood_type"] = patientBloodType
-//        record["isEmergency"] = patientEmergency
-//        record["UTD_patient"] = patientHospital
-//        record["amount"] = patientBloodAmount
-//        record["patient_name"] = patientName
-//
-//
-//        let database = CKContainer.default().publicCloudDatabase
-//
-//        database.save(record) { (record, error) in
-//            if error != nil {
-//                print("Error while saving data to CloudKit. ",error!.localizedDescription as Any)
-//            }
-//            else {
-//                print("Successfully saved data to CloudKit")
-//            }
-//        }
-//
-//    }
-    
-    func saveData(patientName : String, patientHospital: String, patientBloodType: String, patientDueDate: String, patientBloodAmount: String, patientEmergency: String){
+    func saveData(patientName : String, patientHospital: CKRecord.ID, patientBloodType: String, patientDueDate: Date, patientBloodAmount: Int64, patientEmergency: Int64){
         
         let record = CKRecord(recordType: "Request")
-//        record["date_need"] = patientDueDate
-//        record["patient_blood_type"] = patientBloodType
-//        record["isEmergency"] = patientEmergency
-//        record["UTD_patient"] = CKRecord.ID(recordName: patientHospital)
-//        record["amount"] = patientBloodAmount
-//        record["patient_name"] = patientName
-//        record.setValue(, forKey: "date_need")
-        record.setValue(CKRecord.Reference(recordID: CKRecord.ID(recordName: patientHospital), action: .none), forKey: "UTD_patient")
-        
+        record.setValue(patientDueDate, forKey: "date_need")
+        record.setValue(patientBloodType, forKey: "patient_blood_type")
+        record.setValue(patientEmergency, forKey: "isEmergency")
+        record.setValue(CKRecord.Reference(recordID: patientHospital, action: .none), forKey: "UTD_patient")
+        record.setValue(patientBloodAmount, forKey: "amount")
+        record.setValue(patientName, forKey: "patient_name")
         
         let database = CKContainer.default().publicCloudDatabase
         
         database.save(record) { (record, error) in
             if error != nil {
-                print("Error while saving data to CloudKit. ",error!.localizedDescription as Any)
+                print("Error while saving data to CloudKit [FormController.swift].\n",error!.localizedDescription as Any)
+                
+                self.errorAlert(title: "Terjadi Kesalahan", message: "Tidak dapat melakukan request darah, mohon periksa kembali bagian yang sudah anda isi dan coba kembali dalam beberapa saat")
             }
             else {
                 print("Successfully saved data to CloudKit")
@@ -180,25 +156,48 @@ class FormController: UIViewController{
     @objc func submitAction(){
         
         if !agreementSwitch.isOn {
-            let alert = UIAlertController(title: "Peringatan", message: "Anda harus mengajukan surat permintaan darah ke PMI sebelum melakukan pencarian darah", preferredStyle: .alert)
-            let submit = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(submit)
-            self.present(alert,animated: true)
+            errorAlert(title: "Peringatan", message: "Anda harus mengajukan surat permintaan darah ke PMI sebelum melakukan pencarian darah")
         }
         
         else if agreementSwitch.isOn {
             
+            // casting blood amount
+            let patientBloodAmountCast : Int64 = Int64(patientBloodAmount!)!
+            
+            // casting isEmergency
+            let patientEmergencyCast : Int64 = Int64(patientEmergency)!
+            
+            // casting date to timestamp
+            let dateFromatter = DateFormatter()
+            var patientDueDateCast = Date()
+            if dateFromatter.dateFormat == "MM dd, yyyy" {
+                patientDueDateCast = dateFromatter.date(from: patientDueDate!)!
+            }
+            else if dateFromatter.dateFormat == "dd MM yyyy" {
+                patientDueDateCast = dateFromatter.date(from: patientDueDate!)!
+            }
+            
             self.dismiss(animated: true) {
                 self.viewValidationDelegate?.didRequestData()
-//                self.saveData(patientName: self.patientName! as CKRecordValue, patientHospital: self.patientHospital! as CKRecordValue, patientBloodType: self.patientBloodType! as CKRecordValue, patientDueDate: self.patientDueDate! as CKRecordValue, patientBloodAmount: self.patientBloodAmount! as CKRecordValue, patientEmergency: self.patientEmergency as CKRecordValue)
-                
+                self.saveData(
+                    patientName: self.patientName!,
+                    patientHospital: self.patientHospitalId!,
+                    patientBloodType: self.patientBloodType!,
+                    patientDueDate: patientDueDateCast,
+                    patientBloodAmount: patientBloodAmountCast,
+                    patientEmergency: patientEmergencyCast)
             }
         }
-        
     }
     
     @objc func closeKeyboard(){
         view.endEditing(true)
+    }
+    
+    func errorAlert(title: String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert,animated: true)
     }
     
     @IBAction func unwindFromSearch(segue: UIStoryboardSegue){

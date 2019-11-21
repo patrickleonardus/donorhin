@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class HospitalController: UIViewController {
     
@@ -19,23 +20,23 @@ class HospitalController: UIViewController {
     var searching = false
     
     var choosenHospital : String?
+    var choosenHospitalId : CKRecord.ID?
     
     var searchController = UISearchController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        HospitalList().getHospitalList { (hospitalList) in
-            self.hospitalList = hospitalList
-        }
-
+        self.showSpinner(onView: self.view)
+        
+        loadData()
+        setupTableView()
         setupSearchBar()
         setupUI()
         
     }
     
     func setupUI(){
-        tableView.tableFooterView = UIView()
         viewValidation.alpha = 0
     }
     
@@ -49,11 +50,30 @@ class HospitalController: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = false
     }
     
+    func setupTableView(){
+        tableView.tableFooterView = UIView()
+    }
+    
+    private func loadData(){
+        
+        HospitalList().getHospitalList { (hospitalList) in
+            
+            DispatchQueue.main.async {
+                self.hospitalList = hospitalList
+                self.tableView.dataSource = self
+                self.tableView.delegate = self
+                self.tableView.reloadData()
+                self.removeSpinner()
+            }
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "unwindToForm" {
             let destination = segue.destination as! FormController
             destination.patientHospital = choosenHospital
+            destination.patientHospitalId = choosenHospitalId
         }
         
     }

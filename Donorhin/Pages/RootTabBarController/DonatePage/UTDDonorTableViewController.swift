@@ -14,7 +14,6 @@ protocol DelegateUTD {
 
 class UTDDonorTableViewController: UITableViewController {
   var delegate: DelegateUTD?
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     

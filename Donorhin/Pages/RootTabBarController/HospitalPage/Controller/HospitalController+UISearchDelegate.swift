@@ -36,6 +36,7 @@ extension HospitalController : UISearchBarDelegate, UISearchControllerDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         hospitalListFilter = hospitalList
+        viewValidation.alpha = 0
         tableView.reloadData()
     }
     

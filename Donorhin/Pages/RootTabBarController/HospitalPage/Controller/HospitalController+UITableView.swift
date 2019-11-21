@@ -15,8 +15,12 @@ extension HospitalController : UITableViewDelegate, UITableViewDataSource {
         var numberOfRows = 0
         
         if !searching {
-            guard let rows = hospitalList?.count else {fatalError()}
-            numberOfRows = rows
+            
+            if hospitalList != nil{
+                guard let rows = self.hospitalList?.count else {fatalError()}
+                numberOfRows = rows
+            }
+            
         }
         else if searching{
             guard let rows = hospitalListFilter?.count else {fatalError()}
@@ -52,10 +56,12 @@ extension HospitalController : UITableViewDelegate, UITableViewDataSource {
         if !searching {
             guard let data = hospitalList?[indexPath.row] else {fatalError()}
             choosenHospital = data.name
+            choosenHospitalId = data.id
         }
         else if searching {
             guard let data = hospitalListFilter?[indexPath.row] else {fatalError()}
             choosenHospital = data.name
+            choosenHospitalId = data.id
         }
         
         self.performSegue(withIdentifier: "unwindToForm", sender: self)

@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import CloudKit
 
 struct HospitalModel {
-    let id: String?
+    let id: CKRecord.ID?
     let name: String?
     let alamat: String?
 }
@@ -17,13 +18,29 @@ struct HospitalModel {
 struct HospitalList {
     
     func getHospitalList(completionHandler: @escaping (([HospitalModel]) -> ())){
-        completionHandler(
-            [HospitalModel(id: "1", name: "PMI TANGSEL", alamat: "PMI TANGSEL"),
-            HospitalModel(id: "2", name: "PMI JAKBAR", alamat: "PMI JAKBAR"),
-            HospitalModel(id: "3", name: "PMI JAKSEL", alamat: "PMI JAKSEL"),
-            HospitalModel(id: "4", name: "PMI JAKUT", alamat: "PMI JAKUT"),
-            HospitalModel(id: "5", name: "PMI JAKTIM", alamat: "PMI JAKTIM")]
-        )
+        DispatchQueue.main.async {
+            var hospitalModel : [HospitalModel] = []
+            
+            let query = CKQuery(recordType: "UTD", predicate: NSPredicate(value: true))
+            Helper.getAllData(query) { (results) in
+                if let results = results {
+                    for result in results {
+                        let model = result.convertUTDToUTDModel() //kalo nil == error
+                        if let model = model {
+                            hospitalModel.append(HospitalModel(id: model.idUTD,
+                                                               name: model.name,
+                                                               alamat: model.address))
+                        } else {
+                            print ("nil value of result")
+                        }
+                    }
+                }
+                completionHandler(hospitalModel)
+            }
+            
+           
+        }
     }
+    
     
 }

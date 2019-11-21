@@ -8,8 +8,7 @@
 
 import UIKit
 
-class FifthStepRequestViewController: UIViewController {
-
+class FifthStepRequestViewController: DonateStepViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
   }
