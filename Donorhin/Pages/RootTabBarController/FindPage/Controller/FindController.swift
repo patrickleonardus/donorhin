@@ -31,14 +31,6 @@ class FindController: UIViewController {
         
         initTableView()
         
-        DummyData().getCurrentBloodRequest { (bloodRequest) in
-            self.bloodRequestCurrent = bloodRequest
-        }
-        
-        DummyData().getHistoryBloodRequest { (bloodRequests) in
-            self.bloodRequestHistory = bloodRequests
-        }
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -46,15 +38,45 @@ class FindController: UIViewController {
         setupNavBarToLarge()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        loadData()
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         profileImageNavBar(show: false)
+    }
+    
+    private func loadData(){
+        DummyData().getBloodRequest { (bloodRequest) in
+            
+            DispatchQueue.main.async {
+                self.bloodRequestCurrent = bloodRequest
+                self.tableView.dataSource = self
+                self.tableView.delegate = self
+                self.tableView.reloadData()
+                
+                if self.bloodRequestCurrent != nil {
+                    if self.bloodRequestCurrent!.count == 0 {
+                        self.viewNoData.alpha = 1
+                    }
+                    else {
+                        self.viewNoData.alpha = 0
+                    }
+                }
+                else {
+                    self.viewNoData.alpha = 1
+                }
+                
+                print(self.bloodRequestCurrent as Any)
+                
+            }
+            
+        }
     }
     
     
     //MARK: - initialize variable
     private func initTableView(){
-        tableView.delegate = self
-        tableView.dataSource = self
         tableView.register(UINib(nibName: "FindBloodCustomCell", bundle: nil), forCellReuseIdentifier: cellId)
         tableView.tableFooterView = UIView()
     }

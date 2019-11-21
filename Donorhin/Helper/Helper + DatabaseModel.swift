@@ -62,5 +62,6 @@ struct RequestModel {
    let amount: Int
    let dateNeed: Date
    let isEmergency: Bool
-   let idUTDPatient: CKRecord.Reference
+   let idUTDPatient: CKRecord.ID
+    let idUser: CKRecord.ID
 }

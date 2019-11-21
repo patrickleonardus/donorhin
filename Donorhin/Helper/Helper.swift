@@ -37,7 +37,7 @@ struct Helper {
   
   static func saveData(_ ckRecord: CKRecord, completion: @escaping isSuccessSave) {
     self.database.save(ckRecord) { (res, err) in
-      if let res = res {
+        if res != nil {
         completion(true)
       }
       else {

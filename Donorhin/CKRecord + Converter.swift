@@ -47,8 +47,9 @@ extension CKRecord {
          let amount = self.value(forKey: "amount") as? Int ?? nil,
          let dateNeed = self.value(forKey: "date_need") as? Date ?? nil,
          let isEmergency = self.value(forKey: "isEmergency") as? Int ?? nil,
-         let idUTDPatient = self.value(forKey: "UTD_patient") as? Reference ?? nil
-         else {
+         let idUTDPatient = self.value(forKey: "UTD_patient") as? Reference ?? nil,
+        let idUser = self.value(forKey: "userId") as? Reference ?? nil
+    else {
             return nil
       }
       
@@ -58,7 +59,8 @@ extension CKRecord {
                                       amount: amount,
                                       dateNeed: dateNeed,
                                       isEmergency: (isEmergency==1),
-                                       idUTDPatient: idUTDPatient)
+                                       idUTDPatient: idUTDPatient.recordID,
+                                       idUser: idUser.recordID)
       
       return requestModel
    }

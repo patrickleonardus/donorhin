@@ -50,7 +50,7 @@ extension FindController: UITableViewDataSource {
             guard let data = bloodRequestCurrent?[indexPath.row] else {fatalError()}
             cell?.title.text = data.name
             cell?.address.text = data.address
-            cell?.date.text = data.date
+            cell?.date.text = "\(String(describing: data.date!))"
             cell?.status.text = data.status
             
             cell?.buttonCallOutlet.setTitle("Call PMI Pendonor", for: .normal)
@@ -65,7 +65,7 @@ extension FindController: UITableViewDataSource {
             
             cell?.title.text = data.name
             cell?.address.text = data.address
-            cell?.date.text = data.date
+            cell?.date.text = "\(String(describing: data.date!))"
             cell?.status.text = data.status
             
             cell?.buttonCallOutlet.isHidden = true

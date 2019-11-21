@@ -24,9 +24,9 @@ class TrackerController : UIViewController {
         super.view.backgroundColor = Colors.backgroundView
         loadTableView()
         setNavBarTitle()
-        DummyData().getCurrentBloodRequest { (bloodRequest) in
-            self.bloodRequest = bloodRequest
-        }
+//        DummyData().getCurrentBloodRequest { (bloodRequest) in
+//            self.bloodRequest = bloodRequest
+//        }
         
         PendonorDummyData().getCurrentPendonor { (donorData) in
             self.donorData = donorData

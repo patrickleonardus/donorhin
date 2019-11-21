@@ -121,6 +121,7 @@ class FormController: UIViewController{
         let userId = UserDefaults.standard.string(forKey: "currentUser")
         
         let record = CKRecord(recordType: "Request")
+//        record.setValue(CKRecord.Reference(recordID: CKRecord.ID(recordName: userId!), action: .none), forKey: "userId")
         record.setValue(userId, forKey: "userId")
         record.setValue(patientDueDate, forKey: "date_need")
         record.setValue(patientBloodType, forKey: "patient_blood_type")
