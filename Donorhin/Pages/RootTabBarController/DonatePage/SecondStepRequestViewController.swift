@@ -32,22 +32,48 @@ class SecondStepRequestViewController: DonateStepViewController{
   
   //MARK: Setting up alerts
   private func setupAlertAccept() {
-    let alert = UIAlertController(title: "Apakah Anda yakin bersedia?", message: "Resipien akan langsung diinformasikan mengenai keputusan kesediaan Anda", preferredStyle: .alert)
-    let accept = UIAlertAction(title: "Ya", style: .default) { (_) in
-      
+    let alert = UIAlertController(
+      title: "Apakah Anda yakin bersedia?",
+      message: "Resipien akan langsung diinformasikan mengenai keputusan kesediaan Anda",
+      preferredStyle: .alert
+    )
+    
+    let accept = UIAlertAction(
+      title: "Ya",
+      style: .default) {(action) in
+        self.pageViewDelegate?.changeShowedView(toStep: 3)
     }
-    let cancel = UIAlertAction(title: "Tidak", style: .cancel, handler: nil)
+    
+    let cancel = UIAlertAction(
+      title: "Tidak",
+      style: .cancel,
+      handler: nil
+    )
+    
     alert.addAction(accept)
     alert.addAction(cancel)
     self.present(alert, animated: true, completion: nil)
   }
   
   private func setupAlertDecline() {
-    let alert = UIAlertController(title: "Apakah Anda yakin ingin menolak?", message: "Resipien akan langsung diinformasikan mengenai keputusan kesediaan Anda", preferredStyle: .alert)
-    let accept = UIAlertAction(title: "Ya", style: .default) { (_) in
-      
+    let alert = UIAlertController(
+      title: "Apakah Anda yakin ingin menolak?",
+      message: "Resipien akan langsung diinformasikan mengenai keputusan kesediaan Anda",
+      preferredStyle: .alert
+    )
+    
+    let accept = UIAlertAction(
+    title: "Ya",
+    style: .default) { (_) in
+      //TODO: Tolak request
     }
-    let cancel = UIAlertAction(title: "Tidak", style: .cancel, handler: nil)
+    
+    let cancel = UIAlertAction(
+      title: "Tidak",
+      style: .cancel,
+      handler: nil
+    )
+    
     alert.addAction(accept)
     alert.addAction(cancel)
     self.present(alert, animated: true, completion: nil)

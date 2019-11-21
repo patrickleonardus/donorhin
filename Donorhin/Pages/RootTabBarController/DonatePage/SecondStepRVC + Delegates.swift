@@ -8,6 +8,7 @@
 
 import UIKit
 
+//MARK:- Setting up table view
 extension SecondStepRequestViewController : UITableViewDelegate, UITableViewDataSource {
    func numberOfSections(in tableView: UITableView) -> Int {
       return 1
@@ -41,7 +42,7 @@ extension SecondStepRequestViewController : UITableViewDelegate, UITableViewData
       }
    }
    
-   //MARK:- Prepare segue
+   //MARK:- Show UTD page
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       if segue.identifier == "GoToUTD" {
          let utdVC = segue.destination as! UTDDonorTableViewController
@@ -52,6 +53,7 @@ extension SecondStepRequestViewController : UITableViewDelegate, UITableViewData
    
 }
 
+//MARK:- Extension DelegateUTD
 extension SecondStepRequestViewController: DelegateUTD {
    func seletedUTD(utd: DonatePMIModel?) {
       if let utd = utd {

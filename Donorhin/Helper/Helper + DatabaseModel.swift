@@ -15,7 +15,7 @@ struct TrackerModel {
    let idPendonor: CKRecord.Reference
    let idRequest: CKRecord.Reference
    let idUTDPendonor: CKRecord.Reference
-   let currentStep: Int
+   var currentStep: Int
    
 }
 

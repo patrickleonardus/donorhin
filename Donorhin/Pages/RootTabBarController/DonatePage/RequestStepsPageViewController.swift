@@ -15,6 +15,7 @@ protocol StepViewChangingDelegate {
 
 //MARK: Class
 class RequestStepsPageViewController: UIPageViewController {
+  var viewDidChangedDelegate: StepIndicatorDelegate?
   
   var step: Int!
   
@@ -32,15 +33,18 @@ class RequestStepsPageViewController: UIPageViewController {
       case 5:
       return [sb.instantiateViewController(withIdentifier: "langkah5") as! DonateStepViewController]
     default:
-      return [sb.instantiateViewController(withIdentifier: "langkah1") as! DonateStepViewController]
+      return [sb.instantiateViewController(withIdentifier: "langkah5") as! DonateStepViewController]
     }
   }()
       
   override func viewDidLoad() {
     super.viewDidLoad()
+    print (self.vcList.first)
     if let firstViewController = self.vcList.first {
+      if let fifthVC =  firstViewController as? FifthStepRequestViewController { //step == 5 || step == 6
+        fifthVC.step = step
+      }
       self.setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
-      
     }
   }
 }
@@ -48,13 +52,18 @@ class RequestStepsPageViewController: UIPageViewController {
 //MARK:- StepViewChangingDelegate Application
 extension RequestStepsPageViewController : StepViewChangingDelegate{
   func changeShowedView(toStep: Int) {
-    self.step =  toStep
-    
-    let sb = UIStoryboard(name: "RequestStepsPageViewController", bundle: nil)
-    let viewControllers = [sb.instantiateViewController(withIdentifier: "langkah\(toStep)") as! DonateStepViewController]
-    
-    self.setViewControllers(viewControllers, direction: .forward, animated: true, completion: nil)
-    
+    if toStep < 6 {
+      self.step =  toStep
+      self.viewDidChangedDelegate?.updateStepIndicator(toStep: toStep)
+      let sb = UIStoryboard(name: "RequestStepsPageViewController", bundle: nil)
+      let viewControllers = [sb.instantiateViewController(withIdentifier: "langkah\(toStep)") as! DonateStepViewController]
+      self.setViewControllers(viewControllers, direction: .forward, animated: true, completion: nil)
+      viewControllers.first?.pageViewDelegate = self
+    }
+    else {
+      self.step =  toStep
+      self.viewDidChangedDelegate?.updateStepIndicator(toStep: toStep)
+    }
   }
   
   

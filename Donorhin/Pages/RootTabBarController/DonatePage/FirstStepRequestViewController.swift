@@ -32,8 +32,7 @@ class FirstStepRequestViewController: DonateStepViewController {
       
       let acceptAction = UIAlertAction(title: "Ya", style: .default) { (action) in
          //TODO:- Save to database: Tambah step di database sama 1.
-        self.stepIndicatorDelegate?.updateStepIndicator(toStep: 2)
-        self.changeStepViewDelegate?.changeShowedView(toStep: 2)
+        self.pageViewDelegate?.changeShowedView(toStep: 2)
       }
       let cancelAction = UIAlertAction(title: "Tidak", style: .cancel, handler: nil)
       alert.addAction(acceptAction)

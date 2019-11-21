@@ -21,22 +21,37 @@ class FourthStepRequestViewController: DonateStepViewController {
   }
   
   private func setupAlertAccept() {
-    let alert = UIAlertController(title: "Apakah Anda sudah selesai mendonor?", message: "Resipien akan langsung diinformasikan mengenai keputusan kesediaan Anda", preferredStyle: .alert)
-    let accept = UIAlertAction(title: "Ya", style: .default) { (_) in
-      
+    let alert = UIAlertController(
+      title: "Apakah Anda sudah selesai mendonor?",
+      message: "Resipien akan langsung diinformasikan mengenai keputusan kesediaan Anda",
+      preferredStyle: .alert
+    )
+    
+    let accept = UIAlertAction( title: "Ya", style: .default) { (action) in
+      //TODO:  Write code to accept here
+      self.pageViewDelegate?.changeShowedView(toStep: 5)
     }
+    
     let cancel = UIAlertAction(title: "Tidak", style: .cancel, handler: nil)
+    
     alert.addAction(accept)
     alert.addAction(cancel)
     self.present(alert, animated: true, completion: nil)
   }
   
   private func setupAlertDecline() {
-    let alert = UIAlertController(title: "Apakah Anda yakin ingin menolak?", message: "Resipien akan langsung diinformasikan mengenai keputusan kesediaan Anda", preferredStyle: .alert)
-    let accept = UIAlertAction(title: "Ya", style: .default) { (_) in
-      
+    let alert = UIAlertController(
+      title: "Apakah Anda yakin ingin menolak?",
+      message: "Resipien akan langsung diinformasikan mengenai keputusan kesediaan Anda",
+      preferredStyle: .alert
+    )
+    
+    let accept = UIAlertAction(title: "Ya", style: .default) { (action) in
+      //TODO: write code to decline here
     }
+    
     let cancel = UIAlertAction(title: "Tidak", style: .cancel, handler: nil)
+    
     alert.addAction(accept)
     alert.addAction(cancel)
     self.present(alert, animated: true, completion: nil)

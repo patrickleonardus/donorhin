@@ -399,6 +399,9 @@
                                 <state key="normal" title="Oke">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="okeTapped:" destination="YlB-KO-L9k" eventType="touchUpInside" id="sdm-af-Vtm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -412,6 +415,9 @@
                         <viewLayoutGuide key="safeArea" id="w1g-Ma-vfO"/>
                     </view>
                     <size key="freeformSize" width="414" height="707"/>
+                    <connections>
+                        <outlet property="okButton" destination="EDp-Oh-I5b" id="LGG-mF-4Cx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rHT-xM-ohW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

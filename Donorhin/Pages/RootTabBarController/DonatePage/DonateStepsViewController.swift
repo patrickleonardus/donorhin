@@ -18,11 +18,7 @@ protocol StepIndicatorDelegate {
 
 //MARK: Class
 class DonateStepsViewController: UIViewController {
-  var request:TrackerModel? {
-    didSet {
-      print ("request:",request)
-    }
-  }
+  var request:TrackerModel?
   
   @IBOutlet weak var stepIndicatorView: StepIndicatorView!
   var stepIndicator: Int = 0 {
@@ -33,6 +29,7 @@ class DonateStepsViewController: UIViewController {
    
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     if let request = self.request {
       self.stepIndicator = request.currentStep - 1
     }
@@ -41,17 +38,20 @@ class DonateStepsViewController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "GoToSteps" {
       let destinationPVC = segue.destination as! RequestStepsPageViewController
-      destinationPVC.step = self.stepIndicator + 1
+      destinationPVC.step = self.request?.currentStep
       //MARK: Setup delegate to change view
-      destinationPVC.vcList.first?.stepIndicatorDelegate = self
-      destinationPVC.vcList.first?.changeStepViewDelegate = destinationPVC
+      destinationPVC.viewDidChangedDelegate =  self
+      destinationPVC.vcList.first?.pageViewDelegate = destinationPVC
     }
   }
 }
 //MARK:- Step  Indicator Application
 extension DonateStepsViewController:  StepIndicatorDelegate {
    func updateStepIndicator(toStep: Int) {
-      self.stepIndicator = toStep - 1 
+      //TODO : Update data ke database disini
+    print (self.request?.currentStep,toStep)
+      self.stepIndicator = toStep - 1
+      self.request?.currentStep = toStep
    }
 }
 
