@@ -8,19 +8,19 @@
 
 import UIKit
 
+//MARK: StepIndicator protocol
+protocol StepIndicatorDelegate {
+   /**
+    What this protocol do: Gimana biar step indicatornya ngupdate waktu di pencet button/ whatever it is.
+    */
+   func updateStepIndicator(toStep:Int)
+}
+
+//MARK: Class
 class DonateStepsViewController: UIViewController {
   var request:TrackerModel?
-   
+  
   @IBOutlet weak var stepIndicatorView: StepIndicatorView!
-   
-//  lazy var stepIndicator: Int = {
-//    if let request = self.request {
-//      self.stepIndicatorView.currentStep = request.currentStep - 1
-//      return request.currentStep - 1
-//    }
-//    return 1
-//    print ("request is nil")
-//  }()
   var stepIndicator: Int = 0 {
     didSet {
       self.stepIndicatorView.currentStep = stepIndicator
@@ -29,25 +29,29 @@ class DonateStepsViewController: UIViewController {
    
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     if let request = self.request {
-      print ("foo")
       self.stepIndicator = request.currentStep - 1
     }
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "GoToSteps" {
-      let destinationVC = segue.destination as! RequestStepsPageViewController
-      destinationVC.step = self.stepIndicator + 1
-      destinationVC.vcList.first?.movingDelegate = self
+      let destinationPVC = segue.destination as! RequestStepsPageViewController
+      destinationPVC.step = self.request?.currentStep
+      //MARK: Setup delegate to change view
+      destinationPVC.viewDidChangedDelegate =  self
+      destinationPVC.vcList.first?.pageViewDelegate = destinationPVC
     }
   }
 }
-//MARK:- Moving delegate
-extension DonateStepsViewController:  MovingDelegate {
-   func moveTo(step: Int) {
-      self.stepIndicator = step
-      print (self.stepIndicator)
+//MARK:- Step  Indicator Application
+extension DonateStepsViewController:  StepIndicatorDelegate {
+   func updateStepIndicator(toStep: Int) {
+      //TODO : Update data ke database disini
+    print (self.request?.currentStep,toStep)
+      self.stepIndicator = toStep - 1
+      self.request?.currentStep = toStep
    }
 }
 

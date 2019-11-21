@@ -378,8 +378,8 @@
 		0925FB3B237403F700874DAA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E6BA6E48237B23040017A330 /* DonateStepsViewController.swift */,
 				E6FBB1B023718FDF00B1B4DE /* DonateController.swift */,
+				E6BA6E48237B23040017A330 /* DonateStepsViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

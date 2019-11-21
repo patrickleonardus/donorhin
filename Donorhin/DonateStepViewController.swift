@@ -10,7 +10,7 @@ import UIKit
 
 class DonateStepViewController: UIViewController{
    
-   var movingDelegate: MovingDelegate?
+   var pageViewDelegate :  StepViewChangingDelegate?
    /**
      Biar gampang pindah2 halaman
     */

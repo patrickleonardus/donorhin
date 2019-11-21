@@ -24,6 +24,7 @@ class ProfileController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setValidation()
         navigationController?.navigationBar.isHidden = false
     }
     
@@ -48,6 +49,8 @@ class ProfileController: UIViewController {
         }
 
     }
+    
+    
     
     
     //MARK: -Action

@@ -33,4 +33,14 @@ class CustomButtonRounded: UIButton {
     self.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
    self.titleLabel?.textColor = .white
   }
+  
+  override var isEnabled: Bool {
+    didSet {
+      if isEnabled == true {
+        self.backgroundColor = Colors.red
+      } else {
+        self.backgroundColor = Colors.gray_disabled
+      }
+    }
+  }
 }

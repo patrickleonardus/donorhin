@@ -9,14 +9,23 @@
 import UIKit
 
 class FifthStepRequestViewController: DonateStepViewController {
+  var step : Int?
+  @IBOutlet var okButton: CustomButtonRounded!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    if let step = step {
+      if step  > 5 {
+        self.okButton.isHidden = true
+      } else {
+        self.okButton.isHidden = false
+      }
+    }
   }
   
-  private func setupAlertAccept() {
-    let alert = UIAlertController(title: "Terima kasih", message: "Anda sudah menyelamatkan nyawa seseorang hari ini", preferredStyle: .alert)
-    let accept = UIAlertAction(title: "Ya", style: .default,handler: nil)
-    alert.addAction(accept)
-    self.present(alert, animated: true, completion: nil)
+  @IBAction func okeTapped(_ sender: Any) {
+    self.pageViewDelegate?.changeShowedView(toStep: 6)
+    self.okButton.isHidden =  true
   }
+  
 }
