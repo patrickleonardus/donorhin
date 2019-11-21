@@ -25,7 +25,7 @@ extension RegisterDetailController : FormCellDelegate{
           if !isExist {
             DispatchQueue.main.async {
               let record = CKRecord(recordType: "Account")
-              record.setValue(bloodTypeCell.formTextField.text!, forKey: "bloodType")
+              record.setValue(bloodTypeCell.formTextField.text!, forKey: "blood_type")
               record.setValue(0, forKey: "donor_status")
               record.setValue(self.userCredentials["email"], forKey: "email")
               record.setValue(self.userCredentials["password"], forKey: "password")

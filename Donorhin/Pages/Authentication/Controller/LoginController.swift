@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import LocalAuthentication
+import CloudKit
 
 class LoginController : UIViewController, CLLocationManagerDelegate {
     
@@ -17,8 +18,7 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
     var formItems: [FormItems]?
     var context = LAContext()
     let locationManager = CLLocationManager()
-    var currentLocation : CLLocation?
-    
+    //var currentLocation : CLLocation? = nil
     //available states
     var state = AuthenticationState.loggedout {
         didSet {
@@ -96,7 +96,6 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
                 UserDefaults.standard.set(userModel?.isVerified, forKey: "isVerified")
                 UserDefaults.standard.set(userModel?.lastDonor, forKey: "last_donor")
                 UserDefaults.standard.set(userModel?.statusDonor, forKey: "donor_status")
-                UserDefaults.standard.set(self.currentLocation, forKey: "location")
                 print("Data saved to user default...")
                 self.state = .loggedin
                 buttonCell.errorMsg.isHidden = true
@@ -121,8 +120,32 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { fatalError() }
         print("locations = \(locValue.latitude) \(locValue.longitude)")
-        let location = locations.last! as CLLocation
-        self.currentLocation = location
+        let location = locations.last!
+        let recordName = UserDefaults.standard.value(forKey: "currentUser") as! String
+        let recordId = CKRecord.ID(recordName: recordName)
+        let record : CKRecord = CKRecord(recordType: "Account", recordID: recordId)
+        record.setObject(location, forKey: "location")
+        //masih failed
+        Helper.saveData(record) { (isSuccessfullySaved) in
+            if isSuccessfullySaved != false{
+                print("success")
+            }
+            else {
+                print("failed")
+            }
+        }
+        
+        // saving your CLLocation object
+        let locationData = NSKeyedArchiver.archivedData(withRootObject: location)
+        UserDefaults.standard.set(locationData, forKey: "location")
+
+        // loading it
+        if let loadedData = UserDefaults.standard.data(forKey: "locationData") {
+            if let loadedLocation = NSKeyedUnarchiver.unarchiveObject(with: loadedData) as? CLLocation {
+                print(loadedLocation.coordinate.latitude)
+                print(loadedLocation.coordinate.longitude)
+            }
+        }
     }
 }
 

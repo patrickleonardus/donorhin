@@ -18,7 +18,7 @@ class RegisterDetailController : UIViewController{
     let database = CKContainer.default().publicCloudDatabase
     let datePicker = UIDatePicker()
     let gender = ["Pria","Wanita"]
-    let bloodType = ["A-","B-","O-","AB-"]
+    let bloodType = ["A-","A+","B-","B+","O-","O+","AB-","AB+"]
   
 
   
