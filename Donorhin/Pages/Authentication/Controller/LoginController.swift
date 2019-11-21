@@ -67,6 +67,8 @@ class LoginController : UIViewController {
     }
     
     func validationCredential(email: String, password: String) {
+        guard let emailCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FormTableViewCell else {return}
+        guard let passCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? FormTableViewCell else {return}
         guard let buttonCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? ErrorMessageTableViewCell else {return}
         
         DataFetcher().getUserDataByEmail(email: email, password: password){(userModel) in
@@ -74,6 +76,8 @@ class LoginController : UIViewController {
                 DispatchQueue.main.async {
                     print("*Email or password not valid")
                     buttonCell.errorMsg.isHidden = false
+                    emailCell.shake()
+                    passCell.shake()
                     buttonCell.errorMsg.text = "*Email atau password tidak valid"
                 }
                 return
@@ -96,5 +100,15 @@ class LoginController : UIViewController {
                 self.performSegue(withIdentifier: "goToHome", sender: self)
             }
         }
+    }
+}
+
+extension UIView {
+    func shake() {
+        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+        animation.duration = 0.6
+        animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
+        layer.add(animation, forKey: "shake")
     }
 }
