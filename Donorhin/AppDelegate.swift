@@ -28,7 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     print("First launch, setting UserDefault.")
                     UserDefaults.standard.set(true, forKey: "launchedBefore")
                 }
-        
         self.window?.tintColor = Colors.red
         
         return true

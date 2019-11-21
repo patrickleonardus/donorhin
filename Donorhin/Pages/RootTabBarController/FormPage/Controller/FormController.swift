@@ -118,7 +118,10 @@ class FormController: UIViewController{
     
     func saveData(patientName : String, patientHospital: CKRecord.ID, patientBloodType: String, patientDueDate: Date, patientBloodAmount: Int64, patientEmergency: Int64){
         
+        let userId = UserDefaults.standard.string(forKey: "currentUser")
+        
         let record = CKRecord(recordType: "Request")
+        record.setValue(userId, forKey: "userId")
         record.setValue(patientDueDate, forKey: "date_need")
         record.setValue(patientBloodType, forKey: "patient_blood_type")
         record.setValue(patientEmergency, forKey: "isEmergency")
