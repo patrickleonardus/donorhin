@@ -18,6 +18,7 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
     var context = LAContext()
     let locationManager = CLLocationManager()
     var currentLocation : CLLocation?
+    
     //available states
     var state = AuthenticationState.loggedout {
         didSet {
@@ -27,7 +28,7 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
         
     override func viewDidLoad(){
         super.viewDidLoad()
-        if state == .loggedin {
+        if state == .loggedin || UserDefaults.standard.value(forKey: "currentUser") != nil{
             let domain = Bundle.main.bundleIdentifier!
             UserDefaults.standard.removePersistentDomain(forName: domain)
             UserDefaults.standard.synchronize()
