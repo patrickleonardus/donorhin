@@ -1,36 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="u7f-IC-nip" customClass="AgreementTableViewCell" customModule="Donorhin" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="73" id="u7f-IC-nip" customClass="AgreementTableViewCell" customModule="Donorhin" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="73"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u7f-IC-nip" id="XwM-3P-XkO">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="73"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saya membaca dan menyetujui syarat dan kondisi persyaratan yang ada pada aplikasi" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bln-pA-Qhk">
-                        <rect key="frame" x="74" y="-3" width="309" height="66"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saya membaca dan menyetujui syarat dan kondisi persyaratan yang ada pada aplikasi" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bln-pA-Qhk">
+                        <rect key="frame" x="62" y="7" width="334" height="34"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rYT-Ph-iW3" customClass="CheckBox" customModule="Donorhin" customModuleProvider="target">
-                        <rect key="frame" x="34" y="16" width="28" height="29"/>
+                        <rect key="frame" x="33" y="7" width="20" height="20"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="7eW-QN-dY6"/>
+                            <constraint firstAttribute="width" constant="20" id="KQm-rI-rtc"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isChecked" value="NO"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="checkedBorderColor">
+                                <color key="value" red="0.70196078429999997" green="0.0" blue="0.1058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <action selector="checkValueCheckBox:" destination="u7f-IC-nip" eventType="valueChanged" id="ahD-dQ-mp4"/>
                         </connections>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5e-GO-Qmf">
-                        <rect key="frame" x="290" y="31" width="74" height="15"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5e-GO-Qmf">
+                        <rect key="frame" x="62" y="41" width="319" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="RsT-HO-wwu"/>
+                        </constraints>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                         <state key="normal" title="Lihat Privasi"/>
                         <connections>
@@ -39,24 +52,20 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="bln-pA-Qhk" firstAttribute="leading" secondItem="rYT-Ph-iW3" secondAttribute="trailing" constant="12" id="73W-Na-SOJ"/>
-                    <constraint firstItem="bln-pA-Qhk" firstAttribute="leading" secondItem="rYT-Ph-iW3" secondAttribute="trailing" constant="12" id="7Hv-uX-LRu"/>
-                    <constraint firstItem="bln-pA-Qhk" firstAttribute="top" secondItem="XwM-3P-XkO" secondAttribute="top" constant="-3" id="7QE-d8-asT"/>
-                    <constraint firstAttribute="bottom" secondItem="bln-pA-Qhk" secondAttribute="bottom" constant="-3" id="9jc-7b-qBT"/>
-                    <constraint firstAttribute="bottom" secondItem="rYT-Ph-iW3" secondAttribute="bottom" constant="15" id="Fp3-mZ-R9g"/>
-                    <constraint firstAttribute="trailing" secondItem="W5e-GO-Qmf" secondAttribute="trailing" constant="50" id="HrE-CW-zNL"/>
-                    <constraint firstItem="rYT-Ph-iW3" firstAttribute="top" secondItem="XwM-3P-XkO" secondAttribute="top" constant="16" id="Lwk-yR-AQX"/>
-                    <constraint firstItem="W5e-GO-Qmf" firstAttribute="leading" secondItem="rYT-Ph-iW3" secondAttribute="trailing" constant="228" id="MKJ-io-Ss3"/>
-                    <constraint firstItem="W5e-GO-Qmf" firstAttribute="top" secondItem="XwM-3P-XkO" secondAttribute="top" constant="31" id="QVN-VV-nal"/>
-                    <constraint firstItem="rYT-Ph-iW3" firstAttribute="leading" secondItem="XwM-3P-XkO" secondAttribute="leading" constant="34" id="sb6-uI-8th"/>
-                    <constraint firstAttribute="bottom" secondItem="W5e-GO-Qmf" secondAttribute="bottom" constant="14" id="uqx-KT-q0o"/>
-                    <constraint firstAttribute="trailing" secondItem="bln-pA-Qhk" secondAttribute="trailing" constant="31" id="xba-Ed-yVv"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="W5e-GO-Qmf" secondAttribute="trailing" constant="18" id="Jd4-mI-5AR"/>
+                    <constraint firstItem="bln-pA-Qhk" firstAttribute="leading" secondItem="rYT-Ph-iW3" secondAttribute="trailing" constant="9" id="Yy5-7b-Yac"/>
+                    <constraint firstItem="W5e-GO-Qmf" firstAttribute="leading" secondItem="bln-pA-Qhk" secondAttribute="leading" id="apg-Ki-I7u"/>
+                    <constraint firstItem="rYT-Ph-iW3" firstAttribute="leading" secondItem="XwM-3P-XkO" secondAttribute="leadingMargin" constant="18" id="bhM-wc-lDU"/>
+                    <constraint firstAttribute="trailing" secondItem="bln-pA-Qhk" secondAttribute="trailing" constant="18" id="dbb-Nv-HpT"/>
+                    <constraint firstItem="rYT-Ph-iW3" firstAttribute="top" secondItem="bln-pA-Qhk" secondAttribute="top" id="ifF-0U-tzu"/>
+                    <constraint firstItem="W5e-GO-Qmf" firstAttribute="top" secondItem="bln-pA-Qhk" secondAttribute="bottom" id="jWE-7N-lUX"/>
+                    <constraint firstItem="bln-pA-Qhk" firstAttribute="top" secondItem="XwM-3P-XkO" secondAttribute="top" constant="7" id="swJ-jI-Zik"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="checkBoxAgreement" destination="rYT-Ph-iW3" id="brU-fu-pZu"/>
             </connections>
-            <point key="canvasLocation" x="113.04347826086958" y="113.83928571428571"/>
+            <point key="canvasLocation" x="142.5" y="81.866197183098592"/>
         </tableViewCell>
     </objects>
 </document>
