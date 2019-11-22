@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 //MARK: StepIndicator protocol
 protocol StepIndicatorDelegate {
@@ -26,12 +27,13 @@ class DonateStepsViewController: UIViewController {
       self.stepIndicatorView.currentStep = stepIndicator
     }
   }
-   
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     if let request = self.request {
       self.stepIndicator = request.currentStep - 1
+
     }
   }
 
@@ -39,7 +41,7 @@ class DonateStepsViewController: UIViewController {
     if segue.identifier == "GoToSteps" {
       let destinationPVC = segue.destination as! RequestStepsPageViewController
       destinationPVC.step = self.request?.currentStep
-      //MARK: Setup delegate to change view
+      //MARK:- Setup delegate to change view
       destinationPVC.viewDidChangedDelegate =  self
       destinationPVC.vcList.first?.pageViewDelegate = destinationPVC
     }
@@ -49,9 +51,32 @@ class DonateStepsViewController: UIViewController {
 extension DonateStepsViewController:  StepIndicatorDelegate {
    func updateStepIndicator(toStep: Int) {
       //TODO : Update data ke database disini
-    print (self.request?.currentStep,toStep)
+      updateDatabase(toStep: toStep)
       self.stepIndicator = toStep - 1
       self.request?.currentStep = toStep
    }
+  
+  func updateDatabase(toStep: Int){
+    let recordID = self.request?.idTracker
+    if let recordID = recordID {
+      Helper.database.fetch(withRecordID: recordID) { (record, error) in
+        if let record = record, error == nil {
+          //update your record here
+          record.setValue(toStep, forKey: "current_step")
+          Helper.database.save(record) { (_, error) in
+            if error != nil {
+              print (error!.localizedDescription)
+            }
+          }
+        }
+        else {
+          print ("failed to update value with record id \(recordID)")
+        }
+      }
+    }
+    else {
+      print("record id \(String(describing: recordID)) not found")
+    }
+  }
 }
 
