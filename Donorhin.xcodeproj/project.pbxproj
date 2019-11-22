@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0904EEF62387EC510024788C /* AgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0904EEF52387EC510024788C /* AgreementViewController.swift */; };
 		0925FB382373F13000874DAA /* CustomMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925FB372373F13000874DAA /* CustomMainView.swift */; };
 		0925FB4023740E1C00874DAA /* DonateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925FB3E23740E1C00874DAA /* DonateTableViewCell.swift */; };
 		0925FB4123740E1C00874DAA /* DonateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0925FB3F23740E1C00874DAA /* DonateTableViewCell.xib */; };
@@ -176,6 +177,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0904EEF52387EC510024788C /* AgreementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementViewController.swift; sourceTree = "<group>"; };
 		0925FB372373F13000874DAA /* CustomMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainView.swift; sourceTree = "<group>"; };
 		0925FB3E23740E1C00874DAA /* DonateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateTableViewCell.swift; sourceTree = "<group>"; };
 		0925FB3F23740E1C00874DAA /* DonateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DonateTableViewCell.xib; sourceTree = "<group>"; };
@@ -610,6 +612,7 @@
 				B0B16897237D658B001DCE3C /* RegisterDetailController.swift */,
 				B0B16899237D65B8001DCE3C /* RegisterDetailController+UITableView.swift */,
 				B0B1689F237D660A001DCE3C /* RegisterDetailController+CellDelegate.swift */,
+				0904EEF52387EC510024788C /* AgreementViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1340,6 +1343,7 @@
 				E6BA6E4B237B23040017A330 /* DonatePMIModel.swift in Sources */,
 				E6D0747D237BCDCD00CF5531 /* DiscoverController+UIScrollView.swift in Sources */,
 				AB73578E2374310600A6099B /* Profile.swift in Sources */,
+				0904EEF62387EC510024788C /* AgreementViewController.swift in Sources */,
 				E6FBB1B323718FF500B1B4DE /* FindController.swift in Sources */,
 				B0B16898237D658B001DCE3C /* RegisterDetailController.swift in Sources */,
 				E607AAF82385148C00214A90 /* HospitalController+UITableView.swift in Sources */,

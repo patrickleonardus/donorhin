@@ -49,15 +49,19 @@ extension RegisterDetailController : UITableViewDataSource {
             cell?.iconImageView.image = UIImage(named: data.img!)
             if indexPath.section == 1 {
               cell?.formTextField.inputView = self.generalPicker
+              cell?.formTextField.inputAccessoryView = self.pickerToolBar
             }
           if indexPath.section == 2 {
             cell?.formTextField.inputView = self.datePicker
+            cell?.formTextField.inputAccessoryView = self.pickerToolBar
           }
           if indexPath.section == 3 {
             cell?.formTextField.inputView = self.generalPicker
+            cell?.formTextField.inputAccessoryView = self.pickerToolBar
           }
           if indexPath.section == 4 {
             cell?.formTextField.inputView = self.datePicker
+            cell?.formTextField.inputAccessoryView = self.pickerToolBar
           }
             cell?.backgroundColor = UIColor.white
             cell?.layer.cornerRadius = 10

@@ -27,9 +27,7 @@ extension FindController: UITableViewDataSource {
         var totalData = 0
         
         if findBloodSegmentedControl.selectedSegmentIndex == 0 {
-            if let data = bloodRequestCurrent?.count {
-                totalData = data
-            }
+            totalData = 1
         }
         
         else {
@@ -48,10 +46,11 @@ extension FindController: UITableViewDataSource {
         if findBloodSegmentedControl.selectedSegmentIndex == 0 {
             
             guard let data = bloodRequestCurrent?[indexPath.row] else {fatalError()}
+            
             cell?.title.text = data.name
             cell?.address.text = data.address
-            cell?.date.text = "\(String(describing: data.date!))"
-            cell?.status.text = data.status
+            cell?.date.text = shrinkDate(data.date!)
+            cell?.status.text = Steps.checkStep(data.status!)
             cell?.buttonCallOutlet.phoneNumber = data.phoneNumber
             
             cell?.buttonCallOutlet.setTitle("Call PMI Pendonor", for: .normal)
@@ -66,8 +65,8 @@ extension FindController: UITableViewDataSource {
             
             cell?.title.text = data.name
             cell?.address.text = data.address
-            cell?.date.text = "\(String(describing: data.date!))"
-            cell?.status.text = data.status
+            cell?.date.text = shrinkDate(data.date!)
+            cell?.status.text = Steps.checkStep(data.status!)
             
             cell?.buttonCallOutlet.isHidden = true
         }
