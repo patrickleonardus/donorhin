@@ -119,14 +119,24 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
         let record : CKRecord = CKRecord(recordType: "Account", recordID: recordId)
         record.setObject(location, forKey: "location")
         //masih failed
-        Helper.saveData(record) { (isSuccessfullySaved) in
-            if isSuccessfullySaved != false{
-                print("success")
+        
+        Helper.database.save(record) { (res,error) in
+            if error != nil{
+                print(error)
             }
             else {
-                print("failed")
+                print("success")
             }
         }
+        
+//        Helper.saveData(record) { (isSuccessfullySaved) in
+//            if isSuccessfullySaved != false{
+//                print("success")
+//            }
+//            else {
+//                print("failed")
+//            }
+//        }
         
         // saving your CLLocation object
         let locationData = NSKeyedArchiver.archivedData(withRootObject: location)
