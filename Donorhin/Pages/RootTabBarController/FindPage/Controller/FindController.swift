@@ -47,6 +47,9 @@ class FindController: UIViewController {
     }
     
     private func loadData(){
+        
+        self.showSpinner(onView: self.view)
+        
         DummyData().getBloodRequest { (bloodRequest) in
             
             DispatchQueue.main.async {
@@ -54,6 +57,7 @@ class FindController: UIViewController {
                 self.tableView.dataSource = self
                 self.tableView.delegate = self
                 self.tableView.reloadData()
+                self.removeSpinner()
                 
                 if self.bloodRequestCurrent != nil {
                     if self.bloodRequestCurrent!.count == 0 {
@@ -66,8 +70,6 @@ class FindController: UIViewController {
                 else {
                     self.viewNoData.alpha = 1
                 }
-                
-                print(self.bloodRequestCurrent as Any)
                 
             }
             
@@ -151,8 +153,9 @@ class FindController: UIViewController {
     
     //MARK: Action
     
-    @objc func callButton(){
-        callNumber(phoneNumber: "081317019898")
+    @objc func callButton(sender: UIButton){
+        let button = (sender as! CallNumberButton)
+        callNumber(phoneNumber: button.phoneNumber!)
     }
     
     @objc private func profileButton(){

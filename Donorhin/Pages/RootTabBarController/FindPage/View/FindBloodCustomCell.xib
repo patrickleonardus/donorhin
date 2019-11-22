@@ -43,7 +43,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xh9-A5-3s3">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xh9-A5-3s3" customClass="CallNumberButton" customModule="Donorhin" customModuleProvider="target">
                         <rect key="frame" x="20" y="125" width="280" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="xdP-6t-bSz"/>
