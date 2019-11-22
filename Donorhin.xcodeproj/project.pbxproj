@@ -64,12 +64,11 @@
 		CC25B5192383DEE800C381D7 /* String + Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC25B5182383DEE800C381D7 /* String + Converter.swift */; };
 		CC3C7054238526A000F7A47F /* UIViewController + Loading Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3C7053238526A000F7A47F /* UIViewController + Loading Page.swift */; };
 		CC654064238193B8005BE635 /* UIDatePicker + Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC654063238193B8005BE635 /* UIDatePicker + Styling.swift */; };
-		CC6DF683237C2AFF00F99B5D /* RequestStepsPageViewController.swift in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4F9237C205900BEFB44 /* RequestStepsPageViewController.swift */; };
 		CC6DF685237C2CB200F99B5D /* UTDDonorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DF684237C2CB100F99B5D /* UTDDonorTableViewController.swift */; };
 		CC88A08623749D16001A982E /* FindBloodCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC88A08123749D16001A982E /* FindBloodCustomCell.xib */; };
 		CC88A08823749D16001A982E /* FindBloodCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC88A08323749D16001A982E /* FindBloodCustomCell.swift */; };
+		CC89CA992387F20300434812 /* RequestStepsPageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4EA237C1FF700BEFB44 /* RequestStepsPageViewController.storyboard */; };
 		CC922ED62381633400044B24 /* SecondStepRVC + Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC922ED52381633400044B24 /* SecondStepRVC + Delegates.swift */; };
-		CCAAE4EB237C1FF700BEFB44 /* RequestStepsPageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4EA237C1FF700BEFB44 /* RequestStepsPageViewController.storyboard */; };
 		CCAAE4FD237C205900BEFB44 /* FourthStepRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAAE4F6237C205900BEFB44 /* FourthStepRequestViewController.swift */; };
 		CCAAE4FF237C205900BEFB44 /* FirstStepRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAAE4F8237C205900BEFB44 /* FirstStepRequestViewController.swift */; };
 		CCAAE500237C205900BEFB44 /* RequestStepsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAAE4F9237C205900BEFB44 /* RequestStepsPageViewController.swift */; };
@@ -1211,9 +1210,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC89CA992387F20300434812 /* RequestStepsPageViewController.storyboard in Resources */,
 				B0B168AE237ECEAC001DCE3C /* TwoButtonCell.xib in Resources */,
 				B0B168B0237ECED0001DCE3C /* AgreementViewCell.xib in Resources */,
-				CC6DF683237C2AFF00F99B5D /* RequestStepsPageViewController.swift in Resources */,
 				E607AADA2382FD3500214A90 /* DetailEvent.storyboard in Resources */,
 				B0B168AC237ECE83001DCE3C /* ButtonViewCell.xib in Resources */,
 				E6FBB1A223718D8D00B1B4DE /* Authentication.storyboard in Resources */,
@@ -1224,7 +1223,6 @@
 				CC88A08623749D16001A982E /* FindBloodCustomCell.xib in Resources */,
 				E6FBB17923718C8500B1B4DE /* LaunchScreen.storyboard in Resources */,
 				E6BA6E44237B1E4F0017A330 /* Discover.storyboard in Resources */,
-				CCAAE4EB237C1FF700BEFB44 /* RequestStepsPageViewController.storyboard in Resources */,
 				E6FBB17623718C8500B1B4DE /* Assets.xcassets in Resources */,
 				E6DDAF382375638E00D6EAD1 /* ScanFormPage.storyboard in Resources */,
 				B0FF322D23841B950001C0F5 /* ErrorMessageViewCell.xib in Resources */,
@@ -1554,7 +1552,7 @@
 				CODE_SIGN_ENTITLEMENTS = Donorhin/Donorhin.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2NJYBE4CVL;
+				DEVELOPMENT_TEAM = C5K4FW28Q2;
 				INFOPLIST_FILE = Donorhin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

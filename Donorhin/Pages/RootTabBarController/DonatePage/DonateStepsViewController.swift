@@ -58,7 +58,7 @@ extension DonateStepsViewController:  StepIndicatorDelegate {
     //TODO : Update data ke database disini
     if let recordID = self.request?.idTracker {
       let keyValue = ["current_step": toStep]
-      Helper.updateToDatabase(values: keyValue, recordID: recordID)
+      Helper.updateToDatabase(keyValuePair: keyValue, recordID: recordID)
       self.stepIndicator = toStep - 1
       self.request?.currentStep = toStep
     }
