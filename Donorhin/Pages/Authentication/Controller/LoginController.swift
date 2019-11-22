@@ -18,7 +18,7 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
     var formItems: [FormItems]?
     var context = LAContext()
     let locationManager = CLLocationManager()
-    //var currentLocation : CLLocation? = nil
+    
     //available states
     var state = AuthenticationState.loggedout {
         didSet {
@@ -28,13 +28,6 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
         
     override func viewDidLoad(){
         super.viewDidLoad()
-        if state == .loggedin || UserDefaults.standard.value(forKey: "currentUser") != nil{
-            let domain = Bundle.main.bundleIdentifier!
-            UserDefaults.standard.removePersistentDomain(forName: domain)
-            UserDefaults.standard.synchronize()
-            print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
-            state = .loggedout
-        }
         FormBuilder().getItemsForLogin { (formItems) in
             self.formItems = formItems
         }
