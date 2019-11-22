@@ -21,7 +21,7 @@ struct Steps {
     case 5:
       return "Pendonor selesai mendonor"
     default:
-      return "Pendonor ditemukan"
+      return "Pendonor selesai mendonor"
     }
   }
 }

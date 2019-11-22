@@ -18,7 +18,7 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
     var formItems: [FormItems]?
     var context = LAContext()
     let locationManager = CLLocationManager()
-    //var currentLocation : CLLocation? = nil
+    
     //available states
     var state = AuthenticationState.loggedout {
         didSet {
@@ -28,13 +28,6 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
         
     override func viewDidLoad(){
         super.viewDidLoad()
-        if state == .loggedin || UserDefaults.standard.value(forKey: "currentUser") != nil{
-            let domain = Bundle.main.bundleIdentifier!
-            UserDefaults.standard.removePersistentDomain(forName: domain)
-            UserDefaults.standard.synchronize()
-            print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
-            state = .loggedout
-        }
         FormBuilder().getItemsForLogin { (formItems) in
             self.formItems = formItems
         }
@@ -126,14 +119,24 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
         let record : CKRecord = CKRecord(recordType: "Account", recordID: recordId)
         record.setObject(location, forKey: "location")
         //masih failed
-        Helper.saveData(record) { (isSuccessfullySaved) in
-            if isSuccessfullySaved != false{
-                print("success")
+        
+        Helper.database.save(record) { (res,error) in
+            if error != nil{
+                print(error)
             }
             else {
-                print("failed")
+                print("success")
             }
         }
+        
+//        Helper.saveData(record) { (isSuccessfullySaved) in
+//            if isSuccessfullySaved != false{
+//                print("success")
+//            }
+//            else {
+//                print("failed")
+//            }
+//        }
         
         // saving your CLLocation object
         let locationData = NSKeyedArchiver.archivedData(withRootObject: location)

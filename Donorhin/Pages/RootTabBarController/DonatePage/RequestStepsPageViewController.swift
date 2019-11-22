@@ -39,7 +39,6 @@ class RequestStepsPageViewController: UIPageViewController {
       
   override func viewDidLoad() {
     super.viewDidLoad()
-    print (self.vcList.first)
     if let firstViewController = self.vcList.first {
       if let fifthVC =  firstViewController as? FifthStepRequestViewController { //step == 5 || step == 6
         fifthVC.step = step

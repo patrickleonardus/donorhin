@@ -17,16 +17,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q2L-fm-4oC">
-                                <rect key="frame" x="0.0" y="135" width="414" height="761"/>
+                                <rect key="frame" x="0.0" y="129" width="414" height="767"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Q2L-fm-4oC" firstAttribute="leading" secondItem="6pH-9n-QHr" secondAttribute="leading" id="1Qv-F3-lyF"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="Q2L-fm-4oC" secondAttribute="bottom" constant="-34" id="FE9-Ra-Qj6"/>
-                            <constraint firstItem="Q2L-fm-4oC" firstAttribute="centerX" secondItem="eBh-LW-9cb" secondAttribute="centerX" id="Imv-kF-13c"/>
-                            <constraint firstItem="Q2L-fm-4oC" firstAttribute="top" secondItem="6pH-9n-QHr" secondAttribute="top" constant="91" id="wQa-ma-kiW"/>
+                            <constraint firstItem="Q2L-fm-4oC" firstAttribute="leading" secondItem="6pH-9n-QHr" secondAttribute="leading" id="IfX-mc-MyC"/>
+                            <constraint firstAttribute="bottom" secondItem="Q2L-fm-4oC" secondAttribute="bottom" id="TPt-hi-1Vi"/>
+                            <constraint firstItem="Q2L-fm-4oC" firstAttribute="trailing" secondItem="6pH-9n-QHr" secondAttribute="trailing" id="jDu-Mu-FGe"/>
+                            <constraint firstItem="Q2L-fm-4oC" firstAttribute="top" secondItem="6pH-9n-QHr" secondAttribute="top" constant="85" id="nCD-p9-eRn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6pH-9n-QHr"/>
                     </view>
