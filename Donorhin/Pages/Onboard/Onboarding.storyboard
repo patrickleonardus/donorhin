@@ -28,7 +28,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome_onboard" translatesAutoresizingMaskIntoConstraints="NO" id="fNf-G9-xT5">
-                                        <rect key="frame" x="16" y="207.99999999999997" width="382" height="200.00000000000009"/>
+                                        <rect key="frame" x="16" y="208" width="382" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="2FX-GM-HPa"/>
                                             <constraint firstAttribute="width" constant="382" id="emf-vs-KyN"/>
@@ -302,7 +302,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_onboard" translatesAutoresizingMaskIntoConstraints="NO" id="A6U-su-NgB">
-                                                        <rect key="frame" x="60" y="30" width="40" height="40.000000000000014"/>
+                                                        <rect key="frame" x="60" y="30" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="40" id="NUi-Xv-EXi"/>
                                                             <constraint firstAttribute="height" constant="40" id="eVd-7k-ZCY"/>
@@ -432,9 +432,6 @@
                                         <state key="normal" title="Masuk Nanti">
                                             <color key="titleColor" red="0.6453691721" green="0.00067493994720000002" blue="0.098007641729999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="DRq-W1-eO5" kind="show" id="A7U-Px-qjn"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xlb-vQ-N4C" customClass="CustomButtonRounded" customModule="Donorhin" customModuleProvider="target">
                                         <rect key="frame" x="51" y="78" width="312" height="44"/>
@@ -446,9 +443,6 @@
                                         <state key="normal" title="Masuk ke Akun">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="lm8-9v-Wbb" kind="show" id="26b-4E-fhO"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -482,6 +476,10 @@
                         <outlet property="label1" destination="Tiy-qJ-X4a" id="zpn-8K-7jQ"/>
                         <outlet property="label2" destination="PXs-Dy-9Zz" id="jUz-Sb-ezy"/>
                         <outlet property="label3" destination="erv-Up-0EY" id="eOI-dQ-baA"/>
+                        <outlet property="masukNantiOutlet" destination="blY-Iw-Tye" id="CTI-TC-rtI"/>
+                        <outlet property="masukOutlet" destination="Xlb-vQ-N4C" id="DaE-GN-zei"/>
+                        <segue destination="lm8-9v-Wbb" kind="show" identifier="goToAuthentication" id="oa1-s0-hz2"/>
+                        <segue destination="DRq-W1-eO5" kind="show" identifier="goToRootTabBarController" id="9dm-4k-uV1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K70-10-YTO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

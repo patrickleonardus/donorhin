@@ -14,6 +14,9 @@ class Page4ViewController: UIViewController {
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var label2: UILabel!
     @IBOutlet weak var label3: UILabel!
+    @IBOutlet weak var masukOutlet: CustomButtonRounded!
+    @IBOutlet weak var masukNantiOutlet: UIButton!
+    
     
     
     override func viewDidLoad() {
