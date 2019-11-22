@@ -116,19 +116,20 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
         let location = locations.last!
         let recordName = UserDefaults.standard.value(forKey: "currentUser") as! String
         let recordId = CKRecord.ID(recordName: recordName)
-        let record : CKRecord = CKRecord(recordType: "Account", recordID: recordId)
-        record.setObject(location, forKey: "location")
+        
+        let package : [String:CLLocation] = ["location": location]
+        Helper.updateToDatabase(keyValuePair: package, recordID: recordId)
         //masih failed
-        
-        Helper.database.save(record) { (res,error) in
-            if error != nil{
-                print(error)
-            }
-            else {
-                print("success")
-            }
-        }
-        
+//
+//        Helper.database.save(record) { (res,error) in
+//            if error != nil{
+//                print(error)
+//            }
+//            else {
+//                print("success")
+//            }
+//        }
+//
 //        Helper.saveData(record) { (isSuccessfullySaved) in
 //            if isSuccessfullySaved != false{
 //                print("success")
