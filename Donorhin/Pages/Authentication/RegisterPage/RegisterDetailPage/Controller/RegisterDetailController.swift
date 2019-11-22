@@ -19,7 +19,7 @@ class RegisterDetailController : UIViewController{
     let datePicker = UIDatePicker()
     let gender = ["Pria","Wanita"]
     let bloodType = ["A-","A+","B-","B+","O-","O+","AB-","AB+"]
-  
+  var pickerToolBar: UIToolbar!
 
   
     override func viewDidLoad() {
@@ -27,13 +27,46 @@ class RegisterDetailController : UIViewController{
         FormBuilder().getItemsForRegisterDetail { (formItems) in
             self.formItems = formItems
         }
+        self.title = "Data Personal"
         self.generalPicker.delegate = self
         self.generalPicker.dataSource = self
         self.datePicker.datePickerMode = .date
         self.datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
+        self.datePicker.maximumDate = Date()
+        pickerToolBar = UIToolbar()
+        pickerToolBar.isTranslucent = true
+        pickerToolBar.sizeToFit()
+        pickerToolBar.tintColor = #colorLiteral(red: 0.3568627451, green: 0.7843137255, blue: 0.9803921569, alpha: 1)
+//        let cancelButton = UIBarButtonItem(title: "Batal", style: .plain, target: self, action: #selector(pickerCancelBtnPressed))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Selesai", style: .done, target: self, action: #selector(pickerDoneBtnPressed))
+        pickerToolBar.setItems([flexibleSpace, doneButton], animated: false)
         self.view.backgroundColor = Colors.backgroundView
         loadFormTable()
     }
+  
+  @objc func pickerDoneBtnPressed() {
+      self.formTableView.reloadData()
+      closePickerView()
+  }
+  
+  @objc func pickerCancelBtnPressed() {
+    self.formTableView.reloadData()
+    view.endEditing(true)
+    for textField in self.view.subviews where textField is UITextField {
+      textField.resignFirstResponder()
+    }
+    view.gestureRecognizers?.removeLast()
+  }
+  
+  func closePickerView() {
+      view.endEditing(true)
+      for textField in self.view.subviews where textField is UITextField {
+          textField.resignFirstResponder()
+      }
+      view.gestureRecognizers?.removeLast()
+  }
+  
   
   @objc func dateChanged (datePicker : UIDatePicker, activeTF : UITextField) {
       let dateFormatter = DateFormatter()
@@ -67,5 +100,10 @@ extension RegisterDetailController: UITextFieldDelegate{
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     self.view.endEditing(true)
+  }
+  
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return true
   }
 }
