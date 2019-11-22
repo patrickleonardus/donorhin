@@ -15,7 +15,7 @@ struct BloodRequest {
     let address : String?
     let phoneNumber : String?
     let date : Date?
-    let status : String?
+    let status : Int?
 }
 
 struct ProfileImageSize {
@@ -35,37 +35,60 @@ struct DummyData {
             var hospitalNameTemp: String?
             var hospitalNumberTemp: String?
             var dateTemp: Date?
-            let status: String?
+            var status: Int?
+            
+            var requestId : CKRecord.ID?
             
             let userId =  UserDefaults.standard.string(forKey: "currentUser")
-            let uid = CKRecord.Reference(recordID: CKRecord.ID(recordName: userId!), action: .none)
-            let predicate = NSPredicate(format: "userId = %@", argumentArray: [uid])
             
-            let query = CKQuery(recordType: "Request", predicate: predicate)
-            Helper.getAllData(query) { (results) in
-                if let results = results {
-                    for result in results {
-                        let model = result.convertRequestToRequestModel()
-                        if let model = model {
-                            nameTemp = model.patientName
-                            dateTemp = model.dateNeed
-                            
-                            let hospitalId = model.idUTDPatient
-                            let record = CKRecord(recordType: "UTD", recordID: hospitalId)
-                            
-                            Helper.getDataByID(record) { (results) in
-                                if let results = results {
-                                    let model = results.convertUTDToUTDModel()
-                                    if let model = model {
-                                        hospitalNameTemp = model.name
-                                        hospitalNumberTemp = model.phoneNumbers![1]
-                                        
-                                        
-                                        
+            if userId != nil {
+                let uid = CKRecord.Reference(recordID: CKRecord.ID(recordName: userId!), action: .none)
+                let reqPredicate = NSPredicate(format: "userId = %@", argumentArray: [uid])
+                
+                //Query ke table request buat ambil request
+                let reqQuery = CKQuery(recordType: "Request", predicate: reqPredicate)
+                Helper.getAllData(reqQuery) { (reqResults) in
+                    if let reqResults = reqResults {
+                        for reqResult in reqResults {
+                            let reqModel = reqResult.convertRequestToRequestModel()
+                            if let reqModel = reqModel {
+                                nameTemp = reqModel.patientName
+                                dateTemp = reqModel.dateNeed
+                                requestId = reqModel.idRequest
+                                
+                                let hospitalId = reqModel.idUTDPatient
+                                let record = CKRecord(recordType: "UTD", recordID: hospitalId)
+                                
+                                //query ke table utd buat ambil alamat sama no telp utd
+                                Helper.getDataByID(record) { (utdResults) in
+                                    if let utdResults = utdResults {
+                                        let utdModel = utdResults.convertUTDToUTDModel()
+                                        if let utdModel = utdModel {
+                                            hospitalNameTemp = utdModel.name
+                                            hospitalNumberTemp = utdModel.phoneNumbers![1]
+                                            
+                                            //query ke table tracker buat tau status request
+                                            let rid = CKRecord.Reference(recordID: requestId!, action: .none)
+                                            let trackerPredicate = NSPredicate(format: "id_request = %@", argumentArray: [rid])
+                                            let trcQuery = CKQuery(recordType: "Tracker", predicate: trackerPredicate)
+                                            Helper.getAllData(trcQuery){ (trcResults) in
+                                                if let trcResults = trcResults {
+                                                    for trcResult in trcResults {
+                                                        let trcModel = trcResult.convertTrackerToTrackerModel()
+                                                        if let trcModel = trcModel {
+                                                            status = trcModel.currentStep
+                                                        }
+                                                    }
+                                                    bloodRequest.append(BloodRequest(id: reqModel.idRequest, name: nameTemp, address: hospitalNameTemp, phoneNumber: hospitalNumberTemp, date: dateTemp, status: status))
+                                                    print(bloodRequest)
+                                                    completionHandler(bloodRequest)
+
+                                                    
+                                                }
+                                            }
+                                        }
                                     }
                                 }
-                                bloodRequest.append(BloodRequest(id: model.idRequest, name: nameTemp, address: hospitalNameTemp, phoneNumber: hospitalNumberTemp, date: dateTemp, status: "Dummy"))
-                                completionHandler(bloodRequest)
                             }
                         }
                     }

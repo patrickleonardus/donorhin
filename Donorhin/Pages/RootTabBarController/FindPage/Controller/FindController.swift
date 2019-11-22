@@ -35,7 +35,7 @@ class FindController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         profileImageNavBar(show: true)
-        setupNavBarToLarge()
+        setupNavBarToLarge(large: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +54,7 @@ class FindController: UIViewController {
             
             DispatchQueue.main.async {
                 self.bloodRequestCurrent = bloodRequest
+                self.bloodRequestHistory = bloodRequest
                 self.tableView.dataSource = self
                 self.tableView.delegate = self
                 self.tableView.reloadData()
@@ -83,9 +84,15 @@ class FindController: UIViewController {
         tableView.tableFooterView = UIView()
     }
     
-    private func setupNavBarToLarge(){
-        self.navigationController?.navigationItem.largeTitleDisplayMode = .always
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+    private func setupNavBarToLarge(large: Bool){
+        if large {
+            self.navigationController?.navigationItem.largeTitleDisplayMode = .always
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+        }
+        else {
+            self.navigationController?.navigationItem.largeTitleDisplayMode = .never
+            self.navigationController?.navigationBar.prefersLargeTitles = false
+        }
     }
         
     private func callNumber(phoneNumber: String){
@@ -95,6 +102,15 @@ class FindController: UIViewController {
                 application.open(phoneCallURL, options: [:], completionHandler: nil)
             }
         }
+    }
+    
+    // ini untuk buat tanggal di tableview jadi ringkes
+    func shrinkDate(_ date: Date) -> String{
+        
+        let dfPrint = DateFormatter()
+        dfPrint.dateFormat = "dd MMMM yyyy"
+        
+        return dfPrint.string(from: date)
     }
   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
