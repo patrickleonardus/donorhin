@@ -20,7 +20,6 @@ class SecondStepRequestViewController: DonateStepViewController{
       let text1 = chosenDate
       let text2 = self.tableView.cellForRow(at: IndexPath(row: 1, section: 0))?.detailTextLabel?.text
       if (text1 != nil && text2 != nil) {
-        print (text2)
         return true
       } else {
         return false
