@@ -91,6 +91,7 @@
 		E607AAF62384E22500214A90 /* HospitalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E607AAF52384E22500214A90 /* HospitalModel.swift */; };
 		E607AAF82385148C00214A90 /* HospitalController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E607AAF72385148C00214A90 /* HospitalController+UITableView.swift */; };
 		E607AAFA238514A300214A90 /* HospitalController+UISearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E607AAF9238514A300214A90 /* HospitalController+UISearchDelegate.swift */; };
+		E607AAFF2387C48B00214A90 /* CallNumberButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E607AAFE2387C48B00214A90 /* CallNumberButton.swift */; };
 		E62918EB237C6A2800E8D559 /* CheckboxAgreementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62918EA237C6A2800E8D559 /* CheckboxAgreementCell.swift */; };
 		E62918ED237CFC0F00E8D559 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62918EC237CFC0F00E8D559 /* CheckBox.swift */; };
 		E62918EF237D2DAD00E8D559 /* PickPictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62918EE237D2DAD00E8D559 /* PickPictureCell.swift */; };
@@ -259,6 +260,7 @@
 		E607AAF52384E22500214A90 /* HospitalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalModel.swift; sourceTree = "<group>"; };
 		E607AAF72385148C00214A90 /* HospitalController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HospitalController+UITableView.swift"; sourceTree = "<group>"; };
 		E607AAF9238514A300214A90 /* HospitalController+UISearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HospitalController+UISearchDelegate.swift"; sourceTree = "<group>"; };
+		E607AAFE2387C48B00214A90 /* CallNumberButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallNumberButton.swift; sourceTree = "<group>"; };
 		E62918EA237C6A2800E8D559 /* CheckboxAgreementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxAgreementCell.swift; sourceTree = "<group>"; };
 		E62918EC237CFC0F00E8D559 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		E62918EE237D2DAD00E8D559 /* PickPictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPictureCell.swift; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 				098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */,
 				098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */,
 				0925FB372373F13000874DAA /* CustomMainView.swift */,
+				E607AAFE2387C48B00214A90 /* CallNumberButton.swift */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -1313,6 +1316,7 @@
 				E62918F5237E43F100E8D559 /* AddEventController+Delegate.swift in Sources */,
 				AB7357862374309E00A6099B /* CustomSegmentedController.swift in Sources */,
 				B0FF322B23829CC50001C0F5 /* UserModel.swift in Sources */,
+				E607AAFF2387C48B00214A90 /* CallNumberButton.swift in Sources */,
 				B0B16888237D44A8001DCE3C /* LoginController.swift in Sources */,
 				E6DDAF2B237435B300D6EAD1 /* FindController+ScrollView.swift in Sources */,
 				CC25B5192383DEE800C381D7 /* String + Converter.swift in Sources */,

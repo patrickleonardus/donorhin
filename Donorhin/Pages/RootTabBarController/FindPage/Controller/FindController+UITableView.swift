@@ -52,10 +52,11 @@ extension FindController: UITableViewDataSource {
             cell?.address.text = data.address
             cell?.date.text = "\(String(describing: data.date!))"
             cell?.status.text = data.status
+            cell?.buttonCallOutlet.phoneNumber = data.phoneNumber
             
             cell?.buttonCallOutlet.setTitle("Call PMI Pendonor", for: .normal)
             cell?.buttonCallOutlet.isHidden = false
-            cell?.buttonCallOutlet.addTarget(self, action: #selector(callButton), for: .touchUpInside)
+            cell?.buttonCallOutlet.addTarget(self, action: #selector(callButton(sender:)), for: .touchUpInside)
             
         }
         

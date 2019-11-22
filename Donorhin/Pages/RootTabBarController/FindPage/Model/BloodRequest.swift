@@ -13,6 +13,7 @@ struct BloodRequest {
     let id : CKRecord.ID
     let name : String?
     let address : String?
+    let phoneNumber : String?
     let date : Date?
     let status : String?
 }
@@ -32,11 +33,13 @@ struct DummyData {
             
             var nameTemp : String?
             var hospitalNameTemp: String?
+            var hospitalNumberTemp: String?
             var dateTemp: Date?
             let status: String?
             
             let userId =  UserDefaults.standard.string(forKey: "currentUser")
-            let predicate = NSPredicate(format: "userId IN %@", [userId])
+            let uid = CKRecord.Reference(recordID: CKRecord.ID(recordName: userId!), action: .none)
+            let predicate = NSPredicate(format: "userId = %@", argumentArray: [uid])
             
             let query = CKQuery(recordType: "Request", predicate: predicate)
             Helper.getAllData(query) { (results) in
@@ -50,21 +53,23 @@ struct DummyData {
                             let hospitalId = model.idUTDPatient
                             let record = CKRecord(recordType: "UTD", recordID: hospitalId)
                             
-                            Helper.getDataByID(record, completion: { (results) in
+                            Helper.getDataByID(record) { (results) in
                                 if let results = results {
                                     let model = results.convertUTDToUTDModel()
                                     if let model = model {
                                         hospitalNameTemp = model.name
+                                        hospitalNumberTemp = model.phoneNumbers![1]
+                                        
+                                        
+                                        
                                     }
                                 }
-                            })
-                            
-                            bloodRequest.append(BloodRequest(id: model.idRequest, name: nameTemp, address: hospitalNameTemp, date: dateTemp, status: "Dummy"))
-                            
+                                bloodRequest.append(BloodRequest(id: model.idRequest, name: nameTemp, address: hospitalNameTemp, phoneNumber: hospitalNumberTemp, date: dateTemp, status: "Dummy"))
+                                completionHandler(bloodRequest)
+                            }
                         }
                     }
                 }
-                completionHandler(bloodRequest)
             }
         }
     }
