@@ -46,4 +46,39 @@ struct Helper {
     }
          
   }
+  
+  static func updateToDatabase(keyValuePair package: [String:Any?], recordID : CKRecord.ID){
+    /**
+     Ngupdate data ke cloud kit. Data di kirim dalam bentuk key:value pair. Contoh:
+     ["current_step" : 3,
+     "nama" : "Vebby",
+     "birth_date" : Date()]
+     
+     Created by Vebby
+     */
+    
+    Helper.database.fetch(withRecordID: recordID) { (record, error) in
+      if let record = record, error == nil {
+        
+        //updating your record:
+        for key in package.keys {
+          if let value = package[key] {
+            record.setValue(value, forKey: key)
+          } else {
+            record.setValue(nil, forKey: key)
+          }
+        }
+        
+        Helper.database.save(record) { (_, error) in
+          if error != nil {
+            print (error!.localizedDescription)
+          }
+        }
+      }
+      else {
+        print ("failed to update value with record id \(recordID)")
+      }
+    }
+    
+  }
 }

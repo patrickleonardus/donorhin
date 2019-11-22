@@ -21,6 +21,7 @@ class SecondStepRequestViewController: DonateStepViewController{
       let text2 = self.tableView.cellForRow(at: IndexPath(row: 1, section: 0))?.detailTextLabel?.text
       if (text1 != nil && text2 != nil) {
         return true
+        //TODO: Call function save to db here
       } else {
         return false
       }

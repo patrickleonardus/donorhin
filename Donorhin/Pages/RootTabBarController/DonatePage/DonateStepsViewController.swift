@@ -17,6 +17,11 @@ protocol StepIndicatorDelegate {
    func updateStepIndicator(toStep:Int)
 }
 
+//MARK: Save data to DB
+protocol TrackerDatabaseDelegate {
+  func saveToDB (package: [String:Any?] )
+}
+
 //MARK: Class
 class DonateStepsViewController: UIViewController {
   var request:TrackerModel?
@@ -49,34 +54,15 @@ class DonateStepsViewController: UIViewController {
 }
 //MARK:- Step  Indicator Application
 extension DonateStepsViewController:  StepIndicatorDelegate {
-   func updateStepIndicator(toStep: Int) {
-      //TODO : Update data ke database disini
-      updateDatabase(toStep: toStep)
+  func updateStepIndicator(toStep: Int) {
+    //TODO : Update data ke database disini
+    if let recordID = self.request?.idTracker {
+      let keyValue = ["current_step": toStep]
+      Helper.updateToDatabase(values: keyValue, recordID: recordID)
       self.stepIndicator = toStep - 1
       self.request?.currentStep = toStep
-   }
-  
-  func updateDatabase(toStep: Int){
-    let recordID = self.request?.idTracker
-    if let recordID = recordID {
-      Helper.database.fetch(withRecordID: recordID) { (record, error) in
-        if let record = record, error == nil {
-          //update your record here
-          record.setValue(toStep, forKey: "current_step")
-          Helper.database.save(record) { (_, error) in
-            if error != nil {
-              print (error!.localizedDescription)
-            }
-          }
-        }
-        else {
-          print ("failed to update value with record id \(recordID)")
-        }
-      }
-    }
-    else {
-      print("record id \(String(describing: recordID)) not found")
     }
   }
+  
 }
 

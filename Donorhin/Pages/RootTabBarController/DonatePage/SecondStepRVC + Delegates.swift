@@ -25,7 +25,7 @@ extension SecondStepRequestViewController : UITableViewDelegate, UITableViewData
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = UITableViewCell(style: .value1, reuseIdentifier: "cell")
       if indexPath.row == 0 {
-         cell.textLabel?.text = "Tanggal Kebutuhan"
+         cell.textLabel?.text = "Tanggal donor"
          cell.accessoryView = UIImageView(image: UIImage(named: "calendar20"))
       } else {
          cell.textLabel?.text = "Lokasi UTD Mendonor"
