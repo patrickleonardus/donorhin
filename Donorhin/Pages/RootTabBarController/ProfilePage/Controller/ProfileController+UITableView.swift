@@ -16,11 +16,11 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             height = 200
         }
-        
+            
         else if indexPath.section == 1 {
             height = 70
         }
-        
+            
         else if indexPath.section == 2 {
             height = 70
         }
@@ -39,11 +39,11 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
         if section == 0 {
             numberOfRows = 1
         }
-        
+            
         else if section == 1 {
             numberOfRows = 4
         }
-        
+            
         else if section  == 2 {
             numberOfRows = 1
         }
@@ -59,12 +59,12 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
         //var user = Profile()
         var date: Date? = Date()
         
-//        guard let data = profileData?[0] else {fatalError()}
+        //        guard let data = profileData?[0] else {fatalError()}
         
         if indexPath.section == 0 {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "firstCell", for: indexPath) as? FirstCell
-                                           
+            
             cell?.nameProfile.text = user?.profileName
             cell?.emailProfile.text = user?.profileEmail
             cell?.imageProfile.image = UIImage(named: "user_profile")
@@ -74,10 +74,10 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
             
             return cell!
         }
-        
+            
         else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "secondCell", for: indexPath) as? SecondCell
-        
+            
             if indexPath.row == 0 {
                 cell?.imageCell.image = UIImage(named: "gender_profile")
                 var gender : String = "Laki-Laki"
@@ -91,17 +91,17 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
                 }
                 cell?.textCell.text = "\(gender)"
             }
-            
+                
             else if indexPath.row == 1 {
                 cell?.imageCell.image = UIImage(named: "birthday_profile")
                 cell?.textCell.text = dateFormatter.string(from: user?.profileBirthday ?? date!)
             }
-            
+                
             else if indexPath.row == 2 {
                 cell?.imageCell.image = UIImage(named: "bloodtype_profile")
                 cell?.textCell.text = user?.profileBloodType
             }
-            
+                
             else if indexPath.row == 3 {
                 cell?.imageCell.image = UIImage(named: "lastdonor_profile")
                 cell?.textCell.text = dateFormatter.string(from: user?.profileLastDonor ?? date!)
@@ -109,7 +109,7 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
             
             return cell!
         }
-        
+            
         else if indexPath.section == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "thirdCell", for: indexPath) as? ThirdCell
             
