@@ -12,6 +12,8 @@ class ProfileController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var viewValidation: CustomMainView!
     
+    var delegate : MoveToLogin?
+    
     
     var user : Profile?
     override func viewDidLoad() {
@@ -67,6 +69,13 @@ class ProfileController: UIViewController {
         print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
         performSegue(withIdentifier: "goToLogin", sender: self)
     }
+    
+    @IBAction func loginAction(_ sender: Any) {
+        dismiss(animated: true) {
+            self.delegate?.performLogin()
+        }
+    }
+    
     
 }
 
