@@ -46,7 +46,6 @@ class FindController: UIViewController {
         setupUI()
         initTableView()
         
-        loadAllData()
         
     }
     
@@ -56,6 +55,7 @@ class FindController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        loadAllData()
         setTabBar(show: true)
     }
     
@@ -110,7 +110,8 @@ class FindController: UIViewController {
             }
         }
         else if userId == nil {
-            
+            bloodRequestHistory = []
+            bloodRequestCurrent = []
         }
     }
     

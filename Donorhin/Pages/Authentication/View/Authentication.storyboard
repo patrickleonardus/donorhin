@@ -32,7 +32,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eHf-XK-nyI"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Masuk" id="3OG-X7-sf8"/>
+                    <navigationItem key="navigationItem" title="Masuk" largeTitleDisplayMode="never" id="3OG-X7-sf8"/>
                     <connections>
                         <outlet property="formTableView" destination="XGe-jO-LLV" id="thX-BU-Kft"/>
                         <segue destination="zgr-e9-cXC" kind="show" identifier="goToRegister" id="rKu-rC-Cgd"/>
