@@ -45,7 +45,7 @@ class FindController: UIViewController {
         super.viewDidLoad()
         setupUI()
         initTableView()
-        
+        loadAllData()
         
     }
     
@@ -55,13 +55,11 @@ class FindController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        loadAllData()
         setTabBar(show: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         profileImageNavBar(show: false)
-        setTabBar(show: false)
     }
     
     //MARK: - Mau load data dri cloudkit

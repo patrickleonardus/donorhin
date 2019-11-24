@@ -36,6 +36,11 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
         setNavBarTitle()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setTabBar(show: false)
+    }
+
+    
     func loadFormTable(){
         formTableView.delegate = self
         formTableView.dataSource = self
@@ -45,6 +50,19 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
         formTableView.register(UINib(nibName: "TwoButtonCell", bundle: nil), forCellReuseIdentifier: "twoButtonCell")
         formTableView.tableFooterView = UIView()
         formTableView.showsVerticalScrollIndicator = false
+    }
+    
+    private func setTabBar(show: Bool){
+        if show {
+            UIView.animate(withDuration: 0.2) {
+                self.tabBarController?.tabBar.alpha = 1
+            }
+        }
+        else {
+            UIView.animate(withDuration: 0.2) {
+                self.tabBarController?.tabBar.alpha = 0
+            }
+        }
     }
     
     @objc func goToFindWithoutLogin(){
