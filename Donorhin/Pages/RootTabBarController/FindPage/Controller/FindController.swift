@@ -123,11 +123,12 @@ class FindController: UIViewController {
         
         Helper.getAllData(requestQuery) { (requestResults) in
             
-            DispatchQueue.main.async {
+            guard let requestResults = requestResults else {fatalError("Query in Request Error")}
+            
+            if requestResults.count != 0 {
                 self.showSpinner(onView: self.view)
             }
             
-            guard let requestResults = requestResults else {fatalError("Query in Request Error")}
             var counter = 0
             for requestResult in requestResults {
                 let requestModels = requestResult.convertRequestToRequestModel()
@@ -382,7 +383,9 @@ class FindController: UIViewController {
     
     @IBAction func findBloodAction(_ sender: Any) {
         
-        if userId != nil {
+        let checkLogin = UserDefaults.standard.string(forKey: "currentUser")
+        
+        if checkLogin != nil {
             performSegue(withIdentifier: "moveToForm", sender: self)
         }
         else {
