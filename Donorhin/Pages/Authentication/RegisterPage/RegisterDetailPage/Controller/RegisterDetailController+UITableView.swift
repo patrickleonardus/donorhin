@@ -150,7 +150,6 @@ extension RegisterDetailController: UIPickerViewDataSource, UIPickerViewDelegate
 extension RegisterDetailController: AgreementDelegate {
   func checkAgreementCheckBox(_ isCheck: Bool) {
     let buttonCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 8)) as! ButtonTableViewCell
-    //let lastDonoCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 4)) as! FormTableViewCell
     if isCheck {
       buttonCell.buttonOutlet.backgroundColor =  Colors.red
       //buttonCell.buttonOutlet.isHidden = false
