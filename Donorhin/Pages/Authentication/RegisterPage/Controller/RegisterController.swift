@@ -28,6 +28,7 @@ class RegisterController : UIViewController{
         formTableView.dataSource = self
         formTableView.register(UINib(nibName: "FormCustomCell", bundle: nil), forCellReuseIdentifier: "formCell")
         formTableView.register(UINib(nibName: "ButtonViewCell", bundle: nil), forCellReuseIdentifier: "buttonCell")
+        formTableView.register(UINib(nibName: "ErrorMessageViewCell", bundle: nil), forCellReuseIdentifier: "errorMsgCell")
         formTableView.tableFooterView = UIView()
         formTableView.showsVerticalScrollIndicator = false
     }
@@ -47,30 +48,56 @@ class RegisterController : UIViewController{
     }
     
     func validationCredential(email: String, password: String, confirmPassword: String) -> Bool{
+        guard let errorCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 3)) as? ErrorMessageTableViewCell else {fatalError()}
+        guard let emailCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FormTableViewCell else {fatalError()}
+        guard let passCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? FormTableViewCell else {fatalError()}
+        guard let confirmPassCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? FormTableViewCell else {fatalError()}
       if email == "" || password == "" || confirmPassword == ""{
-        let alert = UIAlertController(title: "Peringatan", message: "email, password, and confirm harus diisi", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Oke", style: .default, handler: nil)
-        alert.addAction(action)
-        self.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            errorCell.errorMsg.isHidden = false
+            emailCell.shake()
+            passCell.shake()
+            confirmPassCell.shake()
+            errorCell.errorMsg.text = "*Email, password atau konfirmasi password harus diisi"
+        }
+//        let alert = UIAlertController(title: "Peringatan", message: "email, password, and confirm harus diisi", preferredStyle: .alert)
+//        let action = UIAlertAction(title: "Oke", style: .default, handler: nil)
+//        alert.addAction(action)
+//        self.present(alert, animated: true, completion: nil)
         return false
       }
       
       if !self.isValidEmail(email) {
-        let alert = UIAlertController(title: "Peringatan", message: "Format email tidak valid", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Oke", style: .default, handler: nil)
-        alert.addAction(action)
-        self.present(alert, animated: true, completion: nil)
+//        let alert = UIAlertController(title: "Peringatan", message: "Format email tidak valid", preferredStyle: .alert)
+//        let action = UIAlertAction(title: "Oke", style: .default, handler: nil)
+//        alert.addAction(action)
+//        self.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            errorCell.errorMsg.isHidden = false
+            emailCell.shake()
+            passCell.shake()
+            confirmPassCell.shake()
+            errorCell.errorMsg.text = "*Email atau password tidak valid"
+        }
         return false
       }
       
       if password != confirmPassword {
-        let alert = UIAlertController(title: "Peringatan", message: "Password tidak sesuai dengan konfirmasi password", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Oke", style: .default, handler: nil)
-        alert.addAction(action)
-        self.present(alert, animated: true, completion: nil)
+//        let alert = UIAlertController(title: "Peringatan", message: "Password tidak sesuai dengan konfirmasi password", preferredStyle: .alert)
+//        let action = UIAlertAction(title: "Oke", style: .default, handler: nil)
+//        alert.addAction(action)
+//        self.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            errorCell.errorMsg.isHidden = false
+            passCell.shake()
+            confirmPassCell.shake()
+            errorCell.errorMsg.text = "*Password tidak sesuai dengan konfirmasi password"
+        }
         return false
       }
-      
+        DispatchQueue.main.async {
+            errorCell.errorMsg.isHidden = true
+        }
       return true
     }
   

@@ -9,11 +9,14 @@
 import UIKit
 extension RegisterController : UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 3 {
+            return 33
+        }
         return 60
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -30,6 +33,9 @@ extension RegisterController : UITableViewDataSource, UITableViewDelegate{
     // Set the spacing between sections
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         let cellSpacingHeight: CGFloat = 17
+        if section > 2{
+            return 0
+        }
         return cellSpacingHeight
     }
     
@@ -49,7 +55,13 @@ extension RegisterController : UITableViewDataSource, UITableViewDelegate{
           return cell!
         }
             
-        else if indexPath.section == 3{
+        else if indexPath.section == 3 {
+            let cell  = tableView.dequeueReusableCell(withIdentifier: "errorMsgCell", for: indexPath) as? ErrorMessageTableViewCell
+            cell?.errorMsg.isHidden = true
+            return cell!
+        }
+            
+        else if indexPath.section == 4 {
           let cell  = tableView.dequeueReusableCell(withIdentifier: "buttonCell", for: indexPath) as? ButtonTableViewCell
               cell?.buttonOutlet.layer.cornerRadius = 10
               cell?.buttonOutlet.setTitle("Lanjut", for: .normal)
