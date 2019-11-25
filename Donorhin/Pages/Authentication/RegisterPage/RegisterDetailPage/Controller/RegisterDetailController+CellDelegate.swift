@@ -67,10 +67,6 @@ extension RegisterDetailController : FormCellDelegate{
           else {
             self.removeSpinner()
             DispatchQueue.main.async {
-                fullNameCell.shake()
-                genderCell.shake()
-                birthDateCell.shake()
-                bloodTypeCell.shake()
                 errorCell.errorMsg.isHidden = false
                 errorCell.errorMsg.text = "*Email sudah pernah terdaftar, coba email yang lain"
             }
@@ -96,7 +92,12 @@ extension RegisterDetailController : FormCellDelegate{
             genderCell.shake()
             birthDateCell.shake()
             bloodTypeCell.shake()
-            lastDonoCell.shake()
+
+            fullNameCell.formTextField.redPlaceholder()
+            genderCell.formTextField.redPlaceholder()
+            birthDateCell.formTextField.redPlaceholder()
+            bloodTypeCell.formTextField.redPlaceholder()
+            
             errorCell.errorMsg.isHidden = false
             errorCell.errorMsg.text = "*Harap pastikan seluruh form sudah terisi"
         }

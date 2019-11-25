@@ -105,6 +105,19 @@ class RegisterController : UIViewController{
       return true
     }
   
+    override func viewWillDisappear(_ animated: Bool) {
+        guard let emailCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FormTableViewCell else {return}
+        guard let passCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? FormTableViewCell else {return}
+        guard let repassCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? FormTableViewCell else {return}
+        guard let errorCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 3)) as? ErrorMessageTableViewCell else {return}
+              DispatchQueue.main.async {
+                  emailCell.formTextField.defaultPlaceholder()
+                  passCell.formTextField.defaultPlaceholder()
+                  repassCell.formTextField.defaultPlaceholder()
+                  errorCell.errorMsg.isHidden = true
+            }
+    }
+    
   private func isValidEmail(_ email: String) -> Bool {
     let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
 

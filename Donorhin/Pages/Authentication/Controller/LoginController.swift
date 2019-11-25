@@ -41,6 +41,16 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
         self.navigationController?.navigationBar.isHidden = false
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        guard let emailCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FormTableViewCell else {return}
+              guard let passCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? FormTableViewCell else {return}
+              guard let errorCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? ErrorMessageTableViewCell else {return}
+              DispatchQueue.main.async {
+                  emailCell.formTextField.defaultPlaceholder()
+                  passCell.formTextField.defaultPlaceholder()
+                  errorCell.errorMsg.isHidden = true
+              }
+    }
     
     func loadFormTable(){
         formTableView.delegate = self
@@ -72,7 +82,7 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
     }
     
     @objc func goToRegister(){
-        performSegue(withIdentifier: "goToRegister", sender: self)
+         performSegue(withIdentifier: "goToRegister", sender: self)
     }
     
     func setNavBarTitle() {
@@ -172,5 +182,10 @@ extension UITextField {
     func redPlaceholder(){
         self.attributedPlaceholder = NSAttributedString(string: self.placeholder!,
                                                         attributes: [NSAttributedString.Key.foregroundColor: Colors.red])
+    }
+    
+    func defaultPlaceholder(){
+        self.attributedPlaceholder = NSAttributedString(string: self.placeholder!,
+                                                        attributes: [NSAttributedString.Key.foregroundColor: Colors.gray])
     }
 }
