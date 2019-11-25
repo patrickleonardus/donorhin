@@ -7,13 +7,17 @@
 //
 
 import UIKit
-
+import CloudKit
 class FirstStepRequestViewController: DonateStepViewController {
-   
-
-   override func viewDidLoad() {
-      super.viewDidLoad()
-   }
+  var request: RequestModel!
+  let currentUser = UserDefaults.standard.value(forKey: "currentUser")!
+  @IBOutlet weak var descriptionLabel: UILabel!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.request = RequestModel(idRequest: CKRecord.ID(recordName: "j232g432gui"), patientName: "Permintaan 1", bloodTypePatient: .a, amount: 1, dateNeed: Date(), isEmergency: false, idUTDPatient: CKRecord.ID(recordName: "jkhasdie23213"), idUser: CKRecord.ID(recordName: "jkhasdhweiuyrwerke"))
+    self.descriptionLabel.text = "Terdapat kebutuhan kantong darah unutk tanggal \(self.request.dateNeed). Apakah Anda siap mendonor?"
+  }
    
    
    @IBAction func buttonAcceptTapped(_ sender: UIButton) {
@@ -31,7 +35,21 @@ class FirstStepRequestViewController: DonateStepViewController {
       )
       
       let acceptAction = UIAlertAction(title: "Ya", style: .default) { (action) in
-        self.pageViewDelegate?.changeShowedView(toStep: 2)
+        let ckRecord = CKRecord(recordType: "Tracker")
+        ckRecord.setValue(CKRecord.Reference(recordID: self.request.idRequest, action: .none), forKey: "id_request")
+        ckRecord.setValue(CKRecord.Reference(recordID: CKRecord.ID(recordName: self.currentUser as! String), action: .none), forKey: "id_pendonor")
+        self.showSpinner(onView: self.view)
+        Helper.saveData(ckRecord) { (isSuccess) in
+          if isSuccess {
+            self.removeSpinner()
+            self.dismiss(animated: true, completion: nil)
+          }
+          else {
+            self.removeSpinner()
+            self.dismiss(animated: true, completion: nil)
+          }
+        }
+        
       }
       let cancelAction = UIAlertAction(title: "Tidak", style: .cancel, handler: nil)
       alert.addAction(acceptAction)
@@ -46,7 +64,7 @@ class FirstStepRequestViewController: DonateStepViewController {
          preferredStyle: .alert
       )
       let accept = UIAlertAction(title: "Ya", style: .default) { (_) in
-         
+        self.dismiss(animated: true, completion: nil)
       }
       let cancel = UIAlertAction(title: "Tidak", style: .cancel, handler: nil)
       alert.addAction(accept)
