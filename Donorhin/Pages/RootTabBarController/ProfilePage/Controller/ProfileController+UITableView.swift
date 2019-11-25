@@ -94,7 +94,12 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
                 
             else if indexPath.row == 1 {
                 cell?.imageCell.image = UIImage(named: "birthday_profile")
-                cell?.textCell.text = dateFormatter.string(from: user?.profileBirthday ?? date!)
+                if user?.profileBirthday == nil{
+                cell?.textCell.text = "Belum Mendonor"
+                }
+                else{
+                cell?.textCell.text = dateFormatter.string(from: user!.profileBirthday!)
+                }
             }
                 
             else if indexPath.row == 2 {

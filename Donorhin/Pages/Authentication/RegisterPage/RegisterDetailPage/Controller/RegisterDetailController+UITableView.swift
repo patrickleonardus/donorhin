@@ -15,7 +15,7 @@ extension RegisterDetailController : UITableViewDelegate{
 extension RegisterDetailController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 6{
-            return 33
+            return 45
         }
         return 60
     }

@@ -41,7 +41,8 @@ class ProfileDataFetcher {
         let bloodType : String = ud.string(forKey: "blood_type")else { fatalError() }
         
         
-        let lastDonor : Date = ud.object(forKey: "last_donor") as? Date ?? Date()
+        guard let lastDonor : Date = ud.object(forKey: "last_donor") as? Date else{return nil}
+        
         let gender : Int = ud.integer(forKey: "gender")
         profileData = Profile(profileName: name, profileEmail: email, profileGender: gender, profileBirthday: birthdate, profileBloodType: bloodType, profileLastDonor: lastDonor)
         return profileData
