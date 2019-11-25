@@ -67,7 +67,7 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
             
             cell?.nameProfile.text = user?.profileName
             cell?.emailProfile.text = user?.profileEmail
-            cell?.imageProfile.image = UIImage(named: "user_profile")
+            cell?.imageProfile.image = UIImage(named: "icon_profile")
             
             print(user?.profileName)
             
