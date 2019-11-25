@@ -71,7 +71,6 @@ extension RegisterDetailController : FormCellDelegate{
                 genderCell.shake()
                 birthDateCell.shake()
                 bloodTypeCell.shake()
-                lastDonoCell.shake()
                 errorCell.errorMsg.isHidden = false
                 errorCell.errorMsg.text = "*Email sudah pernah terdaftar, coba email yang lain"
             }

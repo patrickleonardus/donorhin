@@ -48,7 +48,7 @@ struct FormBuilder {
          FormItems(img: "gender_profile", placeholder: "Jenis Kelamin", textFieldType: .picker),
          FormItems(img: "birthday_profile", placeholder: "Tanggal Lahir", textFieldType: .datePicker),
          FormItems(img: "bloodtype_profile", placeholder: "Golongan Darah", textFieldType: .picker) ,
-         FormItems(img: "lastdonor_profile", placeholder: "Donor Terakhir", textFieldType: .datePicker),
+         FormItems(img: "lastdonor_profile", placeholder: "Donor Terakhir (Optional)", textFieldType: .datePicker),
          FormItems(img: "codeReferral", placeholder: "Kode Referral (Optional)", textFieldType: .defaultTextField)
         ])
     }

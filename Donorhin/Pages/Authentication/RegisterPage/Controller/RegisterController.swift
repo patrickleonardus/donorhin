@@ -58,6 +58,9 @@ class RegisterController : UIViewController{
             emailCell.shake()
             passCell.shake()
             confirmPassCell.shake()
+            passCell.formTextField.redPlaceholder()
+            confirmPassCell.formTextField.redPlaceholder()
+            emailCell.formTextField.redPlaceholder()
             errorCell.errorMsg.text = "*Email, password atau konfirmasi password harus diisi"
         }
 //        let alert = UIAlertController(title: "Peringatan", message: "email, password, and confirm harus diisi", preferredStyle: .alert)
@@ -75,6 +78,7 @@ class RegisterController : UIViewController{
         DispatchQueue.main.async {
             errorCell.errorMsg.isHidden = false
             emailCell.shake()
+            emailCell.formTextField.redPlaceholder()
             errorCell.errorMsg.text = "*Format email tidak valid"
         }
         return false
@@ -88,6 +92,8 @@ class RegisterController : UIViewController{
         DispatchQueue.main.async {
             errorCell.errorMsg.isHidden = false
             passCell.shake()
+            passCell.formTextField.redPlaceholder()
+            confirmPassCell.formTextField.redPlaceholder()
             confirmPassCell.shake()
             errorCell.errorMsg.text = "*Password tidak sesuai dengan konfirmasi password"
         }
