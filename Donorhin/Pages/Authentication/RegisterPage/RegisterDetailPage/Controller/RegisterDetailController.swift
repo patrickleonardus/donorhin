@@ -47,10 +47,14 @@ class RegisterDetailController : UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         setTabBar(show: false)
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
+        self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         setTabBar(show: true)
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     private func setTabBar(show: Bool){

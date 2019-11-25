@@ -34,7 +34,7 @@ class RegisterController : UIViewController{
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
         self.navigationController?.navigationBar.prefersLargeTitles = false
         
         navigationItem.title = "Daftar"
