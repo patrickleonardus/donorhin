@@ -102,13 +102,13 @@ extension CKRecord {
          let email = self.value(forKey: "email") as? String ?? nil,
          let password = self.value(forKey: "password") as? String ?? nil,
          let birthdate = self.value(forKey: "birth_date") as? Date ?? nil,
-         let lastDonor = self.value(forKey: "last_donor") as? Date ?? nil,
          let isVerif = self.value(forKey: "isVerified") as? Int ?? nil,
          let gdr = self.value(forKey: "gender") as? Int ?? nil,
          let statusDonor = self.value(forKey: "donor_status") as? Int ?? nil
          else {
             return nil
       }
+      let lastDonor = self.value(forKey: "last_donor") as? Date
       let location = self.value(forKey: "location") as? CLLocation
       let gender = { () -> Gender in
          if gdr == 0 {

@@ -75,9 +75,7 @@ class RegisterController : UIViewController{
         DispatchQueue.main.async {
             errorCell.errorMsg.isHidden = false
             emailCell.shake()
-            passCell.shake()
-            confirmPassCell.shake()
-            errorCell.errorMsg.text = "*Email atau password tidak valid"
+            errorCell.errorMsg.text = "*Format email tidak valid"
         }
         return false
       }

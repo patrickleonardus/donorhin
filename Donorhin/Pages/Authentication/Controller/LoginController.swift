@@ -95,6 +95,8 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
                     errorCell.errorMsg.isHidden = false
                     emailCell.shake()
                     passCell.shake()
+                    emailCell.formTextField.redPlaceholder()
+                    passCell.formTextField.redPlaceholder()
                     errorCell.errorMsg.text = "*Email atau password tidak valid"
                 }
                 return
@@ -163,5 +165,12 @@ extension UIView {
         animation.duration = 0.6
         animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
         layer.add(animation, forKey: "shake")
+    }
+}
+
+extension UITextField {
+    func redPlaceholder(){
+        self.attributedPlaceholder = NSAttributedString(string: self.placeholder!,
+                                                        attributes: [NSAttributedString.Key.foregroundColor: Colors.red])
     }
 }

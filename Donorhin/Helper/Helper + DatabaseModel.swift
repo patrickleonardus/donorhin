@@ -28,7 +28,7 @@ struct UserModel  {
    let email: String
    let password : String
    let birthdate: Date
-   let lastDonor: Date
+   let lastDonor: Date?
    let gender: Gender
    let isVerified: Bool
 }
