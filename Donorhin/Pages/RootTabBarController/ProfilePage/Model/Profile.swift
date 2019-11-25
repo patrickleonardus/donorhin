@@ -48,12 +48,3 @@ class ProfileDataFetcher {
     }
 }
 
-//struct DummyDataProfile {
-//
-//       func getProfileData(completionHandler: @escaping (([Profile]) -> ())){
-//         completionHandler(
-//            [Profile(profileImage: "user_profile", profileName: "Nanda", profileEmail: "nanda@gmail.com", profileGender: "Perempuan", profileBirthday: "21 Feb 2000", profileBloodType: "O-", profileLastDonor: "01 Jan 2019")]
-//         )
-//     }
-//
-//}
