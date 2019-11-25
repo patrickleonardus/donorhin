@@ -38,31 +38,27 @@ extension SecondStepRequestViewController : UITableViewDelegate, UITableViewData
       if  indexPath.row == 0 {
          showDatePicker()
       }  else if indexPath.row == 1 {
-         performSegue(withIdentifier: "GoToUTD", sender: nil)
+         performSegue(withIdentifier: "showHospitalList", sender: self)
+         
+//         performSegue(withIdentifier: "GoToUTD", sender: nil)
       }
    }
-   
-   //MARK:- Show UTD page
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      if segue.identifier == "GoToUTD" {
-         let utdVC = segue.destination as! UTDDonorTableViewController
-         utdVC.delegate = self
-      }
-   }
-   
-   
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    let destination = segue.destination as! HospitalController
+    destination.hospitalDelegate = self
+  }
 }
 
 //MARK:- Extension DelegateUTD
-extension SecondStepRequestViewController: DelegateUTD {
-   func seletedUTD(utd: DonatePMIModel?) {
-      if let utd = utd {
-         let tableViewCell = self.tableView.cellForRow(at: IndexPath(row: 1, section: 0))
-         tableViewCell?.detailTextLabel!.text = utd.name
-         tableViewCell?.accessoryType = .none
-         tableViewCell?.isSelected = false
-         self.buttonBersedia.isEnabled = isFilled
-      }
-   }
+extension SecondStepRequestViewController:HospitalDelegate {
+  func selectedHospital(hospital: HospitalModel) {
+    self.chosenHospital = hospital
+    let cell = self.tableView.cellForRow(at: IndexPath(row: 1, section: 0))
+    cell?.accessoryType = .none
+    cell?.detailTextLabel?.text = chosenHospital?.name
+    cell?.isSelected = false
+    self.buttonBersedia.isEnabled = isFilled
+  }
 }
 
