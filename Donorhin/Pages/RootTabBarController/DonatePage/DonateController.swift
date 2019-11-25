@@ -26,11 +26,13 @@ class DonateController: UIViewController {
       }
    }
    var profileImage = UIImageView()
-   
+   var confirmButton = UIBarButtonItem()
    
    //MARK:- view handler
    override func viewDidLoad() {
       super.viewDidLoad()
+    self.confirmButton = UIBarButtonItem(title: "Confirm", style: .done, target: self, action: #selector(confirm))
+      navigationItem.rightBarButtonItem = self.confirmButton
       self.showSpinner(onView: self.view)
       self.tableview.delegate = self
       self.tableview.dataSource = self
@@ -93,7 +95,11 @@ class DonateController: UIViewController {
       //      }
       //    }
    }
-   
+  @objc private func confirm() {
+    let storyboard = UIStoryboard(name: "Donate", bundle: nil)
+    let vc = storyboard.instantiateViewController(withIdentifier: "StepsPageViewController") as! DonateStepsViewController
+    present(vc, animated: true, completion: nil)
+  }
    private func profileImageNavBar(show: Bool){
       
       let navBarHeight = Double((navigationController?.navigationBar.frame.height)!)
@@ -124,7 +130,6 @@ class DonateController: UIViewController {
       else {
          UIView.animate(withDuration: 0.1) {
             self.profileImage.alpha = 0.0
-            
          }
       }
    }

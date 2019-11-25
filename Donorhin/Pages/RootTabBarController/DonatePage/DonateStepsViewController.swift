@@ -27,7 +27,7 @@ class DonateStepsViewController: UIViewController {
   var request:TrackerModel?
   
   @IBOutlet weak var stepIndicatorView: StepIndicatorView!
-  var stepIndicator: Int = 0 {
+  var stepIndicator: Int = 1 {
     didSet {
       self.stepIndicatorView.currentStep = stepIndicator
     }
@@ -38,14 +38,18 @@ class DonateStepsViewController: UIViewController {
     
     if let request = self.request {
       self.stepIndicator = request.currentStep - 1
-
     }
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "GoToSteps" {
       let destinationPVC = segue.destination as! RequestStepsPageViewController
-      destinationPVC.step = self.request?.currentStep
+      if let request = self.request {
+        destinationPVC.step = request.currentStep
+      }
+      else {
+        destinationPVC.step = self.stepIndicator
+      }
       //MARK:- Setup delegate to change view
       destinationPVC.viewDidChangedDelegate =  self
       destinationPVC.vcList.first?.pageViewDelegate = destinationPVC
