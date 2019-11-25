@@ -7,10 +7,12 @@
 //
 
 import UIKit
-    
+
 class ProfileController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var viewValidation: CustomMainView!
+    
+    var delegate : MoveToLogin?
     
     
     var user : Profile?
@@ -47,10 +49,8 @@ class ProfileController: UIViewController {
         else if checkLogin == nil {
             viewValidation.alpha = 1
         }
-
+        
     }
-    
-    
     
     
     //MARK: -Action
@@ -60,13 +60,27 @@ class ProfileController: UIViewController {
     }
     
     @objc func logoutAction(){
-        print("logout tapped")
+       let action = UIAlertController(title: "Anda akan logout", message: "Apakah anda yakin akan logout?", preferredStyle: .alert)
+        action.addAction(UIAlertAction(title: "Logout", style: .destructive, handler: { (action) in
+            self.logout()
+        }))
+        action.addAction(UIAlertAction(title: "Batal", style: .cancel, handler: nil))
+        self.present(action,animated: true)
+    }
+    
+    func logout(){
         let domain = Bundle.main.bundleIdentifier!
         UserDefaults.standard.removePersistentDomain(forName: domain)
         UserDefaults.standard.synchronize()
-        print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
         performSegue(withIdentifier: "goToLogin", sender: self)
     }
+    
+    @IBAction func loginAction(_ sender: Any) {
+        dismiss(animated: true) {
+            self.delegate?.performLogin()
+        }
+    }
+    
     
 }
 

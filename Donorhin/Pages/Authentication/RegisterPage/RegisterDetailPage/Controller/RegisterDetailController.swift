@@ -44,6 +44,27 @@ class RegisterDetailController : UIViewController{
         self.view.backgroundColor = Colors.backgroundView
         loadFormTable()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setTabBar(show: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        setTabBar(show: true)
+    }
+    
+    private func setTabBar(show: Bool){
+        if show {
+            UIView.animate(withDuration: 0.2) {
+                self.tabBarController?.tabBar.alpha = 1
+            }
+        }
+        else {
+            UIView.animate(withDuration: 0.2) {
+                self.tabBarController?.tabBar.alpha = 0
+            }
+        }
+    }
   
   @objc func pickerDoneBtnPressed() {
       self.formTableView.reloadData()

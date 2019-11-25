@@ -102,11 +102,20 @@
                         <outlet property="viewNoData" destination="cFS-SC-sCV" id="x84-y1-cIg"/>
                         <segue destination="4O9-P2-cmw" kind="show" identifier="moveToTracker" id="FQm-34-Okn"/>
                         <segue destination="IDB-9s-qAE" kind="presentation" identifier="moveToForm" id="GFI-js-YGS"/>
+                        <segue destination="Am7-4Q-4W5" kind="show" identifier="MoveToLogin" id="HLg-Kw-Ame"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ovo-ry-ZIu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2378.2608695652175" y="-155.35714285714286"/>
+        </scene>
+        <!--Authentication-->
+        <scene sceneID="qWY-JQ-tAA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Authentication" id="Am7-4Q-4W5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hSw-92-LHP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2983" y="-208"/>
         </scene>
         <!--Tracker-->
         <scene sceneID="WYw-Gi-d3k">

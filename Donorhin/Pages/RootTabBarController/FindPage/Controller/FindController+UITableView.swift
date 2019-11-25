@@ -27,12 +27,33 @@ extension FindController: UITableViewDataSource {
         var totalData = 0
         
         if findBloodSegmentedControl.selectedSegmentIndex == 0 {
-            totalData = 1
+            if bloodRequestCurrent != nil {
+                if bloodRequestCurrent?.count != 0 {
+                    totalData = 1
+                }
+                else {
+                    totalData = 0
+                }
+            }
+            else {
+                totalData = 0
+            }
+            
         }
-        
+            
         else {
-            if let data = bloodRequestHistory?.count {
-                totalData = data
+            if bloodRequestHistory != nil {
+                if bloodRequestHistory?.count != 0 {
+                    if let data = bloodRequestHistory?.count {
+                        totalData = data
+                    }
+                }
+                else {
+                    totalData = 0
+                }
+            }
+            else {
+                totalData = 0
             }
         }
         
@@ -41,55 +62,84 @@ extension FindController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell  = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? FindBloodCustomCell
+        
         
         if findBloodSegmentedControl.selectedSegmentIndex == 0 {
             
-            guard let data = bloodRequestCurrent?[indexPath.row] else {fatalError()}
-            
-            cell?.title.text = data.name
-            cell?.address.text = data.address
-            cell?.date.text = shrinkDate(data.date!)
-            cell?.status.text = Steps.checkStep(data.status!)
-            cell?.buttonCallOutlet.phoneNumber = data.phoneNumber
-            
-            cell?.buttonCallOutlet.setTitle("Call PMI Pendonor", for: .normal)
-            cell?.buttonCallOutlet.isHidden = false
-            cell?.buttonCallOutlet.addTarget(self, action: #selector(callButton(sender:)), for: .touchUpInside)
-            
+            if bloodRequestCurrent != nil {
+                if bloodRequestCurrent?.count != 0 {
+                    let cell  = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? FindBloodCustomCell
+                    guard let data = bloodRequestCurrent?[indexPath.row] else {fatalError()}
+                    
+                    cell?.title.text = data.name
+                    cell?.address.text = data.address
+                    cell?.date.text = shrinkDate(data.date!)
+                    cell?.status.text = Steps.checkStep(data.status!)
+                    cell?.buttonCallOutlet.phoneNumber = data.phoneNumber
+                    
+                    cell?.buttonCallOutlet.setTitle("Call PMI Pendonor", for: .normal)
+                    cell?.buttonCallOutlet.isHidden = false
+                    cell?.buttonCallOutlet.addTarget(self, action: #selector(callButton(sender:)), for: .touchUpInside)
+                    
+                    cell?.backgroundColor = UIColor.clear
+                    
+                    // MARK : -Ini buat bikin kotak ditiap cellnya dan kasih space antara cell
+                    let backgroundViewCell : UIView = UIView(frame: CGRect(x: 0, y: 10, width:  self.tableView.frame.size.width, height: 150))
+                    
+                    backgroundViewCell.layer.backgroundColor = UIColor.white.cgColor
+                    backgroundViewCell.layer.masksToBounds = false
+                    backgroundViewCell.layer.cornerRadius = 10
+                    cell!.contentView.addSubview(backgroundViewCell)
+                    cell!.contentView.sendSubviewToBack(backgroundViewCell)
+                    
+                    if cell!.isSelected {
+                        backgroundViewCell.layer.backgroundColor = UIColor.gray.cgColor
+                    }
+                    else if !cell!.isSelected{
+                        backgroundViewCell.layer.backgroundColor = UIColor.white.cgColor
+                    }
+                    return cell!
+                }
+            }
         }
-        
-        else {
-        
-            guard let data = bloodRequestHistory?[indexPath.row] else {fatalError()}
             
-            cell?.title.text = data.name
-            cell?.address.text = data.address
-            cell?.date.text = shrinkDate(data.date!)
-            cell?.status.text = Steps.checkStep(data.status!)
+        else if findBloodSegmentedControl.selectedSegmentIndex == 1{
             
-            cell?.buttonCallOutlet.isHidden = true
+            if bloodRequestHistory != nil {
+                if bloodRequestCurrent?.count != 0 {
+                    let cell  = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? FindBloodCustomCell
+                    guard let data = bloodRequestHistory?[indexPath.row] else {fatalError()}
+                    
+                    cell?.title.text = data.name
+                    cell?.address.text = data.address
+                    cell?.date.text = shrinkDate(data.date!)
+                    cell?.status.text = Steps.checkStep(data.status!)
+                    
+                    cell?.buttonCallOutlet.isHidden = true
+                    
+                    cell?.backgroundColor = UIColor.clear
+                    
+                    // MARK : -Ini buat bikin kotak ditiap cellnya dan kasih space antara cell
+                    let backgroundViewCell : UIView = UIView(frame: CGRect(x: 0, y: 10, width:  self.tableView.frame.size.width, height: 150))
+                    
+                    backgroundViewCell.layer.backgroundColor = UIColor.white.cgColor
+                    backgroundViewCell.layer.masksToBounds = false
+                    backgroundViewCell.layer.cornerRadius = 10
+                    cell!.contentView.addSubview(backgroundViewCell)
+                    cell!.contentView.sendSubviewToBack(backgroundViewCell)
+                    
+                    if cell!.isSelected {
+                        backgroundViewCell.layer.backgroundColor = UIColor.gray.cgColor
+                    }
+                    else if !cell!.isSelected{
+                        backgroundViewCell.layer.backgroundColor = UIColor.white.cgColor
+                    }
+                    
+                    return cell!
+                }
+            }
         }
-        
-        cell?.backgroundColor = UIColor.clear
-        
-        // MARK : -Ini buat bikin kotak ditiap cellnya dan kasih space antara cell
-        let backgroundViewCell : UIView = UIView(frame: CGRect(x: 0, y: 10, width:  self.tableView.frame.size.width, height: 150))
-        
-        backgroundViewCell.layer.backgroundColor = UIColor.white.cgColor
-        backgroundViewCell.layer.masksToBounds = false
-        backgroundViewCell.layer.cornerRadius = 10
-        cell!.contentView.addSubview(backgroundViewCell)
-        cell!.contentView.sendSubviewToBack(backgroundViewCell)
-        
-        if cell!.isSelected {
-            backgroundViewCell.layer.backgroundColor = UIColor.gray.cgColor
-        }
-        else if !cell!.isSelected{
-            backgroundViewCell.layer.backgroundColor = UIColor.white.cgColor
-        }
-        
-        return cell!
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -98,7 +148,7 @@ extension FindController: UITableViewDataSource {
             guard let data = bloodRequestCurrent?[indexPath.row] else {fatalError()}
             navBarTitle = data.name
         }
-        
+            
         else {
             guard let data = bloodRequestHistory?[indexPath.row] else {fatalError()}
             navBarTitle = data.name

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class FindController: UIViewController {
     
@@ -26,10 +27,25 @@ class FindController: UIViewController {
     
     var navBarTitle: String?
     
+    
+    //init var
+    
+    var bloodRequest : [BloodRequest] = []
+    var nameTemp : String?
+    var dateTemp: Date?
+    var hospitalNameTemp: String?
+    var hospitalNumberTemp: String?
+    var requestId : CKRecord.ID?
+    var hospitalId: CKRecord.ID?
+    let userId =  UserDefaults.standard.string(forKey: "currentUser")
+    var currStep: Int?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupUI()
         initTableView()
+        loadAllData()
         
     }
     
@@ -39,43 +55,151 @@ class FindController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        loadData()
+        setTabBar(show: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         profileImageNavBar(show: false)
     }
     
-    private func loadData(){
+    //MARK: - Mau load data dri cloudkit
+    
+    func loadAllData(){
         
-        self.showSpinner(onView: self.view)
-        
-        DummyData().getBloodRequest { (bloodRequest) in
-            
-            DispatchQueue.main.async {
-                self.bloodRequestCurrent = bloodRequest
-                self.bloodRequestHistory = bloodRequest
-                self.tableView.dataSource = self
-                self.tableView.delegate = self
-                self.tableView.reloadData()
-                self.removeSpinner()
-                
-                if self.bloodRequestCurrent != nil {
-                    if self.bloodRequestCurrent!.count == 0 {
-                        self.viewNoData.alpha = 1
-                    }
-                    else {
-                        self.viewNoData.alpha = 0
+        if userId != nil {
+            loadRequestData {
+                self.loadHospitalData {
+                    self.loadCurrStepData {
+                        
+                        //biar array data awal ga diintervensi sama perubahan data, maka di copy ke array lainnya
+                        self.bloodRequestCurrent = self.bloodRequest
+                        self.bloodRequestHistory = self.bloodRequest
+                        
+                        //ini mau ngereverse array, supaya nampilin data paling baru diatas
+                        self.bloodRequestCurrent?.reverse()
+                        self.bloodRequestHistory?.reverse()
+                        
+                        if self.bloodRequestHistory != nil {
+                            for (index, data) in (self.bloodRequestHistory?.enumerated().reversed())! {
+                                if data.status! < 5{
+                                    self.bloodRequestHistory?.remove(at: index)
+                                }
+                            }
+                        }
+                        
+                        if self.bloodRequestCurrent != nil{
+                            for (index, data) in (self.bloodRequestCurrent?.enumerated().reversed())! {
+                                if data.status! >= 5 {
+                                    self.bloodRequestCurrent?.remove(at: index)
+                                }
+                            }
+                        }
+                        
+                        
+                        DispatchQueue.main.async {
+                            self.tableView.delegate = self
+                            self.tableView.dataSource = self
+                            self.tableView.reloadData()
+                        }
+                        
+                        self.checkCurrentRequestData()
                     }
                 }
-                else {
-                    self.viewNoData.alpha = 1
-                }
-                
             }
-            
+        }
+        else if userId == nil {
+            bloodRequestHistory = []
+            bloodRequestCurrent = []
         }
     }
+    
+    func loadRequestData(handleComplete: @escaping (()->())){
+        
+        
+        let userIdReference = CKRecord.Reference(recordID: CKRecord.ID(recordName: userId!), action: .none)
+        let requestPredicate = NSPredicate(format: "userId = %@", argumentArray: [userIdReference])
+        let requestQuery = CKQuery(recordType: "Request", predicate: requestPredicate)
+        
+        Helper.getAllData(requestQuery) { (requestResults) in
+            
+            guard let requestResults = requestResults else {fatalError("Query in Request Error")}
+            
+            if requestResults.count != 0 {
+                self.showSpinner(onView: self.view)
+            }
+            
+            var counter = 0
+            for requestResult in requestResults {
+                let requestModels = requestResult.convertRequestToRequestModel()
+                guard let requestModel = requestModels else {fatalError("Error when convert request to model")}
+                self.nameTemp = requestModel.patientName
+                self.dateTemp = requestModel.dateNeed
+                self.requestId = requestModel.idRequest
+                self.hospitalId = requestModel.idUTDPatient
+                
+                self.bloodRequest.append(BloodRequest(requestId: self.requestId!, hospitalId: self.hospitalId, name: self.nameTemp!, address: nil, phoneNumber: nil, date: self.dateTemp, status: nil))
+                
+                counter+=1
+                
+                if counter == requestResults.count {
+                    handleComplete()
+                }
+            }
+        }
+    }
+    
+    func loadHospitalData(handleComplete: @escaping (()->())){
+        
+        var counter = 0
+        
+        for request in 0...bloodRequest.count-1 {
+            guard let hospitalId = bloodRequest[request].hospitalId else {fatalError("hospitalId not found")}
+            let record = CKRecord(recordType: "UTD", recordID: hospitalId)
+            Helper.getDataByID(record){ (utdResults) in
+                guard let utdResults = utdResults else {fatalError("utdResults not found")}
+                let utdModels = utdResults.convertUTDToUTDModel()
+                guard let utdModel = utdModels else {fatalError("utdModel not found")}
+                self.hospitalNameTemp = utdModel.name
+                self.hospitalNumberTemp = utdModel.phoneNumbers![0]
+                
+                self.bloodRequest[request].address = self.hospitalNameTemp
+                self.bloodRequest[request].phoneNumber = self.hospitalNumberTemp
+                
+                counter+=1
+                if counter == self.bloodRequest.count {
+                    handleComplete()
+                }
+            }
+        }
+    }
+    
+    func loadCurrStepData(handleComplete: @escaping (()->())){
+        
+        var count = 0
+        
+        for request in 0...bloodRequest.count-1 {
+            guard let requestId = bloodRequest[request].requestId else {fatalError("requestId not found")}
+            let trackerPredicate = NSPredicate(format: "id_request = %@", argumentArray: [requestId])
+            let trackerQuery = CKQuery(recordType: "Tracker", predicate: trackerPredicate)
+            Helper.getAllData(trackerQuery) {(trackerResults) in
+                guard let trackerResults = trackerResults else {fatalError("trackerResult not found")}
+                for trackerResult in trackerResults {
+                    let trackerModels = trackerResult.convertTrackerToTrackerModel()
+                    guard let trackerModel = trackerModels else {fatalError("trackerModel not found")}
+                    self.currStep = trackerModel.currentStep
+                    self.bloodRequest[request].status = self.currStep
+                    
+                    count+=1
+                    if count == self.bloodRequest.count {
+                        self.removeSpinner()
+                        handleComplete()
+                    }
+                    
+                }
+            }
+        }
+    }
+    
     
     
     //MARK: - initialize variable
@@ -94,7 +218,24 @@ class FindController: UIViewController {
             self.navigationController?.navigationBar.prefersLargeTitles = false
         }
     }
-        
+    
+    private func setupUI(){
+        viewNoData.alpha = 1
+    }
+    
+    private func setTabBar(show: Bool){
+        if show {
+            UIView.animate(withDuration: 0.2) {
+                self.tabBarController?.tabBar.alpha = 1
+            }
+        }
+        else {
+            UIView.animate(withDuration: 0.2) {
+                self.tabBarController?.tabBar.alpha = 0
+            }
+        }
+    }
+    
     private func callNumber(phoneNumber: String){
         if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
             let application:UIApplication = UIApplication.shared
@@ -112,7 +253,7 @@ class FindController: UIViewController {
         
         return dfPrint.string(from: date)
     }
-  
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "moveToForm" {
@@ -158,11 +299,55 @@ class FindController: UIViewController {
                 }
             }
         }
-        
+            
         else {
             UIView.animate(withDuration: 0.1) {
                 self.profileImage.alpha = 0.0
-               
+                
+            }
+        }
+    }
+    
+    func checkCurrentRequestData(){
+        if self.bloodRequestCurrent != nil{
+            if self.bloodRequestCurrent!.count != 0 {
+                DispatchQueue.main.async {
+                    self.viewNoData.alpha = 0
+                    self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                }
+                
+            }
+            else if self.bloodRequestCurrent?.count == 0 {
+                DispatchQueue.main.async {
+                    self.viewNoData.alpha = 1
+                }
+            }
+        }
+        else if self.bloodRequestCurrent == nil{
+            DispatchQueue.main.async {
+                self.viewNoData.alpha = 1
+            }
+        }
+    }
+    
+    func checkHistoryRequestData(){
+        if self.bloodRequestHistory != nil{
+            if self.bloodRequestHistory!.count != 0 {
+                DispatchQueue.main.async {
+                    self.viewNoData.alpha = 0
+                    self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                }
+                
+            }
+            else if self.bloodRequestHistory?.count == 0 {
+                DispatchQueue.main.async {
+                    self.viewNoData.alpha = 1
+                }
+            }
+        }
+        else if self.bloodRequestHistory == nil{
+            DispatchQueue.main.async {
+                self.viewNoData.alpha = 1
             }
         }
     }
@@ -177,23 +362,48 @@ class FindController: UIViewController {
     @objc private func profileButton(){
         let storyboard = UIStoryboard(name: "Profile", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "profileStoryboard") as! ProfileController
+        vc.delegate = self
         let navBarOnModal: UINavigationController = UINavigationController(rootViewController: vc)
         self.present(navBarOnModal, animated: true, completion: nil)
     }
     
     //MARK: Action Outlet
-
+    
     @IBAction func findBloodSegmentedControlDidChange() {
-        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        
+        if findBloodSegmentedControl.selectedSegmentIndex == 0 {
+            checkCurrentRequestData()
+        }
+        else if findBloodSegmentedControl.selectedSegmentIndex == 1 {
+            checkHistoryRequestData()
+        }
         tableView.reloadData()
     }
     
     @IBAction func findBloodAction(_ sender: Any) {
-        performSegue(withIdentifier: "moveToForm", sender: self)
+        
+        let checkLogin = UserDefaults.standard.string(forKey: "currentUser")
+        
+        if checkLogin != nil {
+            performSegue(withIdentifier: "moveToForm", sender: self)
+        }
+        else {
+            let alert = UIAlertController(title: "Anda belum login", message: "SIlahkan login terlebih dahulu untuk melakukan pencarian darah.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Nanti saja", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Login sekarang", style: .default, handler: { (action) in
+                self.performSegue(withIdentifier: "MoveToLogin", sender: self)
+            }))
+            self.present(alert,animated: true)
+        }
+        
     }
     
 }
 
 protocol ControlValidationViewDelegate {
     func didRequestData()
+}
+
+protocol MoveToLogin {
+    func performLogin()
 }
