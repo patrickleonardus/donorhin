@@ -14,10 +14,7 @@ class Page4ViewController: UIViewController {
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var label2: UILabel!
     @IBOutlet weak var label3: UILabel!
-    @IBOutlet weak var masukOutlet: CustomButtonRounded!
-    @IBOutlet weak var masukNantiOutlet: UIButton!
-    
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,4 +25,13 @@ class Page4ViewController: UIViewController {
 
         }
     }
+    
+    @IBAction func masukAkunButton(_ sender: Any) {
+        performSegue(withIdentifier: "goToAuthentication", sender: self)
+    }
+    @IBAction func masukNantiButton(_ sender: Any) {
+        performSegue(withIdentifier: "goToRootTabBarController", sender: self)
+    }
+    
+    
 }

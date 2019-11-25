@@ -432,6 +432,9 @@
                                         <state key="normal" title="Masuk Nanti">
                                             <color key="titleColor" red="0.6453691721" green="0.00067493994720000002" blue="0.098007641729999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <connections>
+                                            <action selector="masukNantiButton:" destination="kBm-Yd-jWI" eventType="touchUpInside" id="68t-jn-qGq"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xlb-vQ-N4C" customClass="CustomButtonRounded" customModule="Donorhin" customModuleProvider="target">
                                         <rect key="frame" x="51" y="78" width="312" height="44"/>
@@ -443,6 +446,9 @@
                                         <state key="normal" title="Masuk ke Akun">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="masukAkunButton:" destination="kBm-Yd-jWI" eventType="touchUpInside" id="lHP-VS-on4"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -476,8 +482,6 @@
                         <outlet property="label1" destination="Tiy-qJ-X4a" id="zpn-8K-7jQ"/>
                         <outlet property="label2" destination="PXs-Dy-9Zz" id="jUz-Sb-ezy"/>
                         <outlet property="label3" destination="erv-Up-0EY" id="eOI-dQ-baA"/>
-                        <outlet property="masukNantiOutlet" destination="blY-Iw-Tye" id="CTI-TC-rtI"/>
-                        <outlet property="masukOutlet" destination="Xlb-vQ-N4C" id="DaE-GN-zei"/>
                         <segue destination="lm8-9v-Wbb" kind="show" identifier="goToAuthentication" id="oa1-s0-hz2"/>
                         <segue destination="DRq-W1-eO5" kind="show" identifier="goToRootTabBarController" id="9dm-4k-uV1"/>
                     </connections>

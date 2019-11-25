@@ -38,6 +38,7 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         setTabBar(show: false)
+        self.navigationController?.navigationBar.isHidden = false
     }
 
     
@@ -82,16 +83,19 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
     func validationCredential(email: String, password: String) {
         guard let emailCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FormTableViewCell else {return}
         guard let passCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? FormTableViewCell else {return}
-        guard let buttonCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? ErrorMessageTableViewCell else {return}
-        
+        guard let errorCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? ErrorMessageTableViewCell else {return}
+        DispatchQueue.main.async {
+            self.showSpinner(onView: self.view)
+        }
         DataFetcher().getUserDataByEmail(email: email, password: password){(userModel) in
             guard userModel != nil else {
                 DispatchQueue.main.async {
+                    self.removeSpinner()
                     print("*Email or password not valid")
-                    buttonCell.errorMsg.isHidden = false
+                    errorCell.errorMsg.isHidden = false
                     emailCell.shake()
                     passCell.shake()
-                    buttonCell.errorMsg.text = "*Email atau password tidak valid"
+                    errorCell.errorMsg.text = "*Email atau password tidak valid"
                 }
                 return
             }
@@ -109,9 +113,10 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
                 UserDefaults.standard.set(userModel?.statusDonor, forKey: "donor_status")
                 print("Data saved to user default...")
                 self.state = .loggedin
-                buttonCell.errorMsg.isHidden = true
+                errorCell.errorMsg.isHidden = true
                 self.navigationController?.navigationBar.isHidden = true
                 self.performSegue(withIdentifier: "goToHome", sender: self)
+                self.removeSpinner()
             }
         }
     }
@@ -137,26 +142,6 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
         
         let package : [String:CLLocation] = ["location": location]
         Helper.updateToDatabase(keyValuePair: package, recordID: recordId)
-        //masih failed
-//
-//        Helper.database.save(record) { (res,error) in
-//            if error != nil{
-//                print(error)
-//            }
-//            else {
-//                print("success")
-//            }
-//        }
-//
-//        Helper.saveData(record) { (isSuccessfullySaved) in
-//            if isSuccessfullySaved != false{
-//                print("success")
-//            }
-//            else {
-//                print("failed")
-//            }
-//        }
-        
         // saving your CLLocation object
         let locationData = NSKeyedArchiver.archivedData(withRootObject: location)
         UserDefaults.standard.set(locationData, forKey: "location")
