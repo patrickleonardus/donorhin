@@ -13,6 +13,11 @@ enum BloodType: String {
     case b = "B-"
     case a = "A-"
     case ab = "AB-"
+    case oPositive = "O+"
+    case bPositive = "B+"
+    case aPositive = "A+"
+    case abPositive = "AB+"
+    case notIdentified = "Belum Diketahui"
 }
 
 enum Colors{
