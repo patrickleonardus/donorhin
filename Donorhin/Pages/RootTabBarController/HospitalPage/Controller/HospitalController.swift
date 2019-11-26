@@ -9,11 +9,17 @@
 import UIKit
 import CloudKit
 
+protocol HospitalDelegate {
+  func selectedHospital (hospital: HospitalModel)
+}
+
 class HospitalController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var viewValidation: UIView!
     
+    var hospitalDelegate : HospitalDelegate?
+  
     var hospitalList : [HospitalModel]?
     var hospitalListFilter : [HospitalModel]?
     
@@ -21,6 +27,7 @@ class HospitalController: UIViewController {
     
     var choosenHospital : String?
     var choosenHospitalId : CKRecord.ID?
+    var chosenHospital : HospitalModel?
     
     var searchController = UISearchController()
     

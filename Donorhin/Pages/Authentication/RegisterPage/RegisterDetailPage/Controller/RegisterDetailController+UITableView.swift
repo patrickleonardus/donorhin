@@ -14,11 +14,14 @@ extension RegisterDetailController : UITableViewDelegate{
 
 extension RegisterDetailController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 6{
+            return 45
+        }
         return 60
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 8
+        return 9
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,6 +38,9 @@ extension RegisterDetailController : UITableViewDataSource {
     // Set the spacing between sections
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         let cellSpacingHeight: CGFloat = 17
+        if section == 6 || section == 7 {
+            return 0
+        }
         return cellSpacingHeight
     }
     
@@ -67,18 +73,24 @@ extension RegisterDetailController : UITableViewDataSource {
             cell?.layer.cornerRadius = 10
             return cell!
         }
+        else if indexPath.section == 6{
+            let cell  = tableView.dequeueReusableCell(withIdentifier: "errorMsgCell", for: indexPath) as? ErrorMessageTableViewCell
+            cell?.errorMsg.isHidden = true
+            return cell!
+        }
                   
-            else if indexPath.section == 6{
+        else if indexPath.section == 7{
                 let cell  = tableView.dequeueReusableCell(withIdentifier: "agreementCell", for: indexPath) as? AgreementTableViewCell
-          cell?.delegate = self
+                cell?.delegate = self
                 return cell!
             }
         
-            else if indexPath.section == 7{
+            else if indexPath.section == 8{
                 let cell  = tableView.dequeueReusableCell(withIdentifier: "buttonCell", for: indexPath) as? ButtonTableViewCell
                   cell?.buttonOutlet.layer.cornerRadius = 10
                   cell?.buttonOutlet.setTitle("Daftar", for: .normal)
-                  cell?.buttonOutlet.isHidden = true
+                  //cell?.buttonOutlet.isHidden = true
+                  cell?.buttonOutlet.backgroundColor =  Colors.gray_disabled
                   cell?.delegate = self
                 return cell!
               }
@@ -137,11 +149,13 @@ extension RegisterDetailController: UIPickerViewDataSource, UIPickerViewDelegate
 
 extension RegisterDetailController: AgreementDelegate {
   func checkAgreementCheckBox(_ isCheck: Bool) {
-    let buttonCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 7)) as! ButtonTableViewCell
+    let buttonCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 8)) as! ButtonTableViewCell
     if isCheck {
-      buttonCell.buttonOutlet.isHidden = false
+      buttonCell.buttonOutlet.backgroundColor =  Colors.red
+      //buttonCell.buttonOutlet.isHidden = false
     } else {
-      buttonCell.buttonOutlet.isHidden = true
+      buttonCell.buttonOutlet.backgroundColor =  Colors.gray_disabled
+      //buttonCell.buttonOutlet.isHidden = true
     }
   }
   

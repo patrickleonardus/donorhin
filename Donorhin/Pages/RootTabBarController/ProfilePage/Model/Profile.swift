@@ -38,9 +38,10 @@ class ProfileDataFetcher {
         let email : String = ud.string(forKey: "email"),
         let name : String = ud.string(forKey: "name"),
         let birthdate : Date = ud.object(forKey: "birth_date") as? Date,
-        let bloodType : String = ud.string(forKey: "blood_type"),
-        let lastDonor : Date = ud.object(forKey: "last_donor") as? Date
-        else { fatalError() }
+        let bloodType : String = ud.string(forKey: "blood_type")else { fatalError() }
+        
+        
+        guard let lastDonor : Date = ud.object(forKey: "last_donor") as? Date else{return nil}
         
         let gender : Int = ud.integer(forKey: "gender")
         profileData = Profile(profileName: name, profileEmail: email, profileGender: gender, profileBirthday: birthdate, profileBloodType: bloodType, profileLastDonor: lastDonor)
@@ -48,12 +49,3 @@ class ProfileDataFetcher {
     }
 }
 
-//struct DummyDataProfile {
-//
-//       func getProfileData(completionHandler: @escaping (([Profile]) -> ())){
-//         completionHandler(
-//            [Profile(profileImage: "user_profile", profileName: "Nanda", profileEmail: "nanda@gmail.com", profileGender: "Perempuan", profileBirthday: "21 Feb 2000", profileBloodType: "O-", profileLastDonor: "01 Jan 2019")]
-//         )
-//     }
-//
-//}

@@ -67,7 +67,7 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
             
             cell?.nameProfile.text = user?.profileName
             cell?.emailProfile.text = user?.profileEmail
-            cell?.imageProfile.image = UIImage(named: "user_profile")
+            cell?.imageProfile.image = UIImage(named: "icon_profile")
             
             print(user?.profileName)
             
@@ -94,7 +94,12 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
                 
             else if indexPath.row == 1 {
                 cell?.imageCell.image = UIImage(named: "birthday_profile")
-                cell?.textCell.text = dateFormatter.string(from: user?.profileBirthday ?? date!)
+                if user?.profileBirthday == nil{
+                cell?.textCell.text = "Belum Mendonor"
+                }
+                else{
+                cell?.textCell.text = dateFormatter.string(from: user!.profileBirthday!)
+                }
             }
                 
             else if indexPath.row == 2 {

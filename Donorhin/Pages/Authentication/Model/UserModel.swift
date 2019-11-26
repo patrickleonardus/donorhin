@@ -34,6 +34,7 @@ class DataFetcher {
                         data = record
                     }
                     userModel = data?.convertAccountToUserModel()
+                    //print(userModel)
                     completionHandler(userModel)
                 }
                 else{

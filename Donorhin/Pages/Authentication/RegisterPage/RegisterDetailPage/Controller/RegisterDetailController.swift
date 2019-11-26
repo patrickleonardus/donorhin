@@ -47,10 +47,27 @@ class RegisterDetailController : UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         setTabBar(show: false)
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
+        self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         setTabBar(show: true)
+        
+         let fullNameCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! FormTableViewCell
+         let genderCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! FormTableViewCell
+         let birthDateCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as! FormTableViewCell
+         let bloodTypeCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 3)) as! FormTableViewCell
+         guard let errorCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 6)) as? ErrorMessageTableViewCell else {fatalError()}
+        
+        DispatchQueue.main.async {
+              fullNameCell.formTextField.defaultPlaceholder()
+              genderCell.formTextField.defaultPlaceholder()
+              birthDateCell.formTextField.defaultPlaceholder()
+              bloodTypeCell.formTextField.defaultPlaceholder()
+              errorCell.errorMsg.isHidden = true
+        }
+        
     }
     
     private func setTabBar(show: Bool){
@@ -109,6 +126,7 @@ class RegisterDetailController : UIViewController{
            formTableView.register(UINib(nibName: "FormCustomCell", bundle: nil), forCellReuseIdentifier: "formCell")
            formTableView.register(UINib(nibName: "AgreementViewCell", bundle: nil), forCellReuseIdentifier: "agreementCell")
            formTableView.register(UINib(nibName: "ButtonViewCell", bundle: nil), forCellReuseIdentifier: "buttonCell")
+           formTableView.register(UINib(nibName: "ErrorMessageViewCell", bundle: nil), forCellReuseIdentifier: "errorMsgCell")
            formTableView.tableFooterView = UIView()
            formTableView.showsVerticalScrollIndicator = false
     }

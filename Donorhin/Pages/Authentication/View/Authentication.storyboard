@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sUs-WR-ySd">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PrS-ox-HoT">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,13 +11,13 @@
         <!--Masuk-->
         <scene sceneID="9Uy-vz-pi1">
             <objects>
-                <viewController storyboardIdentifier="authStoryboard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sUs-WR-ySd" customClass="LoginController" customModule="Donorhin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="authStoryboard" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sUs-WR-ySd" customClass="LoginController" customModule="Donorhin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EPs-Ji-ZpA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XGe-jO-LLV">
-                                <rect key="frame" x="0.0" y="115" width="414" height="781"/>
+                                <rect key="frame" x="0.0" y="159" width="414" height="737"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -32,7 +30,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eHf-XK-nyI"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Masuk" largeTitleDisplayMode="never" id="3OG-X7-sf8"/>
+                    <navigationItem key="navigationItem" title="Masuk" id="3OG-X7-sf8">
+                        <barButtonItem key="backBarButtonItem" title="Masuk" id="Y0v-uk-vOE"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="formTableView" destination="XGe-jO-LLV" id="thX-BU-Kft"/>
                         <segue destination="zgr-e9-cXC" kind="show" identifier="goToRegister" id="rKu-rC-Cgd"/>
@@ -41,7 +41,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lad-hc-28G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1298.5507246376812" y="-165.40178571428569"/>
+            <point key="canvasLocation" x="2208.695652173913" y="-165.40178571428569"/>
         </scene>
         <!--RootTabBarController-->
         <scene sceneID="Mcb-YV-bjI">
@@ -61,7 +61,25 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rvK-HC-5A2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1823.913043478261" y="-457.36607142857139"/>
+            <point key="canvasLocation" x="2734.057971014493" y="-457.36607142857139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6vz-tP-nBg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="PrS-ox-HoT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7GZ-HE-iaR">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="sUs-WR-ySd" kind="relationship" relationship="rootViewController" id="hMD-L8-Swa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9FU-Fx-cc1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1298.5507246376812" y="-165.40178571428569"/>
         </scene>
     </scenes>
 </document>
