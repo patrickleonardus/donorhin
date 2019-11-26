@@ -19,9 +19,9 @@ class RegisterDetailController : UIViewController{
     let datePicker = UIDatePicker()
     let gender = ["Pria","Wanita"]
     let bloodType = ["A-","A+","B-","B+","O-","O+","AB-","AB+"]
-  var pickerToolBar: UIToolbar!
-
-  
+    var pickerToolBar: UIToolbar!
+    var activeCell : FormTableViewCell?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         FormBuilder().getItemsForRegisterDetail { (formItems) in
@@ -53,11 +53,11 @@ class RegisterDetailController : UIViewController{
     
     override func viewWillDisappear(_ animated: Bool) {
         setTabBar(show: true)
-        
-         let fullNameCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! FormTableViewCell
-         let genderCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! FormTableViewCell
-         let birthDateCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as! FormTableViewCell
-         let bloodTypeCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 3)) as! FormTableViewCell
+        guard
+         let fullNameCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FormTableViewCell,
+         let genderCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? FormTableViewCell,
+         let birthDateCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? FormTableViewCell,
+            let bloodTypeCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 3)) as? FormTableViewCell else{return}
          guard let errorCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 6)) as? ErrorMessageTableViewCell else {fatalError()}
         
         DispatchQueue.main.async {
@@ -67,7 +67,6 @@ class RegisterDetailController : UIViewController{
               bloodTypeCell.formTextField.defaultPlaceholder()
               errorCell.errorMsg.isHidden = true
         }
-        
     }
     
     private func setTabBar(show: Bool){
@@ -109,8 +108,9 @@ class RegisterDetailController : UIViewController{
   @objc func dateChanged (datePicker : UIDatePicker, activeTF : UITextField) {
       let dateFormatter = DateFormatter()
       dateFormatter.dateFormat = "dd MMM y"
-      let birthDateCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as! FormTableViewCell
-      let lastDonorDateCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 4)) as! FormTableViewCell
+      guard
+      let birthDateCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? FormTableViewCell,
+        let lastDonorDateCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 4)) as? FormTableViewCell else {return}
     
       if birthDateCell.formTextField.isFirstResponder {
         birthDateCell.formTextField.text = dateFormatter.string(from: datePicker.date)

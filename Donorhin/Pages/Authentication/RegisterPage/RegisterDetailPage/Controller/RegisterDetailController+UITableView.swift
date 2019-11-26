@@ -51,6 +51,7 @@ extension RegisterDetailController : UITableViewDataSource {
             guard let data = formItems?[indexPath.section] else {fatalError()}
             
             cell?.formTextField.placeholder = data.placeholder
+            cell?.delegate = self
             cell?.formTextField.delegate = self
             cell?.iconImageView.image = UIImage(named: data.img!)
             if indexPath.section == 1 {

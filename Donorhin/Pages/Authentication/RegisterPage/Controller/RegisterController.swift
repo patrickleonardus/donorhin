@@ -13,7 +13,7 @@ class RegisterController : UIViewController{
     @IBOutlet weak var formTableView: UITableView!
     var navigationBarTitle : String?
     var formItems: [FormItems]?
-    
+    var activeCell : FormTableViewCell?
     override func viewDidLoad() {
         super.viewDidLoad()
         FormBuilder().getItemsForRegister { (formItems) in

@@ -18,7 +18,8 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
     var formItems: [FormItems]?
     var context = LAContext()
     let locationManager = CLLocationManager()
-    
+    var activeTF : UITextField?
+    var activeCell : FormTableViewCell?
     //available states
     var state = AuthenticationState.loggedout {
         didSet {
