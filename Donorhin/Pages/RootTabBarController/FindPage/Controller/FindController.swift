@@ -8,7 +8,7 @@
 
 import UIKit
 import CloudKit
-
+import UserNotifications
 class FindController: UIViewController {
     
     
@@ -43,12 +43,28 @@ class FindController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      self.registerForNotification()
         setupUI()
         initTableView()
         loadAllData()
         
     }
-    
+  
+  private func registerForNotification() {
+    UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge]) {[weak self] (granted, err) in
+      guard granted else {return}
+      self?.getNotificationSettings()
+    }
+  }
+  
+  private func getNotificationSettings() {
+    UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+      guard settings.authorizationStatus == .authorized else {return}
+      DispatchQueue.main.async {
+        UIApplication.shared.registerForRemoteNotifications()
+      }
+    }
+  }
     override func viewDidAppear(_ animated: Bool) {
         profileImageNavBar(show: true)
         setupNavBarToLarge(large: true)
