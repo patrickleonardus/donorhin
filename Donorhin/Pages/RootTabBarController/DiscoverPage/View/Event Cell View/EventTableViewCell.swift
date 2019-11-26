@@ -22,16 +22,19 @@ class EventTableViewCell: UITableViewCell{
         self.collectionViewDiscover.delegate = self
         self.collectionViewDiscover.dataSource = self
         
+        loadData()
+        
+    }
+    
+    func loadData(){
         EventModelCollectionView().getData { (eventData) in
             
             DispatchQueue.main.async {
                 
                 self.eventData = eventData
                 self.collectionViewDiscover.reloadData()
-                
             }
         }
-        
     }
     
 

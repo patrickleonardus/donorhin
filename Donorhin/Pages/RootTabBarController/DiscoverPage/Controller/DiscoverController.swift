@@ -9,17 +9,14 @@
 import UIKit
 import CloudKit
 
-class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, NavigationBarTitleDelegate, EventCellDelegate{
-    func reloadDataCell() {
-        tableViewDiscover.reloadData()
-    }
+class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, NavigationBarTitleDelegate{
     
 
     @IBOutlet weak var tableViewDiscover: UITableView!
     
     var sectionHeaderTitleArray = ["Acara","Info"]
     var profileImage = UIImageView()
-    
+    var timer = Timer()
     var navigationBarTitle : String?
     
     //initialize var for collection view
@@ -36,6 +33,10 @@ class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, N
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(reloadCellCV), userInfo: nil, repeats: true)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         profileImageNavBar(show: true)
         setupNavBarToLarge()
@@ -43,6 +44,24 @@ class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, N
     
     override func viewWillDisappear(_ animated: Bool) {
         profileImageNavBar(show: false)
+    }
+    
+    @objc func reloadCollectionViewData(){
+        
+        if let cell = tableViewDiscover.dequeueReusableCell(withIdentifier: "eventCell") as? EventTableViewCell{
+            cell.loadData()
+        }
+    }
+    
+    @objc func reloadCellCV() {
+        for cell in tableViewDiscover.visibleCells {
+            if let cell = cell as? EventTableViewCell {
+                DispatchQueue.main.async {
+                    cell.loadData()
+                    cell.collectionViewDiscover.reloadData()
+                }
+            }
+        }
     }
     
     
@@ -136,10 +155,6 @@ class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, N
             destination.nameEvent = nameEvent
             destination.phoneEvent = phoneEvent
         }
-//        else if segue.identifier == "MoveToAdd" {
-//            let destination = segue.destination as! AddEventController
-//            destination.delegate = self
-//        }
     }
 
 }
@@ -152,6 +167,3 @@ protocol MoveToEventDetail {
     func moveToAddEventDetailClass(image : UIImage, title: String, desc: String, address: String, date : Date, name : String, phone : String)
 }
 
-protocol EventCellDelegate {
-    func reloadDataCell()
-}
