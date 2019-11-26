@@ -9,16 +9,56 @@
 import Foundation
 import UIKit
 import CloudKit
-extension RegisterDetailController : FormCellDelegate{
+extension RegisterDetailController : FormCellDelegate {
+    func textFieldDidBeginEditing(cell: FormTableViewCell) {
+        self.activeCell = cell
+    }
+    
+    func textFieldDidEndEditing() {
+        self.activeCell = nil
+    }
+    
+    func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(aNotification:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(aNotification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWasShown(aNotification: NSNotification) {
+        let info = aNotification.userInfo as! [String: AnyObject],
+        kbSize = (info[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue.size,
+        contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: kbSize.height, right: 0)
+
+        self.formTableView.contentInset = contentInsets
+        self.formTableView.scrollIndicatorInsets = contentInsets
+
+        var aRect = self.view.frame
+        aRect.size.height -= kbSize.height
+        if activeCell != nil{
+            let pointInTable = activeCell!.frame.origin
+            let rectInTable = activeCell!.frame
+
+            if !aRect.contains(pointInTable) {
+            self.formTableView.scrollRectToVisible(rectInTable, animated: true)
+            }
+        }
+    }
+    
+    
+    
+    @objc func keyboardWillBeHidden(aNotification: NSNotification) {
+        let contentInsets = UIEdgeInsets.zero
+        self.formTableView.contentInset = contentInsets
+        self.formTableView.scrollIndicatorInsets = contentInsets
+    }
     
     func buttonDidTap() {
-      
-      let fullNameCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! FormTableViewCell
-      let genderCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! FormTableViewCell
-      let birthDateCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as! FormTableViewCell
-      let bloodTypeCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 3)) as! FormTableViewCell
-      let lastDonoCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 4)) as! FormTableViewCell
-      let referralCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 5)) as! FormTableViewCell
+      guard
+      let fullNameCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FormTableViewCell,
+      let genderCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? FormTableViewCell,
+      let birthDateCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? FormTableViewCell,
+      let bloodTypeCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 3)) as? FormTableViewCell,
+      let lastDonoCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 4)) as? FormTableViewCell,
+        let referralCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 5)) as? FormTableViewCell else{return}
       guard let errorCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 6)) as? ErrorMessageTableViewCell else {fatalError()}
       if self.validateUserDetail(fullName: fullNameCell.formTextField.text!, gender: genderCell.formTextField.text!, birthDate: birthDateCell.formTextField.text!, bloodType: bloodTypeCell.formTextField.text!) {
         self.showSpinner(onView: self.view)
@@ -80,11 +120,12 @@ extension RegisterDetailController : FormCellDelegate{
     }
   
   func validateUserDetail(fullName: String, gender: String, birthDate: String, bloodType: String) -> Bool {
-    let fullNameCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! FormTableViewCell
-    let genderCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! FormTableViewCell
-    let birthDateCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as! FormTableViewCell
-    let bloodTypeCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 3)) as! FormTableViewCell
-    let lastDonoCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 4)) as! FormTableViewCell
+    guard
+    let fullNameCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FormTableViewCell,
+    let genderCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? FormTableViewCell,
+    let birthDateCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? FormTableViewCell,
+    let bloodTypeCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 3)) as? FormTableViewCell,
+    let lastDonoCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 4)) as? FormTableViewCell else{ return false}
     guard let errorCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 6)) as? ErrorMessageTableViewCell else {fatalError()}
     if fullName == "" || gender == "" || birthDate == "" || bloodType == ""{
         DispatchQueue.main.async {
@@ -99,7 +140,7 @@ extension RegisterDetailController : FormCellDelegate{
             bloodTypeCell.formTextField.redPlaceholder()
             
             errorCell.errorMsg.isHidden = false
-            errorCell.errorMsg.text = "*Harap pastikan seluruh form sudah terisi"
+            errorCell.errorMsg.text = "*Pastikan seluruh form telah terisi"
         }
 //      let alert = UIAlertController(title: "Peringatan", message: "Nama lengkap, jenis kelamin, tanggal lahir, dan golongan darah harus diisi", preferredStyle: .alert)
 //      let action = UIAlertAction(title: "Oke", style: .default, handler: nil)

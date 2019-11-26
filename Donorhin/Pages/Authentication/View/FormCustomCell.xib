@@ -28,6 +28,10 @@
                                 <rect key="frame" x="58" y="0.0" width="322" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="didBegin:" destination="UAc-ng-BXh" eventType="editingDidBegin" id="eXT-QT-cc2"/>
+                                    <action selector="didEnd:" destination="UAc-ng-BXh" eventType="editingDidEnd" id="wGU-gi-Xkj"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

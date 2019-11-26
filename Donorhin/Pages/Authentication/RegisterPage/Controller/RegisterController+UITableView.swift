@@ -52,6 +52,7 @@ extension RegisterController : UITableViewDataSource, UITableViewDelegate{
           }
           cell?.backgroundColor = UIColor.white
           cell?.layer.cornerRadius = 10
+          cell?.delegate = self
           return cell!
         }
             
