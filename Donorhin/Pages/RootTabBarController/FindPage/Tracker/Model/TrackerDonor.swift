@@ -6,7 +6,7 @@
 //  Copyright © 2019 Donorhin. All rights reserved.
 //
 
-import Foundation
+import CloudKit
 
 enum Status {
     case done
@@ -20,6 +20,7 @@ struct StepItems {
     var status : Status?
 }
 
+//FIXME: DELETE
 enum DonorStatus {
     case searching
     case found
@@ -28,6 +29,7 @@ enum DonorStatus {
     case confirmed
 }
 
+//FIXME: DELETE SOON, Ganti sama SearchTrackerModel
 struct Pendonor {
     var id : String?
     var name : String?
@@ -36,9 +38,23 @@ struct Pendonor {
     var donorStatus : DonorStatus?
 }
 
+struct SearchTrackerInput {
+  var idRequest : CKRecord.ID
+  var idTracker : CKRecord.ID
+  var patientUtdId : CKRecord.ID
+  var step : Int
+}
+
+struct SearchTrackerModel{
+  var datePendonor : Date? //tracker
+  var pendonorUTDName : String? //tracker
+  var pendonorUTDPhone : [String]? //tracker
+}
+
 struct PendonorDummyData {
     func getCurrentPendonor(completionHandler: @escaping (([Pendonor]) -> ())){
         completionHandler(
             [Pendonor(id: "190", name: "Vebby", address: "PMI Tangsel", date: "31 Nov 2019", donorStatus: .done)])
     }
 }
+

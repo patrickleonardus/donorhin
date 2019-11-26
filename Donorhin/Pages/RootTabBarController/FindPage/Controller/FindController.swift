@@ -288,6 +288,12 @@ class FindController: UIViewController {
             
             let destination = segue.destination as! TrackerController
             destination.navigationBarTitle =  navBarTitle
+            destination.input = SearchTrackerInput(
+                idRequest: requestId!,
+                idTracker: trackerId!,
+                patientUtdId: hospitalId!,
+                step: currStep!
+            )
             
         }
         
