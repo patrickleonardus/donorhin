@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, navigationBarTitleDelegate{
 

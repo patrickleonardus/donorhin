@@ -133,10 +133,6 @@
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
-                                                    <connections>
-                                                        <outlet property="dataSource" destination="G8X-gM-t9k" id="jjl-VG-mI2"/>
-                                                        <outlet property="delegate" destination="G8X-gM-t9k" id="a3Q-26-BlS"/>
-                                                    </connections>
                                                 </collectionView>
                                             </subviews>
                                             <constraints>
@@ -302,6 +298,6 @@
     <resources>
         <image name="add_event" width="80" height="80"/>
         <image name="tab_bar_discover" width="23" height="23"/>
-        <image name="user_profile" width="1439" height="960"/>
+        <image name="user_profile" width="806" height="392"/>
     </resources>
 </document>

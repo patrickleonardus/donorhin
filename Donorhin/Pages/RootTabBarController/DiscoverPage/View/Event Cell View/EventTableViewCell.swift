@@ -18,9 +18,15 @@ class EventTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-       
-        DummyDataForEvent().getEventData { (eventData) in
-            self.eventData = eventData
+        
+        EventModelCollectionView().getData { (eventData) in
+            
+            DispatchQueue.main.async {
+                self.eventData = eventData
+                self.collectionViewDiscover.delegate = self
+                self.collectionViewDiscover.dataSource = self
+                self.collectionViewDiscover.reloadData()
+            }
         }
         
     }

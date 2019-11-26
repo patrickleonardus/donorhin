@@ -46,14 +46,16 @@ extension EventTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
         else if indexPath.section == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCV", for: indexPath) as! EventListCollectionViewCell
             
+
+            
             guard let data = eventData?[indexPath.row] else {fatalError()}
             
             cell.imageEvent.contentMode = UIView.ContentMode.scaleAspectFill
             
-            cell.imageEvent.image = UIImage(named: data.image!)
+            cell.imageEvent.image = data.image
             cell.titleEvent.text = data.title
             cell.addressEvent.text = data.address
-            cell.dateEvent.text = data.date
+            cell.dateEvent.text = "\(String(describing: data.startDate))"
             
             //setup ui cell
     
@@ -75,7 +77,7 @@ extension EventTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
             self.moveToAddEventDelegate?.moveToAddEventClass()
         }
         else {
-            self.moveToDetailEventDelegate?.moveToAddEventDetailClass(image: data.image!, title: data.title!, desc: data.description!, address: data.address!, date: data.date!, name: data.nameEvent!, phone: data.phoneEvent!)
+//            self.moveToDetailEventDelegate?.moveToAddEventDetailClass(image: data.image!, title: data.title!, desc: data.description!, address: data.address!, date: data.date!, name: data.nameEvent!, phone: data.phoneEvent!)
         }
     }
 }
