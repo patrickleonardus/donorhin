@@ -13,11 +13,11 @@ class DetailEventController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     //initialize var
-    var imageEvent: String?
+    var imageEvent: UIImage?
     var titleEvent: String?
     var descEvent: String?
     var addressEvent: String?
-    var dateEvent: String?
+    var dateEvent: Date?
     var nameEvent: String?
     var phoneEvent: String?
     

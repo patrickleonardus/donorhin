@@ -14,7 +14,7 @@ class InfoTableViewCell: UITableViewCell {
     
     var navigationBarTitle : String?
     
-    var delegate : navigationBarTitleDelegate?
+    var delegate : NavigationBarTitleDelegate?
     
     var infoData : [InfoModel]?
     

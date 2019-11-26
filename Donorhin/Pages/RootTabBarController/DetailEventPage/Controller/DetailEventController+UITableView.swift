@@ -23,16 +23,20 @@ extension DetailEventController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "firstEventCell") as! FirstEventCell
-            cell.imageEventCell.image = UIImage(named: imageEvent!)
+            cell.imageEventCell.image = imageEvent
             return cell
             
         }
         else if indexPath.section == 1 {
             
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd MMMM yyyy"
+            let dateEventCast = dateFormatter.string(from: dateEvent!)
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "secondEventCell") as! SecondEventCell
             cell.titleEventLabel.text = titleEvent
             cell.addressEventLabel.text = addressEvent
-            cell.dateEventLabel.text = dateEvent
+            cell.dateEventLabel.text = dateEventCast
             return cell
         }
         else if indexPath.section == 2 {
