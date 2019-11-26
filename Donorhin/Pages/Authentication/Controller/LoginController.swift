@@ -46,9 +46,10 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
               guard let passCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? FormTableViewCell else {return}
               guard let errorCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? ErrorMessageTableViewCell else {return}
               DispatchQueue.main.async {
-                  emailCell.formTextField.defaultPlaceholder()
-                  passCell.formTextField.defaultPlaceholder()
-                  errorCell.errorMsg.isHidden = true
+                emailCell.formTextField.defaultPlaceholder()
+                passCell.formTextField.defaultPlaceholder()
+                errorCell.errorMsg.isHidden = true
+                self.removeSpinner()
               }
     }
     
@@ -124,11 +125,11 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
                 UserDefaults.standard.set(userModel?.lastDonor, forKey: "last_donor")
                 UserDefaults.standard.set(userModel?.statusDonor, forKey: "donor_status")
                 print("Data saved to user default...")
-                self.state = .loggedin
+                //self.state = .loggedin
                 errorCell.errorMsg.isHidden = true
                 self.navigationController?.navigationBar.isHidden = true
                 self.performSegue(withIdentifier: "goToHome", sender: self)
-                self.removeSpinner()
+                //self.removeSpinner()
             }
         }
     }
