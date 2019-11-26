@@ -19,6 +19,21 @@ extension String {
       } else if self == "AB-" {
          bt = .ab
       }
+      else if self == "A+" {
+         bt = .aPositive
+      }
+      else if self == "B+" {
+         bt = .bPositive
+      }
+      else if self == "O+" {
+         bt = .oPositive
+      }
+      else if self == "AB+" {
+         bt = .abPositive
+      }
+      else if self == "Belum Diketahui" {
+       bt = .notIdentified
+      }
       return bt
    }
 }

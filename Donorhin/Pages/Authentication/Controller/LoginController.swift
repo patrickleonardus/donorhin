@@ -151,7 +151,9 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { fatalError() }
         print("locations = \(locValue.latitude) \(locValue.longitude)")
         let location = locations.last!
-        let recordName = UserDefaults.standard.value(forKey: "currentUser") as! String
+        guard let recordName = UserDefaults.standard.value(forKey: "currentUser") as? String else{
+            return
+        }
         let recordId = CKRecord.ID(recordName: recordName)
         
         let package : [String:CLLocation] = ["location": location]
@@ -187,7 +189,8 @@ extension UITextField {
     }
     
     func defaultPlaceholder(){
+        let color : UIColor = UIColor(red: 0, green: 0, blue: 0.0980392, alpha: 0.22)
         self.attributedPlaceholder = NSAttributedString(string: self.placeholder!,
-                                                        attributes: [NSAttributedString.Key.foregroundColor: Colors.gray])
+                                                        attributes: [NSAttributedString.Key.foregroundColor: color])
     }
 }
