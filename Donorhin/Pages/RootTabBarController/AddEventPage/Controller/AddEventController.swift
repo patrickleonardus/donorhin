@@ -17,6 +17,8 @@ class AddEventController: UIViewController {
     var cellName : [TitleModelEvent]?
     var cellPlaceholder : [PlaceholderModelEvent]?
     
+    var delegate : EventCellDelegate?
+    
     var fixedImage : UIImage?
     var shareBarButton : UIBarButtonItem?
     let pickerToolbar = UIToolbar()
@@ -145,13 +147,16 @@ class AddEventController: UIViewController {
             }
 
             else {
+                delegate?.reloadDataCell()
                 saveData(titleEvent: titleEvent!, descEvent: descEvent!, locEvent: locEvent!, startEvent: startEventCast, endEvent: endEventCast, nameEvent: nameEvent!, phoneEvent: phoneEvent!, imageEvent: imageEvent!)
             }
         }
     }
     
     @objc func cancelAction(){
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true) {
+            
+        }
     }
     
     private func saveData(titleEvent: String, descEvent: String, locEvent: String, startEvent: Date, endEvent: Date, nameEvent: String,phoneEvent: String, imageEvent: UIImage){

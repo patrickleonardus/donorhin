@@ -65,7 +65,7 @@ extension DiscoverController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
-            if indexPath.row == 0 {
+            if indexPath.row == 0 { 
                 let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell") as! EventTableViewCell
                 cell.backgroundColor = Colors.backgroundView
                 cell.moveToAddEventDelegate = self

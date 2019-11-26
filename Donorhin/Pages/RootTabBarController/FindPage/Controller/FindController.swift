@@ -37,6 +37,7 @@ class FindController: UIViewController {
     var hospitalNumberTemp: String?
     var requestId : CKRecord.ID?
     var hospitalId: CKRecord.ID?
+    var trackerId: CKRecord.ID?
     let userId =  UserDefaults.standard.string(forKey: "currentUser")
     var currStep: Int?
     
@@ -189,6 +190,7 @@ class FindController: UIViewController {
                     let trackerModels = trackerResult.convertTrackerToTrackerModel()
                     guard let trackerModel = trackerModels else {fatalError("trackerModel not found")}
                     self.currStep = trackerModel.currentStep
+                    self.trackerId = trackerModel.idTracker
                     self.bloodRequest[request].status = self.currStep
                     
                     count+=1

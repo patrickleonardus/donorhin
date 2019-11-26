@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventTableViewCell: UITableViewCell {
+class EventTableViewCell: UITableViewCell{
     
     var eventData : [EventModel]?
     var moveToAddEventDelegate : MoveToAddEvent?
@@ -19,17 +19,21 @@ class EventTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.collectionViewDiscover.delegate = self
+        self.collectionViewDiscover.dataSource = self
+        
         EventModelCollectionView().getData { (eventData) in
             
             DispatchQueue.main.async {
+                
                 self.eventData = eventData
-                self.collectionViewDiscover.delegate = self
-                self.collectionViewDiscover.dataSource = self
                 self.collectionViewDiscover.reloadData()
+                
             }
         }
         
     }
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -38,3 +42,4 @@ class EventTableViewCell: UITableViewCell {
     }
 
 }
+

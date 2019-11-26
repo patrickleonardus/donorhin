@@ -22,7 +22,12 @@ extension EventTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
             numberOfItemsInSection = 1
         }
         else if section == 1 {
-            numberOfItemsInSection = eventData!.count
+            if eventData == nil {
+                numberOfItemsInSection = 1
+            }
+            else if eventData != nil {
+                 numberOfItemsInSection = eventData!.count
+            }
         }
         
         return numberOfItemsInSection
@@ -46,19 +51,32 @@ extension EventTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
         else if indexPath.section == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCV", for: indexPath) as! EventListCollectionViewCell
             
+            if eventData == nil {
+                cell.imageEvent.contentMode = UIView.ContentMode.scaleAspectFill
+                cell.imageEvent.image = UIImage(named: "user_profile")
+                cell.titleEvent.text = "Mohon Tunggu"
+                cell.addressEvent.text = "Data sedang di proses"
+                cell.dateEvent.text = ""
+            }
+            
+            else if eventData != nil {
+                guard let data = eventData?[indexPath.row] else {fatalError()}
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd MMMM yyyy"
+                let startDateCast = dateFormatter.string(from: data.startDate!)
+                
+                cell.imageEvent.contentMode = UIView.ContentMode.scaleAspectFill
+                
+                cell.imageEvent.image = data.image
+                cell.titleEvent.text = data.title
+                cell.addressEvent.text = data.address
+                cell.dateEvent.text = startDateCast
 
-            
-            guard let data = eventData?[indexPath.row] else {fatalError()}
-            
-            cell.imageEvent.contentMode = UIView.ContentMode.scaleAspectFill
-            
-            cell.imageEvent.image = data.image
-            cell.titleEvent.text = data.title
-            cell.addressEvent.text = data.address
-            cell.dateEvent.text = "\(String(describing: data.startDate))"
+            }
             
             //setup ui cell
-    
+            
             cell.backgroundColor = UIColor.white
             cell.layer.cornerRadius = 10
             
@@ -71,13 +89,21 @@ extension EventTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        guard let data = eventData?[indexPath.row] else {fatalError()}
+        
         
         if indexPath.section == 0 {
             self.moveToAddEventDelegate?.moveToAddEventClass()
         }
         else {
-//            self.moveToDetailEventDelegate?.moveToAddEventDetailClass(image: data.image!, title: data.title!, desc: data.description!, address: data.address!, date: data.date!, name: data.nameEvent!, phone: data.phoneEvent!)
+            
+            if eventData == nil {
+                print("Data has not load yet")
+            }
+            
+            else if eventData != nil {
+                guard let data = eventData?[indexPath.row] else {fatalError()}
+                self.moveToDetailEventDelegate?.moveToAddEventDetailClass(image: data.image!, title: data.title!, desc: data.description!, address: data.address!, date: data.startDate!, name: data.nameEvent!, phone: data.phoneEvent!)
+            }
         }
     }
 }

@@ -9,7 +9,11 @@
 import UIKit
 import CloudKit
 
-class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, navigationBarTitleDelegate{
+class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, NavigationBarTitleDelegate, EventCellDelegate{
+    func reloadDataCell() {
+        tableViewDiscover.reloadData()
+    }
+    
 
     @IBOutlet weak var tableViewDiscover: UITableView!
     
@@ -18,12 +22,12 @@ class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, n
     
     var navigationBarTitle : String?
     
-    //initialize var for collectio view
-    var imageEvent: String?
+    //initialize var for collection view
+    var imageEvent: UIImage?
     var titleEvent: String?
     var descEvent: String?
     var addressEvent: String?
-    var dateEvent: String?
+    var dateEvent: Date?
     var nameEvent: String?
     var phoneEvent: String?
     
@@ -97,7 +101,7 @@ class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, n
         self.performSegue(withIdentifier: "MoveToAdd", sender: self)
     }
     
-    func moveToAddEventDetailClass(image: String, title: String, desc: String, address: String, date: String, name : String, phone : String) {
+    func moveToAddEventDetailClass(image: UIImage, title: String, desc: String, address: String, date: Date, name : String, phone : String) {
         
         imageEvent = image
         titleEvent = title
@@ -132,6 +136,10 @@ class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, n
             destination.nameEvent = nameEvent
             destination.phoneEvent = phoneEvent
         }
+//        else if segue.identifier == "MoveToAdd" {
+//            let destination = segue.destination as! AddEventController
+//            destination.delegate = self
+//        }
     }
 
 }
@@ -141,5 +149,9 @@ protocol MoveToAddEvent {
 }
 
 protocol MoveToEventDetail {
-    func moveToAddEventDetailClass(image : String, title: String, desc: String, address: String, date : String, name : String, phone : String)
+    func moveToAddEventDetailClass(image : UIImage, title: String, desc: String, address: String, date : Date, name : String, phone : String)
+}
+
+protocol EventCellDelegate {
+    func reloadDataCell()
 }

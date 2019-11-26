@@ -59,6 +59,6 @@ extension InfoTableViewCell: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-protocol navigationBarTitleDelegate {
+protocol NavigationBarTitleDelegate {
     func getNavigationTitle(cell: InfoTableViewCell, title : String)
 }

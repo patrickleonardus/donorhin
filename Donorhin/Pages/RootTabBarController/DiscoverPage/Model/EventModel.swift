@@ -22,13 +22,6 @@ struct EventModel {
 
 struct EventModelCollectionView {
     
-//    func getEventData(completionHandler: @escaping (([EventModel]) -> ())){
-//        completionHandler(
-//            [EventModel(image: "user_profile", title: "Ngumpul Bareng RNI Jakarta", description: "Kopdar antar anggota RNI se-jawa barat", address: "Grand Indonesia, Jakarta Pusat", date: "Hari Ini, 15.30 WIB", nameEvent: "Lici Murniati", phoneEvent: "08112102394"),
-//             EventModel(image: "user_profile", title: "Donor Darah", description: "Ayo selamatkan banyak nyawa dengan mendonor, satu darah sangat berarti bagi jutaan nyawa\nAyo selamatkan banyak nyawa dengan mendonor, satu darah sangat berarti bagi jutaan nyawa", address: "PMI Tangerang Selatan", date: "11-09-2019, 15.00", nameEvent: "Dede Pardede", phoneEvent: "081218302934")]
-//        )
-//    }
-    
     func getData(completionHandler : @escaping (([EventModel]) -> ())){
         
         DispatchQueue.main.async {
