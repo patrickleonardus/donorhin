@@ -212,6 +212,7 @@ extension AddEventController: UITableViewDelegate, UITableViewDataSource {
                 }
                 
                 cell.answer.addTarget(self, action: #selector(showDatePickerStart(sender:)), for: .editingDidBegin)
+                cell.answer.inputAccessoryView = pickerToolbar
                 
             }
             else if indexPath.row == 2 {
@@ -231,6 +232,7 @@ extension AddEventController: UITableViewDelegate, UITableViewDataSource {
                 }
                 
                 cell.answer.addTarget(self, action: #selector(showDatePickerEnd(sender:)), for: .editingDidBegin)
+                 cell.answer.inputAccessoryView = pickerToolbar
             }
             
             return cell
@@ -267,6 +269,7 @@ extension AddEventController: UITableViewDelegate, UITableViewDataSource {
                     cell.tableViewSection = indexPath.section
                     cell.name.text = titleData.name
                     cell.answer.placeholder = placeholderData.placeholder
+                    cell.answer.keyboardType = UIKeyboardType.phonePad
                 }
                     
                 else  {
@@ -274,6 +277,7 @@ extension AddEventController: UITableViewDelegate, UITableViewDataSource {
                     cell.tableViewSection = indexPath.section
                     cell.name.text = titleData.name
                     cell.answer.text = phoneEvent
+                    cell.answer.keyboardType = UIKeyboardType.phonePad
                 }
                 
             }

@@ -19,6 +19,7 @@ class AddEventController: UIViewController {
     
     var fixedImage : UIImage?
     var shareBarButton : UIBarButtonItem?
+    let pickerToolbar = UIToolbar()
     
     var checkboxValidation = false
     
@@ -32,11 +33,15 @@ class AddEventController: UIViewController {
     var nameEvent: String?
     var phoneEvent: String?
     var userUID: String?
+    
+    var eventData: [EventModel]?
+    let userId =  UserDefaults.standard.string(forKey: "currentUser")
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setNavBar()
+        setupToolbar()
         closeKeyboard()
         handleTableView()
         
@@ -47,6 +52,10 @@ class AddEventController: UIViewController {
         EventData().getPlaceholder { (placeholder) in
             self.cellPlaceholder = placeholder
         }
+        
+        
+        //-------------------
+        
         
     }
     
@@ -59,6 +68,25 @@ class AddEventController: UIViewController {
         navigationItem.rightBarButtonItem = shareBarButton
         
         shareBarButton!.isEnabled = false
+    }
+    
+    private func setupToolbar(){
+        pickerToolbar.isTranslucent = true
+        pickerToolbar.sizeToFit()
+        pickerToolbar.tintColor = Colors.red
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Selesai", style: .done, target: self, action: #selector(pickerDoneBtnPressed))
+        
+        pickerToolbar.setItems([flexibleSpace, doneButton], animated: true)
+    }
+    
+    @objc func pickerDoneBtnPressed() {
+        closePickerView()
+    }
+    
+    func closePickerView() {
+        view.endEditing(true)
     }
     
     private func closeKeyboard(){
@@ -91,39 +119,89 @@ class AddEventController: UIViewController {
         if !checkboxValidation {
             errorAlert(title: "Formulir Belum Lengkap", message: "Harap mencentang kotak untuk memberikan persetujuan")
         }
+            
+        else if imageEvent == nil {
+            errorAlert(title: "Gambar masih kosong", message: "Silahkan untuk menambahkan gambar di kolom yang ada sebelum membagikan acara")
+        }
         
         else {
             
-            userUID = UserDefaults.standard.string(forKey: "currentUser")
             
-            let record = CKRecord(recordType: "Request")
-            record.setValue(CKRecord.Reference(recordID: CKRecord.ID(recordName: userUID!), action: .none), forKey: "reference_account")
-            record.setValue(titleEvent, forKey: "title")
-            record.setValue(descEvent, forKey: "description")
-            record.setValue(locEvent, forKey: "address")
-            record.setValue(imageEvent, forKey: "image")
-            record.setValue(startEvent, forKey: "start_time")
-            record.setValue(endEvent, forKey: "end_time")
-            record.setValue(nameEvent, forKey: "contact_name")
-            record.setValue(phoneEvent, forKey: "contact_phone")
+            //Casting string to date
+            let dateFormatter = DateFormatter()
+            var startEventCast = Date()
+            var endEventCast = Date()
+            let now = Date()
+            dateFormatter.dateFormat = "dd MM yyyy"
+            startEventCast = dateFormatter.date(from: startEvent!)!
+            endEventCast = dateFormatter.date(from: endEvent!)!
             
-            let database = CKContainer.default().publicCloudDatabase
-            
-            database.save(record) { (resutls, error) in
-                if error != nil {
-                    print("Error while saving to CloudKit [AddEventController.swift]\n", error!.localizedDescription)
-                    self.errorAlert(title: "Terjadi Kesalahan", message: "Tidak dapat memposting acara, mohon periksa kembali bagian yang sudah anda isi dan coba kembali dalam beberapa saat")
-                }
-                else {
-                    print("Successfully saved data to CloudKit")
-                    self.dismiss(animated: true, completion: nil)
-                }
+            if endEventCast < startEventCast {
+                errorAlert(title: "Kesalahan Input", message: "Tanggal mulai lebih besar dari tanggal akhir, silahkan periksa ulang tanggal yang anda masukan")
+            }
+                
+            else if startEventCast < now{
+                errorAlert(title: "Kesalahan Input", message: "Tanggal mulai sudah terlewat dari tanggal saat ini")
+            }
+
+            else {
+                saveData(titleEvent: titleEvent!, descEvent: descEvent!, locEvent: locEvent!, startEvent: startEventCast, endEvent: endEventCast, nameEvent: nameEvent!, phoneEvent: phoneEvent!, imageEvent: imageEvent!)
             }
         }
     }
     
     @objc func cancelAction(){
         dismiss(animated: true, completion: nil)
+    }
+    
+    private func saveData(titleEvent: String, descEvent: String, locEvent: String, startEvent: Date, endEvent: Date, nameEvent: String,phoneEvent: String, imageEvent: UIImage){
+        
+        self.showSpinner(onView: self.view)
+        
+        let data = imageEvent.jpegData(compressionQuality: 0.1)
+        let url = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(NSUUID().uuidString+".dat")
+        
+        do{
+            try data?.write(to: url, options: [])
+        } catch let error as NSError{
+            print(error)
+            return
+        }
+        
+        guard let userId = userId else {fatalError("userId not found")}
+        let userIdReference = CKRecord.Reference(recordID: CKRecord.ID(recordName: userId), action: .none)
+        
+        let record = CKRecord(recordType: "Event")
+        
+        record.setValue(titleEvent, forKey: "title")
+        record.setValue(descEvent, forKey: "description")
+        record.setValue(locEvent, forKey: "address")
+        record.setValue(startEvent, forKey: "start_time")
+        record.setValue(endEvent, forKey: "end_time")
+        record.setValue(nameEvent, forKey: "contact_name")
+        record.setValue(phoneEvent, forKey: "contact_phone")
+        record.setValue(CKAsset(fileURL: url), forKey: "image")
+        record.setValue(userIdReference, forKey: "reference_account")
+        
+        let database = CKContainer.default().publicCloudDatabase
+        
+        database.save(record) { (record, error) in
+            if error != nil {
+                
+                self.removeSpinner()
+                
+                print("Error while saving data to CloudKit [AddEventController.swift].\n",error!.localizedDescription as Any)
+                
+                self.errorAlert(title: "Terjadi Kesalahan", message: "Tidak dapat memposting acara, mohon periksa kembali bagian yang sudah anda isi dan coba kembali dalam beberapa saat")
+            }
+            else {
+                self.removeSpinner()
+                
+                print("Successfully saved data to CloudKit")
+                
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
     @objc func closeKeyboardAction(){
@@ -183,7 +261,7 @@ class AddEventController: UIViewController {
     
     @objc func datePickerValueChangedStart(sender: UIDatePicker){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = DateFormatter.Style.long
+        dateFormatter.dateFormat = "dd MMMM yyyy"
         
         if let startDateCell = tableView.cellForRow(at: IndexPath.init(row: 1, section: 1)) as? LabelAndTextFieldCell {
              startDateCell.answer.text = dateFormatter.string(from: sender.date)
@@ -192,7 +270,7 @@ class AddEventController: UIViewController {
     
     @objc func datePickerValueChangedEnd(sender: UIDatePicker){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = DateFormatter.Style.long
+        dateFormatter.dateFormat = "dd MMMM yyyy"
         
         if let endDateCell = tableView.cellForRow(at: IndexPath.init(row: 2, section: 1)) as? LabelAndTextFieldCell {
             endDateCell.answer.text = dateFormatter.string(from: sender.date)
