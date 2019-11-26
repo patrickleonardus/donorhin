@@ -61,7 +61,7 @@ class RegisterController : UIViewController{
             passCell.formTextField.redPlaceholder()
             confirmPassCell.formTextField.redPlaceholder()
             emailCell.formTextField.redPlaceholder()
-            errorCell.errorMsg.text = "*Email, password atau konfirmasi password harus diisi"
+            errorCell.errorMsg.text = "*Pastikan seluruh form telah terisi"
         }
 //        let alert = UIAlertController(title: "Peringatan", message: "email, password, and confirm harus diisi", preferredStyle: .alert)
 //        let action = UIAlertAction(title: "Oke", style: .default, handler: nil)
@@ -95,7 +95,7 @@ class RegisterController : UIViewController{
             passCell.formTextField.redPlaceholder()
             confirmPassCell.formTextField.redPlaceholder()
             confirmPassCell.shake()
-            errorCell.errorMsg.text = "*Password tidak sesuai dengan konfirmasi password"
+            errorCell.errorMsg.text = "*Kata sandi tidak sesuai dengan konfirmasi kata sandi"
         }
         return false
       }

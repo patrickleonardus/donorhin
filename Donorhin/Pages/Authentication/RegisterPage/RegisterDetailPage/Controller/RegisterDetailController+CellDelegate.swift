@@ -140,7 +140,7 @@ extension RegisterDetailController : FormCellDelegate {
             bloodTypeCell.formTextField.redPlaceholder()
             
             errorCell.errorMsg.isHidden = false
-            errorCell.errorMsg.text = "*Harap pastikan seluruh form sudah terisi"
+            errorCell.errorMsg.text = "*Pastikan seluruh form telah terisi"
         }
 //      let alert = UIAlertController(title: "Peringatan", message: "Nama lengkap, jenis kelamin, tanggal lahir, dan golongan darah harus diisi", preferredStyle: .alert)
 //      let action = UIAlertAction(title: "Oke", style: .default, handler: nil)

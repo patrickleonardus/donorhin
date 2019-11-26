@@ -30,26 +30,26 @@ struct FormBuilder {
     func getItemsForLogin(completionHandler: @escaping (([FormItems]) -> ())){
         completionHandler(
         [FormItems(img: "email", placeholder: "Email", textFieldType: .defaultTextField) ,
-         FormItems(img: "password", placeholder: "Password", textFieldType: .password)
+         FormItems(img: "password", placeholder: "Kata Sandi", textFieldType: .password)
         ])
     }
     
     func getItemsForRegister(completionHandler: @escaping (([FormItems]) -> ())){
     completionHandler(
         [FormItems(img: "email", placeholder: "Email", textFieldType: .defaultTextField) ,
-         FormItems(img: "password", placeholder: "Password", textFieldType: .password),
-         FormItems(img: "re-password", placeholder: "Re-Password", textFieldType: .password)
+         FormItems(img: "password", placeholder: "Kata Sandi", textFieldType: .password),
+         FormItems(img: "re-password", placeholder: "Konfirmasi Kata Sandi", textFieldType: .password)
         ])
     }
     
     func getItemsForRegisterDetail(completionHandler: @escaping (([FormItems]) -> ())){
     completionHandler(
-        [FormItems(img: "Fn", placeholder: "Fullname", textFieldType: .defaultTextField) ,
+        [FormItems(img: "fullname-new", placeholder: "Nama Lengkap", textFieldType: .defaultTextField) ,
          FormItems(img: "gender_profile", placeholder: "Jenis Kelamin", textFieldType: .picker),
          FormItems(img: "birthday_profile", placeholder: "Tanggal Lahir", textFieldType: .datePicker),
          FormItems(img: "bloodtype_profile", placeholder: "Golongan Darah", textFieldType: .picker) ,
-         FormItems(img: "lastdonor_profile", placeholder: "Donor Terakhir (Optional)", textFieldType: .datePicker),
-         FormItems(img: "codeReferral", placeholder: "Kode Referral (Optional)", textFieldType: .defaultTextField)
+         FormItems(img: "lastdonor_profile", placeholder: "Donor Terakhir (Opsional)", textFieldType: .datePicker),
+         FormItems(img: "codeReferral", placeholder: "Kode Referral (Opsional)", textFieldType: .defaultTextField)
         ])
     }
 }
