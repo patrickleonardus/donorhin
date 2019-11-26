@@ -125,7 +125,9 @@ class FindController: UIViewController {
             guard let requestResults = requestResults else {fatalError("Query in Request Error")}
             
             if requestResults.count != 0 {
-                self.showSpinner(onView: self.view)
+                DispatchQueue.main.async {
+                    self.showSpinner(onView: self.view)
+                }
             }
             
             var counter = 0
