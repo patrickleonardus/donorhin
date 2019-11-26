@@ -25,6 +25,8 @@ class FormController: UIViewController{
     
     var submitBarButton : UIBarButtonItem?
     
+    let pickerToolbar = UIToolbar()
+    
     var patientName: String?
     var patientHospital: String?
     var patientHospitalId: CKRecord.ID?
@@ -64,6 +66,25 @@ class FormController: UIViewController{
         navigationItem.rightBarButtonItem = submitBarButton
         
         submitBarButton?.isEnabled = false
+    }
+    
+    private func setupToolbar(){
+        pickerToolbar.isTranslucent = true
+        pickerToolbar.sizeToFit()
+        pickerToolbar.tintColor = Colors.red
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Selesai", style: .done, target: self, action: #selector(pickerDoneBtnPressed))
+        
+        pickerToolbar.setItems([flexibleSpace, doneButton], animated: true)
+    }
+    
+    @objc func pickerDoneBtnPressed() {
+        closePickerView()
+    }
+    
+    func closePickerView() {
+        view.endEditing(true)
     }
     
     func handleAgreement(){

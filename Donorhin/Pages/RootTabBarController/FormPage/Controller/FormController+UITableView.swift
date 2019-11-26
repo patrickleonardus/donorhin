@@ -88,6 +88,7 @@ extension FormController : UITableViewDelegate, UITableViewDataSource {
                 cell.firstTextField.inputView = picker
                 
                 cell.separatorInset = UIEdgeInsets(top: 0, left: cell.bounds.size.width, bottom: 0, right: 0)
+                cell.firstTextField.inputAccessoryView = pickerToolbar
             }
             
             return cell
@@ -125,6 +126,7 @@ extension FormController : UITableViewDelegate, UITableViewDataSource {
                 
                 if indexPath.row == 0 {
                     cell.secondTextField.addTarget(self, action: #selector(showDatePicker(sender:)), for: .editingDidBegin)
+                    cell.secondTextField.inputAccessoryView = pickerToolbar
                 }
                 
                 else if indexPath.row == 1 {
