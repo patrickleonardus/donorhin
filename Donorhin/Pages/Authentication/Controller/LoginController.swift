@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreLocation
-import LocalAuthentication
 import CloudKit
 
 class LoginController : UIViewController, CLLocationManagerDelegate {
@@ -16,7 +15,6 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var formTableView: UITableView!
     var navigationBarTitle : String?
     var formItems: [FormItems]?
-    var context = LAContext()
     let locationManager = CLLocationManager()
     var activeTF : UITextField?
     var activeCell : FormTableViewCell?
@@ -161,13 +159,24 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
         // saving your CLLocation object
         let locationData = NSKeyedArchiver.archivedData(withRootObject: location)
         UserDefaults.standard.set(locationData, forKey: "location")
-
+        
         // loading it
         if let loadedData = UserDefaults.standard.data(forKey: "locationData") {
+           
             if let loadedLocation = NSKeyedUnarchiver.unarchiveObject(with: loadedData) as? CLLocation {
                 print(loadedLocation.coordinate.latitude)
                 print(loadedLocation.coordinate.longitude)
             }
+        }
+    }
+    
+    func geocode(latitude: Double, longitude: Double, completion: @escaping (_ placemark: [CLPlacemark]?, _ error: Error?) -> Void)  {
+        CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: latitude, longitude: longitude)) { placemark, error in
+            guard let placemark = placemark, error == nil else {
+                completion(nil, error)
+                return
+            }
+            completion(placemark, nil)
         }
     }
 }
