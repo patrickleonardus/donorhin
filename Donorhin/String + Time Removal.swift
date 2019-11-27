@@ -13,7 +13,7 @@ extension String {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ssZZZZ"
         if let date = dateFormatter.date(from: self) {
             print(date)
-            dateFormatter.dateFormat = "yyyy-MM-dd"
+            dateFormatter.dateFormat = "dd MMMM yyyy"
             return dateFormatter.string(from: date)
         }
         return nil

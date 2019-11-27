@@ -150,17 +150,22 @@ class TrackerController : UIViewController {
   }
   
   @objc func callPMIResepien(){
-    callNumber(phoneNumber: "56789")
+    //FIXME: Tambahin action sheet later
+    guard let phone = self.utdPatient?.phoneNumbers?[0] else { fatalError() }
+    callNumber(phoneNumber: phone)
+    
   }
   
   @objc func callPMIPendonor(){
-    callNumber(phoneNumber: "12345")
+    guard let phone = self.utdDonor?.phoneNumbers?[0] else { fatalError() }
+    callNumber(phoneNumber: phone)
   }
   
   func getTrackerItems(completionHandler: @escaping (([StepItems]) -> ())) {
     settingUpStatus {
       DispatchQueue.main.async {
         print("getTrackerItems")
+        
         completionHandler(
           [StepItems(
             description: "Anda dapat memberitahukan PMI bahwa Anda menggunakan aplikasi untuk mencari donor",
@@ -169,7 +174,7 @@ class TrackerController : UIViewController {
             ),
            
            StepItems(
-            description: "Pendonor Anda Telah Ditemukan Lokasi: \(String(describing: self.utdDonor!.name)) Mendonor pada \(String(describing: self.trackerModel!.donorDate))",
+            description: "Pendonor Anda Telah Ditemukan Lokasi: \(String(describing: self.utdDonor!.name)) Mendonor pada \(String(describing: String(describing: self.trackerModel!.donorDate).formattedDate!))",
             buttonStr: " Hubungi \(String(describing: self.utdDonor!.name))",
             status: self.status![1]),
            

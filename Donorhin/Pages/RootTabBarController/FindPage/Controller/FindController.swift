@@ -32,6 +32,7 @@ class FindController: UIViewController {
     var navBarTitle: String?
     var requestIdTrc: CKRecord.ID?
     var trackerIdTrc: CKRecord.ID?
+    var hospitalIdTrc: CKRecord.ID?
     var currStepTrc: Int?
     
     
@@ -80,7 +81,6 @@ class FindController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setTabBar(show: true)
-        checkDonorAvailability()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -250,7 +250,7 @@ class FindController: UIViewController {
     
     private func setupUI(){
         viewNoData.alpha = 1
-        viewSearching.alpha = 1
+        viewSearching.alpha = 0
         textSearching.text = "Sedang Mencari Pendonor"
         buttonSearching.setTitle("Batal Mencari", for: .normal)
     }
@@ -315,10 +315,10 @@ class FindController: UIViewController {
             let destination = segue.destination as! TrackerController
             destination.navigationBarTitle =  navBarTitle
             destination.input = SearchTrackerInput(
-                idRequest: requestId!,
-                idTracker: trackerId!,
+                idRequest: requestIdTrc!,
+                idTracker: trackerIdTrc!,
                 patientUtdId: hospitalId!,
-                step: currStep!
+                step: currStepTrc!
             )
             
         }

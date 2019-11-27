@@ -149,6 +149,7 @@ extension FindController: UITableViewDataSource {
             navBarTitle = data.name
             requestIdTrc = data.requestId
             trackerIdTrc = data.trackerId
+            hospitalIdTrc = data.hospitalId
             currStepTrc = data.status
         }
             
@@ -157,6 +158,7 @@ extension FindController: UITableViewDataSource {
             navBarTitle = data.name
             requestIdTrc = data.requestId
             trackerIdTrc = data.trackerId
+            hospitalIdTrc = data.hospitalId
             currStepTrc = data.status
         }
         
