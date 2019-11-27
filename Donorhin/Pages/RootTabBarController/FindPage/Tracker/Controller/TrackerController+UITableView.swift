@@ -54,9 +54,10 @@ extension TrackerController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell  = tableView.dequeueReusableCell(withIdentifier: "trackerCell", for: indexPath) as? TrackerDonorTableViewCell
+        print("making cell")
         //masukin datanya
         guard let data = stepItems?[indexPath.section] else {fatalError()}
-      cell?.delegate = self
+        cell?.delegate = self
         
         cell?.informationText?.text = data.description
         cell?.buttonText.setTitle(data.buttonStr, for: .normal)

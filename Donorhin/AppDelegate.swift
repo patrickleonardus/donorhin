@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-
+import CloudKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -105,7 +105,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
     let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
     let token = tokenParts.joined()
-    print("Device Token: \(token)")
+    if let currentUser = UserDefaults.standard.value(forKey: "currentUser") as? String {
+      let recordID = CKRecord.ID(recordName: currentUser)
+      Helper.updateToDatabase(keyValuePair: ["device_token":token], recordID: recordID)
+    }
   }
   
   func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {

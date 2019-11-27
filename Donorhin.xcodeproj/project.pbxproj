@@ -780,6 +780,7 @@
 		E6AC8D38237B29DF00820100 /* Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				E6AC8D42237B29DF00820100 /* Tracker.storyboard */,
 				E6AC8D39237B29DF00820100 /* Controller */,
 				E6AC8D3D237B29DF00820100 /* Model */,
 				E6AC8D3F237B29DF00820100 /* View */,
@@ -790,8 +791,8 @@
 		E6AC8D39237B29DF00820100 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E6AC8D3A237B29DF00820100 /* TrackerController+UITableView.swift */,
 				E6AC8D3B237B29DF00820100 /* TrackerController.swift */,
+				E6AC8D3A237B29DF00820100 /* TrackerController+UITableView.swift */,
 				E6AC8D3C237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift */,
 			);
 			path = Controller;
@@ -810,7 +811,6 @@
 			children = (
 				E6AC8D40237B29DF00820100 /* TrackerDonorTableViewCell.swift */,
 				E6AC8D41237B29DF00820100 /* TrackerDonorTableViewCell.xib */,
-				E6AC8D42237B29DF00820100 /* Tracker.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
