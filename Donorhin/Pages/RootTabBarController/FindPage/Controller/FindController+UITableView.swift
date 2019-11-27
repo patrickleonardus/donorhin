@@ -143,15 +143,20 @@ extension FindController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         if findBloodSegmentedControl.selectedSegmentIndex == 0 {
             guard let data = bloodRequestCurrent?[indexPath.row] else {fatalError()}
             navBarTitle = data.name
+            requestIdTrc = data.requestId
+            trackerIdTrc = data.trackerId
+            currStepTrc = data.status
         }
             
         else {
             guard let data = bloodRequestHistory?[indexPath.row] else {fatalError()}
             navBarTitle = data.name
+            requestIdTrc = data.requestId
+            trackerIdTrc = data.trackerId
+            currStepTrc = data.status
         }
         
         performSegue(withIdentifier: "moveToTracker", sender: self)

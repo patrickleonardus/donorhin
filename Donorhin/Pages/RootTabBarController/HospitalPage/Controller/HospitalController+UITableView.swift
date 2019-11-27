@@ -65,6 +65,9 @@ extension HospitalController : UITableViewDelegate, UITableViewDataSource {
             choosenHospitalId = data.id
             chosenHospital = data
         }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         if let hospital = chosenHospital, let _ = hospitalDelegate {
           self.hospitalDelegate?.selectedHospital(hospital: hospital)
           self.navigationController?.popViewController(animated: true)

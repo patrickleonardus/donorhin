@@ -13,8 +13,11 @@ class FindController: UIViewController {
     
     
     @IBOutlet weak var viewNoData: UIView!
+    @IBOutlet weak var viewSearching: CustomMainView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var findBloodSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var textSearching: UILabel!
+    @IBOutlet weak var buttonSearching: CustomButtonRounded!
     
     let cellId = "cellId"
     
@@ -25,7 +28,11 @@ class FindController: UIViewController {
     
     var requestDelegate : ControlValidationViewDelegate?
     
+    //declare var untuk didselect ke tracker
     var navBarTitle: String?
+    var requestIdTrc: CKRecord.ID?
+    var trackerIdTrc: CKRecord.ID?
+    var currStepTrc: Int?
     
     
     //init var
@@ -73,6 +80,7 @@ class FindController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setTabBar(show: true)
+        checkDonorAvailability()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -242,6 +250,23 @@ class FindController: UIViewController {
     
     private func setupUI(){
         viewNoData.alpha = 1
+        viewSearching.alpha = 1
+        textSearching.text = "Sedang Mencari Pendonor"
+        buttonSearching.setTitle("Batal Mencari", for: .normal)
+    }
+    
+    func checkDonorAvailability(){
+        
+        let requestId = UserDefaults.standard.string(forKey: "requestRecordId")
+        
+        if requestId == nil {
+            viewSearching.alpha = 0
+            viewNoData.alpha = 1
+        }
+        else if requestId != nil {
+            viewSearching.alpha = 1
+            viewNoData.alpha = 0
+        }
     }
     
     private func setTabBar(show: Bool){
@@ -356,6 +381,7 @@ class FindController: UIViewController {
             if self.bloodRequestHistory!.count != 0 {
                 DispatchQueue.main.async {
                     self.viewNoData.alpha = 0
+                    self.viewSearching.alpha = 0
                     self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
                 }
                 
