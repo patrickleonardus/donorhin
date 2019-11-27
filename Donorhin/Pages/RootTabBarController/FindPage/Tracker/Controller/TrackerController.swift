@@ -13,7 +13,11 @@ class TrackerController : UIViewController {
   
   @IBOutlet weak var trackerTableView: UITableView!
   
-  var input: SearchTrackerInput?
+  var input: SearchTrackerInput? {
+    didSet {
+      print (input)
+    }
+  }
   var trackerModel : TrackerModel?
   var utdDonor: UTDModel?
   var utdPatient: UTDModel?
@@ -61,6 +65,7 @@ class TrackerController : UIViewController {
       self.loadTrackerData {
         self.loadDonorUTDData() {
           self.loadPatientUtdData{
+            print ("loadData")
             completionHandler()
           }
         }
@@ -73,6 +78,7 @@ class TrackerController : UIViewController {
       DispatchQueue.main.async {
         Helper.getDataByID(input.idTracker) { (record) in
           self.trackerModel = record?.convertTrackerToTrackerModel()
+          print ("loadTrackerData isNil:\(self.trackerModel == nil)")
           completionHandler()
         }
       }
@@ -85,6 +91,7 @@ class TrackerController : UIViewController {
         if let idUtdDonor = self.trackerModel?.idUTDPendonor.recordID {
           Helper.getDataByID(idUtdDonor) { (record) in
             self.utdDonor = record?.convertUTDToUTDModel()
+            print("loadDonorUTDData isNil:\(self.utdDonor==nil)")
             completionHandler()
           }
         }
@@ -97,6 +104,7 @@ class TrackerController : UIViewController {
       DispatchQueue.main.async {
         Helper.getDataByID(input.patientUtdId) { (record) in
           self.utdPatient = record?.convertUTDToUTDModel()
+          print("loadPatientUtdData isNil \(self.utdPatient==nil)")
           completionHandler()
         }
       }
@@ -152,16 +160,17 @@ class TrackerController : UIViewController {
   func getTrackerItems(completionHandler: @escaping (([StepItems]) -> ())) {
     settingUpStatus {
       DispatchQueue.main.async {
+        print("getTrackerItems")
         completionHandler(
           [StepItems(
             description: "Anda dapat memberitahukan PMI bahwa Anda menggunakan aplikasi untuk mencari donor",
-            buttonStr: " Hubungi \(String(describing: self.utdPatient?.name))",
+            buttonStr: " Hubungi \(String(describing: self.utdPatient!.name))",
             status: self.status![0]
             ),
            
            StepItems(
-            description: "Pendonor Anda Telah Ditemukan Lokasi: \(String(describing: self.utdDonor?.name)) Mendonor pada \(String(describing: self.trackerModel?.donorDate))",
-            buttonStr: " Hubungi \(String(describing: self.utdDonor?.name))",
+            description: "Pendonor Anda Telah Ditemukan Lokasi: \(String(describing: self.utdDonor!.name)) Mendonor pada \(String(describing: self.trackerModel!.donorDate))",
+            buttonStr: " Hubungi \(String(describing: self.utdDonor!.name))",
             status: self.status![1]),
            
            StepItems(

@@ -60,7 +60,6 @@ class TrackerDonorTableViewCell: UITableViewCell {
       } else {
          width = 62
       }
-      print (width,UDDevice.widthScreen)
       let heightConstraint = NSLayoutConstraint( item: self.redCircle!, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: width)
       redCircle.addConstraint(heightConstraint)
       redCircle.layer.cornerRadius = width/2

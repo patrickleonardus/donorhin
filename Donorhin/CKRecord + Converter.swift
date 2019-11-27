@@ -139,6 +139,7 @@ extension CKRecord {
          let phoneNumbers = self.object(forKey: "telephone") as? NSArray ?? nil,
          let province = self.value(forKey: "province") as? String ?? nil
          else {
+          print("Failed while converting UTD to UTD Model\(self)")
             return nil
       }
 
