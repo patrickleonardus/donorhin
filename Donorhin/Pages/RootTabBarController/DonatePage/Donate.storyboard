@@ -47,7 +47,7 @@
                                             <constraint firstAttribute="height" constant="31" id="gYQ-jB-vZs"/>
                                         </constraints>
                                         <segments>
-                                            <segment title="Aktif"/>
+                                            <segment title="Sedang Berlangsung"/>
                                             <segment title="Riwayat"/>
                                         </segments>
                                         <connections>
@@ -111,7 +111,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HI5-Ki-6mV"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Donor Darah" id="h9E-Jm-ghe"/>
+                    <navigationItem key="navigationItem" title="Donor Darah" id="h9E-Jm-ghe">
+                        <barButtonItem key="backBarButtonItem" title="Kembali" id="YhF-iv-dbO"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="coverView" destination="oLF-f0-iNN" id="bmr-y5-Uxd"/>
                         <outlet property="historyDonorSegmentedControl" destination="FcW-Xc-bHo" id="I54-Rl-EHF"/>
