@@ -12,6 +12,7 @@ import CloudKit
 struct BloodRequest {
     let requestId : CKRecord.ID?
     var hospitalId : CKRecord.ID?
+    var trackerId : CKRecord.ID?
     let name : String?
     var address : String?
     var phoneNumber : String?
