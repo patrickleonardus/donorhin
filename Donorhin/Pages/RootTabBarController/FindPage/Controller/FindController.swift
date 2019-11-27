@@ -156,7 +156,7 @@ class FindController: UIViewController {
                 self.requestId = requestModel.idRequest
                 self.hospitalId = requestModel.idUTDPatient
                 
-                self.bloodRequest.append(BloodRequest(requestId: self.requestId!, hospitalId: self.hospitalId, name: self.nameTemp!, address: nil, phoneNumber: nil, date: self.dateTemp, status: nil))
+                self.bloodRequest.append(BloodRequest(requestId: self.requestId!, hospitalId: self.hospitalId, trackerId: nil, name: self.nameTemp!, address: nil, phoneNumber: nil, date: self.dateTemp, status: nil))
                 
                 counter+=1
                 
@@ -208,6 +208,7 @@ class FindController: UIViewController {
                     self.currStep = trackerModel.currentStep
                     self.trackerId = trackerModel.idTracker
                     self.bloodRequest[request].status = self.currStep
+                    self.bloodRequest[request].trackerId = self.trackerId
                     
                     count+=1
                     if count == self.bloodRequest.count {
