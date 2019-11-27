@@ -47,7 +47,7 @@
                                             <constraint firstAttribute="height" constant="31" id="gYQ-jB-vZs"/>
                                         </constraints>
                                         <segments>
-                                            <segment title="Aktif"/>
+                                            <segment title="Sedang Berlangsung"/>
                                             <segment title="Riwayat"/>
                                         </segments>
                                         <connections>
