@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class RegisterController : UIViewController{
   var userCredentials:[String:String] = [:]
@@ -14,6 +15,10 @@ class RegisterController : UIViewController{
     var navigationBarTitle : String?
     var formItems: [FormItems]?
     var activeCell : FormTableViewCell?
+    var isAvalaible : Bool? = false
+    
+    let database = CKContainer.default().publicCloudDatabase
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         FormBuilder().getItemsForRegister { (formItems) in
@@ -63,18 +68,11 @@ class RegisterController : UIViewController{
             emailCell.formTextField.redPlaceholder()
             errorCell.errorMsg.text = "*Pastikan seluruh form telah terisi"
         }
-//        let alert = UIAlertController(title: "Peringatan", message: "email, password, and confirm harus diisi", preferredStyle: .alert)
-//        let action = UIAlertAction(title: "Oke", style: .default, handler: nil)
-//        alert.addAction(action)
-//        self.present(alert, animated: true, completion: nil)
+
         return false
       }
       
-      if !self.isValidEmail(email) {
-//        let alert = UIAlertController(title: "Peringatan", message: "Format email tidak valid", preferredStyle: .alert)
-//        let action = UIAlertAction(title: "Oke", style: .default, handler: nil)
-//        alert.addAction(action)
-//        self.present(alert, animated: true, completion: nil)
+      else if !self.isValidEmail(email) {
         DispatchQueue.main.async {
             errorCell.errorMsg.isHidden = false
             emailCell.shake()
@@ -84,11 +82,7 @@ class RegisterController : UIViewController{
         return false
       }
       
-      if password != confirmPassword {
-//        let alert = UIAlertController(title: "Peringatan", message: "Password tidak sesuai dengan konfirmasi password", preferredStyle: .alert)
-//        let action = UIAlertAction(title: "Oke", style: .default, handler: nil)
-//        alert.addAction(action)
-//        self.present(alert, animated: true, completion: nil)
+      else if password != confirmPassword {
         DispatchQueue.main.async {
             errorCell.errorMsg.isHidden = false
             passCell.shake()
@@ -99,12 +93,41 @@ class RegisterController : UIViewController{
         }
         return false
       }
+      else{
+        self.checkExistUserEmail(email: emailCell.formTextField.text!){ (flag) in
+            self.isAvalaible = flag
+        }
+        
+        if !isAvalaible! {
+                DispatchQueue.main.async {
+                    errorCell.errorMsg.isHidden = false
+                    errorCell.errorMsg.text = "*Email sudah pernah terdaftar, coba email yang lain"
+                    emailCell.shake()
+                    emailCell.formTextField.redPlaceholder()
+                }
+                return false
+            }
+        }
+        
         DispatchQueue.main.async {
             errorCell.errorMsg.isHidden = true
         }
       return true
     }
-  
+    
+    func checkExistUserEmail(email: String, completionHandler: @escaping (Bool)->Void) {
+
+     let ckRecord = CKQuery(recordType: "Account", predicate: NSPredicate(format: "email = %@", email))
+     self.database.perform(ckRecord, inZoneWith: .default) { (res, err) in
+       if let result = res {
+         if result.count > 0 {
+            completionHandler(false)
+         }
+       }
+        completionHandler(true)
+     }
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         guard let emailCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FormTableViewCell else {return}
         guard let passCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? FormTableViewCell else {return}
@@ -126,31 +149,3 @@ class RegisterController : UIViewController{
   }
     
 }
-
-//class CheckBox: UIButton {
-//    // Images
-//    let checkedImage = UIImage(named: "checkbox_isChecked")! as UIImage
-//    let uncheckedImage = UIImage(named: "checkbox_isNotChecked")! as UIImage
-//
-//    // Bool property
-//    var isChecked: Bool = false {
-//        didSet{
-//            if isChecked == true {
-//                self.setImage(checkedImage, for: UIControl.State.normal)
-//            } else {
-//                self.setImage(uncheckedImage, for: UIControl.State.normal)
-//
-//        }
-//    }
-//
-//    override func awakeFromNib() {
-//        self.addTarget(self, action:#selector(buttonClicked(sender:)), for: UIControl.Event.touchUpInside)
-//        self.isChecked = false
-//    }
-//
-//    @objc func buttonClicked(sender: UIButton) {
-//        if sender == self {
-//            isChecked = !isChecked
-//        }
-//    }
-//}
