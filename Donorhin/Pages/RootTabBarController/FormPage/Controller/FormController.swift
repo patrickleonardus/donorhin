@@ -27,6 +27,7 @@ class FormController: UIViewController{
     
     let pickerToolbar = UIToolbar()
     
+    var recordId : CKRecord.ID?
     var patientName: String?
     var patientHospital: String?
     var patientHospitalId: CKRecord.ID?
@@ -39,6 +40,7 @@ class FormController: UIViewController{
         super.viewDidLoad()
         
         setNavBar()
+        setupToolbar()
         handleAgreement()
         handleKeyboard()
 
@@ -159,6 +161,8 @@ class FormController: UIViewController{
                 self.errorAlert(title: "Terjadi Kesalahan", message: "Tidak dapat melakukan request darah, mohon periksa kembali bagian yang sudah anda isi dan coba kembali dalam beberapa saat")
             }
             else {
+                self.recordId = record?.recordID
+                print(self.recordId)
                 print("Successfully saved data to CloudKit")
             }
         }
