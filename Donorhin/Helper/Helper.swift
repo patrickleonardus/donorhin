@@ -35,6 +35,17 @@ struct Helper {
     }
   }
   
+  static func getDataByID(_ recordID: CKRecord.ID, completion: @escaping result) {
+    self.database.fetch(withRecordID: recordID) { (result, error) in
+      if let result = result {
+        completion(result)
+      }
+      else {
+        completion(nil)
+      }
+    }
+  }
+  
   static func saveData(_ ckRecord: CKRecord, completion: @escaping isSuccessSave) {
     self.database.save(ckRecord) { (res, err) in
         if res != nil {

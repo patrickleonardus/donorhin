@@ -13,6 +13,7 @@
 		0925FB4123740E1C00874DAA /* DonateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0925FB3F23740E1C00874DAA /* DonateTableViewCell.xib */; };
 		094B6EDA237EC7D300716862 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094B6ED9237EC7D300716862 /* Helper.swift */; };
 		094B6EDD238044D300716862 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094B6EDC238044D300716862 /* Steps.swift */; };
+		097CFCCD238E562C0093B11E /* Date+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097CFCCC238E562C0093B11E /* Date+Converter.swift */; };
 		098FD4752372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */; };
 		098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */; };
 		09DC193A23754BCD004BEFB5 /* DonateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC193923754BCD004BEFB5 /* DonateModel.swift */; };
@@ -182,6 +183,7 @@
 		0925FB3F23740E1C00874DAA /* DonateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DonateTableViewCell.xib; sourceTree = "<group>"; };
 		094B6ED9237EC7D300716862 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		094B6EDC238044D300716862 /* Steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
+		097CFCCC238E562C0093B11E /* Date+Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Converter.swift"; sourceTree = "<group>"; };
 		098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonSubmitRounded.swift; sourceTree = "<group>"; };
 		098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewRounded.swift; sourceTree = "<group>"; };
 		09DC193923754BCD004BEFB5 /* DonateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateModel.swift; sourceTree = "<group>"; };
@@ -624,6 +626,7 @@
 				CC7A28AF238BD2DF005C0BDC /* String + Time Removal.swift */,
 				CC25B5182383DEE800C381D7 /* String + Converter.swift */,
 				CC3C7053238526A000F7A47F /* UIViewController + Loading Page.swift */,
+				097CFCCC238E562C0093B11E /* Date+Converter.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -777,6 +780,7 @@
 		E6AC8D38237B29DF00820100 /* Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				E6AC8D42237B29DF00820100 /* Tracker.storyboard */,
 				E6AC8D39237B29DF00820100 /* Controller */,
 				E6AC8D3D237B29DF00820100 /* Model */,
 				E6AC8D3F237B29DF00820100 /* View */,
@@ -787,8 +791,8 @@
 		E6AC8D39237B29DF00820100 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E6AC8D3A237B29DF00820100 /* TrackerController+UITableView.swift */,
 				E6AC8D3B237B29DF00820100 /* TrackerController.swift */,
+				E6AC8D3A237B29DF00820100 /* TrackerController+UITableView.swift */,
 				E6AC8D3C237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift */,
 			);
 			path = Controller;
@@ -807,7 +811,6 @@
 			children = (
 				E6AC8D40237B29DF00820100 /* TrackerDonorTableViewCell.swift */,
 				E6AC8D41237B29DF00820100 /* TrackerDonorTableViewCell.xib */,
-				E6AC8D42237B29DF00820100 /* Tracker.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1317,6 +1320,7 @@
 				E62918F5237E43F100E8D559 /* AddEventController+Delegate.swift in Sources */,
 				AB7357862374309E00A6099B /* CustomSegmentedController.swift in Sources */,
 				B0FF322B23829CC50001C0F5 /* UserModel.swift in Sources */,
+				097CFCCD238E562C0093B11E /* Date+Converter.swift in Sources */,
 				E607AAFF2387C48B00214A90 /* CallNumberButton.swift in Sources */,
 				B0B16888237D44A8001DCE3C /* LoginController.swift in Sources */,
 				E6DDAF2B237435B300D6EAD1 /* FindController+ScrollView.swift in Sources */,

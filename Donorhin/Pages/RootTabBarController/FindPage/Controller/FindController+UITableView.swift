@@ -73,6 +73,7 @@ extension FindController: UITableViewDataSource {
                     
                     cell?.title.text = data.name
                     cell?.address.text = data.address
+                    
                     cell?.date.text = shrinkDate(data.date!)
                     cell?.status.text = Steps.checkStep(data.status!)
                     cell?.buttonCallOutlet.phoneNumber = data.phoneNumber
