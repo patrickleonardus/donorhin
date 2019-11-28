@@ -17,7 +17,7 @@ class Page2ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // MARK : - CHANGE FONT SIZE
+        // MARK: - CHANGE FONT SIZE
         if UDDevice.widthScreen < 400 {
             lacakLabel.font = lacakLabel.font.withSize(17)
         }

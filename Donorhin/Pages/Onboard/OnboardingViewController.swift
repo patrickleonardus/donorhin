@@ -27,7 +27,7 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDelega
     
     }
     
-    // MARK : - SHOW PAGE CONTROL
+    // MARK: - SHOW PAGE CONTROL
     func configurePageControl() {
         pageControl = UIPageControl(frame: CGRect(x: 0, y: Int(UIScreen.main.bounds.maxY - 50), width: Int(UIScreen.main.bounds.width), height: 50))
         pageControl.numberOfPages = orderedViewController.count
@@ -42,18 +42,18 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDelega
         return [self.newViewController(number: "1"),self.newViewController(number: "2"), self.newViewController(number: "3"),self.newViewController(number: "4")]
     }()
     
-    // MARK : - SET NEW VIEW CONTROLLER
+    // MARK: - SET NEW VIEW CONTROLLER
     private func newViewController(number:String) -> UIViewController{
         return UIStoryboard (name: "Onboarding", bundle: nil).instantiateViewController(withIdentifier: "Page\(number)")
     }
     
-    // MARK : - SHOW CURRENT VIEW CONTROLLER
+    // MARK: - SHOW CURRENT VIEW CONTROLLER
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         let pageContentViewController = pageViewController.viewControllers![0]
         self.pageControl.currentPage = orderedViewController.lastIndex(of: pageContentViewController)!
     }
     
-    // MARK : - CHANGE TO PREVIOUS VIEW CONTROLLER
+    //MARK: - CHANGE TO PREVIOUS VIEW CONTROLLER
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = orderedViewController.lastIndex(of: viewController)
             else { return nil }
@@ -69,7 +69,7 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDelega
         return orderedViewController[previousIndex]
     }
     
-    // MARK : - CHANGE TO NEXT VIEW CONTROLLER
+    // MARK: - CHANGE TO NEXT VIEW CONTROLLER
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = orderedViewController.lastIndex(of: viewController) else {
             return nil

@@ -17,7 +17,7 @@ class Page3ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // MARK : - CHANGE FONT SIZE
+        // MARK: - CHANGE FONT SIZE
         if UDDevice.widthScreen < 400 {
             privasiLabel.font = privasiLabel.font.withSize(17)
         }

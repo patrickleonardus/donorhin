@@ -17,7 +17,7 @@ class Page1ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // MARK : - CHANGE FONT SIZE
+        // MARK: - CHANGE FONT SIZE
         if UDDevice.widthScreen < 400 {
             
             welcomeLabel.font = welcomeLabel.font.withSize(17)

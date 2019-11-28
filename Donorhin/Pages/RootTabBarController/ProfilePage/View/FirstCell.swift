@@ -18,6 +18,8 @@ class FirstCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+
+        //MARK: -SET PROFILE IMAGE
         imageProfile.layer.cornerRadius = imageProfile.frame.height/2
         imageProfile.contentMode = UIView.ContentMode.scaleAspectFill
         
