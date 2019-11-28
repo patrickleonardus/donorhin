@@ -122,13 +122,13 @@ extension FindController: UITableViewDataSource {
                     
                     // MARK : -Ini buat bikin kotak ditiap cellnya dan kasih space antara cell
                     let backgroundViewCell : UIView = UIView(frame: CGRect(x: 0, y: 10, width:  self.tableView.frame.size.width, height: 150))
-                    
+
                     backgroundViewCell.layer.backgroundColor = UIColor.white.cgColor
                     backgroundViewCell.layer.masksToBounds = false
                     backgroundViewCell.layer.cornerRadius = 10
                     cell!.contentView.addSubview(backgroundViewCell)
                     cell!.contentView.sendSubviewToBack(backgroundViewCell)
-                    
+
                     if cell!.isSelected {
                         backgroundViewCell.layer.backgroundColor = UIColor.gray.cgColor
                     }

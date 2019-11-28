@@ -81,6 +81,7 @@ class FindController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setTabBar(show: true)
+        initTableView()
         loadAllData()
     }
     
@@ -149,6 +150,7 @@ class FindController: UIViewController {
         bloodRequest = []
         
         let userIdReference = CKRecord.Reference(recordID: CKRecord.ID(recordName: userId!), action: .none)
+        let aasas = NSPredicate(format: "%k = %@", argumentArray: ["patient_blood_type","A- "])
         let requestPredicate = NSPredicate(format: "userId = %@", argumentArray: [userIdReference])
         let requestQuery = CKQuery(recordType: "Request", predicate: requestPredicate)
         
@@ -218,17 +220,32 @@ class FindController: UIViewController {
             Helper.getAllData(trackerQuery) {(trackerResults) in
                 guard let trackerResults = trackerResults else {fatalError("trackerResult not found")}
                 for trackerResult in trackerResults {
-                    let trackerModels = trackerResult.convertTrackerToTrackerModel()
-                    guard let trackerModel = trackerModels else {fatalError("trackerModel not found")}
-                    self.currStep = trackerModel.currentStep
-                    self.trackerId = trackerModel.idTracker
-                    self.bloodRequest[request].status = self.currStep
-                    self.bloodRequest[request].trackerId = self.trackerId
-                    
-                    count+=1
-                    if count == self.bloodRequest.count {
-                        self.removeSpinner()
-                        handleComplete()
+                    if let trackerModels = trackerResult.convertTrackerToTrackerModel() {
+                        let trackerModel = trackerModels
+                        self.currStep = trackerModel.currentStep
+                        self.trackerId = trackerModel.idTracker
+                        self.bloodRequest[request].status = self.currStep
+                        self.bloodRequest[request].trackerId = self.trackerId
+                        
+                        count+=1
+                        if count == self.bloodRequest.count {
+                            self.removeSpinner()
+                            handleComplete()
+                        }
+
+                    }
+                    else if let emptyTrackerModels = trackerResult.convertEmptyTrackerToEmptyTrackerModel() {
+                        let trackerModel = emptyTrackerModels
+                        self.currStep = trackerModel.currentStep
+                        self.trackerId = trackerModel.idTracker
+                        self.bloodRequest[request].status = self.currStep
+                        self.bloodRequest[request].trackerId = self.trackerId
+                        
+                        count+=1
+                        if count == self.bloodRequest.count {
+                            self.removeSpinner()
+                            handleComplete()
+                        }
                     }
                     
                 }
@@ -269,19 +286,19 @@ class FindController: UIViewController {
         buttonSearching.setTitle("Batal Mencari", for: .normal)
     }
     
-    func checkDonorAvailability(){
-        
-        let requestId = UserDefaults.standard.string(forKey: "requestRecordId")
-        
-        if requestId == nil {
-            viewSearching.alpha = 0
-            viewNoData.alpha = 1
-        }
-        else if requestId != nil {
-            viewSearching.alpha = 1
-            viewNoData.alpha = 0
-        }
-    }
+//    func checkDonorAvailability(){
+//        
+//        let requestId = UserDefaults.standard.string(forKey: "requestRecordId")
+//        
+//        if requestId == nil {
+//            viewSearching.alpha = 0
+//            viewNoData.alpha = 1
+//        }
+//        else if requestId != nil {
+//            viewSearching.alpha = 1
+//            viewNoData.alpha = 0
+//        }
+//    }
     
     private func setTabBar(show: Bool){
         if show {
@@ -379,7 +396,6 @@ class FindController: UIViewController {
             if self.bloodRequestCurrent!.count != 0 {
                 DispatchQueue.main.async {
                     self.viewNoData.alpha = 0
-                    self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
                 }
                 
             }
@@ -402,7 +418,6 @@ class FindController: UIViewController {
                 DispatchQueue.main.async {
                     self.viewNoData.alpha = 0
                     self.viewSearching.alpha = 0
-                    self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
                 }
                 
             }

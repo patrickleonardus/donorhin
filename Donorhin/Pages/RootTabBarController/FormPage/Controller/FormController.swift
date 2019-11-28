@@ -27,7 +27,7 @@ class FormController: UIViewController{
     
     let pickerToolbar = UIToolbar()
     
-    var recordId : String?
+    var recordName : String?
     var patientName: String?
     var patientHospital: String?
     var patientHospitalId: CKRecord.ID?
@@ -139,7 +139,7 @@ class FormController: UIViewController{
     
     //MARK: - Save to cloud kit
     
-    func saveData(patientName : String, patientHospital: CKRecord.ID, patientBloodType: String, patientDueDate: Date, patientBloodAmount: Int64, patientEmergency: Int64){
+    func saveData(patientName : String, patientHospital: CKRecord.ID, patientBloodType: String, patientDueDate: Date, patientBloodAmount: Int64, patientEmergency: Int64, complete: @escaping (()->())){
         
         let userId = UserDefaults.standard.string(forKey: "currentUser")
         
@@ -161,12 +161,34 @@ class FormController: UIViewController{
                 self.errorAlert(title: "Terjadi Kesalahan", message: "Tidak dapat melakukan request darah, mohon periksa kembali bagian yang sudah anda isi dan coba kembali dalam beberapa saat")
             }
             else {
-                self.recordId = record?.recordID.recordName
-                UserDefaults.standard.set(self.recordId, forKey: "requestRecordId")
+                self.recordName = record?.recordID.recordName
                 print("Successfully saved data to CloudKit")
+                complete()
             }
         }
         
+    }
+    
+    func createTrackerTable(){
+        print(recordName)
+        let record = CKRecord(recordType: "Tracker")
+        
+        let idRequest = CKRecord.Reference(recordID: CKRecord.ID(recordName: recordName!), action: .none)
+        
+        record.setValue(idRequest, forKey: "id_request")
+        record.setValue(0, forKey: "current_step")
+        let database = CKContainer.default().publicCloudDatabase
+        
+        database.save(record) { (record, error) in
+            if error != nil {
+                print("Error while creating tracker table [FormController.swift].\n",error!.localizedDescription as Any)
+                
+                self.errorAlert(title: "Terjadi Kesalahan", message: "Tidak dapat melakukan request darah, mohon periksa kembali bagian yang sudah anda isi dan coba kembali dalam beberapa saat")
+            }
+            else {
+                print("Table tracker successfully updated")
+            }
+        }
     }
     
     //MARK: - Action func
@@ -213,7 +235,13 @@ class FormController: UIViewController{
                     patientBloodType: self.patientBloodType!,
                     patientDueDate: patientDueDateCast,
                     patientBloodAmount: patientBloodAmountCast,
-                    patientEmergency: patientEmergencyCast)
+                    patientEmergency: patientEmergencyCast, complete: {
+                        
+                        for count in 0...patientBloodAmountCast-1 {
+                            self.createTrackerTable()
+                        }
+                
+                })
             }
         }
     }
