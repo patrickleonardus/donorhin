@@ -78,6 +78,7 @@ extension FindController: UITableViewDataSource {
                     cell?.status.text = Steps.checkStep(data.status!)
                     cell?.buttonCallOutlet.phoneNumber = data.phoneNumber
                     
+                    // button untuk call pmi
                     cell?.buttonCallOutlet.setTitle("Call PMI Pendonor", for: .normal)
                     cell?.buttonCallOutlet.isHidden = false
                     cell?.buttonCallOutlet.addTarget(self, action: #selector(callButton(sender:)), for: .touchUpInside)
@@ -85,6 +86,7 @@ extension FindController: UITableViewDataSource {
                     cell?.backgroundColor = UIColor.clear
                     
                     // MARK : -Ini buat bikin kotak ditiap cellnya dan kasih space antara cell
+                    // kotak kota yg warna putih itu loh
                     let backgroundViewCell : UIView = UIView(frame: CGRect(x: 0, y: 10, width:  self.tableView.frame.size.width, height: 150))
                     
                     backgroundViewCell.layer.backgroundColor = UIColor.white.cgColor
@@ -121,6 +123,7 @@ extension FindController: UITableViewDataSource {
                     cell?.backgroundColor = UIColor.clear
                     
                     // MARK : -Ini buat bikin kotak ditiap cellnya dan kasih space antara cell
+                    // kotak kota yg warna putih itu loh
                     let backgroundViewCell : UIView = UIView(frame: CGRect(x: 0, y: 10, width:  self.tableView.frame.size.width, height: 150))
 
                     backgroundViewCell.layer.backgroundColor = UIColor.white.cgColor

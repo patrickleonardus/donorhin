@@ -91,18 +91,29 @@ class FindController: UIViewController {
     
     //MARK: - Mau load data dri cloudkit
     
+    // nah ini function yg dipake buat ngeload sama satuin semua data yg diquery satu satu di function yg paling bawah
     func loadAllData(){
         
         if userId != nil {
+            // ini kaya begini biar kalo request data udh kelar baru dia jalanin yg load data.
             loadRequestData {
                 self.loadHospitalData {
+                    // ini juga sama, kalo dia udh kelar query ke hospital data, baru dia query ke curr step data
                     self.loadCurrStepData {
                         
-                        //reset array
+                        //reset array - direset jadi setiap di load datanya ga double double
                         self.bloodRequestCurrent = []
                         self.bloodRequestHistory = []
                         
                         //biar array data awal ga diintervensi sama perubahan data, maka di copy ke array lainnya
+                        
+                        // jadi array awalnya itu adalah bloodRequest
+                        // bloodRequest ini nampung seluruh data dari hasil query yg di dpt
+                        // cuma karena mau tampilin data di tab "sedang berlangsung" gw bikin array lagi namanya "bloodRequestCurrent"
+                        // sama kaya diatas, karena mau tampilin data "riwayat" gw bikin lagi array namanya "bloodRequestHistory"
+                        
+                        
+                        // trus gw copy dri bloodRequest ke array yg udh dibuat sebelomnya
                         self.bloodRequestCurrent = self.bloodRequest
                         self.bloodRequestHistory = self.bloodRequest
                         
@@ -110,6 +121,8 @@ class FindController: UIViewController {
                         self.bloodRequestCurrent?.reverse()
                         self.bloodRequestHistory?.reverse()
                         
+                        // nah karena di tabel riwayat mau tampilin data yg udh kelar donor, maka gw hapus element didalem array yg statusnya dibawah 5
+                        // klo statusnya 5 itu = "Pendonor telah selesai mendonor"
                         if self.bloodRequestHistory != nil {
                             for (index, data) in (self.bloodRequestHistory?.enumerated().reversed())! {
                                 if data.status! < 5{
@@ -118,6 +131,7 @@ class FindController: UIViewController {
                             }
                         }
                         
+                        // ini buat hapus element yg udh kelar donor, karena data yg di array ini mau ditampilin di tab "sedang berlangsung", maka gw hapus semua data yg statusnya diatas 5, yang berarti emg proses donornya belom kelar
                         if self.bloodRequestCurrent != nil{
                             for (index, data) in (self.bloodRequestCurrent?.enumerated().reversed())! {
                                 if data.status! >= 5 {
@@ -126,13 +140,15 @@ class FindController: UIViewController {
                             }
                         }
                         
-                        
+                        // nah ini buat supaya table viewnya ga error, jadi klo datanya udh siap baru table datanya di load
+                        // jadi klo semua perintah diatas ini udh dilakuin, maka baru di declare delegate sama data sourcenya trus di reload datanya, begitu kawan kawan
                         DispatchQueue.main.async {
                             self.tableView.delegate = self
                             self.tableView.dataSource = self
                             self.tableView.reloadData()
                         }
-                        
+                        // ini buat ngecek tampilan sedang berlangsung, klo ada data dia buang tombol donor, klo ga ada data dia tampilin tombol donor
+                        // intinya ini buat ngilangin tombol "Cari Donor" klo datanya udh ada
                         self.checkCurrentRequestData()
                     }
                 }
@@ -144,13 +160,13 @@ class FindController: UIViewController {
         }
     }
     
+    // nah ini buat ngeload data dari table request berdasarkan user id yg login apps
     func loadRequestData(handleComplete: @escaping (()->())){
         
-        //reset array
+        //reset array - supaya kalo nge load ulang, data yg lama di hapus
         bloodRequest = []
         
         let userIdReference = CKRecord.Reference(recordID: CKRecord.ID(recordName: userId!), action: .none)
-        let aasas = NSPredicate(format: "%k = %@", argumentArray: ["patient_blood_type","A- "])
         let requestPredicate = NSPredicate(format: "userId = %@", argumentArray: [userIdReference])
         let requestQuery = CKQuery(recordType: "Request", predicate: requestPredicate)
         
@@ -173,6 +189,8 @@ class FindController: UIViewController {
                 self.requestId = requestModel.idRequest
                 self.hospitalId = requestModel.idUTDPatient
                 
+                // ini nge append ke arraynya, karena ada beberapa array yg harus di query sendiri sendiri di table lain, maka ada beberapa element yg dikasih nil
+                // nilai element yg di nil kan, akan di update di query selanjutnya
                 self.bloodRequest.append(BloodRequest(requestId: self.requestId!, hospitalId: self.hospitalId, trackerId: nil, name: self.nameTemp!, address: nil, phoneNumber: nil, date: self.dateTemp, status: nil))
                 
                 counter+=1
@@ -184,12 +202,18 @@ class FindController: UIViewController {
         }
     }
     
+    // ini buat ngequery ambil data utd kaya nama utdnya sama nomor telpon utdnya
     func loadHospitalData(handleComplete: @escaping (()->())){
         
         var counter = 0
         
+        //ini mau nge assign nama utd dan nomor telepon ke array yg udh ada sebelumnya
+        //ini buat neglooping sebanyak data di array
         for request in 0...bloodRequest.count-1 {
+            // ini mau nge assign hospital id berdasarkan index loopingannya
             guard let hospitalId = bloodRequest[request].hospitalId else {fatalError("hospitalId not found")}
+            
+            //get data utd
             let record = CKRecord(recordType: "UTD", recordID: hospitalId)
             Helper.getDataByID(record){ (utdResults) in
                 guard let utdResults = utdResults else {fatalError("utdResults not found")}
@@ -209,10 +233,11 @@ class FindController: UIViewController {
         }
     }
     
+    // ini asalnya buat ngequery ambil statusnya
     func loadCurrStepData(handleComplete: @escaping (()->())){
         
         var count = 0
-        
+        // buat ambil data currrent stepnya
         for request in 0...bloodRequest.count-1 {
             guard let requestId = bloodRequest[request].requestId else {fatalError("requestId not found")}
             let trackerPredicate = NSPredicate(format: "id_request = %@", argumentArray: [requestId])
@@ -300,6 +325,7 @@ class FindController: UIViewController {
 //        }
 //    }
     
+    // ini buat hilangin tab bar klo di push
     private func setTabBar(show: Bool){
         if show {
             UIView.animate(withDuration: 0.2) {
@@ -312,7 +338,7 @@ class FindController: UIViewController {
             }
         }
     }
-    
+    // func buat nelpon
     private func callNumber(phoneNumber: String){
         if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
             let application:UIApplication = UIApplication.shared
@@ -341,6 +367,7 @@ class FindController: UIViewController {
             formController.viewValidationDelegate = sender as? ControlValidationViewDelegate
             
         }
+            // ini segue yang buat pindah ke tracker
         else if segue.identifier == "moveToTracker" {
             
             let destination = segue.destination as! TrackerController
@@ -391,6 +418,7 @@ class FindController: UIViewController {
         }
     }
     
+    // ini buat ngecek tampilan sedang berlangsung, klo ada data dia buang tombol donor, klo ga ada data dia tampilin tombol donor
     func checkCurrentRequestData(){
         if self.bloodRequestCurrent != nil{
             if self.bloodRequestCurrent!.count != 0 {
@@ -412,6 +440,7 @@ class FindController: UIViewController {
         }
     }
     
+    // ini buat cek tampilan riwayat
     func checkHistoryRequestData(){
         if self.bloodRequestHistory != nil{
             if self.bloodRequestHistory!.count != 0 {
@@ -436,11 +465,12 @@ class FindController: UIViewController {
     
     //MARK: Action
     
+    // ini mau call pmi pendonor
     @objc func callButton(sender: UIButton){
         let button = (sender as! CallNumberButton)
         callNumber(phoneNumber: button.phoneNumber!)
     }
-    
+    // ini buat pencet button profile
     @objc private func profileButton(){
         let storyboard = UIStoryboard(name: "Profile", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "profileStoryboard") as! ProfileController
@@ -451,6 +481,7 @@ class FindController: UIViewController {
     
     //MARK: Action Outlet
     
+    // ini buat pencet segmented controller
     @IBAction func findBloodSegmentedControlDidChange() {
         
         if findBloodSegmentedControl.selectedSegmentIndex == 0 {
@@ -462,6 +493,7 @@ class FindController: UIViewController {
         tableView.reloadData()
     }
     
+    // ini buat tombol "Cari Darah"
     @IBAction func findBloodAction(_ sender: Any) {
         
         let checkLogin = UserDefaults.standard.string(forKey: "currentUser")
@@ -481,7 +513,7 @@ class FindController: UIViewController {
     }
     
 }
-
+//ini protocol ga jadi pake
 protocol ControlValidationViewDelegate {
     func didRequestData()
 }
