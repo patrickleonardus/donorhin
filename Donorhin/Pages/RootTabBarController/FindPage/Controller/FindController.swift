@@ -56,7 +56,6 @@ class FindController: UIViewController {
       self.registerForNotification()
         setupUI()
         initTableView()
-        loadAllData()
         
     }
   
@@ -82,6 +81,7 @@ class FindController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setTabBar(show: true)
+        loadAllData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -96,6 +96,10 @@ class FindController: UIViewController {
             loadRequestData {
                 self.loadHospitalData {
                     self.loadCurrStepData {
+                        
+                        //reset array
+                        self.bloodRequestCurrent = []
+                        self.bloodRequestHistory = []
                         
                         //biar array data awal ga diintervensi sama perubahan data, maka di copy ke array lainnya
                         self.bloodRequestCurrent = self.bloodRequest
@@ -141,6 +145,8 @@ class FindController: UIViewController {
     
     func loadRequestData(handleComplete: @escaping (()->())){
         
+        //reset array
+        bloodRequest = []
         
         let userIdReference = CKRecord.Reference(recordID: CKRecord.ID(recordName: userId!), action: .none)
         let requestPredicate = NSPredicate(format: "userId = %@", argumentArray: [userIdReference])
