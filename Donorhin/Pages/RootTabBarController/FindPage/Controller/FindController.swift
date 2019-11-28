@@ -150,6 +150,7 @@ class FindController: UIViewController {
         bloodRequest = []
         
         let userIdReference = CKRecord.Reference(recordID: CKRecord.ID(recordName: userId!), action: .none)
+        let aasas = NSPredicate(format: "%k = %@", argumentArray: ["patient_blood_type","A- "])
         let requestPredicate = NSPredicate(format: "userId = %@", argumentArray: [userIdReference])
         let requestQuery = CKQuery(recordType: "Request", predicate: requestPredicate)
         
@@ -395,7 +396,6 @@ class FindController: UIViewController {
             if self.bloodRequestCurrent!.count != 0 {
                 DispatchQueue.main.async {
                     self.viewNoData.alpha = 0
-                    self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
                 }
                 
             }
@@ -418,7 +418,6 @@ class FindController: UIViewController {
                 DispatchQueue.main.async {
                     self.viewNoData.alpha = 0
                     self.viewSearching.alpha = 0
-                    self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
                 }
                 
             }
