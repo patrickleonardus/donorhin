@@ -81,6 +81,7 @@ class FindController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setTabBar(show: true)
+        initTableView()
         loadAllData()
     }
     
@@ -218,17 +219,32 @@ class FindController: UIViewController {
             Helper.getAllData(trackerQuery) {(trackerResults) in
                 guard let trackerResults = trackerResults else {fatalError("trackerResult not found")}
                 for trackerResult in trackerResults {
-                    let trackerModels = trackerResult.convertTrackerToTrackerModel()
-                    guard let trackerModel = trackerModels else {fatalError("trackerModel not found")}
-                    self.currStep = trackerModel.currentStep
-                    self.trackerId = trackerModel.idTracker
-                    self.bloodRequest[request].status = self.currStep
-                    self.bloodRequest[request].trackerId = self.trackerId
-                    
-                    count+=1
-                    if count == self.bloodRequest.count {
-                        self.removeSpinner()
-                        handleComplete()
+                    if let trackerModels = trackerResult.convertTrackerToTrackerModel() {
+                        let trackerModel = trackerModels
+                        self.currStep = trackerModel.currentStep
+                        self.trackerId = trackerModel.idTracker
+                        self.bloodRequest[request].status = self.currStep
+                        self.bloodRequest[request].trackerId = self.trackerId
+                        
+                        count+=1
+                        if count == self.bloodRequest.count {
+                            self.removeSpinner()
+                            handleComplete()
+                        }
+
+                    }
+                    else if let emptyTrackerModels = trackerResult.convertEmptyTrackerToEmptyTrackerModel() {
+                        let trackerModel = emptyTrackerModels
+                        self.currStep = trackerModel.currentStep
+                        self.trackerId = trackerModel.idTracker
+                        self.bloodRequest[request].status = self.currStep
+                        self.bloodRequest[request].trackerId = self.trackerId
+                        
+                        count+=1
+                        if count == self.bloodRequest.count {
+                            self.removeSpinner()
+                            handleComplete()
+                        }
                     }
                     
                 }
@@ -269,19 +285,19 @@ class FindController: UIViewController {
         buttonSearching.setTitle("Batal Mencari", for: .normal)
     }
     
-    func checkDonorAvailability(){
-        
-        let requestId = UserDefaults.standard.string(forKey: "requestRecordId")
-        
-        if requestId == nil {
-            viewSearching.alpha = 0
-            viewNoData.alpha = 1
-        }
-        else if requestId != nil {
-            viewSearching.alpha = 1
-            viewNoData.alpha = 0
-        }
-    }
+//    func checkDonorAvailability(){
+//        
+//        let requestId = UserDefaults.standard.string(forKey: "requestRecordId")
+//        
+//        if requestId == nil {
+//            viewSearching.alpha = 0
+//            viewNoData.alpha = 1
+//        }
+//        else if requestId != nil {
+//            viewSearching.alpha = 1
+//            viewNoData.alpha = 0
+//        }
+//    }
     
     private func setTabBar(show: Bool){
         if show {

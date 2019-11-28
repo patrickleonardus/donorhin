@@ -11,7 +11,7 @@ import UIKit
 extension FindController : ControlValidationViewDelegate {
     
     func didRequestData() {
-        checkDonorAvailability()
+        
     }
     
 }
