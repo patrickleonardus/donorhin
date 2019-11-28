@@ -232,6 +232,13 @@ class FindController: UIViewController {
                     }
                     
                 }
+//                if trackerResults.count == 0 {
+//                    self.removeSpinner()
+//                    DispatchQueue.main.async {
+//                        self.viewSearching.alpha = 1
+//                        self.viewNoData.alpha = 0
+//                    }
+//                }
             }
         }
     }

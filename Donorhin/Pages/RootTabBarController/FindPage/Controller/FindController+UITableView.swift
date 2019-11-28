@@ -31,7 +31,7 @@ extension FindController: UITableViewDataSource {
                 if bloodRequestCurrent?.count != 0 {
                     totalData = 1
                 }
-                else {
+                else if bloodRequestCurrent?.count == 0{
                     totalData = 0
                 }
             }
@@ -71,7 +71,7 @@ extension FindController: UITableViewDataSource {
                     let cell  = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? FindBloodCustomCell
                     guard let data = bloodRequestCurrent?[indexPath.row] else {fatalError()}
                     
-                    cell?.title.text = data.name
+                    cell?.title.text = "Pendonor \(indexPath.row + 1)"
                     cell?.address.text = data.address
                     
                     cell?.date.text = shrinkDate(data.date!)
@@ -111,7 +111,7 @@ extension FindController: UITableViewDataSource {
                     let cell  = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? FindBloodCustomCell
                     guard let data = bloodRequestHistory?[indexPath.row] else {fatalError()}
                     
-                    cell?.title.text = data.name
+                    cell?.title.text = "Pendonor \(indexPath.row + 1)"
                     cell?.address.text = data.address
                     cell?.date.text = shrinkDate(data.date!)
                     cell?.status.text = Steps.checkStep(data.status!)
