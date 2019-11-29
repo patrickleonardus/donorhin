@@ -148,6 +148,7 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    //function for getting region
     func geocode(latitude: Double, longitude: Double, completion: @escaping (_ placemark: [CLPlacemark]?, _ error: Error?) -> Void)  {
         CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: latitude, longitude: longitude)) { placemark, error in
             guard let placemark = placemark, error == nil else {
@@ -159,11 +160,11 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
-           guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { fatalError() }
-           print("locations = \(locValue.latitude) \(locValue.longitude)")
            let location = locations.last!
+           //locationManager stops updating location
            locationManager.stopUpdatingLocation()
         
+           //get recordName from userdefaults
            guard let recordName = UserDefaults.standard.value(forKey: "currentUser") as? String else{
                return
            }
@@ -171,20 +172,18 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
            
            let package : [String:CLLocation] = ["location": location]
            
-           // saving your CLLocation object
+           // saving your CLLocation object to CloudKit
            Helper.updateToDatabase(keyValuePair: package, recordID: recordId)
            
-           // saving to UserDefaults
+           // saving to UserDefaults dalam bentuk NSData
            let locationData = NSKeyedArchiver.archivedData(withRootObject: location)
            UserDefaults.standard.set(locationData, forKey: "locationData")
         
-            //loading it
+           //Convert NSData ke CLLocation
            if let loadedData = UserDefaults.standard.data(forKey: "locationData") {
-
                if let loadedLocation = NSKeyedUnarchiver.unarchiveObject(with: loadedData) as? CLLocation {
-                   //print(loadedLocation.coordinate.latitude)
-                   //print(loadedLocation.coordinate.longitude)
-                
+                //mengambil region, locality, administrativeArea dan country
+                //pakai coordinate.longitude dan coordinate.latitude
                 geocode(latitude: loadedLocation.coordinate.latitude, longitude: loadedLocation.coordinate.longitude) { (placemarks, error) in
                 if error != nil {
                    print("failed")
@@ -199,6 +198,7 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
                           let locality = placemark?.locality!
                           let administrativeArea = placemark?.administrativeArea!
                           let country = placemark?.country!
+                          //tes dengan print ke terminal kalau gk kosong berhasil
                           print("\(locality), \(administrativeArea), \(country)")
                       }
                     }
