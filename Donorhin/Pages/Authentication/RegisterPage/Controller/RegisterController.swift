@@ -15,9 +15,7 @@ class RegisterController : UIViewController{
     var navigationBarTitle : String?
     var formItems: [FormItems]?
     var activeCell : FormTableViewCell?
-    var isAvalaible : Bool? = false
-    
-    let database = CKContainer.default().publicCloudDatabase
+    var isAvalaible : Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +66,6 @@ class RegisterController : UIViewController{
             emailCell.formTextField.redPlaceholder()
             errorCell.errorMsg.text = "*Pastikan seluruh form telah terisi"
         }
-
         return false
       }
       
@@ -98,7 +95,7 @@ class RegisterController : UIViewController{
             self.isAvalaible = flag
         }
         
-        if !isAvalaible! {
+            if isAvalaible == false{
                 DispatchQueue.main.async {
                     errorCell.errorMsg.isHidden = false
                     errorCell.errorMsg.text = "*Email sudah pernah terdaftar, coba email yang lain"
@@ -107,25 +104,26 @@ class RegisterController : UIViewController{
                 }
                 return false
             }
-        }
-        
-        DispatchQueue.main.async {
-            errorCell.errorMsg.isHidden = true
+            else{
+                DispatchQueue.main.async {
+                    errorCell.errorMsg.isHidden = true
+                }
+            }
         }
       return true
     }
     
     func checkExistUserEmail(email: String, completionHandler: @escaping (Bool)->Void) {
 
-     let ckRecord = CKQuery(recordType: "Account", predicate: NSPredicate(format: "email = %@", email))
-     self.database.perform(ckRecord, inZoneWith: .default) { (res, err) in
-       if let result = res {
-         if result.count > 0 {
-            completionHandler(false)
-         }
-       }
-        completionHandler(true)
-     }
+     let ckQuery = CKQuery(recordType: "Account", predicate: NSPredicate(format: "email = %@", email))
+        Helper.getAllData(ckQuery) { (result) in
+            if result != nil {
+                completionHandler(false)
+            }
+            else{
+                completionHandler(true)
+            }
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
