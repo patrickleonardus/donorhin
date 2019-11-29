@@ -63,8 +63,6 @@ extension RegisterDetailController : FormCellDelegate {
         
       if self.validateUserDetail(fullName: fullNameCell.formTextField.text!, gender: genderCell.formTextField.text!, birthDate: birthDateCell.formTextField.text!, bloodType: bloodTypeCell.formTextField.text!) {
         self.showSpinner(onView: self.view)
-//        self.checkExistUserEmail(self.userCredentials["email"]!) { (isExist) in
-//          if !isExist {
             DispatchQueue.main.async {
               let encryptedPassword : String = PasswordCryptor().encryptMessage(password: self.userCredentials["password"]!)
               print(encryptedPassword)
@@ -102,19 +100,6 @@ extension RegisterDetailController : FormCellDelegate {
               }
             }
           }
-//          else {
-//            self.removeSpinner()
-//            DispatchQueue.main.async {
-//                errorCell.errorMsg.isHidden = false
-//                errorCell.errorMsg.text = "*Email sudah pernah terdaftar, coba email yang lain"
-//            }
-////            let alert = UIAlertController(title: "Peringatan", message: "Email sudah pernah terdaftar, coba email yang lain", preferredStyle: .alert)
-////            let action = UIAlertAction(title: "Oke", style: .default, handler: nil)
-////            alert.addAction(action)
-////            self.present(alert, animated: true, completion: nil)
-//          }
-//        }
-//      }
     }
   
   func validateUserDetail(fullName: String, gender: String, birthDate: String, bloodType: String) -> Bool {
@@ -140,10 +125,6 @@ extension RegisterDetailController : FormCellDelegate {
             errorCell.errorMsg.isHidden = false
             errorCell.errorMsg.text = "*Pastikan seluruh form telah terisi"
         }
-//      let alert = UIAlertController(title: "Peringatan", message: "Nama lengkap, jenis kelamin, tanggal lahir, dan golongan darah harus diisi", preferredStyle: .alert)
-//      let action = UIAlertAction(title: "Oke", style: .default, handler: nil)
-//      alert.addAction(action)
-//      self.present(alert, animated: true, completion: nil)
       return false
     }
     errorCell.errorMsg.isHidden = true
@@ -167,20 +148,4 @@ extension RegisterDetailController : FormCellDelegate {
     let newdate = dateFormatter.date(from: date)!
     return newdate
   }
-  
-//  func checkExistUserEmail(_ email: String, completion: @escaping (Bool) -> Void) {
-//    let ckRecord = CKQuery(recordType: "Account", predicate: NSPredicate(format: "email = %@", email))
-//    self.database.perform(ckRecord, inZoneWith: .default) { (res, err) in
-//      if let result = res {
-//        if result.count > 0 {
-//          completion(true)
-//        }
-//        else {
-//          completion(false)
-//        }
-//      }else {
-//        completion(false)
-//      }
-//    }
-//  }
 }

@@ -19,13 +19,6 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
     var activeTF : UITextField?
     var activeCell : FormTableViewCell?
     
-    //available states
-    var state = AuthenticationState.loggedout {
-        didSet {
-            
-        }
-    }
-        
     override func viewDidLoad(){
         super.viewDidLoad()
         FormBuilder().getItemsForLogin { (formItems) in
@@ -127,11 +120,9 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
                 UserDefaults.standard.set(userModel?.lastDonor, forKey: "last_donor")
                 UserDefaults.standard.set(userModel?.statusDonor, forKey: "donor_status")
                 print("Data saved to user default...")
-                //self.state = .loggedin
                 errorCell.errorMsg.isHidden = true
                 self.navigationController?.navigationBar.isHidden = true
                 self.performSegue(withIdentifier: "goToHome", sender: self)
-                //self.removeSpinner()
             }
         }
     }
