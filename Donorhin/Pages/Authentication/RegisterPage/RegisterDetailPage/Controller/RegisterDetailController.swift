@@ -36,8 +36,7 @@ class RegisterDetailController : UIViewController{
         pickerToolBar = UIToolbar()
         pickerToolBar.isTranslucent = true
         pickerToolBar.sizeToFit()
-        pickerToolBar.tintColor = #colorLiteral(red: 0.3568627451, green: 0.7843137255, blue: 0.9803921569, alpha: 1)
-//        let cancelButton = UIBarButtonItem(title: "Batal", style: .plain, target: self, action: #selector(pickerCancelBtnPressed))
+        pickerToolBar.tintColor = Colors.red
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(title: "Selesai", style: .done, target: self, action: #selector(pickerDoneBtnPressed))
         pickerToolBar.setItems([flexibleSpace, doneButton], animated: false)

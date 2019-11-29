@@ -47,6 +47,7 @@ extension RegisterController : UITableViewDataSource, UITableViewDelegate{
           
           cell?.formTextField.placeholder = data.placeholder
           cell?.iconImageView.image = UIImage(named: data.img!)
+          cell?.formTextField.addDoneButtonOnKeyboard()
           if indexPath.section == 1 || indexPath.section == 2  {
              cell?.formTextField.isSecureTextEntry = true
           }

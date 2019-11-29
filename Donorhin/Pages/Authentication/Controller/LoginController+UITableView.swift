@@ -58,6 +58,7 @@ extension LoginController : UITableViewDataSource{
             
             cell?.backgroundColor = UIColor.white
             cell?.layer.cornerRadius = 10
+            cell?.formTextField.addDoneButtonOnKeyboard()
             if indexPath.section == 1 {
                 cell?.formTextField.isSecureTextEntry = true
             }
