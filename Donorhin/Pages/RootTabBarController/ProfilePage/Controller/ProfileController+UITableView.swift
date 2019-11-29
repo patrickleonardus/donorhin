@@ -78,6 +78,10 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
         else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "secondCell", for: indexPath) as? SecondCell
             
+            cell?.profileTextField.borderStyle = .none
+            cell?.profileTextField.isEnabled = false
+            cell?.textCell.isHidden = true
+            
             if indexPath.row == 0 {
                 cell?.imageCell.image = UIImage(named: "gender_profile")
                 var gender : String = "Laki-Laki"
@@ -90,6 +94,7 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
                 default: break
                 }
                 cell?.textCell.text = "\(gender)"
+                cell?.profileTextField.text = "\(gender)"
             }
                 
             else if indexPath.row == 1 {
@@ -99,17 +104,20 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
                 }
                 else{
                 cell?.textCell.text = dateFormatter.string(from: user!.profileBirthday!)
+                 cell?.profileTextField.text = dateFormatter.string(from: user!.profileBirthday!)
                 }
             }
                 
             else if indexPath.row == 2 {
                 cell?.imageCell.image = UIImage(named: "bloodtype_profile")
                 cell?.textCell.text = user?.profileBloodType
+                cell?.profileTextField.text = user?.profileBloodType
             }
                 
             else if indexPath.row == 3 {
                 cell?.imageCell.image = UIImage(named: "lastdonor_profile")
                 cell?.textCell.text = dateFormatter.string(from: user?.profileLastDonor ?? date!)
+                cell?.profileTextField.text = dateFormatter.string(from: user?.profileLastDonor ?? date!)
             }
             
             return cell!

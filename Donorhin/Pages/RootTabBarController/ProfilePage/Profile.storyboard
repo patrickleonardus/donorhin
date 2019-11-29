@@ -91,16 +91,28 @@
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DA0-FY-Y7e">
+                                                            <rect key="frame" x="59" y="8" width="307" height="26"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="307" id="FDe-gH-SI4"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="FBB-tY-BVH" firstAttribute="top" secondItem="GE8-Wy-g14" secondAttribute="top" constant="12" id="9uU-rY-dhg"/>
                                                         <constraint firstAttribute="height" constant="44" id="AfG-e6-yd8"/>
+                                                        <constraint firstItem="DA0-FY-Y7e" firstAttribute="centerY" secondItem="GE8-Wy-g14" secondAttribute="centerY" id="E5f-g1-ODC"/>
+                                                        <constraint firstItem="DA0-FY-Y7e" firstAttribute="top" secondItem="GE8-Wy-g14" secondAttribute="top" constant="8" id="M9n-Qh-Tmh"/>
                                                         <constraint firstAttribute="trailing" secondItem="FBB-tY-BVH" secondAttribute="trailing" constant="8" id="MX7-ce-20c"/>
                                                         <constraint firstItem="oEl-ve-Cey" firstAttribute="leading" secondItem="GE8-Wy-g14" secondAttribute="leading" constant="8" id="Mer-gw-bja"/>
                                                         <constraint firstItem="FBB-tY-BVH" firstAttribute="leading" secondItem="oEl-ve-Cey" secondAttribute="trailing" constant="8" id="RCM-3k-RCU"/>
                                                         <constraint firstItem="oEl-ve-Cey" firstAttribute="centerY" secondItem="GE8-Wy-g14" secondAttribute="centerY" id="UWt-7E-859"/>
                                                         <constraint firstItem="FBB-tY-BVH" firstAttribute="centerY" secondItem="GE8-Wy-g14" secondAttribute="centerY" id="WPk-V4-RIO"/>
+                                                        <constraint firstAttribute="trailing" secondItem="DA0-FY-Y7e" secondAttribute="trailing" constant="8" id="oJJ-14-YQF"/>
+                                                        <constraint firstItem="DA0-FY-Y7e" firstAttribute="leading" secondItem="oEl-ve-Cey" secondAttribute="trailing" constant="8" id="pem-FZ-jRc"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -114,6 +126,7 @@
                                         <connections>
                                             <outlet property="backgroundViewCell" destination="GE8-Wy-g14" id="ljs-mh-Hwl"/>
                                             <outlet property="imageCell" destination="oEl-ve-Cey" id="1LX-Qc-C2G"/>
+                                            <outlet property="profileTextField" destination="DA0-FY-Y7e" id="yyV-qf-kLy"/>
                                             <outlet property="textCell" destination="FBB-tY-BVH" id="Xhc-WT-QYd"/>
                                         </connections>
                                     </tableViewCell>

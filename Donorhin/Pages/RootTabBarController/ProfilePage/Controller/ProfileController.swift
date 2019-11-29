@@ -33,12 +33,24 @@ class ProfileController: UIViewController {
     private func setupUI(){
         tableView.tableFooterView = UIView()
         setNavigationButton()
+        setEditButton()
     }
     
     private func setNavigationButton(){
         let doneButton = UIBarButtonItem(title: "Batal", style: .plain, target: self, action: #selector(doneAction))
-        navigationItem.rightBarButtonItem = doneButton
+        navigationItem.leftBarButtonItem = doneButton
     }
+    
+    private func setEditButton(){
+        let editButton = UIBarButtonItem(title: "Edit", style: .done, target: self, action: #selector(editButtonPressed))
+        navigationItem.rightBarButtonItem = editButton
+    }
+    
+    @objc func editButtonPressed() {
+        
+    }
+    
+
     
     private func setValidation(){
         
