@@ -19,6 +19,12 @@ struct TrackerModel {
    
 }
 
+struct EmptyTrackerModel {
+    let idTracker: CKRecord.ID
+    let idRequest: CKRecord.Reference
+    var currentStep: Int
+}
+
 struct UserModel  {
    let idUser: CKRecord.ID
    let name: String

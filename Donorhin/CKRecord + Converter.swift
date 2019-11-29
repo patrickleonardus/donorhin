@@ -40,6 +40,20 @@ extension CKRecord {
                                       currentStep: currentStep)
       return trackerModel
    }
+    
+    func convertEmptyTrackerToEmptyTrackerModel() -> EmptyTrackerModel? {
+        guard
+            let idrequest = self.value(forKey: "id_request") as? Reference ?? nil,
+            let currentStep = self.value(forKey: "current_step") as? Int ?? nil
+            else {
+                //            fatalError("failed casting data with record ID \(self.recordID)")
+                return nil
+        }
+        let trackerModel = EmptyTrackerModel(idTracker: self.recordID,
+                                        idRequest: idrequest,
+                                        currentStep: currentStep)
+        return trackerModel
+    }
    
    func convertRequestToRequestModel() -> RequestModel? {
       guard let patientName = self.value(forKey: "patient_name") as? String ?? nil,

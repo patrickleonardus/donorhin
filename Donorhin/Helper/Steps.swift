@@ -10,6 +10,8 @@ import Foundation
 struct Steps {
   static func checkStep(_ step: Int) -> String {
     switch step {
+    case 0:
+        return "Sedang mencari pendonor"
     case 1:
       return "Pendonor ditemukan"
     case 2:

@@ -31,7 +31,7 @@ extension FindController: UITableViewDataSource {
                 if bloodRequestCurrent?.count != 0 {
                     totalData = 1
                 }
-                else {
+                else if bloodRequestCurrent?.count == 0{
                     totalData = 0
                 }
             }
@@ -71,13 +71,14 @@ extension FindController: UITableViewDataSource {
                     let cell  = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? FindBloodCustomCell
                     guard let data = bloodRequestCurrent?[indexPath.row] else {fatalError()}
                     
-                    cell?.title.text = data.name
+                    cell?.title.text = "Pendonor \(indexPath.row + 1)"
                     cell?.address.text = data.address
                     
                     cell?.date.text = shrinkDate(data.date!)
                     cell?.status.text = Steps.checkStep(data.status!)
                     cell?.buttonCallOutlet.phoneNumber = data.phoneNumber
                     
+                    // button untuk call pmi
                     cell?.buttonCallOutlet.setTitle("Call PMI Pendonor", for: .normal)
                     cell?.buttonCallOutlet.isHidden = false
                     cell?.buttonCallOutlet.addTarget(self, action: #selector(callButton(sender:)), for: .touchUpInside)
@@ -85,6 +86,7 @@ extension FindController: UITableViewDataSource {
                     cell?.backgroundColor = UIColor.clear
                     
                     // MARK : -Ini buat bikin kotak ditiap cellnya dan kasih space antara cell
+                    // kotak kota yg warna putih itu loh
                     let backgroundViewCell : UIView = UIView(frame: CGRect(x: 0, y: 10, width:  self.tableView.frame.size.width, height: 150))
                     
                     backgroundViewCell.layer.backgroundColor = UIColor.white.cgColor
@@ -111,7 +113,7 @@ extension FindController: UITableViewDataSource {
                     let cell  = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? FindBloodCustomCell
                     guard let data = bloodRequestHistory?[indexPath.row] else {fatalError()}
                     
-                    cell?.title.text = data.name
+                    cell?.title.text = "Pendonor \(indexPath.row + 1)"
                     cell?.address.text = data.address
                     cell?.date.text = shrinkDate(data.date!)
                     cell?.status.text = Steps.checkStep(data.status!)
@@ -121,14 +123,15 @@ extension FindController: UITableViewDataSource {
                     cell?.backgroundColor = UIColor.clear
                     
                     // MARK : -Ini buat bikin kotak ditiap cellnya dan kasih space antara cell
+                    // kotak kota yg warna putih itu loh
                     let backgroundViewCell : UIView = UIView(frame: CGRect(x: 0, y: 10, width:  self.tableView.frame.size.width, height: 150))
-                    
+
                     backgroundViewCell.layer.backgroundColor = UIColor.white.cgColor
                     backgroundViewCell.layer.masksToBounds = false
                     backgroundViewCell.layer.cornerRadius = 10
                     cell!.contentView.addSubview(backgroundViewCell)
                     cell!.contentView.sendSubviewToBack(backgroundViewCell)
-                    
+
                     if cell!.isSelected {
                         backgroundViewCell.layer.backgroundColor = UIColor.gray.cgColor
                     }

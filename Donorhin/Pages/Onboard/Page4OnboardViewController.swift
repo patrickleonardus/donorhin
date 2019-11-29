@@ -18,6 +18,8 @@ class Page4ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // MARK: - CHANGE FONT SIZE
         if UDDevice.widthScreen < 400 {
             label1.font = label1.font.withSize(17)
             label2.font = label2.font.withSize(17)
@@ -26,9 +28,11 @@ class Page4ViewController: UIViewController {
         }
     }
     
+    // MARK: - PERRFORM SEGUE
     @IBAction func masukAkunButton(_ sender: Any) {
         performSegue(withIdentifier: "goToAuthentication", sender: self)
     }
+    
     @IBAction func masukNantiButton(_ sender: Any) {
         performSegue(withIdentifier: "goToRootTabBarController", sender: self)
     }
