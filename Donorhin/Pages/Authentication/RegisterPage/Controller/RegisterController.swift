@@ -15,9 +15,7 @@ class RegisterController : UIViewController{
     var navigationBarTitle : String?
     var formItems: [FormItems]?
     var activeCell : FormTableViewCell?
-    var isAvalaible : Bool? = false
-    
-    let database = CKContainer.default().publicCloudDatabase
+    var isAvalaible : Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,22 +115,15 @@ class RegisterController : UIViewController{
     
     func checkExistUserEmail(email: String, completionHandler: @escaping (Bool)->Void) {
 
-     let ckRecord = CKQuery(recordType: "Account", predicate: NSPredicate(format: "email = %@", email))
-     self.database.perform(ckRecord, inZoneWith: .default) { (res, err) in
-        if let result = res {
-            if result.count > 0 {
-                 completionHandler(false)
-               }
-            else {
-                 completionHandler(true)
+     let ckQuery = CKQuery(recordType: "Account", predicate: NSPredicate(format: "email = %@", email))
+        Helper.getAllData(ckQuery) { (result) in
+            if result != nil {
+                completionHandler(false)
+            }
+            else{
+                completionHandler(true)
             }
         }
-            
-        else {
-            completionHandler(true)
-        }
-        
-      }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
