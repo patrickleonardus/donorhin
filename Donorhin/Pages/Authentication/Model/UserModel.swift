@@ -22,7 +22,7 @@ class DataFetcher {
         print(password)
         var data : CKRecord? = nil
         
-        let query = CKQuery(recordType: "Account", predicate: NSPredicate(format: "email = %@ AND password = %@", argumentArray: [email,password]))
+        let query = CKQuery(recordType: "Account", predicate: NSPredicate(format: "email = %@", email))
         
         Helper.getAllData(query) { (results) in
             print("result: \(results)")
@@ -33,8 +33,12 @@ class DataFetcher {
                         UserDefaults.standard.set(record.recordID.recordName, forKey: "currentUser") //save record name to user default
                         data = record
                     }
+                  
                     userModel = data?.convertAccountToUserModel()
-                    //print(userModel)
+                    
+                    if userModel?.password != password{
+                        completionHandler(nil)
+                    }
                     completionHandler(userModel)
                 }
                 else{
@@ -42,6 +46,24 @@ class DataFetcher {
                 }
             }
         }
+    }
+}
+
+class PasswordCryptor {
+    func encryptMessage(password: String) -> String {
+        let passwordData = password.data(using: .utf8)!
+        let cipherData = RNCryptor.encrypt(data: passwordData, withPassword: "hash")
+        return cipherData.base64EncodedString()
+    }
+
+    func decryptMessage(encryptedPassword: String) throws -> String {
+        let encryptedData = Data.init(base64Encoded: encryptedPassword) ?? nil
+        if encryptedData == nil {
+            return encryptedPassword
+        }
+        let decryptedData = try RNCryptor.decrypt(data: encryptedData!, withPassword: "hash")
+        let decryptedString = String(data: decryptedData, encoding: .utf8)!
+        return decryptedString
     }
 }
 

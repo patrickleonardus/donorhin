@@ -68,7 +68,6 @@ class RegisterController : UIViewController{
             emailCell.formTextField.redPlaceholder()
             errorCell.errorMsg.text = "*Pastikan seluruh form telah terisi"
         }
-
         return false
       }
       
@@ -98,7 +97,7 @@ class RegisterController : UIViewController{
             self.isAvalaible = flag
         }
         
-        if !isAvalaible! {
+            if isAvalaible == false{
                 DispatchQueue.main.async {
                     errorCell.errorMsg.isHidden = false
                     errorCell.errorMsg.text = "*Email sudah pernah terdaftar, coba email yang lain"
@@ -107,10 +106,11 @@ class RegisterController : UIViewController{
                 }
                 return false
             }
-        }
-        
-        DispatchQueue.main.async {
-            errorCell.errorMsg.isHidden = true
+            else{
+                DispatchQueue.main.async {
+                    errorCell.errorMsg.isHidden = true
+                }
+            }
         }
       return true
     }
@@ -119,13 +119,20 @@ class RegisterController : UIViewController{
 
      let ckRecord = CKQuery(recordType: "Account", predicate: NSPredicate(format: "email = %@", email))
      self.database.perform(ckRecord, inZoneWith: .default) { (res, err) in
-       if let result = res {
-         if result.count > 0 {
-            completionHandler(false)
-         }
-       }
-        completionHandler(true)
-     }
+        if let result = res {
+            if result.count > 0 {
+                 completionHandler(false)
+               }
+            else {
+                 completionHandler(true)
+            }
+        }
+            
+        else {
+            completionHandler(true)
+        }
+        
+      }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
