@@ -18,6 +18,7 @@
 		098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */; };
 		09DC193A23754BCD004BEFB5 /* DonateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC193923754BCD004BEFB5 /* DonateModel.swift */; };
 		09E8CA1E23853C01009A11A9 /* Agreement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09E8CA1D23853C01009A11A9 /* Agreement.storyboard */; };
+		09FBD1F1239249C300704AAF /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FBD1F0239249C300704AAF /* Service.swift */; };
 		AB1CD2D4237C198300CB3C56 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB1CD2D3237C198300CB3C56 /* Onboarding.storyboard */; };
 		AB498AC3237D735F006CDA7A /* Page1OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB498AC2237D735F006CDA7A /* Page1OnboardViewController.swift */; };
 		AB498AC5237D73E7006CDA7A /* Page2OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB498AC4237D73E7006CDA7A /* Page2OnboardViewController.swift */; };
@@ -189,6 +190,7 @@
 		098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewRounded.swift; sourceTree = "<group>"; };
 		09DC193923754BCD004BEFB5 /* DonateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateModel.swift; sourceTree = "<group>"; };
 		09E8CA1D23853C01009A11A9 /* Agreement.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Agreement.storyboard; sourceTree = "<group>"; };
+		09FBD1F0239249C300704AAF /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		AB1CD2D3237C198300CB3C56 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		AB498AC2237D735F006CDA7A /* Page1OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page1OnboardViewController.swift; sourceTree = "<group>"; };
 		AB498AC4237D73E7006CDA7A /* Page2OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2OnboardViewController.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 				094B6ED9237EC7D300716862 /* Helper.swift */,
 				094B6EDC238044D300716862 /* Steps.swift */,
 				CCBEC20223829CBB004AC408 /* Helper + DatabaseModel.swift */,
+				09FBD1F0239249C300704AAF /* Service.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1291,6 +1294,7 @@
 				AB7357962374313500A6099B /* FirstCell.swift in Sources */,
 				AB498AC5237D73E7006CDA7A /* Page2OnboardViewController.swift in Sources */,
 				B0FF322923829B580001C0F5 /* TwoButtonTableViewCell.swift in Sources */,
+				09FBD1F1239249C300704AAF /* Service.swift in Sources */,
 				B0B1689A237D65B8001DCE3C /* RegisterDetailController+UITableView.swift in Sources */,
 				B02BFEA6238FE178000A4372 /* Cryptor.swift in Sources */,
 				E62918FC237EBBF600E8D559 /* FormController.swift in Sources */,
