@@ -70,6 +70,7 @@
 		CC7A28B0238BD2DF005C0BDC /* String + Time Removal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7A28AF238BD2DF005C0BDC /* String + Time Removal.swift */; };
 		CC88A08623749D16001A982E /* FindBloodCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC88A08123749D16001A982E /* FindBloodCustomCell.xib */; };
 		CC88A08823749D16001A982E /* FindBloodCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC88A08323749D16001A982E /* FindBloodCustomCell.swift */; };
+		CC89022E23910288004A13BC /* FindController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC89022D23910288004A13BC /* FindController.swift */; };
 		CC89CA992387F20300434812 /* RequestStepsPageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4EA237C1FF700BEFB44 /* RequestStepsPageViewController.storyboard */; };
 		CC922ED62381633400044B24 /* SecondStepRVC + Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC922ED52381633400044B24 /* SecondStepRVC + Delegates.swift */; };
 		CCAAE4FD237C205900BEFB44 /* FourthStepRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAAE4F6237C205900BEFB44 /* FourthStepRequestViewController.swift */; };
@@ -155,9 +156,8 @@
 		E6FBB1A923718E7F00B1B4DE /* Find.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6FBB1A823718E7F00B1B4DE /* Find.storyboard */; };
 		E6FBB1AB23718EAB00B1B4DE /* Donate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6FBB1AA23718EAB00B1B4DE /* Donate.storyboard */; };
 		E6FBB1B123718FDF00B1B4DE /* DonateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB1B023718FDF00B1B4DE /* DonateController.swift */; };
-		E6FBB1B323718FF500B1B4DE /* FindController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB1B223718FF500B1B4DE /* FindController.swift */; };
 		E6FBB1BE2371947700B1B4DE /* FindController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB1BD2371947700B1B4DE /* FindController+UITableView.swift */; };
-		E6FBB1C0237194FB00B1B4DE /* BloodRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB1BF237194FB00B1B4DE /* BloodRequest.swift */; };
+		E6FBB1C0237194FB00B1B4DE /* Donor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB1BF237194FB00B1B4DE /* Donor.swift */; };
 		E6FBB1C32371991D00B1B4DE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB1C22371991D00B1B4DE /* Constants.swift */; };
 /* End PBXBuildFile section */
 
@@ -243,6 +243,7 @@
 		CC7A28AF238BD2DF005C0BDC /* String + Time Removal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Time Removal.swift"; sourceTree = "<group>"; };
 		CC88A08123749D16001A982E /* FindBloodCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindBloodCustomCell.xib; sourceTree = "<group>"; };
 		CC88A08323749D16001A982E /* FindBloodCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindBloodCustomCell.swift; sourceTree = "<group>"; };
+		CC89022D23910288004A13BC /* FindController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindController.swift; sourceTree = "<group>"; };
 		CC922ED52381633400044B24 /* SecondStepRVC + Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecondStepRVC + Delegates.swift"; sourceTree = "<group>"; };
 		CCAAE4EA237C1FF700BEFB44 /* RequestStepsPageViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RequestStepsPageViewController.storyboard; sourceTree = "<group>"; };
 		CCAAE4F6237C205900BEFB44 /* FourthStepRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthStepRequestViewController.swift; sourceTree = "<group>"; };
@@ -334,9 +335,8 @@
 		E6FBB1A823718E7F00B1B4DE /* Find.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Find.storyboard; sourceTree = "<group>"; };
 		E6FBB1AA23718EAB00B1B4DE /* Donate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Donate.storyboard; sourceTree = "<group>"; };
 		E6FBB1B023718FDF00B1B4DE /* DonateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateController.swift; sourceTree = "<group>"; };
-		E6FBB1B223718FF500B1B4DE /* FindController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindController.swift; sourceTree = "<group>"; };
 		E6FBB1BD2371947700B1B4DE /* FindController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FindController+UITableView.swift"; sourceTree = "<group>"; };
-		E6FBB1BF237194FB00B1B4DE /* BloodRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodRequest.swift; sourceTree = "<group>"; };
+		E6FBB1BF237194FB00B1B4DE /* Donor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Donor.swift; sourceTree = "<group>"; };
 		E6FBB1C22371991D00B1B4DE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1079,7 +1079,7 @@
 		E6FBB1BA2371942C00B1B4DE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E6FBB1B223718FF500B1B4DE /* FindController.swift */,
+				CC89022D23910288004A13BC /* FindController.swift */,
 				E6FBB1BD2371947700B1B4DE /* FindController+UITableView.swift */,
 				E6DDAF28237435B300D6EAD1 /* FindController+ScrollView.swift */,
 				E629190C2380593D00E8D559 /* FindController+Delegate.swift */,
@@ -1090,7 +1090,7 @@
 		E6FBB1BB2371943500B1B4DE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E6FBB1BF237194FB00B1B4DE /* BloodRequest.swift */,
+				E6FBB1BF237194FB00B1B4DE /* Donor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1331,6 +1331,7 @@
 				E62918EF237D2DAD00E8D559 /* PickPictureCell.swift in Sources */,
 				E62918F1237E437E00E8D559 /* AddEventController+UITableView.swift in Sources */,
 				E62918F5237E43F100E8D559 /* AddEventController+Delegate.swift in Sources */,
+				CC89022E23910288004A13BC /* FindController.swift in Sources */,
 				AB7357862374309E00A6099B /* CustomSegmentedController.swift in Sources */,
 				B0FF322B23829CC50001C0F5 /* UserModel.swift in Sources */,
 				097CFCCD238E562C0093B11E /* Date+Converter.swift in Sources */,
@@ -1358,7 +1359,6 @@
 				E6D0747D237BCDCD00CF5531 /* DiscoverController+UIScrollView.swift in Sources */,
 				AB73578E2374310600A6099B /* Profile.swift in Sources */,
 				0904EEF62387EC510024788C /* AgreementViewController.swift in Sources */,
-				E6FBB1B323718FF500B1B4DE /* FindController.swift in Sources */,
 				B0B16898237D658B001DCE3C /* RegisterDetailController.swift in Sources */,
 				E607AAF82385148C00214A90 /* HospitalController+UITableView.swift in Sources */,
 				E6D07491237C05BA00CF5531 /* LabelAndTextFieldCell.swift in Sources */,
@@ -1379,7 +1379,7 @@
 				CC7A28B0238BD2DF005C0BDC /* String + Time Removal.swift in Sources */,
 				CCAAE501237C205900BEFB44 /* SecondStepRequestViewController.swift in Sources */,
 				E607AAE62384062C00214A90 /* ThirdEventCell.swift in Sources */,
-				E6FBB1C0237194FB00B1B4DE /* BloodRequest.swift in Sources */,
+				E6FBB1C0237194FB00B1B4DE /* Donor.swift in Sources */,
 				AB498AC9237D74D2006CDA7A /* Page4OnboardViewController.swift in Sources */,
 				E6BA6E42237B1E080017A330 /* EventListCollectionViewCell.swift in Sources */,
 				E6AC8D4B237B2A4100820100 /* FixImageOrientation.swift in Sources */,
