@@ -62,10 +62,11 @@ class FindController: UIViewController {
         dataLoader { (successStatus : Bool) in
             if successStatus {
                 print ("\nSuccess loading data with dataLoader!. Here are data details:")
-                print ("\n  History:",self.bloodRequestHistory)
-                print ("\n  Current:",self.bloodRequestCurrent)
-                print ("\n  All: ",self.bloodRequest)
-                
+                print ("  History:",self.bloodRequestHistory)
+                print ("  Current:",self.bloodRequestCurrent)
+                print ("  All: ",self.bloodRequest)
+                self.tableView.delegate = self
+                self.tableView.dataSource = self
                 self.removeSpinner()
                 self.tableView.reloadData()
             }
@@ -81,12 +82,6 @@ class FindController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         setTabBar(show: true)
         initTableView()
-//        loadAllData()
-//        dataLoader { (successStatus : Bool) in
-//            if successStatus {
-//                print ("Success loading data")
-//            }
-//        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -100,6 +95,23 @@ class FindController: UIViewController {
       textSearching.text = "Sedang Mencari Pendonor"
       buttonSearching.setTitle("Batal Mencari", for: .normal)
   }
+    
+    //MARK: - initializing UI
+    private func initTableView(){
+        tableView.register(UINib(nibName: "FindBloodCustomCell", bundle: nil), forCellReuseIdentifier: cellId)
+        tableView.tableFooterView = UIView()
+    }
+    
+    private func setupNavBarToLarge(large: Bool){
+        if large {
+            self.navigationController?.navigationItem.largeTitleDisplayMode = .always
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+        }
+        else {
+            self.navigationController?.navigationItem.largeTitleDisplayMode = .never
+            self.navigationController?.navigationBar.prefersLargeTitles = false
+        }
+    }
   
   
   //MARK: Notification
@@ -120,7 +132,7 @@ class FindController: UIViewController {
   }
 
     
-    //MARK: -New Data loader
+    //MARK: -Data Loader
     func dataLoader(_ completionHandler: @escaping ( (Bool) -> Void )) {
 //    func dataLoader() -> Bool {
         /**
@@ -136,40 +148,44 @@ class FindController: UIViewController {
         
         group.enter()
         self.getRequestData {requestList in
-            guard let requests = requestList else {
+            if let requests = requestList {
+//                print ("all request: \n \(requests)")
+                for (n,request) in requests.enumerated() {
+                    print ("processing request \(request.idRequest.recordName)")
+                    
+                    group.enter()
+                    self.getTrackerDataBy(requestID: request.idRequest) { (donorList) in
+                        
+                        if let donorList = donorList {
+                            //TODO: What if the request haven't been fulfilled? Add contitional here id donorList.count < amount needed with else: donorList.count == amount needed 
+                            
+                            let isComplete = self.checkRequestCompletion(
+                                amount: request.amount,
+                                trackerOfRequest: donorList)
+                            if isComplete {
+                                self.bloodRequestHistory! += donorList
+                            } else {
+                                self.bloodRequestCurrent! += donorList
+                            }
+                            self.bloodRequest += donorList
+                        } //else pass: it has no donor
+                        else {
+                            //TODO: What to do when a request doesn't have donor
+                        }
+                        print ("loading data tracker \(n+1)/\(requests.count)")
+                        group.leave()
+                    }
+                }
+                success = true
+                group.leave()
+            } else {
                 print ("This user has no request data")
                 success = false
                 group.leave()
-                return
             }
-            
-            
-//            print ("all request: \n \(requests)")
-            for (n,request) in requests.enumerated() {
-                print ("processing request \(request.idRequest.recordName)")
-                
-                group.enter()
-                self.getTrackerDataBy(requestID: request.idRequest) { (donorList) in
-                    
-                    if let donorList = donorList {
-                        let isComplete = self.checkRequestCompletion(
-                            amount: request.amount,
-                            trackerOfRequest: donorList)
-                        if isComplete {
-                            self.bloodRequestHistory! += donorList
-                        } else {
-                            self.bloodRequestCurrent! += donorList
-                        }
-                        self.bloodRequest += donorList
-                    } //else pass: it has no donor
-                    print ("loading data tracker \(n+1)/\(requests.count)")
-                    group.leave()
-                }
-            }
-            success = true
-            group.leave()
         }
         group.notify(queue: DispatchQueue.main) {
+            print ("out")
             completionHandler(success)
         }
     }
@@ -248,8 +264,8 @@ class FindController: UIViewController {
                 completionHandler(nil)
                 return
             }
+            print ("request \(requestID.recordName) have amount donors:",donors.count)
             for donor in donors {
-                print ("amount donors:",donors.count)
                 if let tracker = donor.convertTrackerToTrackerModel() {
                     //donor have filled their donor details (donor date and donor hospital)
                     group.enter()
@@ -287,7 +303,11 @@ class FindController: UIViewController {
             group.leave()
         }
         group.notify(queue: DispatchQueue.main) {
-            completionHandler(donorList)
+            if donorList.count == 0 {
+                completionHandler(nil)
+            } else {
+                completionHandler(donorList)
+            }
         }
     }
     
@@ -305,26 +325,6 @@ class FindController: UIViewController {
         }
     }
     
-    //MARK: - initializing UI
-    private func initTableView(){
-        tableView.register(UINib(nibName: "FindBloodCustomCell", bundle: nil), forCellReuseIdentifier: cellId)
-        tableView.tableFooterView = UIView()
-    }
-    
-    private func setupNavBarToLarge(large: Bool){
-        if large {
-            self.navigationController?.navigationItem.largeTitleDisplayMode = .always
-            self.navigationController?.navigationBar.prefersLargeTitles = true
-        }
-        else {
-            self.navigationController?.navigationItem.largeTitleDisplayMode = .never
-            self.navigationController?.navigationBar.prefersLargeTitles = false
-        }
-    }
-    
-  
-
-    
 //    func checkDonorAvailability(){
 //        
 //        let requestId = UserDefaults.standard.string(forKey: "requestRecordId")
@@ -339,19 +339,6 @@ class FindController: UIViewController {
 //        }
 //    }
     
-    //MARK:- Set up tab bar
-    private func setTabBar(show: Bool){
-        if show {
-            UIView.animate(withDuration: 0.2) {
-                self.tabBarController?.tabBar.alpha = 1
-            }
-        }
-        else {
-            UIView.animate(withDuration: 0.2) {
-                self.tabBarController?.tabBar.alpha = 0
-            }
-        }
-    }
   
     //MARK:- Make a call
     private func callNumber(phoneNumber: String){
@@ -390,7 +377,7 @@ class FindController: UIViewController {
             destination.input = SearchTrackerInput(
                 idRequest: requestIdTrc!,
                 idTracker: trackerIdTrc!,
-                patientUtdId: hospitalId!,
+                patientUtdId: hospitalIdTrc!,
                 step: currStepTrc!
             )
             
@@ -398,6 +385,23 @@ class FindController: UIViewController {
         
     }
     
+    
+    
+    //MARK:- Set up tab bar
+    private func setTabBar(show: Bool){
+        if show {
+            UIView.animate(withDuration: 0.2) {
+                self.tabBarController?.tabBar.alpha = 1
+            }
+        }
+        else {
+            UIView.animate(withDuration: 0.2) {
+                self.tabBarController?.tabBar.alpha = 0
+            }
+        }
+    }
+    
+    //MARK: Setup Image Nav Bar
     func profileImageNavBar(show: Bool){
         
         let navBarHeight = Double((navigationController?.navigationBar.frame.height)!)

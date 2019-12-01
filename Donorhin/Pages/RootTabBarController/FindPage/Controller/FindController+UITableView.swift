@@ -109,7 +109,7 @@ extension FindController: UITableViewDataSource {
         else if findBloodSegmentedControl.selectedSegmentIndex == 1{
             
             if bloodRequestHistory != nil {
-                if bloodRequestCurrent?.count != 0 {
+                if bloodRequestHistory?.count != 0 {
                     let cell  = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? FindBloodCustomCell
                     guard let data = bloodRequestHistory?[indexPath.row] else {fatalError()}
                     
@@ -141,6 +141,8 @@ extension FindController: UITableViewDataSource {
                     
                     return cell!
                 }
+            } else {
+                print ("There's no history data")
             }
         }
         return UITableViewCell()
