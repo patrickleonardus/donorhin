@@ -191,6 +191,10 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
                           let country = placemark?.country!
                           //tes dengan print ke terminal kalau gk kosong berhasil
                           print("\(locality), \(administrativeArea), \(country)")
+                        //Saving to user defaults
+                        UserDefaults.standard.string(forKey: "locality")
+                        UserDefaults.standard.string(forKey: "administrativeArea")
+                        UserDefaults.standard.string(forKey: "country")
                       }
                     }
                   }

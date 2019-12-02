@@ -33,8 +33,16 @@ extension InformationController : UITableViewDataSource {
         
         cell?.titleLabel.text = data.title
         cell?.backgroundColor = Colors.backgroundView
-        cell?.longTextLabel.text = data.longText
-        
+//        cell?.longTextLabel.text = data.longText
+      
+      //ini buat bikin linespacing antar text jadi lebih tinggi
+      guard let string = data.longText else {fatalError()}
+      let attrString = NSMutableAttributedString(string: string)
+      let paragraphStryle = NSMutableParagraphStyle()
+      paragraphStryle.lineSpacing = 5
+      attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStryle, range: NSMakeRange(0, attrString.length))
+      cell?.longTextLabel.attributedText = attrString
+      
         if data.type == .text {
             cell?.videoLayer.isHidden = true
             cell?.titleLabel.isHidden = false
