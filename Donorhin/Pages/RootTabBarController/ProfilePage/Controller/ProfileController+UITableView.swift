@@ -82,7 +82,7 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
                 cell?.imageCell.image = UIImage(named: "gender_profile")
                 var gender : String = "Laki-Laki"
                 
-                switch  UserDefaults.standard.integer(forKey: "gender"){
+                switch UserDefaults.standard.integer(forKey: "gender"){
                 case 0: gender = "Perempuan"
                     break
                 case 1: gender = "Laki-Laki"
@@ -97,11 +97,11 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
             else if indexPath.row == 1 {
                 cell?.imageCell.image = UIImage(named: "birthday_profile")
                 if user?.profileBirthday == nil{
-                cell?.textCell.text = "-"
+                cell?.profileTextField.text = "-"
                 }
                 else{
-
-                 cell?.profileTextField.text = dateFormatter.string(from: user!.profileBirthday!)
+//                 cell?.profileTextField.text = dateFormatter.string(from: user!.profileBirthday!)
+                cell?.profileTextField.text = dateFormatter.string(from: UserDefaults.standard.object(forKey: "birth_date")! as! Date)
                 cell?.profileTextField.inputView = self.datePicker
                 cell?.profileTextField.inputAccessoryView = self.pickerToolBar
                 }
