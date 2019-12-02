@@ -16,14 +16,16 @@ class FindBloodCustomCell: UITableViewCell {
     @IBOutlet weak var status: UILabel!
     @IBOutlet weak var buttonCallOutlet: CallNumberButton!
   
-  @IBOutlet var addressIcon: UIImageView!
-  @IBOutlet var dateIcon: UIImageView!
+  @IBOutlet var addressSV: UIStackView!
+  @IBOutlet var dateSV: UIStackView!
   
 
     override func awakeFromNib() {
         super.awakeFromNib()
         
         status.textColor = Colors.green
+      self.layer.borderWidth=4
+      self.layer.borderColor = UIColor.red.cgColor
         
     }
 
