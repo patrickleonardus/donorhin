@@ -50,6 +50,18 @@ class RegisterDetailController : UIViewController{
         self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
+    func saveToUserDefaults(userModel:UserModel?) {
+        UserDefaults.standard.set(userModel?.email, forKey: "email")
+        UserDefaults.standard.set(userModel?.password, forKey: "password")
+        UserDefaults.standard.set(userModel?.name, forKey: "name")
+        UserDefaults.standard.set(userModel?.bloodType.rawValue, forKey: "blood_type")
+        UserDefaults.standard.set(userModel?.birthdate, forKey: "birth_date")
+        UserDefaults.standard.set(userModel?.gender.rawValue, forKey: "gender")
+        UserDefaults.standard.set(userModel?.isVerified, forKey: "isVerified")
+        UserDefaults.standard.set(userModel?.lastDonor, forKey: "last_donor")
+        UserDefaults.standard.set(userModel?.statusDonor, forKey: "donor_status")
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         setTabBar(show: true)
         guard
