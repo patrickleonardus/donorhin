@@ -9,17 +9,17 @@
 import UIKit
 
 extension FindController : ControlValidationViewDelegate {
+  
+  func didRequestData() {
     
-    func didRequestData() {
-        
-    }
-    
+  }
+  
 }
 
 extension FindController : MoveToLogin {
-    
-    func performLogin() {
-        self.performSegue(withIdentifier: "MoveToLogin", sender: self)
-    }
-    
+  
+  func performLogin() {
+    self.performSegue(withIdentifier: "MoveToLogin", sender: self)
+  }
+  
 }

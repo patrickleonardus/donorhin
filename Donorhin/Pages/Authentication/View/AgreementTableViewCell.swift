@@ -17,6 +17,11 @@ class AgreementTableViewCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     self.contentView.backgroundColor = Colors.backgroundView
+    checkBoxAgreement.style = .tick
+    checkBoxAgreement.borderStyle = .roundedSquare(radius: 2)
+    checkBoxAgreement.uncheckedBorderColor = Colors.red
+    checkBoxAgreement.checkboxBackgroundColor = Colors.red
+    checkBoxAgreement.checkmarkColor = Colors.red
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
