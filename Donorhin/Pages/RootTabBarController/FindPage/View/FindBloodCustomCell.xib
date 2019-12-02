@@ -96,8 +96,10 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="address" destination="Y3F-hJ-ebc" id="jBv-uO-8gw"/>
+                <outlet property="addressIcon" destination="E84-np-Fwz" id="chY-3o-gmX"/>
                 <outlet property="buttonCallOutlet" destination="Xh9-A5-3s3" id="oeL-uz-nGd"/>
                 <outlet property="date" destination="L6R-Dm-BNZ" id="CsG-yX-6K7"/>
+                <outlet property="dateIcon" destination="Sw3-vc-hi8" id="h4S-up-7Dn"/>
                 <outlet property="status" destination="MMe-PK-hl2" id="8z0-oF-pxz"/>
                 <outlet property="title" destination="W3e-v7-2DC" id="X6s-Ed-Bvm"/>
             </connections>
