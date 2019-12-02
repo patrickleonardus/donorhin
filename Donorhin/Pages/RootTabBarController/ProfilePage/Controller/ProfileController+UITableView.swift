@@ -64,8 +64,8 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "firstCell", for: indexPath) as? FirstCell
             
-            cell?.nameProfile.text = user?.profileName
-            cell?.emailProfile.text = user?.profileEmail
+            cell?.nameProfile.text = UserDefaults.standard.string(forKey: "name")
+            cell?.emailProfile.text = UserDefaults.standard.string(forKey: "email")
             cell?.imageProfile.image = UIImage(named: "icon_profile")
             
             print(user?.profileName)
@@ -89,7 +89,7 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
                     break
                 default: break
                 }
-                cell?.profileTextField.text = "\(gender)"
+                cell?.profileTextField.text = gender
                 cell?.profileTextField.inputView = self.customPicker
                 cell?.profileTextField.inputAccessoryView = self.pickerToolBar
             }
@@ -109,7 +109,7 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
                 
             else if indexPath.row == 2 {
                 cell?.imageCell.image = UIImage(named: "bloodtype_profile")
-                cell?.profileTextField.text = user?.profileBloodType
+                cell?.profileTextField.text = UserDefaults.standard.string(forKey: "blood_type")
                 cell?.profileTextField.inputView = self.customPicker
                 cell?.profileTextField.inputAccessoryView = self.pickerToolBar
             }
@@ -117,7 +117,7 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
             else if indexPath.row == 3 {
                 cell?.imageCell.image = UIImage(named: "lastdonor_profile")
 
-                cell?.profileTextField.text = dateFormatter.string(from: user?.profileLastDonor ?? date!)
+                cell?.profileTextField.text = dateFormatter.string(from: UserDefaults.standard.object(forKey: "last_donor") as! Date)
                 cell?.profileTextField.inputView = self.datePicker
                 cell?.profileTextField.inputAccessoryView = self.pickerToolBar
             }
