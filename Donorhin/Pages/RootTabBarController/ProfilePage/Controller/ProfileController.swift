@@ -24,7 +24,7 @@ class ProfileController: UIViewController {
     let bloodType = ["A-","A+","B-","B+","O-","O+","AB-","AB+", "Belum Diketahui"]
     let gender = ["Laki-laki","Perempuan"] //for picker view
     var pickerToolBar: UIToolbar!
-
+    var highlightedCell:UITableViewCell?
     var user : Profile?
     
     //MARK: VIEW DID LOAD
@@ -32,11 +32,11 @@ class ProfileController: UIViewController {
         super.viewDidLoad()
         setupUI()
         
-        ProfileDataFetcher().getProfileFromUserDefaults { (profileData) in
+    ProfileDataFetcher().getProfileFromUserDefaults { (profileData) in
             self.user = profileData
         }
-        self.customPicker.delegate = self as? UIPickerViewDelegate
-        self.customPicker.dataSource = self as? UIPickerViewDataSource
+        self.customPicker.delegate = self
+        self.customPicker.dataSource = self
         self.datePicker.datePickerMode = .date
         self.datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
         self.datePicker.maximumDate = Date()
@@ -45,24 +45,15 @@ class ProfileController: UIViewController {
         pickerToolBar.sizeToFit()
         pickerToolBar.tintColor = #colorLiteral(red: 0.7071222663, green: 0, blue: 0.04282376915, alpha: 1)
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "Selesai", style: .done, target: self, action: #selector(pickerDoneBtnPressed))
+        let doneButton = UIBarButtonItem(title: "Selesai", style: .done, target: self, action: #selector(saveData))
         pickerToolBar.setItems([flexibleSpace, doneButton], animated: false)
         self.view.backgroundColor = Colors.backgroundView
     }
     
-    @objc func pickerDoneBtnPressed() {
-        self.tableView.reloadData()
-        closePickerView()
-    }
-    
-    func closePickerView() {
+    @objc func saveData() {
+        //save ke userdefaults sama cloudkit
         view.endEditing(true)
-        for textField in self.view.subviews where textField is UITextField {
-            textField.resignFirstResponder()
-        }
-        view.gestureRecognizers?.removeLast()
     }
-    
     
     @objc func dateChanged (datePicker : UIDatePicker, activeTF : UITextField) {
         let dateFormatter = DateFormatter()
@@ -168,6 +159,54 @@ class ProfileController: UIViewController {
         }
     }
     
+    func checkGender(_ gender: String) -> Int {
+      switch gender {
+      case "Laki-Laki":
+        return 1
+      case "Perempuan":
+        return 0
+      default:
+        return 1
+      }
+    }
+    
+    func textFieldDidBeginEditing(cell: FormTableViewCell) {
+        self.highlightedCell = cell
+    }
+
+    func textFieldDidEndEditing() {
+        self.highlightedCell = nil
+    }
+    
+    func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(aNotification:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(aNotification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWasShown(aNotification: NSNotification) {
+        let info = aNotification.userInfo as! [String: AnyObject],
+        kbSize = (info[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue.size,
+        contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: kbSize.height, right: 0)
+
+        self.tableView.contentInset = contentInsets
+        self.tableView.scrollIndicatorInsets = contentInsets
+
+        // If active text field is hidden by keyboard, scroll it so it's visible
+        // Your app might not need or want this behavior.
+        var aRect = self.view.frame
+        aRect.size.height -= kbSize.height
+
+         if highlightedCell != nil{
+            if !aRect.contains(self.highlightedCell!.frame.origin) {
+                self.tableView.scrollRectToVisible(highlightedCell!.frame, animated: true)
+            }
+         }
+    }
+    
+    @objc func keyboardWillBeHidden(aNotification: NSNotification) {
+        let contentInsets = UIEdgeInsets.zero
+        self.tableView.contentInset = contentInsets
+        self.tableView.scrollIndicatorInsets = contentInsets
+    }
     
 }
-

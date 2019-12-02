@@ -77,7 +77,7 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
         else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "secondCell", for: indexPath) as? SecondCell
             cell?.profileTextField.borderStyle = .none
-            
+            cell?.profileTextField.addDoneButtonOnKeyboard()
             if indexPath.row == 0 {
                 cell?.imageCell.image = UIImage(named: "gender_profile")
                 var gender : String = "Laki-Laki"
@@ -140,14 +140,12 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
 }
 
 extension ProfileController: UIPickerViewDataSource, UIPickerViewDelegate {
-    
-    
-    
+
   func numberOfComponents(in pickerView: UIPickerView) -> Int {
     return 1
   }
   
-  @objc func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+  func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
     guard let genderCell = tableView.cellForRow(at: IndexPath(row:0, section: 1)) as? SecondCell else {fatalError()}
     guard let bloodTypeCell = self.tableView.cellForRow(at: IndexPath(row:2, section: 1)) as? SecondCell else{fatalError()}
     if genderCell.profileTextField.isFirstResponder {
