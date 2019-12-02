@@ -83,31 +83,24 @@ extension RegisterDetailController : FormCellDelegate {
               }
               Helper.saveData(record) {[weak self] (isSuccess) in
                 if isSuccess {
-                  DispatchQueue.main.async {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3){
                     DataFetcher().getUserDataByEmail(email: self!.userCredentials["email"]!, password: self!.userCredentials["password"]!){(userModel) in
-                                   guard userModel != nil else {
-                                       fatalError()
-                                       //return
-                                   }
-                                   DispatchQueue.main.async {
-                                       print("Processing...")
-                                       LoginController().checkLocation()
-                                       UserDefaults.standard.set(userModel?.email, forKey: "email")
-                                       UserDefaults.standard.set(userModel?.password, forKey: "password")
-                                       UserDefaults.standard.set(userModel?.name, forKey: "name")
-                                       UserDefaults.standard.set(userModel?.bloodType.rawValue, forKey: "blood_type")
-                                       UserDefaults.standard.set(userModel?.birthdate, forKey: "birth_date")
-                                       UserDefaults.standard.set(userModel?.gender.rawValue, forKey: "gender")
-                                       UserDefaults.standard.set(userModel?.isVerified, forKey: "isVerified")
-                                       UserDefaults.standard.set(userModel?.lastDonor, forKey: "last_donor")
-                                       UserDefaults.standard.set(userModel?.statusDonor, forKey: "donor_status")
-                                       print("Data saved to user default...")
-                                       errorCell.errorMsg.isHidden = true
-                                       self!.performSegue(withIdentifier: "goToHome", sender: self)
-                                   }
-                               }
-                  }
-                }
+                        if userModel != nil {
+                            DispatchQueue.main.async {
+                            print("Processing...")
+                            LoginController().checkLocation()
+                            self?.saveToUserDefaults(userModel: userModel)
+                            print("Data saved to user default...")
+                            self?.performSegue(withIdentifier: "goToHome", sender: self)
+                            }
+                        }
+                        else{
+                            print("Error")
+                        }
+                        }
+                    }
+              }
+                
                 else {
                   self?.removeSpinner()
                     DispatchQueue.main.async {

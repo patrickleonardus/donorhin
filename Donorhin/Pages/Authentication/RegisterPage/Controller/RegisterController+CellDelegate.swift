@@ -52,6 +52,7 @@ extension RegisterController : FormCellDelegate{
   //MARK: - action when next button tapped
   
   func buttonDidTap() {
+    self.showSpinner(onView: self.view)
     let emailCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! FormTableViewCell
     let passCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! FormTableViewCell
     let confirmPassCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as! FormTableViewCell
@@ -61,6 +62,7 @@ extension RegisterController : FormCellDelegate{
       self.checkExistUserEmail(email: emailCell.formTextField.text!) { (bool) in
         if bool == false{
           DispatchQueue.main.async {
+            self.removeSpinner()
             errorCell.errorMsg.isHidden = false
             errorCell.errorMsg.text = "*Email sudah pernah terdaftar, coba email yang lain"
             emailCell.shake()
@@ -69,6 +71,7 @@ extension RegisterController : FormCellDelegate{
         }
         else{
           DispatchQueue.main.async {
+            self.removeSpinner()
             self.userCredentials = ["email":emailCell.formTextField.text!,"password":passCell.formTextField.text!]
             self.performSegue(withIdentifier: "goToPersonalData", sender: nil)
             errorCell.errorMsg.isHidden = true

@@ -57,6 +57,7 @@ class RegisterController : UIViewController{
         guard let confirmPassCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? FormTableViewCell else {fatalError()}
       if email == "" || password == "" || confirmPassword == ""{
         DispatchQueue.main.async {
+            self.removeSpinner()
             errorCell.errorMsg.isHidden = false
             emailCell.shake()
             passCell.shake()
@@ -71,6 +72,7 @@ class RegisterController : UIViewController{
       
       else if !self.isValidEmail(email) {
         DispatchQueue.main.async {
+            self.removeSpinner()
             errorCell.errorMsg.isHidden = false
             emailCell.shake()
             emailCell.formTextField.redPlaceholder()
@@ -81,6 +83,7 @@ class RegisterController : UIViewController{
       
       else if password != confirmPassword {
         DispatchQueue.main.async {
+            self.removeSpinner()
             errorCell.errorMsg.isHidden = false
             passCell.shake()
             passCell.formTextField.redPlaceholder()
@@ -118,10 +121,11 @@ class RegisterController : UIViewController{
         guard let repassCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? FormTableViewCell else {return}
         guard let errorCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 3)) as? ErrorMessageTableViewCell else {return}
               DispatchQueue.main.async {
-                  emailCell.formTextField.defaultPlaceholder()
-                  passCell.formTextField.defaultPlaceholder()
-                  repassCell.formTextField.defaultPlaceholder()
-                  errorCell.errorMsg.isHidden = true
+                emailCell.formTextField.defaultPlaceholder()
+                passCell.formTextField.defaultPlaceholder()
+                repassCell.formTextField.defaultPlaceholder()
+                errorCell.errorMsg.isHidden = true
+                self.removeSpinner()
             }
     }
     
