@@ -61,8 +61,6 @@ extension FindController: UITableViewDataSource {
           let cell  = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? FindBloodCustomCell
           
           if let data = bloodRequestCurrent?[indexPath.row] {
-//            cell?.addButtonToSV()
-//            cell?.buttonCallOutlet.isHidden = false
             cell?.title.text = "Pendonor \(indexPath.row + 1)"
             cell?.address.text = data.donorHospitalName
             cell?.date.text = shrinkDate(data.donorDate!)
@@ -71,8 +69,6 @@ extension FindController: UITableViewDataSource {
             hidePlaceDateAndCall(cell: cell!, value: false)
             
           } else {
-//            cell?.removeButtonCall()
-//            cell?.buttonCallOutlet.isHidden = true
             cell?.title.text = "Pendonor \(indexPath.row + 1)"
             cell?.status.text = Steps.checkStep(0)
             hidePlaceDateAndCall(cell: cell!, value: true)
@@ -80,7 +76,6 @@ extension FindController: UITableViewDataSource {
           
           // MARK:- Call PMI button
           cell?.buttonCallOutlet.setTitle("Call PMI Pendonor", for: .normal)
-//          cell?.buttonCallOutlet.isHidden = false
           cell?.buttonCallOutlet.addTarget(self, action: #selector(callButton(sender:)), for: .touchUpInside)
           cell?.backgroundColor = UIColor.clear
           
@@ -126,7 +121,6 @@ extension FindController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if findBloodSegmentedControl.selectedSegmentIndex == 0 {
       guard let data = bloodRequestCurrent?[indexPath.row] else {fatalError()}
-      //            navBarTitle = data.name
       requestIdTrc = data.requestId
       trackerIdTrc = data.trackerId
       hospitalIdTrc = data.donorHospitalID
@@ -135,7 +129,6 @@ extension FindController: UITableViewDataSource {
       
     else {
       guard let data = bloodRequestHistory?[indexPath.row] else {fatalError()}
-      //            navBarTitle = data.name
       requestIdTrc = data.requestId
       trackerIdTrc = data.trackerId
       hospitalIdTrc = data.donorHospitalID
