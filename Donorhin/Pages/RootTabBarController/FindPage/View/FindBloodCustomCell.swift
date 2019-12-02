@@ -16,16 +16,17 @@ class FindBloodCustomCell: UITableViewCell {
     @IBOutlet weak var status: UILabel!
     @IBOutlet weak var buttonCallOutlet: CallNumberButton!
   
+  @IBOutlet var backView: UIView!
   @IBOutlet var addressSV: UIStackView!
   @IBOutlet var dateSV: UIStackView!
+  @IBOutlet var generalSV: UIStackView!
   
 
     override func awakeFromNib() {
         super.awakeFromNib()
         
         status.textColor = Colors.green
-      self.layer.borderWidth=4
-      self.layer.borderColor = UIColor.red.cgColor
+      self.backView.layer.cornerRadius = 10
         
     }
 
@@ -34,5 +35,15 @@ class FindBloodCustomCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+  
+//  func addButtonToSV() {
+//    guard let buttonCallOutlet = buttonCallOutlet else { fatalError()}
+//    let at = generalSV.arrangedSubviews.count-2
+//    generalSV.insertArrangedSubview(buttonCallOutlet, at: at)
+//  }
+//  func removeButtonCall () {
+//    guard let buttonCallOutlet = buttonCallOutlet else { return }
+//    buttonCallOutlet.removeFromSuperview()
+//  }
     
 }
