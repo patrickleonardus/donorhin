@@ -300,16 +300,11 @@ class FormController: UIViewController{
         errorAlert(title: "Salah Tanggal", message: "Tanggal kebutuhan darah yang anda masukan sudah lewat dari tanggal sekarang, periksa kembali tanggal kebutuhan yang anda isi")
         break
       case .orderedDescending:
-        
-        if patientEmergency == "0" {
-          print("push to ck")
-        }
-        else if patientEmergency == "1" {
-          errorAlert(title: "Peringatan", message: "Jika anda menyalakan tombol Kebutuhan Mendadak, maka tanggal kebutuhan darah harus sesuai dengan tanggal hari ini")
-        }
+          print(patientName,patientHospital,patientBloodType,patientDueDate,patientBloodAmount,patientEmergency)
       
         break
-      case .orderedSame : print("push to ck")
+      case .orderedSame :
+        errorAlert(title: "Perhatian", message: "Anda tidak dapat mencari kebutuhan darah di hari yang sama, anda dapat menyalakan tombol Kebutuhan Mendesak untuk dapat diprioritaskan")
         break
       }
     }
@@ -327,15 +322,35 @@ class FormController: UIViewController{
   
   
   @IBAction func emergencyAction(_ sender: Any) {
+    
+    let indexPath = IndexPath(row: 3, section: 0)
+    let cell = personalTableView.cellForRow(at: indexPath) as! LabelAndTextCell
+    
     if emergencySwitch.isOn {
       
-      let indexPath = IndexPath(row: 3, section: 0)
-      let cell = personalTableView.cellForRow(at: indexPath) as! LabelAndTextCell
+      patientEmergency = "1"
+  
+      let tommorow = Calendar.current.date(byAdding: .day, value: 1, to: now)
       dateFormatter.dateFormat = "dd MMM yyyy"
-//      cell.firstTextField.text = dateFormatter.date(from: <#T##String#>)
+      
+      let tommorowString = dateFormatter.string(from: tommorow!)
+      
+      cell.firstTextField.text = tommorowString
+      cell.firstTextField.isEnabled = false
+      patientDueDate = tommorowString
+      
+      checkValidity()
       
     }
     else {
+      
+      patientEmergency = "0"
+      
+      cell.firstTextField.text = ""
+      cell.firstTextField.isEnabled = true
+      patientDueDate = nil
+      
+      checkValidity()
       
     }
   }
