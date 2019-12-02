@@ -56,10 +56,9 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
         
-        //var user = Profile()
+
         var date: Date? = Date()
-        
-        //        guard let data = profileData?[0] else {fatalError()}
+
         
         if indexPath.section == 0 {
             
@@ -77,47 +76,50 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
             
         else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "secondCell", for: indexPath) as? SecondCell
-            
             cell?.profileTextField.borderStyle = .none
-            cell?.profileTextField.isEnabled = false
-            cell?.textCell.isHidden = true
             
             if indexPath.row == 0 {
                 cell?.imageCell.image = UIImage(named: "gender_profile")
                 var gender : String = "Laki-Laki"
                 
-                switch user?.profileGender {
+                switch  UserDefaults.standard.integer(forKey: "gender"){
                 case 0: gender = "Perempuan"
                     break
                 case 1: gender = "Laki-Laki"
                     break
                 default: break
                 }
-                cell?.textCell.text = "\(gender)"
                 cell?.profileTextField.text = "\(gender)"
+                cell?.profileTextField.inputView = self.customPicker
+                cell?.profileTextField.inputAccessoryView = self.pickerToolBar
             }
                 
             else if indexPath.row == 1 {
                 cell?.imageCell.image = UIImage(named: "birthday_profile")
                 if user?.profileBirthday == nil{
-                cell?.textCell.text = "Belum Mendonor"
+                cell?.textCell.text = "-"
                 }
                 else{
-                cell?.textCell.text = dateFormatter.string(from: user!.profileBirthday!)
+
                  cell?.profileTextField.text = dateFormatter.string(from: user!.profileBirthday!)
+                cell?.profileTextField.inputView = self.datePicker
+                cell?.profileTextField.inputAccessoryView = self.pickerToolBar
                 }
             }
                 
             else if indexPath.row == 2 {
                 cell?.imageCell.image = UIImage(named: "bloodtype_profile")
-                cell?.textCell.text = user?.profileBloodType
                 cell?.profileTextField.text = user?.profileBloodType
+                cell?.profileTextField.inputView = self.customPicker
+                cell?.profileTextField.inputAccessoryView = self.pickerToolBar
             }
                 
             else if indexPath.row == 3 {
                 cell?.imageCell.image = UIImage(named: "lastdonor_profile")
-                cell?.textCell.text = dateFormatter.string(from: user?.profileLastDonor ?? date!)
+
                 cell?.profileTextField.text = dateFormatter.string(from: user?.profileLastDonor ?? date!)
+                cell?.profileTextField.inputView = self.datePicker
+                cell?.profileTextField.inputAccessoryView = self.pickerToolBar
             }
             
             return cell!
@@ -135,6 +137,52 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
         return UITableViewCell()
     }
     
+}
+
+extension ProfileController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     
+    
+  func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    return 1
+  }
+  
+  @objc func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    guard let genderCell = tableView.cellForRow(at: IndexPath(row:0, section: 1)) as? SecondCell else {fatalError()}
+    guard let bloodTypeCell = self.tableView.cellForRow(at: IndexPath(row:2, section: 1)) as? SecondCell else{fatalError()}
+    if genderCell.profileTextField.isFirstResponder {
+      return self.gender.count
+    }
+    else if bloodTypeCell.profileTextField.isFirstResponder {
+      return self.bloodType.count
+    }
+    return 0
+  }
+  
+  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    let genderCell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! SecondCell
+    let bloodTypeCell = self.tableView.cellForRow(at: IndexPath(row: 2, section: 1)) as! SecondCell
+    if genderCell.profileTextField.isFirstResponder {
+      genderCell.profileTextField.text = self.gender[row]
+      return self.gender[row]
+    }
+    else if bloodTypeCell.profileTextField.isFirstResponder {
+      bloodTypeCell.profileTextField.text = self.bloodType[row]
+      return self.bloodType[row]
+    }
+    return ""
+  }
+  
+  func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    let genderCell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! SecondCell
+    let bloodTypeCell = self.tableView.cellForRow(at: IndexPath(row: 2, section: 1)) as! SecondCell
+    if genderCell.profileTextField.isFirstResponder {
+      genderCell.profileTextField.text = self.gender[row]
+
+    }
+    else if bloodTypeCell.profileTextField.isFirstResponder {
+      bloodTypeCell.profileTextField.text = self.bloodType[row]
+
+    }
+  }
 }
