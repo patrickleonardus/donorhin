@@ -28,7 +28,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome_onboard" translatesAutoresizingMaskIntoConstraints="NO" id="fNf-G9-xT5">
-                                        <rect key="frame" x="16" y="208" width="382" height="200"/>
+                                        <rect key="frame" x="16" y="207.99999999999997" width="382" height="200.00000000000009"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="2FX-GM-HPa"/>
                                             <constraint firstAttribute="width" constant="382" id="emf-vs-KyN"/>
@@ -302,7 +302,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_onboard" translatesAutoresizingMaskIntoConstraints="NO" id="A6U-su-NgB">
-                                                        <rect key="frame" x="60" y="30" width="40" height="40"/>
+                                                        <rect key="frame" x="60" y="30" width="40" height="40.000000000000014"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="40" id="NUi-Xv-EXi"/>
                                                             <constraint firstAttribute="height" constant="40" id="eVd-7k-ZCY"/>
@@ -403,7 +403,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0RL-gq-GwJ">
                                                 <rect key="frame" x="100" y="0.0" width="314" height="100"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="241" verticalCompressionResistancePriority="742" placeholderIntrinsicWidth="264" placeholderIntrinsicHeight="72" text="Pendonor Anda akan ditemukan dengan Donorhin" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="erv-Up-0EY">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="241" verticalCompressionResistancePriority="742" placeholderIntrinsicWidth="264" placeholderIntrinsicHeight="72" text="Pendonor Anda akan ditemukan di Donorhin" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="erv-Up-0EY">
                                                         <rect key="frame" x="40" y="14" width="234" height="72"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <nil key="textColor"/>
