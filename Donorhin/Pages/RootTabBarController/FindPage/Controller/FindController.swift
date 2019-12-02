@@ -59,19 +59,21 @@ class FindController: UIViewController {
     setupUI()
     initTableView()
     self.showSpinner(onView: self.view)
-    dataLoader { (successStatus : Bool) in
-      if successStatus {
-        print ("\nSuccess loading data with dataLoader!. Here are data details:")
-        print ("  History:",self.bloodRequestHistory)
-        print ("  Current:",self.bloodRequestCurrent)
-        print ("  All: ",self.bloodRequest)
-        self.checkCurrentRequestData()
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.removeSpinner()
-        self.tableView.reloadData()
+    if userId != nil {
+      dataLoader { (successStatus : Bool) in
+        if successStatus {
+          print ("\nSuccess loading data with dataLoader!. Here are data details:")
+          print ("  History:",self.bloodRequestHistory)
+          print ("  Current:",self.bloodRequestCurrent)
+          print ("  All: ",self.bloodRequest)
+          self.checkCurrentRequestData()
+          self.tableView.delegate = self
+          self.tableView.dataSource = self
+          self.removeSpinner()
+          self.tableView.reloadData()
+        }
+        
       }
-      
     }
   }
   
