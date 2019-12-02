@@ -14,7 +14,7 @@ class FormController: UIViewController{
     @IBOutlet weak var personalTableView: UITableView!
     @IBOutlet weak var detailTableView: UITableView!
     @IBOutlet weak var agreementLabel: UILabel!
-    @IBOutlet weak var agreementSwitch: UISwitch!
+    @IBOutlet weak var agreementSwitch: CheckBox!
     
     
     var formQuestionData : [FormQuestionNameModel]?
@@ -43,6 +43,7 @@ class FormController: UIViewController{
         setupToolbar()
         handleAgreement()
         handleKeyboard()
+      checkmark()
 
         FormQuestionData().getFormQuestion { (formQuestionData) in
             self.formQuestionData = formQuestionData
@@ -97,6 +98,26 @@ class FormController: UIViewController{
         let tap = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
         view.addGestureRecognizer(tap)
     }
+  
+  //MARK: - Setup CheckMark
+  
+  func checkmark(){
+    agreementSwitch.isUserInteractionEnabled = true
+    
+    agreementSwitch.style = .tick
+    
+    let tap = UITapGestureRecognizer(target: self, action: #selector(changeTicks(_:)))
+    agreementSwitch.addGestureRecognizer(tap)
+  }
+  
+  @objc func changeTicks(_ sender: UITapGestureRecognizer){
+    if agreementSwitch.isChecked {
+      agreementSwitch.isChecked = false
+    }
+    else if !agreementSwitch.isChecked {
+      agreementSwitch.isChecked = true
+    }
+  }
     
     //MARK: - Handle date picker
     
@@ -205,44 +226,44 @@ class FormController: UIViewController{
     
     @objc func submitAction(){
         
-        if !agreementSwitch.isOn {
+        if !agreementSwitch.isChecked {
             errorAlert(title: "Peringatan", message: "Anda harus mengajukan surat permintaan darah ke PMI sebelum melakukan pencarian darah")
         }
         
-        else if agreementSwitch.isOn {
-            
-            // casting blood amount
-            let patientBloodAmountCast : Int64 = Int64(patientBloodAmount!)!
-            
-            // casting isEmergency
-            let patientEmergencyCast : Int64 = Int64(patientEmergency)!
-            
-            // casting date to timestamp
-            let dateFromatter = DateFormatter()
-            var patientDueDateCast = Date()
-            if dateFromatter.dateFormat == "MM dd, yyyy" {
-                patientDueDateCast = dateFromatter.date(from: patientDueDate!)!
-            }
-            else if dateFromatter.dateFormat == "dd MM yyyy" {
-                patientDueDateCast = dateFromatter.date(from: patientDueDate!)!
-            }
-            
-            self.dismiss(animated: true) {
-                self.viewValidationDelegate?.didRequestData()
-                self.saveData(
-                    patientName: self.patientName!,
-                    patientHospital: self.patientHospitalId!,
-                    patientBloodType: self.patientBloodType!,
-                    patientDueDate: patientDueDateCast,
-                    patientBloodAmount: patientBloodAmountCast,
-                    patientEmergency: patientEmergencyCast, complete: {
-                        
-                        for count in 0...patientBloodAmountCast-1 {
-                            self.createTrackerTable()
-                        }
-                
-                })
-            }
+        else if agreementSwitch.isChecked {
+            print("mantol")
+//            // casting blood amount
+//            let patientBloodAmountCast : Int64 = Int64(patientBloodAmount!)!
+//
+//            // casting isEmergency
+//            let patientEmergencyCast : Int64 = Int64(patientEmergency)!
+//
+//            // casting date to timestamp
+//            let dateFromatter = DateFormatter()
+//            var patientDueDateCast = Date()
+//            if dateFromatter.dateFormat == "MM dd, yyyy" {
+//                patientDueDateCast = dateFromatter.date(from: patientDueDate!)!
+//            }
+//            else if dateFromatter.dateFormat == "dd MM yyyy" {
+//                patientDueDateCast = dateFromatter.date(from: patientDueDate!)!
+//            }
+//
+//            self.dismiss(animated: true) {
+//                self.viewValidationDelegate?.didRequestData()
+//                self.saveData(
+//                    patientName: self.patientName!,
+//                    patientHospital: self.patientHospitalId!,
+//                    patientBloodType: self.patientBloodType!,
+//                    patientDueDate: patientDueDateCast,
+//                    patientBloodAmount: patientBloodAmountCast,
+//                    patientEmergency: patientEmergencyCast, complete: {
+//
+//                        for count in 0...patientBloodAmountCast-1 {
+//                            self.createTrackerTable()
+//                        }
+//
+//                })
+//            }
         }
     }
     
