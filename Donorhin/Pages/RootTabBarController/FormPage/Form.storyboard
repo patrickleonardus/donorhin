@@ -168,24 +168,39 @@ agar sesuai dengan surat permintaan darah</string>
                                 <rect key="frame" x="20" y="469.5" width="374" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twH-Vf-7AK">
-                                        <rect key="frame" x="20" y="27.5" width="277" height="20.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="277" id="cvu-kW-aC6"/>
-                                        </constraints>
+                                        <rect key="frame" x="68" y="27.5" width="286" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="T7K-MD-GrM">
-                                        <rect key="frame" x="305" y="22" width="51" height="31"/>
-                                    </switch>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rG5-TC-Rb0" customClass="CheckBox" customModule="Donorhin" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="22.5" width="30" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="Kvk-Mi-kCW"/>
+                                            <constraint firstAttribute="height" constant="30" id="cYb-uG-mnV"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="uncheckedBorderColor">
+                                                <color key="value" red="0.53979659079999998" green="0.1061993316" blue="0.1333173215" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="checkedBorderColor">
+                                                <color key="value" red="0.53979659079999998" green="0.1061993316" blue="0.1333173215" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="checkmarkColor">
+                                                <color key="value" red="0.53979659079999998" green="0.1061993316" blue="0.1333173215" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isChecked" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="twH-Vf-7AK" firstAttribute="leading" secondItem="LDC-1i-yBm" secondAttribute="leading" constant="20" id="0uw-36-8KX"/>
-                                    <constraint firstAttribute="trailing" secondItem="T7K-MD-GrM" secondAttribute="trailing" constant="20" id="7NX-hR-KJV"/>
-                                    <constraint firstItem="twH-Vf-7AK" firstAttribute="centerY" secondItem="LDC-1i-yBm" secondAttribute="centerY" id="Jfa-le-BOg"/>
-                                    <constraint firstItem="T7K-MD-GrM" firstAttribute="centerY" secondItem="LDC-1i-yBm" secondAttribute="centerY" id="aOe-aK-zTK"/>
+                                    <constraint firstItem="twH-Vf-7AK" firstAttribute="leading" secondItem="rG5-TC-Rb0" secondAttribute="trailing" constant="18" id="9Yd-yA-d1d"/>
+                                    <constraint firstItem="rG5-TC-Rb0" firstAttribute="leading" secondItem="LDC-1i-yBm" secondAttribute="leading" constant="20" id="Ihi-Hw-sfx"/>
+                                    <constraint firstItem="twH-Vf-7AK" firstAttribute="centerY" secondItem="LDC-1i-yBm" secondAttribute="centerY" id="NJH-Qr-NoX"/>
+                                    <constraint firstAttribute="trailing" secondItem="twH-Vf-7AK" secondAttribute="trailing" constant="20" id="NQm-Ea-Oqt"/>
+                                    <constraint firstItem="rG5-TC-Rb0" firstAttribute="centerY" secondItem="LDC-1i-yBm" secondAttribute="centerY" id="Xir-PR-ooT"/>
                                     <constraint firstAttribute="height" constant="75" id="yTt-wl-4RP"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -225,7 +240,7 @@ agar sesuai dengan surat permintaan darah</string>
                     <navigationItem key="navigationItem" title="Konfirmasi Surat" id="h1C-tZ-h7E"/>
                     <connections>
                         <outlet property="agreementLabel" destination="twH-Vf-7AK" id="zer-kz-ZIJ"/>
-                        <outlet property="agreementSwitch" destination="T7K-MD-GrM" id="zSw-sP-xIw"/>
+                        <outlet property="agreementSwitch" destination="rG5-TC-Rb0" id="Ge1-hI-ukB"/>
                         <outlet property="detailTableView" destination="q1g-sA-gWF" id="4oK-us-nCk"/>
                         <outlet property="personalTableView" destination="J3W-So-x4H" id="mwM-Ct-M5E"/>
                         <segue destination="ixK-Lg-KGC" kind="show" identifier="MoveToHospital" id="XMG-ph-Unx"/>
