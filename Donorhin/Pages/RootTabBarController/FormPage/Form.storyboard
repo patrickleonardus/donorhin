@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YcO-33-yhh">
-                                <rect key="frame" x="20" y="96" width="374" height="33.5"/>
+                                <rect key="frame" x="20" y="106" width="374" height="33.5"/>
                                 <string key="text">Mohon untuk mengecek kembali isi form berikut ini 
 agar sesuai dengan surat permintaan darah</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -27,10 +27,10 @@ agar sesuai dengan surat permintaan darah</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="J3W-So-x4H">
-                                <rect key="frame" x="20" y="149.5" width="374" height="140"/>
+                                <rect key="frame" x="20" y="159.5" width="374" height="230"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="140" id="1Bn-Wa-QZI"/>
+                                    <constraint firstAttribute="height" constant="230" id="1Bn-Wa-QZI"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="labelAndTextCellFirstCell" id="0ax-hI-TgK" customClass="LabelAndTextCell" customModule="Donorhin" customModuleProvider="target">
@@ -80,92 +80,8 @@ agar sesuai dengan surat permintaan darah</string>
                                     <outlet property="delegate" destination="afP-eG-50l" id="k9n-IG-nlZ"/>
                                 </connections>
                             </tableView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q1g-sA-gWF">
-                                <rect key="frame" x="20" y="309.5" width="374" height="140"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="140" id="T2m-7I-Z6l"/>
-                                </constraints>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="labelAndSwitchCell" id="Aee-y4-LIK" customClass="LabelAndSwitchCell" customModule="Donorhin" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Aee-y4-LIK" id="5v8-vB-884">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TiK-IG-AMB">
-                                                    <rect key="frame" x="20" y="11.5" width="277" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dEE-d7-oYv">
-                                                    <rect key="frame" x="305" y="6.5" width="51" height="31"/>
-                                                </switch>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="TiK-IG-AMB" firstAttribute="centerY" secondItem="5v8-vB-884" secondAttribute="centerY" id="D8x-b3-yrE"/>
-                                                <constraint firstItem="TiK-IG-AMB" firstAttribute="leading" secondItem="5v8-vB-884" secondAttribute="leadingMargin" id="U2W-6E-ehi"/>
-                                                <constraint firstItem="dEE-d7-oYv" firstAttribute="leading" secondItem="TiK-IG-AMB" secondAttribute="trailing" constant="8" id="id6-nP-NMh"/>
-                                                <constraint firstAttribute="trailing" secondItem="dEE-d7-oYv" secondAttribute="trailing" constant="20" id="k06-JY-UcZ"/>
-                                                <constraint firstItem="dEE-d7-oYv" firstAttribute="centerY" secondItem="5v8-vB-884" secondAttribute="centerY" id="ode-XZ-w2A"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="labelText" destination="TiK-IG-AMB" id="wru-jH-TnU"/>
-                                            <outlet property="switchOutlet" destination="dEE-d7-oYv" id="XxF-R6-UOs"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="labelAndTextCellSecondCell" id="Md5-3l-5h6" customClass="LongLabelAndTextCell" customModule="Donorhin" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="374" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Md5-3l-5h6" id="bZ4-6u-b5m">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hy5-tf-51c">
-                                                    <rect key="frame" x="20" y="11.5" width="210" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="210" id="fOV-EX-WQ9"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Placeholder" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bf1-eI-eDk">
-                                                    <rect key="frame" x="238" y="13" width="116" height="18"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Hy5-tf-51c" firstAttribute="leading" secondItem="bZ4-6u-b5m" secondAttribute="leading" constant="20" id="Lx5-9m-0Qq"/>
-                                                <constraint firstItem="Hy5-tf-51c" firstAttribute="centerY" secondItem="bZ4-6u-b5m" secondAttribute="centerY" id="ewy-v7-Jsh"/>
-                                                <constraint firstItem="bf1-eI-eDk" firstAttribute="centerY" secondItem="bZ4-6u-b5m" secondAttribute="centerY" id="ige-9L-eRc"/>
-                                                <constraint firstAttribute="trailing" secondItem="bf1-eI-eDk" secondAttribute="trailing" constant="20" id="s4m-Lc-JCB"/>
-                                                <constraint firstItem="bf1-eI-eDk" firstAttribute="leading" secondItem="Hy5-tf-51c" secondAttribute="trailing" constant="8" id="xLT-8I-ciy"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="secondLabel" destination="Hy5-tf-51c" id="Jtr-sS-qpf"/>
-                                            <outlet property="secondTextField" destination="bf1-eI-eDk" id="hkE-F3-Ngh"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outlet property="dataSource" destination="afP-eG-50l" id="p7X-JC-KI9"/>
-                                    <outlet property="delegate" destination="afP-eG-50l" id="2Fc-WC-xWe"/>
-                                </connections>
-                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LDC-1i-yBm">
-                                <rect key="frame" x="20" y="469.5" width="374" height="75"/>
+                                <rect key="frame" x="20" y="521" width="374" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twH-Vf-7AK">
                                         <rect key="frame" x="68" y="27.5" width="286" height="20.5"/>
@@ -210,8 +126,45 @@ agar sesuai dengan surat permintaan darah</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4P-Yy-yYu">
-                                <rect key="frame" x="20" y="564.5" width="374" height="67"/>
+                                <rect key="frame" x="20" y="606" width="374" height="67"/>
                                 <string key="text">Pastikan anda benar sudah memasukan surat permintaan darah ke PMI terdekat, apabila belum, silahkan untuk mengajukan terlebih dahulu sebelum melakukan permintaan darah.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TIs-Fb-xFe">
+                                <rect key="frame" x="20" y="407.5" width="374" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuB-uC-efp">
+                                        <rect key="frame" x="20" y="19.5" width="275" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Axz-pc-TMF">
+                                        <rect key="frame" x="305" y="14.5" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="emergencyAction:" destination="afP-eG-50l" eventType="valueChanged" id="eaM-cf-Qfa"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Axz-pc-TMF" firstAttribute="leading" secondItem="yuB-uC-efp" secondAttribute="trailing" constant="10" id="2Dn-jr-utW"/>
+                                    <constraint firstItem="yuB-uC-efp" firstAttribute="centerY" secondItem="TIs-Fb-xFe" secondAttribute="centerY" id="Tag-C1-Q1f"/>
+                                    <constraint firstAttribute="height" constant="60" id="UVn-ye-96k"/>
+                                    <constraint firstItem="Axz-pc-TMF" firstAttribute="centerY" secondItem="TIs-Fb-xFe" secondAttribute="centerY" id="nl5-Gd-hf2"/>
+                                    <constraint firstAttribute="trailing" secondItem="Axz-pc-TMF" secondAttribute="trailing" constant="20" id="pRt-pL-vlQ"/>
+                                    <constraint firstItem="yuB-uC-efp" firstAttribute="leading" secondItem="TIs-Fb-xFe" secondAttribute="leading" constant="20" id="sew-Vf-Nk8"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kebutuhan Mendadak merupakan kebutuhan darah yang dibutuhkan hari ini juga." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZ4-ck-ER7">
+                                <rect key="frame" x="20" y="477.5" width="374" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -219,21 +172,24 @@ agar sesuai dengan surat permintaan darah</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="TIs-Fb-xFe" firstAttribute="leading" secondItem="L8k-LZ-KRt" secondAttribute="leading" constant="20" id="2QP-s2-uYm"/>
                             <constraint firstItem="L8k-LZ-KRt" firstAttribute="trailing" secondItem="w4P-Yy-yYu" secondAttribute="trailing" constant="20" id="9lP-Bf-cEs"/>
+                            <constraint firstItem="TIs-Fb-xFe" firstAttribute="top" secondItem="J3W-So-x4H" secondAttribute="bottom" constant="18" id="Aaq-yH-XRq"/>
                             <constraint firstItem="w4P-Yy-yYu" firstAttribute="leading" secondItem="L8k-LZ-KRt" secondAttribute="leading" constant="20" id="AoC-4k-d2b"/>
-                            <constraint firstItem="q1g-sA-gWF" firstAttribute="leading" secondItem="L8k-LZ-KRt" secondAttribute="leading" constant="20" id="Dit-AI-HQk"/>
-                            <constraint firstItem="YcO-33-yhh" firstAttribute="top" secondItem="L8k-LZ-KRt" secondAttribute="top" constant="8" id="Gnf-lQ-Ors"/>
-                            <constraint firstItem="LDC-1i-yBm" firstAttribute="top" secondItem="q1g-sA-gWF" secondAttribute="bottom" constant="20" id="MUh-Mm-GFt"/>
-                            <constraint firstItem="w4P-Yy-yYu" firstAttribute="top" secondItem="LDC-1i-yBm" secondAttribute="bottom" constant="20" id="MsT-qJ-LLD"/>
+                            <constraint firstItem="YcO-33-yhh" firstAttribute="top" secondItem="L8k-LZ-KRt" secondAttribute="top" constant="18" id="Gnf-lQ-Ors"/>
+                            <constraint firstItem="HZ4-ck-ER7" firstAttribute="leading" secondItem="L8k-LZ-KRt" secondAttribute="leading" constant="20" id="K0B-B5-div"/>
+                            <constraint firstItem="w4P-Yy-yYu" firstAttribute="top" secondItem="LDC-1i-yBm" secondAttribute="bottom" constant="10" id="MsT-qJ-LLD"/>
+                            <constraint firstItem="L8k-LZ-KRt" firstAttribute="trailing" secondItem="TIs-Fb-xFe" secondAttribute="trailing" constant="20" id="Pce-ih-HzH"/>
                             <constraint firstItem="L8k-LZ-KRt" firstAttribute="trailing" secondItem="LDC-1i-yBm" secondAttribute="trailing" constant="20" id="TjK-zm-Sth"/>
+                            <constraint firstItem="HZ4-ck-ER7" firstAttribute="top" secondItem="TIs-Fb-xFe" secondAttribute="bottom" constant="10" id="XEg-3X-QqV"/>
                             <constraint firstItem="J3W-So-x4H" firstAttribute="leading" secondItem="L8k-LZ-KRt" secondAttribute="leading" constant="20" id="XGg-7F-R29"/>
-                            <constraint firstItem="q1g-sA-gWF" firstAttribute="top" secondItem="J3W-So-x4H" secondAttribute="bottom" constant="20" id="fmh-fP-qIX"/>
+                            <constraint firstItem="LDC-1i-yBm" firstAttribute="top" secondItem="HZ4-ck-ER7" secondAttribute="bottom" constant="10" id="eew-2s-BoY"/>
                             <constraint firstItem="YcO-33-yhh" firstAttribute="leading" secondItem="L8k-LZ-KRt" secondAttribute="leading" constant="20" id="gQO-RT-yqr"/>
                             <constraint firstItem="L8k-LZ-KRt" firstAttribute="trailing" secondItem="YcO-33-yhh" secondAttribute="trailing" constant="20" id="grA-9H-fkV"/>
                             <constraint firstItem="L8k-LZ-KRt" firstAttribute="trailing" secondItem="J3W-So-x4H" secondAttribute="trailing" constant="20" id="mX5-C9-Dzc"/>
-                            <constraint firstItem="L8k-LZ-KRt" firstAttribute="trailing" secondItem="q1g-sA-gWF" secondAttribute="trailing" constant="20" id="rEY-bq-Bzl"/>
                             <constraint firstItem="LDC-1i-yBm" firstAttribute="leading" secondItem="L8k-LZ-KRt" secondAttribute="leading" constant="20" id="rul-bW-Eyq"/>
                             <constraint firstItem="J3W-So-x4H" firstAttribute="top" secondItem="YcO-33-yhh" secondAttribute="bottom" constant="20" id="xZg-6f-ykR"/>
+                            <constraint firstItem="L8k-LZ-KRt" firstAttribute="trailing" secondItem="HZ4-ck-ER7" secondAttribute="trailing" constant="20" id="z6B-kW-XTC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="L8k-LZ-KRt"/>
                     </view>
@@ -241,7 +197,8 @@ agar sesuai dengan surat permintaan darah</string>
                     <connections>
                         <outlet property="agreementLabel" destination="twH-Vf-7AK" id="zer-kz-ZIJ"/>
                         <outlet property="agreementSwitch" destination="rG5-TC-Rb0" id="Ge1-hI-ukB"/>
-                        <outlet property="detailTableView" destination="q1g-sA-gWF" id="4oK-us-nCk"/>
+                        <outlet property="emergencyLabel" destination="yuB-uC-efp" id="AKi-qG-4mK"/>
+                        <outlet property="emergencySwitch" destination="Axz-pc-TMF" id="v8m-AA-Cq1"/>
                         <outlet property="personalTableView" destination="J3W-So-x4H" id="mwM-Ct-M5E"/>
                         <segue destination="ixK-Lg-KGC" kind="show" identifier="MoveToHospital" id="XMG-ph-Unx"/>
                     </connections>

@@ -16,13 +16,6 @@ extension FormController : FormAnswerDelegate {
         }
     }
     
-    func didFilledSecondSection(cell: LongLabelAndTextCell, isFilled: Bool) {
-        if !isFilled{
-            self.submitBarButton?.isEnabled = false
-        }
-    }
-    
-    
     func getPatientName(cell: LabelAndTextCell, answer: String) {
         patientName = answer
         checkValidity()
@@ -38,31 +31,18 @@ extension FormController : FormAnswerDelegate {
         checkValidity()
     }
     
-    func getPatientDueDate(cell: LongLabelAndTextCell, answer: String) {
+    func getPatientDueDate(cell: LabelAndTextCell, answer: String) {
         patientDueDate = answer
         checkValidity()
     }
     
-    func getPatientBloodAmount(cell: LongLabelAndTextCell, answer: String) {
+    func getPatientBloodAmount(cell: LabelAndTextCell, answer: String) {
         patientBloodAmount = answer
         checkValidity()
     }
     
     func didBeginEditingHospitalRow(cell: LabelAndTextCell) {
         self.performSegue(withIdentifier: "MoveToHospital", sender: self)
-    }
-    
-}
-
-extension FormController: EmergencySwitchDelegate {
-    
-    func toogleSwitch(cell: LabelAndSwitchCell, isOn: Bool) {
-        if isOn {
-            patientEmergency = "1"
-        }
-        else {
-            patientEmergency = "0"
-        }
     }
     
 }

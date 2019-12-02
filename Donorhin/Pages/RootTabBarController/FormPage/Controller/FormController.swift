@@ -12,7 +12,8 @@ import CloudKit
 class FormController: UIViewController{
   
   @IBOutlet weak var personalTableView: UITableView!
-  @IBOutlet weak var detailTableView: UITableView!
+  @IBOutlet weak var emergencyLabel: UILabel!
+  @IBOutlet weak var emergencySwitch: UISwitch!
   @IBOutlet weak var agreementLabel: UILabel!
   @IBOutlet weak var agreementSwitch: CheckBox!
   
@@ -45,9 +46,10 @@ class FormController: UIViewController{
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    setupUI()
     setNavBar()
     setupToolbar()
-    handleAgreement()
+    handleLabelUI()
     handleKeyboard()
     checkmark()
     
@@ -66,6 +68,10 @@ class FormController: UIViewController{
   }
   
   //MARK: - Setup UI
+  
+  func setupUI(){
+    personalTableView.tableFooterView = UIView()
+  }
   
   func setNavBar(){
     let cancel = UIBarButtonItem(title: "Batal", style: .plain, target: self, action: #selector(cancelAction))
@@ -96,8 +102,9 @@ class FormController: UIViewController{
     view.endEditing(true)
   }
   
-  func handleAgreement(){
+  func handleLabelUI(){
     agreementLabel.text = "Saya sudah mengajukan surat permintaan darah ke PMI"
+    emergencyLabel.text = "Kebutuhan Mendadak"
   }
   
   func handleKeyboard(){
@@ -139,10 +146,10 @@ class FormController: UIViewController{
   
   @objc func datePickerValueChanged(sender: UIDatePicker){
     let dateFormatter = DateFormatter()
-    dateFormatter.dateStyle = DateFormatter.Style.medium
+    dateFormatter.dateFormat = "dd MMM yyyy"
     
-    if let cell = detailTableView.cellForRow(at: IndexPath.init(row: 0, section: 1)) as? LongLabelAndTextCell {
-      cell.secondTextField.text = dateFormatter.string(from: sender.date)
+    if let cell = personalTableView.cellForRow(at: IndexPath.init(row: 3, section: 0)) as? LabelAndTextCell {
+      cell.firstTextField.text = dateFormatter.string(from: sender.date)
     }
   }
   
@@ -316,6 +323,21 @@ class FormController: UIViewController{
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
     self.present(alert,animated: true)
+  }
+  
+  
+  @IBAction func emergencyAction(_ sender: Any) {
+    if emergencySwitch.isOn {
+      
+      let indexPath = IndexPath(row: 3, section: 0)
+      let cell = personalTableView.cellForRow(at: indexPath) as! LabelAndTextCell
+      dateFormatter.dateFormat = "dd MMM yyyy"
+//      cell.firstTextField.text = dateFormatter.date(from: <#T##String#>)
+      
+    }
+    else {
+      
+    }
   }
   
   @IBAction func unwindFromSearch(segue: UIStoryboardSegue){
