@@ -119,13 +119,12 @@ extension FormController : UITableViewDelegate, UITableViewDataSource {
                 
                 cell.secondLabel.text = formQuestion.questionName
                 cell.secondTextField.placeholder = formPlaceholder.placeholder
-                
+                cell.secondTextField.inputAccessoryView = pickerToolbar
                 cell.detailTableViewSection = indexPath.section
                 cell.detailTableViewRow = indexPath.row
                 
                 if indexPath.row == 0 {
                     cell.secondTextField.addTarget(self, action: #selector(showDatePicker(sender:)), for: .editingDidBegin)
-                    cell.secondTextField.inputAccessoryView = pickerToolbar
                 }
                 
                 else if indexPath.row == 1 {
