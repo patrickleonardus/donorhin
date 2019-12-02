@@ -64,7 +64,9 @@ class RegisterDetailController : UIViewController{
               genderCell.formTextField.defaultPlaceholder()
               birthDateCell.formTextField.defaultPlaceholder()
               bloodTypeCell.formTextField.defaultPlaceholder()
+              self.navigationController?.navigationBar.isHidden = true
               errorCell.errorMsg.isHidden = true
+              self.removeSpinner()
         }
     }
     
