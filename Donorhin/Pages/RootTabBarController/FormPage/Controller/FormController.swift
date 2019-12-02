@@ -300,7 +300,7 @@ class FormController: UIViewController{
         errorAlert(title: "Salah Tanggal", message: "Tanggal kebutuhan darah yang anda masukan sudah lewat dari tanggal sekarang, periksa kembali tanggal kebutuhan yang anda isi")
         break
       case .orderedDescending:
-          print(patientName,patientHospital,patientBloodType,patientDueDate,patientBloodAmount,patientEmergency)
+          pushDataToCloudKit()
       
         break
       case .orderedSame :
