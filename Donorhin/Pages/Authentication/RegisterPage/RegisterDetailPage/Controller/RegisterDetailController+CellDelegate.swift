@@ -43,8 +43,6 @@ extension RegisterDetailController : FormCellDelegate {
         }
     }
     
-    
-    
     @objc func keyboardWillBeHidden(aNotification: NSNotification) {
         let contentInsets = UIEdgeInsets.zero
         self.formTableView.contentInset = contentInsets
@@ -86,8 +84,28 @@ extension RegisterDetailController : FormCellDelegate {
               Helper.saveData(record) {[weak self] (isSuccess) in
                 if isSuccess {
                   DispatchQueue.main.async {
-                    self?.performSegue(withIdentifier: "goToFind", sender: nil)
-                    self?.removeSpinner()
+                    DataFetcher().getUserDataByEmail(email: self!.userCredentials["email"]!, password: self!.userCredentials["password"]!){(userModel) in
+                                   guard userModel != nil else {
+                                       fatalError()
+                                       //return
+                                   }
+                                   DispatchQueue.main.async {
+                                       print("Processing...")
+                                       LoginController().checkLocation()
+                                       UserDefaults.standard.set(userModel?.email, forKey: "email")
+                                       UserDefaults.standard.set(userModel?.password, forKey: "password")
+                                       UserDefaults.standard.set(userModel?.name, forKey: "name")
+                                       UserDefaults.standard.set(userModel?.bloodType.rawValue, forKey: "blood_type")
+                                       UserDefaults.standard.set(userModel?.birthdate, forKey: "birth_date")
+                                       UserDefaults.standard.set(userModel?.gender.rawValue, forKey: "gender")
+                                       UserDefaults.standard.set(userModel?.isVerified, forKey: "isVerified")
+                                       UserDefaults.standard.set(userModel?.lastDonor, forKey: "last_donor")
+                                       UserDefaults.standard.set(userModel?.statusDonor, forKey: "donor_status")
+                                       print("Data saved to user default...")
+                                       errorCell.errorMsg.isHidden = true
+                                       self!.performSegue(withIdentifier: "goToHome", sender: self)
+                                   }
+                               }
                   }
                 }
                 else {
@@ -107,9 +125,9 @@ extension RegisterDetailController : FormCellDelegate {
     let fullNameCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FormTableViewCell,
     let genderCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? FormTableViewCell,
     let birthDateCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? FormTableViewCell,
-    let bloodTypeCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 3)) as? FormTableViewCell,
-    let lastDonoCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 4)) as? FormTableViewCell else{ return false}
+    let bloodTypeCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 3)) as? FormTableViewCell else{fatalError()}
     guard let errorCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 6)) as? ErrorMessageTableViewCell else {fatalError()}
+    
     if fullName == "" || gender == "" || birthDate == "" || bloodType == ""{
         DispatchQueue.main.async {
             fullNameCell.shake()
