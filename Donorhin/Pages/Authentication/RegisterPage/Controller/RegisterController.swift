@@ -90,41 +90,27 @@ class RegisterController : UIViewController{
         }
         return false
       }
-      else{
-        self.checkExistUserEmail(email: emailCell.formTextField.text!){ (flag) in
-            self.isAvalaible = flag
-        }
-        
-            if isAvalaible == false{
-                DispatchQueue.main.async {
-                    errorCell.errorMsg.isHidden = false
-                    errorCell.errorMsg.text = "*Email sudah pernah terdaftar, coba email yang lain"
-                    emailCell.shake()
-                    emailCell.formTextField.redPlaceholder()
-                }
-                return false
-            }
-            else{
-                DispatchQueue.main.async {
-                    errorCell.errorMsg.isHidden = true
-                }
-            }
-        }
       return true
     }
     
-    func checkExistUserEmail(email: String, completionHandler: @escaping (Bool)->Void) {
-
-     let ckQuery = CKQuery(recordType: "Account", predicate: NSPredicate(format: "email = %@", email))
-        Helper.getAllData(ckQuery) { (result) in
-            if result != nil {
-                completionHandler(false)
-            }
-            else{
-                completionHandler(true)
-            }
+  //MARK: - Check to database existing email
+  
+  func checkExistUserEmail(email: String, completionHandler: @escaping (Bool)->Void) {
+    let ckQuery = CKQuery(recordType: "Account", predicate: NSPredicate(format: "email = %@", email))
+    Helper.getAllData(ckQuery) { (result) in
+      if let result = result {
+        if result.count > 0 {
+          completionHandler(false)
         }
+        else {
+          completionHandler(true)
+        }
+      }
+      else {
+        completionHandler(true)
+      }
     }
+  }
     
     override func viewWillDisappear(_ animated: Bool) {
         guard let emailCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FormTableViewCell else {return}
