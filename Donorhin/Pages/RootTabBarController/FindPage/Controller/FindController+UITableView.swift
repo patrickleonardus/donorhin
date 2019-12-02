@@ -30,38 +30,25 @@ extension FindController: UITableViewDataSource {
     
     if findBloodSegmentedControl.selectedSegmentIndex == 0 {
       if bloodRequestCurrent != nil {
-        if bloodRequestCurrent?.count != 0 {
-          totalData = 1
-        }
-        else if bloodRequestCurrent?.count == 0{
-          totalData = 0
-        }
-      }
-      else {
+        totalData = bloodRequestCurrent!.count
+      } else {
         totalData = 0
       }
-    }
-    else {
+    } else {
       if bloodRequestHistory != nil {
         if bloodRequestHistory?.count != 0 {
           if let data = bloodRequestHistory?.count {
             totalData = data
           }
-        }
-        else {
+        } else {
           totalData = 0
         }
-      }
-      else {
+      } else {
         totalData = 0
       }
     }
-    
     return totalData
   }
-  
-  
-  
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     //MARK:- CURRENT
@@ -69,14 +56,24 @@ extension FindController: UITableViewDataSource {
       if bloodRequestCurrent != nil {
         if bloodRequestCurrent?.count != 0 {
           let cell  = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? FindBloodCustomCell
-          guard let data = bloodRequestCurrent?[indexPath.row] else {fatalError()}
           
-          cell?.title.text = "Pendonor \(indexPath.row + 1)"
-          cell?.address.text = data.donorHospitalName
+          if let data = bloodRequestCurrent?[indexPath.row] {
+            cell?.title.text = "Pendonor \(indexPath.row + 1)"
+            cell?.address.text = data.donorHospitalName
+            
+            cell?.date.text = shrinkDate(data.donorDate!)
+            cell?.status.text = Steps.checkStep(data.status!)
+            cell?.buttonCallOutlet.phoneNumber = data.phoneNumber
+            hidePlaceDateAndCall(cell: cell!, value: false)
+            
+          } else {
+            cell?.title.text = "Pendonor \(indexPath.row + 1)"
+            cell?.status.text = Steps.checkStep(0)
+            hidePlaceDateAndCall(cell: cell!, value: true)
+          }
           
-          cell?.date.text = shrinkDate(data.donorDate!)
-          cell?.status.text = Steps.checkStep(data.status!)
-          cell?.buttonCallOutlet.phoneNumber = data.phoneNumber
+          //          guard let data = bloodRequestCurrent?[indexPath.row] else {fatalError()}
+          
           
           // button untuk call pmi
           cell?.buttonCallOutlet.setTitle("Call PMI Pendonor", for: .normal)
@@ -102,6 +99,9 @@ extension FindController: UITableViewDataSource {
             backgroundViewCell.layer.backgroundColor = UIColor.white.cgColor
           }
           return cell!
+          
+          
+          
         }
       }
     }
@@ -112,6 +112,8 @@ extension FindController: UITableViewDataSource {
         if bloodRequestHistory?.count != 0 {
           let cell  = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? FindBloodCustomCell
           guard let data = bloodRequestHistory?[indexPath.row] else {fatalError()}
+          
+         hidePlaceDateAndCall(cell: cell!, value: false)
           
           cell?.title.text = "Pendonor \(indexPath.row + 1)"
           cell?.address.text = data.donorHospitalName
@@ -148,6 +150,21 @@ extension FindController: UITableViewDataSource {
     return UITableViewCell()
   }
   
+  func hidePlaceDateAndCall(cell: FindBloodCustomCell,value: Bool) {
+    cell.address.isHidden = value
+    cell.date.isHidden = value
+    cell.dateIcon.isHidden = value
+    cell.addressIcon.isHidden = value
+    cell.buttonCallOutlet.isHidden = value
+    cell.buttonCallOutlet.isEnabled = !value
+    cell.isUserInteractionEnabled = !value
+    
+    if value == true{
+      cell.buttonCallOutlet.imageView?.layer.transform = CATransform3DMakeScale(0.0, 0.0, 0.0)
+    } else {
+      cell.buttonCallOutlet.imageView?.layer.transform = CATransform3DIdentity
+    }
+  }
   
   //MARK:- didSelectRowAt
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

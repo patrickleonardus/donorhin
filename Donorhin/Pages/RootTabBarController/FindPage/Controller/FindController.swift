@@ -26,7 +26,7 @@ class FindController: UIViewController {
   var profileImage = UIImageView()
   
   var bloodRequestHistory: [Donor]? //Contains history finding data
-  var bloodRequestCurrent: [Donor]? //Contains current finding data
+  var bloodRequestCurrent: [Donor?]? //Contains current finding data
   
   var requestDelegate : ControlValidationViewDelegate?
   
@@ -40,7 +40,7 @@ class FindController: UIViewController {
   
   //init var
   
-  var bloodRequest : [Donor] = []
+  var bloodRequest : [Donor?] = []
   var nameTemp : String?
   var dateTemp: Date?
   var hospitalNameTemp: String?
@@ -65,6 +65,7 @@ class FindController: UIViewController {
         print ("  History:",self.bloodRequestHistory)
         print ("  Current:",self.bloodRequestCurrent)
         print ("  All: ",self.bloodRequest)
+        self.checkCurrentRequestData()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.removeSpinner()
@@ -82,6 +83,7 @@ class FindController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     setTabBar(show: true)
     initTableView()
+    
   }
   
   override func viewWillDisappear(_ animated: Bool) {
@@ -149,28 +151,43 @@ class FindController: UIViewController {
     group.enter()
     self.getRequestData {requestList in
       if let requests = requestList {
-        //                print ("all request: \n \(requests)")
+//                print ("all request: \n \(requests)")
         for (n,request) in requests.enumerated() {
-          print ("processing request \(request.idRequest.recordName)")
+          print ("processing request \(request.idRequest.recordName); Need \(request.amount) bag of blood")
           
           group.enter()
           self.getTrackerDataBy(requestID: request.idRequest) { (donorList) in
-            
             if let donorList = donorList {
-              //TODO: What if the request haven't been fulfilled? Add contitional here id donorList.count < amount needed with else: donorList.count == amount needed 
-              
-              let isComplete = self.checkRequestCompletion(
-                amount: request.amount,
-                trackerOfRequest: donorList)
-              if isComplete {
-                self.bloodRequestHistory! += donorList
-              } else {
+              //Jika pendonor yang accept belum memenuhi
+              if donorList.count < request.amount {
                 self.bloodRequestCurrent! += donorList
+                let margin = request.amount - donorList.count
+                for _ in 1...margin {
+                  self.bloodRequestCurrent?.append(nil)
+                }
+              }
+                
+              //Jika pendonor yang accept sudah memenuhi kebutuhan
+              else {
+                //Cek apakah semuanya udah selesai
+                let isComplete = self.isEveryDonorDone(amount: request.amount, trackerOfRequest: donorList)
+                
+                //kalo masih ada yg belum selesai, taro semua di current
+                if !isComplete {
+                  self.bloodRequestCurrent! += donorList
+                
+                //kalo udah kelar semua taro di riwayat
+                } else {
+                  self.bloodRequestHistory! += donorList
+                }
               }
               self.bloodRequest += donorList
-            } //else pass: it has no donor
-            else {
-              //TODO: What to do when a request doesn't have donor
+            } else {
+              //isi request sama tracker kosong sebanyak request.amount
+              let margin = request.amount
+              for _ in 1...margin {
+                self.bloodRequestCurrent?.append(nil)
+              }
             }
             print ("loading data tracker \(n+1)/\(requests.count)")
             group.leave()
@@ -190,7 +207,10 @@ class FindController: UIViewController {
     }
   }
   
-  func checkRequestCompletion(amount: Int, trackerOfRequest : [Donor]) -> Bool{
+  func isEveryDonorDone(amount: Int, trackerOfRequest : [Donor]) -> Bool{
+    /**
+     Buat ngecek tracker of requestnya udah kelar semua apa belum
+     */
     var isComplete : Int = 0
     if trackerOfRequest.count > amount {
       fatalError("Unvalid request: donor are bigger than amount needed")

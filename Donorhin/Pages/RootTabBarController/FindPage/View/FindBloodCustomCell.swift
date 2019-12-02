@@ -15,7 +15,10 @@ class FindBloodCustomCell: UITableViewCell {
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var status: UILabel!
     @IBOutlet weak var buttonCallOutlet: CallNumberButton!
-    
+  
+  @IBOutlet var addressIcon: UIImageView!
+  @IBOutlet var dateIcon: UIImageView!
+  
 
     override func awakeFromNib() {
         super.awakeFromNib()
