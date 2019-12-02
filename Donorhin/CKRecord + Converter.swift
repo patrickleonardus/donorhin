@@ -114,7 +114,7 @@ extension CKRecord {
       guard let name = self.value(forKey: "name") as? String ?? nil,
          let bloodType = (self.value(forKey: "blood_type") as? String ?? nil)?.convertToBloodType(),
          let email = self.value(forKey: "email") as? String ?? nil,
-         let password = self.value(forKey: "password") as? String ?? nil,
+         var password = self.value(forKey: "password") as? String ?? nil,
          let birthdate = self.value(forKey: "birth_date") as? Date ?? nil,
          let isVerif = self.value(forKey: "isVerified") as? Int ?? nil,
          let gdr = self.value(forKey: "gender") as? Int ?? nil,
@@ -122,6 +122,8 @@ extension CKRecord {
          else {
             return nil
       }
+        password = try! PasswordCryptor().decryptMessage(encryptedPassword:password)
+
       let lastDonor = self.value(forKey: "last_donor") as? Date
       let location = self.value(forKey: "location") as? CLLocation
       let gender = { () -> Gender in

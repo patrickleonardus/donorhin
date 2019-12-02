@@ -49,13 +49,32 @@ extension RegisterController : FormCellDelegate{
         self.formTableView.scrollIndicatorInsets = contentInsets
     }
     
-    func buttonDidTap() {
-      let emailCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! FormTableViewCell
-      let passCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! FormTableViewCell
-      let comfirmPassCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as! FormTableViewCell
-      if self.validationCredential(email: emailCell.formTextField.text!, password: passCell.formTextField.text!, confirmPassword: comfirmPassCell.formTextField.text!) {
-        self.userCredentials = ["email":emailCell.formTextField.text!,"password":passCell.formTextField.text!]
-        performSegue(withIdentifier: "goToPersonalData", sender: nil)
+  //MARK: - action when next button tapped
+  
+  func buttonDidTap() {
+    let emailCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! FormTableViewCell
+    let passCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! FormTableViewCell
+    let confirmPassCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as! FormTableViewCell
+    guard let errorCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 3)) as? ErrorMessageTableViewCell else {fatalError()}
+    
+    if self.validationCredential(email: emailCell.formTextField.text!, password: passCell.formTextField.text!, confirmPassword: confirmPassCell.formTextField.text!) == true {
+      self.checkExistUserEmail(email: emailCell.formTextField.text!) { (bool) in
+        if bool == false{
+          DispatchQueue.main.async {
+            errorCell.errorMsg.isHidden = false
+            errorCell.errorMsg.text = "*Email sudah pernah terdaftar, coba email yang lain"
+            emailCell.shake()
+            emailCell.formTextField.redPlaceholder()
+          }
+        }
+        else{
+          DispatchQueue.main.async {
+            self.userCredentials = ["email":emailCell.formTextField.text!,"password":passCell.formTextField.text!]
+            self.performSegue(withIdentifier: "goToPersonalData", sender: nil)
+            errorCell.errorMsg.isHidden = true
+          }
+        }
       }
     }
+  }
 }

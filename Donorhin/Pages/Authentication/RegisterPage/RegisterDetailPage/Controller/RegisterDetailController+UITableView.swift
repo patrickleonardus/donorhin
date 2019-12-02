@@ -54,6 +54,7 @@ extension RegisterDetailController : UITableViewDataSource {
             cell?.delegate = self
             cell?.formTextField.delegate = self
             cell?.iconImageView.image = UIImage(named: data.img!)
+            cell?.formTextField.addDoneButtonOnKeyboard()
             if indexPath.section == 1 {
               cell?.formTextField.inputView = self.generalPicker
               cell?.formTextField.inputAccessoryView = self.pickerToolBar

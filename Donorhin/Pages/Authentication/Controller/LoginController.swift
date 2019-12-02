@@ -18,13 +18,7 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     var activeTF : UITextField?
     var activeCell : FormTableViewCell?
-    //available states
-    var state = AuthenticationState.loggedout {
-        didSet {
-            
-        }
-    }
-        
+    
     override func viewDidLoad(){
         super.viewDidLoad()
         FormBuilder().getItemsForLogin { (formItems) in
@@ -94,10 +88,12 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
         guard let emailCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FormTableViewCell else {return}
         guard let passCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? FormTableViewCell else {return}
         guard let errorCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? ErrorMessageTableViewCell else {return}
+        
         DispatchQueue.main.async {
             self.showSpinner(onView: self.view)
         }
-        DataFetcher().getUserDataByEmail(email: email, password: password){(userModel) in
+        
+        DataFetcher().getUserDataByEmail(email: email, password:password){(userModel) in
             guard userModel != nil else {
                 DispatchQueue.main.async {
                     self.removeSpinner()
@@ -124,11 +120,9 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
                 UserDefaults.standard.set(userModel?.lastDonor, forKey: "last_donor")
                 UserDefaults.standard.set(userModel?.statusDonor, forKey: "donor_status")
                 print("Data saved to user default...")
-                //self.state = .loggedin
                 errorCell.errorMsg.isHidden = true
                 self.navigationController?.navigationBar.isHidden = true
                 self.performSegue(withIdentifier: "goToHome", sender: self)
-                //self.removeSpinner()
             }
         }
     }
@@ -145,31 +139,7 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
-        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { fatalError() }
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
-        let location = locations.last!
-        guard let recordName = UserDefaults.standard.value(forKey: "currentUser") as? String else{
-            return
-        }
-        let recordId = CKRecord.ID(recordName: recordName)
-        
-        let package : [String:CLLocation] = ["location": location]
-        Helper.updateToDatabase(keyValuePair: package, recordID: recordId)
-        // saving your CLLocation object
-        let locationData = NSKeyedArchiver.archivedData(withRootObject: location)
-        UserDefaults.standard.set(locationData, forKey: "location")
-        
-        // loading it
-        if let loadedData = UserDefaults.standard.data(forKey: "locationData") {
-           
-            if let loadedLocation = NSKeyedUnarchiver.unarchiveObject(with: loadedData) as? CLLocation {
-                print(loadedLocation.coordinate.latitude)
-                print(loadedLocation.coordinate.longitude)
-            }
-        }
-    }
-    
+    //function for getting region
     func geocode(latitude: Double, longitude: Double, completion: @escaping (_ placemark: [CLPlacemark]?, _ error: Error?) -> Void)  {
         CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: latitude, longitude: longitude)) { placemark, error in
             guard let placemark = placemark, error == nil else {
@@ -179,7 +149,57 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
             completion(placemark, nil)
         }
     }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+           let location = locations.last!
+           //locationManager stops updating location
+           locationManager.stopUpdatingLocation()
+        
+           //get recordName from userdefaults
+           guard let recordName = UserDefaults.standard.value(forKey: "currentUser") as? String else{
+               return
+           }
+           let recordId = CKRecord.ID(recordName: recordName)
+           
+           let package : [String:CLLocation] = ["location": location]
+           
+           // saving your CLLocation object to CloudKit
+           Helper.updateToDatabase(keyValuePair: package, recordID: recordId)
+           
+           // saving to UserDefaults dalam bentuk NSData
+           let locationData = NSKeyedArchiver.archivedData(withRootObject: location)
+           UserDefaults.standard.set(locationData, forKey: "locationData")
+        
+           //Convert NSData ke CLLocation
+           if let loadedData = UserDefaults.standard.data(forKey: "locationData") {
+               if let loadedLocation = NSKeyedUnarchiver.unarchiveObject(with: loadedData) as? CLLocation {
+                //mengambil region, locality, administrativeArea dan country
+                //pakai coordinate.longitude dan coordinate.latitude
+                geocode(latitude: loadedLocation.coordinate.latitude, longitude: loadedLocation.coordinate.longitude) { (placemarks, error) in
+                if error != nil {
+                   print("failed")
+                }
+                else {
+                  print("placemark not nil")
+                  guard
+                      let placemark = placemarks else{fatalError()}
+                    if placemark.count > 0 {
+                      DispatchQueue.main.async {
+                          let placemark = placemarks?[0]
+                          let locality = placemark?.locality!
+                          let administrativeArea = placemark?.administrativeArea!
+                          let country = placemark?.country!
+                          //tes dengan print ke terminal kalau gk kosong berhasil
+                          print("\(locality), \(administrativeArea), \(country)")
+                      }
+                    }
+                  }
+                }
+           }
+        }
+    }
 }
+
 
 extension UIView {
     func shake() {
