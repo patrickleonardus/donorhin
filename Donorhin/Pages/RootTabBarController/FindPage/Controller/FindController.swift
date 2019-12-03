@@ -28,6 +28,7 @@ class FindController: UIViewController {
   var bloodRequestHistory: [Donor]? //Contains history finding data
   var bloodRequestCurrent: [Donor?]? //Contains current finding data
   
+  
   var requestDelegate : ControlValidationViewDelegate?
   
   //declare var untuk didselect ke tracker

@@ -17,11 +17,14 @@ extension FindController: UITableViewDataSource {
   
   //MARK: heightForRowAt
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    let currentIsNil = self.bloodRequestCurrent?[indexPath.row] == nil
-    if currentIsNil {
-      return 77
-    } else {
+    
+    if let data = bloodRequestCurrent?[indexPath.row],
+      let _ = data.donorDate,
+      let _ = data.status
+    {
       return 160
+    } else {
+      return 77
     }
   }
   
@@ -60,11 +63,15 @@ extension FindController: UITableViewDataSource {
           
           let cell  = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? FindBloodCustomCell
           
-          if let data = bloodRequestCurrent?[indexPath.row] {
+          if let data = bloodRequestCurrent?[indexPath.row],
+            let donorDate = data.donorDate,
+            let status = data.status
+          {
             cell?.title.text = "Pendonor \(indexPath.row + 1)"
             cell?.address.text = data.donorHospitalName
-            cell?.date.text = shrinkDate(data.donorDate!)
-            cell?.status.text = Steps.checkStep(data.status!)
+            cell?.date.text = shrinkDate(donorDate)
+            cell?.status.text = Steps.checkStep(status)
+            
             cell?.buttonCallOutlet.phoneNumber = data.phoneNumber
             hidePlaceDateAndCall(cell: cell!, value: false)
             
