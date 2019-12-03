@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CloudKit
 class ProfileController: UIViewController {
     
     //MARK: Outlet
@@ -26,6 +26,7 @@ class ProfileController: UIViewController {
     var pickerToolBar: UIToolbar!
     var highlightedCell:UITableViewCell?
     var user : Profile?
+    
     
     //MARK: VIEW DID LOAD
     override func viewDidLoad() {
@@ -50,9 +51,46 @@ class ProfileController: UIViewController {
         self.view.backgroundColor = Colors.backgroundView
     }
     
+    func setGenderValue(_ genderCell: SecondCell) ->  Int {
+        switch genderCell.profileTextField.text {
+        case "Perempuan":
+            return 0
+        default:
+            return 1
+        }
+    }
+    
     @objc func saveData() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM y"
         //save ke userdefaults sama cloudkit
         view.endEditing(true)
+        guard let genderCell = tableView.cellForRow(at: IndexPath(row:0, section: 1)) as? SecondCell else{fatalError()}
+        guard let birthDateCell = tableView.cellForRow(at: IndexPath(row:1, section: 1)) as? SecondCell else{fatalError()}
+        guard let bloodTypeCell = tableView.cellForRow(at: IndexPath(row:2, section: 1)) as? SecondCell else{fatalError()}
+        guard let lastDonorCell = tableView.cellForRow(at: IndexPath(row:3, section: 1)) as? SecondCell else{fatalError()}
+        
+        let valueGender = setGenderValue(genderCell)
+        guard
+            let lastDonorDate  = dateFormatter.date(from: lastDonorCell.profileTextField.text!),
+            let birthDate  = dateFormatter.date(from: birthDateCell.profileTextField.text!) else {fatalError()}
+        
+        //get recordName from userdefaults
+        guard let recordName = UserDefaults.standard.value(forKey: "currentUser") as? String else{
+            return
+        }
+        let recordId = CKRecord.ID(recordName: recordName)
+        
+        let package : [String:Any] = ["last_donor": lastDonorDate, "birth_date":birthDate,"gender":valueGender, "blood_type":bloodTypeCell.profileTextField.text]
+        //saving to cloudkit
+        Helper.updateToDatabase(keyValuePair: package, recordID: recordId)
+        
+        //saving to user defaults
+        UserDefaults.standard.set(valueGender, forKey: "gender")
+        UserDefaults.standard.set(bloodTypeCell.profileTextField.text, forKey: "blood_type")
+        UserDefaults.standard.set(lastDonorDate, forKey: "last_donor")
+        UserDefaults.standard.set(birthDate, forKey: "birth_date")
+        
     }
     
     @objc func dateChanged (datePicker : UIDatePicker, activeTF : UITextField) {
@@ -81,6 +119,17 @@ class ProfileController: UIViewController {
         tableView.tableFooterView = UIView()
         setNavigationButton()
         setEditButton()
+        guard let genderCell = tableView.cellForRow(at: IndexPath(row:0, section: 1)) as? SecondCell else{fatalError()}
+        guard let birthDateCell = tableView.cellForRow(at: IndexPath(row:1, section: 1)) as? SecondCell else{fatalError()}
+        guard let bloodTypeCell = tableView.cellForRow(at: IndexPath(row:2, section: 1)) as? SecondCell else{fatalError()}
+        guard let lastDonorCell = tableView.cellForRow(at: IndexPath(row:3, section: 1)) as? SecondCell else{fatalError()}
+        genderCell.profileTextField.isEnabled = false
+        birthDateCell.profileTextField.isEnabled = false
+        bloodTypeCell.profileTextField.isEnabled = false
+        lastDonorCell.profileTextField.isEnabled = false
+        
+
+        
     }
     
     private func setNavigationButton(){
@@ -89,7 +138,7 @@ class ProfileController: UIViewController {
     }
     
     func setEditButton(){
-        editButton = UIBarButtonItem(title: "Edit", style: .done, target: self, action: #selector(editButtonPressed))
+        editButton = UIBarButtonItem(title: "Ubah", style: .done, target: self, action: #selector(editButtonPressed))
         navigationItem.rightBarButtonItem = editButton
     }
     
@@ -101,14 +150,14 @@ class ProfileController: UIViewController {
         
         if editMode == false {
             editMode = true
-            editButton?.title = "Done"
+            editButton?.title = "Simpan"
             genderCell.profileTextField.isEnabled = true
             birthDateCell.profileTextField.isEnabled = true
             bloodTypeCell.profileTextField.isEnabled = true
             lastDonorCell.profileTextField.isEnabled = true
         } else {
             editMode = false
-            editButton?.title = "Edit"
+            editButton?.title = "Ubah"
             genderCell.profileTextField.isEnabled = false
             birthDateCell.profileTextField.isEnabled = false
             bloodTypeCell.profileTextField.isEnabled = false
