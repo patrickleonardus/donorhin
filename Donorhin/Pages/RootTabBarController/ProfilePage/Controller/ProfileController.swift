@@ -46,7 +46,7 @@ class ProfileController: UIViewController {
         pickerToolBar.sizeToFit()
         pickerToolBar.tintColor = #colorLiteral(red: 0.7071222663, green: 0, blue: 0.04282376915, alpha: 1)
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "Selesai", style: .done, target: self, action: #selector(saveData))
+        let doneButton = UIBarButtonItem(title: "Selesai", style: .done, target: self, action: #selector(doneButtonPressed))
         pickerToolBar.setItems([flexibleSpace, doneButton], animated: false)
         self.view.backgroundColor = Colors.backgroundView
     }
@@ -60,7 +60,11 @@ class ProfileController: UIViewController {
         }
     }
     
-    @objc func saveData() {
+    @objc func doneButtonPressed() {
+        view.endEditing(true)
+    }
+    
+    func saveData() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM y"
         //save ke userdefaults sama cloudkit
@@ -156,6 +160,7 @@ class ProfileController: UIViewController {
             bloodTypeCell.profileTextField.isEnabled = true
             lastDonorCell.profileTextField.isEnabled = true
         } else {
+            saveData()
             editMode = false
             editButton?.title = "Ubah"
             genderCell.profileTextField.isEnabled = false

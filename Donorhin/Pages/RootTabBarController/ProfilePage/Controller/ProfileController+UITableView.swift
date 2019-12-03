@@ -117,7 +117,7 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
             else if indexPath.row == 3 {
                 cell?.imageCell.image = UIImage(named: "lastdonor_profile")
 
-                cell?.profileTextField.text = dateFormatter.string(from: UserDefaults.standard.object(forKey: "last_donor") as! Date)
+                cell?.profileTextField.text = dateFormatter.string(from: UserDefaults.standard.object(forKey: "last_donor") as? Date ?? Date())
                 cell?.profileTextField.inputView = self.datePicker
                 cell?.profileTextField.inputAccessoryView = self.pickerToolBar
             }
