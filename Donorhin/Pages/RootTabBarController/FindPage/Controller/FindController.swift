@@ -524,13 +524,7 @@ class FindController: UIViewController {
   
   // ini buat pencet segmented controller
   @IBAction func findBloodSegmentedControlDidChange() {
-    
-    if findBloodSegmentedControl.selectedSegmentIndex == 0 {
-      checkCurrentRequestData()
-    }
-    else if findBloodSegmentedControl.selectedSegmentIndex == 1 {
-      checkHistoryRequestData()
-    }
+    checkCurrentRequestData()
     tableView.reloadData()
   }
   
