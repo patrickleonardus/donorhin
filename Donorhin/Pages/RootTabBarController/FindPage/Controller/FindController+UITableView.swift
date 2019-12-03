@@ -8,21 +8,16 @@
 
 import UIKit
 
-extension FindController: UITableViewDelegate {
-  
-}
-
-
-extension FindController: UITableViewDataSource {
+extension FindController: UITableViewDataSource, UITableViewDelegate {
   
   //MARK: heightForRowAt
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    
-    if let data = bloodRequestCurrent?[indexPath.row],
-      let _ = data.donorDate,
-      let _ = data.status
-    {
-      return 160
+    if let data = bloodRequestCurrent?[indexPath.row] {
+      if data.status == 0 {
+        return 77
+      } else {
+        return 160
+      }
     } else {
       return 77
     }
@@ -55,35 +50,40 @@ extension FindController: UITableViewDataSource {
     return totalData
   }
   
+  //MARK:- Set up cell
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    //MARK:- CURRENT
+    //MARK: CURRENT
     if findBloodSegmentedControl.selectedSegmentIndex == 0 {
       if bloodRequestCurrent != nil {
         if bloodRequestCurrent?.count != 0 {
-          
           let cell  = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? FindBloodCustomCell
           
-          if let data = bloodRequestCurrent?[indexPath.row],
-            let donorDate = data.donorDate,
-            let status = data.status
-          {
-            cell?.title.text = "Pendonor \(indexPath.row + 1)"
-            cell?.address.text = data.donorHospitalName
-            cell?.date.text = shrinkDate(donorDate)
-            cell?.status.text = Steps.checkStep(status)
-            
-            cell?.buttonCallOutlet.phoneNumber = data.phoneNumber
-            hidePlaceDateAndCall(cell: cell!, value: false)
+          if let data = bloodRequestCurrent?[indexPath.row] {
+          
+            if data.status ?? 0 < 2 { //(handling logic patrick)
+              //Skenario sebelum pendonor memilih UTD dan Tanggal
+              setupSmallCell(cell: cell!, row: indexPath.row, status: data.status ?? 0)
+              
+            } else {
+              //Skenario sudah memilih UTD dan Tanggal
+              guard let donorDate = data.donorDate,
+                let status = data.status else  {fatalError("HARUSNYA MEREKA GA NIL")}
+              cell?.title.text = "Pendonor \(indexPath.row + 1)"
+              cell?.address.text = data.donorHospitalName
+              cell?.date.text = shrinkDate(donorDate)
+              cell?.status.text = Steps.checkStep(status)
+              
+              cell?.buttonCallOutlet.phoneNumber = data.phoneNumber
+              hidePlaceDateAndCall(cell: cell!, value: false)
+              cell?.buttonCallOutlet.setTitle("Call PMI Pendonor", for: .normal)
+              cell?.buttonCallOutlet.addTarget(self, action: #selector(callButton(sender:)), for: .touchUpInside)
+            }
             
           } else {
-            cell?.title.text = "Pendonor \(indexPath.row + 1)"
-            cell?.status.text = Steps.checkStep(0)
-            hidePlaceDateAndCall(cell: cell!, value: true)
+            //Skenario bloodRequestCurrent[index] nya nil : masih belum ditemukan (logic Vebby)
+            setupSmallCell(cell: cell!, row: indexPath.row, status: 0)
           }
           
-          // MARK:- Call PMI button
-          cell?.buttonCallOutlet.setTitle("Call PMI Pendonor", for: .normal)
-          cell?.buttonCallOutlet.addTarget(self, action: #selector(callButton(sender:)), for: .touchUpInside)
           cell?.backgroundColor = UIColor.clear
           
           return cell!
@@ -117,14 +117,22 @@ extension FindController: UITableViewDataSource {
     return UITableViewCell()
   }
   
-  func hidePlaceDateAndCall(cell: FindBloodCustomCell,value: Bool) {
-    cell.addressSV.isHidden = value
-    cell.dateSV.isHidden = value
-    cell.isUserInteractionEnabled = !value
-    cell.buttonCallOutlet.isHidden = value
+  func setupSmallCell(cell: FindBloodCustomCell,row: Int, status : Int) {
+    cell.title.text = "Pendonor \(row + 1)"
+    
+    cell.status.text = Steps.checkStep(status)
+    hidePlaceDateAndCall(cell: cell, value: true)
   }
   
-  //MARK:- didSelectRowAt
+  func hidePlaceDateAndCall(cell: FindBloodCustomCell,value: Bool) {
+    cell.addressSV.isHidden = value
+    cell.iconChevron.isHidden = value
+    cell.buttonCallOutlet.isHidden = value
+    cell.isUserInteractionEnabled = !value
+    cell.dateSV.isHidden = value
+  }
+  
+  //MARK:- Selected Row
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if findBloodSegmentedControl.selectedSegmentIndex == 0 {
       guard let data = bloodRequestCurrent?[indexPath.row] else {fatalError()}

@@ -16,6 +16,7 @@ class FindBloodCustomCell: UITableViewCell {
     @IBOutlet weak var status: UILabel!
     @IBOutlet weak var buttonCallOutlet: CallNumberButton!
   
+  @IBOutlet var iconChevron: UIImageView!
   @IBOutlet var backView: UIView!
   @IBOutlet var addressSV: UIStackView!
   @IBOutlet var dateSV: UIStackView!

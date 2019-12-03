@@ -123,6 +123,7 @@
                 <outlet property="date" destination="L6R-Dm-BNZ" id="CsG-yX-6K7"/>
                 <outlet property="dateSV" destination="lZ7-bt-Xbd" id="Ow5-Ck-pBn"/>
                 <outlet property="generalSV" destination="Zds-El-4cG" id="yj4-ID-8cB"/>
+                <outlet property="iconChevron" destination="mPW-8G-Bpk" id="Ixy-gR-mcs"/>
                 <outlet property="status" destination="MMe-PK-hl2" id="8z0-oF-pxz"/>
                 <outlet property="title" destination="W3e-v7-2DC" id="X6s-Ed-Bvm"/>
             </connections>
