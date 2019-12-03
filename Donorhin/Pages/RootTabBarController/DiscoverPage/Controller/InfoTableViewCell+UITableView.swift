@@ -33,13 +33,17 @@ extension InfoTableViewCell: UITableViewDelegate, UITableViewDataSource {
         cell.imageInfo.image = UIImage(named: data.image!)
         cell.titleInfo.text = data.title
         cell.detailInfo.text = data.description
+      
+      if indexPath.row == 4 {
+        cell.separatorInset = UIEdgeInsets(top: 0, left: cell.bounds.size.width, bottom: 0, right: 0)
+      }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            navigationBarTitle = "Info Pengguna Donorhin"
+            navigationBarTitle = "Cara Penggunaan Donorhin"
             delegate?.getNavigationTitle(cell: self, title: navigationBarTitle!)
         }
         else if indexPath.row == 1 {
@@ -51,7 +55,7 @@ extension InfoTableViewCell: UITableViewDelegate, UITableViewDataSource {
             delegate?.getNavigationTitle(cell: self, title: navigationBarTitle!)
         }
         else if indexPath.row == 3 {
-            navigationBarTitle = "Info Komunitas"
+            navigationBarTitle = "Unit Transfusi Darah"
             delegate?.getNavigationTitle(cell: self, title: navigationBarTitle!)
         }
         

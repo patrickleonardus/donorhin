@@ -10,8 +10,7 @@ import UIKit
 import CloudKit
 
 class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, NavigationBarTitleDelegate{
-    
-
+  
     @IBOutlet weak var tableViewDiscover: UITableView!
     
     var sectionHeaderTitleArray = ["Acara","Info"]
@@ -106,7 +105,7 @@ class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, N
         self.navigationController?.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
-    
+  
     //MARK:- Action Func
     
     @objc private func profileButton(){

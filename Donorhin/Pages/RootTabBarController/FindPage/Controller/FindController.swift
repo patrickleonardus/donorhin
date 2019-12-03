@@ -377,7 +377,7 @@ class FindController: UIViewController {
   func shrinkDate(_ date: Date) -> String{
     
     let dfPrint = DateFormatter()
-    dfPrint.dateFormat = "dd MMMM yyyy"
+    dfPrint.dateFormat = "dd MMM yyyy"
     
     return dfPrint.string(from: date)
   }
