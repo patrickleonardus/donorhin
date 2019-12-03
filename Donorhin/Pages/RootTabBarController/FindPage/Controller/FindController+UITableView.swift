@@ -18,9 +18,14 @@ extension FindController: UITableViewDataSource {
   //MARK: heightForRowAt
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     
-    let height : CGFloat = 160
-    
-    return height
+    if let data = bloodRequestCurrent?[indexPath.row],
+      let _ = data.donorDate,
+      let _ = data.status
+    {
+      return 160
+    } else {
+      return 77
+    }
   }
   
   //MARK: numberOfRowsInSection
@@ -55,14 +60,18 @@ extension FindController: UITableViewDataSource {
     if findBloodSegmentedControl.selectedSegmentIndex == 0 {
       if bloodRequestCurrent != nil {
         if bloodRequestCurrent?.count != 0 {
+          
           let cell  = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? FindBloodCustomCell
           
-          if let data = bloodRequestCurrent?[indexPath.row] {
+          if let data = bloodRequestCurrent?[indexPath.row],
+            let donorDate = data.donorDate,
+            let status = data.status
+          {
             cell?.title.text = "Pendonor \(indexPath.row + 1)"
             cell?.address.text = data.donorHospitalName
+            cell?.date.text = shrinkDate(donorDate)
+            cell?.status.text = Steps.checkStep(status)
             
-            cell?.date.text = shrinkDate(data.donorDate!)
-            cell?.status.text = Steps.checkStep(data.status!)
             cell?.buttonCallOutlet.phoneNumber = data.phoneNumber
             hidePlaceDateAndCall(cell: cell!, value: false)
             
@@ -72,36 +81,12 @@ extension FindController: UITableViewDataSource {
             hidePlaceDateAndCall(cell: cell!, value: true)
           }
           
-          //          guard let data = bloodRequestCurrent?[indexPath.row] else {fatalError()}
-          
-          
-          // button untuk call pmi
+          // MARK:- Call PMI button
           cell?.buttonCallOutlet.setTitle("Call PMI Pendonor", for: .normal)
-          cell?.buttonCallOutlet.isHidden = false
           cell?.buttonCallOutlet.addTarget(self, action: #selector(callButton(sender:)), for: .touchUpInside)
-          
           cell?.backgroundColor = UIColor.clear
           
-          //MARK:- Ini buat bikin kotak ditiap cellnya dan kasih space antara cell
-          // kotak kota yg warna putih itu loh
-          let backgroundViewCell : UIView = UIView(frame: CGRect(x: 0, y: 10, width:  self.tableView.frame.size.width, height: 150))
-          
-          backgroundViewCell.layer.backgroundColor = UIColor.white.cgColor
-          backgroundViewCell.layer.masksToBounds = false
-          backgroundViewCell.layer.cornerRadius = 10
-          cell!.contentView.addSubview(backgroundViewCell)
-          cell!.contentView.sendSubviewToBack(backgroundViewCell)
-          
-          if cell!.isSelected {
-            backgroundViewCell.layer.backgroundColor = UIColor.gray.cgColor
-          }
-          else if !cell!.isSelected{
-            backgroundViewCell.layer.backgroundColor = UIColor.white.cgColor
-          }
           return cell!
-          
-          
-          
         }
       }
     }
@@ -113,33 +98,15 @@ extension FindController: UITableViewDataSource {
           let cell  = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? FindBloodCustomCell
           guard let data = bloodRequestHistory?[indexPath.row] else {fatalError()}
           
-         hidePlaceDateAndCall(cell: cell!, value: false)
-          
+          hidePlaceDateAndCall(cell: cell!, value: false)
+          cell?.buttonCallOutlet.isHidden = true
           cell?.title.text = "Pendonor \(indexPath.row + 1)"
           cell?.address.text = data.donorHospitalName
           cell?.date.text = shrinkDate(data.donorDate!)
           cell?.status.text = Steps.checkStep(data.status!)
           
-          cell?.buttonCallOutlet.isHidden = true
-          
           cell?.backgroundColor = UIColor.clear
           
-          //MARK:- Ini buat bikin kotak ditiap cellnya dan kasih space antara cell
-          // kotak kota yg warna putih itu loh
-          let backgroundViewCell : UIView = UIView(frame: CGRect(x: 0, y: 10, width:  self.tableView.frame.size.width, height: 150))
-          
-          backgroundViewCell.layer.backgroundColor = UIColor.white.cgColor
-          backgroundViewCell.layer.masksToBounds = false
-          backgroundViewCell.layer.cornerRadius = 10
-          cell!.contentView.addSubview(backgroundViewCell)
-          cell!.contentView.sendSubviewToBack(backgroundViewCell)
-          
-          if cell!.isSelected {
-            backgroundViewCell.layer.backgroundColor = UIColor.gray.cgColor
-          }
-          else if !cell!.isSelected{
-            backgroundViewCell.layer.backgroundColor = UIColor.white.cgColor
-          }
           
           return cell!
         }
@@ -151,26 +118,16 @@ extension FindController: UITableViewDataSource {
   }
   
   func hidePlaceDateAndCall(cell: FindBloodCustomCell,value: Bool) {
-    cell.address.isHidden = value
-    cell.date.isHidden = value
-    cell.dateIcon.isHidden = value
-    cell.addressIcon.isHidden = value
-    cell.buttonCallOutlet.isHidden = value
-    cell.buttonCallOutlet.isEnabled = !value
+    cell.addressSV.isHidden = value
+    cell.dateSV.isHidden = value
     cell.isUserInteractionEnabled = !value
-    
-    if value == true{
-      cell.buttonCallOutlet.imageView?.layer.transform = CATransform3DMakeScale(0.0, 0.0, 0.0)
-    } else {
-      cell.buttonCallOutlet.imageView?.layer.transform = CATransform3DIdentity
-    }
+    cell.buttonCallOutlet.isHidden = value
   }
   
   //MARK:- didSelectRowAt
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if findBloodSegmentedControl.selectedSegmentIndex == 0 {
       guard let data = bloodRequestCurrent?[indexPath.row] else {fatalError()}
-      //            navBarTitle = data.name
       requestIdTrc = data.requestId
       trackerIdTrc = data.trackerId
       hospitalIdTrc = data.donorHospitalID
@@ -179,7 +136,6 @@ extension FindController: UITableViewDataSource {
       
     else {
       guard let data = bloodRequestHistory?[indexPath.row] else {fatalError()}
-      //            navBarTitle = data.name
       requestIdTrc = data.requestId
       trackerIdTrc = data.trackerId
       hospitalIdTrc = data.donorHospitalID

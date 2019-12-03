@@ -12,7 +12,8 @@ import CloudKit
 class FormController: UIViewController{
   
   @IBOutlet weak var personalTableView: UITableView!
-  @IBOutlet weak var detailTableView: UITableView!
+  @IBOutlet weak var emergencyLabel: UILabel!
+  @IBOutlet weak var emergencySwitch: UISwitch!
   @IBOutlet weak var agreementLabel: UILabel!
   @IBOutlet weak var agreementSwitch: CheckBox!
   
@@ -45,9 +46,10 @@ class FormController: UIViewController{
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    setupUI()
     setNavBar()
     setupToolbar()
-    handleAgreement()
+    handleLabelUI()
     handleKeyboard()
     checkmark()
     
@@ -66,6 +68,10 @@ class FormController: UIViewController{
   }
   
   //MARK: - Setup UI
+  
+  func setupUI(){
+    personalTableView.tableFooterView = UIView()
+  }
   
   func setNavBar(){
     let cancel = UIBarButtonItem(title: "Batal", style: .plain, target: self, action: #selector(cancelAction))
@@ -96,8 +102,9 @@ class FormController: UIViewController{
     view.endEditing(true)
   }
   
-  func handleAgreement(){
+  func handleLabelUI(){
     agreementLabel.text = "Saya sudah mengajukan surat permintaan darah ke PMI"
+    emergencyLabel.text = "Kebutuhan Mendadak"
   }
   
   func handleKeyboard(){
@@ -139,10 +146,10 @@ class FormController: UIViewController{
   
   @objc func datePickerValueChanged(sender: UIDatePicker){
     let dateFormatter = DateFormatter()
-    dateFormatter.dateStyle = DateFormatter.Style.medium
+    dateFormatter.dateFormat = "dd MMM yyyy"
     
-    if let cell = detailTableView.cellForRow(at: IndexPath.init(row: 0, section: 1)) as? LongLabelAndTextCell {
-      cell.secondTextField.text = dateFormatter.string(from: sender.date)
+    if let cell = personalTableView.cellForRow(at: IndexPath.init(row: 3, section: 0)) as? LabelAndTextCell {
+      cell.firstTextField.text = dateFormatter.string(from: sender.date)
     }
   }
   
@@ -271,41 +278,49 @@ class FormController: UIViewController{
   
   @objc func submitAction(){
     
-    if !agreementSwitch.isChecked {
-      errorAlert(title: "Peringatan", message: "Anda harus mengajukan surat permintaan darah ke PMI sebelum melakukan pencarian darah")
+    if patientBloodAmount == "0"{
+      errorAlert(title: "Kesalahan Input", message: "Silahkan periksa kembali jumlah kantung darah yang anda butuhkan")
     }
+    else {
       
-    else if agreementSwitch.isChecked {
-      
-      // casting blood amount
-      castingPatientBlood()
-      
-      // casting isEmergency
-      castingPatientEmergency()
-      
-      // casting date to timestamp
-      castToDate()
-      
-      let order = Calendar.current.compare(patientDueDateCast, to: now, toGranularity: .day)
-      
-      switch order {
-      case .orderedAscending :
-        errorAlert(title: "Salah Tanggal", message: "Tanggal kebutuhan darah yang anda masukan sudah lewat dari tanggal sekarang, periksa kembali tanggal kebutuhan yang anda isi")
-        break
-      case .orderedDescending:
-        
-        if patientEmergency == "0" {
-          print("push to ck")
-        }
-        else if patientEmergency == "1" {
-          errorAlert(title: "Peringatan", message: "Jika anda menyalakan tombol Kebutuhan Mendadak, maka tanggal kebutuhan darah harus sesuai dengan tanggal hari ini")
-        }
-      
-        break
-      case .orderedSame : print("push to ck")
-        break
+      if !agreementSwitch.isChecked {
+        errorAlert(title: "Peringatan", message: "Anda harus mengajukan surat permintaan darah ke PMI sebelum melakukan pencarian darah")
       }
+        
+      else if agreementSwitch.isChecked {
+        
+        // casting blood amount
+        castingPatientBlood()
+        
+        // casting isEmergency
+        castingPatientEmergency()
+        
+        // casting date to timestamp
+        castToDate()
+        
+        let order = Calendar.current.compare(patientDueDateCast, to: now, toGranularity: .day)
+        
+        switch order {
+        case .orderedAscending :
+          errorAlert(title: "Salah Tanggal", message: "Tanggal kebutuhan darah yang anda masukan sudah lewat dari tanggal sekarang, periksa kembali tanggal kebutuhan yang anda isi")
+          break
+        case .orderedDescending:
+          pushDataToCloudKit()
+          break
+        case .orderedSame :
+          
+          if patientEmergency == "0" {
+            errorAlert(title: "Perhatian", message: "Jika anda membutuhkan darah untuk hari ini, anda dapat menyalakan tombol Kebutuhan Mendesak untuk dapat diprioritaskan")
+          }
+          else if patientEmergency == "1" {
+            pushDataToCloudKit()
+          }
+          break
+        }
+      }
+      
     }
+
   }
   
   @objc func closeKeyboard(){
@@ -316,6 +331,43 @@ class FormController: UIViewController{
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
     self.present(alert,animated: true)
+  }
+  
+  
+  @IBAction func emergencyAction(_ sender: Any) {
+    
+    let indexPath = IndexPath(row: 3, section: 0)
+    let cell = personalTableView.cellForRow(at: indexPath) as! LabelAndTextCell
+    
+    if emergencySwitch.isOn {
+      
+      patientEmergency = "1"
+  
+      //buat ngeset harinya jadi besok setelah hari ini.
+      let tommorow = Calendar.current.date(byAdding: .day, value: 1, to: now)
+      dateFormatter.dateFormat = "dd MMM yyyy"
+      
+      let tommorowString = dateFormatter.string(from: tommorow!)
+      let todayString = dateFormatter.string(from: now)
+      
+      cell.firstTextField.text = todayString
+      cell.firstTextField.isEnabled = false
+      patientDueDate = tommorowString
+      
+      checkValidity()
+      
+    }
+    else {
+      
+      patientEmergency = "0"
+      
+      cell.firstTextField.text = ""
+      cell.firstTextField.isEnabled = true
+      patientDueDate = nil
+      
+      checkValidity()
+      
+    }
   }
   
   @IBAction func unwindFromSearch(segue: UIStoryboardSegue){

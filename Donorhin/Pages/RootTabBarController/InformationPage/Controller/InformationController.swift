@@ -30,10 +30,15 @@ class InformationController : UIViewController {
             self.infoItems = infoItems
             }
         }
-        else if navigationBarTitle == "Info Pengguna Donorhin" {
+        else if navigationBarTitle == "Cara Penggunaan Donorhin" {
             InfoData().getInfoWithVideo { (infoItems) in
             self.infoItems = infoItems
             }
+        }
+        else if navigationBarTitle == "Unit Transfusi Darah" {
+          InfoData().getInfoUTD { (infoItems) in
+            self.infoItems = infoItems
+          }
         }
         loadTableView()
     }

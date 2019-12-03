@@ -24,6 +24,8 @@ class LabelAndTextCell: UITableViewCell, UITextFieldDelegate {
     var patientName: String?
     var patientHospital: String?
     var patientBloodType: String?
+  var patientDueDate: String?
+  var patientBloodAmount: String?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -64,6 +66,14 @@ class LabelAndTextCell: UITableViewCell, UITextFieldDelegate {
                     patientBloodType = textField.text
                     delegate?.getPatientBloodType(cell: self, answer: patientBloodType!)
                 }
+                else if personalTableViewRow == 3 {
+                  patientDueDate = textField.text
+                  delegate?.getPatientDueDate(cell: self, answer: patientDueDate!)
+              }
+                else if personalTableViewRow == 4 {
+                  patientBloodAmount = textField.text
+                  delegate?.getPatientBloodAmount(cell: self, answer: patientBloodAmount!)
+              }
             }
         }
     }
@@ -76,11 +86,10 @@ class LabelAndTextCell: UITableViewCell, UITextFieldDelegate {
 
 protocol FormAnswerDelegate {
     func didFilledFirstSection(cell: LabelAndTextCell, isFilled: Bool)
-    func didFilledSecondSection(cell: LongLabelAndTextCell, isFilled: Bool)
     func getPatientName(cell: LabelAndTextCell, answer: String)
     func getPatientHospital(cell: LabelAndTextCell, answer: String)
     func getPatientBloodType(cell: LabelAndTextCell, answer: String)
-    func getPatientDueDate(cell: LongLabelAndTextCell, answer: String)
-    func getPatientBloodAmount(cell: LongLabelAndTextCell, answer: String)
+    func getPatientDueDate(cell: LabelAndTextCell, answer: String)
+    func getPatientBloodAmount(cell: LabelAndTextCell, answer: String)
     func didBeginEditingHospitalRow(cell: LabelAndTextCell)
 }

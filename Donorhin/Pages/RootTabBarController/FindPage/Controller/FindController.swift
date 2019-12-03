@@ -28,6 +28,7 @@ class FindController: UIViewController {
   var bloodRequestHistory: [Donor]? //Contains history finding data
   var bloodRequestCurrent: [Donor?]? //Contains current finding data
   
+  
   var requestDelegate : ControlValidationViewDelegate?
   
   //declare var untuk didselect ke tracker
@@ -376,7 +377,7 @@ class FindController: UIViewController {
   func shrinkDate(_ date: Date) -> String{
     
     let dfPrint = DateFormatter()
-    dfPrint.dateFormat = "dd MMMM yyyy"
+    dfPrint.dateFormat = "dd MMM yyyy"
     
     return dfPrint.string(from: date)
   }
@@ -524,13 +525,7 @@ class FindController: UIViewController {
   
   // ini buat pencet segmented controller
   @IBAction func findBloodSegmentedControlDidChange() {
-    
-    if findBloodSegmentedControl.selectedSegmentIndex == 0 {
-      checkCurrentRequestData()
-    }
-    else if findBloodSegmentedControl.selectedSegmentIndex == 1 {
-      checkHistoryRequestData()
-    }
+    checkCurrentRequestData()
     tableView.reloadData()
   }
   
