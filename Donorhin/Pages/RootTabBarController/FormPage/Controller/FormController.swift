@@ -11,6 +11,7 @@ import CloudKit
 
 class FormController: UIViewController{
   
+  //MARK: - IBOutlets
   @IBOutlet weak var personalTableView: UITableView!
   @IBOutlet weak var emergencyLabel: UILabel!
   @IBOutlet weak var emergencySwitch: UISwitch!
@@ -18,6 +19,7 @@ class FormController: UIViewController{
   @IBOutlet weak var agreementSwitch: CheckBox!
   
   
+  //MARK: - global variables
   var formQuestionData : [FormQuestionNameModel]?
   var formPlaceholderData : [FormQuestionPlaceholderModel]?
   var formBloodType : [FormBloodTypeModel]?
@@ -42,10 +44,11 @@ class FormController: UIViewController{
   var patientDueDate: String?
   var patientBloodAmount: String?
   var patientEmergency: String = "0"
+  var currentPlace: String = UserDefaults.standard.value(forKey: "administrativeArea") as! String
   
+  //MARK: - view controller lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     setupUI()
     setNavBar()
     setupToolbar()
@@ -65,6 +68,26 @@ class FormController: UIViewController{
       self.formBloodType = formBloodType
     }
     
+  }
+  
+  //MARK: - send push notification
+  func sendNotification(_ message: String) {
+    let nspredicate = NSPredicate(format: "province = %@", argumentArray: [self.currentPlace])
+    let query = CKQuery(recordType: "Account", predicate: nspredicate)
+    Helper.getAllData(query) { (results) in
+      var tokens:[String] = []
+      if let results = results {
+        if results.count > 0 {
+          for item in results {
+            if let token = item.value(forKey: "device_token") as? String {
+              tokens.append(token)
+            }
+          }
+        }
+      }
+      
+      Service.sendNotification(message, tokens) // send notification to server
+    }
   }
   
   //MARK: - Setup UI
@@ -259,6 +282,7 @@ class FormController: UIViewController{
             self.createTrackerTable()
           }
           
+          self.sendNotification("Terdapat kebutuhan kantong darah \(self.patientBloodType!) untuk tanggal \(self.patientDueDateCast). Apakah Anda bersedia mendonor?")
       })
     }
 
