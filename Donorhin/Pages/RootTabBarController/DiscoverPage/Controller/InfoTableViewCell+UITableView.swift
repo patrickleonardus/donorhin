@@ -39,7 +39,7 @@ extension InfoTableViewCell: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            navigationBarTitle = "Info Pengguna Donorhin"
+            navigationBarTitle = "Cara Penggunaan Donorhin"
             delegate?.getNavigationTitle(cell: self, title: navigationBarTitle!)
         }
         else if indexPath.row == 1 {
@@ -51,7 +51,7 @@ extension InfoTableViewCell: UITableViewDelegate, UITableViewDataSource {
             delegate?.getNavigationTitle(cell: self, title: navigationBarTitle!)
         }
         else if indexPath.row == 3 {
-            navigationBarTitle = "Info Komunitas"
+            navigationBarTitle = "Unit Transfusi Darah"
             delegate?.getNavigationTitle(cell: self, title: navigationBarTitle!)
         }
         
