@@ -301,10 +301,15 @@ class FormController: UIViewController{
         break
       case .orderedDescending:
           pushDataToCloudKit()
-      
         break
       case .orderedSame :
-        errorAlert(title: "Perhatian", message: "Anda tidak dapat mencari kebutuhan darah di hari yang sama, anda dapat menyalakan tombol Kebutuhan Mendesak untuk dapat diprioritaskan")
+        
+        if patientEmergency == "0" {
+          errorAlert(title: "Perhatian", message: "Jika anda membutuhkan darah untuk hari ini, anda dapat menyalakan tombol Kebutuhan Mendesak untuk dapat diprioritaskan")
+        }
+        else if patientEmergency == "1" {
+          pushDataToCloudKit()
+        }
         break
       }
     }
@@ -330,12 +335,14 @@ class FormController: UIViewController{
       
       patientEmergency = "1"
   
+      //buat ngeset harinya jadi besok setelah hari ini.
       let tommorow = Calendar.current.date(byAdding: .day, value: 1, to: now)
       dateFormatter.dateFormat = "dd MMM yyyy"
       
       let tommorowString = dateFormatter.string(from: tommorow!)
+      let todayString = dateFormatter.string(from: now)
       
-      cell.firstTextField.text = tommorowString
+      cell.firstTextField.text = todayString
       cell.firstTextField.isEnabled = false
       patientDueDate = tommorowString
       
