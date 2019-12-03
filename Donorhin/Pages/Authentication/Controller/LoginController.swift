@@ -93,6 +93,19 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
             self.showSpinner(onView: self.view)
         }
         
+        if (emailCell.formTextField.text == "" || passCell.formTextField.text == ""){
+            DispatchQueue.main.async {
+                self.removeSpinner()
+                errorCell.errorMsg.isHidden = false
+                emailCell.shake()
+                passCell.shake()
+                emailCell.formTextField.redPlaceholder()
+                passCell.formTextField.redPlaceholder()
+                errorCell.errorMsg.text = "*Pastikan seluruh form telah terisi"
+            }
+        }
+        
+        else {
         DataFetcher().getUserDataByEmail(email: email, password:password){(userModel) in
             guard userModel != nil else {
                 DispatchQueue.main.async {
@@ -123,6 +136,7 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
                 errorCell.errorMsg.isHidden = true
                 self.navigationController?.navigationBar.isHidden = true
                 self.performSegue(withIdentifier: "goToHome", sender: self)
+                }
             }
         }
     }
@@ -189,9 +203,9 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
                           //tes dengan print ke terminal kalau gk kosong berhasil
                           print("\(locality), \(administrativeArea), \(country)")
                         //Saving to user defaults
-                        UserDefaults.standard.string(forKey: "locality")
-                        UserDefaults.standard.string(forKey: "administrativeArea")
-                        UserDefaults.standard.string(forKey: "country")
+                        UserDefaults.standard.set(locality, forKey: "locality")
+                        UserDefaults.standard.set(administrativeArea,forKey: "administrativeArea")
+                        UserDefaults.standard.set(country,forKey: "country")
                         package = ["location": location, "administrative_area": administrativeArea, "locality": locality]
 
                         // saving your CLLocation object to CloudKit
