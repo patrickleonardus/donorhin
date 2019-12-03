@@ -14,7 +14,8 @@ class SecondCell: UITableViewCell {
     @IBOutlet weak var backgroundViewCell: UIView!
     @IBOutlet weak var imageCell: UIImageView!
     @IBOutlet weak var textCell: UILabel!
-
+    @IBOutlet weak var profileTextField: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

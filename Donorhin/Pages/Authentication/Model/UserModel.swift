@@ -31,6 +31,7 @@ class DataFetcher {
                 if results?.count != 0{
                     for record in results!{
                         UserDefaults.standard.set(record.recordID.recordName, forKey: "currentUser") //save record name to user default
+                      UserDefaults.standard.set(record.value(forKey: "province"), forKey: "administrativeArea")
                         data = record
                     }
                   

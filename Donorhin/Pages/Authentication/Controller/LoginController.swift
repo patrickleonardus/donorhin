@@ -189,9 +189,9 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
                           //tes dengan print ke terminal kalau gk kosong berhasil
                           print("\(locality), \(administrativeArea), \(country)")
                         //Saving to user defaults
-                        UserDefaults.standard.string(forKey: "locality")
-                        UserDefaults.standard.string(forKey: "administrativeArea")
-                        UserDefaults.standard.string(forKey: "country")
+                        UserDefaults.standard.set(locality, forKey: "locality")
+                        UserDefaults.standard.set(administrativeArea,forKey: "administrativeArea")
+                        UserDefaults.standard.set(country,forKey: "country")
                         package = ["location": location, "administrative_area": administrativeArea, "locality": locality]
 
                         // saving your CLLocation object to CloudKit

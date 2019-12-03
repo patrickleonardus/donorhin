@@ -82,25 +82,24 @@
                                                                 <constraint firstAttribute="height" constant="28" id="sEX-6B-9o5"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBB-tY-BVH">
-                                                            <rect key="frame" x="59" y="12" width="307" height="18"/>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DA0-FY-Y7e">
+                                                            <rect key="frame" x="59" y="8" width="307" height="26"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="307" id="HQ6-iZ-32L"/>
+                                                                <constraint firstAttribute="width" constant="307" id="FDe-gH-SI4"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="FBB-tY-BVH" firstAttribute="top" secondItem="GE8-Wy-g14" secondAttribute="top" constant="12" id="9uU-rY-dhg"/>
                                                         <constraint firstAttribute="height" constant="44" id="AfG-e6-yd8"/>
-                                                        <constraint firstAttribute="trailing" secondItem="FBB-tY-BVH" secondAttribute="trailing" constant="8" id="MX7-ce-20c"/>
+                                                        <constraint firstItem="DA0-FY-Y7e" firstAttribute="centerY" secondItem="GE8-Wy-g14" secondAttribute="centerY" id="E5f-g1-ODC"/>
+                                                        <constraint firstItem="DA0-FY-Y7e" firstAttribute="top" secondItem="GE8-Wy-g14" secondAttribute="top" constant="8" id="M9n-Qh-Tmh"/>
                                                         <constraint firstItem="oEl-ve-Cey" firstAttribute="leading" secondItem="GE8-Wy-g14" secondAttribute="leading" constant="8" id="Mer-gw-bja"/>
-                                                        <constraint firstItem="FBB-tY-BVH" firstAttribute="leading" secondItem="oEl-ve-Cey" secondAttribute="trailing" constant="8" id="RCM-3k-RCU"/>
                                                         <constraint firstItem="oEl-ve-Cey" firstAttribute="centerY" secondItem="GE8-Wy-g14" secondAttribute="centerY" id="UWt-7E-859"/>
-                                                        <constraint firstItem="FBB-tY-BVH" firstAttribute="centerY" secondItem="GE8-Wy-g14" secondAttribute="centerY" id="WPk-V4-RIO"/>
+                                                        <constraint firstAttribute="trailing" secondItem="DA0-FY-Y7e" secondAttribute="trailing" constant="8" id="oJJ-14-YQF"/>
+                                                        <constraint firstItem="DA0-FY-Y7e" firstAttribute="leading" secondItem="oEl-ve-Cey" secondAttribute="trailing" constant="8" id="pem-FZ-jRc"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -114,7 +113,7 @@
                                         <connections>
                                             <outlet property="backgroundViewCell" destination="GE8-Wy-g14" id="ljs-mh-Hwl"/>
                                             <outlet property="imageCell" destination="oEl-ve-Cey" id="1LX-Qc-C2G"/>
-                                            <outlet property="textCell" destination="FBB-tY-BVH" id="Xhc-WT-QYd"/>
+                                            <outlet property="profileTextField" destination="DA0-FY-Y7e" id="yyV-qf-kLy"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="thirdCell" rowHeight="73" id="cVE-mQ-8bc" customClass="ThirdCell" customModule="Donorhin" customModuleProvider="target">
