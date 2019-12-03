@@ -36,9 +36,14 @@ struct InfoData {
     }
     func getInfoSyaratPendonor(completionHandler: @escaping (([InfoItems]) -> ())){
         completionHandler(
-            [InfoItems(title: "Syarat Pendonor", longText: "Umur 17-60 tahun\nBerat badan minimum 45 kg\nTemperatur tubuh: 36,6 - 37,5°C\nTekanan darah baik yaitu\n- sistole = 110-160 mmHg\n- diastole = 70-100 mmHg\nDenyut nadi teratur sekitar 50-100 kali/menit\nHemoglobin baik pria maupun perempuan\nminimal 12,5 g\nSetahun maksimal 5x donor dengan jarak\n penyumbang minimal 2,5 bulan", videoURL: "", type: .text),
-             InfoItems(title: "Kriteria Tidak Boleh Mendonor", longText: "Wanita hamil & menyusui\nMenderita sakit jantung/paru\nMenderita kanker\nMenderita tekanan darah tinggi (hipertensi)\nMenderita kencing manis (diaberes melitus)\nKelainan darah/perdarahan abnormal\nMenderita atau ada riwayat hepatitis B/C\nKetergantungan narkoba/alkohol\nMengidap/berisiko tinggi sifilis & HIV/AIDS", videoURL: "", type: .text)
+            [InfoItems(title: "Syarat Pendonor", longText: "• Umur 17-60 tahun\n• Berat badan minimum 45 kg\n•Temperatur tubuh: 36,6 - 37,5°C\n• Tekanan darah baik yaitu\n- sistole = 110-160 mmHg\n- diastole = 70-100 mmHg\n• Denyut nadi teratur sekitar 50-100 kali/menit\n• Hemoglobin baik pria maupun perempuan\n• minimal 12,5 g\n• Setahun maksimal 5x donor dengan jarak\n penyumbang minimal 2,5 bulan", videoURL: "", type: .text),
+             InfoItems(title: "Kriteria Tidak Boleh Mendonor", longText: "• Wanita hamil & menyusui\n• Menderita sakit jantung/paru\n• Menderita kanker\n• Menderita tekanan darah tinggi (hipertensi)\n• Menderita kencing manis (diaberes melitus)\n• Kelainan darah/perdarahan abnormal\n• Menderita atau ada riwayat hepatitis B/C\n• Ketergantungan narkoba/alkohol\n• Mengidap/berisiko tinggi sifilis & HIV/AIDS", videoURL: "", type: .text)
         ])
     }
+  func getInfoUTD(completionHandler: @escaping (([InfoItems]) -> ())){
+    completionHandler(
+      [InfoItems(title: "Penjelasan UTD", longText: "Unit Transfusi Darah (UTD) adalah fasilitas pelayanan kesehatan yang menyelenggarakan donor darah, penyediaan darah, dan pendistribusian darah." , videoURL: "", type: .text)]
+    )
+  }
     
 }

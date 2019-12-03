@@ -106,10 +106,8 @@
 		E62918FC237EBBF600E8D559 /* FormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62918FB237EBBF600E8D559 /* FormController.swift */; };
 		E62918FE237EC54500E8D559 /* LabelAndTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62918FD237EC54500E8D559 /* LabelAndTextCell.swift */; };
 		E6291900237EC9E400E8D559 /* FormController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62918FF237EC9E400E8D559 /* FormController+UITableView.swift */; };
-		E6291902237ED10800E8D559 /* LabelAndSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6291901237ED10800E8D559 /* LabelAndSwitchCell.swift */; };
 		E6291905237F102000E8D559 /* FormQuestionNameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6291904237F102000E8D559 /* FormQuestionNameModel.swift */; };
 		E6291907237FCCEC00E8D559 /* FormController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6291906237FCCEC00E8D559 /* FormController+Delegate.swift */; };
-		E629190B2380414B00E8D559 /* LongLabelAndTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E629190A2380414B00E8D559 /* LongLabelAndTextCell.swift */; };
 		E629190D2380593D00E8D559 /* FindController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E629190C2380593D00E8D559 /* FindController+Delegate.swift */; };
 		E629190F23805E2500E8D559 /* FormController+UIPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E629190E23805E2500E8D559 /* FormController+UIPickerView.swift */; };
 		E6AC8D43237B29DF00820100 /* TrackerController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D3A237B29DF00820100 /* TrackerController+UITableView.swift */; };
@@ -279,10 +277,8 @@
 		E62918FB237EBBF600E8D559 /* FormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormController.swift; sourceTree = "<group>"; };
 		E62918FD237EC54500E8D559 /* LabelAndTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelAndTextCell.swift; sourceTree = "<group>"; };
 		E62918FF237EC9E400E8D559 /* FormController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FormController+UITableView.swift"; sourceTree = "<group>"; };
-		E6291901237ED10800E8D559 /* LabelAndSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelAndSwitchCell.swift; sourceTree = "<group>"; };
 		E6291904237F102000E8D559 /* FormQuestionNameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormQuestionNameModel.swift; sourceTree = "<group>"; };
 		E6291906237FCCEC00E8D559 /* FormController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FormController+Delegate.swift"; sourceTree = "<group>"; };
-		E629190A2380414B00E8D559 /* LongLabelAndTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongLabelAndTextCell.swift; sourceTree = "<group>"; };
 		E629190C2380593D00E8D559 /* FindController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FindController+Delegate.swift"; sourceTree = "<group>"; };
 		E629190E23805E2500E8D559 /* FormController+UIPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FormController+UIPickerView.swift"; sourceTree = "<group>"; };
 		E6AC8D3A237B29DF00820100 /* TrackerController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController+UITableView.swift"; sourceTree = "<group>"; };
@@ -758,8 +754,6 @@
 			isa = PBXGroup;
 			children = (
 				E62918FD237EC54500E8D559 /* LabelAndTextCell.swift */,
-				E6291901237ED10800E8D559 /* LabelAndSwitchCell.swift */,
-				E629190A2380414B00E8D559 /* LongLabelAndTextCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1366,7 +1360,6 @@
 				E62918ED237CFC0F00E8D559 /* CheckBox.swift in Sources */,
 				E607AAF3238461CC00214A90 /* HospitalController.swift in Sources */,
 				CCAAE4FD237C205900BEFB44 /* FourthStepRequestViewController.swift in Sources */,
-				E629190B2380414B00E8D559 /* LongLabelAndTextCell.swift in Sources */,
 				CC922ED62381633400044B24 /* SecondStepRVC + Delegates.swift in Sources */,
 				CC654064238193B8005BE635 /* UIDatePicker + Styling.swift in Sources */,
 				E607AAEC23845F1800214A90 /* DetailEventController+UITableView.swift in Sources */,
@@ -1375,7 +1368,6 @@
 				E62918F3237E43C300E8D559 /* AddEventController+UIImagePickerDelegate.swift in Sources */,
 				E6D0748B237BE7CB00CF5531 /* AddEventController.swift in Sources */,
 				B0B16894237D62ED001DCE3C /* RegisterController+UITableView.swift in Sources */,
-				E6291902237ED10800E8D559 /* LabelAndSwitchCell.swift in Sources */,
 				CC7A28B0238BD2DF005C0BDC /* String + Time Removal.swift in Sources */,
 				CCAAE501237C205900BEFB44 /* SecondStepRequestViewController.swift in Sources */,
 				E607AAE62384062C00214A90 /* ThirdEventCell.swift in Sources */,

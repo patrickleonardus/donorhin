@@ -27,9 +27,8 @@ struct FormQuestionData {
             [FormQuestionNameModel(questionName: "Nama Pasien"),
              FormQuestionNameModel(questionName: "UTD Pasien"),
              FormQuestionNameModel(questionName: "Golongan Darah"),
-             FormQuestionNameModel(questionName: "Butuh Emergency (Darurat)"),
-             FormQuestionNameModel(questionName: "Tanggal Kebutuhan Darah"),
-             FormQuestionNameModel(questionName: "Jumlah Kantung Darah")]
+             FormQuestionNameModel(questionName: "Tanggal Kebutuhan"),
+             FormQuestionNameModel(questionName: "Jumlah Kantung")]
         )
     }
     

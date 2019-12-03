@@ -161,10 +161,7 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
            }
            let recordId = CKRecord.ID(recordName: recordName)
            
-           let package : [String:CLLocation] = ["location": location]
-           
-           // saving your CLLocation object to CloudKit
-           Helper.updateToDatabase(keyValuePair: package, recordID: recordId)
+           var package : [String:Any]=[:]
            
            // saving to UserDefaults dalam bentuk NSData
            let locationData = NSKeyedArchiver.archivedData(withRootObject: location)
@@ -195,10 +192,16 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
                         UserDefaults.standard.string(forKey: "locality")
                         UserDefaults.standard.string(forKey: "administrativeArea")
                         UserDefaults.standard.string(forKey: "country")
+                        package = ["location": location, "administrative_area": administrativeArea, "locality": locality]
+
+                        // saving your CLLocation object to CloudKit
+                        Helper.updateToDatabase(keyValuePair: package, recordID: recordId)
                       }
                     }
                   }
                 }
+
+                
            }
         }
     }
