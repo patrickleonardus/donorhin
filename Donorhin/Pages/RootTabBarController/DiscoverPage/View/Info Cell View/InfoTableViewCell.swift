@@ -24,6 +24,8 @@ class InfoTableViewCell: UITableViewCell {
         DummyDataForInfo().getInfoData { (infoData) in
             self.infoData = infoData
         }
+      
+      tableViewInfo.tableFooterView = UIView()
         
     }
 

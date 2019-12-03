@@ -33,6 +33,10 @@ extension InfoTableViewCell: UITableViewDelegate, UITableViewDataSource {
         cell.imageInfo.image = UIImage(named: data.image!)
         cell.titleInfo.text = data.title
         cell.detailInfo.text = data.description
+      
+      if indexPath.row == 4 {
+        cell.separatorInset = UIEdgeInsets(top: 0, left: cell.bounds.size.width, bottom: 0, right: 0)
+      }
         
         return cell
     }

@@ -155,7 +155,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="klD-2R-tUN">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="462"/>
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="457"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <prototypes>
                                                         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="infoInsideCell" rowHeight="85" id="BFY-u6-gw0" customClass="InfoInsideTableViewCell" customModule="Donorhin" customModuleProvider="target">
@@ -211,8 +211,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="klD-2R-tUN" firstAttribute="leading" secondItem="GTp-Cx-LCi" secondAttribute="leading" constant="20" id="8FV-u6-8Cz"/>
-                                                <constraint firstAttribute="bottom" secondItem="klD-2R-tUN" secondAttribute="bottom" constant="5" id="DMl-fE-iim"/>
                                                 <constraint firstAttribute="trailing" secondItem="klD-2R-tUN" secondAttribute="trailing" constant="20" id="I8V-xO-ABp"/>
+                                                <constraint firstAttribute="bottom" secondItem="klD-2R-tUN" secondAttribute="bottom" constant="10" id="MhK-ow-KGK"/>
                                                 <constraint firstItem="klD-2R-tUN" firstAttribute="top" secondItem="GTp-Cx-LCi" secondAttribute="top" id="yhs-Eb-1PA"/>
                                             </constraints>
                                         </tableViewCellContentView>
