@@ -403,7 +403,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0RL-gq-GwJ">
                                                 <rect key="frame" x="100" y="0.0" width="314" height="100"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="241" verticalCompressionResistancePriority="742" placeholderIntrinsicWidth="264" placeholderIntrinsicHeight="72" text="Pendonor Anda akan ditemukan dengan Donorhin" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="erv-Up-0EY">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="241" verticalCompressionResistancePriority="742" placeholderIntrinsicWidth="264" placeholderIntrinsicHeight="72" text="Pendonor Anda akan ditemukan di Donorhin" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="erv-Up-0EY">
                                                         <rect key="frame" x="40" y="14" width="234" height="72"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <nil key="textColor"/>
