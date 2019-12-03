@@ -8,7 +8,7 @@
 
 import UIKit
 import CloudKit
-class RegisterDetailController : UIViewController{
+class RegisterDetailController : UIViewController {
     var navigationBarTitle : String?
     var formItems: [FormItems]?
     var userCredentials:[String:String] = [:]

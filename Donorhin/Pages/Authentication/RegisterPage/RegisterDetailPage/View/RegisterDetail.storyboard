@@ -34,6 +34,7 @@
                         <outlet property="formTableView" destination="6XM-H8-YHl" id="sU8-t9-ANc"/>
                         <segue destination="15c-eT-ang" kind="show" identifier="goToHome" id="6Jq-67-UOh"/>
                         <segue destination="TQ4-Sb-h7F" kind="show" identifier="GoToAgreement" id="Cia-bB-EXb"/>
+                        <segue destination="11K-S8-I7F" kind="show" identifier="goToAuth" id="AsX-E4-NSJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qhi-lR-hwM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -59,6 +60,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yEb-bq-p9K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="757" y="161"/>
+        </scene>
+        <!--Authentication-->
+        <scene sceneID="x5O-t4-OVN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Authentication" id="11K-S8-I7F" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="mCm-k7-KzO"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4a6-r3-HNt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="755" y="289"/>
         </scene>
     </scenes>
 </document>

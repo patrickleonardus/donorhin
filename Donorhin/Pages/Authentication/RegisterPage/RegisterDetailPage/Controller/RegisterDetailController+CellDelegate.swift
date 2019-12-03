@@ -49,6 +49,14 @@ extension RegisterDetailController : FormCellDelegate {
         self.formTableView.scrollIndicatorInsets = contentInsets
     }
     
+    func showErrorAlert(){
+        let alert = UIAlertController(title: "Gagal Masuk Ke Akun", message: "Harap mengecek jaringan anda dan coba beberapa saat lagi", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Oke", style: UIAlertAction.Style.default) { UIAlertAction in
+            self.performSegue(withIdentifier: "goToAuth", sender: self)
+           })
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func buttonDidTap() {
       guard
       let fullNameCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FormTableViewCell,
@@ -84,19 +92,25 @@ extension RegisterDetailController : FormCellDelegate {
               Helper.saveData(record) {[weak self] (isSuccess) in
                 if isSuccess {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3){
-                    DataFetcher().getUserDataByEmail(email: self!.userCredentials["email"]!, password: self!.userCredentials["password"]!){(userModel) in
-                        if userModel != nil {
-                            DispatchQueue.main.async {
-                            print("Processing...")
-                            LoginController().checkLocation()
-                            self?.saveToUserDefaults(userModel: userModel)
-                            print("Data saved to user default...")
-                            self?.performSegue(withIdentifier: "goToHome", sender: self)
+                        DispatchQueue.main.async {
+                            DataFetcher().getUserDataByEmail(email: (self?.userCredentials["email"]!)!, password: (self?.userCredentials["password"]!)!){(userModel) in
+                            if userModel != nil {
+                                DispatchQueue.main.async {
+                                print("Processing...")
+                                LoginController().checkLocation()
+                                self?.saveToUserDefaults(userModel: userModel)
+                                print("Data saved to user default...")
+                                self?.performSegue(withIdentifier: "goToHome", sender: self)
+                                }
                             }
-                        }
-                        else{
-                            print("Error")
-                        }
+                            else{
+                                DispatchQueue.main.async {
+                                self?.removeSpinner()
+                                self?.showErrorAlert()
+                                print("Error")
+                                }
+                            }
+                            }
                         }
                     }
               }
