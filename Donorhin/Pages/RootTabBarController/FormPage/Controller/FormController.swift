@@ -278,41 +278,49 @@ class FormController: UIViewController{
   
   @objc func submitAction(){
     
-    if !agreementSwitch.isChecked {
-      errorAlert(title: "Peringatan", message: "Anda harus mengajukan surat permintaan darah ke PMI sebelum melakukan pencarian darah")
+    if patientBloodAmount == "0"{
+      errorAlert(title: "Kesalahan Input", message: "Silahkan periksa kembali jumlah kantung darah yang anda butuhkan")
     }
+    else {
       
-    else if agreementSwitch.isChecked {
-      
-      // casting blood amount
-      castingPatientBlood()
-      
-      // casting isEmergency
-      castingPatientEmergency()
-      
-      // casting date to timestamp
-      castToDate()
-      
-      let order = Calendar.current.compare(patientDueDateCast, to: now, toGranularity: .day)
-      
-      switch order {
-      case .orderedAscending :
-        errorAlert(title: "Salah Tanggal", message: "Tanggal kebutuhan darah yang anda masukan sudah lewat dari tanggal sekarang, periksa kembali tanggal kebutuhan yang anda isi")
-        break
-      case .orderedDescending:
-          pushDataToCloudKit()
-        break
-      case .orderedSame :
-        
-        if patientEmergency == "0" {
-          errorAlert(title: "Perhatian", message: "Jika anda membutuhkan darah untuk hari ini, anda dapat menyalakan tombol Kebutuhan Mendesak untuk dapat diprioritaskan")
-        }
-        else if patientEmergency == "1" {
-          pushDataToCloudKit()
-        }
-        break
+      if !agreementSwitch.isChecked {
+        errorAlert(title: "Peringatan", message: "Anda harus mengajukan surat permintaan darah ke PMI sebelum melakukan pencarian darah")
       }
+        
+      else if agreementSwitch.isChecked {
+        
+        // casting blood amount
+        castingPatientBlood()
+        
+        // casting isEmergency
+        castingPatientEmergency()
+        
+        // casting date to timestamp
+        castToDate()
+        
+        let order = Calendar.current.compare(patientDueDateCast, to: now, toGranularity: .day)
+        
+        switch order {
+        case .orderedAscending :
+          errorAlert(title: "Salah Tanggal", message: "Tanggal kebutuhan darah yang anda masukan sudah lewat dari tanggal sekarang, periksa kembali tanggal kebutuhan yang anda isi")
+          break
+        case .orderedDescending:
+          pushDataToCloudKit()
+          break
+        case .orderedSame :
+          
+          if patientEmergency == "0" {
+            errorAlert(title: "Perhatian", message: "Jika anda membutuhkan darah untuk hari ini, anda dapat menyalakan tombol Kebutuhan Mendesak untuk dapat diprioritaskan")
+          }
+          else if patientEmergency == "1" {
+            pushDataToCloudKit()
+          }
+          break
+        }
+      }
+      
     }
+
   }
   
   @objc func closeKeyboard(){
