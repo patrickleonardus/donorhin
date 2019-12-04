@@ -9,24 +9,27 @@
 import UIKit
 import CloudKit
 class DonateController: UIViewController {
-   //MARK:-  Variables
-   @IBOutlet weak var switchButtonStatusDonor: UISwitch!
-   @IBOutlet weak var historyDonorSegmentedControl: UISegmentedControl!
-   @IBOutlet weak var tableview: UITableView!
-   @IBOutlet weak var coverView: CustomMainView!
-   final private let cellReuseIdentifier = "DonateCell"
-   var listRequest = [CKRecord]()
-   var selectedData: TrackerModel?
-   var statusDonor = false
-   var segmented: History {
-      if historyDonorSegmentedControl.selectedSegmentIndex == 0 {
-         return .active
-      } else {
-         return.history
-      }
-   }
-   var profileImage = UIImageView()
-   var confirmButton = UIBarButtonItem()
+  //MARK:-  IBOutlets
+  @IBOutlet weak var switchButtonStatusDonor: UISwitch!
+  @IBOutlet weak var historyDonorSegmentedControl: UISegmentedControl!
+  @IBOutlet weak var tableview: UITableView!
+  @IBOutlet weak var coverView: CustomMainView!
+  
+  //MARK: - Variables
+  final private let cellReuseIdentifier = "DonateCell"
+  var listRequest = [CKRecord]()
+  var selectedData: TrackerModel?
+  var statusDonor = false
+  var segmented: History {
+    if historyDonorSegmentedControl.selectedSegmentIndex == 0 {
+       return .active
+    } else {
+       return .history
+    }
+  }
+  var profileImage = UIImageView()
+  var confirmButton = UIBarButtonItem()
+  let currentUser = UserDefaults.standard.value(forKey: "currentUser") as! String
    
    //MARK:- view handler
    override func viewDidLoad() {
@@ -59,20 +62,21 @@ class DonateController: UIViewController {
       }
    }
    
-   //MARK:- Get data from database
-   private func getData() {
-      let query = CKQuery(recordType: "Tracker", predicate: NSPredicate(value: true))
-      Helper.getAllData(query) { (results) in
-         if let results = results {
-            DispatchQueue.main.async {
-               self.listRequest = results
-               self.checkCountListData()
-               self.tableview.reloadData()
-               self.removeSpinner()
-            }
-         }
-      }
-   }
+  //MARK:- Get data from database
+  private func getData() {
+    let nspredicate = NSPredicate(format: "idPendonor == %@", [self.currentUser])
+    let query = CKQuery(recordType: "Tracker", predicate: nspredicate)
+    Helper.getAllData(query) { (results) in
+       if let results = results {
+          DispatchQueue.main.async {
+             self.listRequest = results
+             self.checkCountListData()
+             self.tableview.reloadData()
+             self.removeSpinner()
+          }
+       }
+    }
+  }
    
    private func checkStatusDonor() {
       if !self.statusDonor {

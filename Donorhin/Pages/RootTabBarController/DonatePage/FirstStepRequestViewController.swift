@@ -15,8 +15,6 @@ class FirstStepRequestViewController: DonateStepViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.request = RequestModel(idRequest: CKRecord.ID(recordName: "j232g432gui"), patientName: "Permintaan 1", bloodTypePatient: .a, amount: 1, dateNeed: Date(), isEmergency: false, idUTDPatient: CKRecord.ID(recordName: "jkhasdie23213"), idUser: CKRecord.ID(recordName: "jkhasdhweiuyrwerke"))
-    self.descriptionLabel.text = "Terdapat kebutuhan kantong darah untuk tanggal \(self.request.dateNeed.dateToString()). Apakah Anda siap mendonor?"
   }
    
    
