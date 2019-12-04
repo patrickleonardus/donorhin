@@ -245,11 +245,20 @@
                         <segue destination="xC0-Wj-Dk2" kind="presentation" identifier="MoveToAdd" id="UyG-fj-k8L"/>
                         <segue destination="rXk-kw-fOp" kind="show" identifier="MoveToInformation" id="Zmn-kk-mgg"/>
                         <segue destination="Vk0-J6-M4L" kind="show" identifier="MoveToDetailEvent" id="ifS-ao-ppl"/>
+                        <segue destination="Bk9-SY-NyQ" kind="presentation" identifier="moveToLoginFormDiscover" id="eBF-Of-g7O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VxP-oX-IJv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="857.97101449275374" y="602.67857142857144"/>
+        </scene>
+        <!--Authentication-->
+        <scene sceneID="fHr-v7-dFr">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Authentication" id="Bk9-SY-NyQ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7bV-an-b2H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1348" y="470"/>
         </scene>
         <!--DetailEvent-->
         <scene sceneID="aU3-o6-HHK">

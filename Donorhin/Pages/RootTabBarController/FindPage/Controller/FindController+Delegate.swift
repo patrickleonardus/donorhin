@@ -16,7 +16,7 @@ extension FindController : ControlValidationViewDelegate {
   
 }
 
-extension FindController : MoveToLogin {
+extension FindController : MoveToLoginFromFind {
   
   func performLogin() {
     self.performSegue(withIdentifier: "MoveToLogin", sender: self)

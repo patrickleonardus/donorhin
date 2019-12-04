@@ -16,10 +16,19 @@ class AgreementViewController: UIViewController {
     super.viewDidLoad()
     self.title = "Persetujuan penggunaan aplikasi"
     
+    let done = UIBarButtonItem(title: "Selesai", style: .done, target: self, action: #selector(doneAction))
+    
+    navigationItem.leftBarButtonItem = done
+    
     tableView.delegate = self
     tableView.dataSource = self
     tableView.backgroundColor = UIColor.clear
   }
+  
+  @objc func doneAction(){
+    dismiss(animated: true, completion: nil)
+  }
+  
 }
 
 extension AgreementViewController: UITableViewDelegate, UITableViewDataSource {
@@ -34,20 +43,6 @@ extension AgreementViewController: UITableViewDelegate, UITableViewDataSource {
     return headerView
   }
   
-  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    
-    var title  = ""
-    
-    if section == 1 {
-      title = ""
-    }
-    else if section == 2 {
-      title = ""
-    }
-    
-    return title
-  }
-  
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     
     var height : CGFloat = 0
@@ -56,10 +51,10 @@ extension AgreementViewController: UITableViewDelegate, UITableViewDataSource {
         height = 250
     }
     else if indexPath.section == 1 {
-        height = 340
+        height = 380
     }
     else if indexPath.section == 2 {
-        height = 150
+        height = 250
     }
     return height
   }
@@ -98,6 +93,8 @@ extension AgreementViewController: UITableViewDelegate, UITableViewDataSource {
       cell.backgroundColor = UIColor.white
       cell.layer.cornerRadius = 10
       
+      cell.titleText.text = "Akun Pengguna"
+      
       let string = "Data pengguna tidak dapat dilihat oleh  resipien (pencari donor) atau pendonor  (donatur darah). Hal ini dilakukan untuk menjaga privasi pengguna serta meminimalisir penjualan darah. Proses  verifikasi kebutuhan darah resipien dilakukan oleh pendonor dengan menanyakan PMI dimana resipien memberikan surat.  Resipien perlu untuk memberikan surat  keterangan butuh darah ke PMI agar proses  verifikasi oleh pendonor berhasil."
       
       let attrString = NSMutableAttributedString(string: string)
@@ -110,6 +107,8 @@ extension AgreementViewController: UITableViewDelegate, UITableViewDataSource {
     }
     else if indexPath.section == 2 {
       let cell = tableView.dequeueReusableCell(withIdentifier: "thirdTableViewCell") as! SecondTableViewCell
+      
+      cell.titleText.text = "Lokasi"
       
       let string = "Selalu menghidupkan lokasi untuk aplikasi Donorhin perlu dilakukan karena Donorhin membutuhkan hal tersebut pada saat pencarian donor terdekat."
       

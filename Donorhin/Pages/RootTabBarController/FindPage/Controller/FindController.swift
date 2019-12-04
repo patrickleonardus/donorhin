@@ -516,7 +516,7 @@ class FindController: UIViewController {
   @objc private func profileButton(){
     let storyboard = UIStoryboard(name: "Profile", bundle: nil)
     let vc = storyboard.instantiateViewController(withIdentifier: "profileStoryboard") as! ProfileController
-    vc.delegate = self
+    vc.findDelegate = self
     let navBarOnModal: UINavigationController = UINavigationController(rootViewController: vc)
     self.present(navBarOnModal, animated: true, completion: nil)
   }
@@ -554,6 +554,14 @@ protocol ControlValidationViewDelegate {
   func didRequestData()
 }
 
-protocol MoveToLogin {
+protocol MoveToLoginFromFind {
+  func performLogin()
+}
+
+protocol MoveToLoginFromDonate {
+  func performLogin()
+}
+
+protocol MoveToLoginFromDiscover {
   func performLogin()
 }

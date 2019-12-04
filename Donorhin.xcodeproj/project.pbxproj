@@ -112,6 +112,7 @@
 		E629190F23805E2500E8D559 /* FormController+UIPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E629190E23805E2500E8D559 /* FormController+UIPickerView.swift */; };
 		E63A1D782397931800809607 /* FirstTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63A1D772397931800809607 /* FirstTableViewCell.swift */; };
 		E63A1D7A2397932C00809607 /* SecondTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63A1D792397932C00809607 /* SecondTableViewCell.swift */; };
+		E63A1D7C2397CF1500809607 /* DonateController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63A1D7B2397CF1500809607 /* DonateController+Delegate.swift */; };
 		E6AC8D43237B29DF00820100 /* TrackerController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D3A237B29DF00820100 /* TrackerController+UITableView.swift */; };
 		E6AC8D44237B29DF00820100 /* TrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D3B237B29DF00820100 /* TrackerController.swift */; };
 		E6AC8D45237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D3C237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift */; };
@@ -285,6 +286,7 @@
 		E629190E23805E2500E8D559 /* FormController+UIPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FormController+UIPickerView.swift"; sourceTree = "<group>"; };
 		E63A1D772397931800809607 /* FirstTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTableViewCell.swift; sourceTree = "<group>"; };
 		E63A1D792397932C00809607 /* SecondTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTableViewCell.swift; sourceTree = "<group>"; };
+		E63A1D7B2397CF1500809607 /* DonateController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DonateController+Delegate.swift"; sourceTree = "<group>"; };
 		E6AC8D3A237B29DF00820100 /* TrackerController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController+UITableView.swift"; sourceTree = "<group>"; };
 		E6AC8D3B237B29DF00820100 /* TrackerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerController.swift; sourceTree = "<group>"; };
 		E6AC8D3C237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController + TrackerCellDelegate.swift"; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 			children = (
 				E6FBB1B023718FDF00B1B4DE /* DonateController.swift */,
 				E6BA6E48237B23040017A330 /* DonateStepsViewController.swift */,
+				E63A1D7B2397CF1500809607 /* DonateController+Delegate.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1291,6 +1294,7 @@
 				E63A1D7A2397932C00809607 /* SecondTableViewCell.swift in Sources */,
 				E6BA6E39237B1E080017A330 /* EventTableViewCell+UICollectionView.swift in Sources */,
 				098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */,
+				E63A1D7C2397CF1500809607 /* DonateController+Delegate.swift in Sources */,
 				B0B16882237D3E61001DCE3C /* FormTableViewCell.swift in Sources */,
 				AB7357962374313500A6099B /* FirstCell.swift in Sources */,
 				AB498AC5237D73E7006CDA7A /* Page2OnboardViewController.swift in Sources */,

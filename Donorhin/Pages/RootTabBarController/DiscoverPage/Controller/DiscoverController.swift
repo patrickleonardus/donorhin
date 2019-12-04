@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 
-class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, NavigationBarTitleDelegate{
+class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, NavigationBarTitleDelegate, MoveToLoginFromDiscover{
   
     @IBOutlet weak var tableViewDiscover: UITableView!
     
@@ -111,6 +111,7 @@ class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, N
     @objc private func profileButton(){
         let storyboard = UIStoryboard(name: "Profile", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "profileStoryboard") as! ProfileController
+      vc.discoverDelegate = self
         let navBarOnModal: UINavigationController = UINavigationController(rootViewController: vc)
         self.present(navBarOnModal, animated: true, completion: nil)
     }
@@ -131,6 +132,10 @@ class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, N
         
         self.performSegue(withIdentifier: "MoveToDetailEvent", sender: self)
     }
+  
+  func performLogin() {
+    performSegue(withIdentifier: "moveToLoginFormDiscover", sender: self)
+  }
     
     func getNavigationTitle(cell: InfoTableViewCell, title: String) {
         self.navigationBarTitle = title

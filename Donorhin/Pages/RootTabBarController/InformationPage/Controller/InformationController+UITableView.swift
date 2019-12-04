@@ -26,7 +26,17 @@ extension InformationController : UITableViewDataSource {
   }
   
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 385
+      
+      var height : CGFloat = 0
+      
+      if indexPath.section == 0 {
+        height = 200
+      }
+      else {
+        height = 400
+      }
+      
+      return height
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

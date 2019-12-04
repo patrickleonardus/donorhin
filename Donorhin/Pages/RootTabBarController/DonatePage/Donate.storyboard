@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nxa-dh-GSn">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nxa-dh-GSn">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -120,6 +122,7 @@
                         <outlet property="switchButtonStatusDonor" destination="xTx-fo-hKC" id="W6Z-sl-Xqt"/>
                         <outlet property="tableview" destination="eFu-Dz-OJB" id="3He-aD-J6E"/>
                         <segue destination="R2N-Ct-Ikm" kind="show" identifier="GoToStep" id="3lj-Te-yRC"/>
+                        <segue destination="dWX-4E-7Fg" kind="presentation" identifier="moveToLoginFromDonate" id="jFc-5u-XN0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fwf-e6-5KF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -219,6 +222,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qHc-0o-4Rf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="966.66666666666674" y="602.67857142857144"/>
+        </scene>
+        <!--Authentication-->
+        <scene sceneID="mWD-pk-bDF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Authentication" id="dWX-4E-7Fg" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xTe-MF-8Mj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2479" y="256"/>
         </scene>
         <!--RequestStepsPageViewController-->
         <scene sceneID="pe7-Vm-mYa">

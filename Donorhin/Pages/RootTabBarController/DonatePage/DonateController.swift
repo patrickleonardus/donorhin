@@ -138,6 +138,7 @@ class DonateController: UIViewController {
    @objc private func profileButton(){
       let storyboard = UIStoryboard(name: "Profile", bundle: nil)
       let vc = storyboard.instantiateViewController(withIdentifier: "profileStoryboard") as! ProfileController
+    vc.donateDelegate = self
       let navBarOnModal: UINavigationController = UINavigationController(rootViewController: vc)
       self.present(navBarOnModal, animated: true, completion: nil)
    }

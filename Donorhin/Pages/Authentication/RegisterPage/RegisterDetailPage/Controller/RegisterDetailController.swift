@@ -48,6 +48,7 @@ class RegisterDetailController : UIViewController {
         setTabBar(show: false)
         self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
         self.navigationController?.navigationBar.prefersLargeTitles = false
+      self.navigationController?.navigationBar.isHidden = false
     }
     
     func saveToUserDefaults(userModel:UserModel?) {

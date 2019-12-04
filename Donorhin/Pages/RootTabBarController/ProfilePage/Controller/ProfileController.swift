@@ -17,7 +17,9 @@ class ProfileController: UIViewController {
     //MARK: Properties
     let customPicker = UIPickerView()
     let datePicker = UIDatePicker()
-    var delegate : MoveToLogin?
+    var findDelegate : MoveToLoginFromFind?
+  var donateDelegate : MoveToLoginFromDonate?
+  var discoverDelegate : MoveToLoginFromDiscover?
     var editMode = false
     var editButton : UIBarButtonItem?
     private var picker: UIPickerView?
@@ -236,7 +238,9 @@ class ProfileController: UIViewController {
     
     @IBAction func loginAction(_ sender: Any) {
         dismiss(animated: true) {
-            self.delegate?.performLogin()
+            self.findDelegate?.performLogin()
+          self.donateDelegate?.performLogin()
+          self.discoverDelegate?.performLogin()
         }
     }
     

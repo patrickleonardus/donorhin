@@ -10,7 +10,7 @@ import UIKit
 
 class SecondTableViewCell: UITableViewCell {
   
-  
+  @IBOutlet weak var titleText: UILabel!
   @IBOutlet weak var longText: UILabel!
   
 
