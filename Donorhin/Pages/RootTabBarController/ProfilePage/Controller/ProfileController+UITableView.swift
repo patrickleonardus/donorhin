@@ -90,7 +90,7 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
                 default: break
                 }
                 cell?.profileTextField.text = gender
-                cell?.profileTextField.inputView = self.customPicker
+                cell?.profileTextField.inputView = self.genderTypePicker
                 cell?.profileTextField.inputAccessoryView = self.pickerToolBar
             }
                 
@@ -110,7 +110,7 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
             else if indexPath.row == 2 {
                 cell?.imageCell.image = UIImage(named: "bloodtype_profile")
                 cell?.profileTextField.text = UserDefaults.standard.string(forKey: "blood_type")
-                cell?.profileTextField.inputView = self.customPicker
+                cell?.profileTextField.inputView = self.bloodTypePicker
                 cell?.profileTextField.inputAccessoryView = self.pickerToolBar
             }
                 
@@ -146,41 +146,101 @@ extension ProfileController: UIPickerViewDataSource, UIPickerViewDelegate {
   }
   
   func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-    guard let genderCell = tableView.cellForRow(at: IndexPath(row:0, section: 1)) as? SecondCell else {fatalError()}
-    guard let bloodTypeCell = self.tableView.cellForRow(at: IndexPath(row:2, section: 1)) as? SecondCell else{fatalError()}
-    if genderCell.profileTextField.isFirstResponder {
-      return self.gender.count
+    
+    var components = 0
+    
+    switch pickerView {
+      
+    case genderTypePicker:
+      
+      guard let genderCell = tableView.cellForRow(at: IndexPath(row:0, section: 1)) as? SecondCell else {fatalError()}
+      
+      if genderCell.profileTextField.isFirstResponder {
+        components = gender.count
+      }
+      
+      break
+      
+    case bloodTypePicker:
+      
+      guard let bloodTypeCell = self.tableView.cellForRow(at: IndexPath(row:2, section: 1)) as? SecondCell else{fatalError()}
+      
+      if bloodTypeCell.profileTextField.isFirstResponder {
+        
+        components = bloodType.count
+        
+      }
+      
+      break
+      
+    default:
+      break
     }
-    else if bloodTypeCell.profileTextField.isFirstResponder {
-      return self.bloodType.count
-    }
-    return 0
+    
+    return components
   }
   
   func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-    let genderCell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! SecondCell
-    let bloodTypeCell = self.tableView.cellForRow(at: IndexPath(row: 2, section: 1)) as! SecondCell
-    if genderCell.profileTextField.isFirstResponder {
-      genderCell.profileTextField.text = self.gender[row]
-      return self.gender[row]
+    
+    var title = ""
+    
+    switch pickerView {
+      
+    case genderTypePicker:
+      
+      let genderCell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! SecondCell
+      
+      if genderCell.profileTextField.isFirstResponder {
+        genderCell.profileTextField.text = self.gender[row]
+        title = self.gender[row]
+      }
+      
+      break
+      
+    case bloodTypePicker:
+      
+      let bloodTypeCell = self.tableView.cellForRow(at: IndexPath(row: 2, section: 1)) as! SecondCell
+      
+      if bloodTypeCell.profileTextField.isFirstResponder {
+        bloodTypeCell.profileTextField.text = self.bloodType[row]
+        title = self.bloodType[row]
+      }
+      break
+      
+    default:
+      break
+      
     }
-    else if bloodTypeCell.profileTextField.isFirstResponder {
-      bloodTypeCell.profileTextField.text = self.bloodType[row]
-      return self.bloodType[row]
-    }
-    return ""
+    
+    return title
   }
   
   func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-    let genderCell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! SecondCell
-    let bloodTypeCell = self.tableView.cellForRow(at: IndexPath(row: 2, section: 1)) as! SecondCell
-    if genderCell.profileTextField.isFirstResponder {
-      genderCell.profileTextField.text = self.gender[row]
-
+    
+    switch pickerView {
+    case genderTypePicker:
+      
+        let genderCell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! SecondCell
+        
+        if genderCell.profileTextField.isFirstResponder {
+          genderCell.profileTextField.text = self.gender[row]
+          
+        }
+      
+      break
+    case bloodTypePicker:
+      
+       let bloodTypeCell = self.tableView.cellForRow(at: IndexPath(row: 2, section: 1)) as! SecondCell
+       
+       if bloodTypeCell.profileTextField.isFirstResponder {
+        bloodTypeCell.profileTextField.text = self.bloodType[row]
+        
+       }
+       
+      break
+    default:
+      break
     }
-    else if bloodTypeCell.profileTextField.isFirstResponder {
-      bloodTypeCell.profileTextField.text = self.bloodType[row]
-
-    }
+    
   }
 }

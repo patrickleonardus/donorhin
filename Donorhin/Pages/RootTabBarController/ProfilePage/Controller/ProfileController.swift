@@ -15,7 +15,8 @@ class ProfileController: UIViewController {
     @IBOutlet weak var viewValidation: CustomMainView!
     
     //MARK: Properties
-    let customPicker = UIPickerView()
+    let bloodTypePicker = UIPickerView()
+  let genderTypePicker = UIPickerView()
     let datePicker = UIDatePicker()
     var findDelegate : MoveToLoginFromFind?
   var donateDelegate : MoveToLoginFromDonate?
@@ -28,7 +29,7 @@ class ProfileController: UIViewController {
     var pickerToolBar: UIToolbar!
     var highlightedCell:UITableViewCell?
     var user : Profile?
-    
+    let checkLogin = UserDefaults.standard.string(forKey: "currentUser")
     
     //MARK: VIEW DID LOAD
     override func viewDidLoad() {
@@ -38,8 +39,10 @@ class ProfileController: UIViewController {
     ProfileDataFetcher().getProfileFromUserDefaults { (profileData) in
             self.user = profileData
         }
-        self.customPicker.delegate = self
-        self.customPicker.dataSource = self
+        self.bloodTypePicker.delegate = self
+        self.bloodTypePicker.dataSource = self
+      self.genderTypePicker.delegate = self
+      self.genderTypePicker.dataSource = self
         self.datePicker.datePickerMode = .date
         self.datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
         self.datePicker.maximumDate = Date()
@@ -124,7 +127,11 @@ class ProfileController: UIViewController {
     private func setupUI(){
         tableView.tableFooterView = UIView()
         setNavigationButton()
+      
+      if checkLogin != nil {
         setEditButton()
+      }
+      
         guard let genderCell = tableView.cellForRow(at: IndexPath(row:0, section: 1)) as? SecondCell else{fatalError()}
         guard let birthDateCell = tableView.cellForRow(at: IndexPath(row:1, section: 1)) as? SecondCell else{fatalError()}
         guard let bloodTypeCell = tableView.cellForRow(at: IndexPath(row:2, section: 1)) as? SecondCell else{fatalError()}
@@ -198,8 +205,7 @@ class ProfileController: UIViewController {
     }
     
     private func setValidation(){
-        
-        let checkLogin = UserDefaults.standard.string(forKey: "currentUser")
+      
         if checkLogin != nil {
             viewValidation.alpha = 0
         }
