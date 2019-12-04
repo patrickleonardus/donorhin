@@ -14,8 +14,13 @@ extension InformationController : UITableViewDelegate{
 }
 
 extension InformationController : UITableViewDataSource {
+  
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 8
+  }
+  
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 360
+        return 365
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -32,8 +37,9 @@ extension InformationController : UITableViewDataSource {
         guard let data = infoItems?[indexPath.section] else {fatalError()}
         
         cell?.titleLabel.text = data.title
-        cell?.backgroundColor = Colors.backgroundView
-//        cell?.longTextLabel.text = data.longText
+      
+      cell?.layer.backgroundColor = UIColor.white.cgColor
+      cell?.layer.cornerRadius = 10
       
       //ini buat bikin linespacing antar text jadi lebih tinggi
       guard let string = data.longText else {fatalError()}

@@ -22,7 +22,7 @@ class ProfileController: UIViewController {
     var editButton : UIBarButtonItem?
     private var picker: UIPickerView?
     let bloodType = ["A-","A+","B-","B+","O-","O+","AB-","AB+", "Belum Diketahui"]
-    let gender = ["Laki-laki","Perempuan"] //for picker view
+    let gender = ["Laki-Laki","Perempuan"] //for picker view
     var pickerToolBar: UIToolbar!
     var highlightedCell:UITableViewCell?
     var user : Profile?
@@ -66,7 +66,7 @@ class ProfileController: UIViewController {
     
     func saveData() {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMM y"
+        dateFormatter.dateFormat = "dd MMMM yyyy"
         //save ke userdefaults sama cloudkit
         view.endEditing(true)
         guard let genderCell = tableView.cellForRow(at: IndexPath(row:0, section: 1)) as? SecondCell else{fatalError()}
@@ -99,7 +99,7 @@ class ProfileController: UIViewController {
     
     @objc func dateChanged (datePicker : UIDatePicker, activeTF : UITextField) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMM y"
+        dateFormatter.dateFormat = "dd MMMM yyyy"
         guard
         let birthDateCell = self.tableView.cellForRow(at: IndexPath(row: 1, section: 1)) as? SecondCell,
           let lastDonorDateCell = self.tableView.cellForRow(at: IndexPath(row: 3, section: 1)) as? SecondCell else {return}
@@ -131,13 +131,17 @@ class ProfileController: UIViewController {
         birthDateCell.profileTextField.isEnabled = false
         bloodTypeCell.profileTextField.isEnabled = false
         lastDonorCell.profileTextField.isEnabled = false
+      genderCell.profileTextField.textColor = Colors.gray
+      birthDateCell.profileTextField.textColor = Colors.gray
+      bloodTypeCell.profileTextField.textColor = Colors.gray
+      lastDonorCell.profileTextField.textColor = Colors.gray
         
 
         
     }
     
     private func setNavigationButton(){
-        let doneButton = UIBarButtonItem(title: "Batal", style: .plain, target: self, action: #selector(doneAction))
+        let doneButton = UIBarButtonItem(title: "Selesai", style: .plain, target: self, action: #selector(doneAction))
         navigationItem.leftBarButtonItem = doneButton
     }
     
@@ -151,7 +155,9 @@ class ProfileController: UIViewController {
         guard let birthDateCell = tableView.cellForRow(at: IndexPath(row:1, section: 1)) as? SecondCell else{fatalError()}
         guard let bloodTypeCell = tableView.cellForRow(at: IndexPath(row:2, section: 1)) as? SecondCell else{fatalError()}
         guard let lastDonorCell = tableView.cellForRow(at: IndexPath(row:3, section: 1)) as? SecondCell else{fatalError()}
-        
+      guard let logoutButton = tableView.cellForRow(at: IndexPath(row: 0, section: 2))  as? ThirdCell else {fatalError()}
+      
+      
         if editMode == false {
             editMode = true
             editButton?.title = "Simpan"
@@ -159,6 +165,16 @@ class ProfileController: UIViewController {
             birthDateCell.profileTextField.isEnabled = true
             bloodTypeCell.profileTextField.isEnabled = true
             lastDonorCell.profileTextField.isEnabled = true
+          genderCell.profileTextField.textColor = UIColor.black
+          birthDateCell.profileTextField.textColor = UIColor.black
+          bloodTypeCell.profileTextField.textColor = UIColor.black
+          lastDonorCell.profileTextField.textColor = UIColor.black
+          
+          UIView.animate(withDuration: 0.2) {
+            logoutButton.alpha = 0
+          }
+          
+          
         } else {
             saveData()
             editMode = false
@@ -167,6 +183,15 @@ class ProfileController: UIViewController {
             birthDateCell.profileTextField.isEnabled = false
             bloodTypeCell.profileTextField.isEnabled = false
             lastDonorCell.profileTextField.isEnabled = false
+          genderCell.profileTextField.textColor = Colors.gray
+          birthDateCell.profileTextField.textColor = Colors.gray
+          bloodTypeCell.profileTextField.textColor = Colors.gray
+          lastDonorCell.profileTextField.textColor = Colors.gray
+          
+          UIView.animate(withDuration: 0.2) {
+            logoutButton.alpha = 1
+          }
+          
         }
     }
     

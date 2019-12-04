@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1yp-mw-wza">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1yp-mw-wza">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,17 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gy2-oM-hML">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gy2-oM-hML">
+                                <rect key="frame" x="20" y="0.0" width="374" height="896"/>
+                                <color key="backgroundColor" red="0.94906586408615112" green="0.94897907972335815" blue="0.96862286329269409" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="sectionIndexBackgroundColor" red="0.94906586408615112" green="0.94897907972335815" blue="0.96862286329269409" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gy2-oM-hML" firstAttribute="leading" secondItem="Azf-zp-rrH" secondAttribute="leading" id="12o-cV-v9e"/>
-                            <constraint firstItem="gy2-oM-hML" firstAttribute="trailing" secondItem="Azf-zp-rrH" secondAttribute="trailing" id="IgB-Sk-TAD"/>
-                            <constraint firstAttribute="bottom" secondItem="gy2-oM-hML" secondAttribute="bottom" id="W4a-nv-4la"/>
-                            <constraint firstItem="gy2-oM-hML" firstAttribute="top" secondItem="O2h-Et-HTO" secondAttribute="top" id="brK-k7-UCq"/>
+                            <constraint firstAttribute="bottom" secondItem="gy2-oM-hML" secondAttribute="bottom" id="1Ad-Wr-aas"/>
+                            <constraint firstItem="gy2-oM-hML" firstAttribute="leading" secondItem="Azf-zp-rrH" secondAttribute="leading" constant="20" id="7ps-N5-gsg"/>
+                            <constraint firstItem="gy2-oM-hML" firstAttribute="top" secondItem="O2h-Et-HTO" secondAttribute="top" id="A4d-Wo-Low"/>
+                            <constraint firstItem="Azf-zp-rrH" firstAttribute="trailing" secondItem="gy2-oM-hML" secondAttribute="trailing" constant="20" id="K3m-AE-Hti"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Azf-zp-rrH"/>
                     </view>
