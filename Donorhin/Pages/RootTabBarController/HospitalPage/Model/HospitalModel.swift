@@ -16,31 +16,29 @@ struct HospitalModel {
 }
 
 struct HospitalList {
-    
-    func getHospitalList(completionHandler: @escaping (([HospitalModel]) -> ())){
-        DispatchQueue.main.async {
-            var hospitalModel : [HospitalModel] = []
-            
-            let query = CKQuery(recordType: "UTD", predicate: NSPredicate(value: true))
-            Helper.getAllData(query) { (results) in
-                if let results = results {
-                    for result in results {
-                        let model = result.convertUTDToUTDModel() //kalo nil == error
-                        if let model = model {
-                            hospitalModel.append(HospitalModel(id: model.idUTD,
-                                                               name: model.name,
-                                                               alamat: model.address))
-                        } else {
-                            print ("nil value of result")
-                        }
-                    }
-                }
-                completionHandler(hospitalModel)
+  var currentPlace = UserDefaults.standard.value(forKey: "administrativeArea") as! String
+  
+  //MARK: - get data utd from cloud kit
+  func getHospitalList(completionHandler: @escaping (([HospitalModel]) -> ())){
+    DispatchQueue.main.async {
+      var hospitalModel : [HospitalModel] = []
+      let nspredicate = NSPredicate(format: "province = %@", argumentArray: [self.currentPlace])
+      let query = CKQuery(recordType: "UTD", predicate: nspredicate)
+      Helper.getAllData(query) { (results) in
+        if let results = results {
+          for result in results {
+            let model = result.convertUTDToUTDModel() //kalo nil == error
+            if let model = model {
+              hospitalModel.append(HospitalModel(id: model.idUTD,
+                                                   name: model.name,
+                                                   alamat: model.address))
+            } else {
+                print ("nil value of result")
             }
-            
-           
+          }
         }
+        completionHandler(hospitalModel)
+      }
     }
-    
-    
+  }
 }
