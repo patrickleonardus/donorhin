@@ -15,12 +15,18 @@ extension InformationController : UITableViewDelegate{
 
 extension InformationController : UITableViewDataSource {
   
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
+    headerView.backgroundColor = UIColor.clear
+    return headerView
+  }
+  
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     return 8
   }
   
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 365
+        return 385
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

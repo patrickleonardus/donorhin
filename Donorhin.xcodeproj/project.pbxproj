@@ -110,6 +110,8 @@
 		E6291907237FCCEC00E8D559 /* FormController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6291906237FCCEC00E8D559 /* FormController+Delegate.swift */; };
 		E629190D2380593D00E8D559 /* FindController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E629190C2380593D00E8D559 /* FindController+Delegate.swift */; };
 		E629190F23805E2500E8D559 /* FormController+UIPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E629190E23805E2500E8D559 /* FormController+UIPickerView.swift */; };
+		E63A1D782397931800809607 /* FirstTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63A1D772397931800809607 /* FirstTableViewCell.swift */; };
+		E63A1D7A2397932C00809607 /* SecondTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63A1D792397932C00809607 /* SecondTableViewCell.swift */; };
 		E6AC8D43237B29DF00820100 /* TrackerController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D3A237B29DF00820100 /* TrackerController+UITableView.swift */; };
 		E6AC8D44237B29DF00820100 /* TrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D3B237B29DF00820100 /* TrackerController.swift */; };
 		E6AC8D45237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D3C237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift */; };
@@ -281,6 +283,8 @@
 		E6291906237FCCEC00E8D559 /* FormController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FormController+Delegate.swift"; sourceTree = "<group>"; };
 		E629190C2380593D00E8D559 /* FindController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FindController+Delegate.swift"; sourceTree = "<group>"; };
 		E629190E23805E2500E8D559 /* FormController+UIPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FormController+UIPickerView.swift"; sourceTree = "<group>"; };
+		E63A1D772397931800809607 /* FirstTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTableViewCell.swift; sourceTree = "<group>"; };
+		E63A1D792397932C00809607 /* SecondTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTableViewCell.swift; sourceTree = "<group>"; };
 		E6AC8D3A237B29DF00820100 /* TrackerController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController+UITableView.swift"; sourceTree = "<group>"; };
 		E6AC8D3B237B29DF00820100 /* TrackerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerController.swift; sourceTree = "<group>"; };
 		E6AC8D3C237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController + TrackerCellDelegate.swift"; sourceTree = "<group>"; };
@@ -604,6 +608,8 @@
 			children = (
 				B0B168A1237D6630001DCE3C /* RegisterDetail.storyboard */,
 				09E8CA1D23853C01009A11A9 /* Agreement.storyboard */,
+				E63A1D772397931800809607 /* FirstTableViewCell.swift */,
+				E63A1D792397932C00809607 /* SecondTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1282,6 +1288,7 @@
 				CCBEC20323829CBB004AC408 /* Helper + DatabaseModel.swift in Sources */,
 				CCAAE502237C205900BEFB44 /* ThirdStepRequestViewController.swift in Sources */,
 				E607AAE42384061A00214A90 /* SecondEventCell.swift in Sources */,
+				E63A1D7A2397932C00809607 /* SecondTableViewCell.swift in Sources */,
 				E6BA6E39237B1E080017A330 /* EventTableViewCell+UICollectionView.swift in Sources */,
 				098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */,
 				B0B16882237D3E61001DCE3C /* FormTableViewCell.swift in Sources */,
@@ -1305,6 +1312,7 @@
 				E607AADE2384030800214A90 /* DetailEventController.swift in Sources */,
 				B0B1688C237D487A001DCE3C /* FormItems.swift in Sources */,
 				CC3C7054238526A000F7A47F /* UIViewController + Loading Page.swift in Sources */,
+				E63A1D782397931800809607 /* FirstTableViewCell.swift in Sources */,
 				E6DDAF332375630800D6EAD1 /* StepIndicatorView.swift in Sources */,
 				E607AAFA238514A300214A90 /* HospitalController+UISearchDelegate.swift in Sources */,
 				094B6EDA237EC7D300716862 /* Helper.swift in Sources */,
