@@ -255,6 +255,7 @@ class ProfileController: UIViewController {
             self.findDelegate?.performLogin()
           self.donateDelegate?.performLogin()
           self.discoverDelegate?.performLogin()
+          self.inboxDelegate?.performLogin()
         }
     }
     

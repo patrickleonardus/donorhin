@@ -10,6 +10,9 @@ import UIKit
 
 class InboxController: UIViewController {
   
+  @IBOutlet weak var tableView: UITableView!
+  
+  
   var profileImage = UIImageView()
 
     override func viewDidLoad() {
@@ -25,6 +28,12 @@ class InboxController: UIViewController {
   
   override func viewWillDisappear(_ animated: Bool) {
     profileImageNavBar(show: false)
+  }
+  
+  //MARK: Set UI
+  
+  private func setupUI(){
+    tableView.tableFooterView = UIView()
   }
   
   private func profileImageNavBar(show: Bool){

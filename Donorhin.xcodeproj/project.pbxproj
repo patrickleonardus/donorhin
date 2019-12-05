@@ -117,6 +117,8 @@
 		E63A1D842399120300809607 /* Inbox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E63A1D832399120200809607 /* Inbox.storyboard */; };
 		E63A1D86239915D000809607 /* InboxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63A1D85239915D000809607 /* InboxController.swift */; };
 		E63A1D882399185200809607 /* InboxController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63A1D872399185200809607 /* InboxController+Delegate.swift */; };
+		E63A1D8A2399645400809607 /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63A1D892399645400809607 /* InboxTableViewCell.swift */; };
+		E63A1D8C2399648000809607 /* InboxController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63A1D8B2399648000809607 /* InboxController+UITableView.swift */; };
 		E6AC8D43237B29DF00820100 /* TrackerController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D3A237B29DF00820100 /* TrackerController+UITableView.swift */; };
 		E6AC8D44237B29DF00820100 /* TrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D3B237B29DF00820100 /* TrackerController.swift */; };
 		E6AC8D45237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D3C237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift */; };
@@ -295,6 +297,8 @@
 		E63A1D832399120200809607 /* Inbox.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Inbox.storyboard; sourceTree = "<group>"; };
 		E63A1D85239915D000809607 /* InboxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxController.swift; sourceTree = "<group>"; };
 		E63A1D872399185200809607 /* InboxController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InboxController+Delegate.swift"; sourceTree = "<group>"; };
+		E63A1D892399645400809607 /* InboxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTableViewCell.swift; sourceTree = "<group>"; };
+		E63A1D8B2399648000809607 /* InboxController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InboxController+UITableView.swift"; sourceTree = "<group>"; };
 		E6AC8D3A237B29DF00820100 /* TrackerController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController+UITableView.swift"; sourceTree = "<group>"; };
 		E6AC8D3B237B29DF00820100 /* TrackerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerController.swift; sourceTree = "<group>"; };
 		E6AC8D3C237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController + TrackerCellDelegate.swift"; sourceTree = "<group>"; };
@@ -815,6 +819,7 @@
 		E63A1D81239911DB00809607 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E63A1D892399645400809607 /* InboxTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -823,6 +828,7 @@
 			isa = PBXGroup;
 			children = (
 				E63A1D85239915D000809607 /* InboxController.swift */,
+				E63A1D8B2399648000809607 /* InboxController+UITableView.swift */,
 				E63A1D872399185200809607 /* InboxController+Delegate.swift */,
 			);
 			path = Controller;
@@ -1326,6 +1332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E62918FE237EC54500E8D559 /* LabelAndTextCell.swift in Sources */,
+				E63A1D8A2399645400809607 /* InboxTableViewCell.swift in Sources */,
 				E6AC8D45237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift in Sources */,
 				E6BA6E3F237B1E080017A330 /* InfoTableViewCell.swift in Sources */,
 				E6FBB1B123718FDF00B1B4DE /* DonateController.swift in Sources */,
@@ -1424,6 +1431,7 @@
 				CC654064238193B8005BE635 /* UIDatePicker + Styling.swift in Sources */,
 				E607AAEC23845F1800214A90 /* DetailEventController+UITableView.swift in Sources */,
 				09DC193A23754BCD004BEFB5 /* DonateModel.swift in Sources */,
+				E63A1D8C2399648000809607 /* InboxController+UITableView.swift in Sources */,
 				E6DDAF3A237563AC00D6EAD1 /* ScanFormController.swift in Sources */,
 				E62918F3237E43C300E8D559 /* AddEventController+UIImagePickerDelegate.swift in Sources */,
 				E6D0748B237BE7CB00CF5531 /* AddEventController.swift in Sources */,
