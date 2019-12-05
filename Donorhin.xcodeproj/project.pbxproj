@@ -114,6 +114,9 @@
 		E63A1D7A2397932C00809607 /* SecondTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63A1D792397932C00809607 /* SecondTableViewCell.swift */; };
 		E63A1D7C2397CF1500809607 /* DonateController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63A1D7B2397CF1500809607 /* DonateController+Delegate.swift */; };
 		E63A1D7E2398F87B00809607 /* LabelAndTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63A1D7D2398F87B00809607 /* LabelAndTextViewCell.swift */; };
+		E63A1D842399120300809607 /* Inbox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E63A1D832399120200809607 /* Inbox.storyboard */; };
+		E63A1D86239915D000809607 /* InboxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63A1D85239915D000809607 /* InboxController.swift */; };
+		E63A1D882399185200809607 /* InboxController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63A1D872399185200809607 /* InboxController+Delegate.swift */; };
 		E6AC8D43237B29DF00820100 /* TrackerController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D3A237B29DF00820100 /* TrackerController+UITableView.swift */; };
 		E6AC8D44237B29DF00820100 /* TrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D3B237B29DF00820100 /* TrackerController.swift */; };
 		E6AC8D45237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D3C237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift */; };
@@ -289,6 +292,9 @@
 		E63A1D792397932C00809607 /* SecondTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTableViewCell.swift; sourceTree = "<group>"; };
 		E63A1D7B2397CF1500809607 /* DonateController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DonateController+Delegate.swift"; sourceTree = "<group>"; };
 		E63A1D7D2398F87B00809607 /* LabelAndTextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelAndTextViewCell.swift; sourceTree = "<group>"; };
+		E63A1D832399120200809607 /* Inbox.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Inbox.storyboard; sourceTree = "<group>"; };
+		E63A1D85239915D000809607 /* InboxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxController.swift; sourceTree = "<group>"; };
+		E63A1D872399185200809607 /* InboxController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InboxController+Delegate.swift"; sourceTree = "<group>"; };
 		E6AC8D3A237B29DF00820100 /* TrackerController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController+UITableView.swift"; sourceTree = "<group>"; };
 		E6AC8D3B237B29DF00820100 /* TrackerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerController.swift; sourceTree = "<group>"; };
 		E6AC8D3C237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController + TrackerCellDelegate.swift"; sourceTree = "<group>"; };
@@ -788,6 +794,40 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		E63A1D7F239911C500809607 /* InboxPage */ = {
+			isa = PBXGroup;
+			children = (
+				E63A1D82239911E000809607 /* Controller */,
+				E63A1D81239911DB00809607 /* View */,
+				E63A1D80239911D600809607 /* Model */,
+				E63A1D832399120200809607 /* Inbox.storyboard */,
+			);
+			path = InboxPage;
+			sourceTree = "<group>";
+		};
+		E63A1D80239911D600809607 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E63A1D81239911DB00809607 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E63A1D82239911E000809607 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E63A1D85239915D000809607 /* InboxController.swift */,
+				E63A1D872399185200809607 /* InboxController+Delegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		E6AC8D38237B29DF00820100 /* Tracker */ = {
 			isa = PBXGroup;
 			children = (
@@ -1047,6 +1087,7 @@
 				E607AAD52382FC1600214A90 /* DetailEventPage */,
 				E6D07487237BE79200CF5531 /* AddEventPage */,
 				AB3B8D2F2374034C008D7AB1 /* ProfilePage */,
+				E63A1D7F239911C500809607 /* InboxPage */,
 				E6BA6E27237B1E080017A330 /* DiscoverPage */,
 				E6FBB1A423718E1100B1B4DE /* DonatePage */,
 				E6FBB1A323718DFC00B1B4DE /* FindPage */,
@@ -1259,6 +1300,7 @@
 				0925FB4123740E1C00874DAA /* DonateTableViewCell.xib in Resources */,
 				B0B168A2237D6630001DCE3C /* RegisterDetail.storyboard in Resources */,
 				E6FBB1AB23718EAB00B1B4DE /* Donate.storyboard in Resources */,
+				E63A1D842399120300809607 /* Inbox.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1298,6 +1340,7 @@
 				E6BA6E39237B1E080017A330 /* EventTableViewCell+UICollectionView.swift in Sources */,
 				098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */,
 				E63A1D7C2397CF1500809607 /* DonateController+Delegate.swift in Sources */,
+				E63A1D882399185200809607 /* InboxController+Delegate.swift in Sources */,
 				B0B16882237D3E61001DCE3C /* FormTableViewCell.swift in Sources */,
 				AB7357962374313500A6099B /* FirstCell.swift in Sources */,
 				AB498AC5237D73E7006CDA7A /* Page2OnboardViewController.swift in Sources */,
@@ -1317,6 +1360,7 @@
 				E62918EB237C6A2800E8D559 /* CheckboxAgreementCell.swift in Sources */,
 				AB7357972374313500A6099B /* SecondCell.swift in Sources */,
 				E607AADE2384030800214A90 /* DetailEventController.swift in Sources */,
+				E63A1D86239915D000809607 /* InboxController.swift in Sources */,
 				B0B1688C237D487A001DCE3C /* FormItems.swift in Sources */,
 				CC3C7054238526A000F7A47F /* UIViewController + Loading Page.swift in Sources */,
 				E63A1D782397931800809607 /* FirstTableViewCell.swift in Sources */,

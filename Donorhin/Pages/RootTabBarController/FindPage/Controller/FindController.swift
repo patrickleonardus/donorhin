@@ -568,3 +568,7 @@ protocol MoveToLoginFromDonate {
 protocol MoveToLoginFromDiscover {
   func performLogin()
 }
+
+protocol MoveToLoginFromInbox {
+  func performLogin()
+}
