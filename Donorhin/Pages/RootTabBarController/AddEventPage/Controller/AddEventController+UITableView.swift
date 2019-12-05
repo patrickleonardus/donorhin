@@ -14,8 +14,22 @@ extension AddEventController: UITableViewDelegate, UITableViewDataSource {
         
         var height : CGFloat = 0
         
-        if indexPath.section < 3 {
+        if indexPath.section == 0 {
+          if indexPath.row == 0 {
             height = 90
+          }
+          else if indexPath.row == 1 {
+            height = 165
+          }
+          else {
+            height = 90
+          }
+        }
+        else if indexPath.section == 1 {
+          height = 90
+        }
+        else if indexPath.section == 2 {
+          height = 90
         }
         else {
             height = 150
@@ -132,12 +146,15 @@ extension AddEventController: UITableViewDelegate, UITableViewDataSource {
             }
                 
             else if indexPath.row == 1 {
+              
+              let cell = tableView.dequeueReusableCell(withIdentifier: "desc2Event") as! LabelAndTextViewCell
+              cell.delegate = self
                 
                 if descEvent == nil {
                     cell.tableViewRow = indexPath.row
                     cell.tableViewSection = indexPath.section
                     cell.name.text = titleData.name
-                    cell.answer.placeholder = placeholderData.placeholder
+//                    cell.answer.placeholder = placeholderData.placeholder
                 }
                     
                 else  {
@@ -146,6 +163,8 @@ extension AddEventController: UITableViewDelegate, UITableViewDataSource {
                     cell.name.text = titleData.name
                     cell.answer.text = descEvent
                 }
+              
+              return cell
                 
             }
             

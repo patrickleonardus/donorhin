@@ -34,8 +34,6 @@ class EventTableViewCell: UITableViewCell{
         
         self.eventData = eventData
         
-        self.eventData?.reverse()
-        
         self.collectionViewDiscover.reloadData()
       }
     }

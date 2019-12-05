@@ -37,7 +37,8 @@ struct EventModelCollectionView {
             var phoneEvent : String?
             
             let query = CKQuery(recordType: "Event", predicate: NSPredicate(value: true))
-            
+          query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+          
             Helper.getAllData(query) { (results) in
                 guard let results = results else {fatalError("Query error")}
                 

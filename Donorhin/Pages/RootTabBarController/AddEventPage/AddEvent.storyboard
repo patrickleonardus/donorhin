@@ -82,8 +82,63 @@
                                             <outlet property="name" destination="ho5-Lu-n1k" id="fUa-DY-rZN"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="desc2Event" rowHeight="180" id="YlD-Mb-xms" customClass="LabelAndTextViewCell" customModule="Donorhin" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="124" width="414" height="180"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YlD-Mb-xms" id="8eI-W3-Q8o">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2G-uv-Eu1">
+                                                    <rect key="frame" x="20" y="11" width="374" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cjk-3K-hVE">
+                                                    <rect key="frame" x="20" y="40" width="374" height="121"/>
+                                                    <subviews>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Zw6-n3-oci">
+                                                            <rect key="frame" x="4" y="4" width="366" height="113"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="374" id="EBf-Ga-dcS"/>
+                                                        <constraint firstAttribute="height" constant="121" id="KEJ-4y-dy0"/>
+                                                        <constraint firstItem="Zw6-n3-oci" firstAttribute="leading" secondItem="Cjk-3K-hVE" secondAttribute="leading" constant="4" id="Mgt-hJ-yEf"/>
+                                                        <constraint firstItem="Zw6-n3-oci" firstAttribute="top" secondItem="Cjk-3K-hVE" secondAttribute="top" constant="4" id="XtW-y7-LXM"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Zw6-n3-oci" secondAttribute="trailing" constant="4" id="hdI-Gh-773"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Zw6-n3-oci" secondAttribute="bottom" constant="4" id="si5-VE-fxw"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="s2G-uv-Eu1" firstAttribute="top" secondItem="8eI-W3-Q8o" secondAttribute="topMargin" id="EHG-Z7-9Fu"/>
+                                                <constraint firstItem="Cjk-3K-hVE" firstAttribute="trailing" secondItem="8eI-W3-Q8o" secondAttribute="trailingMargin" id="L1c-2x-bcx"/>
+                                                <constraint firstItem="s2G-uv-Eu1" firstAttribute="leading" secondItem="8eI-W3-Q8o" secondAttribute="leadingMargin" id="TU7-N2-rb6"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="s2G-uv-Eu1" secondAttribute="trailing" id="ecR-ad-K3c"/>
+                                                <constraint firstItem="Cjk-3K-hVE" firstAttribute="leading" secondItem="8eI-W3-Q8o" secondAttribute="leadingMargin" id="h4e-Nc-HHZ"/>
+                                                <constraint firstItem="Cjk-3K-hVE" firstAttribute="top" secondItem="s2G-uv-Eu1" secondAttribute="bottom" constant="8" id="kst-cG-5de"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <outlet property="answer" destination="Zw6-n3-oci" id="UQP-TG-U7z"/>
+                                            <outlet property="name" destination="s2G-uv-Eu1" id="rOE-jp-wUn"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickPictureCell" rowHeight="96" id="G8v-Pm-sr0" customClass="PickPictureCell" customModule="Donorhin" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="124" width="414" height="96"/>
+                                        <rect key="frame" x="0.0" y="304" width="414" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G8v-Pm-sr0" id="d5W-2b-rMA">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
@@ -131,7 +186,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="checkEvent" rowHeight="113" id="vJk-rt-2dh" customClass="CheckboxAgreementCell" customModule="Donorhin" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="220" width="414" height="113"/>
+                                        <rect key="frame" x="0.0" y="400" width="414" height="113"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vJk-rt-2dh" id="l6L-ic-MbP">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="113"/>
