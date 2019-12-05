@@ -13,7 +13,7 @@ class EventTableViewCell: UITableViewCell{
   var eventData : [EventModel]?
   var moveToAddEventDelegate : MoveToAddEvent?
   var moveToDetailEventDelegate : MoveToEventDetail?
-  var moveToLogin : MoveToLoginFromDiscover?
+  var alertDelegate : DiscoverAlert?
   
   @IBOutlet weak var collectionViewDiscover: UICollectionView!
   

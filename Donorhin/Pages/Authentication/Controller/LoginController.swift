@@ -73,6 +73,7 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
     
     @objc func goToFindWithoutLogin(){
         navigationController?.navigationBar.isHidden = true
+        self.navigationController!.viewControllers.remove(at: 0)
         performSegue(withIdentifier: "goToHome", sender: self)
     }
     
@@ -136,6 +137,7 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
                 print("Data saved to user default...")
                 errorCell.errorMsg.isHidden = true
                 self.navigationController?.navigationBar.isHidden = true
+                self.navigationController!.viewControllers.remove(at: 0)
                 self.performSegue(withIdentifier: "goToHome", sender: self)
                 }
             }

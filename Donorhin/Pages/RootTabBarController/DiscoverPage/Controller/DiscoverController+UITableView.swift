@@ -70,7 +70,7 @@ extension DiscoverController: UITableViewDataSource, UITableViewDelegate {
                 cell.backgroundColor = Colors.backgroundView
                 cell.moveToAddEventDelegate = self
                 cell.moveToDetailEventDelegate = self
-              cell.moveToLogin = self
+              cell.alertDelegate = self
                 return cell
             }
         }

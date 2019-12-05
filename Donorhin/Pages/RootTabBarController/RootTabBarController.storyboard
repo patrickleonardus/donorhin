@@ -12,7 +12,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="3rW-Ht-GNO">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="uln-RQ-5jK" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="rootStoryboard" automaticallyAdjustsScrollViewInsets="NO" id="uln-RQ-5jK" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WVR-aG-0PC">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

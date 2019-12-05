@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 
-class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, NavigationBarTitleDelegate, MoveToLoginFromDiscover{
+class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, NavigationBarTitleDelegate, MoveToLoginFromDiscover, DiscoverAlert{
   
     @IBOutlet weak var tableViewDiscover: UITableView!
     
@@ -133,6 +133,17 @@ class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, N
         self.performSegue(withIdentifier: "MoveToDetailEvent", sender: self)
     }
   
+  func showAlert() {
+    
+    let alert = UIAlertController(title: "Anda belum login", message: "Untuk mengakses fitur ini, anda perlu untuk melakukan login terlebih dahulu, apakah anda ingin Login?", preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "Nanti Saja", style: .cancel, handler: nil))
+    alert.addAction(UIAlertAction(title: "Login Sekarang", style: .default, handler: { (action) in
+      self.performSegue(withIdentifier: "moveToLoginFormDiscover", sender: self)
+    }))
+  
+    self.present(alert,animated: true)
+  }
+  
   func performLogin() {
     performSegue(withIdentifier: "moveToLoginFormDiscover", sender: self)
   }
@@ -171,3 +182,6 @@ protocol MoveToEventDetail {
     func moveToAddEventDetailClass(image : UIImage, title: String, desc: String, address: String, date : Date, name : String, phone : String)
 }
 
+protocol DiscoverAlert {
+  func showAlert()
+}

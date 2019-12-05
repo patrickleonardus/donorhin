@@ -45,7 +45,7 @@ class FormController: UIViewController{
   var patientDueDate: String?
   var patientBloodAmount: String?
   var patientEmergency: String = "0"
-  var currentPlace: String = UserDefaults.standard.value(forKey: "administrativeArea") as! String
+  var currentPlace: String = UserDefaults.standard.value(forKey: "province") as! String
   
   //MARK: - view controller lifecycle
   override func viewDidLoad() {

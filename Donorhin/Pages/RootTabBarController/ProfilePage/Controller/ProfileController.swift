@@ -22,6 +22,7 @@ class ProfileController: UIViewController {
     var findDelegate : MoveToLoginFromFind?
   var donateDelegate : MoveToLoginFromDonate?
   var discoverDelegate : MoveToLoginFromDiscover?
+  var inboxDelegate : MoveToLoginFromInbox?
     var editMode = false
     var editButton : UIBarButtonItem?
     private var picker: UIPickerView?
