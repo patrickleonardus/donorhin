@@ -64,7 +64,13 @@ class DonateController: UIViewController {
    
   //MARK:- Get data from database
   private func getData(_ selectedCategory:Int = 0) {
-    let nspredicate = NSPredicate(format: "idPendonor == %@", [self.currentUser])
+    var nspredicate = NSPredicate()
+    if selectedCategory == 0 {
+      nspredicate = NSPredicate(format: "id_pendonor == %@ AND current_step >= 1 AND current_step <= 5", [self.currentUser])
+    } else {
+      nspredicate = NSPredicate(format: "id_pendonor == %@ AND current_step == 6", [self.currentUser])
+    }
+
     let query = CKQuery(recordType: "Tracker", predicate: nspredicate)
     Helper.getAllData(query) { (results) in
        if let results = results {
