@@ -17,6 +17,7 @@ class FormController: UIViewController{
   @IBOutlet weak var emergencySwitch: UISwitch!
   @IBOutlet weak var agreementLabel: UILabel!
   @IBOutlet weak var agreementSwitch: CheckBox!
+  @IBOutlet weak var scroller: UIScrollView!
   
   
   //MARK: - global variables
@@ -96,6 +97,22 @@ class FormController: UIViewController{
     personalTableView.tableFooterView = UIView()
   }
   
+  @objc func onKeyboardAppear(_ notification: NSNotification) {
+    let info = notification.userInfo!
+    let rect: CGRect = info[UIResponder.keyboardFrameBeginUserInfoKey] as! CGRect
+    let kbSize = rect.size
+    
+    let insets = UIEdgeInsets(top: 0, left: 0, bottom: kbSize.height-40, right: 0)
+    scroller.contentInset = insets
+    scroller.scrollIndicatorInsets = insets
+    
+  }
+
+  @objc func onKeyboardDisappear(_ notification: NSNotification) {
+    scroller.contentInset = UIEdgeInsets.zero
+    scroller.scrollIndicatorInsets = UIEdgeInsets.zero
+  }
+  
   func setNavBar(){
     let cancel = UIBarButtonItem(title: "Batal", style: .plain, target: self, action: #selector(cancelAction))
     submitBarButton = UIBarButtonItem(title: "Konfirmasi", style: .done, target: self, action: #selector(submitAction))
@@ -133,6 +150,9 @@ class FormController: UIViewController{
   func handleKeyboard(){
     let tap = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
     view.addGestureRecognizer(tap)
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(onKeyboardAppear(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(onKeyboardDisappear(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
   }
   
   //MARK: - Setup CheckMark
