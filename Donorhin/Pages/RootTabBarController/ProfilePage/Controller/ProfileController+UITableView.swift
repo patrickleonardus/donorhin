@@ -96,14 +96,13 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
                 
             else if indexPath.row == 1 {
                 cell?.imageCell.image = UIImage(named: "birthday_profile")
-                if user?.profileBirthday == nil{
-                cell?.profileTextField.text = "-"
+                if UserDefaults.standard.object(forKey: "birth_date") == nil{
+                    cell?.profileTextField.text = "-"
                 }
                 else{
-//                 cell?.profileTextField.text = dateFormatter.string(from: user!.profileBirthday!)
-                cell?.profileTextField.text = dateFormatter.string(from: UserDefaults.standard.object(forKey: "birth_date")! as! Date)
-                cell?.profileTextField.inputView = self.datePicker
-                cell?.profileTextField.inputAccessoryView = self.pickerToolBar
+                    cell?.profileTextField.text = dateFormatter.string(from: UserDefaults.standard.object(forKey: "birth_date")! as! Date)
+                    cell?.profileTextField.inputView = self.datePicker
+                    cell?.profileTextField.inputAccessoryView = self.pickerToolBar
                 }
             }
                 
@@ -116,10 +115,17 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
                 
             else if indexPath.row == 3 {
                 cell?.imageCell.image = UIImage(named: "lastdonor_profile")
+                if UserDefaults.standard.object(forKey: "last_donor") == nil{
+                    cell?.profileTextField.text = "-"
+                    cell?.profileTextField.inputView = self.datePicker
+                    cell?.profileTextField.inputAccessoryView = self.pickerToolBar
+                }
+                else{
+                    cell?.profileTextField.text = dateFormatter.string(from: UserDefaults.standard.object(forKey: "last_donor") as? Date ?? Date())
+                    cell?.profileTextField.inputView = self.datePicker
+                    cell?.profileTextField.inputAccessoryView = self.pickerToolBar
+                }
 
-                cell?.profileTextField.text = dateFormatter.string(from: UserDefaults.standard.object(forKey: "last_donor") as? Date ?? Date())
-                cell?.profileTextField.inputView = self.datePicker
-                cell?.profileTextField.inputAccessoryView = self.pickerToolBar
             }
             
             return cell!
