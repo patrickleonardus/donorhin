@@ -23,7 +23,7 @@ extension InboxController : UITableViewDelegate, UITableViewDataSource {
     let cell = tableView.dequeueReusableCell(withIdentifier: "inboxCell") as! InboxTableViewCell
     
     cell.layer.backgroundColor = UIColor.white.cgColor
-    cell.layer.cornerRadius = 10
+    cell.layer.cornerRadius = 15
     
     cell.layer.borderWidth = 5
     cell.layer.borderColor = Colors.backgroundView.cgColor
@@ -34,6 +34,10 @@ extension InboxController : UITableViewDelegate, UITableViewDataSource {
     cell.imageInbox.layer.cornerRadius = 10
     
     return cell
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
   }
   
   
