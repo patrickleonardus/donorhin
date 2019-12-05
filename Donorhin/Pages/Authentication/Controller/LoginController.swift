@@ -77,7 +77,7 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
     }
     
     @objc func goToRegister(){
-         performSegue(withIdentifier: "goToRegister", sender: self)
+        performSegue(withIdentifier: "goToRegister", sender: self)
     }
     
     func setNavBarTitle() {
@@ -143,13 +143,11 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
     }
     
     func checkLocation(){
-        // Ask for Authorisation from the User.
-        self.locationManager.requestAlwaysAuthorization()
         // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
         }
     }
@@ -166,60 +164,45 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
-           let location = locations.last!
-           //locationManager stops updating location
-           locationManager.stopUpdatingLocation()
-        
-           //get recordName from userdefaults
-           guard let recordName = UserDefaults.standard.value(forKey: "currentUser") as? String else{
-               return
-           }
-           let recordId = CKRecord.ID(recordName: recordName)
-           
-           var package : [String:Any]=[:]
-           
-           // saving to UserDefaults dalam bentuk NSData
-           let locationData = NSKeyedArchiver.archivedData(withRootObject: location)
-           UserDefaults.standard.set(locationData, forKey: "locationData")
-        
-           //Convert NSData ke CLLocation
-           if let loadedData = UserDefaults.standard.data(forKey: "locationData") {
-               if let loadedLocation = NSKeyedUnarchiver.unarchiveObject(with: loadedData) as? CLLocation {
-                //mengambil region, locality, administrativeArea dan country
-                //pakai coordinate.longitude dan coordinate.latitude
-                geocode(latitude: loadedLocation.coordinate.latitude, longitude: loadedLocation.coordinate.longitude) { (placemarks, error) in
-                if error != nil {
-                   print("failed")
-                }
-                else {
-                  print("placemark not nil")
-                  guard
-                      let placemark = placemarks else{fatalError()}
-                    if placemark.count > 0 {
-                      DispatchQueue.main.async {
-                          let placemark = placemarks?[0]
-                          let locality = placemark?.locality!
-                          let administrativeArea = placemark?.administrativeArea!
-                          let country = placemark?.country!
-                          //tes dengan print ke terminal kalau gk kosong berhasil
-                          print("\(locality), \(administrativeArea), \(country)")
-                        //Saving to user defaults
-                        UserDefaults.standard.set(locality, forKey: "locality")
-                        UserDefaults.standard.set(administrativeArea,forKey: "administrativeArea")
-                        UserDefaults.standard.set(country,forKey: "country")
-                        package = ["location": location, "administrative_area": administrativeArea, "locality": locality]
+               let location = locations.last!
+               //locationManager stops updating location
+               locationManager.stopUpdatingLocation()
+            
+               //get recordName from userdefaults
+               guard let recordName = UserDefaults.standard.value(forKey: "currentUser") as? String else{
+                   return
+               }
+               let recordId = CKRecord.ID(recordName: recordName)
+               
+               var package : [String:Any]=[:]
+               
+               geocode(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude) { (placemarks, error) in
+               if error != nil {
+                  print("failed")
+               }
+               else {
+                 print("placemark not nil")
+                 guard
+                     let placemark = placemarks else{fatalError()}
+                   if placemark.count > 0 {
+                     DispatchQueue.main.async {
+                         let placemark = placemarks?[0]
+                         let province = placemark?.administrativeArea!
+                       //Saving to user defaults
+                       UserDefaults.standard.set(province,forKey: "province")
+                       package = ["location": location, "province": province]
 
-                        // saving your CLLocation object to CloudKit
-                        Helper.updateToDatabase(keyValuePair: package, recordID: recordId)
-                      }
-                    }
-                  }
-                }
-
-                
-           }
+                       // saving your CLLocation object to CloudKit
+                       Helper.updateToDatabase(keyValuePair: package, recordID: recordId)
+                     }
+                   }
+                 }
+               }
+            
+               // saving to UserDefaults dalam bentuk NSData
+               let locationData = NSKeyedArchiver.archivedData(withRootObject: location)
+               UserDefaults.standard.set(locationData, forKey: "locationData")
         }
-    }
 }
 
 
