@@ -91,13 +91,11 @@ extension RegisterDetailController : UITableViewDataSource {
                 let cell  = tableView.dequeueReusableCell(withIdentifier: "buttonCell", for: indexPath) as? ButtonTableViewCell
                   cell?.buttonOutlet.layer.cornerRadius = 10
                   cell?.buttonOutlet.setTitle("Daftar", for: .normal)
-                  //cell?.buttonOutlet.isHidden = true
+                  cell?.buttonOutlet.isEnabled = false
                   cell?.buttonOutlet.backgroundColor =  Colors.gray_disabled
                   cell?.delegate = self
                 return cell!
               }
-        
-              
         return UITableViewCell()
     }
 }
@@ -154,10 +152,10 @@ extension RegisterDetailController: AgreementDelegate {
     let buttonCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 8)) as! ButtonTableViewCell
     if isCheck {
       buttonCell.buttonOutlet.backgroundColor =  Colors.red
-      //buttonCell.buttonOutlet.isHidden = false
+      buttonCell.buttonOutlet.isEnabled = true
     } else {
       buttonCell.buttonOutlet.backgroundColor =  Colors.gray_disabled
-      //buttonCell.buttonOutlet.isHidden = true
+      buttonCell.buttonOutlet.isEnabled = false
     }
   }
   

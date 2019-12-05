@@ -79,9 +79,9 @@ extension RegisterDetailController : FormCellDelegate {
               record.setValue(encryptedPassword, forKey: "password")
               record.setValue(fullNameCell.formTextField.text!, forKey: "name")
               record.setValue(self.checkGender(genderCell.formTextField.text!), forKey: "gender")
-              record.setValue(self.covertDateFromString(birthDateCell.formTextField.text!), forKey: "birth_date")
+              record.setValue(self.convertDateFromString(birthDateCell.formTextField.text!), forKey: "birth_date")
               if lastDonoCell.formTextField.text! != "" {
-                record.setValue(self.covertDateFromString(lastDonoCell.formTextField.text!), forKey: "last_donor")
+                record.setValue(self.convertDateFromString(lastDonoCell.formTextField.text!), forKey: "last_donor")
               }
               if referralCell.formTextField.text! != "" {
                 record.setValue(1, forKey: "isVerified")
@@ -91,13 +91,15 @@ extension RegisterDetailController : FormCellDelegate {
               }
               Helper.saveData(record) {[weak self] (isSuccess) in
                 if isSuccess {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5){
                         DispatchQueue.main.async {
                             DataFetcher().getUserDataByEmail(email: (self?.userCredentials["email"]!)!, password: (self?.userCredentials["password"]!)!){(userModel) in
                             if userModel != nil {
                                 DispatchQueue.main.async {
                                 print("Processing...")
-                                LoginController().checkLocation()
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                    self?.checkLocation()
+                                }
                                 self?.saveToUserDefaults(userModel: userModel)
                                 print("Data saved to user default...")
                                 self?.performSegue(withIdentifier: "goToHome", sender: self)
@@ -167,10 +169,11 @@ extension RegisterDetailController : FormCellDelegate {
     }
   }
   
-  func covertDateFromString(_ date: String) -> Date {
+  func convertDateFromString(_ date: String) -> Date {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "dd MM yyyy"
     let newdate = dateFormatter.date(from: date)!
     return newdate
   }
+    
 }

@@ -8,7 +8,9 @@
 
 import UIKit
 import CloudKit
-class RegisterDetailController : UIViewController {
+import CoreLocation
+
+class RegisterDetailController : UIViewController, CLLocationManagerDelegate {
     var navigationBarTitle : String?
     var formItems: [FormItems]?
     var userCredentials:[String:String] = [:]
@@ -21,6 +23,7 @@ class RegisterDetailController : UIViewController {
     let bloodType = ["A-","A+","B-","B+","O-","O+","AB-","AB+", "Belum Diketahui"]
     var pickerToolBar: UIToolbar!
     var activeCell : FormTableViewCell?
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +45,67 @@ class RegisterDetailController : UIViewController {
         pickerToolBar.setItems([flexibleSpace, doneButton], animated: false)
         self.view.backgroundColor = Colors.backgroundView
         loadFormTable()
+    }
+    
+    func checkLocation(){
+        locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    //function for getting region
+    func geocode(latitude: Double, longitude: Double, completion: @escaping (_ placemark: [CLPlacemark]?, _ error: Error?) -> Void)  {
+          CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: latitude, longitude: longitude)) { placemark, error in
+              guard let placemark = placemark, error == nil else {
+                  completion(nil, error)
+                  return
+              }
+              completion(placemark, nil)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+           let location = locations.last!
+           //locationManager stops updating location
+           locationManager.stopUpdatingLocation()
+        
+           //get recordName from userdefaults
+           guard let recordName = UserDefaults.standard.value(forKey: "currentUser") as? String else{
+               return
+           }
+           let recordId = CKRecord.ID(recordName: recordName)
+           
+           var package : [String:Any]=[:]
+           
+           geocode(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude) { (placemarks, error) in
+           if error != nil {
+              print("failed")
+           }
+           else {
+             print("placemark not nil")
+             guard
+                 let placemark = placemarks else{fatalError()}
+               if placemark.count > 0 {
+                 DispatchQueue.main.async {
+                     let placemark = placemarks?[0]
+                     let province = placemark?.administrativeArea!
+                   //Saving to user defaults
+                   UserDefaults.standard.set(province,forKey: "province")
+                   package = ["location": location, "province": province]
+
+                   // saving your CLLocation object to CloudKit
+                   Helper.updateToDatabase(keyValuePair: package, recordID: recordId)
+                 }
+               }
+             }
+           }
+        
+           // saving to UserDefaults dalam bentuk NSData
+           let locationData = NSKeyedArchiver.archivedData(withRootObject: location)
+           UserDefaults.standard.set(locationData, forKey: "locationData")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -144,6 +208,7 @@ class RegisterDetailController : UIViewController {
            formTableView.tableFooterView = UIView()
            formTableView.showsVerticalScrollIndicator = false
     }
+    
 }
 
 extension RegisterDetailController: UITextFieldDelegate{
