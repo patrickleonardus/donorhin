@@ -63,7 +63,7 @@ class DonateController: UIViewController {
    }
    
   //MARK:- Get data from database
-  private func getData() {
+  private func getData(_ selectedCategory:Int = 0) {
     let nspredicate = NSPredicate(format: "idPendonor == %@", [self.currentUser])
     let query = CKQuery(recordType: "Tracker", predicate: nspredicate)
     Helper.getAllData(query) { (results) in
@@ -89,16 +89,11 @@ class DonateController: UIViewController {
       self.getData()
    }
    
-   //MARK: - when segmented control tapped
-   @IBAction func segmentedControlTapped(_ sender: UISegmentedControl) {
-      self.historyDonorSegmentedControl = sender
-      //    DummyDataDonate.getData(self.segmented) { (req) in
-      //      if let req = req {
-      //        self.listData = req
-      //        self.tableview.reloadData()
-      //      }
-      //    }
-   }
+  //MARK: - when segmented control tapped
+  @IBAction func segmentedControlTapped(_ sender: UISegmentedControl) {
+    self.getData(sender.selectedSegmentIndex)
+  }
+  
   @objc private func confirm() {
     let storyboard = UIStoryboard(name: "Donate", bundle: nil)
     let vc = storyboard.instantiateViewController(withIdentifier: "StepsPageViewController") as! DonateStepsViewController
