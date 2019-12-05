@@ -9,40 +9,43 @@
 import UIKit
 
 class EventTableViewCell: UITableViewCell{
+  
+  var eventData : [EventModel]?
+  var moveToAddEventDelegate : MoveToAddEvent?
+  var moveToDetailEventDelegate : MoveToEventDetail?
+  
+  @IBOutlet weak var collectionViewDiscover: UICollectionView!
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
     
-    var eventData : [EventModel]?
-    var moveToAddEventDelegate : MoveToAddEvent?
-    var moveToDetailEventDelegate : MoveToEventDetail?
+    self.collectionViewDiscover.delegate = self
+    self.collectionViewDiscover.dataSource = self
     
-    @IBOutlet weak var collectionViewDiscover: UICollectionView!
+    loadData()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+  }
+  
+  func loadData(){
+    EventModelCollectionView().getData { (eventData) in
+      
+      DispatchQueue.main.async {
         
-        self.collectionViewDiscover.delegate = self
-        self.collectionViewDiscover.dataSource = self
+        self.eventData = eventData
         
-        loadData()
+        self.eventData?.reverse()
         
+        self.collectionViewDiscover.reloadData()
+      }
     }
+  }
+  
+  
+  override func setSelected(_ selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
     
-    func loadData(){
-        EventModelCollectionView().getData { (eventData) in
-            
-            DispatchQueue.main.async {
-                
-                self.eventData = eventData
-                self.collectionViewDiscover.reloadData()
-            }
-        }
-    }
-    
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    // Configure the view for the selected state
+  }
+  
 }
 

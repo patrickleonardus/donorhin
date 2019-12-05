@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension EventTableViewCell : UICollectionViewDelegate, UICollectionViewDataSource {
+extension EventTableViewCell : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
@@ -32,6 +32,21 @@ extension EventTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
         
         return numberOfItemsInSection
     }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    
+    var edgeInsets = UIEdgeInsets()
+    
+    if section == 0 {
+      edgeInsets.left = 20
+    }
+    else {
+      edgeInsets.left = 20
+      edgeInsets.right = 20
+    }
+    
+    return edgeInsets
+  }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
