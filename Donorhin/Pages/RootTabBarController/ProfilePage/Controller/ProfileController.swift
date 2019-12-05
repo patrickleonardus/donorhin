@@ -13,6 +13,7 @@ class ProfileController: UIViewController {
     //MARK: Outlet
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var viewValidation: CustomMainView!
+    @IBOutlet weak var belumLoginImageView: UIImageView!
     
     //MARK: Properties
     let bloodTypePicker = UIPickerView()
@@ -35,6 +36,12 @@ class ProfileController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        if UDDevice.widthScreen < 400 {
+            
+            belumLoginImageView.frame.size = CGSize.init(width: 50, height: 50)
+        }
+        print(UIScreen.main.bounds.size.width)
         
     ProfileDataFetcher().getProfileFromUserDefaults { (profileData) in
             self.user = profileData
