@@ -70,8 +70,11 @@ extension EventTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
                 cell.imageEvent.contentMode = UIView.ContentMode.scaleAspectFill
                 cell.imageEvent.image = UIImage(named: "user_profile")
                 cell.titleEvent.text = "Mohon Tunggu"
-                cell.addressEvent.text = "Data sedang di proses"
-                cell.dateEvent.text = ""
+              cell.titleEvent.textAlignment = .center
+                cell.addressEvent.text = ""
+                cell.dateEvent.text = "Data sedang di proses"
+              cell.dateEvent.textAlignment = .center
+              cell.publisherEvent.text = ""
             }
             
             else if eventData != nil {
@@ -85,8 +88,11 @@ extension EventTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
                 
                 cell.imageEvent.image = data.image
                 cell.titleEvent.text = data.title
+               cell.titleEvent.textAlignment = .left
                 cell.addressEvent.text = data.address
                 cell.dateEvent.text = startDateCast
+               cell.dateEvent.textAlignment = .left
+              cell.publisherEvent.text = "Ditulis Oleh: \(String(describing: data.nameEvent!))"
 
             }
             
