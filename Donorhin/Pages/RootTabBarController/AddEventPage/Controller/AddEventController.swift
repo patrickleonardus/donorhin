@@ -12,7 +12,7 @@ import CloudKit
 class AddEventController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    
+  
     var titleForHeaderInSection = ["DESKRIPSI ACARA","LOKASI DAN WAKTU","CONTACT PERSON"]
     var cellName : [TitleModelEvent]?
     var cellPlaceholder : [PlaceholderModelEvent]?
@@ -245,7 +245,6 @@ class AddEventController: UIViewController {
         
         self.present(alert,animated: true)
     }
-    
     //MARK : - Handle Date Picker
     
     @objc func showDatePickerStart(sender: UITextField){

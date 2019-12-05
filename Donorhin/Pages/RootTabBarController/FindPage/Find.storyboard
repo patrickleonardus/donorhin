@@ -61,14 +61,14 @@
                                 <rect key="frame" x="0.0" y="192" width="414" height="704"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="find_donor" translatesAutoresizingMaskIntoConstraints="NO" id="IfR-pf-Ol2">
-                                        <rect key="frame" x="56" y="22" width="302" height="230"/>
+                                        <rect key="frame" x="56" y="18" width="302" height="230"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="302" id="I21-NC-s4j"/>
                                             <constraint firstAttribute="height" constant="230" id="bYS-lJ-joe"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anda Belum Melakukan Pencarian" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MvY-em-XBo">
-                                        <rect key="frame" x="56" y="260" width="302" height="20.5"/>
+                                        <rect key="frame" x="78" y="258" width="258.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -90,15 +90,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="IfR-pf-Ol2" firstAttribute="top" secondItem="cFS-SC-sCV" secondAttribute="top" constant="22" id="INn-Sb-oGr"/>
-                                    <constraint firstItem="IfR-pf-Ol2" firstAttribute="leading" secondItem="cFS-SC-sCV" secondAttribute="leading" constant="56" id="SrD-yD-fha"/>
-                                    <constraint firstAttribute="trailing" secondItem="awv-cT-Zg6" secondAttribute="trailing" constant="56" id="WI1-xu-PCC"/>
-                                    <constraint firstItem="MvY-em-XBo" firstAttribute="top" secondItem="IfR-pf-Ol2" secondAttribute="bottom" constant="8" id="aPg-iM-SaJ"/>
-                                    <constraint firstAttribute="trailing" secondItem="IfR-pf-Ol2" secondAttribute="trailing" constant="56" id="eQa-an-5Yw"/>
-                                    <constraint firstAttribute="trailing" secondItem="MvY-em-XBo" secondAttribute="trailing" constant="56" id="egy-O6-2Vf"/>
-                                    <constraint firstItem="awv-cT-Zg6" firstAttribute="leading" secondItem="cFS-SC-sCV" secondAttribute="leading" constant="56" id="fbc-kI-Jgp"/>
-                                    <constraint firstItem="MvY-em-XBo" firstAttribute="leading" secondItem="cFS-SC-sCV" secondAttribute="leading" constant="56" id="whU-cC-UjD"/>
-                                    <constraint firstItem="awv-cT-Zg6" firstAttribute="top" secondItem="MvY-em-XBo" secondAttribute="bottom" constant="8" id="xo2-QP-ddf"/>
+                                    <constraint firstItem="IfR-pf-Ol2" firstAttribute="centerX" secondItem="cFS-SC-sCV" secondAttribute="centerX" id="afL-2u-OUc"/>
+                                    <constraint firstItem="IfR-pf-Ol2" firstAttribute="top" secondItem="cFS-SC-sCV" secondAttribute="top" constant="18" id="eNN-gL-o8O"/>
+                                    <constraint firstItem="MvY-em-XBo" firstAttribute="centerX" secondItem="cFS-SC-sCV" secondAttribute="centerX" id="nnU-Kc-5tt"/>
+                                    <constraint firstItem="MvY-em-XBo" firstAttribute="top" secondItem="IfR-pf-Ol2" secondAttribute="bottom" constant="10" id="pKv-fN-Mpl"/>
+                                    <constraint firstItem="awv-cT-Zg6" firstAttribute="top" secondItem="MvY-em-XBo" secondAttribute="bottom" constant="10" id="pU1-VW-emR"/>
+                                    <constraint firstItem="awv-cT-Zg6" firstAttribute="centerX" secondItem="cFS-SC-sCV" secondAttribute="centerX" id="xx2-wV-Jl7"/>
                                 </constraints>
                             </view>
                         </subviews>

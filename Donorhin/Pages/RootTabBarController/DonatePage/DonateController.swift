@@ -29,7 +29,7 @@ class DonateController: UIViewController {
   }
   var profileImage = UIImageView()
   var confirmButton = UIBarButtonItem()
-  let currentUser = UserDefaults.standard.value(forKey: "currentUser") as! String
+  let currentUser = UserDefaults.standard.value(forKey: "currentUser")
    
    //MARK:- view handler
    override func viewDidLoad() {

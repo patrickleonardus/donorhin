@@ -44,6 +44,7 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
                 errorCell.errorMsg.isHidden = true
                 self.removeSpinner()
               }
+      self.navigationController?.navigationBar.isHidden = true
     }
     
     func loadFormTable(){

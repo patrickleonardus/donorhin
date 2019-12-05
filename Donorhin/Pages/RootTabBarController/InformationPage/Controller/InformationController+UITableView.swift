@@ -29,13 +29,29 @@ extension InformationController : UITableViewDataSource {
       
       var height : CGFloat = 0
       
-      if indexPath.section == 0 {
-        height = 200
-      }
-      else {
-        height = 400
+      guard let data = infoItems?[indexPath.section] else {fatalError()}
+      
+      if data.type == .video {
+        if indexPath.section == 0 {
+          height = 200
+        }
+        else if indexPath.section == 1 {
+          height = 460
+        }
+        else if indexPath.section == 2 {
+          height = 400
+        }
       }
       
+      else if data.type == .text {
+        if indexPath.section == 0 {
+          height = 450
+        }
+        else {
+          height = 420
+        }
+      }
+    
       return height
     }
     

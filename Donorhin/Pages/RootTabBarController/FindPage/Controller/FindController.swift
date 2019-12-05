@@ -76,6 +76,9 @@ class FindController: UIViewController {
         
       }
     }
+    else {
+      removeSpinner()
+    }
   }
   
   override func viewDidAppear(_ animated: Bool) {

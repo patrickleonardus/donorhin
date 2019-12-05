@@ -37,6 +37,7 @@ class RegisterController : UIViewController{
     }
     
     override func viewWillAppear(_ animated: Bool) {
+      self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
         self.navigationController?.navigationBar.prefersLargeTitles = false
         
@@ -127,6 +128,7 @@ class RegisterController : UIViewController{
                 errorCell.errorMsg.isHidden = true
                 self.removeSpinner()
             }
+      self.navigationController?.navigationBar.isHidden = false
     }
     
   private func isValidEmail(_ email: String) -> Bool {
