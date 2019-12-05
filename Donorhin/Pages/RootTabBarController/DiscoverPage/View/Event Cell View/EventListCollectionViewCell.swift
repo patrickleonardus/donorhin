@@ -14,5 +14,6 @@ class EventListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleEvent: UILabel!
     @IBOutlet weak var addressEvent: UILabel!
     @IBOutlet weak var dateEvent: UILabel!
-    
+  @IBOutlet weak var publisherEvent: UILabel!
+  
 }
