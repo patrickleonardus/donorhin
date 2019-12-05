@@ -35,7 +35,7 @@ extension AddEventController : AnswerDelegate {
         checkValidity()
     }
     
-    func getDesc(cell: LabelAndTextFieldCell, data: String) {
+    func getDesc(cell: LabelAndTextViewCell, data: String) {
         descEvent = data
         checkValidity()
     }

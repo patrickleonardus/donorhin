@@ -52,10 +52,6 @@ class LabelAndTextFieldCell: UITableViewCell, UITextFieldDelegate {
                     titleEvent = textField.text
                     delegate?.getTitle(cell: self, data: titleEvent!)
                 }
-                else if tableViewRow == 1 {
-                    descEvent = textField.text
-                    delegate?.getDesc(cell: self, data: descEvent!)
-                }
             }
             else if tableViewSection == 1 {
                 if tableViewRow == 0 {
@@ -95,7 +91,7 @@ class LabelAndTextFieldCell: UITableViewCell, UITextFieldDelegate {
 protocol AnswerDelegate {
     func didFilled(cell: LabelAndTextFieldCell, isFilled: Bool)
     func getTitle(cell: LabelAndTextFieldCell, data: String)
-    func getDesc(cell: LabelAndTextFieldCell, data: String)
+    func getDesc(cell: LabelAndTextViewCell, data: String)
     func getloc(cell: LabelAndTextFieldCell, data: String)
     func getStart(cell: LabelAndTextFieldCell, data: String)
     func getEnd(cell: LabelAndTextFieldCell, data: String)
