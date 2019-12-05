@@ -104,10 +104,22 @@ extension EventTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        
+        let currUser = UserDefaults.standard.string(forKey: "currentUser")
         
         if indexPath.section == 0 {
+          
+          if currUser == nil {
+            let alert = UIAlertController(title: "Anda belum login", message: "Untuk mengakses fitur ini, anda perlu untuk melakukan login terlebih dahulu, apakah anda ingin Login?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Nanti Saja", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Login Sekarang", style: .default, handler: { (action) in
+              self.moveToLogin?.performLogin()
+            }))
+            UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+          }
+            
+          else if currUser != nil {
             self.moveToAddEventDelegate?.moveToAddEventClass()
+          }
         }
         else {
             

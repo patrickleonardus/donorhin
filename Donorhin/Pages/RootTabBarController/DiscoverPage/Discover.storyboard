@@ -266,7 +266,7 @@
                 <viewControllerPlaceholder storyboardName="DetailEvent" id="Vk0-J6-M4L" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xKE-jG-Oxd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1404" y="525"/>
+            <point key="canvasLocation" x="1403" y="522"/>
         </scene>
         <!--AddEvent-->
         <scene sceneID="acZ-M5-Mld">
@@ -274,7 +274,7 @@
                 <viewControllerPlaceholder storyboardName="AddEvent" id="xC0-Wj-Dk2" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sE5-Y2-aBN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1443" y="603"/>
+            <point key="canvasLocation" x="1413" y="603"/>
         </scene>
         <!--Information-->
         <scene sceneID="DQh-Gr-Hpm">
@@ -282,7 +282,7 @@
                 <viewControllerPlaceholder storyboardName="Information" id="rXk-kw-fOp" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxx-JL-VzB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1423" y="679"/>
+            <point key="canvasLocation" x="1404" y="686"/>
         </scene>
         <!--Jelajah-->
         <scene sceneID="Xak-g9-VYV">

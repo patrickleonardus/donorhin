@@ -251,6 +251,7 @@ extension AddEventController: UITableViewDelegate, UITableViewDataSource {
                     cell.tableViewSection = indexPath.section
                     cell.name.text = titleData.name
                     cell.answer.placeholder = placeholderData.placeholder
+                  cell.answer.keyboardType = UIKeyboardType.alphabet
                 }
                     
                 else  {
@@ -258,6 +259,7 @@ extension AddEventController: UITableViewDelegate, UITableViewDataSource {
                     cell.tableViewSection = indexPath.section
                     cell.name.text = titleData.name
                     cell.answer.text = nameEvent
+                  cell.answer.keyboardType = UIKeyboardType.alphabet
                 }
                 
             }
