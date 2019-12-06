@@ -14,6 +14,7 @@ protocol AgreementDelegate {
 class AgreementTableViewCell: UITableViewCell {
   var delegate: AgreementDelegate!
   @IBOutlet weak var checkBoxAgreement: CheckBox!
+    
   override func awakeFromNib() {
     super.awakeFromNib()
     self.contentView.backgroundColor = Colors.backgroundView
