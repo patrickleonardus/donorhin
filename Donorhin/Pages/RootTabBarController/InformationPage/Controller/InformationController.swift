@@ -40,6 +40,11 @@ class InformationController : UIViewController {
             self.infoItems = infoItems
           }
         }
+        else if navigationBarTitle == "Apa Itu Koordinator?" {
+          InfoData().getInfoKoordinator { (infoItems) in
+            self.infoItems = infoItems
+          }
+      }
         loadTableView()
     }
     

@@ -45,10 +45,10 @@ extension InformationController : UITableViewDataSource {
       
       else if data.type == .text {
         if indexPath.section == 0 {
-          height = 450
+          height = 560
         }
         else {
-          height = 420
+          height = 460
         }
       }
     
