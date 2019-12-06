@@ -64,11 +64,12 @@ class DonateController: UIViewController {
    
   //MARK:- Get data from database
   private func getData(_ selectedCategory:Int = 0) {
+    print(self.currentUser!)
     var nspredicate = NSPredicate()
     if selectedCategory == 0 {
-      nspredicate = NSPredicate(format: "id_pendonor == %@ AND current_step >= 1 AND current_step <= 5", [self.currentUser])
+      nspredicate = NSPredicate(format: "id_pendonor == %@ AND current_step >= 1", CKRecord.ID(recordName: self.currentUser as! String))
     } else {
-      nspredicate = NSPredicate(format: "id_pendonor == %@ AND current_step == 6", [self.currentUser])
+      nspredicate = NSPredicate(format: "id_pendonor IN %@ AND current_step == 6", [self.currentUser])
     }
 
     let query = CKQuery(recordType: "Tracker", predicate: nspredicate)
