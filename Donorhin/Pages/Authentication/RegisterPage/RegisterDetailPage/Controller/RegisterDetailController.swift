@@ -45,6 +45,10 @@ class RegisterDetailController : UIViewController, CLLocationManagerDelegate {
         pickerToolBar.setItems([flexibleSpace, doneButton], animated: false)
         self.view.backgroundColor = Colors.backgroundView
         loadFormTable()
+        
+        let buttonCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 8)) as! ButtonTableViewCell
+        buttonCell.buttonOutlet.backgroundColor =  Colors.gray_disabled
+        buttonCell.buttonOutlet.isEnabled = false
     }
     
     func checkLocation(){
@@ -95,7 +99,7 @@ class RegisterDetailController : UIViewController, CLLocationManagerDelegate {
                    //Saving to user defaults
                    UserDefaults.standard.set(province,forKey: "province")
                    package = ["location": location, "province": province]
-
+                    print(UserDefaults.standard.string(forKey: "province"))
                    // saving your CLLocation object to CloudKit
                    Helper.updateToDatabase(keyValuePair: package, recordID: recordId)
                  }
@@ -192,9 +196,11 @@ class RegisterDetailController : UIViewController, CLLocationManagerDelegate {
     
       if birthDateCell.formTextField.isFirstResponder {
         birthDateCell.formTextField.text = dateFormatter.string(from: datePicker.date)
+        self.detailUserCredentials["birthdate"] = birthDateCell.formTextField.text
       }
       if lastDonorDateCell.formTextField.isFirstResponder {
         lastDonorDateCell.formTextField.text = dateFormatter.string(from: datePicker.date)
+        self.detailUserCredentials["lastdonor"] = lastDonorDateCell.formTextField.text
       }
   }
     

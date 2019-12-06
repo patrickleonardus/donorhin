@@ -11,8 +11,9 @@ import UIKit
 class FirstCell: UITableViewCell {
 
     @IBOutlet weak var imageProfile: UIImageView!
-    @IBOutlet weak var nameProfile: UILabel!
-    @IBOutlet weak var emailProfile: UILabel!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    
     
     
     override func awakeFromNib() {

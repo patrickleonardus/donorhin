@@ -9,7 +9,7 @@
 import UIKit
 
 extension RegisterDetailController : UITableViewDelegate{
-  
+    
 }
 
 extension RegisterDetailController : UITableViewDataSource {
@@ -55,10 +55,10 @@ extension RegisterDetailController : UITableViewDataSource {
             cell?.formTextField.delegate = self
             cell?.iconImageView.image = UIImage(named: data.img!)
             cell?.formTextField.addDoneButtonOnKeyboard()
-            if indexPath.section == 1 {
+          if indexPath.section == 1 {
               cell?.formTextField.inputView = self.generalPicker
               cell?.formTextField.inputAccessoryView = self.pickerToolBar
-            }
+          }
           if indexPath.section == 2 {
             cell?.formTextField.inputView = self.datePicker
             cell?.formTextField.inputAccessoryView = self.pickerToolBar
@@ -91,8 +91,6 @@ extension RegisterDetailController : UITableViewDataSource {
                 let cell  = tableView.dequeueReusableCell(withIdentifier: "buttonCell", for: indexPath) as? ButtonTableViewCell
                   cell?.buttonOutlet.layer.cornerRadius = 10
                   cell?.buttonOutlet.setTitle("Daftar", for: .normal)
-                  cell?.buttonOutlet.isEnabled = false
-                  cell?.buttonOutlet.backgroundColor =  Colors.gray_disabled
                   cell?.delegate = self
                 return cell!
               }
@@ -148,16 +146,22 @@ extension RegisterDetailController: UIPickerViewDataSource, UIPickerViewDelegate
 
 
 extension RegisterDetailController: AgreementDelegate {
-  func checkAgreementCheckBox(_ isCheck: Bool) {
+    func checkAgreementCheckBox(_ isCheck: Bool) {
     let buttonCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 8)) as! ButtonTableViewCell
-    if isCheck {
-      buttonCell.buttonOutlet.backgroundColor =  Colors.red
-      buttonCell.buttonOutlet.isEnabled = true
-    } else {
-      buttonCell.buttonOutlet.backgroundColor =  Colors.gray_disabled
-      buttonCell.buttonOutlet.isEnabled = false
+    let nameCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! FormTableViewCell
+    
+        if isCheck {
+            if self.detailUserCredentials["gender"] != "" || self.detailUserCredentials["bloodType"] != "" || self.detailUserCredentials["name"] != "" || self.detailUserCredentials["birthdate"] != "" || self.detailUserCredentials["lastdonor"] != "" || nameCell.formTextField!.text != "" {
+                buttonCell.buttonOutlet.backgroundColor =  Colors.red
+                buttonCell.buttonOutlet.isEnabled = true
+            }
+        }
+        else {
+          buttonCell.buttonOutlet.backgroundColor =  Colors.gray_disabled
+          buttonCell.buttonOutlet.isEnabled = false
+        }
+    
     }
-  }
   
   func goToPrivacy() {
     performSegue(withIdentifier: "GoToAgreement", sender: nil)

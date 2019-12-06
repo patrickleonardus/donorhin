@@ -82,6 +82,7 @@ class ProfileController: UIViewController {
         dateFormatter.dateFormat = "dd MMMM yyyy"
         //save ke userdefaults sama cloudkit
         view.endEditing(true)
+        guard let profileCell = tableView.cellForRow(at: IndexPath(row:0, section: 0)) as? FirstCell else{fatalError()}
         guard let genderCell = tableView.cellForRow(at: IndexPath(row:0, section: 1)) as? SecondCell else{fatalError()}
         guard let birthDateCell = tableView.cellForRow(at: IndexPath(row:1, section: 1)) as? SecondCell else{fatalError()}
         guard let bloodTypeCell = tableView.cellForRow(at: IndexPath(row:2, section: 1)) as? SecondCell else{fatalError()}
@@ -98,15 +99,17 @@ class ProfileController: UIViewController {
         }
         let recordId = CKRecord.ID(recordName: recordName)
         
-        let package : [String:Any] = ["last_donor": lastDonorDate, "birth_date":birthDate,"gender":valueGender, "blood_type":bloodTypeCell.profileTextField.text]
+        let package : [String:Any] = ["name": profileCell.nameTextField.text, "email": profileCell.emailTextField.text,"last_donor": lastDonorDate, "birth_date":birthDate,"gender":valueGender, "blood_type":bloodTypeCell.profileTextField.text]
         //saving to cloudkit
         Helper.updateToDatabase(keyValuePair: package, recordID: recordId)
         
         //saving to user defaults
-        UserDefaults.standard.set(valueGender, forKey: "gender")
+        UserDefaults.standard.set(profileCell.nameTextField.text, forKey: "name")
+        UserDefaults.standard.set(profileCell.emailTextField.text, forKey: "email")
+            UserDefaults.standard.set(valueGender, forKey: "gender")
         UserDefaults.standard.set(bloodTypeCell.profileTextField.text, forKey: "blood_type")
-        UserDefaults.standard.set(lastDonorDate, forKey: "last_donor")
-        UserDefaults.standard.set(birthDate, forKey: "birth_date")
+            UserDefaults.standard.set(lastDonorDate, forKey: "last_donor")
+            UserDefaults.standard.set(birthDate, forKey: "birth_date")
         
     }
     
@@ -140,18 +143,24 @@ class ProfileController: UIViewController {
         setEditButton()
       }
       
+        guard let profileCell = tableView.cellForRow(at: IndexPath(row:0, section: 0)) as? FirstCell else{fatalError()}
         guard let genderCell = tableView.cellForRow(at: IndexPath(row:0, section: 1)) as? SecondCell else{fatalError()}
         guard let birthDateCell = tableView.cellForRow(at: IndexPath(row:1, section: 1)) as? SecondCell else{fatalError()}
         guard let bloodTypeCell = tableView.cellForRow(at: IndexPath(row:2, section: 1)) as? SecondCell else{fatalError()}
         guard let lastDonorCell = tableView.cellForRow(at: IndexPath(row:3, section: 1)) as? SecondCell else{fatalError()}
+        profileCell.nameTextField.isEnabled = false
+        profileCell.emailTextField.isEnabled = false
         genderCell.profileTextField.isEnabled = false
         birthDateCell.profileTextField.isEnabled = false
         bloodTypeCell.profileTextField.isEnabled = false
         lastDonorCell.profileTextField.isEnabled = false
-      genderCell.profileTextField.textColor = Colors.gray
-      birthDateCell.profileTextField.textColor = Colors.gray
-      bloodTypeCell.profileTextField.textColor = Colors.gray
-      lastDonorCell.profileTextField.textColor = Colors.gray
+      
+        profileCell.nameTextField.textColor = Colors.gray
+        profileCell.emailTextField.textColor = Colors.gray
+        genderCell.profileTextField.textColor = Colors.gray
+        birthDateCell.profileTextField.textColor = Colors.gray
+        bloodTypeCell.profileTextField.textColor = Colors.gray
+        lastDonorCell.profileTextField.textColor = Colors.gray
         
 
         
@@ -168,6 +177,7 @@ class ProfileController: UIViewController {
     }
     
     @objc func editButtonPressed() {
+        guard let profileCell = tableView.cellForRow(at: IndexPath(row:0, section: 0)) as? FirstCell else{fatalError()}
         guard let genderCell = tableView.cellForRow(at: IndexPath(row:0, section: 1)) as? SecondCell else{fatalError()}
         guard let birthDateCell = tableView.cellForRow(at: IndexPath(row:1, section: 1)) as? SecondCell else{fatalError()}
         guard let bloodTypeCell = tableView.cellForRow(at: IndexPath(row:2, section: 1)) as? SecondCell else{fatalError()}
@@ -178,14 +188,19 @@ class ProfileController: UIViewController {
         if editMode == false {
             editMode = true
             editButton?.title = "Simpan"
+            profileCell.nameTextField.isEnabled = true
+            profileCell.emailTextField.isEnabled = true
             genderCell.profileTextField.isEnabled = true
             birthDateCell.profileTextField.isEnabled = true
             bloodTypeCell.profileTextField.isEnabled = true
             lastDonorCell.profileTextField.isEnabled = true
-          genderCell.profileTextField.textColor = UIColor.black
-          birthDateCell.profileTextField.textColor = UIColor.black
-          bloodTypeCell.profileTextField.textColor = UIColor.black
-          lastDonorCell.profileTextField.textColor = UIColor.black
+            
+            profileCell.nameTextField.textColor = UIColor.black
+            profileCell.emailTextField.textColor = UIColor.black
+            genderCell.profileTextField.textColor = UIColor.black
+            birthDateCell.profileTextField.textColor = UIColor.black
+            bloodTypeCell.profileTextField.textColor = UIColor.black
+            lastDonorCell.profileTextField.textColor = UIColor.black
           
           UIView.animate(withDuration: 0.2) {
             logoutButton.alpha = 0
@@ -196,14 +211,18 @@ class ProfileController: UIViewController {
             saveData()
             editMode = false
             editButton?.title = "Ubah"
+            profileCell.nameTextField.isEnabled = false
+            profileCell.emailTextField.isEnabled = false
             genderCell.profileTextField.isEnabled = false
             birthDateCell.profileTextField.isEnabled = false
             bloodTypeCell.profileTextField.isEnabled = false
             lastDonorCell.profileTextField.isEnabled = false
-          genderCell.profileTextField.textColor = Colors.gray
-          birthDateCell.profileTextField.textColor = Colors.gray
-          bloodTypeCell.profileTextField.textColor = Colors.gray
-          lastDonorCell.profileTextField.textColor = Colors.gray
+            profileCell.nameTextField.textColor = Colors.gray
+            profileCell.emailTextField.textColor = Colors.gray
+            genderCell.profileTextField.textColor = Colors.gray
+            birthDateCell.profileTextField.textColor = Colors.gray
+            bloodTypeCell.profileTextField.textColor = Colors.gray
+            lastDonorCell.profileTextField.textColor = Colors.gray
           
           UIView.animate(withDuration: 0.2) {
             logoutButton.alpha = 1

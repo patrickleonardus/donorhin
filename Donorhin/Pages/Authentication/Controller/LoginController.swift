@@ -193,7 +193,7 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
                        //Saving to user defaults
                        UserDefaults.standard.set(province,forKey: "province")
                        package = ["location": location, "province": province]
-
+                       print(UserDefaults.standard.string(forKey: "province"))
                        // saving your CLLocation object to CloudKit
                        Helper.updateToDatabase(keyValuePair: package, recordID: recordId)
                      }
