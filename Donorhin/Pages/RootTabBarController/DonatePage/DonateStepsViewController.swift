@@ -45,10 +45,10 @@ class DonateStepsViewController: UIViewController {
     if segue.identifier == "GoToSteps" {
       let destinationPVC = segue.destination as! RequestStepsPageViewController
       if let request = self.request {
-        destinationPVC.step = request.currentStep
+        destinationPVC.tracker = request
       }
       else {
-        destinationPVC.step = self.stepIndicator
+        destinationPVC.tracker?.currentStep = self.stepIndicator
       }
       //MARK:- Setup delegate to change view
       destinationPVC.viewDidChangedDelegate =  self
@@ -56,6 +56,7 @@ class DonateStepsViewController: UIViewController {
     }
   }
 }
+
 //MARK:- Step  Indicator Application
 extension DonateStepsViewController:  StepIndicatorDelegate {
   func updateStepIndicator(toStep: Int) {
