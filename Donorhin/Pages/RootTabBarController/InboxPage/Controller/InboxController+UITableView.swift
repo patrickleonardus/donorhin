@@ -29,7 +29,7 @@ extension InboxController : UITableViewDelegate, UITableViewDataSource {
     cell.layer.borderColor = Colors.backgroundView.cgColor
     
     cell.labelInbox.text = "This is a Text \(indexPath.row + 1)"
-    cell.imageInbox.image = UIImage(named: "AppIcon")
+    cell.imageInbox.image = UIImage(named: "user_profile")
     
     cell.imageInbox.layer.cornerRadius = 10
     
