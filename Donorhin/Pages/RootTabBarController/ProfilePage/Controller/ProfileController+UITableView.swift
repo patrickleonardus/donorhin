@@ -64,11 +64,13 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "firstCell", for: indexPath) as? FirstCell
             
-            cell?.nameProfile.text = UserDefaults.standard.string(forKey: "name")
-            cell?.emailProfile.text = UserDefaults.standard.string(forKey: "email")
+            cell?.nameTextField.text = UserDefaults.standard.string(forKey: "name")
+            cell?.emailTextField.text = UserDefaults.standard.string(forKey: "email")
             cell?.imageProfile.image = UIImage(named: "icon_profile")
+            cell?.nameTextField.textContentType = .name
+//            cell?.nameTextField.inputView = self
+//            cell?.nameTextField.inputAccessoryView = self
             
-            print(user?.profileName)
             
             
             return cell!
