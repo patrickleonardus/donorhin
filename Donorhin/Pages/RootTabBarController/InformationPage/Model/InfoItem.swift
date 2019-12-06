@@ -42,7 +42,14 @@ struct InfoData {
     }
   func getInfoUTD(completionHandler: @escaping (([InfoItems]) -> ())){
     completionHandler(
-      [InfoItems(title: "Penjelasan UTD", longText: "Unit Transfusi Darah (UTD) adalah fasilitas pelayanan kesehatan yang menyelenggarakan donor darah, penyediaan darah, dan pendistribusian darah." , videoURL: "", type: .text)]
+      [InfoItems(title: "BPPD", longText: "Pengelolaan darah membutuhkan biaya untuk ketersediaan formulir calon donor, kapas, alat untuk mengecek Hb donor, jarum, selang dan kantong yang digunakan untuk proses donor dan menyimpan darah. Berbagai komponen yang diperlukan untuk memeriksa darah dilaboratorium, menyimpan darah di tempat khusus, termasuk bagaimana prosedur pemusnahan darah yang tidak layak digunakan, juga membutuhkan biaya operasional. Biaya ini berasal dari subsidi pemerintah maupun subsidi PMI. Sisa beban biaya inilah yang tidak tersubsidi yang dinamakan Biaya Penggantian Pengelolaan Darah (BPPD) atau service cost yang dibebankan kepada pasian bukan komponen darahnya itu sendiri.\n(Source: pmi.or.id)", videoURL: "", type: .text),
+       InfoItems(title: "Rhesus", longText: "Rhesus atau faktor rhesus adalah kadar protein khusus (Antigen D) pada permukaan sel darah merah. Tidak semua orang memiliki protein pada permukaan sel darah merahnya. Seseorang yang sel darah merahnya terdapat protein tersebut berarti dinyatakan memiliki rhesus positif (biasa ditulis Rh+). Jika seseorang tidak memiliki protein tersebut pada sel darah merahnya, berarti dinyatakan memiliki rhesus negatif (atau Rh-). \n(Source: alodokter.com)", videoURL: "", type: .text)]
+    )
+  }
+  
+  func getInfoKoordinator(completion: @escaping (([InfoItems]) -> ())){
+    completion(
+        [InfoItems(title: "Koordinator di Donorhin", longText: "Saat Anda registrasi, Anda mempunyai opsi untuk menulis kode koordinator. Kode koordinator merupakan kode yang hanya dimiliki oleh koordinator wilayah dari komunitas rhesus negatif di Indonesia. Kode ini diberikan agar para koordinator dapat mem-posting acara baru di halaman jelajah. Jadi, setiap acara yang ada di halaman jelajah dapat dipertanggungjawabkan karena hanya dapat di-posting oleh koordinator. Jika Anda ingin menampilkan acara yang berhubungan dengan rhesus negatif namun tidak mempunyai kode koordinator, Anda dapat menghubungi Tim Donorhin dengan direct message di Instagram @donorhin.id.", videoURL: "", type: .text)]
     )
   }
     

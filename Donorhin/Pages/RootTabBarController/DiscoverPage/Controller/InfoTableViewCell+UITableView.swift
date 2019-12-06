@@ -58,7 +58,11 @@ extension InfoTableViewCell: UITableViewDelegate, UITableViewDataSource {
             navigationBarTitle = "Unit Transfusi Darah"
             delegate?.getNavigationTitle(cell: self, title: navigationBarTitle!)
         }
-        
+        else if indexPath.row == 4 {
+          navigationBarTitle = "Apa Itu Koordinator?"
+          delegate?.getNavigationTitle(cell: self, title: navigationBarTitle!)
+      }
+      
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
