@@ -29,11 +29,12 @@ class DonateController: UIViewController {
   }
   var profileImage = UIImageView()
   var confirmButton = UIBarButtonItem()
-  let currentUser = UserDefaults.standard.value(forKey: "currentUser")
+  var currentUser : String?
    
    //MARK:- view handler
    override func viewDidLoad() {
       super.viewDidLoad()
+    currentUser = UserDefaults.standard.string(forKey: "currentUser")
     self.confirmButton = UIBarButtonItem(title: "Confirm", style: .done, target: self, action: #selector(confirm))
       navigationItem.rightBarButtonItem = self.confirmButton
       self.showSpinner(onView: self.view)
@@ -64,25 +65,33 @@ class DonateController: UIViewController {
    
   //MARK:- Get data from database
   private func getData(_ selectedCategory:Int = 0) {
-    print(self.currentUser!)
-    var nspredicate = NSPredicate()
-    if selectedCategory == 0 {
-      nspredicate = NSPredicate(format: "id_pendonor == %@ AND current_step >= 1", CKRecord.ID(recordName: self.currentUser as! String))
-    } else {
-      nspredicate = NSPredicate(format: "id_pendonor IN %@ AND current_step == 6", [self.currentUser])
+    
+    if currentUser != nil {
+      print(self.currentUser!)
+      var nspredicate = NSPredicate()
+      if selectedCategory == 0 {
+        nspredicate = NSPredicate(format: "id_pendonor == %@ AND current_step >= 1", CKRecord.ID(recordName: self.currentUser as! String))
+      } else {
+        nspredicate = NSPredicate(format: "id_pendonor IN %@ AND current_step == 6", [self.currentUser])
+      }
+      
+      let query = CKQuery(recordType: "Tracker", predicate: nspredicate)
+      Helper.getAllData(query) { (results) in
+        if let results = results {
+          DispatchQueue.main.async {
+            self.listRequest = results
+            self.checkCountListData()
+            self.tableview.reloadData()
+            self.removeSpinner()
+          }
+        }
+      }
+    }
+    else if currentUser == nil {
+      self.removeSpinner()
+      print("User hasn't Login")
     }
 
-    let query = CKQuery(recordType: "Tracker", predicate: nspredicate)
-    Helper.getAllData(query) { (results) in
-       if let results = results {
-          DispatchQueue.main.async {
-             self.listRequest = results
-             self.checkCountListData()
-             self.tableview.reloadData()
-             self.removeSpinner()
-          }
-       }
-    }
   }
    
    private func checkStatusDonor() {
