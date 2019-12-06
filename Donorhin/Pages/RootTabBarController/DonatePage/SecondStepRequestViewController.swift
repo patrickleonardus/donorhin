@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CloudKit
 class SecondStepRequestViewController: DonateStepViewController{
   //MARK:- Variables
   @IBOutlet var tableView: UITableView!
@@ -16,6 +16,7 @@ class SecondStepRequestViewController: DonateStepViewController{
   var chosenHospital : HospitalModel?
   var chosenUTD: DonatePMIModel?
   var picker = UIDatePicker()
+  var tracker: TrackerModel?
   var isFilled : Bool {
     get {
       let text1 = chosenDate
@@ -36,11 +37,15 @@ class SecondStepRequestViewController: DonateStepViewController{
       cell.detailTextLabel?.text = String(desc ?? "")
     }
   }
-  
+  var database = CKContainer.default().publicCloudDatabase
   //MARK:- Styling View
   override func viewDidLoad() {
     super.viewDidLoad()
     generalStyling()
+  }
+  
+  override func recieveRequest(_ tracker: TrackerModel?) {
+    self.tracker = tracker
   }
   
   func generalStyling () {
@@ -64,6 +69,7 @@ class SecondStepRequestViewController: DonateStepViewController{
   func showDatePicker () {
     self.tapRecognizer.isEnabled = true
     picker.datePickerMode = .date
+    picker.minimumDate = Date()
     self.view.addSubview(picker)
     self.constrainingDatePicker()
     self.view.bringSubviewToFront(picker)
@@ -112,8 +118,25 @@ class SecondStepRequestViewController: DonateStepViewController{
           
           let accept = UIAlertAction(
             title: "Ya",
-            style: .default) {(action) in
-              self.pageViewDelegate?.changeShowedView(toStep: 3)
+            style: .default) {[weak self] (action) in
+              guard let track = self?.tracker else {return}
+              guard let recordNameUTD = self?.chosenHospital?.id else {return}
+              self?.showSpinner(onView: self!.view)
+              self?.database.fetch(withRecordID: CKRecord.ID(recordName: "9D7E599F-0C76-4F68-B265-088CB11910A2"), completionHandler: { [weak self] (record, error) in
+                if let record = record {
+                  record.setValue(CKRecord.Reference(recordID: recordNameUTD, action: .none), forKey: "id_UTD_pendonor")
+                  record.setValue(track.currentStep+1, forKey: "current_step")
+                  record.setValue(self?.chosenDate, forKey: "donor_date")
+                  self?.database.save(record) { (recordSave, err) in
+                    if let recordSave = recordSave {
+                      DispatchQueue.main.async {
+                        self?.pageViewDelegate?.changeShowedView(toStep: track.currentStep+1)
+                        self?.removeSpinner()
+                      }
+                    }
+                  }
+                }
+              })
           }
           
           let cancel = UIAlertAction(
