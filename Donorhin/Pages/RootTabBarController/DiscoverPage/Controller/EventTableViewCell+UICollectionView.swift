@@ -52,11 +52,35 @@ extension EventTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
     var edgeInsets = UIEdgeInsets()
     
     if section == 0 {
-      edgeInsets.left = 20
+      
+      edgeInsets.left = 0
+      
+      if user.count > 0 {
+        let isVerified = user[0].isVerified
+        
+        if isVerified {
+          edgeInsets.left = 20
+          edgeInsets.right = 20
+        }
+        else if !isVerified {
+          edgeInsets.left = 0
+        }
+      }
     }
     else {
+      
       edgeInsets.left = 20
       edgeInsets.right = 20
+      
+      if user.count > 0 {
+        let isVerified = user[0].isVerified
+        if isVerified {
+          edgeInsets.left = 0
+        }
+        else if !isVerified {
+          edgeInsets.left = 20
+        }
+      }
     }
     
     return edgeInsets
