@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import CloudKit
 
 class EventTableViewCell: UITableViewCell{
   
   var eventData : [EventModel]?
+  var user : [UserModel] = []
   var moveToAddEventDelegate : MoveToAddEvent?
   var moveToDetailEventDelegate : MoveToEventDetail?
   var alertDelegate : DiscoverAlert?
@@ -24,7 +26,7 @@ class EventTableViewCell: UITableViewCell{
     self.collectionViewDiscover.dataSource = self
     
     loadData()
-    
+    checkIsVerified()
   }
   
   func loadData(){
@@ -37,6 +39,28 @@ class EventTableViewCell: UITableViewCell{
         self.collectionViewDiscover.reloadData()
       }
     }
+  }
+  
+  func checkIsVerified(){
+    
+    user.removeAll()
+    
+    let userId = UserDefaults.standard.string(forKey: "currentUser")
+    guard let uid = userId else {return}
+    let ckRecordUID = CKRecord.ID(recordName: uid)
+    
+    Helper.getDataByID(ckRecordUID) { (results) in
+      guard let result = results else {fatalError()}
+      let models = result.convertAccountToUserModel()
+      guard let model = models else {fatalError("User data not found")}
+      
+      self.user.append(UserModel(idUser: model.idUser, name: model.name, location: model.location, bloodType: model.bloodType, statusDonor: model.statusDonor, email: model.email, password: model.password, birthdate: model.birthdate, lastDonor: model.lastDonor, gender: model.gender, isVerified: model.isVerified))
+      
+      DispatchQueue.main.async {
+        self.collectionViewDiscover.reloadData()
+      }
+    }
+    
   }
   
   

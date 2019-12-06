@@ -19,7 +19,21 @@ extension EventTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
         var numberOfItemsInSection = 0
         
         if section == 0 {
-            numberOfItemsInSection = 1
+          
+          if user.count == 0 {
+             numberOfItemsInSection = 0
+          }
+          else if user.count > 0 {
+            let isVerified = user[0].isVerified
+            
+            if isVerified {
+              numberOfItemsInSection = 1
+            }
+            else if !isVerified {
+              numberOfItemsInSection = 0
+            }
+          }
+          
         }
         else if section == 1 {
             if eventData == nil {
