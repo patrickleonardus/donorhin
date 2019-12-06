@@ -49,7 +49,7 @@ struct InfoData {
   
   func getInfoKoordinator(completion: @escaping (([InfoItems]) -> ())){
     completion(
-        [InfoItems(title: "Koordinator di Donorhin", longText: "Saat Anda registrasi, Anda mempunyai opsi untuk menulis kode koordinator. Kode koordinator merupakan kode yang hanya dimiliki oleh koordinator wilayah dari komunitas rhesus negatif di Indonesia. Kode ini diberikan agar para koordinator dapat mem-posting acara baru di halaman jelajah. Jadi, setiap acara yang ada di halaman jelajah dapat dipertanggungjawabkan karena hanya dapat di-posting oleh koordinator. Jika Anda ingin menampilkan acara yang berhubungan dengan rhesus negatif namun tidak mempunyai kode koordinator, Anda dapat menghubungi Tim Donorhin dengan direct message di Instagram @donorhin.id.", videoURL: "", type: .text)]
+        [InfoItems(title: "Koordinator di Donorhin", longText: "Saat Anda registrasi, Anda mempunyai opsi untuk menulis kode koordinator. Kode koordinator merupakan kode yang hanya dimiliki oleh koordinator wilayah dari komunitas rhesus negatif di Indonesia. Kode ini diberikan agar para koordinator dapat mem-posting acara baru di halaman jelajah. Jadi, setiap acara yang ada di halaman jelajah dapat dipertanggung jawabkan karena hanya dapat di-posting oleh koordinator. Jika Anda ingin menampilkan acara yang berhubungan dengan rhesus negatif namun tidak mempunyai kode koordinator, Anda dapat menghubungi Tim Donorhin dengan direct message di Instagram @donorhin.id.", videoURL: "", type: .text)]
     )
   }
     

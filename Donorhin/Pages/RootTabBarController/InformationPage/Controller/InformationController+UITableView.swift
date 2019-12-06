@@ -81,6 +81,11 @@ extension InformationController : UITableViewDataSource {
       attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStryle, range: NSMakeRange(0, attrString.length))
       cell?.longTextLabel.attributedText = attrString
       
+      cell?.longTextLabel.changeFont(ofText: "mem-posting", with: UIFont.italicSystemFont(ofSize: 16))
+      cell?.longTextLabel.changeFont(ofText: "di-posting", with: UIFont.italicSystemFont(ofSize: 16))
+      cell?.longTextLabel.changeFont(ofText: "direct message", with: UIFont.italicSystemFont(ofSize: 16))
+      
+      
         if data.type == .text {
             cell?.videoLayer.isHidden = true
             cell?.titleLabel.isHidden = false
