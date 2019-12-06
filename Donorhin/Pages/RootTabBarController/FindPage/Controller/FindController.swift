@@ -59,8 +59,9 @@ class FindController: UIViewController {
     self.registerForNotification()
     setupUI()
     initTableView()
-    self.showSpinner(onView: self.view)
+    
     if userId != nil {
+      self.showSpinner(onView: self.view)
       dataLoader { (successStatus : Bool) in
         if successStatus {
           print ("\nSuccess loading data with dataLoader!. Here are data details:")
@@ -75,9 +76,6 @@ class FindController: UIViewController {
         }
         
       }
-    }
-    else {
-      removeSpinner()
     }
   }
   

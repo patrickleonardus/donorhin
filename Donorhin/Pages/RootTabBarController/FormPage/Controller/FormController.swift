@@ -72,8 +72,8 @@ class FormController: UIViewController{
   }
   
   //MARK: - send push notification
-  func sendNotification(_ message: String) {
-    let nspredicate = NSPredicate(format: "province = %@", argumentArray: [self.currentPlace])
+  func sendNotification(_ message: String,_ bloodType: String) {
+    let nspredicate = NSPredicate(format: "province = %@ AND blood_type = %@", argumentArray: [self.currentPlace,bloodType])
     let query = CKQuery(recordType: "Account", predicate: nspredicate)
     Helper.getAllData(query) { (results) in
       var tokens:[String] = []
@@ -302,7 +302,7 @@ class FormController: UIViewController{
             self.createTrackerTable()
           }
           
-          self.sendNotification("Terdapat kebutuhan kantong darah \(self.patientBloodType!) untuk tanggal \(self.patientDueDateCast). Apakah Anda bersedia mendonor?")
+          self.sendNotification("Terdapat kebutuhan kantong darah \(self.patientBloodType!) untuk tanggal \(self.patientDueDateCast.dateToString()). Apakah Anda bersedia mendonor?",self.patientBloodType!)
       })
     }
 
