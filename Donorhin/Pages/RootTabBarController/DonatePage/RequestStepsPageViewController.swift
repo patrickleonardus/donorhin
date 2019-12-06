@@ -23,7 +23,7 @@ class RequestStepsPageViewController: UIPageViewController {
     let sb = UIStoryboard(name: "RequestStepsPageViewController", bundle: nil)
     switch self.tracker?.currentStep {
       case 1:
-        return [sb.instantiateViewController(withIdentifier: "langkah1") as! DonateStepViewController]
+        return [sb.instantiateViewController(withIdentifier: "langkah1") as! FirstStepRequestViewController]
       case 2:
       return [sb.instantiateViewController(withIdentifier: "langkah2") as! DonateStepViewController]
       case 3:
@@ -46,6 +46,7 @@ class RequestStepsPageViewController: UIPageViewController {
         }
       }
       self.setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
+      firstViewController.recieveRequest(self.tracker)
     }
   }
 }
@@ -60,6 +61,7 @@ extension RequestStepsPageViewController : StepViewChangingDelegate{
       let viewControllers = [sb.instantiateViewController(withIdentifier: "langkah\(toStep)") as! DonateStepViewController]
       self.setViewControllers(viewControllers, direction: .forward, animated: true, completion: nil)
       viewControllers.first?.pageViewDelegate = self
+//      viewControllers.first?.recieveRequest(self.tracker)
     }
     else {
       self.tracker?.currentStep =  toStep
