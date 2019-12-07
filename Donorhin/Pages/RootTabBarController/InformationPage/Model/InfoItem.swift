@@ -23,8 +23,8 @@ enum InfoType {
 struct InfoData {
     func getInfoCommunity(completionHandler: @escaping (([InfoItems]) -> ())){
         completionHandler(
-            [InfoItems(title: "RNI", longText: "RNI merupakan Rhesus Negatif Indonesia yang dipimpin oleh Lici Murniati. RNI berdiri dari tahun XXXX untuk mewadahi pemilik darah rhesus negatif untuk saling tolong menolong. Ibu Lici berharap dengan berdirinya RNI dapat terus mempererat ikatan sesama pemilik darah rhesus negatif. \n \nHubungi Ibu Lici (WA): +62 8XXXXXXXX \nWebsite: www.rhesusnegatif.com", videoURL: "", type: .text),
-             InfoItems(title: "KHEREN", longText: "KHEREN adalah Keluarga Rhesus Negatif yang berdiri di Surabaya. KHEREN berharap dengan adanya komunitas, pemilik darah rhesus negatif bisa saling mendonorkan darah mengingat langkanya pemilik darah rhesus negatif. Atas dasar kemanusiaan, KHEREN berharap untuk terus menginspirasi masyarakat untuk donor darah yang dapat menolong hidup sesama. \n \nFacebook Page: www.facebook.com/KHEREN \nInstagram Page: www.instagram.com/KHEREN", videoURL: "", type: .text)
+          [InfoItems(title: "Mengenai Kontak UTD PMI", longText: "Kontak Unit Transfusi Darah Palang Merah Indonesia (UTD PMI) dibutuhkan agar resipien dan pendonor rhesus negatif dapat saling berkoordinasi melalui UTD PMI masing-masing. Hal ini dilakukan untuk meminimalisasi praktik calo darah jika terjadi interaksi antara resipien dan pendonor secara langsung. Tim Donorhin berharap bahwa pendonor darah rhesus negatif melakukan dengan sukarela dengan alasan kemanusiaan. Begitu pun dengan resipien, Tim Donorhin berharap resipien kelak dapat menjadi pendonor dan menolong sesama.", videoURL: "", type: .text),
+             InfoItems(title: "Sumber Akses UTD", longText: "Kontak UTD PMI didapatkan melalui website http://ayodonor.pmi.or.id/table.php yang disimpan dalam database Donorhin. Jika terdapat pembaruan UTD PMI dalam hal telepon, alamat, koordinat, dll. dapat menghubungi Tim Donorhin. Kami juga masih mengumpulkan kontak-kontak UTD PMI di seluruh Indonesia yang mungkin belum terdaftar. Jika ingin menaruh UTD PMI dalam aplikasi Donorhin dapat menghubungi kami lewat direct message di Instagram @donorhin.id. Kami sungguh berterimakasih atas kerjasama Bapak/Ibu/Sdr. yang telah membantu kami.", videoURL: "", type: .text)
         ])
     }
     func getInfoWithVideo(completionHandler: @escaping (([InfoItems]) -> ())){
@@ -52,5 +52,4 @@ struct InfoData {
         [InfoItems(title: "Koordinator di Donorhin", longText: "Saat Anda registrasi, Anda mempunyai opsi untuk menulis kode koordinator. Kode koordinator merupakan kode yang hanya dimiliki oleh koordinator wilayah dari komunitas rhesus negatif di Indonesia. Kode ini diberikan agar para koordinator dapat mem-posting acara baru di halaman jelajah. Jadi, setiap acara yang ada di halaman jelajah dapat dipertanggung jawabkan karena hanya dapat di-posting oleh koordinator. Jika Anda ingin menampilkan acara yang berhubungan dengan rhesus negatif namun tidak mempunyai kode koordinator, Anda dapat menghubungi Tim Donorhin dengan direct message di Instagram @donorhin.id.", videoURL: "", type: .text)]
     )
   }
-    
 }

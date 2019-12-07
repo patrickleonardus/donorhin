@@ -29,34 +29,47 @@ extension InformationController : UITableViewDataSource {
       
       var height : CGFloat = 0
       
-      guard let data = infoItems?[indexPath.section] else {fatalError()}
-      
-      if data.type == .video {
-        if indexPath.section == 0 {
-          height = 200
+      if infoItems != nil {
+        guard let data = infoItems?[indexPath.section] else {fatalError()}
+        
+        if data.type == .video {
+          if indexPath.section == 0 {
+            height = 200
+          }
+          else if indexPath.section == 1 {
+            height = 460
+          }
+          else if indexPath.section == 2 {
+            height = 400
+          }
         }
-        else if indexPath.section == 1 {
-          height = 460
+          
+        else if data.type == .text {
+          if indexPath.section == 0 {
+            height = 560
+          }
+          else {
+            height = 460
+          }
         }
-        else if indexPath.section == 2 {
-          height = 400
-        }
+        
       }
       
-      else if data.type == .text {
-        if indexPath.section == 0 {
-          height = 560
-        }
-        else {
-          height = 460
-        }
+      else {
+        height = 400
       }
-    
+     
       return height
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return infoItems!.count
+      
+      if infoItems != nil {
+         return infoItems!.count
+      }
+      else {
+        return 1
+      }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -64,46 +77,71 @@ extension InformationController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell  = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as? InformationTableViewCell
+      
+      
+      
+      if infoItems != nil  {
+        
+         let cell  = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as? InformationTableViewCell
+        
         //masukin datanya
         guard let data = infoItems?[indexPath.section] else {fatalError()}
         
         cell?.titleLabel.text = data.title
-      
-      cell?.layer.backgroundColor = UIColor.white.cgColor
-      cell?.layer.cornerRadius = 10
-      
-      //ini buat bikin linespacing antar text jadi lebih tinggi
-      guard let string = data.longText else {fatalError()}
-      let attrString = NSMutableAttributedString(string: string)
-      let paragraphStryle = NSMutableParagraphStyle()
-      paragraphStryle.lineSpacing = 5
-      attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStryle, range: NSMakeRange(0, attrString.length))
-      cell?.longTextLabel.attributedText = attrString
-      
-      cell?.longTextLabel.changeFont(ofText: "mem-posting", with: UIFont.italicSystemFont(ofSize: 16))
-      cell?.longTextLabel.changeFont(ofText: "di-posting", with: UIFont.italicSystemFont(ofSize: 16))
-      cell?.longTextLabel.changeFont(ofText: "direct message", with: UIFont.italicSystemFont(ofSize: 16))
-      
-      
+        
+        cell?.layer.backgroundColor = UIColor.white.cgColor
+        cell?.layer.cornerRadius = 10
+        
+        //ini buat bikin linespacing antar text jadi lebih tinggi
+        guard let string = data.longText else {fatalError()}
+        let attrString = NSMutableAttributedString(string: string)
+        let paragraphStryle = NSMutableParagraphStyle()
+        paragraphStryle.lineSpacing = 5
+        attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStryle, range: NSMakeRange(0, attrString.length))
+        cell?.longTextLabel.attributedText = attrString
+        
+        cell?.longTextLabel.changeFont(ofText: "mem-posting", with: UIFont.italicSystemFont(ofSize: 16))
+        cell?.longTextLabel.changeFont(ofText: "di-posting", with: UIFont.italicSystemFont(ofSize: 16))
+        cell?.longTextLabel.changeFont(ofText: "direct message", with: UIFont.italicSystemFont(ofSize: 16))
+        
+        
         if data.type == .text {
-            cell?.videoLayer.isHidden = true
-            cell?.titleLabel.isHidden = false
-            cell?.longTextLabel.isHidden = false
+          cell?.videoLayer.isHidden = true
+          cell?.titleLabel.isHidden = false
+          cell?.longTextLabel.isHidden = false
         }
         else if data.type == .video {
-            cell?.titleLabel.isHidden = true
-            cell?.longTextLabel.isHidden = true
-            cell?.videoLayer.isHidden = false
-
-            let videoURL = URL(string: data.videoURL!)
-            let player = AVPlayer(url: videoURL!)
-            let playerLayer = AVPlayerLayer(player: player)
-            playerLayer.videoGravity = AVLayerVideoGravity.resize
-            playerLayer.frame = cell!.videoLayer.bounds
-            cell?.videoLayer.layer.addSublayer(playerLayer)
+          cell?.titleLabel.isHidden = true
+          cell?.longTextLabel.isHidden = true
+          cell?.videoLayer.isHidden = false
+          
+          let videoURL = URL(string: data.videoURL!)
+          let player = AVPlayer(url: videoURL!)
+          let playerLayer = AVPlayerLayer(player: player)
+          playerLayer.videoGravity = AVLayerVideoGravity.resize
+          playerLayer.frame = cell!.videoLayer.bounds
+          cell?.videoLayer.layer.addSublayer(playerLayer)
         }
+        return cell!
+      }
+      
+      else {
+         let cell  = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as? InformationDeveloperContact
+        
+        cell?.layer.backgroundColor = UIColor.white.cgColor
+        cell?.layer.cornerRadius = 10
+        
+        cell?.firstLabel.text = "Hubungi kami melalui direct message Instagram :"
+        cell?.firstButton.setTitle("@donorhin.id", for: .normal)
+        cell?.firstButton.addTarget(self, action: #selector(instagramOpen), for: .touchUpInside)
+        
+        cell?.secondLabel.text = "Hubungi kami melalui Whatsapp :"
+        cell?.secondButton.setTitle("081317019898", for: .normal)
+        cell?.secondButton.addTarget(self, action: #selector(whatsappOpen), for: .touchUpInside)
+        
         
         return cell!
+      }
+      
     }
 }
