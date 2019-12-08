@@ -119,6 +119,9 @@
 		E63A1D882399185200809607 /* InboxController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63A1D872399185200809607 /* InboxController+Delegate.swift */; };
 		E63A1D8A2399645400809607 /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63A1D892399645400809607 /* InboxTableViewCell.swift */; };
 		E63A1D8C2399648000809607 /* InboxController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63A1D8B2399648000809607 /* InboxController+UITableView.swift */; };
+		E63A1D90239AC27700809607 /* FontCustomize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63A1D8F239AC27700809607 /* FontCustomize.swift */; };
+		E63A1D9E239B752800809607 /* InformationDeveloperContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63A1D9C239B752800809607 /* InformationDeveloperContact.swift */; };
+		E63A1D9F239B752800809607 /* InformationDeveloperContact.xib in Resources */ = {isa = PBXBuildFile; fileRef = E63A1D9D239B752800809607 /* InformationDeveloperContact.xib */; };
 		E6AC8D43237B29DF00820100 /* TrackerController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D3A237B29DF00820100 /* TrackerController+UITableView.swift */; };
 		E6AC8D44237B29DF00820100 /* TrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D3B237B29DF00820100 /* TrackerController.swift */; };
 		E6AC8D45237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AC8D3C237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift */; };
@@ -299,6 +302,9 @@
 		E63A1D872399185200809607 /* InboxController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InboxController+Delegate.swift"; sourceTree = "<group>"; };
 		E63A1D892399645400809607 /* InboxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTableViewCell.swift; sourceTree = "<group>"; };
 		E63A1D8B2399648000809607 /* InboxController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InboxController+UITableView.swift"; sourceTree = "<group>"; };
+		E63A1D8F239AC27700809607 /* FontCustomize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontCustomize.swift; sourceTree = "<group>"; };
+		E63A1D9C239B752800809607 /* InformationDeveloperContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationDeveloperContact.swift; sourceTree = "<group>"; };
+		E63A1D9D239B752800809607 /* InformationDeveloperContact.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationDeveloperContact.xib; sourceTree = "<group>"; };
 		E6AC8D3A237B29DF00820100 /* TrackerController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController+UITableView.swift"; sourceTree = "<group>"; };
 		E6AC8D3B237B29DF00820100 /* TrackerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerController.swift; sourceTree = "<group>"; };
 		E6AC8D3C237B29DF00820100 /* TrackerController + TrackerCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackerController + TrackerCellDelegate.swift"; sourceTree = "<group>"; };
@@ -515,6 +521,8 @@
 				B0B1686E237BE7E5001DCE3C /* Information.storyboard */,
 				B0B16874237BEA7C001DCE3C /* InformationCustomCell.xib */,
 				B0B16876237BED39001DCE3C /* InformationTableViewCell.swift */,
+				E63A1D9C239B752800809607 /* InformationDeveloperContact.swift */,
+				E63A1D9D239B752800809607 /* InformationDeveloperContact.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -650,6 +658,7 @@
 				CC3C7053238526A000F7A47F /* UIViewController + Loading Page.swift */,
 				097CFCCC238E562C0093B11E /* Date+Converter.swift */,
 				B02BFEA5238FE178000A4372 /* Cryptor.swift */,
+				E63A1D8F239AC27700809607 /* FontCustomize.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -1294,6 +1303,7 @@
 				E6DDAF382375638E00D6EAD1 /* ScanFormPage.storyboard in Resources */,
 				B0FF322D23841B950001C0F5 /* ErrorMessageViewCell.xib in Resources */,
 				E6FBB1A023718D5500B1B4DE /* RootTabBarController.storyboard in Resources */,
+				E63A1D9F239B752800809607 /* InformationDeveloperContact.xib in Resources */,
 				E62918FA237EBBDE00E8D559 /* Form.storyboard in Resources */,
 				E607AAF1238461B700214A90 /* Hospital.storyboard in Resources */,
 				AB73579A2374316900A6099B /* Profile.storyboard in Resources */,
@@ -1374,6 +1384,7 @@
 				E6DDAF332375630800D6EAD1 /* StepIndicatorView.swift in Sources */,
 				E607AAFA238514A300214A90 /* HospitalController+UISearchDelegate.swift in Sources */,
 				094B6EDA237EC7D300716862 /* Helper.swift in Sources */,
+				E63A1D90239AC27700809607 /* FontCustomize.swift in Sources */,
 				E6BA6E3B237B1E080017A330 /* DiscoverController.swift in Sources */,
 				CCC304332385CCB80009BADC /* DonateStepViewController.swift in Sources */,
 				CCAAE503237C205900BEFB44 /* FifthStepRequestViewController.swift in Sources */,
@@ -1422,6 +1433,7 @@
 				0904EEF62387EC510024788C /* AgreementViewController.swift in Sources */,
 				B0B16898237D658B001DCE3C /* RegisterDetailController.swift in Sources */,
 				E607AAF82385148C00214A90 /* HospitalController+UITableView.swift in Sources */,
+				E63A1D9E239B752800809607 /* InformationDeveloperContact.swift in Sources */,
 				E6D07491237C05BA00CF5531 /* LabelAndTextFieldCell.swift in Sources */,
 				098FD4752372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift in Sources */,
 				E62918ED237CFC0F00E8D559 /* CheckBox.swift in Sources */,

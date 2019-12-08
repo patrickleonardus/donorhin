@@ -20,32 +20,40 @@ class InformationController : UIViewController {
         super.viewDidLoad()
         setNavBarTitle()
         self.view.backgroundColor = Colors.backgroundView
-        if navigationBarTitle == "Info Komunitas"{
+        if navigationBarTitle == "Info Kontak UTD PMI"{
             InfoData().getInfoCommunity { (infoItems) in
             self.infoItems = infoItems
+            self.loadTableView()
             }
         }
         else if navigationBarTitle == "Info Donor" {
             InfoData().getInfoSyaratPendonor { (infoItems) in
             self.infoItems = infoItems
+            self.loadTableView()
             }
         }
         else if navigationBarTitle == "Cara Penggunaan Donorhin" {
             InfoData().getInfoWithVideo { (infoItems) in
             self.infoItems = infoItems
+            self.loadTableView()
             }
         }
         else if navigationBarTitle == "Unit Transfusi Darah" {
-          InfoData().getInfoUTD { (infoItems) in
+            InfoData().getInfoUTD { (infoItems) in
             self.infoItems = infoItems
+            self.loadTableView()
           }
         }
         else if navigationBarTitle == "Apa Itu Koordinator?" {
           InfoData().getInfoKoordinator { (infoItems) in
             self.infoItems = infoItems
+            self.loadTableView()
           }
       }
-        loadTableView()
+        else if navigationBarTitle == "Kontak Pengembang Aplikasi" {
+          self.loadTableViewDev()
+      }
+      
     }
     
     func loadTableView() {
@@ -56,6 +64,15 @@ class InformationController : UIViewController {
         sectionTable.tableFooterView = UIView()
         sectionTable.reloadData()
     }
+  
+  func loadTableViewDev(){
+    sectionTable.delegate = self
+    sectionTable.dataSource = self
+    sectionTable.backgroundColor = Colors.backgroundView
+    sectionTable.register(UINib(nibName: "InformationDeveloperContact", bundle: nil), forCellReuseIdentifier: "infoCell")
+    sectionTable.tableFooterView = UIView()
+    sectionTable.reloadData()
+  }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationItem.largeTitleDisplayMode = .never
@@ -84,4 +101,27 @@ class InformationController : UIViewController {
             }
         }
     }
+  
+  @objc func instagramOpen(){
+    let instagramHooks = "instagram://user?username=donorhin.id"
+    let instagramUrl = NSURL(string: instagramHooks)
+    let instagramBrowser = NSURL(string: "https://www.instagram.com/donorhin.id/?igshid=kf6rbyke1m4z")
+    if UIApplication.shared.canOpenURL(instagramUrl! as URL) {
+      
+      UIApplication.shared.open(instagramUrl! as URL, options: [:], completionHandler: nil)
+      
+    } else {
+      //redirect to safari because the user doesn't have Instagram
+      UIApplication.shared.open(instagramBrowser! as URL, options: [:], completionHandler: nil)
+    }
+  }
+  
+  @objc func whatsappOpen(){
+    let phoneNumber =  "+6281317019898" // you need to change this number
+    let appURL = URL(string: "https://api.whatsapp.com/send?phone=\(phoneNumber)")!
+    
+    if UIApplication.shared.canOpenURL(appURL) {
+      UIApplication.shared.open(appURL, options: [:], completionHandler: nil)
+    }
+  }
 }

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="InformationDeveloperContact" customModule="Donorhin" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="199.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3L-7N-ebh">
+                        <rect key="frame" x="18" y="18" width="284" height="21"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RvL-Bg-R46">
+                        <rect key="frame" x="18" y="77" width="284" height="21"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2U5-Ov-goU">
+                        <rect key="frame" x="18" y="43" width="284" height="30"/>
+                        <state key="normal" title="Button"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ba2-In-nqA">
+                        <rect key="frame" x="18" y="102" width="284" height="30"/>
+                        <state key="normal" title="Button"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Ba2-In-nqA" firstAttribute="top" secondItem="RvL-Bg-R46" secondAttribute="bottom" constant="4" id="3zS-Np-mcl"/>
+                    <constraint firstAttribute="trailing" secondItem="Ba2-In-nqA" secondAttribute="trailing" constant="18" id="5ud-ej-3BD"/>
+                    <constraint firstItem="2U5-Ov-goU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="Dcg-5g-YjJ"/>
+                    <constraint firstItem="RvL-Bg-R46" firstAttribute="top" secondItem="2U5-Ov-goU" secondAttribute="bottom" constant="4" id="KVf-17-k7x"/>
+                    <constraint firstItem="x3L-7N-ebh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="NG6-6h-WxF"/>
+                    <constraint firstAttribute="trailing" secondItem="RvL-Bg-R46" secondAttribute="trailing" constant="18" id="NuQ-G5-9i8"/>
+                    <constraint firstItem="RvL-Bg-R46" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="VWk-wd-Rtl"/>
+                    <constraint firstAttribute="trailing" secondItem="2U5-Ov-goU" secondAttribute="trailing" constant="18" id="YLk-jT-UXc"/>
+                    <constraint firstItem="Ba2-In-nqA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="cCN-n4-vpS"/>
+                    <constraint firstItem="x3L-7N-ebh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="dUc-uf-7xM"/>
+                    <constraint firstItem="2U5-Ov-goU" firstAttribute="top" secondItem="x3L-7N-ebh" secondAttribute="bottom" constant="4" id="lnj-b6-phy"/>
+                    <constraint firstAttribute="trailing" secondItem="x3L-7N-ebh" secondAttribute="trailing" constant="18" id="sdG-cO-EUt"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="firstButton" destination="2U5-Ov-goU" id="VDE-oS-Ipl"/>
+                <outlet property="firstLabel" destination="x3L-7N-ebh" id="wRq-7I-uwM"/>
+                <outlet property="secondButton" destination="Ba2-In-nqA" id="Dzw-eh-b2x"/>
+                <outlet property="secondLabel" destination="RvL-Bg-R46" id="jzu-JN-0rM"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
