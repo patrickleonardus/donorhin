@@ -155,37 +155,40 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="426"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="have_not_login" translatesAutoresizingMaskIntoConstraints="NO" id="fL5-66-KSA">
-                                                <rect key="frame" x="70" y="-40" width="274" height="506"/>
+                                                <rect key="frame" x="70" y="159.99999999999997" width="274" height="253.00000000000009"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="fL5-66-KSA" secondAttribute="trailing" constant="70" id="4hK-dr-0jt"/>
-                                            <constraint firstItem="fL5-66-KSA" firstAttribute="centerX" secondItem="aDF-M8-aIl" secondAttribute="centerX" id="Ogt-7g-KMg"/>
-                                            <constraint firstItem="fL5-66-KSA" firstAttribute="centerY" secondItem="aDF-M8-aIl" secondAttribute="centerY" id="PZy-qB-H5A"/>
+                                            <constraint firstAttribute="bottom" secondItem="fL5-66-KSA" secondAttribute="bottom" constant="13" id="Zod-H0-Mjd"/>
                                             <constraint firstItem="fL5-66-KSA" firstAttribute="leading" secondItem="aDF-M8-aIl" secondAttribute="leading" constant="70" id="uGJ-O3-Hb4"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfW-hv-A0y" userLabel="Bottom View">
                                         <rect key="frame" x="0.0" y="426" width="414" height="426"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Belum Masuk ke Akun" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9w-ra-E86">
-                                                <rect key="frame" x="102" y="8" width="209.5" height="26.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Belum Masuk ke Akun" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9w-ra-E86">
+                                                <rect key="frame" x="52" y="8" width="310" height="26"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="26" id="5pe-OQ-T86"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Mohon untuk masuk ke akun terlebih dahulu untuk melihat data pribadi Anda" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1a-OX-Ay3">
-                                                <rect key="frame" x="21" y="150" width="372" height="40"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mohon untuk masuk ke akun terlebih dahulu untuk melihat data pribadi Anda" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1a-OX-Ay3">
+                                                <rect key="frame" x="21" y="42" width="372" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="ifm-T0-gYU"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="poo-gf-bW3"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zf0-TX-ouq" customClass="CustomButtonRounded" customModule="Donorhin" customModuleProvider="target">
-                                                <rect key="frame" x="36" y="191" width="342" height="44"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zf0-TX-ouq" customClass="CustomButtonRounded" customModule="Donorhin" customModuleProvider="target">
+                                                <rect key="frame" x="21" y="103" width="372" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="UE6-pW-x38"/>
                                                 </constraints>
@@ -201,8 +204,14 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="R9w-ra-E86" firstAttribute="leading" secondItem="cfW-hv-A0y" secondAttribute="leading" constant="52" id="3Ps-8p-kd3"/>
+                                            <constraint firstItem="y1a-OX-Ay3" firstAttribute="top" secondItem="R9w-ra-E86" secondAttribute="bottom" constant="8" id="5mY-Vr-oFG"/>
+                                            <constraint firstAttribute="trailing" secondItem="zf0-TX-ouq" secondAttribute="trailing" constant="21" id="5tz-oS-Wz2"/>
+                                            <constraint firstAttribute="trailing" secondItem="y1a-OX-Ay3" secondAttribute="trailing" constant="21" id="7VY-Jt-paO"/>
+                                            <constraint firstItem="zf0-TX-ouq" firstAttribute="leading" secondItem="cfW-hv-A0y" secondAttribute="leading" constant="21" id="Lt7-WK-VTe"/>
                                             <constraint firstAttribute="trailing" secondItem="R9w-ra-E86" secondAttribute="trailing" constant="52" id="W5c-2f-Euj"/>
+                                            <constraint firstItem="zf0-TX-ouq" firstAttribute="top" secondItem="y1a-OX-Ay3" secondAttribute="bottom" constant="21" id="mvE-2w-84y"/>
                                             <constraint firstItem="R9w-ra-E86" firstAttribute="top" secondItem="cfW-hv-A0y" secondAttribute="top" constant="8" id="sKn-9b-DdL"/>
+                                            <constraint firstItem="y1a-OX-Ay3" firstAttribute="leading" secondItem="cfW-hv-A0y" secondAttribute="leading" constant="21" id="uej-8m-jqW"/>
                                         </constraints>
                                     </view>
                                 </subviews>
