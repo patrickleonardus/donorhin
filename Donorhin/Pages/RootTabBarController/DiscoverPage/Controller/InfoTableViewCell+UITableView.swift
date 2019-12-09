@@ -34,7 +34,7 @@ extension InfoTableViewCell: UITableViewDelegate, UITableViewDataSource {
         cell.titleInfo.text = data.title
         cell.detailInfo.text = data.description
       
-      if indexPath.row == 4 {
+      if indexPath.row == 5 {
         cell.separatorInset = UIEdgeInsets(top: 0, left: cell.bounds.size.width, bottom: 0, right: 0)
       }
         
@@ -51,7 +51,7 @@ extension InfoTableViewCell: UITableViewDelegate, UITableViewDataSource {
             delegate?.getNavigationTitle(cell: self, title: navigationBarTitle!)
         }
         else if indexPath.row == 2 {
-            navigationBarTitle = "Info Komunitas"
+            navigationBarTitle = "Info Kontak UTD PMI"
             delegate?.getNavigationTitle(cell: self, title: navigationBarTitle!)
         }
         else if indexPath.row == 3 {
@@ -60,6 +60,10 @@ extension InfoTableViewCell: UITableViewDelegate, UITableViewDataSource {
         }
         else if indexPath.row == 4 {
           navigationBarTitle = "Apa Itu Koordinator?"
+          delegate?.getNavigationTitle(cell: self, title: navigationBarTitle!)
+        }
+        else if indexPath.row == 5 {
+          navigationBarTitle = "Kontak Pengembang Aplikasi"
           delegate?.getNavigationTitle(cell: self, title: navigationBarTitle!)
       }
       

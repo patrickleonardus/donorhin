@@ -22,7 +22,7 @@ extension DiscoverController: UITableViewDataSource, UITableViewDelegate {
         
         else if indexPath.section == 1 {
             if indexPath.row == 0 {
-              height = 420
+              height = 490
             }
         }
         
