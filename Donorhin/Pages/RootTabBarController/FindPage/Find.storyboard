@@ -126,7 +126,7 @@
                         <outlet property="viewNoData" destination="cFS-SC-sCV" id="x84-y1-cIg"/>
                         <outlet property="viewSearching" destination="gjb-FX-Eft" id="Apu-CB-ioc"/>
                         <segue destination="4O9-P2-cmw" kind="show" identifier="moveToTracker" id="FQm-34-Okn"/>
-                        <segue destination="IDB-9s-qAE" kind="presentation" identifier="moveToForm" id="GFI-js-YGS"/>
+                        <segue destination="IDB-9s-qAE" kind="presentation" identifier="moveToForm" modalPresentationStyle="fullScreen" id="GFI-js-YGS"/>
                         <segue destination="Am7-4Q-4W5" kind="show" identifier="MoveToLogin" id="HLg-Kw-Ame"/>
                     </connections>
                 </viewController>

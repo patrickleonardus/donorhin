@@ -40,7 +40,12 @@ extension EventTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
                 numberOfItemsInSection = 1
             }
             else if eventData != nil {
-                 numberOfItemsInSection = eventData!.count
+              if eventData?.count == 0 {
+                numberOfItemsInSection = 1
+              }
+              else if eventData!.count > 0 {
+                numberOfItemsInSection = eventData!.count
+              }
             }
         }
         
@@ -103,7 +108,6 @@ extension EventTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
         
         else if indexPath.section == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCV", for: indexPath) as! EventListCollectionViewCell
-            
             if eventData == nil {
                 cell.imageEvent.contentMode = UIView.ContentMode.scaleAspectFill
                 cell.imageEvent.image = UIImage(named: "user_profile")
@@ -116,8 +120,20 @@ extension EventTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
             }
             
             else if eventData != nil {
+              
+              if eventData?.count == 0 {
+                cell.imageEvent.contentMode = UIView.ContentMode.scaleAspectFill
+                cell.imageEvent.image = UIImage(named: "user_profile")
+                cell.titleEvent.text = "Belum ada Acara yang di post"
+                cell.titleEvent.textAlignment = .center
+                cell.addressEvent.text = "Tidak ada acara dalam waktu dekat"
+                cell.addressEvent.textAlignment = .center
+                cell.dateEvent.text = "Nantikan acara acara kami diwaktu lain"
+                cell.dateEvent.textAlignment = .center
+                cell.publisherEvent.text = ""
+              }
+              else if eventData!.count  > 0 {
                 guard let data = eventData?[indexPath.row] else {fatalError()}
-                
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "dd MMMM yyyy"
                 let startDateCast = dateFormatter.string(from: data.startDate!)
@@ -126,12 +142,13 @@ extension EventTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
                 
                 cell.imageEvent.image = data.image
                 cell.titleEvent.text = data.title
-               cell.titleEvent.textAlignment = .left
+                cell.titleEvent.textAlignment = .left
                 cell.addressEvent.text = data.address
+                cell.addressEvent.textAlignment = .left
                 cell.dateEvent.text = startDateCast
-               cell.dateEvent.textAlignment = .left
-              cell.publisherEvent.text = "Ditulis Oleh: \(String(describing: data.nameEvent!))"
-
+                cell.dateEvent.textAlignment = .left
+                cell.publisherEvent.text = "Ditulis Oleh: \(String(describing: data.nameEvent!))"
+              }
             }
             
             //setup ui cell
@@ -167,8 +184,15 @@ extension EventTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
             }
             
             else if eventData != nil {
+              
+              if eventData?.count == 0 {
+                print("No Event Post")
+              }
+              else if eventData!.count > 0 {
                 guard let data = eventData?[indexPath.row] else {fatalError()}
                 self.moveToDetailEventDelegate?.moveToAddEventDetailClass(image: data.image!, title: data.title!, desc: data.description!, address: data.address!, date: data.startDate!, name: data.nameEvent!, phone: data.phoneEvent!)
+              }
+              
             }
         }
     }

@@ -12,14 +12,21 @@ extension FindController: UITableViewDataSource, UITableViewDelegate {
   
   //MARK: heightForRowAt
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    if let data = bloodRequestCurrent?[indexPath.row] {
-      if data.status == 0 {
-        return 77
+    
+    if findBloodSegmentedControl.selectedSegmentIndex == 0 {
+      //Load for current data
+      if let data = bloodRequestCurrent?[indexPath.row] {
+        if data.status == 0 {
+          return 77
+        } else {
+          return 160
+        }
       } else {
-        return 160
+        return 77
       }
     } else {
-      return 77
+      //load for history data
+      return 160
     }
   }
   
@@ -66,8 +73,13 @@ extension FindController: UITableViewDataSource, UITableViewDelegate {
               
             } else {
               //Skenario sudah memilih UTD dan Tanggal
-              guard let donorDate = data.donorDate,
-                let status = data.status else  {fatalError("HARUSNYA MEREKA GA NIL")}
+              guard
+                let donorDate = data.donorDate,
+                let status = data.status
+                else  {
+                  fatalError("HARUSNYA MEREKA GA NIL")
+                  
+              }
               cell?.title.text = "Pendonor \(indexPath.row + 1)"
               cell?.address.text = data.donorHospitalName
               cell?.date.text = shrinkDate(donorDate)

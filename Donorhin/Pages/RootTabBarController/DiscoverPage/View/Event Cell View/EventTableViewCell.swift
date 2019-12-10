@@ -46,18 +46,24 @@ class EventTableViewCell: UITableViewCell{
     user.removeAll()
     
     let userId = UserDefaults.standard.string(forKey: "currentUser")
-    guard let uid = userId else {return}
-    let ckRecordUID = CKRecord.ID(recordName: uid)
     
-    Helper.getDataByID(ckRecordUID) { (results) in
-      guard let result = results else {fatalError()}
-      let models = result.convertAccountToUserModel()
-      guard let model = models else {fatalError("User data not found")}
+    if userId == nil {
+      print("User has'nt login yet")
+    }
+    else if userId != nil {
+      guard let uid = userId else {return}
+      let ckRecordUID = CKRecord.ID(recordName: uid)
       
-      self.user.append(UserModel(idUser: model.idUser, name: model.name, location: model.location, bloodType: model.bloodType, statusDonor: model.statusDonor, email: model.email, password: model.password, birthdate: model.birthdate, lastDonor: model.lastDonor, gender: model.gender, isVerified: model.isVerified))
-      
-      DispatchQueue.main.async {
-        self.collectionViewDiscover.reloadData()
+      Helper.getDataByID(ckRecordUID) { (results) in
+        guard let result = results else {fatalError()}
+        let models = result.convertAccountToUserModel()
+        guard let model = models else {fatalError("User data not found")}
+        
+        self.user.append(UserModel(idUser: model.idUser, name: model.name, location: model.location, bloodType: model.bloodType, statusDonor: model.statusDonor, email: model.email, password: model.password, birthdate: model.birthdate, lastDonor: model.lastDonor, gender: model.gender, isVerified: model.isVerified))
+        
+        DispatchQueue.main.async {
+          self.collectionViewDiscover.reloadData()
+        }
       }
     }
     
