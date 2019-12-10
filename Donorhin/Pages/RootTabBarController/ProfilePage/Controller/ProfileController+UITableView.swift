@@ -67,9 +67,14 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
             cell?.nameTextField.text = UserDefaults.standard.string(forKey: "name")
             cell?.emailTextField.text = UserDefaults.standard.string(forKey: "email")
             cell?.imageProfile.image = UIImage(named: "icon_profile")
+            
             cell?.nameTextField.textContentType = .name
-//            cell?.nameTextField.inputView = self
-//            cell?.nameTextField.inputAccessoryView = self
+            cell?.emailTextField.textContentType = .emailAddress
+
+
+            cell?.nameTextField.keyboardType = .default
+            cell?.emailTextField.keyboardType = .emailAddress
+
             
             
             
@@ -105,6 +110,7 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
                     cell?.profileTextField.text = dateFormatter.string(from: UserDefaults.standard.object(forKey: "birth_date")! as! Date)
                     cell?.profileTextField.inputView = self.datePicker
                     cell?.profileTextField.inputAccessoryView = self.pickerToolBar
+                    cell?.delegate = self
                 }
             }
                 
@@ -121,6 +127,7 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
                     cell?.profileTextField.text = "-"
                     cell?.profileTextField.inputView = self.datePicker
                     cell?.profileTextField.inputAccessoryView = self.pickerToolBar
+                    cell?.delegate = self
                 }
                 else{
                     cell?.profileTextField.text = dateFormatter.string(from: UserDefaults.standard.object(forKey: "last_donor") as? Date ?? Date())
@@ -161,17 +168,18 @@ extension ProfileController: UIPickerViewDataSource, UIPickerViewDelegate {
       
     case genderTypePicker:
       
-      guard let genderCell = tableView.cellForRow(at: IndexPath(row:0, section: 1)) as? SecondCell else {fatalError()}
+      guard let genderCell = profileTableView.cellForRow(at: IndexPath(row:0, section: 1)) as? SecondCell else {fatalError()}
       
       if genderCell.profileTextField.isFirstResponder {
         components = gender.count
+        
       }
       
       break
       
     case bloodTypePicker:
       
-      guard let bloodTypeCell = self.tableView.cellForRow(at: IndexPath(row:2, section: 1)) as? SecondCell else{fatalError()}
+      guard let bloodTypeCell = self.profileTableView.cellForRow(at: IndexPath(row:2, section: 1)) as? SecondCell else{fatalError()}
       
       if bloodTypeCell.profileTextField.isFirstResponder {
         
@@ -196,7 +204,7 @@ extension ProfileController: UIPickerViewDataSource, UIPickerViewDelegate {
       
     case genderTypePicker:
       
-      let genderCell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! SecondCell
+      let genderCell = self.profileTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! SecondCell
       
       if genderCell.profileTextField.isFirstResponder {
         genderCell.profileTextField.text = self.gender[row]
@@ -207,7 +215,7 @@ extension ProfileController: UIPickerViewDataSource, UIPickerViewDelegate {
       
     case bloodTypePicker:
       
-      let bloodTypeCell = self.tableView.cellForRow(at: IndexPath(row: 2, section: 1)) as! SecondCell
+      let bloodTypeCell = self.profileTableView.cellForRow(at: IndexPath(row: 2, section: 1)) as! SecondCell
       
       if bloodTypeCell.profileTextField.isFirstResponder {
         bloodTypeCell.profileTextField.text = self.bloodType[row]
@@ -228,7 +236,7 @@ extension ProfileController: UIPickerViewDataSource, UIPickerViewDelegate {
     switch pickerView {
     case genderTypePicker:
       
-        let genderCell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! SecondCell
+        let genderCell = self.profileTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! SecondCell
         
         if genderCell.profileTextField.isFirstResponder {
           genderCell.profileTextField.text = self.gender[row]
@@ -238,7 +246,7 @@ extension ProfileController: UIPickerViewDataSource, UIPickerViewDelegate {
       break
     case bloodTypePicker:
       
-       let bloodTypeCell = self.tableView.cellForRow(at: IndexPath(row: 2, section: 1)) as! SecondCell
+       let bloodTypeCell = self.profileTableView.cellForRow(at: IndexPath(row: 2, section: 1)) as! SecondCell
        
        if bloodTypeCell.profileTextField.isFirstResponder {
         bloodTypeCell.profileTextField.text = self.bloodType[row]
@@ -252,3 +260,4 @@ extension ProfileController: UIPickerViewDataSource, UIPickerViewDelegate {
     
   }
 }
+
