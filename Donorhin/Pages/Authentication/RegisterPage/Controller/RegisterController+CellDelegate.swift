@@ -9,6 +9,9 @@
 import UIKit
 
 extension RegisterController : FormCellDelegate{
+    func infoButtonDidTap() {
+        
+    }
     
     func textFieldDidBeginEditing(cell: FormTableViewCell) {
         self.activeCell = cell

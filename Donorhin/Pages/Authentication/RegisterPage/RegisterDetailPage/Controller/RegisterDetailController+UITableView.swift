@@ -53,6 +53,7 @@ extension RegisterDetailController : UITableViewDataSource {
             cell?.formTextField.placeholder = data.placeholder
             cell?.delegate = self
             cell?.formTextField.delegate = self
+            cell?.infoButton.isHidden = true
             cell?.iconImageView.image = UIImage(named: data.img!)
             cell?.formTextField.addDoneButtonOnKeyboard()
           if indexPath.section == 1 {
@@ -70,6 +71,9 @@ extension RegisterDetailController : UITableViewDataSource {
           if indexPath.section == 4 {
             cell?.formTextField.inputView = self.datePicker
             cell?.formTextField.inputAccessoryView = self.pickerToolBar
+          }
+          if indexPath.section == 5{
+            cell?.infoButton.isHidden = false
           }
             cell?.backgroundColor = UIColor.white
             cell?.layer.cornerRadius = 10

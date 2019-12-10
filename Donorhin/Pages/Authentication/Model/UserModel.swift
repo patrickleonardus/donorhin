@@ -35,9 +35,12 @@ class DataFetcher {
                     userModel = data?.convertAccountToUserModel()
                     
                     if userModel?.password != password{
+                        print("password not valid with email address")
                         completionHandler(nil)
                     }
-                    completionHandler(userModel)
+                    else{
+                        completionHandler(userModel)
+                    }
                 }
                 else{
                     completionHandler(nil)
