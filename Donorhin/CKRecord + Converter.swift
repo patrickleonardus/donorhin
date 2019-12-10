@@ -122,8 +122,8 @@ extension CKRecord {
          else {
             return nil
       }
-        password = try! PasswordCryptor().decryptMessage(encryptedPassword:password)
-
+        let decryptedPassword = try! PasswordCryptor().decryptMessage(encryptedPassword:password)
+        password = decryptedPassword
       let lastDonor = self.value(forKey: "last_donor") as? Date
       let location = self.value(forKey: "location") as? CLLocation
       let gender = { () -> Gender in
