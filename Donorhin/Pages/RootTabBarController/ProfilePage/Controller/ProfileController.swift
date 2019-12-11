@@ -18,6 +18,7 @@ class ProfileController: UIViewController, TextProtocol {
     //MARK: Properties
     let bloodTypePicker = UIPickerView()
   let genderTypePicker = UIPickerView()
+    var rootViewController : String?
     let datePicker = UIDatePicker()
     var findDelegate : MoveToLoginFromFind?
   var donateDelegate : MoveToLoginFromDonate?
