@@ -20,25 +20,25 @@ class InformationController : UIViewController {
         super.viewDidLoad()
         setNavBarTitle()
         self.view.backgroundColor = Colors.backgroundView
-        if navigationBarTitle == "Info Kontak UTD PMI"{
+        if navigationBarTitle == "Kontak UTD PMI"{
             InfoData().getInfoCommunity { (infoItems) in
             self.infoItems = infoItems
             self.loadTableView()
             }
         }
-        else if navigationBarTitle == "Info Donor" {
+        else if navigationBarTitle == "Daftar Syarat Pendonor" {
             InfoData().getInfoSyaratPendonor { (infoItems) in
             self.infoItems = infoItems
             self.loadTableView()
             }
         }
-        else if navigationBarTitle == "Cara Penggunaan Donorhin" {
+        else if navigationBarTitle == "Cara Penggunaan Aplikasi" {
             InfoData().getInfoWithVideo { (infoItems) in
             self.infoItems = infoItems
             self.loadTableView()
             }
         }
-        else if navigationBarTitle == "Unit Transfusi Darah" {
+        else if navigationBarTitle == "Info Umum" {
             InfoData().getInfoUTD { (infoItems) in
             self.infoItems = infoItems
             self.loadTableView()
@@ -50,7 +50,7 @@ class InformationController : UIViewController {
             self.loadTableView()
           }
       }
-        else if navigationBarTitle == "Kontak Pengembang Aplikasi" {
+        else if navigationBarTitle == "Hubungi Donorhin" {
           self.loadTableViewDev()
       }
       
@@ -123,5 +123,9 @@ class InformationController : UIViewController {
     if UIApplication.shared.canOpenURL(appURL) {
       UIApplication.shared.open(appURL, options: [:], completionHandler: nil)
     }
+  }
+  
+  @objc func linkOpen(){
+    UIApplication.shared.open(URL(string: "http://ayodonor.pmi.or.id/table.php")!, options: [:], completionHandler: nil)
   }
 }

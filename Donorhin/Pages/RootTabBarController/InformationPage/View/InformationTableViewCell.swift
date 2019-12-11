@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import WebKit
 
 class InformationTableViewCell: UITableViewCell {
     
     @IBOutlet weak var longTextLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
-    
+  @IBOutlet weak var firstContactLabel: UILabel!
+  @IBOutlet weak var firstContactButton: UIButton!
+  @IBOutlet weak var secondContactLabel: UILabel!
+  @IBOutlet weak var secondContactButton: UIButton!
+  
+  @IBOutlet weak var webView: WKWebView!
+  
     @IBOutlet weak var videoLayer: UIView!
     
     override func awakeFromNib() {

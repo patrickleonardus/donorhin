@@ -24,14 +24,14 @@ struct InfoData {
     func getInfoCommunity(completionHandler: @escaping (([InfoItems]) -> ())){
         completionHandler(
           [InfoItems(title: "Mengenai Kontak UTD PMI", longText: "Kontak Unit Transfusi Darah Palang Merah Indonesia (UTD PMI) dibutuhkan agar resipien dan pendonor rhesus negatif dapat saling berkoordinasi melalui UTD PMI masing-masing. Hal ini dilakukan untuk meminimalisasi praktik calo darah jika terjadi interaksi antara resipien dan pendonor secara langsung. Tim Donorhin berharap bahwa pendonor darah rhesus negatif melakukan dengan sukarela dengan alasan kemanusiaan. Begitu pun dengan resipien, Tim Donorhin berharap resipien kelak dapat menjadi pendonor dan menolong sesama.", videoURL: "", type: .text),
-             InfoItems(title: "Sumber Akses UTD", longText: "Kontak UTD PMI didapatkan melalui website http://ayodonor.pmi.or.id/table.php yang disimpan dalam database Donorhin. Jika terdapat pembaruan UTD PMI dalam hal telepon, alamat, koordinat, dll. dapat menghubungi Tim Donorhin. Kami juga masih mengumpulkan kontak-kontak UTD PMI di seluruh Indonesia yang mungkin belum terdaftar. Jika ingin menaruh UTD PMI dalam aplikasi Donorhin dapat menghubungi kami lewat direct message di Instagram @donorhin.id. Kami sungguh berterimakasih atas kerjasama Bapak/Ibu/Sdr. yang telah membantu kami.", videoURL: "", type: .text)
+             InfoItems(title: "Sumber Akses UTD PMI", longText: "Kontak UTD PMI didapatkan melalui website http://ayodonor.pmi.or.id/table.php yang disimpan dalam database Donorhin. Jika terdapat pembaruan UTD PMI dalam hal telepon, alamat, koordinat, dll. dapat menghubungi Tim Donorhin. Kami juga masih mengumpulkan kontak-kontak UTD PMI di seluruh Indonesia yang mungkin belum terdaftar. Jika ingin menaruh UTD PMI dalam aplikasi Donorhin dapat menghubungi kami lewat direct message di Instagram @donorhin.id. Kami sungguh berterimakasih atas kerjasama Bapak/Ibu/Sdr. yang telah membantu kami.", videoURL: "", type: .text)
         ])
     }
     func getInfoWithVideo(completionHandler: @escaping (([InfoItems]) -> ())){
         completionHandler(
             [InfoItems(title: "", longText: "", videoURL: "https://www.youtube.com/watch?v=EZLRaD1-AaI", type: .video),
-             InfoItems(title: "Cara Penggunaan Rhelpus", longText: "Video cara penggunaan Rhelpus memperlihatkan cara untuk membuat dan menerima permintaan darah. Skip video untuk melihat cara penggunaan tertentu yang Anda inginkan:\n- Info Umum => 00:00\n- Registrasi => 02:10\n- Cari Darah => 04:30\n- Donor Darah => 08:45\n- Jelajah => 12:50", videoURL: "", type: .text),
-             InfoItems(title: "Infografis Proses Alur", longText: "Proses alur untuk mencari dan mendonorkan darah rhesus negatif melalui Rhelpus dapat dilihat sebagai berikut:", videoURL: "", type: .text),
+             InfoItems(title: "Video Penggunaan Donorhin", longText: "Video cara penggunaan Rhelpus memperlihatkan cara untuk membuat dan menerima permintaan darah. Skip video untuk melihat cara penggunaan tertentu yang Anda inginkan:\n- Info Umum => 00:00\n- Registrasi => 02:10\n- Cari Darah => 04:30\n- Donor Darah => 08:45\n- Jelajah => 12:50", videoURL: "", type: .text),
+             InfoItems(title: "Infografis Alur Proses", longText: "Proses alur untuk mencari dan mendonorkan darah rhesus negatif melalui Rhelpus dapat dilihat sebagai berikut:", videoURL: "", type: .text),
         ])
     }
     func getInfoSyaratPendonor(completionHandler: @escaping (([InfoItems]) -> ())){
