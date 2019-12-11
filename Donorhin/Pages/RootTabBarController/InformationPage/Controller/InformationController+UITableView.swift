@@ -49,10 +49,10 @@ extension InformationController : UITableViewDataSource {
             
           else if navigationBarTitle == "Cara Penggunaan Aplikasi" {
             if indexPath.section == 1 {
-              height = 320
+              height = 400
             }
             else {
-              height = 160
+              height = 150
             }
           }
           
@@ -87,7 +87,7 @@ extension InformationController : UITableViewDataSource {
       }
       
       else {
-        height = 400
+        height = 300
       }
      
       return height
