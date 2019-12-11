@@ -18,6 +18,7 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     var activeTF : UITextField?
     var activeCell : FormTableViewCell?
+    var rootViewController : UIViewController?
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -138,6 +139,9 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
                 errorCell.errorMsg.isHidden = true
                 self.navigationController?.navigationBar.isHidden = true
                 self.navigationController!.viewControllers.remove(at: 0)
+                if self.rootViewController != nil {
+                    self.navigationController?.pushViewController(self.rootViewController!, animated: true)
+                }
                 self.performSegue(withIdentifier: "goToHome", sender: self)
                 }
             }

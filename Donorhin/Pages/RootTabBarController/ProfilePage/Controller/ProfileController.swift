@@ -17,13 +17,12 @@ class ProfileController: UIViewController, TextProtocol {
     
     //MARK: Properties
     let bloodTypePicker = UIPickerView()
-  let genderTypePicker = UIPickerView()
-    var rootViewController : String?
+    let genderTypePicker = UIPickerView()
     let datePicker = UIDatePicker()
     var findDelegate : MoveToLoginFromFind?
-  var donateDelegate : MoveToLoginFromDonate?
-  var discoverDelegate : MoveToLoginFromDiscover?
-  var inboxDelegate : MoveToLoginFromInbox?
+    var donateDelegate : MoveToLoginFromDonate?
+    var discoverDelegate : MoveToLoginFromDiscover?
+    var inboxDelegate : MoveToLoginFromInbox?
     var editMode = false
     var editButton : UIBarButtonItem?
     private var picker: UIPickerView?
@@ -290,7 +289,7 @@ class ProfileController: UIViewController, TextProtocol {
     
     @IBAction func loginAction(_ sender: Any) {
         dismiss(animated: true) {
-            self.findDelegate?.performLogin()
+          self.findDelegate?.performLogin()
           self.donateDelegate?.performLogin()
           self.discoverDelegate?.performLogin()
           self.inboxDelegate?.performLogin()
