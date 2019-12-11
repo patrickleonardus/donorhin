@@ -15,7 +15,7 @@ extension TrackerController : UITableViewDelegate {
 extension TrackerController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-      let height = UDDevice.heightScreen
+        let height = UDDevice.heightScreen
         if height < 1334 {
             if indexPath.section == 3 {
                return 200

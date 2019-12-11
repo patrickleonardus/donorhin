@@ -24,7 +24,6 @@ class TrackerController : UIViewController {
   
   var stepItems : [StepItems]?
 //  var bloodRequest : [BloodRequest]?
-  var donorData : [Pendonor]? //FIXME: Delete
   var status : [Status]?  = []
   var navigationBarTitle: String?
   
@@ -37,18 +36,11 @@ class TrackerController : UIViewController {
     self.loadData {
       self.removeSpinner()
       self.setNavBarTitle()
-      //
-      //      PendonorDummyData().getCurrentPendonor { (donorData) in
-      //        self.donorData = donorData
-      //      }
       self.getTrackerItems { (stepItems) in
         print ("complete")
         self.stepItems = stepItems
         self.loadTableView()
       }
-      //      DispatchQueue.main.async {
-      //        self.trackerTableView.showsVerticalScrollIndicator = false
-      //      }
     }
   }
   
@@ -88,12 +80,14 @@ class TrackerController : UIViewController {
   func loadDonorUTDData(completionHandler: @escaping ( () -> Void )) {
     if input != nil {
       DispatchQueue.main.async {
-        if let idUtdDonor = self.trackerModel?.idUTDPendonor.recordID {
+        if let idUtdDonor = self.trackerModel?.idUTDPendonor?.recordID {
           Helper.getDataByID(idUtdDonor) { (record) in
             self.utdDonor = record?.convertUTDToUTDModel()
             print("loadDonorUTDData isNil:\(self.utdDonor==nil)")
             completionHandler()
           }
+        } else {
+          //do something when there is no UTD Pendonor
         }
       }
     }

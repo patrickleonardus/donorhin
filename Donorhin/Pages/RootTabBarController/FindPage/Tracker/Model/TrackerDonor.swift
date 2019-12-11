@@ -20,24 +20,6 @@ struct StepItems {
     var status : Status?
 }
 
-//FIXME: DELETE
-enum DonorStatus {
-    case searching
-    case found
-    case verified
-    case done
-    case confirmed
-}
-
-//FIXME: DELETE SOON, Ganti sama SearchTrackerModel
-struct Pendonor {
-    var id : String?
-    var name : String?
-    var address : String?
-    var date : String?
-    var donorStatus : DonorStatus?
-}
-
 struct SearchTrackerInput {
   var idRequest : CKRecord.ID
   var idTracker : CKRecord.ID
@@ -51,10 +33,4 @@ struct SearchTrackerModel{
   var pendonorUTDPhone : [String]? //tracker
 }
 
-struct PendonorDummyData {
-    func getCurrentPendonor(completionHandler: @escaping (([Pendonor]) -> ())){
-        completionHandler(
-            [Pendonor(id: "190", name: "Vebby", address: "PMI Tangsel", date: "31 Nov 2019", donorStatus: .done)])
-    }
-}
 

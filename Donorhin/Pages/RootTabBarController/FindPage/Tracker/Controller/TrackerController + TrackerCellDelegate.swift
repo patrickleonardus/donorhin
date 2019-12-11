@@ -17,7 +17,7 @@ extension TrackerController : TrackerCellDelegate {
    
    @objc func didConfirmed() {
       //FIXME: Apa yang terjadi kalau konfirmasi di pencet?
-      donorData?[0].donorStatus = .confirmed
+//      donorData?[0].donorStatus = .confirmed
       self.getTrackerItems { (stepItems) in
           self.stepItems = stepItems
       }
