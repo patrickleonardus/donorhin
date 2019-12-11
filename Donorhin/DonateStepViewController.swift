@@ -14,6 +14,7 @@ protocol DonateStepViewControllerDelegate {
 class DonateStepViewController: UIViewController, DonateStepViewControllerDelegate{
    
    var pageViewDelegate :  StepViewChangingDelegate?
+  var trackerModel : TrackerModel?
    /**
      Biar gampang pindah2 halaman
     */

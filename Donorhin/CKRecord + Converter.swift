@@ -21,39 +21,29 @@ extension CKAsset {
 }
 
 extension CKRecord {
+  
    func convertTrackerToTrackerModel() -> TrackerModel? {
       guard
-         let donordate = self.value(forKey: "donor_date") as? Date ?? nil,
-         let idpendonor = self.value(forKey: "id_pendonor") as? Reference ?? nil,
          let idrequest = self.value(forKey: "id_request") as? Reference ?? nil,
-         let idUTDPendonor = self.value(forKey: "id_UTD_pendonor") as? Reference ?? nil,
          let currentStep = self.value(forKey: "current_step") as? Int ?? nil
          else {
 //            fatalError("failed casting data with record ID \(self.recordID)")
             return nil
       }
-      let trackerModel = TrackerModel(idTracker: self.recordID,
-                                      donorDate: donordate,
-                                      idPendonor: idpendonor,
-                                      idRequest: idrequest,
-                                      idUTDPendonor: idUTDPendonor,
-                                      currentStep: currentStep)
-      return trackerModel
-   }
+      let donorDate = self.value(forKey: "donor_date") as? Date
+      let idpendonor = self.value(forKey: "id_pendonor") as? Reference
+      let idUTDPendonor = self.value(forKey: "id_UTD_pendonor") as? Reference
     
-    func convertEmptyTrackerToEmptyTrackerModel() -> EmptyTrackerModel? {
-        guard
-            let idrequest = self.value(forKey: "id_request") as? Reference ?? nil,
-            let currentStep = self.value(forKey: "current_step") as? Int ?? nil
-            else {
-                //            fatalError("failed casting data with record ID \(self.recordID)")
-                return nil
-        }
-        let trackerModel = EmptyTrackerModel(idTracker: self.recordID,
-                                        idRequest: idrequest,
-                                        currentStep: currentStep)
+      let trackerModel = TrackerModel (
+        idTracker: self.recordID,
+        idRequest: idrequest,
+        currentStep: currentStep,
+        donorDate: donorDate,
+        idUTDPendonor: idUTDPendonor,
+        idPendonor: idpendonor
+      )
         return trackerModel
-    }
+   }
    
    func convertRequestToRequestModel() -> RequestModel? {
       guard let patientName = self.value(forKey: "patient_name") as? String ?? nil,

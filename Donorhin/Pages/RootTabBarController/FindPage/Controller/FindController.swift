@@ -58,8 +58,16 @@ class FindController: UIViewController {
     super.viewDidLoad()
     self.registerForNotification()
     setupUI()
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    profileImageNavBar(show: true)
+    setupNavBarToLarge(large: true)
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    setTabBar(show: true)
     initTableView()
-    
     if userId != nil {
       self.showSpinner(onView: self.view)
       dataLoader { (successStatus : Bool) in
@@ -77,17 +85,6 @@ class FindController: UIViewController {
         
       }
     }
-  }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    profileImageNavBar(show: true)
-    setupNavBarToLarge(large: true)
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    setTabBar(show: true)
-    initTableView()
-    
   }
   
   override func viewWillDisappear(_ animated: Bool) {
@@ -292,35 +289,36 @@ class FindController: UIViewController {
       for donor in donors {
         if let tracker = donor.convertTrackerToTrackerModel() {
           //donor have filled their donor details (donor date and donor hospital)
-          group.enter()
-          self.getHospitalBy(hospitalID: tracker.idUTDPendonor.recordID) { (donorUTD) in
-            guard let donorUTD = donorUTD else {
-              fatalError("Unvalid hospital. It should have name")
+          if let idUTDPendonor = tracker.idUTDPendonor {
+            group.enter()
+            self.getHospitalBy(hospitalID: idUTDPendonor.recordID) { (donorUTD) in
+              guard let donorUTD = donorUTD else {
+                fatalError("Unvalid hospital. It should have name")
+              }
+              donorList.append(Donor(
+                requestId: requestID,
+                trackerId: tracker.idTracker,
+                donorHospitalID: idUTDPendonor.recordID,
+                donorHospitalName: donorUTD.name,
+                phoneNumber: donorUTD.phoneNumbers?[0],
+                //FIXME: Nomer HP UTD bisa lebih dari 1
+                donorDate: tracker.donorDate,
+                status: tracker.currentStep)
+              )
+              print ("still working on getTrackerDataBy, UTD: ",donorUTD.name)
+              group.leave()
             }
+          } else {
             donorList.append(Donor(
               requestId: requestID,
               trackerId: tracker.idTracker,
-              donorHospitalID: tracker.idUTDPendonor.recordID,
-              donorHospitalName: donorUTD.name,
-              phoneNumber: donorUTD.phoneNumbers?[0],
-              //FIXME: Nomer HP UTD bisa lebih dari 1
-              donorDate: tracker.donorDate,
-              status: tracker.currentStep)
-            )
-            print ("still working on getTrackerDataBy, UTD: ",donorUTD.name)
-            group.leave()
+              donorHospitalID: nil,
+              donorHospitalName: nil,
+              phoneNumber: nil,
+              donorDate: nil,
+              status: tracker.currentStep
+            ))
           }
-        } else if let tracker = donor.convertEmptyTrackerToEmptyTrackerModel() {
-          //donor haven't filled their donor details (donor date and donor hospital)
-          donorList.append(Donor(
-            requestId: requestID,
-            trackerId: tracker.idTracker,
-            donorHospitalID: nil,
-            donorHospitalName: nil,
-            phoneNumber: nil,
-            donorDate: nil,
-            status: tracker.currentStep
-          ))
         }
         
       }

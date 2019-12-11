@@ -380,6 +380,7 @@
                     <size key="freeformSize" width="414" height="707"/>
                     <connections>
                         <outlet property="okButton" destination="EDp-Oh-I5b" id="LGG-mF-4Cx"/>
+                        <outlet property="thankyouLetter" destination="pOW-Ew-zXX" id="L4Y-Qk-fA6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rHT-xM-ohW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

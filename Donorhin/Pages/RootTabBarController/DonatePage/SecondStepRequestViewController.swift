@@ -95,11 +95,13 @@ class SecondStepRequestViewController: DonateStepViewController{
   @IBAction func closeDatePicker(_ sender: Any) {
     self.picker.removeFromSuperview()
     self.tapRecognizer.isEnabled = false
+    self.tableView.deselectRow(at: IndexPath(row: 0, section: 0), animated: false)
   }
   
   //MARK: - Action of pressed button
   @IBAction func buttonAcceptTapped(_ sender: UIButton) {
     self.setupAlertAccept()
+    
   }
   @IBAction func buttonCancelTapped(_ sender: UIButton) {
     self.setupAlertDecline()
@@ -122,15 +124,23 @@ class SecondStepRequestViewController: DonateStepViewController{
               guard let track = self?.tracker else {return}
               guard let recordNameUTD = self?.chosenHospital?.id else {return}
               self?.showSpinner(onView: self!.view)
-              self?.database.fetch(withRecordID: CKRecord.ID(recordName: "9D7E599F-0C76-4F68-B265-088CB11910A2"), completionHandler: { [weak self] (record, error) in
+              
+              //FIXME: Ubah record name masih di hard code
+
+              guard let trackerID = self?.trackerModel?.idTracker.recordName else {
+                fatalError("tracker id shouldn't be nil")
+              }
+              self?.database.fetch(withRecordID: CKRecord.ID(recordName: trackerID), completionHandler: { [weak self] (record, error) in
                 if let record = record {
                   record.setValue(CKRecord.Reference(recordID: recordNameUTD, action: .none), forKey: "id_UTD_pendonor")
-                  record.setValue(track.currentStep+1, forKey: "current_step")
                   record.setValue(self?.chosenDate, forKey: "donor_date")
                   self?.database.save(record) { (recordSave, err) in
+                    if err != nil {
+                      print ("Error while saving data", err)
+                    }
                     if let recordSave = recordSave {
                       DispatchQueue.main.async {
-                        self?.pageViewDelegate?.changeShowedView(toStep: track.currentStep+1)
+                        self?.pageViewDelegate?.changeShowedView(toStep: 3)
                         self?.removeSpinner()
                       }
                     }

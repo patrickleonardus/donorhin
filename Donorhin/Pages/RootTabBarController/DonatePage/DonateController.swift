@@ -33,6 +33,7 @@ class DonateController: UIViewController {
    
    //MARK:- view handler
    override func viewDidLoad() {
+    print ("Showing Donate tab")
       super.viewDidLoad()
     currentUser = UserDefaults.standard.string(forKey: "currentUser")
     self.confirmButton = UIBarButtonItem(title: "Confirm", style: .done, target: self, action: #selector(confirm))
@@ -70,7 +71,7 @@ class DonateController: UIViewController {
       print(self.currentUser!)
       var nspredicate = NSPredicate()
       if selectedCategory == 0 {
-        nspredicate = NSPredicate(format: "id_pendonor == %@ AND current_step >= 1", CKRecord.ID(recordName: self.currentUser as! String))
+        nspredicate = NSPredicate(format: "id_pendonor == %@ AND current_step >= \(StepsEnum.donorFound_1)", CKRecord.ID(recordName: self.currentUser!))
       } else {
         nspredicate = NSPredicate(format: "id_pendonor IN %@ AND current_step == 6", [self.currentUser])
       }
@@ -194,6 +195,7 @@ extension DonateController: UITableViewDelegate, UITableViewDataSource {
    
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       self.selectedData = self.listRequest[indexPath.row].convertTrackerToTrackerModel()
+      self.tableview.cellForRow(at: indexPath)?.isSelected = false
       performSegue(withIdentifier: "GoToStep", sender: tableView.cellForRow(at: indexPath))
    }
    
