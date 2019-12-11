@@ -159,6 +159,9 @@
 		E6DDAF3A237563AC00D6EAD1 /* ScanFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF39237563AC00D6EAD1 /* ScanFormController.swift */; };
 		E6ED792D23A0EA6000CDAF0D /* InboxController+UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED792C23A0EA6000CDAF0D /* InboxController+UIScrollView.swift */; };
 		E6ED792F23A10C4400CDAF0D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6ED792E23A10C4400CDAF0D /* WebKit.framework */; };
+		E6ED793423A1456900CDAF0D /* DonorInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED793323A1456900CDAF0D /* DonorInfoController.swift */; };
+		E6ED793623A1457400CDAF0D /* DonorInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6ED793523A1457400CDAF0D /* DonorInfo.storyboard */; };
+		E6ED793823A153CD00CDAF0D /* DonorInfoController+UIPinchGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED793723A153CD00CDAF0D /* DonorInfoController+UIPinchGesture.swift */; };
 		E6FBB16C23718C8400B1B4DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB16B23718C8400B1B4DE /* AppDelegate.swift */; };
 		E6FBB17423718C8400B1B4DE /* Donorhin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6FBB17223718C8400B1B4DE /* Donorhin.xcdatamodeld */; };
 		E6FBB17623718C8500B1B4DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6FBB17523718C8500B1B4DE /* Assets.xcassets */; };
@@ -346,6 +349,9 @@
 		E6DDAF39237563AC00D6EAD1 /* ScanFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanFormController.swift; sourceTree = "<group>"; };
 		E6ED792C23A0EA6000CDAF0D /* InboxController+UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InboxController+UIScrollView.swift"; sourceTree = "<group>"; };
 		E6ED792E23A10C4400CDAF0D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		E6ED793323A1456900CDAF0D /* DonorInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonorInfoController.swift; sourceTree = "<group>"; };
+		E6ED793523A1457400CDAF0D /* DonorInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DonorInfo.storyboard; sourceTree = "<group>"; };
+		E6ED793723A153CD00CDAF0D /* DonorInfoController+UIPinchGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DonorInfoController+UIPinchGesture.swift"; sourceTree = "<group>"; };
 		E6FBB16823718C8400B1B4DE /* Donorhin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Donorhin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6FBB16B23718C8400B1B4DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6FBB17323718C8400B1B4DE /* Donorhin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Donorhin.xcdatamodel; sourceTree = "<group>"; };
@@ -1030,6 +1036,32 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E6ED793023A1453E00CDAF0D /* DonorInfo */ = {
+			isa = PBXGroup;
+			children = (
+				E6ED793223A1455300CDAF0D /* View */,
+				E6ED793123A1454D00CDAF0D /* Controller */,
+			);
+			path = DonorInfo;
+			sourceTree = "<group>";
+		};
+		E6ED793123A1454D00CDAF0D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E6ED793323A1456900CDAF0D /* DonorInfoController.swift */,
+				E6ED793723A153CD00CDAF0D /* DonorInfoController+UIPinchGesture.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E6ED793223A1455300CDAF0D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E6ED793523A1457400CDAF0D /* DonorInfo.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E6FBB15F23718C8400B1B4DE = {
 			isa = PBXGroup;
 			children = (
@@ -1119,6 +1151,7 @@
 				E6BA6E27237B1E080017A330 /* DiscoverPage */,
 				E6FBB1A423718E1100B1B4DE /* DonatePage */,
 				E6FBB1A323718DFC00B1B4DE /* FindPage */,
+				E6ED793023A1453E00CDAF0D /* DonorInfo */,
 				B0B1686A237BE76D001DCE3C /* InformationPage */,
 				E6DDAF342375631800D6EAD1 /* ScanFormPage */,
 				E62918F6237EBBA800E8D559 /* FormPage */,
@@ -1313,6 +1346,7 @@
 				CC88A08623749D16001A982E /* FindBloodCustomCell.xib in Resources */,
 				E6FBB17923718C8500B1B4DE /* LaunchScreen.storyboard in Resources */,
 				E6BA6E44237B1E4F0017A330 /* Discover.storyboard in Resources */,
+				E6ED793623A1457400CDAF0D /* DonorInfo.storyboard in Resources */,
 				E6FBB17623718C8500B1B4DE /* Assets.xcassets in Resources */,
 				E6DDAF382375638E00D6EAD1 /* ScanFormPage.storyboard in Resources */,
 				B0FF322D23841B950001C0F5 /* ErrorMessageViewCell.xib in Resources */,
@@ -1461,6 +1495,7 @@
 				09DC193A23754BCD004BEFB5 /* DonateModel.swift in Sources */,
 				E63A1D8C2399648000809607 /* InboxController+UITableView.swift in Sources */,
 				E6DDAF3A237563AC00D6EAD1 /* ScanFormController.swift in Sources */,
+				E6ED793423A1456900CDAF0D /* DonorInfoController.swift in Sources */,
 				E62918F3237E43C300E8D559 /* AddEventController+UIImagePickerDelegate.swift in Sources */,
 				E6D0748B237BE7CB00CF5531 /* AddEventController.swift in Sources */,
 				B0B16894237D62ED001DCE3C /* RegisterController+UITableView.swift in Sources */,
@@ -1469,6 +1504,7 @@
 				E607AAE62384062C00214A90 /* ThirdEventCell.swift in Sources */,
 				E6FBB1C0237194FB00B1B4DE /* Donor.swift in Sources */,
 				AB498AC9237D74D2006CDA7A /* Page4OnboardViewController.swift in Sources */,
+				E6ED793823A153CD00CDAF0D /* DonorInfoController+UIPinchGesture.swift in Sources */,
 				E6BA6E42237B1E080017A330 /* EventListCollectionViewCell.swift in Sources */,
 				E6AC8D4B237B2A4100820100 /* FixImageOrientation.swift in Sources */,
 				E6AC8D47237B29DF00820100 /* TrackerDonorTableViewCell.swift in Sources */,

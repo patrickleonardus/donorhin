@@ -147,6 +147,19 @@ class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, N
   func performLogin() {
     performSegue(withIdentifier: "moveToLoginFormDiscover", sender: self)
   }
+  
+  func setTabBar(show: Bool){
+    if show {
+      UIView.animate(withDuration: 0.2) {
+        self.tabBarController?.tabBar.alpha = 1
+      }
+    }
+    else {
+      UIView.animate(withDuration: 0.2) {
+        self.tabBarController?.tabBar.alpha = 0
+      }
+    }
+  }
     
     func getNavigationTitle(cell: InfoTableViewCell, title: String) {
         self.navigationBarTitle = title
@@ -171,6 +184,10 @@ class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, N
             destination.phoneEvent = phoneEvent
         }
     }
+  
+  @IBAction func unwindFromInformationToDonor(storyboard : UIStoryboardSegue){
+      setTabBar(show: true)
+  }
 
 }
 

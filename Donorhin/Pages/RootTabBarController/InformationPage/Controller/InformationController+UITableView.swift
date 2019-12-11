@@ -49,10 +49,10 @@ extension InformationController : UITableViewDataSource {
             
           else if navigationBarTitle == "Cara Penggunaan Aplikasi" {
             if indexPath.section == 1 {
-              height = 400
+              height = 360
             }
             else {
-              height = 150
+              height = 280
             }
           }
           
@@ -170,7 +170,17 @@ extension InformationController : UITableViewDataSource {
               cell?.firstContactButton.addTarget(self, action: #selector(instagramOpen), for: .touchUpInside)
             }
           }
-          
+          else if  navigationBarTitle == "Cara Penggunaan Aplikasi" {
+            if indexPath.section == 2 {
+              cell?.firstContactButton.isHidden = false
+              cell?.secondContactButton.isHidden = false
+              
+              cell?.firstContactButton.setTitle("Alur proses pencarian pendonor", for: .normal)
+              cell?.firstContactButton.addTarget(self, action: #selector(recipientInfo), for: .touchUpInside)
+              cell?.secondContactButton.setTitle("Alur proses donor darah", for: .normal)
+              cell?.secondContactButton.addTarget(self, action: #selector(donorInfo), for: .touchUpInside)
+            }
+          }
         }
         else if data.type == .video {
           cell?.titleLabel.isHidden = true

@@ -13,7 +13,8 @@ class InformationController : UIViewController {
     @IBOutlet weak var sectionTable: UITableView!
     
     var infoItems : [InfoItems]?
-    var navigationBarTitle : String? 
+    var navigationBarTitle : String?
+    var navigationBarTitleInfo : String?
     var sectionTotal : Int?
     
     override func viewDidLoad() {
@@ -55,6 +56,17 @@ class InformationController : UIViewController {
       }
       
     }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+  
+    if segue.identifier == "moveToDonorInfo" {
+      let destination = segue.destination as! DonorInfoController
+      destination.navigationTitle = navigationBarTitleInfo
+    }
+    else if segue.identifier == "unwindToDiscover" {
+      
+    }
+  }
     
     func loadTableView() {
         sectionTable.delegate = self
@@ -82,7 +94,12 @@ class InformationController : UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        setTabBar(show: true)
+      
+      if self.isMovingFromParent {
+        self.performSegue(withIdentifier: "unwindToDiscover", sender: self)
+      }
+      
+      
     }
     
     func setNavBarTitle(){
@@ -127,5 +144,15 @@ class InformationController : UIViewController {
   
   @objc func linkOpen(){
     UIApplication.shared.open(URL(string: "http://ayodonor.pmi.or.id/table.php")!, options: [:], completionHandler: nil)
+  }
+  
+  @objc func donorInfo(){
+    navigationBarTitleInfo = "Info Pendonor"
+    performSegue(withIdentifier: "moveToDonorInfo", sender: self)
+  }
+  
+  @objc func recipientInfo(){
+    navigationBarTitleInfo = "Info Resipien"
+    performSegue(withIdentifier: "moveToDonorInfo", sender: self)
   }
 }

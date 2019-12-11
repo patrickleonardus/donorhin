@@ -35,11 +35,22 @@
                     </view>
                     <connections>
                         <outlet property="sectionTable" destination="gy2-oM-hML" id="LDC-lv-qD5"/>
+                        <segue destination="2NO-mQ-A9j" kind="show" identifier="moveToDonorInfo" id="svt-Hx-gZE"/>
+                        <segue destination="2kH-mx-tM2" kind="unwind" identifier="unwindToDiscover" unwindAction="unwindFromInformationToDonorWithStoryboard:" id="azG-3h-CZZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="65t-uZ-Fr8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="2kH-mx-tM2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="250.72463768115944" y="-67.633928571428569"/>
+        </scene>
+        <!--DonorInfo-->
+        <scene sceneID="Rdc-l3-Tmx">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DonorInfo" id="2NO-mQ-A9j" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Ep-0M-Oex" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="982" y="-68"/>
         </scene>
     </scenes>
 </document>

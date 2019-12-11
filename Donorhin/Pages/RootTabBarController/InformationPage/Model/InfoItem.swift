@@ -30,7 +30,7 @@ struct InfoData {
     func getInfoWithVideo(completionHandler: @escaping (([InfoItems]) -> ())){
         completionHandler(
             [InfoItems(title: "", longText: "", videoURL: "https://www.youtube.com/watch?v=EZLRaD1-AaI", type: .video),
-             InfoItems(title: "Video Penggunaan Donorhin", longText: "Video cara penggunaan Rhelpus memperlihatkan cara untuk membuat dan menerima permintaan darah. Skip video untuk melihat cara penggunaan tertentu yang Anda inginkan:\n- Info Umum => 00:00\n- Registrasi => 02:10\n- Cari Darah => 04:30\n- Donor Darah => 08:45\n- Jelajah => 12:50", videoURL: "", type: .text),
+             InfoItems(title: "Video Penggunaan Donorhin", longText: "Video cara penggunaan Donorhin memperlihatkan cara untuk membuat dan menerima permintaan darah. Skip video untuk melihat cara penggunaan tertentu yang Anda inginkan:\n- Info Umum => 00:00\n- Registrasi => 02:10\n- Cari Darah => 04:30\n- Donor Darah => 08:45\n- Jelajah => 12:50", videoURL: "", type: .text),
              InfoItems(title: "Infografis Alur Proses", longText: "Proses alur untuk mencari dan mendonorkan darah rhesus negatif melalui Rhelpus dapat dilihat sebagai berikut:", videoURL: "", type: .text),
         ])
     }
