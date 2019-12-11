@@ -33,7 +33,7 @@ extension InformationController : UITableViewDataSource {
         guard let data = infoItems?[indexPath.section] else {fatalError()}
         
         if data.type == .video {
-          height = 200
+          height = 380
         }
           
         else if data.type == .text {
@@ -184,14 +184,8 @@ extension InformationController : UITableViewDataSource {
           let url = data.videoURL
           let request = URLRequest(url: URL(string: url!)!)
           cell?.webView.load(request)
-//          cell?.webView.addObserver(self, forKeyPath: #keyPath(WKWebView.isLoading), options: .new, context: nil)
+          cell?.webView.addObserver(self, forKeyPath: #keyPath(WKWebView.isLoading), options: .new, context: nil)
           
-//          let videoURL = URL(string: data.videoURL!)
-//          let player = AVPlayer(url: videoURL!)
-//          let playerLayer = AVPlayerLayer(player: player)
-//          playerLayer.videoGravity = AVLayerVideoGravity.resize
-//          playerLayer.frame = cell!.videoLayer.bounds
-//          cell?.videoLayer.layer.addSublayer(playerLayer)
         }
         return cell!
       }
@@ -218,5 +212,27 @@ extension InformationController : UITableViewDataSource {
       
     }
   
+  override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    
+     let cell  = sectionTable.dequeueReusableCell(withIdentifier: "infoCell") as? InformationTableViewCell
+    
+    if keyPath == "loading" {
+      if (cell?.webView.isLoading)! {
+        DispatchQueue.main.async {
+          cell?.activityIndicator.startAnimating()
+          cell?.activityIndicator.isHidden = false
+        }
+        
+      }
+      else {
+        DispatchQueue.main.async {
+          cell?.activityIndicator.stopAnimating()
+          cell?.activityIndicator.isHidden = true
+        }
+        
+      }
+    }
+    
+  }
 
 }

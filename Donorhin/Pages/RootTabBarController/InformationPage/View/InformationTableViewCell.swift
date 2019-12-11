@@ -19,6 +19,7 @@ class InformationTableViewCell: UITableViewCell {
   @IBOutlet weak var secondContactButton: UIButton!
   
   @IBOutlet weak var webView: WKWebView!
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   
     @IBOutlet weak var videoLayer: UIView!
     
