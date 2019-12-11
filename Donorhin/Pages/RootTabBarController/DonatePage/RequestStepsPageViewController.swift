@@ -22,15 +22,15 @@ class RequestStepsPageViewController: UIPageViewController {
   lazy var vcList: [DonateStepViewController] = {
     let sb = UIStoryboard(name: "RequestStepsPageViewController", bundle: nil)
     switch self.tracker?.currentStep {
-      case 1:
-        return [sb.instantiateViewController(withIdentifier: "langkah1") as! FirstStepRequestViewController]
-      case 2:
+//      case 1:
+//        return [sb.instantiateViewController(withIdentifier: "langkah1") as! FirstStepRequestViewController]
+    case StepsEnum.donorFound_1:
       return [sb.instantiateViewController(withIdentifier: "langkah2") as! DonateStepViewController]
-      case 3:
+    case StepsEnum.willDonor_2:
         return [sb.instantiateViewController(withIdentifier: "langkah3") as! DonateStepViewController]
-      case 4:
+    case StepsEnum.willVerif_3:
         return [sb.instantiateViewController(withIdentifier: "langkah4") as! DonateStepViewController]
-      case 5:
+    case StepsEnum.donoring_4:
       return [sb.instantiateViewController(withIdentifier: "langkah5") as! DonateStepViewController]
     default:
       return [sb.instantiateViewController(withIdentifier: "langkah5") as! DonateStepViewController]
@@ -47,6 +47,7 @@ class RequestStepsPageViewController: UIPageViewController {
       }
       self.setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
       firstViewController.recieveRequest(self.tracker)
+      firstViewController.trackerModel = self.tracker
     }
   }
 }
@@ -54,9 +55,9 @@ class RequestStepsPageViewController: UIPageViewController {
 //MARK:- StepViewChangingDelegate Application
 extension RequestStepsPageViewController : StepViewChangingDelegate{
   func changeShowedView(toStep: Int) {
-    if toStep < 6 {
-      self.tracker?.currentStep =  toStep
-      self.viewDidChangedDelegate?.updateStepIndicator(toStep: toStep)
+    if toStep < 5 {
+      self.tracker?.currentStep =  toStep-1
+      self.viewDidChangedDelegate?.updateStepIndicator(nextStep: toStep)
       let sb = UIStoryboard(name: "RequestStepsPageViewController", bundle: nil)
       let viewControllers = [sb.instantiateViewController(withIdentifier: "langkah\(toStep)") as! DonateStepViewController]
       self.setViewControllers(viewControllers, direction: .forward, animated: true, completion: nil)
@@ -65,7 +66,7 @@ extension RequestStepsPageViewController : StepViewChangingDelegate{
     }
     else {
       self.tracker?.currentStep =  toStep
-      self.viewDidChangedDelegate?.updateStepIndicator(toStep: toStep)
+      self.viewDidChangedDelegate?.updateStepIndicator(nextStep: toStep)
     }
   }
   

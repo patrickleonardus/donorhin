@@ -7,6 +7,16 @@
 //
 
 import Foundation
+
+enum StepsEnum {
+  static let findingDonor_0 = 0
+  static let donorFound_1 = 1
+  static let willDonor_2 = 2
+  static let willVerif_3 = 3
+  static let donoring_4 = 4
+  static let done_5 = 5
+}
+
 struct Steps {
   static func checkStep(_ step: Int) -> String {
     switch step {

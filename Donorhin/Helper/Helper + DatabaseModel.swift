@@ -11,19 +11,19 @@ import CloudKit
 
 struct TrackerModel {
    let idTracker: CKRecord.ID
-   let donorDate: Date
-   let idPendonor: CKRecord.Reference
    let idRequest: CKRecord.Reference
-   let idUTDPendonor: CKRecord.Reference
    var currentStep: Int
+  let donorDate: Date?
+  let idUTDPendonor: CKRecord.Reference?
+  let idPendonor: CKRecord.Reference?
    
 }
 
-struct EmptyTrackerModel {
-    let idTracker: CKRecord.ID
-    let idRequest: CKRecord.Reference
-    var currentStep: Int
-}
+//struct EmptyTrackerModel {
+//    let idTracker: CKRecord.ID
+//    let idRequest: CKRecord.Reference
+//    var currentStep: Int
+//}
 
 struct UserModel  {
    let idUser: CKRecord.ID

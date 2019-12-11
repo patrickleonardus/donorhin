@@ -16,7 +16,7 @@ extension FindController: UITableViewDataSource, UITableViewDelegate {
     if findBloodSegmentedControl.selectedSegmentIndex == 0 {
       //Load for current data
       if let data = bloodRequestCurrent?[indexPath.row] {
-        if data.status == 0 {
+        if data.status ?? StepsEnum.findingDonor_0 < StepsEnum.willDonor_2 {
           return 77
         } else {
           return 160
@@ -67,9 +67,9 @@ extension FindController: UITableViewDataSource, UITableViewDelegate {
           
           if let data = bloodRequestCurrent?[indexPath.row] {
           
-            if data.status ?? 0 < 2 { //(handling logic patrick)
+            if data.status ?? 0 < StepsEnum.willDonor_2 {//0<2 (handling logic patrick)
               //Skenario sebelum pendonor memilih UTD dan Tanggal
-              setupSmallCell(cell: cell!, row: indexPath.row, status: data.status ?? 0)
+              setupSmallCell(cell: cell!, row: indexPath.row, status: data.status ?? StepsEnum.findingDonor_0)
               
             } else {
               //Skenario sudah memilih UTD dan Tanggal
@@ -93,7 +93,7 @@ extension FindController: UITableViewDataSource, UITableViewDelegate {
             
           } else {
             //Skenario bloodRequestCurrent[index] nya nil : masih belum ditemukan (logic Vebby)
-            setupSmallCell(cell: cell!, row: indexPath.row, status: 0)
+            setupSmallCell(cell: cell!, row: indexPath.row, status: StepsEnum.findingDonor_0)
           }
           
           cell?.backgroundColor = UIColor.clear

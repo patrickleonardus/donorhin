@@ -9,14 +9,19 @@
 import UIKit
 
 class FifthStepRequestViewController: DonateStepViewController {
-  var step : Int?
   @IBOutlet var okButton: CustomButtonRounded!
+  
+  @IBOutlet var thankyouLetter: UILabel!
+  var step : Int?
+  
+  let thankYouLetter2 = "Anda sudah membantu satu nyawa lagi hari ini! Terimakasih telah mendonorkan darah Anda"
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    if let step = step {
-      if step  > 5 {
+    if let step = self.step {
+      if step > StepsEnum.donoring_4 {
         self.okButton.isHidden = true
+        self.thankyouLetter.text = thankYouLetter2
       } else {
         self.okButton.isHidden = false
       }
@@ -25,6 +30,9 @@ class FifthStepRequestViewController: DonateStepViewController {
   
   @IBAction func okeTapped(_ sender: Any) {
     self.pageViewDelegate?.changeShowedView(toStep: 6)
+    self.step = self.step! + 1
+    self.thankyouLetter.text = thankYouLetter2
+
     self.okButton.isHidden =  true
   }
   
