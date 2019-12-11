@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AVKit
+import WebKit
 
 extension InformationController : UITableViewDelegate{
     
@@ -33,26 +33,57 @@ extension InformationController : UITableViewDataSource {
         guard let data = infoItems?[indexPath.section] else {fatalError()}
         
         if data.type == .video {
-          if indexPath.section == 0 {
-            height = 200
-          }
-          else if indexPath.section == 1 {
-            height = 460
-          }
-          else if indexPath.section == 2 {
-            height = 400
-          }
+          height = 380
         }
           
         else if data.type == .text {
-          if indexPath.section == 0 {
-            height = 560
+          
+          if navigationBarTitle == "Kontak UTD PMI"{
+            if indexPath.section == 0 {
+              height = 460
+            }
+            else {
+              height = 580
+            }
           }
-          else {
-            height = 460
+            
+          else if navigationBarTitle == "Cara Penggunaan Aplikasi" {
+            if indexPath.section == 1 {
+              height = 320
+            }
+            else {
+              height = 160
+            }
           }
+          
+          else if navigationBarTitle == "Daftar Syarat Pendonor"{
+            if indexPath.section == 0 {
+              height = 400
+            }
+            else {
+              height = 420
+            }
+          }
+          
+          else if navigationBarTitle == "Info Umum"{
+            if indexPath.section == 0 {
+              height = 560
+            }
+            else {
+              height = 400
+            }
+          }
+          
+          else if navigationBarTitle == "Apa Itu Koordinator?"{
+            if indexPath.section == 0 {
+              height = 560
+            }
+            else {
+              height = 460
+            }
+          }
+          
         }
-        
       }
       
       else {
@@ -109,18 +140,52 @@ extension InformationController : UITableViewDataSource {
           cell?.videoLayer.isHidden = true
           cell?.titleLabel.isHidden = false
           cell?.longTextLabel.isHidden = false
+          cell?.firstContactLabel.isHidden = true
+          cell?.firstContactButton.isHidden = true
+          cell?.secondContactLabel.isHidden = true
+          cell?.secondContactButton.isHidden = true
+          
+          if navigationBarTitle == "Kontak UTD PMI" {
+            if indexPath.section == 1 {
+              cell?.firstContactLabel.isHidden = false
+              cell?.firstContactButton.isHidden = false
+              cell?.secondContactLabel.isHidden = false
+              cell?.secondContactButton.isHidden = false
+              
+              cell?.firstContactLabel.text = "Link website daftar kontak UTD PMI :"
+              cell?.firstContactButton.setTitle("http://ayodonor.pmi.or.id/table.php", for: .normal)
+              cell?.firstContactButton.addTarget(self, action: #selector(linkOpen), for: .touchUpInside)
+              cell?.secondContactLabel.text = "Hubungi tim donorhin melalui Instagram :"
+              cell?.secondContactButton.setTitle("@donorhin.id", for: .normal)
+              cell?.secondContactButton.addTarget(self, action: #selector(instagramOpen), for: .touchUpInside)
+            }
+          }
+          else if navigationBarTitle == "Apa Itu Koordinator?" {
+            if indexPath.section == 0 {
+              cell?.firstContactLabel.isHidden = false
+              cell?.firstContactButton.isHidden = false
+              
+              cell?.firstContactLabel.text = "Hubungi tim donorhin melalui Instagram :"
+              cell?.firstContactButton.setTitle("@donorhin.id", for: .normal)
+              cell?.firstContactButton.addTarget(self, action: #selector(instagramOpen), for: .touchUpInside)
+            }
+          }
+          
         }
         else if data.type == .video {
           cell?.titleLabel.isHidden = true
           cell?.longTextLabel.isHidden = true
+          cell?.firstContactLabel.isHidden = true
+          cell?.firstContactButton.isHidden = true
+          cell?.secondContactLabel.isHidden = true
+          cell?.secondContactButton.isHidden = true
           cell?.videoLayer.isHidden = false
           
-          let videoURL = URL(string: data.videoURL!)
-          let player = AVPlayer(url: videoURL!)
-          let playerLayer = AVPlayerLayer(player: player)
-          playerLayer.videoGravity = AVLayerVideoGravity.resize
-          playerLayer.frame = cell!.videoLayer.bounds
-          cell?.videoLayer.layer.addSublayer(playerLayer)
+          let url = data.videoURL
+          let request = URLRequest(url: URL(string: url!)!)
+          cell?.webView.load(request)
+          cell?.webView.addObserver(self, forKeyPath: #keyPath(WKWebView.isLoading), options: .new, context: nil)
+          
         }
         return cell!
       }
@@ -131,12 +196,14 @@ extension InformationController : UITableViewDataSource {
         cell?.layer.backgroundColor = UIColor.white.cgColor
         cell?.layer.cornerRadius = 10
         
+        cell?.titleLabel.text = "Kontak Tim Donorhin"
+        
         cell?.firstLabel.text = "Hubungi kami melalui direct message Instagram :"
         cell?.firstButton.setTitle("@donorhin.id", for: .normal)
         cell?.firstButton.addTarget(self, action: #selector(instagramOpen), for: .touchUpInside)
         
         cell?.secondLabel.text = "Hubungi kami melalui Whatsapp :"
-        cell?.secondButton.setTitle("081317019898", for: .normal)
+        cell?.secondButton.setTitle("✆ 081317019898", for: .normal)
         cell?.secondButton.addTarget(self, action: #selector(whatsappOpen), for: .touchUpInside)
         
         
@@ -144,4 +211,28 @@ extension InformationController : UITableViewDataSource {
       }
       
     }
+  
+  override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    
+     let cell  = sectionTable.dequeueReusableCell(withIdentifier: "infoCell") as? InformationTableViewCell
+    
+    if keyPath == "loading" {
+      if (cell?.webView.isLoading)! {
+        DispatchQueue.main.async {
+          cell?.activityIndicator.startAnimating()
+          cell?.activityIndicator.isHidden = false
+        }
+        
+      }
+      else {
+        DispatchQueue.main.async {
+          cell?.activityIndicator.stopAnimating()
+          cell?.activityIndicator.isHidden = true
+        }
+        
+      }
+    }
+    
+  }
+
 }

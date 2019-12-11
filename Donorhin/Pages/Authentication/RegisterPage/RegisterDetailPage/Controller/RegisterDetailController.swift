@@ -15,6 +15,7 @@ class RegisterDetailController : UIViewController, CLLocationManagerDelegate {
     var formItems: [FormItems]?
     var userCredentials:[String:String] = [:]
     var detailUserCredentials:[String:String] = [:]
+    var rootViewController: UIViewController?
     @IBOutlet weak var formTableView: UITableView!
     let generalPicker = UIPickerView()
     let database = CKContainer.default().publicCloudDatabase

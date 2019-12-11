@@ -28,7 +28,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="192"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Nama Text Field" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L9v-v7-ADq" userLabel="Name TextField">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Nama Text Field" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="L9v-v7-ADq" userLabel="Name TextField">
                                                     <rect key="frame" x="20" y="127" width="374" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet" textContentType="name"/>
@@ -155,7 +155,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="426"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="have_not_login" translatesAutoresizingMaskIntoConstraints="NO" id="fL5-66-KSA">
-                                                <rect key="frame" x="70" y="159.99999999999997" width="274" height="253.00000000000009"/>
+                                                <rect key="frame" x="70" y="-93" width="274" height="506"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -251,7 +251,7 @@
                     <navigationItem key="navigationItem" title="Data Pribadi" id="K5I-3y-jja"/>
                     <connections>
                         <outlet property="belumLoginImageView" destination="fL5-66-KSA" id="hd2-3V-A7k"/>
-                        <outlet property="tableView" destination="L17-Y2-ZPi" id="0NY-b7-E0V"/>
+                        <outlet property="profileTableView" destination="L17-Y2-ZPi" id="05Y-Yu-c8d"/>
                         <outlet property="viewValidation" destination="Ev6-7B-kkV" id="cnS-bS-Rvn"/>
                         <segue destination="YC9-Fe-mAj" kind="show" identifier="goToLogin" id="E7o-n4-SGh"/>
                     </connections>

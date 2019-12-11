@@ -10,6 +10,7 @@ import UIKit
 
 class InformationDeveloperContact: UITableViewCell {
 
+  @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var firstLabel: UILabel!
   @IBOutlet weak var firstButton: UIButton!
   @IBOutlet weak var secondLabel: UILabel!

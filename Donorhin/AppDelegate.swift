@@ -9,29 +9,59 @@
 import UIKit
 import CoreData
 import CloudKit
+import UserNotifications
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+      UNUserNotificationCenter.current().delegate = self
+      
         // Override point for customization after application launch.
                 let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-                if launchedBefore  {
-                    print("Not first launch.")
-                } else {
-                    let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
-                    let viewController = storyboard.instantiateViewController(withIdentifier: "Onboarding")
-                    self.window?.rootViewController = viewController
-                    self.window?.makeKeyAndVisible()
-                    print("First launch, setting UserDefault.")
-                    UserDefaults.standard.set(true, forKey: "launchedBefore")
-                }
-        self.window?.tintColor = Colors.red
-        
-        return true
+      if launchOptions == nil {
+        if launchedBefore  {
+            print("Not first launch.")
+        } else {
+            let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "Onboarding")
+            self.window?.rootViewController = viewController
+            self.window?.makeKeyAndVisible()
+            print("First launch, setting UserDefault.")
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+        }
+      }
+      else {
+        self.checkNotification(launchOptions)
+      }
+                
+      self.window?.tintColor = Colors.red
+      self.getNotificationSettings()
+      
+      return true
     }
+  
+  func checkNotification(_ launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
+    if let options = launchOptions {
+      guard let info = options[UIApplication.LaunchOptionsKey.remoteNotification]  as? [String:String] else {return}
+      let storyboard = UIStoryboard(name: "Donate", bundle: nil)
+      if let payload = info["payload"] {
+        let viewController = storyboard.instantiateViewController(withIdentifier: payload)
+        self.window?.rootViewController = viewController
+      }
+    }
+  }
+  
+  func getNotificationSettings() {
+    UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+      guard settings.authorizationStatus == .authorized else {return}
+      DispatchQueue.main.async {
+        UIApplication.shared.registerForRemoteNotifications()
+      }
+    }
+  }
+  
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -45,6 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+      print("disini")
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -113,6 +144,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
     print("Failed to register: \(error)")
+  }
+  
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    let userInfo = response.notification.request.content.userInfo
+    if let aps = userInfo["payload"] as? [String: String] {
+      print(aps)
+    }
+    completionHandler()
+  }
+  
+  func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    completionHandler([.badge,.alert,.sound])
   }
 }
 

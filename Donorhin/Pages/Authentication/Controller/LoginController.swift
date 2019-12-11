@@ -18,6 +18,7 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     var activeTF : UITextField?
     var activeCell : FormTableViewCell?
+    var rootViewController : UIViewController?
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -74,11 +75,24 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
     @objc func goToFindWithoutLogin(){
         navigationController?.navigationBar.isHidden = true
         self.navigationController!.viewControllers.remove(at: 0)
+        if rootViewController != nil {
+            self.navigationController?.pushViewController(rootViewController!, animated: true)
+        }
         performSegue(withIdentifier: "goToHome", sender: self)
     }
     
     @objc func goToRegister(){
-        performSegue(withIdentifier: "goToRegister", sender: self)
+        performSegue(withIdentifier: "goToRegister", sender: rootViewController)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToRegister" {
+            if let ViewController = segue.destination as? RegisterController {
+                if rootViewController != nil{
+                ViewController.rootViewController = self.rootViewController
+                }
+            }
+        }
     }
     
     func setNavBarTitle() {
@@ -138,6 +152,9 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
                 errorCell.errorMsg.isHidden = true
                 self.navigationController?.navigationBar.isHidden = true
                 self.navigationController!.viewControllers.remove(at: 0)
+                if self.rootViewController != nil {
+                    self.navigationController?.pushViewController(self.rootViewController!, animated: true)
+                }
                 self.performSegue(withIdentifier: "goToHome", sender: self)
                 }
             }

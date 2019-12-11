@@ -18,12 +18,12 @@ struct DummyDataForInfo {
     
     func getInfoData(completionHandler: @escaping (([InfoModel]) -> ())){
         completionHandler(
-            [InfoModel(image: "user_profile", title: "Cara Penggunaan Aplikasi", description: "Informasi cara penggunaan Donorhin"),
-            InfoModel(image: "user_profile", title: "Syarat Pendonor", description: "Informasi seputar syarat Mendonor"),
-            InfoModel(image: "user_profile", title: "Info Kontak UTD PMI", description: "Informasi terkait Kontak Unit Transfusi Darah "),
-            InfoModel(image: "user_profile", title: "Info Umum", description: "Informasi mengenai Unit Transfusi Darah (UTD)"),
-            InfoModel(image: "user_profile", title: "Koordinator", description: "Informasi mengenai Koordinator"),
-          InfoModel(image: "user_profile", title: "Hubungi Pengembang (Developer)", description: "Informasi Kontak Pengembang Aplikasi")]
+            [InfoModel(image: "user_profile", title: "Cara Penggunaan Aplikasi", description: "Tutorial cara pengunaan Donorhin"),
+            InfoModel(image: "user_profile", title: "Daftar Syarat Pendonor", description: "Persiapan sebelum mendonor"),
+            InfoModel(image: "user_profile", title: "Kontak UTD PMI", description: "Mengetahui andil kontak UTD PMI "),
+            InfoModel(image: "user_profile", title: "Info Umum", description: "Mengenal istilah BPPD dan Rhesus"),
+            InfoModel(image: "user_profile", title: "Apa itu Koordinator?", description: "Istilah koordinator dalam Donorhin"),
+          InfoModel(image: "user_profile", title: "Hubungi Donorhin", description: "Daftar kontak tim aplikasi")]
         )
     }
 }

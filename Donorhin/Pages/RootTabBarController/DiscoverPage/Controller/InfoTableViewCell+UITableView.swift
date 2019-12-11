@@ -43,19 +43,19 @@ extension InfoTableViewCell: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            navigationBarTitle = "Cara Penggunaan Donorhin"
+            navigationBarTitle = "Cara Penggunaan Aplikasi"
             delegate?.getNavigationTitle(cell: self, title: navigationBarTitle!)
         }
         else if indexPath.row == 1 {
-            navigationBarTitle = "Info Donor"
+            navigationBarTitle = "Daftar Syarat Pendonor"
             delegate?.getNavigationTitle(cell: self, title: navigationBarTitle!)
         }
         else if indexPath.row == 2 {
-            navigationBarTitle = "Info Kontak UTD PMI"
+            navigationBarTitle = "Kontak UTD PMI"
             delegate?.getNavigationTitle(cell: self, title: navigationBarTitle!)
         }
         else if indexPath.row == 3 {
-            navigationBarTitle = "Unit Transfusi Darah"
+            navigationBarTitle = "Info Umum"
             delegate?.getNavigationTitle(cell: self, title: navigationBarTitle!)
         }
         else if indexPath.row == 4 {
@@ -63,7 +63,7 @@ extension InfoTableViewCell: UITableViewDelegate, UITableViewDataSource {
           delegate?.getNavigationTitle(cell: self, title: navigationBarTitle!)
         }
         else if indexPath.row == 5 {
-          navigationBarTitle = "Kontak Pengembang Aplikasi"
+          navigationBarTitle = "Hubungi Donorhin"
           delegate?.getNavigationTitle(cell: self, title: navigationBarTitle!)
       }
       
