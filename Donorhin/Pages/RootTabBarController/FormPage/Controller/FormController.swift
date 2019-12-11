@@ -87,7 +87,7 @@ class FormController: UIViewController{
         }
       }
       
-      Service.sendNotification(message, tokens) // send notification to server
+      Service.sendNotification(message, tokens,"StepsPageViewController") // send notification to server
     }
   }
   
