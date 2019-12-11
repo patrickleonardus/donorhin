@@ -16,6 +16,7 @@ class RegisterController : UIViewController{
     var formItems: [FormItems]?
     var activeCell : FormTableViewCell?
     var isAvalaible : Bool?
+    var rootViewController: UIViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +49,9 @@ class RegisterController : UIViewController{
       if segue.identifier == "goToPersonalData" {
         let destinationVC = segue.destination as! RegisterDetailController
         destinationVC.userCredentials = self.userCredentials
+        if rootViewController != nil{
+            destinationVC.rootViewController = self.rootViewController
+        }
       }
     }
     

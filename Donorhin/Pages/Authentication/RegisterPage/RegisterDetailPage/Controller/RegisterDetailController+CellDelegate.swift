@@ -102,6 +102,9 @@ extension RegisterDetailController : FormCellDelegate {
                                 }
                                 self?.saveToUserDefaults(userModel: userModel)
                                 print("Data saved to user default...")
+                                if self?.rootViewController != nil {
+                                    self?.navigationController?.pushViewController((self?.rootViewController!)!, animated: true)
+                                }
                                 self?.performSegue(withIdentifier: "goToHome", sender: self)
                                 }
                             }
