@@ -51,7 +51,7 @@ extension LoginController : UITableViewDataSource{
             //masukin datanya
             let cell  = tableView.dequeueReusableCell(withIdentifier: "formCell", for: indexPath) as? FormTableViewCell
             guard let data = formItems?[indexPath.section] else {fatalError()}
-            
+            cell?.infoButton.isHidden = true
             cell?.delegate = self
             cell?.formTextField.placeholder = data.placeholder
             cell?.iconImageView.image = UIImage(named: data.img!)

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zqk-b1-QGr">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zqk-b1-QGr">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -37,11 +35,22 @@
                         <segue destination="15c-eT-ang" kind="show" identifier="goToHome" id="6Jq-67-UOh"/>
                         <segue destination="TQ4-Sb-h7F" kind="presentation" identifier="GoToAgreement" id="Cia-bB-EXb"/>
                         <segue destination="11K-S8-I7F" kind="show" identifier="goToAuth" id="AsX-E4-NSJ"/>
+                        <segue destination="2Gd-Vr-Gj7" kind="presentation" identifier="goToCoordinatorInfo" id="9NU-Xl-ITh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qhi-lR-hwM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-94.20289855072464" y="99.776785714285708"/>
+        </scene>
+        <!--CoordinatorInfo-->
+        <scene sceneID="Cy3-1K-61h">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="CoordinatorInfo" storyboardName="CoordinatorInfo" id="2Gd-Vr-Gj7" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="3iO-7g-Bk9"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S1X-9u-5JJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="747" y="-69"/>
         </scene>
         <!--Agreement-->
         <scene sceneID="cRp-we-ZNw">

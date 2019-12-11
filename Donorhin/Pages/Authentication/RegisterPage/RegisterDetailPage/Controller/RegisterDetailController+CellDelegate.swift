@@ -176,4 +176,8 @@ extension RegisterDetailController : FormCellDelegate {
     return newdate
   }
     
+    func infoButtonDidTap(){
+        performSegue(withIdentifier: "goToCoordinatorInfo", sender: nil)
+    }
+    
 }

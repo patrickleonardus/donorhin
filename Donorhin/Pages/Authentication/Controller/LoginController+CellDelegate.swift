@@ -9,6 +9,10 @@
 import UIKit
 
 extension LoginController : FormCellDelegate {
+    func infoButtonDidTap() {
+        
+    }
+    
     func textFieldDidBeginEditing(cell: FormTableViewCell) {
         self.activeCell = cell
     }

@@ -10,6 +10,7 @@ import UIKit
 
 protocol FormCellDelegate {
     func buttonDidTap()
+    func infoButtonDidTap()
     func registerForKeyboardNotifications()
     func textFieldDidBeginEditing(cell:FormTableViewCell)
     func textFieldDidEndEditing()
@@ -17,6 +18,7 @@ protocol FormCellDelegate {
 
 class FormTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var infoButton: UIButton!
     @IBOutlet var whiteBackgroundView: UIView!
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var formTextField: UITextField!
@@ -26,6 +28,10 @@ class FormTableViewCell: UITableViewCell {
         super.awakeFromNib()
         self.whiteBackgroundView.layer.cornerRadius = 10
         self.contentView.backgroundColor = Colors.backgroundView
+    }
+    
+    @IBAction func buttonDidSelected(_ sender: Any) {
+        delegate?.infoButtonDidTap()
     }
     
     @IBAction func didBegin(_ sender: Any) {
