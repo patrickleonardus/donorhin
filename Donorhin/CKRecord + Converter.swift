@@ -79,7 +79,8 @@ extension CKRecord {
          let endTime = self.value(forKey: "end_time") as? Date ?? nil,
          let cpPhone = self.value(forKey: "contact_phone") as? String ?? nil,
          let cpName = self.value(forKey: "contact_name") as? String ?? nil,
-         let idUser = self.value(forKey: "reference_account") as? Reference ?? nil
+         let idUser = self.value(forKey: "reference_account") as? Reference ?? nil,
+         let postedBy = self.value(forKey: "postedBy_name") as? String ?? nil
          else {
             return nil
       }
@@ -95,7 +96,7 @@ extension CKRecord {
                                         endTime: endTime,
                                         cpPhone: cpPhone,
                                         cpName: cpName,
-                                        idUser: idUser)
+                                        idUser: idUser, postedBy: postedBy)
       return eventModel
       
    }

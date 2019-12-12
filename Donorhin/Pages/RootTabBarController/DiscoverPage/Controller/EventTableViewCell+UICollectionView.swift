@@ -147,7 +147,7 @@ extension EventTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
                 cell.addressEvent.textAlignment = .left
                 cell.dateEvent.text = startDateCast
                 cell.dateEvent.textAlignment = .left
-                cell.publisherEvent.text = "Ditulis Oleh: \(String(describing: data.nameEvent!))"
+                cell.publisherEvent.text = "Ditulis Oleh: \(String(describing: data.postedBy!))"
               }
             }
             

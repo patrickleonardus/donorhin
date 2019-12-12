@@ -26,7 +26,7 @@ class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, N
     var dateEvent: Date?
     var nameEvent: String?
     var phoneEvent: String?
-    var postedBy: CKRecord.Reference?
+    var postedBy: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,7 +121,7 @@ class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, N
         self.performSegue(withIdentifier: "MoveToAdd", sender: self)
     }
     
-    func moveToAddEventDetailClass(image: UIImage, title: String, desc: String, address: String, date: Date, name : String, phone : String, postedBy : CKRecord.Reference) {
+    func moveToAddEventDetailClass(image: UIImage, title: String, desc: String, address: String, date: Date, name : String, phone : String, postedBy : String) {
         
         imageEvent = image
         titleEvent = title
@@ -199,7 +199,7 @@ protocol MoveToAddEvent {
 }
 
 protocol MoveToEventDetail {
-  func moveToAddEventDetailClass(image : UIImage, title: String, desc: String, address: String, date : Date, name : String, phone : String, postedBy : CKRecord.Reference)
+  func moveToAddEventDetailClass(image : UIImage, title: String, desc: String, address: String, date : Date, name : String, phone : String, postedBy : String)
 }
 
 protocol DiscoverAlert {

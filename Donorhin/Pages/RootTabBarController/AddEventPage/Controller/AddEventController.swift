@@ -36,6 +36,7 @@ class AddEventController: UIViewController {
     
     var eventData: [EventModel]?
     let userId =  UserDefaults.standard.string(forKey: "currentUser")
+    let userPostedBy = UserDefaults.standard.string(forKey: "name")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -187,6 +188,7 @@ class AddEventController: UIViewController {
         record.setValue(phoneEvent, forKey: "contact_phone")
         record.setValue(CKAsset(fileURL: url), forKey: "image")
         record.setValue(userIdReference, forKey: "reference_account")
+        record.setValue(userPostedBy, forKey: "postedBy_name")
         
         let database = CKContainer.default().publicCloudDatabase
         

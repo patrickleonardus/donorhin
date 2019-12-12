@@ -18,7 +18,7 @@ struct EventModel {
     let endDate : Date?
     let nameEvent : String?
     let phoneEvent : String?
-    let postedBy : CKRecord.Reference?
+    let postedBy : String?
 }
 
 struct EventModelCollectionView {
@@ -36,7 +36,7 @@ struct EventModelCollectionView {
             var endDate : Date?
             var nameEvent : String?
             var phoneEvent : String?
-            var postedBy : CKRecord.Reference?
+            var postedBy : String?
             
             let query = CKQuery(recordType: "Event", predicate: NSPredicate(value: true))
             query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
@@ -56,7 +56,7 @@ struct EventModelCollectionView {
                     endDate = model.endTime
                     nameEvent = model.cpName
                     phoneEvent = model.cpPhone
-                    postedBy = model.idUser
+                    postedBy = model.postedBy
                     
                   eventData.append(EventModel(image: image, title: title, description: description, address: address, startDate: startDate, endDate: endDate, nameEvent: nameEvent, phoneEvent: phoneEvent, postedBy: postedBy))
                 }

@@ -47,7 +47,7 @@ extension DetailEventController: UITableViewDelegate, UITableViewDataSource {
         }
         else if indexPath.section == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "fourthEventCell") as! FourthEventCell
-            cell.nameEventCell.text = "Ditulis Oleh : " + nameEvent!
+            cell.nameEventCell.text = "Ditulis Oleh : " + postedBy!
             return cell
         }
         else if indexPath.section == 4 {

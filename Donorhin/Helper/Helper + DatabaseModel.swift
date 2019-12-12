@@ -59,6 +59,7 @@ struct EventGlobalModel {
    let cpPhone: String
    let cpName: String
    let idUser: CKRecord.Reference
+   let postedBy: String?
 }
 
 struct RequestModel {

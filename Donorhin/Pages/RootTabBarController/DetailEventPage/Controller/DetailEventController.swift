@@ -21,13 +21,12 @@ class DetailEventController: UIViewController {
     var dateEvent: Date?
     var nameEvent: String?
     var phoneEvent: String?
-    var postedBy: CKRecord.Reference?
+    var postedBy: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupTableView()
-        print(postedBy)
     }
     
     override func viewWillAppear(_ animated: Bool) {
