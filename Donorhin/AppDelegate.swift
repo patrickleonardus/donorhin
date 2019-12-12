@@ -154,9 +154,19 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
       let tabBarIndex = userInfo["tab_bar_index"] as? Int{
       let storyboard = UIStoryboard(name: "RootTabBarController", bundle: nil)
       let viewController = storyboard.instantiateViewController(withIdentifier: "rootStoryboard") as? MainViewController
-      viewController?.barSelected = tabBarIndex
-      self.window?.rootViewController = viewController
-      completionHandler()
+      let query = CKQuery(recordType: "Tracker", predicate: NSPredicate(format: "id_request == %@", CKRecord.ID(recordName: idRequest)))
+      Helper.getAllData(query) {[weak self] (results) in
+        if let results = results {
+          if results.count > 0 {
+            viewController?.barSelected = tabBarIndex
+            viewController?.tracker = results.last?.convertTrackerToTrackerModel()
+            DispatchQueue.main.async {
+              self?.window?.rootViewController = viewController
+              completionHandler()
+            }
+          }
+        }
+      }
     }
   }
   
