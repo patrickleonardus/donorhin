@@ -157,6 +157,7 @@
 		E6DDAF332375630800D6EAD1 /* StepIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF302375630800D6EAD1 /* StepIndicatorView.swift */; };
 		E6DDAF382375638E00D6EAD1 /* ScanFormPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6DDAF372375638E00D6EAD1 /* ScanFormPage.storyboard */; };
 		E6DDAF3A237563AC00D6EAD1 /* ScanFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF39237563AC00D6EAD1 /* ScanFormController.swift */; };
+		E6DEF4F523A27F3100F108F3 /* String + Time Removal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DEF4F423A27F3000F108F3 /* String + Time Removal.swift */; };
 		E6ED792D23A0EA6000CDAF0D /* InboxController+UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED792C23A0EA6000CDAF0D /* InboxController+UIScrollView.swift */; };
 		E6ED792F23A10C4400CDAF0D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6ED792E23A10C4400CDAF0D /* WebKit.framework */; };
 		E6ED793423A1456900CDAF0D /* DonorInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED793323A1456900CDAF0D /* DonorInfoController.swift */; };
@@ -347,6 +348,7 @@
 		E6DDAF302375630800D6EAD1 /* StepIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepIndicatorView.swift; sourceTree = "<group>"; };
 		E6DDAF372375638E00D6EAD1 /* ScanFormPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScanFormPage.storyboard; sourceTree = "<group>"; };
 		E6DDAF39237563AC00D6EAD1 /* ScanFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanFormController.swift; sourceTree = "<group>"; };
+		E6DEF4F423A27F3000F108F3 /* String + Time Removal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + Time Removal.swift"; sourceTree = "<group>"; };
 		E6ED792C23A0EA6000CDAF0D /* InboxController+UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InboxController+UIScrollView.swift"; sourceTree = "<group>"; };
 		E6ED792E23A10C4400CDAF0D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		E6ED793323A1456900CDAF0D /* DonorInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonorInfoController.swift; sourceTree = "<group>"; };
@@ -669,6 +671,7 @@
 		CC6540622381939F005BE635 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E6DEF4F423A27F3000F108F3 /* String + Time Removal.swift */,
 				CC654063238193B8005BE635 /* UIDatePicker + Styling.swift */,
 				CCBEC2042382DE18004AC408 /* CKRecord + Converter.swift */,
 				CC25B5182383DEE800C381D7 /* String + Converter.swift */,
@@ -1519,6 +1522,7 @@
 				B0B1688A237D473D001DCE3C /* LoginController+UITableView.swift in Sources */,
 				B0B16892237D6049001DCE3C /* RegisterController.swift in Sources */,
 				AB4BD9AC237599870016DDF1 /* OnboardingViewController.swift in Sources */,
+				E6DEF4F523A27F3100F108F3 /* String + Time Removal.swift in Sources */,
 				E6DDAF322375630800D6EAD1 /* AnnularLayer.swift in Sources */,
 				B0B168A0237D660A001DCE3C /* RegisterDetailController+CellDelegate.swift in Sources */,
 			);
