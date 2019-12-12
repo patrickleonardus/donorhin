@@ -14,6 +14,10 @@ class DonateController: UIViewController {
   @IBOutlet weak var historyDonorSegmentedControl: UISegmentedControl!
   @IBOutlet weak var tableview: UITableView!
   @IBOutlet weak var coverView: CustomMainView!
+  @IBOutlet weak var imageCoverView: UIImageView!
+  @IBOutlet weak var labelCoverView: UILabel!
+  @IBOutlet weak var buttonCoverView: CustomButtonRounded!
+  
   
   //MARK: - Variables
   final private let cellReuseIdentifier = "DonateCell"
@@ -37,6 +41,7 @@ class DonateController: UIViewController {
    override func viewDidLoad() {
     print ("Showing Donate tab")
       super.viewDidLoad()
+    
     currentUser = UserDefaults.standard.string(forKey: "currentUser")
     self.confirmButton = UIBarButtonItem(title: "Confirm", style: .done, target: self, action: #selector(confirm))
       navigationItem.rightBarButtonItem = self.confirmButton
@@ -45,12 +50,16 @@ class DonateController: UIViewController {
       self.tableview.dataSource = self
       self.tableview.register(UINib(nibName: "DonateTableViewCell", bundle: nil), forCellReuseIdentifier: self.cellReuseIdentifier)
       self.checkStatusDonor()
-      self.setupTabledView {
-        guard let notificationIdentifier = self.notificationIdentifier else {return}
-        self.selectedData = self.listRequest.first?.convertTrackerToTrackerModel()
-        self.performSegue(withIdentifier: "GoToStep", sender: nil)
-      }
+    if let tracker = self.selectedData {
+//      self.selectedData?.currentStep = 
+      performSegue(withIdentifier: "GoToStep", sender: nil)
+    }
+      self.setupTabledView {}
    }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    checkData()
+  }
    
    override func viewDidAppear(_ animated: Bool) {
       profileImageNavBar(show: true)
@@ -59,7 +68,28 @@ class DonateController: UIViewController {
    override func viewWillDisappear(_ animated: Bool) {
       profileImageNavBar(show: false)
    }
-   
+  
+  //Check udh login apa belom
+  private func checkData(){
+    if currentUser == nil {
+      imageCoverView.image = UIImage(named: "permintaanKososngGambar")
+      labelCoverView.text = "Anda harus login untuk mengetahui jika terdapat permintaan darah"
+      buttonCoverView.setTitle("Login Sekarang", for: .normal)
+      buttonCoverView.addTarget(self, action: #selector(moveToLogin), for: .touchUpInside)
+    }
+    else if currentUser != nil {
+      buttonCoverView.isHidden = true
+      imageCoverView.image = UIImage(named: "permintaanKososngGambar")
+      labelCoverView.text = "Belum ada permintaan darah"
+    }
+  }
+  
+  //Biar masuk ke login
+  @objc private func moveToLogin(){
+    self.performSegue(withIdentifier: "moveToLoginFromDonate", sender: self)
+  }
+  
+  
    //MARK: - data if 0 image will show up
    private func checkCountListData() {
       if self.listRequest.count > 0 {
@@ -215,7 +245,7 @@ extension DonateController: UITableViewDelegate, UITableViewDataSource {
 
         stepVC.request = self.selectedData
         
-         stepVC.title = senderr?.titleLabel.text
+         stepVC.title = "Permintaan Darah 1"
       }
    }
 }

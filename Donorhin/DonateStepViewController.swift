@@ -24,6 +24,7 @@ class DonateStepViewController: UIViewController, DonateStepViewControllerDelega
    }
   
   func recieveRequest(_ tracker: TrackerModel?) {
+    
   }
 }
 

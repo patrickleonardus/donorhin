@@ -7,27 +7,26 @@
 //
 
 import UIKit
-
+import CloudKit
 class MainViewController: UITabBarController {
   
   var barSelected: Int?
+  var tracker: TrackerModel?
+  override func viewDidLoad() {
+      super.viewDidLoad()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-      
-      if let barSelected  = self.barSelected {
-        self.selectedIndex = barSelected
-        if barSelected == 0 {
-          guard let navigationController = self.viewControllers?[barSelected] as? UINavigationController ,
-          let findViewController = navigationController.topViewController as? FindController else {return}
-        }
-        else if barSelected == 1 {
-          guard let navigationController = self.viewControllers?[barSelected] as? UINavigationController ,
-          let donateViewController = navigationController.topViewController as? DonateController else {return}
-          donateViewController.notificationIdentifier = "ada"
-        }
+      // Do any additional setup after loading the view.
+    if let barSelected  = self.barSelected {
+      self.selectedIndex = barSelected
+      if barSelected == 0 {
+        guard let navigationController = self.viewControllers?[barSelected] as? UINavigationController ,
+        let findViewController = navigationController.topViewController as? FindController else {return}
+      }
+      else if barSelected == 1 {
+        guard let navigationController = self.viewControllers?[barSelected] as? UINavigationController ,
+        let donateViewController = navigationController.topViewController as? DonateController else {return}
+        donateViewController.selectedData = self.tracker
       }
     }
+  }
 }
