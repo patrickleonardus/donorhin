@@ -68,20 +68,20 @@
                                         <rect key="frame" x="0.0" y="113" width="414" height="609"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="permintaanKososngGambar" translatesAutoresizingMaskIntoConstraints="NO" id="dNC-P9-hdm">
-                                                <rect key="frame" x="51" y="18" width="312.00000000000006" height="196.00000000000006"/>
+                                                <rect key="frame" x="51" y="18" width="312" height="196"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="196" id="V1N-AK-RCK"/>
                                                     <constraint firstAttribute="width" constant="312" id="xbt-7Q-0iJ"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJA-bV-x5W">
-                                                <rect key="frame" x="20" y="234" width="374" height="20.5"/>
+                                                <rect key="frame" x="20" y="244" width="374" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HoN-Jq-EeU" customClass="CustomButtonRounded" customModule="Donorhin" customModuleProvider="target">
-                                                <rect key="frame" x="56" y="268.5" width="302" height="44"/>
+                                                <rect key="frame" x="56" y="278.5" width="302" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="zqW-Ug-FgM"/>
                                                 </constraints>
@@ -96,7 +96,7 @@
                                             <constraint firstAttribute="trailing" secondItem="HoN-Jq-EeU" secondAttribute="trailing" constant="56" id="H6r-0h-BcA"/>
                                             <constraint firstAttribute="trailing" secondItem="tJA-bV-x5W" secondAttribute="trailing" constant="20" id="JZg-Iv-2EG"/>
                                             <constraint firstItem="dNC-P9-hdm" firstAttribute="centerX" secondItem="oLF-f0-iNN" secondAttribute="centerX" id="Ldd-Nd-Ty7"/>
-                                            <constraint firstItem="tJA-bV-x5W" firstAttribute="top" secondItem="dNC-P9-hdm" secondAttribute="bottom" constant="20" id="c9Y-S2-Dg6"/>
+                                            <constraint firstItem="tJA-bV-x5W" firstAttribute="top" secondItem="dNC-P9-hdm" secondAttribute="bottom" constant="30" id="c9Y-S2-Dg6"/>
                                             <constraint firstItem="dNC-P9-hdm" firstAttribute="top" secondItem="oLF-f0-iNN" secondAttribute="top" constant="18" id="imK-yi-KD7"/>
                                             <constraint firstItem="HoN-Jq-EeU" firstAttribute="leading" secondItem="oLF-f0-iNN" secondAttribute="leading" constant="56" id="l7K-xF-WTU"/>
                                             <constraint firstItem="tJA-bV-x5W" firstAttribute="leading" secondItem="oLF-f0-iNN" secondAttribute="leading" constant="20" id="qqf-6o-Sfy"/>

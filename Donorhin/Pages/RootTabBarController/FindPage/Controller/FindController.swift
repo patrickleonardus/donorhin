@@ -58,6 +58,9 @@ class FindController: UIViewController {
     super.viewDidLoad()
     self.registerForNotification()
     setupUI()
+    
+    //mau hilangin tab bar inbox
+    tabBarController?.viewControllers?.remove(at: 2)
   }
   
   override func viewDidAppear(_ animated: Bool) {

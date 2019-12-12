@@ -72,7 +72,7 @@ class DonateController: UIViewController {
   //Check udh login apa belom
   private func checkData(){
     if currentUser == nil {
-      imageCoverView.image = UIImage(named: "have_not_login")
+      imageCoverView.image = UIImage(named: "permintaanKososngGambar")
       labelCoverView.text = "Anda harus login untuk mengetahui jika terdapat permintaan darah"
       buttonCoverView.setTitle("Login Sekarang", for: .normal)
       buttonCoverView.addTarget(self, action: #selector(moveToLogin), for: .touchUpInside)
