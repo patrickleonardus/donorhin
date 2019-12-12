@@ -11,6 +11,7 @@ import CloudKit
 class MainViewController: UITabBarController {
   
   var barSelected: Int?
+  var tracker: TrackerModel?
   override func viewDidLoad() {
       super.viewDidLoad()
 
@@ -24,7 +25,7 @@ class MainViewController: UITabBarController {
       else if barSelected == 1 {
         guard let navigationController = self.viewControllers?[barSelected] as? UINavigationController ,
         let donateViewController = navigationController.topViewController as? DonateController else {return}
-        donateViewController.notificationIdentifier = "ada"
+        donateViewController.selectedData = self.tracker
       }
     }
   }
