@@ -276,6 +276,7 @@ class FormController: UIViewController{
     
     record.setValue(idRequest, forKey: "id_request")
     record.setValue(0, forKey: "current_step")
+    record.setValue(CKRecord.Reference(recordID: CKRecord.ID(recordName: "0"), action: .none), forKey: "id_pendonor")
     let database = CKContainer.default().publicCloudDatabase
     
     database.save(record) { (record, error) in
