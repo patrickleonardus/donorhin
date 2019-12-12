@@ -14,6 +14,9 @@ class DonateController: UIViewController {
   @IBOutlet weak var historyDonorSegmentedControl: UISegmentedControl!
   @IBOutlet weak var tableview: UITableView!
   @IBOutlet weak var coverView: CustomMainView!
+  @IBOutlet weak var imageCoverView: UIImageView!
+  @IBOutlet weak var labelCoverView: UILabel!
+  
   
   //MARK: - Variables
   final private let cellReuseIdentifier = "DonateCell"
@@ -37,6 +40,9 @@ class DonateController: UIViewController {
    override func viewDidLoad() {
     print ("Showing Donate tab")
       super.viewDidLoad()
+    
+    checkData()
+    
     currentUser = UserDefaults.standard.string(forKey: "currentUser")
     self.confirmButton = UIBarButtonItem(title: "Confirm", style: .done, target: self, action: #selector(confirm))
       navigationItem.rightBarButtonItem = self.confirmButton
@@ -59,6 +65,18 @@ class DonateController: UIViewController {
    override func viewWillDisappear(_ animated: Bool) {
       profileImageNavBar(show: false)
    }
+  
+  //Check udh login apa belom
+  private func checkData(){
+    if currentUser == nil {
+      imageCoverView.image = UIImage(named: "have_not_login")
+      labelCoverView.text = "Anda harus login untuk mengetahui jika terdapat permintaan darah"
+    }
+    else if currentUser != nil {
+      imageCoverView.image = UIImage(named: "permintaanKososngGambar")
+      labelCoverView.text = "Belum ada permintaan darah"
+    }
+  }
    
    //MARK: - data if 0 image will show up
    private func checkCountListData() {

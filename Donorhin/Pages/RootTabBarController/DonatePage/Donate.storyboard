@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nxa-dh-GSn">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nxa-dh-GSn">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -66,17 +68,26 @@
                                         <rect key="frame" x="0.0" y="113" width="414" height="609"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="permintaanKososngGambar" translatesAutoresizingMaskIntoConstraints="NO" id="dNC-P9-hdm">
-                                                <rect key="frame" x="51" y="14" width="312" height="196"/>
+                                                <rect key="frame" x="51" y="18" width="312.00000000000006" height="196.00000000000006"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="196" id="V1N-AK-RCK"/>
                                                     <constraint firstAttribute="width" constant="312" id="xbt-7Q-0iJ"/>
                                                 </constraints>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJA-bV-x5W">
+                                                <rect key="frame" x="20" y="234" width="374" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="dNC-P9-hdm" firstAttribute="top" secondItem="oLF-f0-iNN" secondAttribute="top" constant="14" id="PZ6-Kc-W5d"/>
-                                            <constraint firstItem="dNC-P9-hdm" firstAttribute="centerX" secondItem="oLF-f0-iNN" secondAttribute="centerX" id="x7b-pm-5i6"/>
+                                            <constraint firstAttribute="trailing" secondItem="tJA-bV-x5W" secondAttribute="trailing" constant="20" id="JZg-Iv-2EG"/>
+                                            <constraint firstItem="dNC-P9-hdm" firstAttribute="centerX" secondItem="oLF-f0-iNN" secondAttribute="centerX" id="Ldd-Nd-Ty7"/>
+                                            <constraint firstItem="tJA-bV-x5W" firstAttribute="top" secondItem="dNC-P9-hdm" secondAttribute="bottom" constant="20" id="c9Y-S2-Dg6"/>
+                                            <constraint firstItem="dNC-P9-hdm" firstAttribute="top" secondItem="oLF-f0-iNN" secondAttribute="top" constant="18" id="imK-yi-KD7"/>
+                                            <constraint firstItem="tJA-bV-x5W" firstAttribute="leading" secondItem="oLF-f0-iNN" secondAttribute="leading" constant="20" id="qqf-6o-Sfy"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -117,6 +128,8 @@
                     <connections>
                         <outlet property="coverView" destination="oLF-f0-iNN" id="bmr-y5-Uxd"/>
                         <outlet property="historyDonorSegmentedControl" destination="FcW-Xc-bHo" id="I54-Rl-EHF"/>
+                        <outlet property="imageCoverView" destination="dNC-P9-hdm" id="s4N-Uh-gOp"/>
+                        <outlet property="labelCoverView" destination="tJA-bV-x5W" id="sYD-FZ-LqQ"/>
                         <outlet property="switchButtonStatusDonor" destination="xTx-fo-hKC" id="W6Z-sl-Xqt"/>
                         <outlet property="tableview" destination="eFu-Dz-OJB" id="3He-aD-J6E"/>
                         <segue destination="R2N-Ct-Ikm" kind="show" identifier="GoToStep" id="3lj-Te-yRC"/>
@@ -241,7 +254,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="permintaanKososngGambar" width="313" height="196"/>
+        <image name="permintaanKososngGambar" width="347" height="249"/>
         <image name="tab_bar_donor" width="26" height="25"/>
     </resources>
 </document>
