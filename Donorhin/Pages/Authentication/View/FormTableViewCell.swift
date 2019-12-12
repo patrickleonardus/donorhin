@@ -14,6 +14,7 @@ protocol FormCellDelegate {
     func registerForKeyboardNotifications()
     func textFieldDidBeginEditing(cell:FormTableViewCell)
     func textFieldDidEndEditing()
+    func clearTextField(cell:FormTableViewCell)
 }
 
 class FormTableViewCell: UITableViewCell {
@@ -22,6 +23,9 @@ class FormTableViewCell: UITableViewCell {
     @IBOutlet var whiteBackgroundView: UIView!
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var formTextField: UITextField!
+    
+    @IBOutlet weak var clearBtn: UIButton!
+    
     var delegate : FormCellDelegate?
     
     override func awakeFromNib() {
@@ -32,6 +36,11 @@ class FormTableViewCell: UITableViewCell {
     
     @IBAction func buttonDidSelected(_ sender: Any) {
         delegate?.infoButtonDidTap()
+    }
+    
+    
+    @IBAction func clearDidTap(_ sender: Any) {
+        delegate?.clearTextField(cell: self)
     }
     
     @IBAction func didBegin(_ sender: Any) {

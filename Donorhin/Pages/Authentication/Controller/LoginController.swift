@@ -233,6 +233,43 @@ extension UIView {
         animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
         layer.add(animation, forKey: "shake")
     }
+    
+}
+
+extension UIButton {
+    /// Fade in a view with a duration
+    ///
+    /// Parameter duration: custom animation duration
+    func fadeIn(withDuration duration: TimeInterval = 0.3) {
+        UIView.animate(withDuration: duration, animations: {
+            self.frame.origin.x -= 20
+            self.alpha = 1.0
+        })
+    }
+
+    /// Fade out a view with a duration
+    ///
+    /// - Parameter duration: custom animation duration
+    func fadeOut(withDuration duration: TimeInterval = 0.3) {
+        UIView.animate(withDuration: duration, animations: {
+            self.frame.origin.x += 20
+            self.alpha = 0.0
+        })
+    }
+    
+    func moveInfoButtonWhenClearBtnAppears(withDuration duration: TimeInterval = 0.3){
+        UIView.animate(withDuration: duration, animations: {
+                  self.frame.origin.x -= 30
+                  self.alpha = 0.0
+        })
+    }
+    
+    func moveInfoButtonWhenClearBtnMoveOut(withDuration duration: TimeInterval = 0.3){
+        UIView.animate(withDuration: duration, animations: {
+                  self.frame.origin.x += 30
+                  self.alpha = 1.0
+        })
+    }
 }
 
 extension UITextField {

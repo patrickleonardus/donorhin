@@ -52,6 +52,8 @@ extension RegisterDetailController : UITableViewDataSource {
             
             cell?.formTextField.placeholder = data.placeholder
             cell?.delegate = self
+            cell?.clearBtn.isEnabled = false
+            cell?.clearBtn.alpha = 0
             cell?.formTextField.delegate = self
             cell?.infoButton.isHidden = true
             cell?.iconImageView.image = UIImage(named: data.img!)
@@ -124,10 +126,12 @@ extension RegisterDetailController: UIPickerViewDataSource, UIPickerViewDelegate
     let genderCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! FormTableViewCell
     let bloodTypeCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 3)) as! FormTableViewCell
     if genderCell.formTextField.isFirstResponder {
+      self.activeTextfield = genderCell.formTextField
       genderCell.formTextField.text = self.gender[row]
       return self.gender[row]
     }
     else if bloodTypeCell.formTextField.isFirstResponder {
+      self.activeTextfield = bloodTypeCell.formTextField
       bloodTypeCell.formTextField.text = self.bloodType[row]
       return self.bloodType[row]
     }
@@ -152,13 +156,17 @@ extension RegisterDetailController: UIPickerViewDataSource, UIPickerViewDelegate
 extension RegisterDetailController: AgreementDelegate {
     func checkAgreementCheckBox(_ isCheck: Bool) {
     let buttonCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 8)) as! ButtonTableViewCell
-    let nameCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! FormTableViewCell
-    
-        if isCheck {
-            if self.detailUserCredentials["gender"] != "" || self.detailUserCredentials["bloodType"] != "" || self.detailUserCredentials["name"] != "" || self.detailUserCredentials["birthdate"] != "" || self.detailUserCredentials["lastdonor"] != "" || nameCell.formTextField!.text != "" {
+        var isBlank : Bool = false
+        for section in 0...3 {
+            let cell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: section)) as! FormTableViewCell
+            if cell.formTextField.text == ""{
+                isBlank = true
+            }
+        }
+        
+        if isCheck && !isBlank {
                 buttonCell.buttonOutlet.backgroundColor =  Colors.red
                 buttonCell.buttonOutlet.isEnabled = true
-            }
         }
         else {
           buttonCell.buttonOutlet.backgroundColor =  Colors.gray_disabled

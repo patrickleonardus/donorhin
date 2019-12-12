@@ -9,6 +9,10 @@
 import UIKit
 
 extension RegisterController : FormCellDelegate{
+    func clearTextField(cell: FormTableViewCell) {
+        
+    }
+    
     func infoButtonDidTap() {
         
     }
