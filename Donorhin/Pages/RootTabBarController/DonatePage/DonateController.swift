@@ -50,8 +50,7 @@ class DonateController: UIViewController {
       self.tableview.dataSource = self
       self.tableview.register(UINib(nibName: "DonateTableViewCell", bundle: nil), forCellReuseIdentifier: self.cellReuseIdentifier)
       self.checkStatusDonor()
-    if let tracker = self.selectedData {
-//      self.selectedData?.currentStep = 
+    if let _ = self.selectedData {
       performSegue(withIdentifier: "GoToStep", sender: nil)
     }
       self.setupTabledView {}
