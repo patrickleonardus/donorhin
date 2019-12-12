@@ -37,20 +37,31 @@ class FirstStepRequestViewController: DonateStepViewController {
       let acceptAction = UIAlertAction(title: "Ya", style: .default) { [weak self] (action) in
         guard let track = self?.tracker else {return}
         self?.showSpinner(onView: self!.view)
-        self?.database.fetch(withRecordID: track.idTracker, completionHandler: { [weak self] (record, error) in
-          if let record = record {
-            record.setValue(CKRecord.Reference(recordID: CKRecord.ID(recordName: self?.currentUser as! String), action: .none), forKey: "id_pendonor")
-            record.setValue(track.currentStep+1, forKey: "current_step")
-            self?.database.save(record) { (recordSave, err) in
-              if let recordSave = recordSave {
-                DispatchQueue.main.async {
-                  self?.pageViewDelegate?.changeShowedView(toStep: track.currentStep+1)
-                  self?.removeSpinner()
+        let reference = CKRecord.Reference(recordID: CKRecord.ID(recordName: "0"), action: .none)
+        let idRequest = CKRecord.ID(recordName: track.idRequest.recordID.recordName)
+        let query = CKQuery(recordType: "Tracker", predicate: NSPredicate(format: "id_request == %@ AND id_pendonor == %@", idRequest,reference))
+        Helper.getAllData(query) { (results) in
+          if let results = results {
+            if results.count > 0 {
+              guard let result = results.first else {return}
+              guard let current = self!.currentUser as? String else {return}
+              self?.database.fetch(withRecordID: result.recordID, completionHandler: { [weak self] (record, error) in
+                if let record = record {
+                  record.setValue(CKRecord.Reference(recordID: CKRecord.ID(recordName: current), action: .none), forKey: "id_pendonor")
+                  record.setValue(2, forKey: "current_step")
+                  self?.database.save(record) { (recordSave, err) in
+                    if let recordSave = recordSave {
+                      DispatchQueue.main.async {
+                        self?.pageViewDelegate?.changeShowedView(toStep: 2)
+                        self?.removeSpinner()
+                      }
+                    }
+                  }
                 }
-              }
+              })
             }
           }
-        })
+        }
       }
       let cancelAction = UIAlertAction(title: "Tidak", style: .cancel, handler: nil)
       alert.addAction(acceptAction)

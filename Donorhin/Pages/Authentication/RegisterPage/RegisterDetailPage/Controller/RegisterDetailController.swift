@@ -24,7 +24,9 @@ class RegisterDetailController : UIViewController, CLLocationManagerDelegate {
     let bloodType = ["A-","A+","B-","B+","O-","O+","AB-","AB+", "Belum Diketahui"]
     var pickerToolBar: UIToolbar!
     var activeCell : FormTableViewCell?
+    var activeTextfield : UITextField?
     let locationManager = CLLocationManager()
+    var editMode : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,13 +45,46 @@ class RegisterDetailController : UIViewController, CLLocationManagerDelegate {
         pickerToolBar.tintColor = Colors.red
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(title: "Selesai", style: .done, target: self, action: #selector(pickerDoneBtnPressed))
+        let editButton = UIBarButtonItem(title: "Ubah", style: .plain, target: self, action: #selector(editBtnPressed))
         pickerToolBar.setItems([flexibleSpace, doneButton], animated: false)
         self.view.backgroundColor = Colors.backgroundView
         loadFormTable()
-        
+        navigationItem.rightBarButtonItem = editButton
         let buttonCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 8)) as! ButtonTableViewCell
         buttonCell.buttonOutlet.backgroundColor =  Colors.gray_disabled
         buttonCell.buttonOutlet.isEnabled = false
+    }
+    
+    @objc func editBtnPressed(){
+        if editMode == false{
+            editMode = true
+            for section in 0...5 {
+                let cell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: section)) as! FormTableViewCell
+                cell.clearBtn.isEnabled = true
+                cell.clearBtn.fadeIn()
+                cell.infoButton.moveInfoButtonWhenClearBtnAppears()
+                cell.formTextField.isEnabled = false
+            }
+            navigationItem.rightBarButtonItem?.title = "Selesai"
+        }
+        else{
+            editMode = false
+            for section in 0...4 {
+                let cell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: section)) as! FormTableViewCell
+                cell.clearBtn.fadeOut()
+                cell.clearBtn.isEnabled = false
+                cell.formTextField.defaultPlaceholder()
+                cell.formTextField.isEnabled = true
+            }
+            let codeReferral = formTableView.cellForRow(at: IndexPath(row: 0, section: 5)) as! FormTableViewCell
+            codeReferral.clearBtn.fadeOut()
+            codeReferral.infoButton.moveInfoButtonWhenClearBtnMoveOut()
+            codeReferral.formTextField.isEnabled = true
+            codeReferral.formTextField.defaultPlaceholder()
+            guard let errorCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 6)) as? ErrorMessageTableViewCell else {fatalError()}
+            errorCell.errorMsg.isHidden = true
+            navigationItem.rightBarButtonItem?.title = "Ubah"
+        }
     }
     
     func checkLocation(){
@@ -170,15 +205,6 @@ class RegisterDetailController : UIViewController, CLLocationManagerDelegate {
       closePickerView()
   }
   
-  @objc func pickerCancelBtnPressed() {
-    self.formTableView.reloadData()
-    view.endEditing(true)
-    for textField in self.view.subviews where textField is UITextField {
-      textField.resignFirstResponder()
-    }
-    view.gestureRecognizers?.removeLast()
-  }
-  
   func closePickerView() {
       view.endEditing(true)
       for textField in self.view.subviews where textField is UITextField {
@@ -196,10 +222,12 @@ class RegisterDetailController : UIViewController, CLLocationManagerDelegate {
         let lastDonorDateCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 4)) as? FormTableViewCell else {return}
     
       if birthDateCell.formTextField.isFirstResponder {
+        self.activeTextfield = birthDateCell.formTextField
         birthDateCell.formTextField.text = dateFormatter.string(from: datePicker.date)
         self.detailUserCredentials["birthdate"] = birthDateCell.formTextField.text
       }
       if lastDonorDateCell.formTextField.isFirstResponder {
+        self.activeTextfield = lastDonorDateCell.formTextField
         lastDonorDateCell.formTextField.text = dateFormatter.string(from: datePicker.date)
         self.detailUserCredentials["lastdonor"] = lastDonorDateCell.formTextField.text
       }

@@ -39,6 +39,14 @@
                                     <action selector="buttonDidSelected:" destination="UAc-ng-BXh" eventType="touchUpInside" id="toa-xe-8JD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PR4-Of-5VB">
+                                <rect key="frame" x="362" y="19.5" width="18" height="22"/>
+                                <color key="tintColor" red="0.70196078429999997" green="0.0" blue="0.1058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="clear"/>
+                                <connections>
+                                    <action selector="clearDidTap:" destination="UAc-ng-BXh" eventType="touchUpInside" id="yqU-aR-f0I"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -46,10 +54,12 @@
                             <constraint firstItem="KXD-xC-WJv" firstAttribute="centerY" secondItem="vie-U3-zpc" secondAttribute="centerY" id="FMm-vy-GTb"/>
                             <constraint firstItem="75a-Ou-lk6" firstAttribute="top" secondItem="OOY-aF-TMj" secondAttribute="top" constant="18" id="JHl-qh-9YS"/>
                             <constraint firstAttribute="trailing" secondItem="KXD-xC-WJv" secondAttribute="trailing" constant="52" id="T2y-dv-uPk"/>
+                            <constraint firstItem="PR4-Of-5VB" firstAttribute="centerY" secondItem="OOY-aF-TMj" secondAttribute="centerY" id="ck2-R8-46k"/>
                             <constraint firstAttribute="bottom" secondItem="75a-Ou-lk6" secondAttribute="bottom" constant="18" id="gTD-wv-xyb"/>
                             <constraint firstItem="KXD-xC-WJv" firstAttribute="leading" secondItem="vie-U3-zpc" secondAttribute="trailing" constant="8" id="inI-vi-bPU"/>
                             <constraint firstItem="KXD-xC-WJv" firstAttribute="centerY" secondItem="OOY-aF-TMj" secondAttribute="centerY" id="o1d-HA-Xa4"/>
                             <constraint firstItem="KXD-xC-WJv" firstAttribute="top" secondItem="OOY-aF-TMj" secondAttribute="top" id="tof-wP-Efs"/>
+                            <constraint firstItem="PR4-Of-5VB" firstAttribute="leading" secondItem="KXD-xC-WJv" secondAttribute="trailing" constant="34" id="ulB-48-lMj"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -60,6 +70,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="clearBtn" destination="PR4-Of-5VB" id="1J4-3N-Bqv"/>
                 <outlet property="formTextField" destination="KXD-xC-WJv" id="mhP-Do-Lzc"/>
                 <outlet property="iconImageView" destination="vie-U3-zpc" id="Pxx-OH-aYA"/>
                 <outlet property="infoButton" destination="75a-Ou-lk6" id="HLS-1Z-9Tc"/>
@@ -68,4 +79,7 @@
             <point key="canvasLocation" x="113.04347826086958" y="113.83928571428571"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="clear" width="18" height="18"/>
+    </resources>
 </document>

@@ -55,7 +55,7 @@ extension LoginController : UITableViewDataSource{
             cell?.delegate = self
             cell?.formTextField.placeholder = data.placeholder
             cell?.iconImageView.image = UIImage(named: data.img!)
-            
+            cell?.clearBtn.isHidden = true
             cell?.backgroundColor = UIColor.white
             cell?.layer.cornerRadius = 10
             cell?.formTextField.addDoneButtonOnKeyboard()

@@ -10,6 +10,20 @@ import Foundation
 import UIKit
 import CloudKit
 extension RegisterDetailController : FormCellDelegate {
+    func clearTextField(cell: FormTableViewCell) {
+        guard let errorCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 6)) as? ErrorMessageTableViewCell else {fatalError()}
+        if cell.formTextField.text == ""{
+            cell.shake()
+            cell.formTextField.redPlaceholder()
+            errorCell.errorMsg.isHidden = false
+            errorCell.errorMsg.text = "*Tidak bisa menghapus form yang belum diisi"
+        }
+        else{
+        cell.formTextField.defaultPlaceholder()
+        cell.formTextField.text = ""
+        }
+    }
+    
     func textFieldDidBeginEditing(cell: FormTableViewCell) {
         self.activeCell = cell
     }
