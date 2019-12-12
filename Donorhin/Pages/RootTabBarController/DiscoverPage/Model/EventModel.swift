@@ -18,6 +18,7 @@ struct EventModel {
     let endDate : Date?
     let nameEvent : String?
     let phoneEvent : String?
+    let postedBy : CKRecord.Reference?
 }
 
 struct EventModelCollectionView {
@@ -35,9 +36,10 @@ struct EventModelCollectionView {
             var endDate : Date?
             var nameEvent : String?
             var phoneEvent : String?
+            var postedBy : CKRecord.Reference?
             
             let query = CKQuery(recordType: "Event", predicate: NSPredicate(value: true))
-          query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+            query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
           
             Helper.getAllData(query) { (results) in
                 guard let results = results else {fatalError("Query error")}
@@ -54,8 +56,9 @@ struct EventModelCollectionView {
                     endDate = model.endTime
                     nameEvent = model.cpName
                     phoneEvent = model.cpPhone
+                    postedBy = model.idUser
                     
-                    eventData.append(EventModel(image: image, title: title, description: description, address: address, startDate: startDate, endDate: endDate, nameEvent: nameEvent, phoneEvent: phoneEvent))
+                  eventData.append(EventModel(image: image, title: title, description: description, address: address, startDate: startDate, endDate: endDate, nameEvent: nameEvent, phoneEvent: phoneEvent, postedBy: postedBy))
                 }
                 completionHandler(eventData)
             }

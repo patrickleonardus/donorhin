@@ -205,37 +205,60 @@
                                             <outlet property="nameEventCell" destination="mOI-1B-7tp" id="K2E-jq-qNU"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="fifthEventCell" rowHeight="76" id="UeP-9v-IV3" customClass="FifthEventCell" customModule="Donorhin" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="488" width="414" height="76"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="fifthEventCell" rowHeight="137" id="UeP-9v-IV3" customClass="FifthEventCell" customModule="Donorhin" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="488" width="414" height="137"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UeP-9v-IV3" id="bM4-Rn-J0I">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="137"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdh-Up-i8n">
-                                                    <rect key="frame" x="20" y="8" width="374" height="60"/>
+                                                    <rect key="frame" x="20" y="8" width="374" height="121"/>
                                                     <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1LL-1t-Eab">
+                                                            <rect key="frame" x="8" y="8" width="358" height="20"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c60-rI-cuz">
-                                                            <rect key="frame" x="8" y="8" width="358" height="11"/>
+                                                            <rect key="frame" x="8" y="64" width="358" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eai-Nv-0f3">
-                                                            <rect key="frame" x="8" y="31" width="358" height="20"/>
-                                                            <state key="normal" title="Button"/>
+                                                            <rect key="frame" x="8" y="36" width="358" height="20"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <state key="normal" title="Button">
+                                                                <color key="titleColor" red="0.53979659079999998" green="0.1061993316" blue="0.1333173215" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            </state>
                                                         </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uac-WP-Qsb">
+                                                            <rect key="frame" x="8" y="92" width="358" height="20"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="c60-rI-cuz" secondAttribute="trailing" constant="8" id="3WN-Cx-COT"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Eai-Nv-0f3" secondAttribute="trailing" constant="8" id="CsD-Vb-dlZ"/>
-                                                        <constraint firstAttribute="bottom" secondItem="c60-rI-cuz" secondAttribute="bottom" constant="41" id="IVB-RJ-0SO"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Eai-Nv-0f3" secondAttribute="bottom" constant="9" id="Mra-qH-vAg"/>
-                                                        <constraint firstItem="Eai-Nv-0f3" firstAttribute="top" secondItem="mdh-Up-i8n" secondAttribute="top" constant="31" id="btg-aH-aCQ"/>
-                                                        <constraint firstItem="c60-rI-cuz" firstAttribute="top" secondItem="mdh-Up-i8n" secondAttribute="top" constant="8" id="hOX-h5-I2n"/>
-                                                        <constraint firstItem="c60-rI-cuz" firstAttribute="leading" secondItem="mdh-Up-i8n" secondAttribute="leading" constant="8" id="iN4-Cv-yLX"/>
-                                                        <constraint firstItem="Eai-Nv-0f3" firstAttribute="leading" secondItem="mdh-Up-i8n" secondAttribute="leading" constant="8" id="rKZ-Oo-nSa"/>
+                                                        <constraint firstAttribute="bottom" secondItem="c60-rI-cuz" secondAttribute="bottom" constant="37" id="0gh-Kw-se1"/>
+                                                        <constraint firstAttribute="bottom" secondItem="1LL-1t-Eab" secondAttribute="bottom" constant="93" id="5e4-M6-bMl"/>
+                                                        <constraint firstItem="c60-rI-cuz" firstAttribute="leading" secondItem="mdh-Up-i8n" secondAttribute="leading" constant="8" id="7Sk-O6-zV9"/>
+                                                        <constraint firstAttribute="trailing" secondItem="1LL-1t-Eab" secondAttribute="trailing" constant="8" id="F0f-jy-mmO"/>
+                                                        <constraint firstItem="Eai-Nv-0f3" firstAttribute="leading" secondItem="mdh-Up-i8n" secondAttribute="leading" constant="8" id="F1a-6p-m08"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Uac-WP-Qsb" secondAttribute="trailing" constant="8" id="LBx-tJ-d04"/>
+                                                        <constraint firstItem="1LL-1t-Eab" firstAttribute="leading" secondItem="mdh-Up-i8n" secondAttribute="leading" constant="8" id="OiJ-fg-eIg"/>
+                                                        <constraint firstItem="Uac-WP-Qsb" firstAttribute="leading" secondItem="mdh-Up-i8n" secondAttribute="leading" constant="8" id="Pgm-cY-Sqv"/>
+                                                        <constraint firstItem="Eai-Nv-0f3" firstAttribute="top" secondItem="1LL-1t-Eab" secondAttribute="bottom" constant="8" id="R25-lz-Ugr"/>
+                                                        <constraint firstAttribute="trailing" secondItem="c60-rI-cuz" secondAttribute="trailing" constant="8" id="VBh-T7-tpa"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Eai-Nv-0f3" secondAttribute="bottom" constant="65" id="Wh3-Iq-yLf"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Eai-Nv-0f3" secondAttribute="trailing" constant="8" id="Xvr-qj-c0y"/>
+                                                        <constraint firstItem="Uac-WP-Qsb" firstAttribute="top" secondItem="c60-rI-cuz" secondAttribute="bottom" constant="8" id="pO0-1K-Eiy"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Uac-WP-Qsb" secondAttribute="bottom" constant="9" id="qeA-Ip-XA5"/>
+                                                        <constraint firstItem="1LL-1t-Eab" firstAttribute="top" secondItem="mdh-Up-i8n" secondAttribute="top" constant="8" id="qlf-dW-W9y"/>
+                                                        <constraint firstItem="c60-rI-cuz" firstAttribute="top" secondItem="Eai-Nv-0f3" secondAttribute="bottom" constant="8" id="sHw-Ca-keW"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -253,8 +276,10 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
+                                            <outlet property="phoneContactNameCell" destination="Uac-WP-Qsb" id="dji-lZ-exm"/>
+                                            <outlet property="phoneContactTitleCell" destination="c60-rI-cuz" id="452-ry-Xam"/>
                                             <outlet property="phoneNameCell" destination="Eai-Nv-0f3" id="KIo-lu-anm"/>
-                                            <outlet property="phoneNameTitleCell" destination="c60-rI-cuz" id="MEt-xo-5eQ"/>
+                                            <outlet property="phoneNameTitleCell" destination="1LL-1t-Eab" id="tRT-4g-cKH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

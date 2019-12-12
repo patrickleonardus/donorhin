@@ -47,14 +47,16 @@ extension DetailEventController: UITableViewDelegate, UITableViewDataSource {
         }
         else if indexPath.section == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "fourthEventCell") as! FourthEventCell
-            cell.nameEventCell.text = "Contact Person : " + nameEvent!
+            cell.nameEventCell.text = "Ditulis Oleh : " + nameEvent!
             return cell
         }
         else if indexPath.section == 4 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "fifthEventCell") as! FifthEventCell
-            cell.phoneNameTitleCell.text = "Hubungi"
+            cell.phoneNameTitleCell.text = "Telepon : "
             cell.phoneNameCell.setTitle("✆ " + phoneEvent!, for: .normal)
             cell.phoneNameCell.addTarget(self, action: #selector(callButton), for: .touchUpInside)
+            cell.phoneContactTitleCell.text = "Kontak Acara: "
+            cell.phoneContactNameCell.text = nameEvent
             return cell
         }
         

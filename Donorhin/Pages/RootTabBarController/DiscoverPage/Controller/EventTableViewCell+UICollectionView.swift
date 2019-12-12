@@ -190,7 +190,7 @@ extension EventTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
               }
               else if eventData!.count > 0 {
                 guard let data = eventData?[indexPath.row] else {fatalError()}
-                self.moveToDetailEventDelegate?.moveToAddEventDetailClass(image: data.image!, title: data.title!, desc: data.description!, address: data.address!, date: data.startDate!, name: data.nameEvent!, phone: data.phoneEvent!)
+                self.moveToDetailEventDelegate?.moveToAddEventDetailClass(image: data.image!, title: data.title!, desc: data.description!, address: data.address!, date: data.startDate!, name: data.nameEvent!, phone: data.phoneEvent!, postedBy: data.postedBy!)
               }
               
             }
