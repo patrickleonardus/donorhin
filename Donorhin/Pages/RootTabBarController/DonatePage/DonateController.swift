@@ -42,7 +42,6 @@ class DonateController: UIViewController {
     print ("Showing Donate tab")
       super.viewDidLoad()
     
-    
     currentUser = UserDefaults.standard.string(forKey: "currentUser")
     self.confirmButton = UIBarButtonItem(title: "Confirm", style: .done, target: self, action: #selector(confirm))
       navigationItem.rightBarButtonItem = self.confirmButton
@@ -57,6 +56,10 @@ class DonateController: UIViewController {
         self.performSegue(withIdentifier: "GoToStep", sender: nil)
       }
    }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    checkData()
+  }
    
    override func viewDidAppear(_ animated: Bool) {
       profileImageNavBar(show: true)
@@ -64,7 +67,6 @@ class DonateController: UIViewController {
    
    override func viewWillDisappear(_ animated: Bool) {
       profileImageNavBar(show: false)
-      checkData()
    }
   
   //Check udh login apa belom
