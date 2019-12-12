@@ -160,6 +160,11 @@ class TrackerController : UIViewController {
       DispatchQueue.main.async {
         print("getTrackerItems")
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMMM yyyy"
+        let date = dateFormatter.string(from: (self.trackerModel?.donorDate)!)
+        
+        
         completionHandler(
           [StepItems(
             description: "Anda dapat memberitahukan PMI bahwa Anda menggunakan aplikasi untuk mencari donor",
@@ -168,7 +173,7 @@ class TrackerController : UIViewController {
             ),
            
            StepItems(
-            description: "Pendonor Anda Telah Ditemukan Lokasi: \(String(describing: self.utdDonor!.name)) Mendonor pada \(String(describing: String(describing: self.trackerModel!.donorDate).formattedDate!))",
+            description: "Pendonor Anda Telah Ditemukan Lokasi: \(String(describing: self.utdDonor!.name)) Mendonor pada \(date)",
             buttonStr: " Hubungi \(String(describing: self.utdDonor!.name))",
             status: self.status![1]),
            
