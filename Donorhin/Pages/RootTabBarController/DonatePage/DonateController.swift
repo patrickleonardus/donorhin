@@ -16,6 +16,7 @@ class DonateController: UIViewController {
   @IBOutlet weak var coverView: CustomMainView!
   @IBOutlet weak var imageCoverView: UIImageView!
   @IBOutlet weak var labelCoverView: UILabel!
+  @IBOutlet weak var buttonCoverView: CustomButtonRounded!
   
   
   //MARK: - Variables
@@ -41,7 +42,6 @@ class DonateController: UIViewController {
     print ("Showing Donate tab")
       super.viewDidLoad()
     
-    checkData()
     
     currentUser = UserDefaults.standard.string(forKey: "currentUser")
     self.confirmButton = UIBarButtonItem(title: "Confirm", style: .done, target: self, action: #selector(confirm))
@@ -64,6 +64,7 @@ class DonateController: UIViewController {
    
    override func viewWillDisappear(_ animated: Bool) {
       profileImageNavBar(show: false)
+      checkData()
    }
   
   //Check udh login apa belom
@@ -71,13 +72,22 @@ class DonateController: UIViewController {
     if currentUser == nil {
       imageCoverView.image = UIImage(named: "have_not_login")
       labelCoverView.text = "Anda harus login untuk mengetahui jika terdapat permintaan darah"
+      buttonCoverView.setTitle("Login Sekarang", for: .normal)
+      buttonCoverView.addTarget(self, action: #selector(moveToLogin), for: .touchUpInside)
     }
     else if currentUser != nil {
+      buttonCoverView.isHidden = true
       imageCoverView.image = UIImage(named: "permintaanKososngGambar")
       labelCoverView.text = "Belum ada permintaan darah"
     }
   }
-   
+  
+  //Biar masuk ke login
+  @objc private func moveToLogin(){
+    self.performSegue(withIdentifier: "moveToLoginFromDonate", sender: self)
+  }
+  
+  
    //MARK: - data if 0 image will show up
    private func checkCountListData() {
       if self.listRequest.count > 0 {

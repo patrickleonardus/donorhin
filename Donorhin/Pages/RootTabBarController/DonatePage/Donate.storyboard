@@ -80,14 +80,27 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HoN-Jq-EeU" customClass="CustomButtonRounded" customModule="Donorhin" customModuleProvider="target">
+                                                <rect key="frame" x="56" y="268.5" width="302" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="zqW-Ug-FgM"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="HoN-Jq-EeU" secondAttribute="trailing" constant="56" id="H6r-0h-BcA"/>
                                             <constraint firstAttribute="trailing" secondItem="tJA-bV-x5W" secondAttribute="trailing" constant="20" id="JZg-Iv-2EG"/>
                                             <constraint firstItem="dNC-P9-hdm" firstAttribute="centerX" secondItem="oLF-f0-iNN" secondAttribute="centerX" id="Ldd-Nd-Ty7"/>
                                             <constraint firstItem="tJA-bV-x5W" firstAttribute="top" secondItem="dNC-P9-hdm" secondAttribute="bottom" constant="20" id="c9Y-S2-Dg6"/>
                                             <constraint firstItem="dNC-P9-hdm" firstAttribute="top" secondItem="oLF-f0-iNN" secondAttribute="top" constant="18" id="imK-yi-KD7"/>
+                                            <constraint firstItem="HoN-Jq-EeU" firstAttribute="leading" secondItem="oLF-f0-iNN" secondAttribute="leading" constant="56" id="l7K-xF-WTU"/>
                                             <constraint firstItem="tJA-bV-x5W" firstAttribute="leading" secondItem="oLF-f0-iNN" secondAttribute="leading" constant="20" id="qqf-6o-Sfy"/>
+                                            <constraint firstItem="HoN-Jq-EeU" firstAttribute="top" secondItem="tJA-bV-x5W" secondAttribute="bottom" constant="14" id="uMf-o1-PcR"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -126,6 +139,7 @@
                         <barButtonItem key="backBarButtonItem" title="Kembali" id="YhF-iv-dbO"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="buttonCoverView" destination="HoN-Jq-EeU" id="Jxa-Ms-Z1F"/>
                         <outlet property="coverView" destination="oLF-f0-iNN" id="bmr-y5-Uxd"/>
                         <outlet property="historyDonorSegmentedControl" destination="FcW-Xc-bHo" id="I54-Rl-EHF"/>
                         <outlet property="imageCoverView" destination="dNC-P9-hdm" id="s4N-Uh-gOp"/>
