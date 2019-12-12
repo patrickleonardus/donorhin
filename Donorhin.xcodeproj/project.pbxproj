@@ -17,6 +17,7 @@
 		098FD4752372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */; };
 		098FD4772372C95900AF7EC7 /* CustomViewRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */; };
 		09DC193A23754BCD004BEFB5 /* DonateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC193923754BCD004BEFB5 /* DonateModel.swift */; };
+		09E84BF723A0E44000203380 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E84BF623A0E44000203380 /* MainViewController.swift */; };
 		09E8CA1E23853C01009A11A9 /* Agreement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09E8CA1D23853C01009A11A9 /* Agreement.storyboard */; };
 		09FBD1F1239249C300704AAF /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FBD1F0239249C300704AAF /* Service.swift */; };
 		AB1CD2D4237C198300CB3C56 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB1CD2D3237C198300CB3C56 /* Onboarding.storyboard */; };
@@ -206,6 +207,7 @@
 		098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonSubmitRounded.swift; sourceTree = "<group>"; };
 		098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewRounded.swift; sourceTree = "<group>"; };
 		09DC193923754BCD004BEFB5 /* DonateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateModel.swift; sourceTree = "<group>"; };
+		09E84BF623A0E44000203380 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		09E8CA1D23853C01009A11A9 /* Agreement.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Agreement.storyboard; sourceTree = "<group>"; };
 		09FBD1F0239249C300704AAF /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		AB1CD2D3237C198300CB3C56 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
@@ -1156,6 +1158,7 @@
 				E6DDAF342375631800D6EAD1 /* ScanFormPage */,
 				E62918F6237EBBA800E8D559 /* FormPage */,
 				E607AAED2384618800214A90 /* HospitalPage */,
+				09E84BF623A0E44000203380 /* MainViewController.swift */,
 			);
 			path = RootTabBarController;
 			sourceTree = "<group>";
@@ -1469,6 +1472,7 @@
 				AB7357922374311400A6099B /* ProfileController.swift in Sources */,
 				B0FF322523829ABA0001C0F5 /* ButtonTableViewCell.swift in Sources */,
 				AB7357912374311400A6099B /* ProfileController+UITableView.swift in Sources */,
+				09E84BF723A0E44000203380 /* MainViewController.swift in Sources */,
 				E6291900237EC9E400E8D559 /* FormController+UITableView.swift in Sources */,
 				E6FBB1C32371991D00B1B4DE /* Constants.swift in Sources */,
 				E63A1D7E2398F87B00809607 /* LabelAndTextViewCell.swift in Sources */,

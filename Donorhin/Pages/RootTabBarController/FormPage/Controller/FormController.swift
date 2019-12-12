@@ -46,6 +46,7 @@ class FormController: UIViewController{
   var patientBloodAmount: String?
   var patientEmergency: String = "0"
   var currentPlace: String = UserDefaults.standard.value(forKey: "province") as! String
+  var notification: CKRecord?
   
   //MARK: - view controller lifecycle
   override func viewDidLoad() {
@@ -72,7 +73,7 @@ class FormController: UIViewController{
   }
   
   //MARK: - send push notification
-  func sendNotification(_ message: String,_ bloodType: String) {
+  func sendNotification(_ message: String,_ bloodType: String,_ idRequest: String?) {
     let nspredicate = NSPredicate(format: "province = %@ AND blood_type = %@", argumentArray: [self.currentPlace,bloodType])
     let query = CKQuery(recordType: "Account", predicate: nspredicate)
     Helper.getAllData(query) { (results) in
@@ -86,8 +87,10 @@ class FormController: UIViewController{
           }
         }
       }
-      
-      Service.sendNotification(message, tokens,"StepsPageViewController") // send notification to server
+      DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+        guard let idRequest = self.recordName else {return}
+        Service.sendNotification(message, tokens,idRequest) // send notification to server
+      }
     }
   }
   
@@ -301,8 +304,7 @@ class FormController: UIViewController{
           for count in 0...self.patientBloodAmountCast-1 {
             self.createTrackerTable()
           }
-          
-          self.sendNotification("Terdapat kebutuhan kantong darah \(self.patientBloodType!) untuk tanggal \(self.patientDueDateCast.dateToString()). Apakah Anda bersedia mendonor?",self.patientBloodType!)
+          self.sendNotification("Terdapat kebutuhan kantong darah \(self.patientBloodType!) untuk tanggal \(self.patientDueDateCast.dateToString()). Apakah Anda bersedia mendonor?",self.patientBloodType!,self.recordName)
       })
     }
 
