@@ -30,6 +30,8 @@ class DonateController: UIViewController {
   var profileImage = UIImageView()
   var confirmButton = UIBarButtonItem()
   var currentUser : String?
+  
+  var notificationIdentifier: String?
    
    //MARK:- view handler
    override func viewDidLoad() {
@@ -41,8 +43,12 @@ class DonateController: UIViewController {
       self.tableview.delegate = self
       self.tableview.dataSource = self
       self.tableview.register(UINib(nibName: "DonateTableViewCell", bundle: nil), forCellReuseIdentifier: self.cellReuseIdentifier)
-      self.setupTabledView()
       self.checkStatusDonor()
+      self.setupTabledView {
+        guard let notificationIdentifier = self.notificationIdentifier else {return}
+        self.selectedData = self.listRequest.first?.convertTrackerToTrackerModel()
+        self.performSegue(withIdentifier: "GoToStep", sender: nil)
+      }
    }
    
    override func viewDidAppear(_ animated: Bool) {
@@ -64,7 +70,7 @@ class DonateController: UIViewController {
    }
    
   //MARK:- Get data from database
-  private func getData(_ selectedCategory:Int = 0) {
+  private func getData(_ selectedCategory:Int = 0, completionHandler: @escaping (() -> Void)) {
     
     if currentUser != nil {
       print(self.currentUser!)
@@ -83,6 +89,7 @@ class DonateController: UIViewController {
             self.checkCountListData()
             self.tableview.reloadData()
             self.removeSpinner()
+            completionHandler()
           }
         }
       }
@@ -101,13 +108,15 @@ class DonateController: UIViewController {
    }
    
    //MARK: - setup tableview
-   private func setupTabledView() {
-      self.getData()
+  private func setupTabledView(completionHandler: @escaping (() -> Void)) {
+    self.getData {
+      completionHandler()
+    }
    }
    
   //MARK: - when segmented control tapped
   @IBAction func segmentedControlTapped(_ sender: UISegmentedControl) {
-    self.getData(sender.selectedSegmentIndex)
+    self.getData(sender.selectedSegmentIndex) {}
   }
   
   @objc private func confirm() {

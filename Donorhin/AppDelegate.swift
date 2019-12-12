@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       UNUserNotificationCenter.current().delegate = self
       
         // Override point for customization after application launch.
-                let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+      let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
       if launchOptions == nil {
         if launchedBefore  {
             print("Not first launch.")
@@ -31,25 +31,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("First launch, setting UserDefault.")
             UserDefaults.standard.set(true, forKey: "launchedBefore")
         }
+        
       }
       else {
         self.checkNotification(launchOptions)
       }
                 
-      self.window?.tintColor = Colors.red
       self.getNotificationSettings()
-      
+      self.window?.tintColor = Colors.red
       return true
     }
   
   func checkNotification(_ launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
     if let options = launchOptions {
-      guard let info = options[UIApplication.LaunchOptionsKey.remoteNotification]  as? [String:String] else {return}
-      let storyboard = UIStoryboard(name: "Donate", bundle: nil)
-      if let payload = info["payload"] {
-        let viewController = storyboard.instantiateViewController(withIdentifier: payload)
-        self.window?.rootViewController = viewController
-      }
+      let storyboard = UIStoryboard(name: "RootTabBarController", bundle: nil)
+      let viewController = storyboard.instantiateViewController(withIdentifier: "rootStoryboard") as? MainViewController
+      viewController?.selectedIndex = 2
+      self.window?.rootViewController = viewController
     }
   }
   
@@ -150,11 +148,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
   func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    let content = response.notification.request.content
     let userInfo = response.notification.request.content.userInfo
-    if let aps = userInfo["payload"] as? [String: String] {
-      print(aps)
+    print(userInfo)
+    if let token = userInfo["id_tracker"] as? String,
+      let index = userInfo["index"] as? Int{
+      
+      let storyboard = UIStoryboard(name: "RootTabBarController", bundle: nil)
+      let viewController = storyboard.instantiateViewController(withIdentifier: "rootStoryboard") as? MainViewController
+      viewController?.barSelected = index
+      self.window?.rootViewController = viewController
+      completionHandler()
     }
-    completionHandler()
   }
   
   func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {

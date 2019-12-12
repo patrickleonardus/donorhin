@@ -23,7 +23,7 @@ class RequestStepsPageViewController: UIPageViewController {
     let sb = UIStoryboard(name: "RequestStepsPageViewController", bundle: nil)
     switch self.tracker?.currentStep {
       case 1:
-        return [sb.instantiateViewController(withIdentifier: "langkah1") as! FirstStepRequestViewController]
+        return [sb.instantiateViewController(withIdentifier: "langkah1") as! DonateStepViewController]
       case 2:
       return [sb.instantiateViewController(withIdentifier: "langkah2") as! DonateStepViewController]
       case 3:
