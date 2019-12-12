@@ -148,15 +148,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
   func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-    let content = response.notification.request.content
     let userInfo = response.notification.request.content.userInfo
     print(userInfo)
-    if let token = userInfo["id_tracker"] as? String,
-      let index = userInfo["index"] as? Int{
-      
+    if let idRequest = userInfo["id_request"] as? String,
+      let tabBarIndex = userInfo["tab_bar_index"] as? Int{
       let storyboard = UIStoryboard(name: "RootTabBarController", bundle: nil)
       let viewController = storyboard.instantiateViewController(withIdentifier: "rootStoryboard") as? MainViewController
-      viewController?.barSelected = index
+      viewController?.barSelected = tabBarIndex
       self.window?.rootViewController = viewController
       completionHandler()
     }

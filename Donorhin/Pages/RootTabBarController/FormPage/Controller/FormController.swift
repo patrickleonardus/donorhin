@@ -89,7 +89,7 @@ class FormController: UIViewController{
       }
       DispatchQueue.main.asyncAfter(deadline: .now()+2) {
         guard let idRequest = self.recordName else {return}
-        Service.sendNotification(message, tokens,idRequest) // send notification to server
+        Service.sendNotification(message, tokens,idRequest,1) // send notification to server
       }
     }
   }
