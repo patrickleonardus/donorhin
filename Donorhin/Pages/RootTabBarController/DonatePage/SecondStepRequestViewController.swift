@@ -127,10 +127,7 @@ class SecondStepRequestViewController: DonateStepViewController{
               
               //FIXME: Ubah record name masih di hard code
 
-              guard let trackerID = self?.trackerModel?.idTracker.recordName else {
-                fatalError("tracker id shouldn't be nil")
-              }
-              self?.database.fetch(withRecordID: CKRecord.ID(recordName: trackerID), completionHandler: { [weak self] (record, error) in
+              self?.database.fetch(withRecordID: track.idTracker, completionHandler: { [weak self] (record, error) in
                 if let record = record {
                   record.setValue(CKRecord.Reference(recordID: recordNameUTD, action: .none), forKey: "id_UTD_pendonor")
                   record.setValue(self?.chosenDate, forKey: "donor_date")
@@ -140,7 +137,7 @@ class SecondStepRequestViewController: DonateStepViewController{
                     }
                     if let recordSave = recordSave {
                       DispatchQueue.main.async {
-                        self?.pageViewDelegate?.changeShowedView(toStep: 3)
+                        self?.pageViewDelegate?.changeShowedView(toStep: 3,tracker: nil)
                         self?.removeSpinner()
                       }
                     }
