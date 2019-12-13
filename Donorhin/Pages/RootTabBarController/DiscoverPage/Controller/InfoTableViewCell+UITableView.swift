@@ -50,7 +50,7 @@ extension InfoTableViewCell: UITableViewDelegate, UITableViewDataSource {
       }
         
       else if indexPath.row == 4 {
-        cell.imageInfo.image = UIImage(named: "ApaItuKoordinator?")
+        cell.imageInfo.image = UIImage(named: "Koordinator")
       }
       
       else if indexPath.row == 5 {

@@ -24,6 +24,7 @@ class FindController: UIViewController {
   let cellId = "cellId"
   
   var profileImage = UIImageView()
+  var profileTap = UITapGestureRecognizer()
   
   var bloodRequestHistory: [Donor]? //Contains history finding data
   var bloodRequestCurrent: [Donor?]? //Contains current finding data
@@ -111,6 +112,7 @@ class FindController: UIViewController {
   private func freezeTabBarButton(set: Bool){
     
     if set {
+      
       DispatchQueue.main.async {
         let items = self.tabBarController?.tabBar.items
         if items!.count > 0 {
@@ -121,6 +123,7 @@ class FindController: UIViewController {
       }
     }
     else if !set {
+
       DispatchQueue.main.async {
         let items = self.tabBarController?.tabBar.items
         if items!.count > 0 {
@@ -479,7 +482,7 @@ class FindController: UIViewController {
         profileImage.heightAnchor.constraint(equalToConstant: ProfileImageSize.imageSize).isActive = true
         profileImage.widthAnchor.constraint(equalToConstant: ProfileImageSize.imageSize).isActive = true
         
-        let profileTap = UITapGestureRecognizer(target: self, action: #selector(profileButton))
+        profileTap = UITapGestureRecognizer(target: self, action: #selector(profileButton))
         profileImage.addGestureRecognizer(profileTap)
         
         UIView.animate(withDuration: 1.0) {
