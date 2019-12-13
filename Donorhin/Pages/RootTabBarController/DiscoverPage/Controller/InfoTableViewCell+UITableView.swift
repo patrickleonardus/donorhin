@@ -27,14 +27,34 @@ extension InfoTableViewCell: UITableViewDelegate, UITableViewDataSource {
         
         guard let data = infoData?[indexPath.row] else {fatalError()}
         
-        cell.imageInfo.layer.cornerRadius = cell.imageInfo.frame.height/2
-        cell.imageInfo.contentMode = UIView.ContentMode.scaleAspectFill
-        
+        cell.imageInfo.contentMode = UIView.ContentMode.center
+      
         cell.imageInfo.image = UIImage(named: data.image!)
         cell.titleInfo.text = data.title
         cell.detailInfo.text = data.description
       
-      if indexPath.row == 5 {
+      if indexPath.row == 0 {
+        cell.imageInfo.image = UIImage(named: "CaraPenggunaanAplikasi")
+      }
+      
+      else if indexPath.row == 1 {
+        cell.imageInfo.image = UIImage(named: "DaftarSyaratPendonor")
+      }
+        
+      else if indexPath.row == 2 {
+        cell.imageInfo.image = UIImage(named: "KontakUTDPMI")
+      }
+        
+      else if indexPath.row == 3 {
+        cell.imageInfo.image = UIImage(named: "InfoUmum")
+      }
+        
+      else if indexPath.row == 4 {
+        cell.imageInfo.image = UIImage(named: "ApaItuKoordinator?")
+      }
+      
+      else if indexPath.row == 5 {
+        cell.imageInfo.image = UIImage(named: "HubungiDonorhin")
         cell.separatorInset = UIEdgeInsets(top: 0, left: cell.bounds.size.width, bottom: 0, right: 0)
       }
         

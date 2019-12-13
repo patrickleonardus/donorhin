@@ -76,8 +76,8 @@ class FindController: UIViewController {
       dataLoader { (successStatus : Bool) in
         if successStatus {
           print ("\nSuccess loading data with dataLoader!. Here are data details:")
-          print ("  History:",self.bloodRequestHistory)
-          print ("  Current:",self.bloodRequestCurrent)
+          print ("  History:",self.bloodRequestHistory as Any)
+          print ("  Current:",self.bloodRequestCurrent as Any)
           print ("  All: ",self.bloodRequest)
           self.checkCurrentRequestData()
           self.tableView.delegate = self
@@ -85,13 +85,17 @@ class FindController: UIViewController {
           self.removeSpinner()
           self.tableView.reloadData()
         }
-        
+        else if !successStatus {
+          self.errorAlert(title: "Terjadi Kesalahan", msg: "Mohon periksa kembali koneksi internet anda dan coba lagi dalam beberapa saat")
+          self.removeSpinner()
+        }
       }
     }
   }
   
   override func viewWillDisappear(_ animated: Bool) {
     profileImageNavBar(show: false)
+    self.removeSpinner()
   }
   
   //MARK:- Setting up UI
@@ -548,6 +552,14 @@ class FindController: UIViewController {
       self.present(alert,animated: true)
     }
     
+  }
+  
+  //Alert Error
+  
+  private func errorAlert(title : String, msg : String){
+    let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+    self.present(alert,animated: true)
   }
   
 }
