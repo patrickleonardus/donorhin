@@ -8,33 +8,51 @@
 
 import UIKit
 
-var vSpinner : UIView? //global variable
+//global variable
+var vSpinner : UIView?
+var bgSpinner : UIView?
 
 extension UIViewController {
-   func showSpinner(onView : UIView) {
-      let spinnerView = UIView.init(frame: onView.bounds)
-      spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.40)
-      let ai = UIActivityIndicatorView.init(style: .whiteLarge)
-      ai.startAnimating()
-      ai.center = spinnerView.center
-      
-      DispatchQueue.main.async {
-         spinnerView.addSubview(ai)
-         onView.addSubview(spinnerView)
-         onView.bringSubviewToFront(spinnerView)
-      }
-      
-      vSpinner = spinnerView
-   }
-   
-   func removeSpinner() {
-      DispatchQueue.main.async {
-         vSpinner?.removeFromSuperview()
-         vSpinner = nil
-      }
-   }
+  func showSpinner(onView : UIView) {
+    let spinnerView = UIView.init(frame: onView.bounds)
+    spinnerView.backgroundColor = UIColor.init(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.1)
+    
+    let loadingView: UIView = UIView()
+    loadingView.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
+    loadingView.center = onView.center
+    loadingView.backgroundColor = UIColor.init(red: 0.1, green: 0.1, blue: 0.1, alpha: 0.6)
+    loadingView.clipsToBounds = true
+    loadingView.layer.cornerRadius = 10
+    
+    
+    let ai : UIActivityIndicatorView = UIActivityIndicatorView()
+    ai.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+    ai.style = .whiteLarge
+    ai.center = CGPoint(x: loadingView.frame.size.width/2, y: loadingView.frame.size.height/2)
+    
+    
+    DispatchQueue.main.async {
+      loadingView.addSubview(ai)
+      spinnerView.addSubview(loadingView)
+      onView.addSubview(spinnerView)
+      onView.bringSubviewToFront(spinnerView)
+      onView.bringSubviewToFront(ai)
+    }
+    ai.startAnimating()
+    vSpinner = loadingView
+    bgSpinner = spinnerView
+  }
+  
+  func removeSpinner() {
+    DispatchQueue.main.async {
+      vSpinner?.removeFromSuperview()
+      bgSpinner?.removeFromSuperview()
+      vSpinner = nil
+      bgSpinner = nil
+    }
+  }
 }
 
 protocol SpinnerDelegate {
-   func hideSpinner() 
+  func hideSpinner()
 }

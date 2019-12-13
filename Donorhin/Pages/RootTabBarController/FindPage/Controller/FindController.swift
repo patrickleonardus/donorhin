@@ -95,7 +95,6 @@ class FindController: UIViewController {
   
   override func viewWillDisappear(_ animated: Bool) {
     profileImageNavBar(show: false)
-    self.removeSpinner()
   }
   
   //MARK:- Setting up UI
