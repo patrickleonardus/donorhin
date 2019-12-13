@@ -45,7 +45,6 @@ class DonateController: UIViewController {
     currentUser = UserDefaults.standard.string(forKey: "currentUser")
     self.confirmButton = UIBarButtonItem(title: "Confirm", style: .done, target: self, action: #selector(confirm))
       navigationItem.rightBarButtonItem = self.confirmButton
-      self.showSpinner(onView: self.view)
       self.tableview.delegate = self
       self.tableview.dataSource = self
       self.tableview.register(UINib(nibName: "DonateTableViewCell", bundle: nil), forCellReuseIdentifier: self.cellReuseIdentifier)
@@ -58,6 +57,7 @@ class DonateController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     checkData()
+    self.getData()
   }
    
    override func viewDidAppear(_ animated: Bool) {
@@ -100,15 +100,14 @@ class DonateController: UIViewController {
    }
    
   //MARK:- Get data from database
-  private func getData(_ selectedCategory:Int = 0, completionHandler: @escaping (() -> Void)) {
-    
+  private func getData(_ selectedCategory:Int = 0) {
+    self.showSpinner(onView: self.view)
     if currentUser != nil {
-      print(self.currentUser!)
       var nspredicate = NSPredicate()
       if selectedCategory == 0 {
-        nspredicate = NSPredicate(format: "id_pendonor == %@ AND current_step >= \(StepsEnum.donorFound_1)", CKRecord.ID(recordName: self.currentUser!))
+        nspredicate = NSPredicate(format: "id_pendonor == %@ AND current_step <= \(StepsEnum.done_5)", CKRecord.ID(recordName: self.currentUser!))
       } else {
-        nspredicate = NSPredicate(format: "id_pendonor IN %@ AND current_step == 6", [self.currentUser])
+        nspredicate = NSPredicate(format: "id_pendonor == %@ AND current_step == 6",CKRecord.ID(recordName: self.currentUser!))
       }
       
       let query = CKQuery(recordType: "Tracker", predicate: nspredicate)
@@ -119,7 +118,6 @@ class DonateController: UIViewController {
             self.checkCountListData()
             self.tableview.reloadData()
             self.removeSpinner()
-            completionHandler()
           }
         }
       }
@@ -139,14 +137,12 @@ class DonateController: UIViewController {
    
    //MARK: - setup tableview
   private func setupTabledView(completionHandler: @escaping (() -> Void)) {
-    self.getData {
-      completionHandler()
-    }
+    self.getData()
    }
    
   //MARK: - when segmented control tapped
   @IBAction func segmentedControlTapped(_ sender: UISegmentedControl) {
-    self.getData(sender.selectedSegmentIndex) {}
+    self.getData(sender.selectedSegmentIndex)
   }
   
   @objc private func confirm() {
