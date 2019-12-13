@@ -593,7 +593,7 @@ class FindController: UIViewController {
       performSegue(withIdentifier: "moveToForm", sender: self)
     }
     else {
-      let alert = UIAlertController(title: "Anda belum login", message: "SIlahkan login terlebih dahulu untuk melakukan pencarian darah.", preferredStyle: .alert)
+      let alert = UIAlertController(title: "Anda belum login", message: "Silahkan login terlebih dahulu untuk melakukan pencarian darah.", preferredStyle: .alert)
       alert.addAction(UIAlertAction(title: "Nanti saja", style: .cancel, handler: nil))
       alert.addAction(UIAlertAction(title: "Login sekarang", style: .default, handler: { (action) in
         self.performSegue(withIdentifier: "MoveToLogin", sender: self)
