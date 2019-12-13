@@ -41,27 +41,23 @@ class DonateController: UIViewController {
    override func viewDidLoad() {
     print ("Showing Donate tab")
       super.viewDidLoad()
-    
-    currentUser = UserDefaults.standard.string(forKey: "currentUser")
-    self.confirmButton = UIBarButtonItem(title: "Confirm", style: .done, target: self, action: #selector(confirm))
-      navigationItem.rightBarButtonItem = self.confirmButton
-      self.tableview.delegate = self
-      self.tableview.dataSource = self
-      self.tableview.register(UINib(nibName: "DonateTableViewCell", bundle: nil), forCellReuseIdentifier: self.cellReuseIdentifier)
-      self.checkStatusDonor()
+      currentUser = UserDefaults.standard.string(forKey: "currentUser")
     if let _ = self.selectedData {
       performSegue(withIdentifier: "GoToStep", sender: nil)
     }
-      self.setupTabledView {}
    }
   
   override func viewWillAppear(_ animated: Bool) {
+    self.tableview.delegate = self
+    self.tableview.dataSource = self
+    self.tableview.register(UINib(nibName: "DonateTableViewCell", bundle: nil), forCellReuseIdentifier: self.cellReuseIdentifier)
+    self.checkStatusDonor()
     checkData()
-    self.getData()
   }
    
    override func viewDidAppear(_ animated: Bool) {
       profileImageNavBar(show: true)
+      setupTabledView()
    }
    
    override func viewWillDisappear(_ animated: Bool) {
@@ -116,8 +112,8 @@ class DonateController: UIViewController {
           DispatchQueue.main.async {
             self.listRequest = results
             self.checkCountListData()
-            self.tableview.reloadData()
             self.removeSpinner()
+            self.tableview.reloadData()
           }
         }
       }
@@ -136,7 +132,7 @@ class DonateController: UIViewController {
    }
    
    //MARK: - setup tableview
-  private func setupTabledView(completionHandler: @escaping (() -> Void)) {
+  private func setupTabledView() {
     self.getData()
    }
    
@@ -145,11 +141,7 @@ class DonateController: UIViewController {
     self.getData(sender.selectedSegmentIndex)
   }
   
-  @objc private func confirm() {
-    let storyboard = UIStoryboard(name: "Donate", bundle: nil)
-    let vc = storyboard.instantiateViewController(withIdentifier: "StepsPageViewController") as! DonateStepsViewController
-    present(vc, animated: true, completion: nil)
-  }
+  
    private func profileImageNavBar(show: Bool){
       
       let navBarHeight = Double((navigationController?.navigationBar.frame.height)!)
