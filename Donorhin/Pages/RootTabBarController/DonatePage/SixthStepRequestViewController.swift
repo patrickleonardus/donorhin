@@ -12,25 +12,17 @@ class SixthStepRequestViewController: DonateStepViewController {
 
   @IBOutlet var image: UIImageView!
   @IBOutlet var informationText: UILabel!
+  let letter = "Resipien telah mengonfirmasi penerimaan darah yang Anda donorkan! Terimakasih atas bantuan berharga Anda."
   
   override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    self.informationText.text = letter
+    self.image.image = UIImage(named: "request_sixth_step")
+    
     }
     
   @IBAction func buttonPressed(_ sender: Any) {
-    
+    self.navigationController?.popViewController(animated: true)
   }
   
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -66,7 +66,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="dPK-IJ-PJk" firstAttribute="trailing" secondItem="e7V-DG-iL6" secondAttribute="trailing" constant="39" id="BGJ-VC-BHE"/>
                             <constraint firstItem="RHV-jA-3qo" firstAttribute="top" secondItem="e7V-DG-iL6" secondAttribute="bottom" constant="30" id="KUm-Rh-AH6"/>
@@ -139,7 +139,7 @@
                                 </constraints>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="n4I-3j-MwN" firstAttribute="trailing" secondItem="jsi-5Q-FQe" secondAttribute="trailing" constant="16" id="1CJ-nm-uuD"/>
@@ -239,7 +239,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="LPP-sh-TCE" firstAttribute="leading" secondItem="YH0-t0-nc1" secondAttribute="leading" id="3r1-nV-8rU"/>
                             <constraint firstItem="5lG-A1-Ue3" firstAttribute="leading" secondItem="hff-Vw-4hE" secondAttribute="leading" constant="50" id="5vS-HG-xgI"/>
@@ -319,7 +319,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Iid-Sv-JRE" secondAttribute="trailing" constant="36" id="0hW-wA-ISN"/>
                             <constraint firstItem="2i5-5M-8dG" firstAttribute="centerX" secondItem="Z9c-GQ-EGL" secondAttribute="centerX" id="Lw7-vv-96E"/>
@@ -337,60 +337,9 @@
             </objects>
             <point key="canvasLocation" x="6522" y="1386"/>
         </scene>
-        <!--Fifth Step Request View Controller-->
-        <scene sceneID="rQo-7s-LMS">
-            <objects>
-                <viewController storyboardIdentifier="langkah5" id="YlB-KO-L9k" customClass="FifthStepRequestViewController" customModule="Donorhin" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xq7-cL-vNv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="707"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOW-Ew-zXX">
-                                <rect key="frame" x="36" y="52" width="342" height="81.5"/>
-                                <string key="text">Anda sudah membantu satu nyawa lagi hari ini! Terimakasih telah mendonorkan darah Anda. Resipien akan memberi kabar segera setelah darah diterima</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDp-Oh-I5b" customClass="CustomButtonRounded" customModule="Donorhin" customModuleProvider="target">
-                                <rect key="frame" x="57" y="155.5" width="300" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="doU-Ng-8Bi"/>
-                                    <constraint firstAttribute="width" constant="300" id="tbV-FE-XVW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <state key="normal" title="Oke">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="okeTapped:" destination="YlB-KO-L9k" eventType="touchUpInside" id="sdm-af-Vtm"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="w1g-Ma-vfO" firstAttribute="trailing" secondItem="pOW-Ew-zXX" secondAttribute="trailing" constant="36" id="0z2-kv-rKc"/>
-                            <constraint firstItem="EDp-Oh-I5b" firstAttribute="centerX" secondItem="xq7-cL-vNv" secondAttribute="centerX" id="FrC-53-9eU"/>
-                            <constraint firstItem="pOW-Ew-zXX" firstAttribute="leading" secondItem="w1g-Ma-vfO" secondAttribute="leading" constant="36" id="cdA-YR-pT2"/>
-                            <constraint firstItem="EDp-Oh-I5b" firstAttribute="top" secondItem="pOW-Ew-zXX" secondAttribute="bottom" constant="22" id="hHq-qA-jxg"/>
-                            <constraint firstItem="pOW-Ew-zXX" firstAttribute="top" secondItem="w1g-Ma-vfO" secondAttribute="top" constant="8" id="kns-KC-5Xv"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="w1g-Ma-vfO"/>
-                    </view>
-                    <size key="freeformSize" width="414" height="707"/>
-                    <connections>
-                        <outlet property="okButton" destination="EDp-Oh-I5b" id="LGG-mF-4Cx"/>
-                        <outlet property="thankyouLetter" destination="pOW-Ew-zXX" id="L4Y-Qk-fA6"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rHT-xM-ohW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7210" y="1386"/>
-        </scene>
         <!--Sixth Step Request View Controller-->
         <scene sceneID="A4u-CD-jCz">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DUS-Cc-JFj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="langkah6" id="xvy-7Y-y57" customClass="SixthStepRequestViewController" customModule="Donorhin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TQ3-vM-FQZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="707"/>
@@ -400,7 +349,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="707"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="22" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aQO-4g-pEq">
-                                        <rect key="frame" x="0.0" y="22" width="415" height="343"/>
+                                        <rect key="frame" x="0.0" y="22" width="415" height="303"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="request_sixth_step" translatesAutoresizingMaskIntoConstraints="NO" id="4zP-xc-ZYJ">
                                                 <rect key="frame" x="22" y="0.0" width="371" height="208.5"/>
@@ -408,19 +357,19 @@
                                                     <constraint firstAttribute="width" secondItem="4zP-xc-ZYJ" secondAttribute="height" multiplier="16:9" id="YJs-xX-0OP"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resipien telah mengonfirmasi penerimaan darah yang Anda donorkan! Terimakasih atas bantuan berharga Anda." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ah5-nr-9WT">
-                                                <rect key="frame" x="22" y="214" width="371" height="81"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ah5-nr-9WT">
+                                                <rect key="frame" x="22" y="214.5" width="371" height="41"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5q-zb-g4R" customClass="CustomButtonRounded" customModule="Donorhin" customModuleProvider="target">
-                                                <rect key="frame" x="57.5" y="298" width="300" height="45"/>
+                                                <rect key="frame" x="57.5" y="258" width="300" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="Lks-Pq-Mxu"/>
                                                     <constraint firstAttribute="width" constant="300" id="xKl-Iu-7xv"/>
                                                 </constraints>
-                                                <state key="normal" title="Button">
+                                                <state key="normal" title="Selesai">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -436,7 +385,7 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="aQO-4g-pEq" firstAttribute="top" secondItem="32z-VX-eWC" secondAttribute="top" constant="22" id="G5w-L9-izv"/>
                                     <constraint firstItem="aQO-4g-pEq" firstAttribute="width" secondItem="6CO-h5-lGC" secondAttribute="width" multiplier="1.00242" id="a2e-bc-LoC"/>
@@ -448,7 +397,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="6CO-h5-lGC"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="MHe-DW-OnT" firstAttribute="trailing" secondItem="TQ3-vM-FQZ" secondAttribute="trailing" id="FtO-df-Nyg"/>
                             <constraint firstItem="MHe-DW-OnT" firstAttribute="leading" secondItem="TQ3-vM-FQZ" secondAttribute="leading" id="Xaa-Sv-96M"/>
@@ -463,12 +412,93 @@
                         <outlet property="informationText" destination="ah5-nr-9WT" id="TV8-Uf-Q45"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DUS-Cc-JFj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7908.6956521739139" y="1384.4866071428571"/>
+        </scene>
+        <!--Fifth Step Request View Controller-->
+        <scene sceneID="R5J-J8-9Yp">
+            <objects>
+                <viewController storyboardIdentifier="langkah5" id="fcs-gF-phZ" customClass="FifthStepRequestViewController" customModule="Donorhin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8Oe-GT-5J3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="707"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ukd-Yl-t6e">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="707"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="22" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TFC-ZX-znK">
+                                        <rect key="frame" x="0.0" y="22" width="415" height="294.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="request_fifth_step" translatesAutoresizingMaskIntoConstraints="NO" id="cl2-Hy-75U">
+                                                <rect key="frame" x="22" y="0.0" width="371" height="208.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="cl2-Hy-75U" secondAttribute="height" multiplier="16:9" id="SaO-7l-zsa"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zHZ-as-lYk">
+                                                <rect key="frame" x="22" y="214.5" width="371" height="32.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAf-1K-kJC" customClass="CustomButtonRounded" customModule="Donorhin" customModuleProvider="target">
+                                                <rect key="frame" x="57.5" y="249.5" width="300" height="45"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="300" id="5QS-4l-kLL"/>
+                                                    <constraint firstAttribute="height" constant="45" id="UlM-Yx-K09"/>
+                                                </constraints>
+                                                <state key="normal" title="Menunggu Konfirmasi">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="okeTapped:" destination="fcs-gF-phZ" eventType="touchUpInside" id="8Zc-vu-g4V"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="zHZ-as-lYk" secondAttribute="trailing" constant="22" id="K9V-KA-EwX"/>
+                                            <constraint firstItem="cl2-Hy-75U" firstAttribute="leading" secondItem="TFC-ZX-znK" secondAttribute="leading" priority="999" constant="22" id="Pw9-tZ-51o"/>
+                                            <constraint firstAttribute="trailing" secondItem="cl2-Hy-75U" secondAttribute="trailing" priority="999" constant="22" id="XCu-jy-HMP"/>
+                                            <constraint firstItem="zHZ-as-lYk" firstAttribute="leading" secondItem="TFC-ZX-znK" secondAttribute="leading" constant="22" id="twk-mO-whf"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="TFC-ZX-znK" firstAttribute="bottom" secondItem="UWV-jR-Ptx" secondAttribute="bottom" constant="191.5" id="DyO-bY-mzs"/>
+                                    <constraint firstItem="TFC-ZX-znK" firstAttribute="top" secondItem="UWV-jR-Ptx" secondAttribute="top" constant="22" id="FrP-uM-kwA"/>
+                                    <constraint firstItem="TFC-ZX-znK" firstAttribute="width" secondItem="jdk-ab-FEW" secondAttribute="width" multiplier="1.00242" id="Ogl-rj-YPF"/>
+                                    <constraint firstItem="TFC-ZX-znK" firstAttribute="leading" secondItem="UWV-jR-Ptx" secondAttribute="leading" id="gjW-a1-8aY"/>
+                                    <constraint firstItem="TFC-ZX-znK" firstAttribute="trailing" secondItem="UWV-jR-Ptx" secondAttribute="trailing" constant="415" id="hXM-Cu-j8a"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="UWV-jR-Ptx"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="jdk-ab-FEW"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ukd-Yl-t6e" firstAttribute="top" secondItem="8Oe-GT-5J3" secondAttribute="top" id="3v6-gZ-TAp"/>
+                            <constraint firstItem="Ukd-Yl-t6e" firstAttribute="trailing" secondItem="8Oe-GT-5J3" secondAttribute="trailing" id="7Fl-ad-HAC"/>
+                            <constraint firstItem="Ukd-Yl-t6e" firstAttribute="leading" secondItem="8Oe-GT-5J3" secondAttribute="leading" id="Sqj-Xx-KXD"/>
+                            <constraint firstItem="Ukd-Yl-t6e" firstAttribute="bottom" secondItem="8Oe-GT-5J3" secondAttribute="bottom" id="ZgN-59-l8B"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pGV-xd-9oN"/>
+                    </view>
+                    <size key="freeformSize" width="414" height="707"/>
+                    <connections>
+                        <outlet property="okButton" destination="rAf-1K-kJC" id="9gR-hc-hJj"/>
+                        <outlet property="thankyouLetter" destination="zHZ-as-lYk" id="r1L-dW-DwI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jCb-GY-CqT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7201" y="1384"/>
         </scene>
     </scenes>
     <resources>
         <image name="Call17" width="17" height="17"/>
+        <image name="request_fifth_step" width="306" height="235"/>
         <image name="request_sixth_step" width="335" height="213"/>
     </resources>
 </document>

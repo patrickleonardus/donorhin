@@ -34,9 +34,10 @@ class RequestStepsPageViewController: UIPageViewController {
     case StepsEnum.donoring_4:
       return [sb.instantiateViewController(withIdentifier: "langkah5") as! DonateStepViewController]
     case StepsEnum.received_6:
-      return [sb.instantiateViewController(withIdentifier: "langkah5") as! DonateStepViewController]
+      return [sb.instantiateViewController(withIdentifier: "langkah6") as! DonateStepViewController]
     default:
-      return [sb.instantiateViewController(withIdentifier: "langkah5") as! DonateStepViewController]
+      print ("Masuk ke default vcList")
+      return [sb.instantiateViewController(withIdentifier: "langkah6") as! DonateStepViewController]
     }
   }()
       

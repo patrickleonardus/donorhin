@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nxa-dh-GSn">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nxa-dh-GSn">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -68,7 +66,7 @@
                                         <rect key="frame" x="0.0" y="113" width="414" height="609"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="permintaanKososngGambar" translatesAutoresizingMaskIntoConstraints="NO" id="dNC-P9-hdm">
-                                                <rect key="frame" x="51" y="18" width="312" height="196"/>
+                                                <rect key="frame" x="51" y="18" width="312.00000000000006" height="196.00000000000006"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="196" id="V1N-AK-RCK"/>
                                                     <constraint firstAttribute="width" constant="312" id="xbt-7Q-0iJ"/>
@@ -163,8 +161,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aix-7R-EdN" userLabel="Pod Container" customClass="StepIndicatorView" customModule="Donorhin" customModuleProvider="target">
-                                <rect key="frame" x="20" y="88" width="374" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="20" y="118" width="374" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ptX-Zi-CDt"/>
                                 </constraints>
@@ -201,18 +199,18 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9cS-9A-qMQ">
-                                <rect key="frame" x="0.0" y="128" width="414" height="734"/>
+                                <rect key="frame" x="0.0" y="188" width="414" height="674"/>
                                 <connections>
                                     <segue destination="OPj-zG-JoP" kind="embed" identifier="GoToSteps" id="z7J-sc-CTF"/>
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="9cS-9A-qMQ" firstAttribute="leading" secondItem="5Ky-77-4dN" secondAttribute="leading" id="5pb-Ew-gXp"/>
                             <constraint firstItem="5Ky-77-4dN" firstAttribute="trailing" secondItem="Aix-7R-EdN" secondAttribute="trailing" constant="20" id="7Z8-uE-wJ1"/>
-                            <constraint firstItem="9cS-9A-qMQ" firstAttribute="top" secondItem="Aix-7R-EdN" secondAttribute="bottom" id="JVe-Jn-3JL"/>
-                            <constraint firstItem="Aix-7R-EdN" firstAttribute="top" secondItem="5Ky-77-4dN" secondAttribute="top" id="LD0-qB-HOH"/>
+                            <constraint firstItem="9cS-9A-qMQ" firstAttribute="top" secondItem="Aix-7R-EdN" secondAttribute="bottom" constant="30" id="JVe-Jn-3JL"/>
+                            <constraint firstItem="Aix-7R-EdN" firstAttribute="top" secondItem="5Ky-77-4dN" secondAttribute="top" constant="30" id="LD0-qB-HOH"/>
                             <constraint firstItem="5Ky-77-4dN" firstAttribute="bottom" secondItem="9cS-9A-qMQ" secondAttribute="bottom" id="Wmz-Zw-nJT"/>
                             <constraint firstItem="Aix-7R-EdN" firstAttribute="leading" secondItem="5Ky-77-4dN" secondAttribute="leading" constant="20" id="YGN-ea-Hb8"/>
                             <constraint firstItem="5Ky-77-4dN" firstAttribute="trailing" secondItem="9cS-9A-qMQ" secondAttribute="trailing" id="efE-OE-fwT"/>
