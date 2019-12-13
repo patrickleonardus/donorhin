@@ -21,6 +21,7 @@ class RequestStepsPageViewController: UIPageViewController {
   
   lazy var vcList: [DonateStepViewController] = {
     let sb = UIStoryboard(name: "RequestStepsPageViewController", bundle: nil)
+    
     switch self.tracker?.currentStep {
     case StepsEnum.findingDonor_0:
         return [sb.instantiateViewController(withIdentifier: "langkah1") as! FirstStepRequestViewController]
@@ -31,6 +32,8 @@ class RequestStepsPageViewController: UIPageViewController {
     case StepsEnum.willVerif_3:
         return [sb.instantiateViewController(withIdentifier: "langkah4") as! DonateStepViewController]
     case StepsEnum.donoring_4:
+      return [sb.instantiateViewController(withIdentifier: "langkah5") as! DonateStepViewController]
+    case StepsEnum.received_6:
       return [sb.instantiateViewController(withIdentifier: "langkah5") as! DonateStepViewController]
     default:
       return [sb.instantiateViewController(withIdentifier: "langkah5") as! DonateStepViewController]

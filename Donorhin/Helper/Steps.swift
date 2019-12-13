@@ -15,6 +15,7 @@ enum StepsEnum {
   static let willVerif_3 = 3
   static let donoring_4 = 4
   static let done_5 = 5
+  static let received_6 = 6
 }
 
 struct Steps {

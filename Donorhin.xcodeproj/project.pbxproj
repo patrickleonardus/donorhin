@@ -81,6 +81,7 @@
 		CCAAE501237C205900BEFB44 /* SecondStepRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAAE4FA237C205900BEFB44 /* SecondStepRequestViewController.swift */; };
 		CCAAE502237C205900BEFB44 /* ThirdStepRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAAE4FB237C205900BEFB44 /* ThirdStepRequestViewController.swift */; };
 		CCAAE503237C205900BEFB44 /* FifthStepRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAAE4FC237C205900BEFB44 /* FifthStepRequestViewController.swift */; };
+		CCBEB45D23A22CF50032FD04 /* SixthStepRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBEB45C23A22CF50032FD04 /* SixthStepRequestViewController.swift */; };
 		CCBEC20323829CBB004AC408 /* Helper + DatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBEC20223829CBB004AC408 /* Helper + DatabaseModel.swift */; };
 		CCBEC2052382DE18004AC408 /* CKRecord + Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBEC2042382DE18004AC408 /* CKRecord + Converter.swift */; };
 		CCC304332385CCB80009BADC /* DonateStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC304322385CCB80009BADC /* DonateStepViewController.swift */; };
@@ -272,6 +273,7 @@
 		CCAAE4FA237C205900BEFB44 /* SecondStepRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondStepRequestViewController.swift; sourceTree = "<group>"; };
 		CCAAE4FB237C205900BEFB44 /* ThirdStepRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdStepRequestViewController.swift; sourceTree = "<group>"; };
 		CCAAE4FC237C205900BEFB44 /* FifthStepRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FifthStepRequestViewController.swift; sourceTree = "<group>"; };
+		CCBEB45C23A22CF50032FD04 /* SixthStepRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixthStepRequestViewController.swift; sourceTree = "<group>"; };
 		CCBEC20223829CBB004AC408 /* Helper + DatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Helper + DatabaseModel.swift"; sourceTree = "<group>"; };
 		CCBEC2042382DE18004AC408 /* CKRecord + Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKRecord + Converter.swift"; sourceTree = "<group>"; };
 		CCC304322385CCB80009BADC /* DonateStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateStepViewController.swift; sourceTree = "<group>"; };
@@ -704,6 +706,7 @@
 				CCAAE4FB237C205900BEFB44 /* ThirdStepRequestViewController.swift */,
 				CCAAE4F6237C205900BEFB44 /* FourthStepRequestViewController.swift */,
 				CCAAE4FC237C205900BEFB44 /* FifthStepRequestViewController.swift */,
+				CCBEB45C23A22CF50032FD04 /* SixthStepRequestViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1413,6 +1416,7 @@
 				B0B16882237D3E61001DCE3C /* FormTableViewCell.swift in Sources */,
 				AB7357962374313500A6099B /* FirstCell.swift in Sources */,
 				AB498AC5237D73E7006CDA7A /* Page2OnboardViewController.swift in Sources */,
+				CCBEB45D23A22CF50032FD04 /* SixthStepRequestViewController.swift in Sources */,
 				B0FF322923829B580001C0F5 /* TwoButtonTableViewCell.swift in Sources */,
 				09FBD1F1239249C300704AAF /* Service.swift in Sources */,
 				B0B1689A237D65B8001DCE3C /* RegisterDetailController+UITableView.swift in Sources */,
