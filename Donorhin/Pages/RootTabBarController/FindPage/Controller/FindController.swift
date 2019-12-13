@@ -53,7 +53,6 @@ class FindController: UIViewController {
   let userId =  UserDefaults.standard.string(forKey: "currentUser")
   var currStep: Int?
   
-  
   //MARK: Override View
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -67,6 +66,7 @@ class FindController: UIViewController {
   override func viewDidAppear(_ animated: Bool) {
     profileImageNavBar(show: true)
     setupNavBarToLarge(large: true)
+    
     fetchAllData()
   }
   
@@ -77,6 +77,7 @@ class FindController: UIViewController {
   
   override func viewWillDisappear(_ animated: Bool) {
     profileImageNavBar(show: false)
+    self.removeSpinner()
   }
   
   //MARK:- Setting up UI
@@ -161,16 +162,20 @@ class FindController: UIViewController {
           print ("  Current:",self.bloodRequestCurrent as Any)
           print ("  All: ",self.bloodRequest)
           self.checkCurrentRequestData()
-          self.tableView.delegate = self
-          self.tableView.dataSource = self
-          self.removeSpinner()
-          self.tableView.reloadData()
-          self.freezeTabBarButton(set: false)
+          
+          DispatchQueue.main.async {
+            self.tableView.delegate = self
+            self.tableView.dataSource = self
+            self.removeSpinner()
+            self.tableView.reloadData()
+          }
+          
+//          self.freezeTabBarButton(set: false)
         }
         else if !successStatus {
           self.errorAlert(title: "Terjadi Kesalahan", msg: "Mohon periksa kembali koneksi internet anda dan coba lagi dalam beberapa saat")
           self.removeSpinner()
-          self.freezeTabBarButton(set: false)
+//          self.freezeTabBarButton(set: false)
         }
       }
     }
@@ -184,8 +189,9 @@ class FindController: UIViewController {
      RETURN: TRUE if the user have request data, FALSE if request of this user is nil
      */
     
-    self.freezeTabBarButton(set: true)
+//    self.freezeTabBarButton(set: true)
     
+    let dispatchQueue = DispatchQueue(label: "LoadDataQueue")
     let group = DispatchGroup()
     var success = false
     
@@ -206,11 +212,13 @@ class FindController: UIViewController {
             if let donorList = donorList {
               //Jika pendonor yang accept belum memenuhi
               if donorList.count < request.amount {
-                self.bloodRequestCurrent! += donorList
+                self.bloodRequestCurrent! = donorList
                 let margin = request.amount - donorList.count
+                var temp :[Donor?]? = []
                 for _ in 1...margin {
-                  self.bloodRequestCurrent?.append(nil)
+                  temp?.append(nil)
                 }
+                self.bloodRequestCurrent = temp
               }
                 
               //Jika pendonor yang accept sudah memenuhi kebutuhan
@@ -220,20 +228,22 @@ class FindController: UIViewController {
                 
                 //kalo masih ada yg belum selesai, taro semua di current
                 if !isComplete {
-                  self.bloodRequestCurrent! += donorList
+                  self.bloodRequestCurrent! = donorList
                 
                 //kalo udah kelar semua taro di riwayat
                 } else {
-                  self.bloodRequestHistory! += donorList
+                  self.bloodRequestHistory! = donorList
                 }
               }
-              self.bloodRequest += donorList
+              self.bloodRequest = donorList
             } else {
               //isi request sama tracker kosong sebanyak request.amount
+              var temp: [Donor?] = []
               let margin = request.amount
               for _ in 1...margin {
-                self.bloodRequestCurrent?.append(nil)
+                temp.append(nil)
               }
+              self.bloodRequestCurrent = temp
             }
             print ("loading data tracker \(n+1)/\(requests.count)")
             group.leave()
@@ -247,7 +257,8 @@ class FindController: UIViewController {
         group.leave()
       }
     }
-    group.notify(queue: DispatchQueue.main) {
+//    group.notify(queue: DispatchQueue.main) {
+    group.notify(queue: dispatchQueue) {
       print ("out")
       completionHandler(success)
     }

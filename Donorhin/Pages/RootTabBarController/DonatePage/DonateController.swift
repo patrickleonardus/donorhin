@@ -53,6 +53,7 @@ class DonateController: UIViewController {
     self.tableview.register(UINib(nibName: "DonateTableViewCell", bundle: nil), forCellReuseIdentifier: self.cellReuseIdentifier)
     self.checkStatusDonor()
     checkData()
+    
   }
    
    override func viewDidAppear(_ animated: Bool) {
@@ -62,6 +63,7 @@ class DonateController: UIViewController {
    
    override func viewWillDisappear(_ animated: Bool) {
       profileImageNavBar(show: false)
+      self.removeSpinner()
    }
   
   //Check udh login apa belom
