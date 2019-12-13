@@ -29,7 +29,7 @@ class FourthStepRequestViewController: DonateStepViewController {
     
     let accept = UIAlertAction( title: "Ya", style: .default) { (action) in
       //TODO:  Write code to accept here
-      self.pageViewDelegate?.changeShowedView(toStep: 5)
+      self.pageViewDelegate?.changeShowedView(toStep: 5,tracker: nil)
     }
     
     let cancel = UIAlertAction(title: "Tidak", style: .cancel, handler: nil)
