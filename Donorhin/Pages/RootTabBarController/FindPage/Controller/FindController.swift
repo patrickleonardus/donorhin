@@ -74,6 +74,7 @@ class FindController: UIViewController {
     if userId != nil {
       self.showSpinner(onView: self.view)
       dataLoader { (successStatus : Bool) in
+  
         if successStatus {
           print ("\nSuccess loading data with dataLoader!. Here are data details:")
           print ("  History:",self.bloodRequestHistory as Any)
@@ -84,10 +85,12 @@ class FindController: UIViewController {
           self.tableView.dataSource = self
           self.removeSpinner()
           self.tableView.reloadData()
+          self.freezeTabBarButton(set: false)
         }
         else if !successStatus {
           self.errorAlert(title: "Terjadi Kesalahan", msg: "Mohon periksa kembali koneksi internet anda dan coba lagi dalam beberapa saat")
           self.removeSpinner()
+          self.freezeTabBarButton(set: false)
         }
       }
     }
@@ -103,6 +106,31 @@ class FindController: UIViewController {
     viewSearching.alpha = 0
     textSearching.text = "Sedang Mencari Pendonor"
     buttonSearching.setTitle("Batal Mencari", for: .normal)
+  }
+  
+  private func freezeTabBarButton(set: Bool){
+    
+    if set {
+      DispatchQueue.main.async {
+        let items = self.tabBarController?.tabBar.items
+        if items!.count > 0 {
+          items![0].isEnabled = false
+          items![1].isEnabled = false
+          items![2].isEnabled = false
+        }
+      }
+    }
+    else if !set {
+      DispatchQueue.main.async {
+        let items = self.tabBarController?.tabBar.items
+        if items!.count > 0 {
+          items![0].isEnabled = true
+          items![1].isEnabled = true
+          items![2].isEnabled = true
+        }
+      }
+    }
+    
   }
   
   //MARK: - initializing UI
@@ -147,6 +175,9 @@ class FindController: UIViewController {
     /**
      RETURN: TRUE if the user have request data, FALSE if request of this user is nil
      */
+    
+    self.freezeTabBarButton(set: true)
+    
     let group = DispatchGroup()
     var success = false
     
