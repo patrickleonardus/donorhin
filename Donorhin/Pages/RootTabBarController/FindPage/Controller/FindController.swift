@@ -67,34 +67,12 @@ class FindController: UIViewController {
   override func viewDidAppear(_ animated: Bool) {
     profileImageNavBar(show: true)
     setupNavBarToLarge(large: true)
+    fetchAllData()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     setTabBar(show: true)
     initTableView()
-    if userId != nil {
-      self.showSpinner(onView: self.view)
-      dataLoader { (successStatus : Bool) in
-  
-        if successStatus {
-          print ("\nSuccess loading data with dataLoader!. Here are data details:")
-          print ("  History:",self.bloodRequestHistory as Any)
-          print ("  Current:",self.bloodRequestCurrent as Any)
-          print ("  All: ",self.bloodRequest)
-          self.checkCurrentRequestData()
-          self.tableView.delegate = self
-          self.tableView.dataSource = self
-          self.removeSpinner()
-          self.tableView.reloadData()
-          self.freezeTabBarButton(set: false)
-        }
-        else if !successStatus {
-          self.errorAlert(title: "Terjadi Kesalahan", msg: "Mohon periksa kembali koneksi internet anda dan coba lagi dalam beberapa saat")
-          self.removeSpinner()
-          self.freezeTabBarButton(set: false)
-        }
-      }
-    }
   }
   
   override func viewWillDisappear(_ animated: Bool) {
@@ -112,7 +90,7 @@ class FindController: UIViewController {
   private func freezeTabBarButton(set: Bool){
     
     if set {
-      
+      profileTap.isEnabled = false
       DispatchQueue.main.async {
         let items = self.tabBarController?.tabBar.items
         if items!.count > 0 {
@@ -123,7 +101,7 @@ class FindController: UIViewController {
       }
     }
     else if !set {
-
+      profileTap.isEnabled = true
       DispatchQueue.main.async {
         let items = self.tabBarController?.tabBar.items
         if items!.count > 0 {
@@ -167,6 +145,33 @@ class FindController: UIViewController {
       guard settings.authorizationStatus == .authorized else {return}
       DispatchQueue.main.async {
         UIApplication.shared.registerForRemoteNotifications()
+      }
+    }
+  }
+  
+  //MARK: -Fetch All Data
+  func fetchAllData(){
+    if userId != nil {
+      self.showSpinner(onView: self.view)
+      dataLoader { (successStatus : Bool) in
+        
+        if successStatus {
+          print ("\nSuccess loading data with dataLoader!. Here are data details:")
+          print ("  History:",self.bloodRequestHistory as Any)
+          print ("  Current:",self.bloodRequestCurrent as Any)
+          print ("  All: ",self.bloodRequest)
+          self.checkCurrentRequestData()
+          self.tableView.delegate = self
+          self.tableView.dataSource = self
+          self.removeSpinner()
+          self.tableView.reloadData()
+          self.freezeTabBarButton(set: false)
+        }
+        else if !successStatus {
+          self.errorAlert(title: "Terjadi Kesalahan", msg: "Mohon periksa kembali koneksi internet anda dan coba lagi dalam beberapa saat")
+          self.removeSpinner()
+          self.freezeTabBarButton(set: false)
+        }
       }
     }
   }
