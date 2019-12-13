@@ -155,10 +155,10 @@ extension RegisterDetailController: UIPickerViewDataSource, UIPickerViewDelegate
 
 extension RegisterDetailController: AgreementDelegate {
     func checkAgreementCheckBox(_ isCheck: Bool) {
-    let buttonCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 8)) as! ButtonTableViewCell
+        let buttonCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 8)) as! ButtonTableViewCell
         var isBlank : Bool = false
         for section in 0...3 {
-            let cell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: section)) as! FormTableViewCell
+            guard let cell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: section)) as? FormTableViewCell else {return}
             if cell.formTextField.text == ""{
                 isBlank = true
             }

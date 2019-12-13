@@ -71,6 +71,43 @@ extension RegisterDetailController : FormCellDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
+    func loginAccount() {
+        self.showSpinner(onView: self.view)
+        DataFetcher().getUserDataByEmail(email: (self.userCredentials["email"]!), password: (self.userCredentials["password"]!)){ (userModel) in
+            if userModel != nil {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    print("Processing...")
+                    self.checkLocation()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+                        self.saveToUserDefaults(userModel: userModel)
+                    }
+                    print("Data saved to user default...")
+                    if self.rootViewController != nil {
+                        self.navigationController?.pushViewController((self.rootViewController!), animated: true)
+                    }
+                    self.performSegue(withIdentifier: "goToHome", sender: self)
+                }
+            }
+            else{
+                DispatchQueue.main.async {
+                    self.removeSpinner()
+                    self.showErrorAlert()
+                    print("Error")
+                }
+            }
+        }
+    }
+    
+    func showContinueActionAlert(){
+        let alert = UIAlertController(title: "Pendaftaran Berhasil", message: "Harap pilih lanjut untuk masuk ke akun", preferredStyle: UIAlertController.Style.alert)
+        let continue_action = UIAlertAction(title: "Lanjut", style: UIAlertAction.Style.default) { UIAlertAction in
+            self.showSpinner(onView: self.view)
+            self.loginAccount()
+        }
+        alert.addAction(continue_action)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func buttonDidTap() {
       guard
       let fullNameCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FormTableViewCell,
@@ -78,80 +115,103 @@ extension RegisterDetailController : FormCellDelegate {
       let birthDateCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? FormTableViewCell,
       let bloodTypeCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 3)) as? FormTableViewCell,
       let lastDonoCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 4)) as? FormTableViewCell,
-        let referralCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 5)) as? FormTableViewCell else{return}
+      let referralCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 5)) as? FormTableViewCell else{ fatalError("found nil") }
       guard let errorCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 6)) as? ErrorMessageTableViewCell else {fatalError()}
+        print("button tapped")
         
-      if self.validateUserDetail(fullName: fullNameCell.formTextField.text!, gender: genderCell.formTextField.text!, birthDate: birthDateCell.formTextField.text!, bloodType: bloodTypeCell.formTextField.text!) {
-        self.showSpinner(onView: self.view)
-            DispatchQueue.main.async {
-              let encryptedPassword : String = PasswordCryptor().encryptMessage(password: self.userCredentials["password"]!)
-              print(encryptedPassword)
-              let record = CKRecord(recordType: "Account")
-              record.setValue(bloodTypeCell.formTextField.text!, forKey: "blood_type")
-              record.setValue(0, forKey: "donor_status")
-              record.setValue(self.userCredentials["email"], forKey: "email")
-              record.setValue(encryptedPassword, forKey: "password")
-              record.setValue(fullNameCell.formTextField.text!, forKey: "name")
-              record.setValue(self.checkGender(genderCell.formTextField.text!), forKey: "gender")
-              record.setValue(self.convertDateFromString(birthDateCell.formTextField.text!), forKey: "birth_date")
-              if lastDonoCell.formTextField.text! != "" {
-                record.setValue(self.convertDateFromString(lastDonoCell.formTextField.text!), forKey: "last_donor")
-              }
-              if referralCell.formTextField.text! != "" {
-                record.setValue(1, forKey: "isVerified")
-              }
-              else {
-                record.setValue(0, forKey: "isVerified")
-              }
-              Helper.saveData(record) {[weak self] (isSuccess) in
-                if isSuccess {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5){
-                        DispatchQueue.main.async {
-                            DataFetcher().getUserDataByEmail(email: (self?.userCredentials["email"]!)!, password: (self?.userCredentials["password"]!)!){(userModel) in
-                            if userModel != nil {
-                                DispatchQueue.main.async {
-                                print("Processing...")
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                    self?.checkLocation()
-                                }
-                                self?.saveToUserDefaults(userModel: userModel)
-                                print("Data saved to user default...")
-                                if self?.rootViewController != nil {
-                                    self?.navigationController?.pushViewController((self?.rootViewController!)!, animated: true)
-                                }
-                                self?.performSegue(withIdentifier: "goToHome", sender: self)
-                                }
-                            }
-                            else{
-                                DispatchQueue.main.async {
-                                self?.removeSpinner()
-                                self?.showErrorAlert()
-                                print("Error")
-                                }
-                            }
-                            }
+        self.validateUserDetail(fullName: fullNameCell.formTextField.text!, gender: genderCell.formTextField.text!, birthDate: birthDateCell.formTextField.text!, bloodType: bloodTypeCell.formTextField.text!, referralCode : referralCell.formTextField.text!) { (isSuccess) in
+            if isSuccess {
+              DispatchQueue.main.async {
+                self.showSpinner(onView: self.view)
+                let encryptedPassword : String = PasswordCryptor().encryptMessage(password: self.userCredentials["password"]!)
+                print(encryptedPassword)
+                let record = CKRecord(recordType: "Account")
+                record.setValue(bloodTypeCell.formTextField.text!, forKey: "blood_type")
+                record.setValue(0, forKey: "donor_status")
+                record.setValue(self.userCredentials["email"], forKey: "email")
+                record.setValue(encryptedPassword, forKey: "password")
+                record.setValue(fullNameCell.formTextField.text!, forKey: "name")
+                record.setValue(self.checkGender(genderCell.formTextField.text!), forKey: "gender")
+                record.setValue(self.convertDateFromString(birthDateCell.formTextField.text!), forKey: "birth_date")
+                if lastDonoCell.formTextField.text! != "" {
+                  record.setValue(self.convertDateFromString(lastDonoCell.formTextField.text!), forKey: "last_donor")
+                }
+                if referralCell.formTextField.text! != "" {
+                  let referral_code = referralCell.formTextField.text
+                  let query = CKQuery(recordType: "Code", predicate: NSPredicate(format: "referral_code = %@", referral_code!))
+                    
+                  self.checkingReferralCode(query){ (result) in
+                    DispatchQueue.main.async {
+                        guard var quota : Int = result!.value(forKey: "quota") as? Int else {fatalError()}
+                        let recordID : CKRecord.ID = result!.recordID
+                        quota -= 1
+                        let package : [String:Int] = ["quota":quota]
+                        Helper.updateToDatabase(keyValuePair: package, recordID: recordID)
+                        print("Successfully claiming referral code!")
                         }
                     }
-              }
-                
+                   record.setValue(1, forKey: "isVerified")
+                }
                 else {
-                  self?.removeSpinner()
-                    DispatchQueue.main.async {
-                        errorCell.errorMsg.isHidden = false
-                        errorCell.errorMsg.text = "*Pendaftaran belum berhasil, silahkan coba beberapa saat lagi"
+                  record.setValue(0, forKey: "isVerified")
+                }
+                  
+                Helper.saveData(record) {[weak self] (isSuccess) in
+                  if isSuccess {
+                      DispatchQueue.main.async {
+                          self?.removeSpinner()
+                          self?.showContinueActionAlert()
+                      }
+                  }
+                  else {
+                      DispatchQueue.main.async {
+                          self?.removeSpinner()
+                          errorCell.errorMsg.isHidden = false
+                          errorCell.errorMsg.text = "*Pendaftaran belum berhasil, silahkan coba beberapa saat lagi"
                     }
+                  }
                 }
               }
             }
           }
     }
   
-  func validateUserDetail(fullName: String, gender: String, birthDate: String, bloodType: String) -> Bool {
+    func checkingReferralCode(_ query: CKQuery, completionHandler: @escaping ((CKRecord?) -> Void)) {
+        var record : CKRecord? = nil
+        Helper.getAllData(query){ (results) in
+            if let results = results {
+                DispatchQueue.main.async {
+                    for result in results {
+                        record = result
+                    }
+                    if record != nil{
+                        guard let quota : Int = record?.value(forKey: "quota") as? Int else{
+                            fatalError()
+                        }
+                        if quota > 0 {
+                            completionHandler(record)
+                        }
+                        else{
+                            completionHandler(nil)
+                        }
+                    }
+                    else {
+                        completionHandler(nil)
+                    }
+                }
+            }else{
+                completionHandler(nil)
+            }
+        }
+    }
+    
+    func validateUserDetail(fullName: String, gender: String, birthDate: String, bloodType: String, referralCode : String, completion: @escaping (Bool) -> ()) {
     guard
     let fullNameCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FormTableViewCell,
     let genderCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? FormTableViewCell,
     let birthDateCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? FormTableViewCell,
-    let bloodTypeCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 3)) as? FormTableViewCell else{fatalError()}
+    let bloodTypeCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 3)) as? FormTableViewCell,
+    let referralCell = self.formTableView.cellForRow(at: IndexPath(row: 0, section: 5)) as? FormTableViewCell else{ fatalError() }
     guard let errorCell = formTableView.cellForRow(at: IndexPath(row: 0, section: 6)) as? ErrorMessageTableViewCell else {fatalError()}
     
     if fullName == "" || gender == "" || birthDate == "" || bloodType == ""{
@@ -169,10 +229,31 @@ extension RegisterDetailController : FormCellDelegate {
             errorCell.errorMsg.isHidden = false
             errorCell.errorMsg.text = "*Pastikan seluruh form telah terisi"
         }
-      return false
+        completion(false)
     }
-    errorCell.errorMsg.isHidden = true
-    return true
+    else if referralCode != "" {
+      let query = CKQuery(recordType: "Code", predicate: NSPredicate(format: "referral_code = %@", referralCode))
+        checkingReferralCode(query){ (result) in
+            if result != nil{
+                DispatchQueue.main.async {
+                    errorCell.errorMsg.isHidden = true
+                }
+                completion(true)
+            }
+            else{
+                DispatchQueue.main.async {
+                    errorCell.errorMsg.isHidden = false
+                    errorCell.errorMsg.text = "*Kode Referral tidak valid"
+                    referralCell.shake()
+                }
+                completion(false)
+            }
+        }
+    }
+    else {
+        errorCell.errorMsg.isHidden = true
+        completion(true)
+    }
   }
   
   func checkGender(_ gender: String) -> Int {
