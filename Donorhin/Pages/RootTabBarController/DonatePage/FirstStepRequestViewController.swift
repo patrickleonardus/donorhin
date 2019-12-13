@@ -52,7 +52,7 @@ class FirstStepRequestViewController: DonateStepViewController {
                   self?.database.save(record) { (recordSave, err) in
                     if let recordSave = recordSave {
                       DispatchQueue.main.async {
-                        self?.pageViewDelegate?.changeShowedView(toStep: 2)
+                        self?.pageViewDelegate?.changeShowedView(toStep: 2,tracker: recordSave.convertTrackerToTrackerModel())
                         self?.removeSpinner()
                       }
                     }

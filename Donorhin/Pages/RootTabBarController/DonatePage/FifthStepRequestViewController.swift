@@ -29,7 +29,7 @@ class FifthStepRequestViewController: DonateStepViewController {
   }
   
   @IBAction func okeTapped(_ sender: Any) {
-    self.pageViewDelegate?.changeShowedView(toStep: 6)
+    self.pageViewDelegate?.changeShowedView(toStep: 6,tracker: nil)
     self.step = self.step! + 1
     self.thankyouLetter.text = thankYouLetter2
 

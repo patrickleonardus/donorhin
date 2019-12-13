@@ -10,7 +10,7 @@ import UIKit
 
 //MARK: Change View Protocol
 protocol StepViewChangingDelegate {
-  func changeShowedView(toStep: Int)
+  func changeShowedView(toStep: Int, tracker: TrackerModel?)
 }
 
 //MARK: Class
@@ -23,9 +23,9 @@ class RequestStepsPageViewController: UIPageViewController {
     let sb = UIStoryboard(name: "RequestStepsPageViewController", bundle: nil)
     switch self.tracker?.currentStep {
     case StepsEnum.findingDonor_0:
-        return [sb.instantiateViewController(withIdentifier: "langkah1") as! DonateStepViewController]
+        return [sb.instantiateViewController(withIdentifier: "langkah1") as! FirstStepRequestViewController]
     case StepsEnum.donorFound_1:
-      return [sb.instantiateViewController(withIdentifier: "langkah2") as! DonateStepViewController]
+      return [sb.instantiateViewController(withIdentifier: "langkah2") as! SecondStepRequestViewController]
     case StepsEnum.willDonor_2:
         return [sb.instantiateViewController(withIdentifier: "langkah3") as! DonateStepViewController]
     case StepsEnum.willVerif_3:
@@ -54,17 +54,20 @@ class RequestStepsPageViewController: UIPageViewController {
 
 //MARK:- StepViewChangingDelegate Application
 extension RequestStepsPageViewController : StepViewChangingDelegate{
-  func changeShowedView(toStep: Int) {
+  
+  func changeShowedView(toStep: Int, tracker: TrackerModel?) {
     if toStep < 5 {
+      self.tracker = tracker
       self.tracker?.currentStep =  toStep-1
       self.viewDidChangedDelegate?.updateStepIndicator(nextStep: toStep)
       let sb = UIStoryboard(name: "RequestStepsPageViewController", bundle: nil)
       let viewControllers = [sb.instantiateViewController(withIdentifier: "langkah\(toStep)") as! DonateStepViewController]
       self.setViewControllers(viewControllers, direction: .forward, animated: true, completion: nil)
       viewControllers.first?.pageViewDelegate = self
-//      viewControllers.first?.recieveRequest(self.tracker)
+      viewControllers.first?.recieveRequest(tracker)
     }
     else {
+      self.tracker = tracker
       self.tracker?.currentStep =  toStep
       self.viewDidChangedDelegate?.updateStepIndicator(nextStep: toStep)
     }
