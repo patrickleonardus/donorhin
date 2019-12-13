@@ -58,6 +58,7 @@ class DonateController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     checkData()
+    
   }
    
    override func viewDidAppear(_ animated: Bool) {
@@ -66,6 +67,7 @@ class DonateController: UIViewController {
    
    override func viewWillDisappear(_ animated: Bool) {
       profileImageNavBar(show: false)
+      self.removeSpinner()
    }
   
   //Check udh login apa belom

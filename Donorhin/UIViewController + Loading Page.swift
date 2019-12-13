@@ -32,6 +32,8 @@ extension UIViewController {
     
     
     DispatchQueue.main.async {
+      loadingView.tag = 99
+      spinnerView.tag = 100
       loadingView.addSubview(ai)
       spinnerView.addSubview(loadingView)
       onView.addSubview(spinnerView)
@@ -39,18 +41,21 @@ extension UIViewController {
       onView.bringSubviewToFront(ai)
     }
     ai.startAnimating()
-    vSpinner = loadingView
-    bgSpinner = spinnerView
+//    vSpinner = loadingView
+//    bgSpinner = spinnerView
   }
   
   func removeSpinner() {
     DispatchQueue.main.async {
-      vSpinner?.removeFromSuperview()
-      bgSpinner?.removeFromSuperview()
+      self.view.viewWithTag(99)?.removeFromSuperview()
+      self.view.viewWithTag(100)?.removeFromSuperview()
+//      vSpinner?.removeFromSuperview()
+//      bgSpinner?.removeFromSuperview()
       vSpinner = nil
       bgSpinner = nil
     }
   }
+  
 }
 
 protocol SpinnerDelegate {
