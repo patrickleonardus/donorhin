@@ -11,7 +11,6 @@ import CloudKit
 class DonateController: UIViewController {
   //MARK:-  IBOutlets
   @IBOutlet weak var switchButtonStatusDonor: UISwitch!
-  @IBOutlet weak var historyDonorSegmentedControl: UISegmentedControl!
   @IBOutlet weak var tableview: UITableView!
   @IBOutlet weak var coverView: CustomMainView!
   @IBOutlet weak var imageCoverView: UIImageView!
@@ -21,31 +20,31 @@ class DonateController: UIViewController {
   
   //MARK: - Variables
   final private let cellReuseIdentifier = "DonateCell"
-  var listRequest = [CKRecord]()
+  var listRequestCurrent = [CKRecord]()
+  var listRequestHistory = [CKRecord]()
   var selectedData: TrackerModel?
   var statusDonor = false
-  var segmented: History {
-    if historyDonorSegmentedControl.selectedSegmentIndex == 0 {
-       return .active
-    } else {
-       return .history
-    }
-  }
+  
+  var tableViewTitle = ["Aktivitas donor yang sedang aktif","Riwayat Mendonor"]
+  
   var profileImage = UIImageView()
   var confirmButton = UIBarButtonItem()
   var currentUser : String?
   
   var notificationIdentifier: String?
    
-   //MARK:- view handler
-   override func viewDidLoad() {
-    print ("Showing Donate tab")
-      super.viewDidLoad()
-      currentUser = UserDefaults.standard.string(forKey: "currentUser")
+  //MARK:- view handler
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    currentUser = UserDefaults.standard.string(forKey: "currentUser")
     if let _ = self.selectedData {
       performSegue(withIdentifier: "GoToStep", sender: nil)
     }
-   }
+    
+    configureRefreshControl()
+    
+  }
   
   override func viewWillAppear(_ animated: Bool) {
     self.tableview.delegate = self
@@ -65,6 +64,20 @@ class DonateController: UIViewController {
       profileImageNavBar(show: false)
       self.removeSpinner()
    }
+  
+  func configureRefreshControl () {
+    // Add the refresh control to your UIScrollView object.
+    tableview.refreshControl = UIRefreshControl()
+    tableview.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+  }
+  
+  @objc func handleRefreshControl() {
+    // Update your content…
+    getCurrentData()
+    getHistoryData()
+    self.removeSpinner()
+    self.removeSpinner()
+  }
   
   //Check udh login apa belom
   private func checkData(){
@@ -89,7 +102,7 @@ class DonateController: UIViewController {
   
    //MARK: - data if 0 image will show up
    private func checkCountListData() {
-      if self.listRequest.count > 0 {
+      if self.listRequestCurrent.count > 0 || self.listRequestHistory.count > 0{
          self.coverView.isHidden = true
       }
       else {
@@ -98,33 +111,65 @@ class DonateController: UIViewController {
    }
    
   //MARK:- Get data from database
-  private func getData(_ selectedCategory:Int = 0) {
+  private func getHistoryData() {
     self.showSpinner(onView: self.view)
     if currentUser != nil {
-      var nspredicate = NSPredicate()
-      if selectedCategory == 0 {
-        nspredicate = NSPredicate(format: "id_pendonor == %@ AND current_step <= \(StepsEnum.done_5)", CKRecord.ID(recordName: self.currentUser!))
-      } else {
-        nspredicate = NSPredicate(format: "id_pendonor == %@ AND current_step == 6",CKRecord.ID(recordName: self.currentUser!))
-      }
       
-      let query = CKQuery(recordType: "Tracker", predicate: nspredicate)
-      Helper.getAllData(query) { (results) in
+      let historyPredicate = NSPredicate(format: "id_pendonor == %@ AND current_step == 6",CKRecord.ID(recordName: self.currentUser!))
+      
+      let historyQuery = CKQuery(recordType: "Tracker", predicate: historyPredicate)
+      Helper.getAllData(historyQuery) { (results) in
         if let results = results {
           DispatchQueue.main.async {
-            self.listRequest = results
+            self.listRequestHistory = results
             self.checkCountListData()
             self.removeSpinner()
             self.tableview.reloadData()
+            self.tableview.refreshControl?.endRefreshing()
           }
+        }
+        else {
+          self.removeSpinner()
+          self.tableview.refreshControl?.endRefreshing()
         }
       }
     }
     else if currentUser == nil {
       self.removeSpinner()
+      self.tableview.refreshControl?.endRefreshing()
       print("User hasn't Login")
     }
-
+  }
+  
+  private func getCurrentData(){
+    self.showSpinner(onView: self.view)
+    if currentUser != nil {
+      
+      let currentPredicate = NSPredicate(format: "id_pendonor == %@ AND current_step <= \(StepsEnum.done_5)", CKRecord.ID(recordName: self.currentUser!))
+      
+      let currentQuery = CKQuery(recordType: "Tracker", predicate: currentPredicate)
+      Helper.getAllData(currentQuery) { (results) in
+        if let results = results {
+          DispatchQueue.main.async {
+            self.listRequestCurrent = results
+            self.checkCountListData()
+            self.removeSpinner()
+            self.tableview.reloadData()
+            self.tableview.refreshControl?.endRefreshing()
+          }
+        }
+        else {
+          self.removeSpinner()
+          self.tableview.refreshControl?.endRefreshing()
+        }
+      }
+    }
+      
+    else if currentUser == nil {
+      self.removeSpinner()
+      self.tableview.refreshControl?.endRefreshing()
+      print("User hasn't Login")
+    }
   }
    
    private func checkStatusDonor() {
@@ -135,14 +180,13 @@ class DonateController: UIViewController {
    
    //MARK: - setup tableview
   private func setupTabledView() {
-    self.getData()
+    
+    getCurrentData()
+    getHistoryData()
+    
+    tableview.backgroundColor = UIColor.clear
+    tableview.tableFooterView = UIView()
    }
-   
-  //MARK: - when segmented control tapped
-  @IBAction func segmentedControlTapped(_ sender: UISegmentedControl) {
-    self.getData(sender.selectedSegmentIndex)
-  }
-  
   
    private func profileImageNavBar(show: Bool){
       
@@ -186,55 +230,171 @@ class DonateController: UIViewController {
       let navBarOnModal: UINavigationController = UINavigationController(rootViewController: vc)
       self.present(navBarOnModal, animated: true, completion: nil)
    }
-   
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "GoToStep" {
+      let stepVC = segue.destination as! DonateStepsViewController
+      
+      stepVC.request = self.selectedData
+      
+      stepVC.title = "Permintaan Darah 1"
+    }
+  }
    
 }
 
 //MARK:- Table View handler
 
 extension DonateController: UITableViewDelegate, UITableViewDataSource {
-   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return self.listRequest.count
-   }
-   
-   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      let cell = tableview.dequeueReusableCell(withIdentifier: self.cellReuseIdentifier, for: indexPath) as! DonateTableViewCell
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    var height : CGFloat = 0
+    
+    if indexPath.section == 0 {
+      height = 90
+    }
+    else {
+      height = 70
+    }
+    
+    return height
+  }
+  
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 2
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    var numberOfSection = 0
+    
+    if section == 0 {
+      if listRequestCurrent.count == 0 {
+        numberOfSection = 0
+      }
+      else if listRequestCurrent.count > 0 {
+        numberOfSection = listRequestCurrent.count
+      }
+    }
+    else {
+      if listRequestHistory.count == 0 {
+        numberOfSection = 0
+      }
+      else if listRequestHistory.count > 0 {
+        numberOfSection = listRequestHistory.count
+      }
+    }
+    
+    return numberOfSection
+  }
+  
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 42
+  }
+  
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: tableView.frame.size.height))
+    headerView.backgroundColor = Colors.backgroundView
+    
+    let label : UILabel = UILabel(frame: CGRect(x: 12, y: 8, width: tableView.frame.size.width, height: 30))
+    label.text = tableViewTitle[section]
+    label.font = UIFont.boldSystemFont(ofSize: 20)
+    
+    headerView.addSubview(label)
+    
+    return headerView
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    let cell = tableview.dequeueReusableCell(withIdentifier: self.cellReuseIdentifier, for: indexPath) as! DonateTableViewCell
+    
+    let lastRowIndex = tableView.numberOfRows(inSection: tableView.numberOfSections-1)
+    
+    if (indexPath.row == lastRowIndex - 1) {
+        cell.separatorInset = UIEdgeInsets(top: 0, left: cell.bounds.size.width, bottom: 0, right: 0)
+    }
+    
+    if indexPath.section == 0 {
+      
+      let data = listRequestCurrent[indexPath.row]
+      
+      let steps = Steps.checkStep(data["current_step"]!)
+      
       cell.personImage.image = UIImage(named: "person_50")
-      cell.titleLabel.text = "Permintaan donor \(indexPath.row+1)"
-      cell.subtitleLabel.text = Steps.checkStep(
-         self.listRequest[indexPath.row].value(
-            forKey: "current_step") as! Int)
-      return cell
-   }
-   
-   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-      if editingStyle == .delete {
-         print("ok")
-      }
-   }
-   
-   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-      let deleteButton = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
-         self.tableview.dataSource?.tableView?(self.tableview, commit: .delete, forRowAt: indexPath)
-      })
-      deleteButton.backgroundColor = Colors.red
-      return [deleteButton]
-   }
-   
-   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      self.selectedData = self.listRequest[indexPath.row].convertTrackerToTrackerModel()
-      self.tableview.cellForRow(at: indexPath)?.isSelected = false
+      cell.titleLabel.text = "Permintaan donor"
+      cell.subtitleLabel.text = steps
+      
+    }
+    
+    else {
+      
+      cell.personImage.image = UIImage(named: "person_50")
+      cell.titleLabel.text = "Donor ke \(indexPath.row + 1)"
+      cell.subtitleLabel.text = " "
+      
+    }
+    
+    cell.layer.backgroundColor = UIColor.white.cgColor
+    cell.layer.cornerRadius = 14
+    
+    cell.layer.borderWidth = 5
+    cell.layer.borderColor = Colors.backgroundView.cgColor
+    
+    return cell
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableview.deselectRow(at: indexPath, animated: true)
+    
+    
+    if indexPath.section == 0 {
+      self.selectedData = self.listRequestCurrent[indexPath.row].convertTrackerToTrackerModel()
       performSegue(withIdentifier: "GoToStep", sender: tableView.cellForRow(at: indexPath))
-   }
-   
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      if segue.identifier == "GoToStep" {
-         let senderr = sender as? DonateTableViewCell
-         let stepVC = segue.destination as! DonateStepsViewController
-
-        stepVC.request = self.selectedData
-        
-         stepVC.title = "Permintaan Darah 1"
-      }
-   }
+    }
+    else {
+      self.selectedData = self.listRequestHistory[indexPath.row].convertTrackerToTrackerModel()
+      performSegue(withIdentifier: "GoToStep", sender: tableView.cellForRow(at: indexPath))
+    }
+    
+    
+  }
+  
 }
+
+//extension DonateController: UITableViewDelegate, UITableViewDataSource {
+//   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//      return self.listRequest.count
+//   }
+//
+//   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//      let cell = tableview.dequeueReusableCell(withIdentifier: self.cellReuseIdentifier, for: indexPath) as! DonateTableViewCell
+//      cell.personImage.image = UIImage(named: "person_50")
+//      cell.titleLabel.text = "Permintaan donor \(indexPath.row+1)"
+//      cell.subtitleLabel.text = Steps.checkStep(
+//         self.listRequest[indexPath.row].value(
+//            forKey: "current_step") as! Int)
+//      return cell
+//   }
+//
+//   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//      if editingStyle == .delete {
+//         print("ok")
+//      }
+//   }
+//
+//   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//      let deleteButton = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
+//         self.tableview.dataSource?.tableView?(self.tableview, commit: .delete, forRowAt: indexPath)
+//      })
+//      deleteButton.backgroundColor = Colors.red
+//      return [deleteButton]
+//   }
+//
+//   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//      self.selectedData = self.listRequest[indexPath.row].convertTrackerToTrackerModel()
+//      self.tableview.cellForRow(at: indexPath)?.isSelected = false
+//      performSegue(withIdentifier: "GoToStep", sender: tableView.cellForRow(at: indexPath))
+//   }
+//
+//}
