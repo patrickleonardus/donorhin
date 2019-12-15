@@ -222,14 +222,14 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lG-A1-Ue3">
                                 <rect key="frame" x="50" y="77.5" width="344" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <state key="normal" title=" PMI DKI Jakarta" image="Call17">
+                                <state key="normal" image="Call17">
                                     <color key="titleColor" red="0.70196078429999997" green="0.0" blue="0.062745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EW3-1B-XK7">
                                 <rect key="frame" x="50" y="164" width="344" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <state key="normal" title=" PMI Tangerang Selatan" image="Call17">
+                                <state key="normal" image="Call17">
                                     <color key="titleColor" red="0.70196078429999997" green="0.0" blue="0.062745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
@@ -264,8 +264,8 @@
                     </view>
                     <size key="freeformSize" width="414" height="707"/>
                     <connections>
-                        <outlet property="buttonAcceptOutlet" destination="5lG-A1-Ue3" id="mBj-gB-Yte"/>
-                        <outlet property="buttonCancelOutlet" destination="EW3-1B-XK7" id="wSt-D8-31Q"/>
+                        <outlet property="buttonCallDonor" destination="EW3-1B-XK7" id="wSt-D8-31Q"/>
+                        <outlet property="buttonCallRecipient" destination="5lG-A1-Ue3" id="mBj-gB-Yte"/>
                         <outlet property="firstLabel" destination="YH0-t0-nc1" id="vcF-Ev-c0z"/>
                     </connections>
                 </viewController>
