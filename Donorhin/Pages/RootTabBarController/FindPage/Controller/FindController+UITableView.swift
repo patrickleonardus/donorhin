@@ -84,6 +84,7 @@ extension FindController: UITableViewDataSource, UITableViewDelegate {
               cell?.address.text = data.donorHospitalName
               cell?.date.text = shrinkDate(donorDate)
               cell?.status.text = Steps.checkStep(status)
+              cell?.status.textColor = UIColor.black
               
               cell?.buttonCallOutlet.phoneNumber = data.phoneNumber
               hidePlaceDateAndCall(cell: cell!, value: false)
@@ -133,6 +134,7 @@ extension FindController: UITableViewDataSource, UITableViewDelegate {
     cell.title.text = "Pendonor \(row + 1)"
     
     cell.status.text = Steps.checkStep(status)
+    cell.status.textColor = UIColor.black
     hidePlaceDateAndCall(cell: cell, value: true)
   }
   

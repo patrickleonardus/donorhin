@@ -9,8 +9,22 @@
 import UIKit
 
 class ThirdStepRequestViewController: DonateStepViewController {
+  
+  @IBOutlet weak var firstLabel: UILabel!
+  @IBOutlet weak var buttonAcceptOutlet: UIButton!
+  @IBOutlet weak var buttonCancelOutlet: UIButton!
+  
+  var tracker: TrackerModel?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    firstLabel.changeFont(ofText: "wajib", with: UIFont.boldSystemFont(ofSize: 17))
+    
+  }
+  
+  override func recieveRequest(_ tracker: TrackerModel?) {
+    self.tracker = tracker
   }
   
   @IBAction func buttonAcceptTapped(_ sender: UIButton) {
