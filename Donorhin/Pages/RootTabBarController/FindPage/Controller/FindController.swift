@@ -19,6 +19,7 @@ class FindController: UIViewController {
   @IBOutlet weak var findBloodSegmentedControl: UISegmentedControl!
   @IBOutlet weak var textSearching: UILabel!
   @IBOutlet weak var buttonSearching: CustomButtonRounded!
+  @IBOutlet weak var topConstraint: NSLayoutConstraint!
   
   //MARK: Variables
   let cellId = "cellId"
@@ -58,6 +59,8 @@ class FindController: UIViewController {
     super.viewDidLoad()
     self.registerForNotification()
     setupUI()
+    configureRefreshControl()
+    fetchAllData()
     
     //mau hilangin tab bar inbox
     tabBarController?.viewControllers?.remove(at: 2)
@@ -66,8 +69,6 @@ class FindController: UIViewController {
   override func viewDidAppear(_ animated: Bool) {
     profileImageNavBar(show: true)
     setupNavBarToLarge(large: true)
-    
-    fetchAllData()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -86,6 +87,7 @@ class FindController: UIViewController {
     viewSearching.alpha = 0
     textSearching.text = "Sedang Mencari Pendonor"
     buttonSearching.setTitle("Batal Mencari", for: .normal)
+    self.extendedLayoutIncludesOpaqueBars = true
   }
   
   private func freezeTabBarButton(set: Bool){
@@ -113,6 +115,18 @@ class FindController: UIViewController {
       }
     }
     
+  }
+  
+  func configureRefreshControl () {
+    // Add the refresh control to your UIScrollView object.
+    tableView.refreshControl = UIRefreshControl()
+    tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+  }
+  
+  @objc func handleRefreshControl() {
+    // Update your content…
+    fetchAllData()
+    self.removeSpinner()
   }
   
   //MARK: - initializing UI
@@ -168,8 +182,8 @@ class FindController: UIViewController {
             self.tableView.dataSource = self
             self.removeSpinner()
             self.tableView.reloadData()
+            self.tableView.refreshControl?.endRefreshing()
           }
-          
 //          self.freezeTabBarButton(set: false)
         }
         else if !successStatus {

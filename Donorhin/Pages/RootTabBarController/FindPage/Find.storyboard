@@ -13,7 +13,7 @@
         <!--Cari Darah-->
         <scene sceneID="e4s-zE-OdD">
             <objects>
-                <viewController storyboardIdentifier="findStoryboard" id="PPl-62-6vC" customClass="FindController" customModule="Donorhin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="findStoryboard" extendedLayoutIncludesOpaqueBars="YES" id="PPl-62-6vC" customClass="FindController" customModule="Donorhin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VwY-HW-Ozu" customClass="CustomMainView" customModule="Donorhin" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -108,7 +108,7 @@
                             <constraint firstItem="cFS-SC-sCV" firstAttribute="leading" secondItem="KvN-0X-LVa" secondAttribute="leading" id="Old-cu-FSm"/>
                             <constraint firstItem="cFS-SC-sCV" firstAttribute="trailing" secondItem="KvN-0X-LVa" secondAttribute="trailing" id="PQl-Sj-RZR"/>
                             <constraint firstItem="B93-sR-GNM" firstAttribute="top" secondItem="CF2-4p-Gr7" secondAttribute="bottom" constant="8" id="adx-u0-lgg"/>
-                            <constraint firstItem="CF2-4p-Gr7" firstAttribute="top" secondItem="KvN-0X-LVa" secondAttribute="top" constant="16" id="iTd-lf-Bib"/>
+                            <constraint firstItem="CF2-4p-Gr7" firstAttribute="top" secondItem="VwY-HW-Ozu" secondAttribute="top" constant="156" id="iTd-lf-Bib"/>
                             <constraint firstItem="CF2-4p-Gr7" firstAttribute="leading" secondItem="KvN-0X-LVa" secondAttribute="leading" constant="20" id="mIp-Dp-bHk"/>
                             <constraint firstItem="KvN-0X-LVa" firstAttribute="trailing" secondItem="CF2-4p-Gr7" secondAttribute="trailing" constant="20" id="tYp-9f-7tw"/>
                             <constraint firstItem="B93-sR-GNM" firstAttribute="leading" secondItem="KvN-0X-LVa" secondAttribute="leading" constant="20" id="w8K-WZ-gNx"/>
@@ -123,6 +123,7 @@
                         <outlet property="findBloodSegmentedControl" destination="CF2-4p-Gr7" id="XeO-KO-yRa"/>
                         <outlet property="tableView" destination="B93-sR-GNM" id="OZ5-fU-zcA"/>
                         <outlet property="textSearching" destination="As4-o0-lRR" id="dcZ-0t-9uX"/>
+                        <outlet property="topConstraint" destination="iTd-lf-Bib" id="efS-i0-7L5"/>
                         <outlet property="viewNoData" destination="cFS-SC-sCV" id="x84-y1-cIg"/>
                         <outlet property="viewSearching" destination="gjb-FX-Eft" id="Apu-CB-ioc"/>
                         <segue destination="4O9-P2-cmw" kind="show" identifier="moveToTracker" id="FQm-34-Okn"/>

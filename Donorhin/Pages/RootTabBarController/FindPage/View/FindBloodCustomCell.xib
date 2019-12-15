@@ -79,7 +79,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="xdP-6t-bSz"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="call15"/>
+                                <state key="normal" title="Button" image="call15">
+                                    <color key="titleColor" red="0.53979659079999998" green="0.1061993316" blue="0.1333173215" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

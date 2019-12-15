@@ -29,6 +29,8 @@ extension FindController: UIScrollViewDelegate{
       if navBarHeight < 90.0 {
         UIView.animate(withDuration: 0.2) {
           self.profileImage.alpha = 0.0
+          self.topConstraint.constant = (self.navigationController?.navigationBar.frame.height)! + 60
+         
         }
         
       }
