@@ -15,6 +15,7 @@ class FirstStepRequestViewController: DonateStepViewController {
   let database = CKContainer.default().publicCloudDatabase
 	var requestNotification: String?
 	var tokenNotification: String?
+	var senderTokenNotification: String?
   override func viewDidLoad() {
     super.viewDidLoad()
   }
@@ -76,7 +77,7 @@ class FirstStepRequestViewController: DonateStepViewController {
                         self?.removeSpinner()
 												if let token = self?.tokenNotification,
 													let idRequest = self?.requestNotification {
-													Service.sendNotification("Pendonor bersedia mendonor", [token], idRequest, 0)
+													Service.sendNotification("Pendonor bersedia mendonor", [token], idRequest, 0,self?.currentUser as! String)
 												}
                       }
                     }

@@ -30,6 +30,7 @@ class ThirdStepRequestViewController: DonateStepViewController {
   var requestNotification: String?
 	var tokenNotification: String?
   let database = CKContainer.default().publicCloudDatabase
+	var currentUser: String = UserDefaults.standard.value(forKey: "province") as! String
   
   var infoText1 : String {
     self.hideAllElement(false)
@@ -226,7 +227,7 @@ class ThirdStepRequestViewController: DonateStepViewController {
         self.pageViewDelegate?.changeShowedView(toStep: 4,tracker: nil)
 				if let token = self.tokenNotification,
 					let idRequest = self.requestNotification {
-					Service.sendNotification("Pendonor sudah melakukan verifikasi", [token], idRequest, 0)
+					Service.sendNotification("Pendonor sudah melakukan verifikasi", [token], idRequest, 0, self.currentUser)
 				}
     }
     

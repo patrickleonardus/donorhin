@@ -46,6 +46,7 @@ class FormController: UIViewController{
   var patientBloodAmount: String?
   var patientEmergency: String = "0"
   var currentPlace: String = UserDefaults.standard.value(forKey: "province") as! String
+	var currentUser: String = UserDefaults.standard.value(forKey: "currentUser") as! String
   var notification: CKRecord?
   
   //MARK: - view controller lifecycle
@@ -89,7 +90,7 @@ class FormController: UIViewController{
       }
       DispatchQueue.main.asyncAfter(deadline: .now()+2) {
         guard let idRequest = self.recordName else {return}
-        Service.sendNotification(message, tokens,idRequest,1) // send notification to server
+				Service.sendNotification(message, tokens,idRequest,1,self.currentUser) // send notification to server
       }
     }
   }

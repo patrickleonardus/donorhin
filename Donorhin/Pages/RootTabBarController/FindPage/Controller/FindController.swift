@@ -29,7 +29,7 @@ class FindController: UIViewController {
   
   var bloodRequestHistory: [Donor]? //Contains history finding data
   var bloodRequestCurrent: [Donor?]? //Contains current finding data
-  
+	var selectedData: TrackerModel? //variabel penampung dari notifikasi
   
   var requestDelegate : ControlValidationViewDelegate?
   
@@ -60,6 +60,9 @@ class FindController: UIViewController {
     self.registerForNotification()
     setupUI()
     configureRefreshControl()
+		if let _ = self.selectedData {
+			self.performSegue(withIdentifier: "moveToTracker", sender: self)
+		}
     fetchAllData()
     
     //mau hilangin tab bar inbox
@@ -361,7 +364,7 @@ class FindController: UIViewController {
           //donor have filled their donor details (donor date and donor hospital)
           if let idUTDPendonor = tracker.idUTDPendonor {
             group.enter()
-            self.getHospitalBy(hospitalID: idUTDPendonor.recordID) { (donorUTD) in
+						self.getHospitalBy(hospitalID: idUTDPendonor.recordID) { (donorUTD) in
               guard let donorUTD = donorUTD else {
                 fatalError("Unvalid hospital. It should have name")
               }
@@ -403,9 +406,9 @@ class FindController: UIViewController {
     }
   }
   
-  func getHospitalBy( hospitalID : CKRecord.ID, _ completionHandler: @escaping ((UTDModel?) -> Void) ) {
+	func getHospitalBy( hospitalID : CKRecord.ID, _ completionHandler: @escaping ((UTDModel?) -> Void) ) {
     DispatchQueue.main.async {
-      Helper.getDataByID(hospitalID) { (record) in
+			Helper.getDataByID(hospitalID) { (record) in
         guard let record = record else {
           completionHandler(nil)
           return
@@ -466,13 +469,22 @@ class FindController: UIViewController {
       
       let destination = segue.destination as! TrackerController
       destination.navigationBarTitle =  navBarTitle
-      destination.input = SearchTrackerInput(
-        idRequest: requestIdTrc!,
-        idTracker: trackerIdTrc!,
-        patientUtdId: hospitalIdTrc!,
-        step: currStepTrc!
-      )
-      
+			if let selectedData = self.selectedData {
+				destination.input = SearchTrackerInput(
+					idRequest: selectedData.idRequest.recordID,
+					idTracker: selectedData.idTracker,
+					patientUtdId: selectedData.idUTDPendonor!.recordID,
+					step: selectedData.currentStep
+				)
+			}
+			else {
+				destination.input = SearchTrackerInput(
+					idRequest: requestIdTrc!,
+					idTracker: trackerIdTrc!,
+					patientUtdId: hospitalIdTrc!,
+					step: currStepTrc!
+				)
+			}
     }
     
     else if segue.identifier == "MoveToLogin"{

@@ -10,7 +10,7 @@ import Foundation
 struct Service {
   //MARK: - function for send notification
   
-  static func sendNotification(_ message: String, _ token: [String],_ idRequest: String,_ tabBarIndex: Int) {
+	static func sendNotification(_ message: String, _ token: [String],_ idRequest: String,_ tabBarIndex: Int,_ idSender:String) {
     let url = URL(string: "https://server-donorhin.herokuapp.com")!
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
@@ -20,6 +20,7 @@ struct Service {
     parameters["token"] = token
     parameters["id_request"] = idRequest
     parameters["tab_bar_index"] = tabBarIndex
+		parameters["id_sender"] = idSender
     let jsonData = try! JSONSerialization.data(withJSONObject: parameters, options: [])
     request.httpBody = jsonData
     URLSession.shared.dataTask(with: request) { (data, res, err) in

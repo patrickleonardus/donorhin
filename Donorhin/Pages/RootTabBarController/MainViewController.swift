@@ -22,6 +22,7 @@ class MainViewController: UITabBarController {
       if barSelected == 0 {
         guard let navigationController = self.viewControllers?[barSelected] as? UINavigationController ,
         let findViewController = navigationController.topViewController as? FindController else {return}
+				findViewController.selectedData = self.tracker
       }
       else if barSelected == 1 {
         guard let navigationController = self.viewControllers?[barSelected] as? UINavigationController ,
