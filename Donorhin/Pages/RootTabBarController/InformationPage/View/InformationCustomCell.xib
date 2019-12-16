@@ -114,9 +114,11 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="activityIndicator" destination="7t4-i9-WgR" id="jx1-fg-pOX"/>
+                <outlet property="firstButtonTopConstraint" destination="wcg-It-u3E" id="3b6-6T-KGa"/>
                 <outlet property="firstContactButton" destination="T30-3n-uUy" id="6q4-bo-8bQ"/>
                 <outlet property="firstContactLabel" destination="Wc5-Af-lNc" id="NTD-gC-sCi"/>
                 <outlet property="longTextLabel" destination="DV1-ec-YJY" id="f2h-3a-kgh"/>
+                <outlet property="secondButtonTopConstraint" destination="VYW-nz-aJj" id="Zga-D5-PFU"/>
                 <outlet property="secondContactButton" destination="UXD-KO-63g" id="JjX-Vm-2Ig"/>
                 <outlet property="secondContactLabel" destination="Dmo-OF-8VH" id="fi7-Bv-ya2"/>
                 <outlet property="titleLabel" destination="Ep9-iQ-bj4" id="33K-Ik-oDa"/>

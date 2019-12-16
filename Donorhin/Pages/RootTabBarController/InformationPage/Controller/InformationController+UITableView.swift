@@ -52,7 +52,7 @@ extension InformationController : UITableViewDataSource {
               height = 360
             }
             else {
-              height = 280
+              height = 240
             }
           }
           
@@ -174,6 +174,11 @@ extension InformationController : UITableViewDataSource {
             if indexPath.section == 2 {
               cell?.firstContactButton.isHidden = false
               cell?.secondContactButton.isHidden = false
+              
+              let labelHeight = cell?.firstContactLabel.frame.height
+              
+              cell?.firstButtonTopConstraint.constant = -labelHeight! - 5
+              cell?.secondButtonTopConstraint.constant = -labelHeight!
               
               cell?.firstContactButton.setTitle("Alur proses pencarian pendonor", for: .normal)
               cell?.firstContactButton.addTarget(self, action: #selector(recipientInfo), for: .touchUpInside)
