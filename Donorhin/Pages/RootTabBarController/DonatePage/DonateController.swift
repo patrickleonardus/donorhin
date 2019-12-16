@@ -25,7 +25,7 @@ class DonateController: UIViewController {
   var selectedData: TrackerModel?
   var statusDonor = false
   
-  var tableViewTitle = ["Aktivitas donor yang sedang aktif","Riwayat Mendonor"]
+  var tableViewTitle = ["Sedang Berlangsung","Riwayat Mendonor"]
   
   var profileImage = UIImageView()
   var confirmButton = UIBarButtonItem()
@@ -261,7 +261,7 @@ extension DonateController: UITableViewDelegate, UITableViewDataSource {
       height = 90
     }
     else {
-      height = 70
+      height = 90
     }
     
     return height
@@ -329,17 +329,27 @@ extension DonateController: UITableViewDelegate, UITableViewDataSource {
       let steps = Steps.checkStepForDonor(data["current_step"]!)
       
       cell.personImage.image = UIImage(named: "person_50")
-      cell.titleLabel.text = "Permintaan donor"
+      cell.titleLabel.text = "Permintaan Darah"
       cell.subtitleLabel.text = steps
-      cell.titleLabelCenterConstraint.isActive = false
     }
     
     else {
       
+      let data = listRequestHistory[indexPath.row]
+      
+      let rawDate = "\(String(describing: data["donor_date"]!))"
+      
+      let rawDateFormatter = DateFormatter()
+      let showDateFormatter = DateFormatter()
+      rawDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ssZZZZZ"
+      showDateFormatter.dateFormat = "dd MMMM yyyy"
+      let date = rawDateFormatter.date(from: rawDate)
+      let showDate = showDateFormatter.string(from: date!)
+      
+      
       cell.personImage.image = UIImage(named: "person_50")
-      cell.titleLabel.text = "Donor ke \(indexPath.row + 1)"
-      cell.subtitleLabel.text = " "
-      cell.titleLabelCenterConstraint.isActive = true
+      cell.titleLabel.text = "Permintaan Darah ke \(indexPath.row + 1)"
+      cell.subtitleLabel.text = "Selesai - \(showDate)"
     }
     
     cell.layer.backgroundColor = UIColor.white.cgColor

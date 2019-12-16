@@ -13,7 +13,6 @@ class DonateTableViewCell: UITableViewCell {
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var subtitleLabel: UILabel!
   @IBOutlet weak var personImage: UIImageView!
-  @IBOutlet var titleLabelCenterConstraint: NSLayoutConstraint!
   
   
   override func awakeFromNib() {
