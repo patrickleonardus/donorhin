@@ -25,7 +25,11 @@ class FourthStepRequestViewController: DonateStepViewController {
     print ("is tracker model nil?",self.trackerModel == nil)
     super.viewDidLoad()
     setupView()
-    self.showSpinner(onView: self.view, x: Int(UIScreen.main.bounds.width/2), y: Int(UIScreen.main.bounds.height/2))
+    
+    let centerWidth = self.view.frame.width/2
+    let centerHeight = (self.view.frame.height/2) - (self.view.frame.height/4)
+    self.showSpinner(onView: self.view, x: Int(centerWidth), y: Int(centerHeight))
+    
   }
   
   override func viewWillAppear(_ animated: Bool) {
