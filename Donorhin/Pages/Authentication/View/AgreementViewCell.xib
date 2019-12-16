@@ -45,7 +45,7 @@
                             <constraint firstAttribute="height" constant="20" id="RsT-HO-wwu"/>
                         </constraints>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                        <state key="normal" title="Lihat Privasi..."/>
+                        <state key="normal" title="Lihat Privasi"/>
                         <connections>
                             <action selector="buttonDidTap:" destination="u7f-IC-nip" eventType="touchUpInside" id="KPa-B5-Zlr"/>
                         </connections>

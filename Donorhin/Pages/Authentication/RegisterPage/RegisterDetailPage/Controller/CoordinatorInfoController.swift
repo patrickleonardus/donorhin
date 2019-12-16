@@ -26,6 +26,7 @@ class CoordinatorInfoController : UIViewController {
         }
         self.view.backgroundColor = Colors.backgroundView
         loadTableView()
+        loadTableViewDev()
     }
     
     @objc func doneAction(){
@@ -41,6 +42,28 @@ class CoordinatorInfoController : UIViewController {
         sectionTable.reloadData()
     }
     
+    func loadTableViewDev(){
+      sectionTable.delegate = self
+      sectionTable.dataSource = self
+      sectionTable.backgroundColor = Colors.backgroundView
+      sectionTable.register(UINib(nibName: "InformationDeveloperContact", bundle: nil), forCellReuseIdentifier: "infoDevCell")
+      sectionTable.tableFooterView = UIView()
+      sectionTable.reloadData()
+    }
+    
+    @objc func instagramOpen(){
+      let instagramHooks = "instagram://user?username=donorhin.id"
+      let instagramUrl = NSURL(string: instagramHooks)
+      let instagramBrowser = NSURL(string: "https://www.instagram.com/donorhin.id/?igshid=kf6rbyke1m4z")
+      if UIApplication.shared.canOpenURL(instagramUrl! as URL) {
+        
+        UIApplication.shared.open(instagramUrl! as URL, options: [:], completionHandler: nil)
+        
+      } else {
+        //redirect to safari because the user doesn't have Instagram
+        UIApplication.shared.open(instagramBrowser! as URL, options: [:], completionHandler: nil)
+      }
+    }
 }
 
 extension CoordinatorInfoController : UITableViewDelegate, UITableViewDataSource {
@@ -85,7 +108,7 @@ extension CoordinatorInfoController : UITableViewDelegate, UITableViewDataSource
       }
       
       func numberOfSections(in tableView: UITableView) -> Int {
-          return infoItems!.count
+        return infoItems!.count
       }
       
       func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -114,24 +137,19 @@ extension CoordinatorInfoController : UITableViewDelegate, UITableViewDataSource
         cell?.longTextLabel.changeFont(ofText: "di-posting", with: UIFont.italicSystemFont(ofSize: 16))
         cell?.longTextLabel.changeFont(ofText: "direct message", with: UIFont.italicSystemFont(ofSize: 16))
         
-          if data.type == .text {
+        if data.type == .text {
               cell?.videoLayer.isHidden = true
               cell?.titleLabel.isHidden = false
               cell?.longTextLabel.isHidden = false
-          }
-          else if data.type == .video {
-              cell?.titleLabel.isHidden = true
-              cell?.longTextLabel.isHidden = true
-              cell?.videoLayer.isHidden = false
-
-              let videoURL = URL(string: data.videoURL!)
-              let player = AVPlayer(url: videoURL!)
-              let playerLayer = AVPlayerLayer(player: player)
-              playerLayer.videoGravity = AVLayerVideoGravity.resize
-              playerLayer.frame = cell!.videoLayer.bounds
-              cell?.videoLayer.layer.addSublayer(playerLayer)
-          }
-          
+        }
+        
+          cell?.firstContactLabel.isHidden = false
+          cell?.secondContactLabel.isHidden = true
+          cell?.firstContactButton.isHidden = false
+          cell?.firstContactLabel.text = "Hubungi tim donorhin melalui Instagram :"
+          cell?.firstContactButton.setTitle("@donorhin.id", for: .normal)
+          cell?.firstContactButton.addTarget(self, action: #selector(instagramOpen), for: .touchUpInside)
+        
           return cell!
       }
 }
