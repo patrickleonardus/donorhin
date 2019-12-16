@@ -13,6 +13,10 @@ class SecondStepRequestViewController: DonateStepViewController{
   @IBOutlet var tableView: UITableView!
   @IBOutlet var tapRecognizer: UITapGestureRecognizer!
   @IBOutlet var buttonBersedia: CustomButtonRounded!
+  @IBOutlet weak var UTDLabel: UILabel!
+  
+  
+  
   var chosenHospital : HospitalModel?
   var chosenUTD: DonatePMIModel?
   var picker = UIDatePicker()
@@ -42,6 +46,7 @@ class SecondStepRequestViewController: DonateStepViewController{
   override func viewDidLoad() {
     super.viewDidLoad()
     generalStyling()
+    UTDLabel.text = "Unit Transfusi Darah \nSalah satu unit PMI yang melayani pendonoran darah"
   }
   
   override func recieveRequest(_ tracker: TrackerModel?) {

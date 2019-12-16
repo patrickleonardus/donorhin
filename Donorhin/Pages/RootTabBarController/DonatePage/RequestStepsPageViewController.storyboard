@@ -100,8 +100,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="707"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pilih lokasi UTD dimana Anda akan mendonor dan tanggal Anda dapat mendonor (minimal 1 hari seblum dibutuhkan)" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BI4-zV-7uX">
+                                <rect key="frame" x="36" y="8" width="342" height="81.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jsi-5Q-FQe">
+                                <rect key="frame" x="16" y="105.5" width="382" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Iru-NU-oBm"/>
+                                </constraints>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unit Transfusi Darah " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBh-n3-24E">
+                                <rect key="frame" x="20" y="215.5" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mqo-UN-m6L">
-                                <rect key="frame" x="51" y="276" width="312" height="45"/>
+                                <rect key="frame" x="51" y="307" width="312" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="312" id="vaJ-WA-6ur"/>
                                     <constraint firstAttribute="height" constant="45" id="vp5-8D-tj8"/>
@@ -113,14 +132,8 @@
                                     <action selector="buttonCancelTapped:" destination="PmJ-zj-V0j" eventType="touchUpInside" id="3Jo-Rh-Vfa"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pilih lokasi UTD dimana Anda akan mendonor dan tanggal Anda bisa mendonor (minimal 1 hari seblum dibutuhkan)" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BI4-zV-7uX">
-                                <rect key="frame" x="36" y="8" width="342" height="61"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u7f-fN-xHi" customClass="CustomButtonRounded" customModule="Donorhin" customModuleProvider="target">
-                                <rect key="frame" x="51" y="215" width="312" height="45"/>
+                                <rect key="frame" x="51" y="246" width="312" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Baw-4H-foT"/>
                                     <constraint firstAttribute="width" constant="312" id="PW1-Ki-ZkB"/>
@@ -133,13 +146,6 @@
                                     <action selector="buttonAcceptTapped:" destination="PmJ-zj-V0j" eventType="touchUpInside" id="dBQ-kd-y6F"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jsi-5Q-FQe">
-                                <rect key="frame" x="16" y="85" width="382" height="100"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="Iru-NU-oBm"/>
-                                </constraints>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -148,11 +154,14 @@
                             <constraint firstItem="jsi-5Q-FQe" firstAttribute="top" secondItem="BI4-zV-7uX" secondAttribute="bottom" constant="16" id="1MW-1E-jh7"/>
                             <constraint firstItem="n4I-3j-MwN" firstAttribute="trailing" secondItem="BI4-zV-7uX" secondAttribute="trailing" constant="36" id="9yc-zy-0bm"/>
                             <constraint firstItem="mqo-UN-m6L" firstAttribute="top" secondItem="u7f-fN-xHi" secondAttribute="bottom" constant="16" id="Aae-SI-V5P"/>
-                            <constraint firstItem="u7f-fN-xHi" firstAttribute="top" secondItem="jsi-5Q-FQe" secondAttribute="bottom" constant="30" id="GoE-VR-A8X"/>
+                            <constraint firstItem="bBh-n3-24E" firstAttribute="top" secondItem="jsi-5Q-FQe" secondAttribute="bottom" constant="10" id="Kda-rb-qLt"/>
+                            <constraint firstItem="u7f-fN-xHi" firstAttribute="top" secondItem="bBh-n3-24E" secondAttribute="bottom" constant="10" id="RIr-XW-HeL"/>
+                            <constraint firstItem="bBh-n3-24E" firstAttribute="leading" secondItem="n4I-3j-MwN" secondAttribute="leading" constant="20" id="ZvF-3Y-9Qk"/>
                             <constraint firstItem="jsi-5Q-FQe" firstAttribute="leading" secondItem="n4I-3j-MwN" secondAttribute="leading" constant="16" id="bgF-v9-NcB"/>
                             <constraint firstItem="BI4-zV-7uX" firstAttribute="top" secondItem="E4l-g3-mHz" secondAttribute="top" constant="8" id="moC-VC-xNe"/>
                             <constraint firstItem="u7f-fN-xHi" firstAttribute="centerX" secondItem="E4l-g3-mHz" secondAttribute="centerX" id="oL4-ZF-SxO"/>
                             <constraint firstItem="BI4-zV-7uX" firstAttribute="leading" secondItem="n4I-3j-MwN" secondAttribute="leading" constant="36" id="v52-gF-zcn"/>
+                            <constraint firstItem="n4I-3j-MwN" firstAttribute="trailing" secondItem="bBh-n3-24E" secondAttribute="trailing" constant="20" id="vEE-DR-Gw6"/>
                             <constraint firstItem="mqo-UN-m6L" firstAttribute="centerX" secondItem="E4l-g3-mHz" secondAttribute="centerX" id="xB0-JU-LhK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="n4I-3j-MwN"/>
@@ -162,6 +171,7 @@
                     </view>
                     <size key="freeformSize" width="414" height="707"/>
                     <connections>
+                        <outlet property="UTDLabel" destination="bBh-n3-24E" id="ZoX-5S-CzV"/>
                         <outlet property="buttonBersedia" destination="u7f-fN-xHi" id="qoA-GB-fSo"/>
                         <outlet property="tableView" destination="jsi-5Q-FQe" id="doM-hH-l0N"/>
                         <outlet property="tapRecognizer" destination="C3X-Ux-cuQ" id="ejv-Un-25E"/>
