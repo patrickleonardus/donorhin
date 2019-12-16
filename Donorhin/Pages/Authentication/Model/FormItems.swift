@@ -36,20 +36,20 @@ struct FormBuilder {
     
     func getItemsForRegister(completionHandler: @escaping (([FormItems]) -> ())){
     completionHandler(
-        [FormItems(img: "email", placeholder: "Email", textFieldType: .defaultTextField) ,
-         FormItems(img: "password", placeholder: "Kata Sandi", textFieldType: .password),
-         FormItems(img: "re-password", placeholder: "Konfirmasi Kata Sandi", textFieldType: .password)
+        [FormItems(img: "email_black", placeholder: "Email", textFieldType: .defaultTextField) ,
+         FormItems(img: "password_black", placeholder: "Kata Sandi", textFieldType: .password),
+         FormItems(img: "repassword_black", placeholder: "Konfirmasi Kata Sandi", textFieldType: .password)
         ])
     }
     
     func getItemsForRegisterDetail(completionHandler: @escaping (([FormItems]) -> ())){
     completionHandler(
-        [FormItems(img: "fullname-new", placeholder: "Nama Lengkap", textFieldType: .defaultTextField) ,
-         FormItems(img: "gender_profile", placeholder: "Jenis Kelamin", textFieldType: .picker),
-         FormItems(img: "birthday_profile", placeholder: "Tanggal Lahir", textFieldType: .datePicker),
-         FormItems(img: "bloodtype_profile", placeholder: "Golongan Darah", textFieldType: .picker) ,
-         FormItems(img: "lastdonor_profile", placeholder: "Donor Terakhir (Opsional)", textFieldType: .datePicker),
-         FormItems(img: "codeReferral", placeholder: "Kode Referral (Khusus Koordinator)", textFieldType: .defaultTextField)
+        [FormItems(img: "fullname_black", placeholder: "Nama Lengkap", textFieldType: .defaultTextField) ,
+         FormItems(img: "gender_black", placeholder: "Jenis Kelamin", textFieldType: .picker),
+         FormItems(img: "birthday_icon_black", placeholder: "Tanggal Lahir", textFieldType: .datePicker),
+         FormItems(img: "bloodtype_black", placeholder: "Golongan Darah", textFieldType: .picker) ,
+         FormItems(img: "lastdonor_black", placeholder: "Donor Terakhir (Opsional)", textFieldType: .datePicker),
+         FormItems(img: "code_referral_black", placeholder: "Kode Referral (Khusus Koordinator)", textFieldType: .defaultTextField)
         ])
     }
 }
