@@ -46,7 +46,8 @@ class SecondStepRequestViewController: DonateStepViewController{
   override func viewDidLoad() {
     super.viewDidLoad()
     generalStyling()
-    UTDLabel.text = "Unit Transfusi Darah \nSalah satu unit PMI yang melayani pendonoran darah"
+    UTDLabel.text = " UTD = Unit Transfusi Darah \nSalah satu unit PMI yang melayani pendonoran darah"
+    UTDLabel.changeFont(ofText: "UTD = Unit Transfusi Darah", with: UIFont.boldSystemFont(ofSize: 17))
   }
   
   override func recieveRequest(_ tracker: TrackerModel?) {
