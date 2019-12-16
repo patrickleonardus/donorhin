@@ -24,6 +24,7 @@ class FirstStepRequestViewController: DonateStepViewController {
     self.getDetailRequest(tracker?.idRequest)
   }
   
+	//MARK: - initiate data for send notification
   private func getDetailRequest(_ idRequest: CKRecord.Reference?) {
     guard let idRequest = idRequest else {return}
 		self.requestNotification = idRequest.recordID.recordName
@@ -91,10 +92,6 @@ class FirstStepRequestViewController: DonateStepViewController {
       alert.addAction(cancelAction)
       self.present(alert, animated: true, completion: nil)
    }
-	
-	func sendNotification() {
-		Service.sendNotification(<#T##message: String##String#>, <#T##token: [String]##[String]#>, <#T##idRequest: String##String#>, <#T##tabBarIndex: Int##Int#>)
-	}
    
    private func setupAlertDecline() {
       let alert = UIAlertController(
