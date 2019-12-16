@@ -87,7 +87,7 @@ extension FindController: UITableViewDataSource, UITableViewDelegate {
               cell?.status.textColor = Colors.green
               
               cell?.buttonCallOutlet.phoneNumber = data.phoneNumber
-              hidePlaceDateAndCall(cell: cell!, value: false)
+							hidePlaceDateAndCall(cell: cell!, value: false, status: status)
               cell?.buttonCallOutlet.setTitle("Call PMI Pendonor", for: .normal)
               cell?.buttonCallOutlet.addTarget(self, action: #selector(callButton(sender:)), for: .touchUpInside)
             }
@@ -111,7 +111,7 @@ extension FindController: UITableViewDataSource, UITableViewDelegate {
           let cell  = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? FindBloodCustomCell
           guard let data = bloodRequestHistory?[indexPath.row] else {fatalError()}
           
-          hidePlaceDateAndCall(cell: cell!, value: false)
+					hidePlaceDateAndCall(cell: cell!, value: false, status :StepsEnum.received_6)
           cell?.buttonCallOutlet.isHidden = true
           cell?.title.text = "Pendonor \(indexPath.row + 1)"
           cell?.address.text = data.donorHospitalName
@@ -135,14 +135,16 @@ extension FindController: UITableViewDataSource, UITableViewDelegate {
     
     cell.status.text = Steps.checkStep(status)
     cell.status.textColor = Colors.green
-    hidePlaceDateAndCall(cell: cell, value: true)
+		hidePlaceDateAndCall(cell: cell, value: true,status: status)
   }
   
-  func hidePlaceDateAndCall(cell: FindBloodCustomCell,value: Bool) {
+	func hidePlaceDateAndCall(cell: FindBloodCustomCell,value: Bool, status:Int) {
     cell.addressSV.isHidden = value
-    cell.iconChevron.isHidden = value
     cell.buttonCallOutlet.isHidden = value
-    cell.isUserInteractionEnabled = !value
+		if status == 0 {
+			cell.iconChevron.isHidden = value
+			cell.isUserInteractionEnabled = !value
+		}
     cell.dateSV.isHidden = value
   }
   

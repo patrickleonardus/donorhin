@@ -361,7 +361,7 @@ class FindController: UIViewController {
           //donor have filled their donor details (donor date and donor hospital)
           if let idUTDPendonor = tracker.idUTDPendonor {
             group.enter()
-            self.getHospitalBy(hospitalID: idUTDPendonor.recordID) { (donorUTD) in
+						self.getHospitalBy(hospitalID: idUTDPendonor.recordID) { (donorUTD) in
               guard let donorUTD = donorUTD else {
                 fatalError("Unvalid hospital. It should have name")
               }
@@ -403,9 +403,9 @@ class FindController: UIViewController {
     }
   }
   
-  func getHospitalBy( hospitalID : CKRecord.ID, _ completionHandler: @escaping ((UTDModel?) -> Void) ) {
+	func getHospitalBy( hospitalID : CKRecord.ID, _ completionHandler: @escaping ((UTDModel?) -> Void) ) {
     DispatchQueue.main.async {
-      Helper.getDataByID(hospitalID) { (record) in
+			Helper.getDataByID(hospitalID) { (record) in
         guard let record = record else {
           completionHandler(nil)
           return
