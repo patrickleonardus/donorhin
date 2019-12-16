@@ -87,6 +87,16 @@ class RegisterDetailController : UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToHome"{
+            if let destination = segue.destination as? MainViewController {
+                if rootViewController != nil{
+                destination.rootViewController = self.rootViewController
+                }
+            }
+        }
+    }
+    
     func checkLocation(){
         locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {

@@ -475,6 +475,12 @@ class FindController: UIViewController {
       
     }
     
+    else if segue.identifier == "MoveToLogin"{
+        if let navigationController = segue.destination as? UINavigationController {
+            let childViewController = navigationController.topViewController as? LoginController
+            childViewController?.rootViewController = self
+        }
+    }
   }
   
   

@@ -12,6 +12,8 @@ class MainViewController: UITabBarController {
   
   var barSelected: Int?
   var tracker: TrackerModel?
+  var rootViewController : UIViewController?
+    
   override func viewDidLoad() {
       super.viewDidLoad()
 
@@ -29,4 +31,24 @@ class MainViewController: UITabBarController {
       }
     }
   }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if rootViewController is FindController {
+            guard let navigationController = self.viewControllers?[0] as? UINavigationController ,
+            let findViewController = navigationController.topViewController as? FindController else { return }
+            navigationController.pushViewController(findViewController, animated: true)
+        }
+        else if rootViewController is DonateController {
+            guard let navigationController = self.viewControllers?[1] as? UINavigationController ,
+            let donateViewController = navigationController.topViewController as? DonateController else { return }
+            navigationController.pushViewController(donateViewController, animated: true)
+        }
+        else if rootViewController is DiscoverController {
+            guard let navigationController = self.viewControllers?[2] as? UINavigationController ,
+            let discoverViewController = navigationController.topViewController as? DiscoverController else { return }
+            navigationController.pushViewController(discoverViewController, animated: true)
+        }
+    }
 }

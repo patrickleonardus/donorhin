@@ -186,6 +186,13 @@ class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, N
             destination.phoneEvent = phoneEvent
             destination.postedBy = postedBy
         }
+        
+        else if segue.identifier == "moveToLoginFormDiscover" {
+            if let navigationController = segue.destination as? UINavigationController {
+                let childViewController = navigationController.topViewController as? LoginController
+                childViewController?.rootViewController = self
+            }
+        }
     }
   
   @IBAction func unwindFromInformationToDonor(storyboard : UIStoryboardSegue){
