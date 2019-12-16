@@ -48,7 +48,7 @@ class SecondStepRequestViewController: DonateStepViewController{
   override func viewDidLoad() {
     super.viewDidLoad()
     generalStyling()
-    UTDLabel.text = "Unit Transfusi Darah \nSalah satu unit PMI yang melayani pendonoran darah"
+    
   }
   
   override func recieveRequest(_ tracker: TrackerModel?) {
@@ -57,6 +57,7 @@ class SecondStepRequestViewController: DonateStepViewController{
   }
   
   func generalStyling () {
+    UTDLabel.text = "UTD (Unit Transfusi Darah): Unit PMI yang melayani pendonoran darah"
     stylingTableView()
     picker.styling()
     self.tapRecognizer.isEnabled = false
