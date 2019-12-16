@@ -326,12 +326,12 @@ extension DonateController: UITableViewDelegate, UITableViewDataSource {
       
       let data = listRequestCurrent[indexPath.row]
       
-      let steps = Steps.checkStep(data["current_step"]!)
+      let steps = Steps.checkStepForDonor(data["current_step"]!)
       
       cell.personImage.image = UIImage(named: "person_50")
       cell.titleLabel.text = "Permintaan donor"
       cell.subtitleLabel.text = steps
-      
+      cell.titleLabelCenterConstraint.isActive = false
     }
     
     else {
@@ -339,7 +339,7 @@ extension DonateController: UITableViewDelegate, UITableViewDataSource {
       cell.personImage.image = UIImage(named: "person_50")
       cell.titleLabel.text = "Donor ke \(indexPath.row + 1)"
       cell.subtitleLabel.text = " "
-      
+      cell.titleLabelCenterConstraint.isActive = true
     }
     
     cell.layer.backgroundColor = UIColor.white.cgColor

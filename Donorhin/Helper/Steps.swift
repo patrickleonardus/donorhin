@@ -37,4 +37,25 @@ struct Steps {
       return "Pendonor selesai mendonor"
     }
   }
+  
+  static func checkStepForDonor(_ step: Int) -> String {
+    switch step {
+    case 0:
+      return "Dicari Pendonor"
+    case 1:
+      return "Anda telah bersedia mendonor"
+    case 2:
+      return "Anda akan mendonor darah di PMI\nSilahkan lakukan konfirmasi"
+    case 3:
+      return "Anda sedang mendonor darah"
+    case 4:
+      return "Anda sudah mendonor darah"
+    case 5:
+      return "Proses donor darah sudah selesai"
+    case 6:
+      return "Anda telah selesai mendonor"
+    default:
+      return "Anda telah selesai mendonor"
+    }
+  }
 }
