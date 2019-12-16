@@ -95,8 +95,17 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
         }
         else if segue.identifier == "goToHome"{
             if let destination = segue.destination as? MainViewController {
-                if rootViewController != nil{
-                destination.rootViewController = self.rootViewController
+                if rootViewController is FindController {
+                    destination.selectedIndex = 0
+                }
+                else if rootViewController is DonateController {
+                    destination.selectedIndex = 1
+                }
+                else if rootViewController is InboxController {
+                    destination.selectedIndex = 2
+                }
+                else if rootViewController is DiscoverController {
+                    destination.selectedIndex = 3
                 }
             }
         }
