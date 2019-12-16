@@ -26,7 +26,7 @@ class TrackerController : UIViewController {
 //  var bloodRequest : [BloodRequest]?
   var status : [Status]?  = []
   var navigationBarTitle: String?
-  
+	let currentUser: String = UserDefaults.standard.value(forKey: "currentUser") as! String
   
   //MARK: Override View
   override func viewDidLoad() {
