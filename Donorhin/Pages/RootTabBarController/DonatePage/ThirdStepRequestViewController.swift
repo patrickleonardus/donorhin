@@ -15,6 +15,8 @@ class ThirdStepRequestViewController: DonateStepViewController {
   @IBOutlet weak var label2: UILabel!
   @IBOutlet weak var buttonCallRecipient: UIButton!
   @IBOutlet weak var buttonCallDonor: UIButton!
+  @IBOutlet weak var confirmButton: CustomButtonRounded!
+  @IBOutlet weak var cancelButton: UIButton!
   
   var tracker: TrackerModel?
   
@@ -30,7 +32,8 @@ class ThirdStepRequestViewController: DonateStepViewController {
   let database = CKContainer.default().publicCloudDatabase
   
   var infoText1 : String {
-    guard let recUTDName = recipientHospitalName , let bloodType = UserDefaults.standard.string(forKey: "blood_type") else {return "" }
+    self.hideAllElement(false)
+    guard let recUTDName = recipientHospitalName , let bloodType = UserDefaults.standard.string(forKey: "blood_type") else {return "Sebelum Anda mendonor, anda wajib menghubungi PMI untuk menanyakan (verifikasi) kebeneran adanya kebutuhan permintaan darah" }
     return "Sebelum Anda mendonor, anda wajib menghubungi \(recUTDName) untuk menanyakan (verifikasi) kebeneran adanya kebutuhan permintaan darah \(bloodType)"
   }
   
@@ -43,7 +46,19 @@ class ThirdStepRequestViewController: DonateStepViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     generalStyling()
-    
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    hideAllElement(true)
+  }
+  
+  func hideAllElement (_ hide: Bool) {
+    self.label2.isHidden = hide
+    self.label1.isHidden = hide
+    self.buttonCallDonor.isHidden = hide
+    self.buttonCallRecipient.isHidden = hide
+    self.cancelButton.isHidden = hide
+    self.confirmButton.isHidden = hide
   }
   
   override func recieveRequest(_ tracker: TrackerModel?) {

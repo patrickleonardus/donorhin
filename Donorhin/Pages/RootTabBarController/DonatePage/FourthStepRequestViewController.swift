@@ -10,11 +10,56 @@ import UIKit
 import CloudKit
 
 class FourthStepRequestViewController: DonateStepViewController {
-	var requestNotification: String?
+  
+  @IBOutlet weak var textLabel: UILabel!
+  @IBOutlet weak var sudahDonorButton: CustomButtonRounded!
+  @IBOutlet weak var cancelButton: UIButton!
+  
+  
+  var requestNotification: String?
 	var tokenNotification: String?
 	
+  //MARK:- Setup View
   override func viewDidLoad() {
+    print ("is tracker model nil?",self.trackerModel == nil)
     super.viewDidLoad()
+    setupView()
+    self.showSpinner(onView: self.view, x: Int(UIScreen.main.bounds.width/2), y: Int(UIScreen.main.bounds.height/2))
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    self.hideAllView(true)
+  }
+  
+  func hideAllView(_ hide: Bool) {
+    self.textLabel.isHidden = hide
+    self.sudahDonorButton.isHidden = hide
+    self.cancelButton.isHidden = hide
+  }
+  
+  //MARK:- Load UTD Name
+  
+  func setupView() {
+    getUTDName { (utdName) in
+      DispatchQueue.main.async {
+        if let utdName = utdName {
+          self.textLabel.text = "Silahkan mendonorkan darah Anda di \(utdName)"
+          self.removeSpinner()
+          self.hideAllView(false)
+        }
+      }
+    }
+  }
+  func getUTDName (completionHandler : @escaping ( (String?) -> Void )){
+    guard let idUTDPendonor = self.trackerModel?.idUTDPendonor?.recordID else {completionHandler(nil);return}
+
+    Helper.getDataByID(idUTDPendonor) { (recordUTD) in
+      guard let utdModel = recordUTD?.convertUTDToUTDModel() else {
+        completionHandler(nil)
+        return
+      }
+      completionHandler(utdModel.name)
+    }
   }
 	
 	override func recieveRequest(_ tracker: TrackerModel?) {
@@ -58,6 +103,7 @@ class FourthStepRequestViewController: DonateStepViewController {
 			if let token = self.tokenNotification,
 				let idRequest = self.requestNotification {
 				Service.sendNotification("Pendonor sudah melakukan donor darah", [token], idRequest, 0)
+        
 			}
     }
     

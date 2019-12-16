@@ -276,7 +276,7 @@
 		CCBEB45C23A22CF50032FD04 /* SixthStepRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixthStepRequestViewController.swift; sourceTree = "<group>"; };
 		CCBEC20223829CBB004AC408 /* Helper + DatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Helper + DatabaseModel.swift"; sourceTree = "<group>"; };
 		CCBEC2042382DE18004AC408 /* CKRecord + Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKRecord + Converter.swift"; sourceTree = "<group>"; };
-		CCC304322385CCB80009BADC /* DonateStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateStepViewController.swift; sourceTree = "<group>"; };
+		CCC304322385CCB80009BADC /* DonateStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DonateStepViewController.swift; path = ../../../DonateStepViewController.swift; sourceTree = "<group>"; };
 		E607AAD92382FD3500214A90 /* DetailEvent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailEvent.storyboard; sourceTree = "<group>"; };
 		E607AADD2384030800214A90 /* DetailEventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventController.swift; sourceTree = "<group>"; };
 		E607AAE1238405D300214A90 /* FirstEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstEventCell.swift; sourceTree = "<group>"; };
@@ -447,7 +447,6 @@
 		098FD4712372C84600AF7EC7 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				CCC304322385CCB80009BADC /* DonateStepViewController.swift */,
 				AB7357852374309E00A6099B /* CustomSegmentedController.swift */,
 				098FD4742372C91E00AF7EC7 /* CustomButtonSubmitRounded.swift */,
 				098FD4762372C95900AF7EC7 /* CustomViewRounded.swift */,
@@ -707,6 +706,7 @@
 				CCAAE4F6237C205900BEFB44 /* FourthStepRequestViewController.swift */,
 				CCAAE4FC237C205900BEFB44 /* FifthStepRequestViewController.swift */,
 				CCBEB45C23A22CF50032FD04 /* SixthStepRequestViewController.swift */,
+				CCC304322385CCB80009BADC /* DonateStepViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
