@@ -21,6 +21,8 @@ class SecondStepRequestViewController: DonateStepViewController{
   var chosenUTD: DonatePMIModel?
   var picker = UIDatePicker()
   var tracker: TrackerModel?
+	var requestNotification: String?
+	var tokenNotification: String?
   var isFilled : Bool {
     get {
       let text1 = chosenDate
@@ -46,18 +48,37 @@ class SecondStepRequestViewController: DonateStepViewController{
   override func viewDidLoad() {
     super.viewDidLoad()
     generalStyling()
-    UTDLabel.text = "Unit Transfusi Darah \nSalah satu unit PMI yang melayani pendonoran darah"
+    
   }
   
   override func recieveRequest(_ tracker: TrackerModel?) {
     self.tracker = tracker
+		self.getDetailRequest(tracker?.idRequest)
   }
   
   func generalStyling () {
+    UTDLabel.text = "UTD (Unit Transfusi Darah): Unit PMI yang melayani pendonoran darah"
     stylingTableView()
     picker.styling()
     self.tapRecognizer.isEnabled = false
     self.buttonBersedia.isEnabled = isFilled
+  }
+	
+	//MARK: - initiate data for send notification
+	private func getDetailRequest(_ idRequest: CKRecord.Reference?) {
+    guard let idRequest = idRequest else {return}
+		self.requestNotification = idRequest.recordID.recordName
+		Helper.getDataByID(idRequest.recordID) { (records) in
+			if let record = records {
+				let userId = record.value(forKey: "userId") as! CKRecord.Reference
+				Helper.getDataByID(userId.recordID) {[weak self] (recordAccount) in
+					if let recordAccount = recordAccount {
+						let deviceToken = recordAccount.value(forKey: "device_token") as! String
+						self?.tokenNotification = deviceToken
+					}
+				}
+			}
+		}
   }
   
   //MARK:- Setting up Table View
@@ -144,6 +165,10 @@ class SecondStepRequestViewController: DonateStepViewController{
                       DispatchQueue.main.async {
                         self?.pageViewDelegate?.changeShowedView(toStep: 3,tracker: nil)
                         self?.removeSpinner()
+												if let token = self?.tokenNotification,
+													let idRequest = self?.requestNotification {
+													Service.sendNotification("Pendonor akan mendonor di \(UTD) pada tanggal \(datestr)", [token], idRequest, 0)
+												}
                       }
                     }
                   }

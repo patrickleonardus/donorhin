@@ -11,7 +11,8 @@ import CloudKit
 
 class ThirdStepRequestViewController: DonateStepViewController {
   
-  @IBOutlet weak var firstLabel: UILabel!
+  @IBOutlet weak var label1: UILabel!
+  @IBOutlet weak var label2: UILabel!
   @IBOutlet weak var buttonCallRecipient: UIButton!
   @IBOutlet weak var buttonCallDonor: UIButton!
   
@@ -24,18 +25,54 @@ class ThirdStepRequestViewController: DonateStepViewController {
   var recipientHospitalPhone : String?
   
   var idUTDRecipient : CKRecord.ID?
-  
+  var requestNotification: String?
+	var tokenNotification: String?
   let database = CKContainer.default().publicCloudDatabase
+  
+  var infoText1 : String {
+    guard let recUTDName = recipientHospitalName , let bloodType = UserDefaults.standard.string(forKey: "blood_type") else {return "" }
+    return "Sebelum Anda mendonor, anda wajib menghubungi \(recUTDName) untuk menanyakan (verifikasi) kebeneran adanya kebutuhan permintaan darah \(bloodType)"
+  }
+  
+  var infoText2 : String {
+    guard let dnrUTD = donorHospitalName else {return ""}
+    return "Informasikan \(dnrUTD) bahwa Anda akan melakukan donor darah"
+  }
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    generalStyling()
     
-    firstLabel.changeFont(ofText: "wajib", with: UIFont.boldSystemFont(ofSize: 17))
   }
   
   override func recieveRequest(_ tracker: TrackerModel?) {
     self.tracker = tracker
     getDonorUTD()
+		self.getDetailRequest(tracker?.idRequest)
+  }
+  
+  //MARK:- Styling
+  func generalStyling() {
+    label1.changeFont(ofText: "wajib", with: UIFont.boldSystemFont(ofSize: 17))
+    
+  }
+	
+	//MARK:- initiate data for send notification
+	private func getDetailRequest(_ idRequest: CKRecord.Reference?) {
+    guard let idRequest = idRequest else {return}
+		self.requestNotification = idRequest.recordID.recordName
+		Helper.getDataByID(idRequest.recordID) { (records) in
+			if let record = records {
+				let userId = record.value(forKey: "userId") as! CKRecord.Reference
+				Helper.getDataByID(userId.recordID) {[weak self] (recordAccount) in
+					if let recordAccount = recordAccount {
+						let deviceToken = recordAccount.value(forKey: "device_token") as! String
+						self?.tokenNotification = deviceToken
+					}
+				}
+			}
+		}
   }
   
   func getDonorUTD(){
@@ -125,6 +162,10 @@ class ThirdStepRequestViewController: DonateStepViewController {
     DispatchQueue.main.async {
       self.buttonCallDonor.setTitle(" \(String(describing: self.donorHospitalName!))", for: .normal)
       self.buttonCallRecipient.setTitle(" \(String(describing: self.recipientHospitalName!))", for: .normal)
+      
+      self.label1.text = self.infoText1
+      self.label2.text = self.infoText2
+      
     }
   }
   
@@ -168,6 +209,10 @@ class ThirdStepRequestViewController: DonateStepViewController {
       style: .default) { (alert) in
         //TODO: Write code to accept here
         self.pageViewDelegate?.changeShowedView(toStep: 4,tracker: nil)
+				if let token = self.tokenNotification,
+					let idRequest = self.requestNotification {
+					Service.sendNotification("Pendonor sudah melakukan verifikasi", [token], idRequest, 0)
+				}
     }
     
     let cancel = UIAlertAction(
