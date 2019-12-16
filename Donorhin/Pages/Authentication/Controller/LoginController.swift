@@ -93,6 +93,22 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
                 }
             }
         }
+        else if segue.identifier == "goToHome"{
+            if let destination = segue.destination as? MainViewController {
+                if rootViewController is FindController {
+                    destination.selectedIndex = 0
+                }
+                else if rootViewController is DonateController {
+                    destination.selectedIndex = 1
+                }
+                else if rootViewController is InboxController {
+                    destination.selectedIndex = 2
+                }
+                else if rootViewController is DiscoverController {
+                    destination.selectedIndex = 3
+                }
+            }
+        }
     }
     
     func setNavBarTitle() {
@@ -152,9 +168,6 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
                 errorCell.errorMsg.isHidden = true
                 self.navigationController?.navigationBar.isHidden = true
                 self.navigationController!.viewControllers.remove(at: 0)
-                if self.rootViewController != nil {
-                    self.navigationController?.pushViewController(self.rootViewController!, animated: true)
-                }
                 self.performSegue(withIdentifier: "goToHome", sender: self)
                 }
             }

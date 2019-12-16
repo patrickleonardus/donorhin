@@ -79,4 +79,12 @@ class InboxController: UIViewController {
     self.present(navBarOnModal, animated: true, completion: nil)
   }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "moveToLoginFormInbox" {
+            if let navigationController = segue.destination as? UINavigationController {
+                let childViewController = navigationController.topViewController as? LoginController
+                childViewController?.rootViewController = self
+            }
+        }
+    }
 }

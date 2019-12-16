@@ -12,6 +12,7 @@ class MainViewController: UITabBarController {
   
   var barSelected: Int?
   var tracker: TrackerModel?
+    
   override func viewDidLoad() {
       super.viewDidLoad()
 
@@ -21,6 +22,7 @@ class MainViewController: UITabBarController {
       if barSelected == 0 {
         guard let navigationController = self.viewControllers?[barSelected] as? UINavigationController ,
         let findViewController = navigationController.topViewController as? FindController else {return}
+				findViewController.selectedData = self.tracker
       }
       else if barSelected == 1 {
         guard let navigationController = self.viewControllers?[barSelected] as? UINavigationController ,
@@ -29,4 +31,5 @@ class MainViewController: UITabBarController {
       }
     }
   }
+    
 }
