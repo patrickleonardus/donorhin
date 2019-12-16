@@ -26,6 +26,7 @@ class FormController: UIViewController{
   var formBloodType : [FormBloodTypeModel]?
   
   var viewValidationDelegate : ControlValidationViewDelegate?
+  var refreshData : FetchRequestData?
   
   var submitBarButton : UIBarButtonItem?
   
@@ -292,23 +293,34 @@ class FormController: UIViewController{
     }
   }
   
-  func pushDataToCloudKit(){
-    self.dismiss(animated: true) {
-      self.viewValidationDelegate?.didRequestData()
-      self.saveData(
-        patientName: self.patientName!,
-        patientHospital: self.patientHospitalId!,
-        patientBloodType: self.patientBloodType!,
-        patientDueDate: self.patientDueDateCast,
-        patientBloodAmount: self.patientBloodAmountCast,
-        patientEmergency: self.patientEmergencyCast, complete: {
+  func pushDataToCloudKit(completion: @escaping () -> Void){
+    
+    self.showSpinner(onView: view.self)
+    
+    self.viewValidationDelegate?.didRequestData()
+    self.saveData(
+      patientName: self.patientName!,
+      patientHospital: self.patientHospitalId!,
+      patientBloodType: self.patientBloodType!,
+      patientDueDate: self.patientDueDateCast,
+      patientBloodAmount: self.patientBloodAmountCast,
+      patientEmergency: self.patientEmergencyCast, complete: {
+        
+        for count in 0...self.patientBloodAmountCast-1 {
+          self.createTrackerTable()
           
-          for count in 0...self.patientBloodAmountCast-1 {
-            self.createTrackerTable()
+          if count == self.patientBloodAmountCast-1 {
+            self.sendNotification("Terdapat kebutuhan kantong darah \(self.patientBloodType!) untuk tanggal \(self.patientDueDateCast.dateToString()). Apakah Anda bersedia mendonor?",self.patientBloodType!,self.recordName)
+            
+            self.removeSpinner()
+            completion()
           }
-          self.sendNotification("Terdapat kebutuhan kantong darah \(self.patientBloodType!) untuk tanggal \(self.patientDueDateCast.dateToString()). Apakah Anda bersedia mendonor?",self.patientBloodType!,self.recordName)
-      })
-    }
+          
+        }
+        
+    })
+    
+   
 
   }
   
@@ -353,7 +365,11 @@ class FormController: UIViewController{
           errorAlert(title: "Salah Tanggal", message: "Tanggal kebutuhan darah yang anda masukan sudah lewat dari tanggal sekarang, periksa kembali tanggal kebutuhan yang anda isi")
           break
         case .orderedDescending:
-          pushDataToCloudKit()
+          pushDataToCloudKit {
+            self.dismiss(animated: true, completion: {
+              self.refreshData?.fetchRequestData()
+            })
+          }
           break
         case .orderedSame :
           
@@ -361,7 +377,11 @@ class FormController: UIViewController{
             errorAlert(title: "Perhatian", message: "Jika anda membutuhkan darah untuk hari ini, anda dapat menyalakan tombol Kebutuhan Mendesak untuk dapat diprioritaskan")
           }
           else if patientEmergency == "1" {
-            pushDataToCloudKit()
+            pushDataToCloudKit {
+              self.dismiss(animated: true, completion: {
+                self.refreshData?.fetchRequestData()
+              })
+            }
           }
           break
         }

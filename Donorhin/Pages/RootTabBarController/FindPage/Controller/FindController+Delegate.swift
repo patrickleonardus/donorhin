@@ -16,6 +16,14 @@ extension FindController : ControlValidationViewDelegate {
   
 }
 
+extension FindController : FetchRequestData {
+  
+  func fetchRequestData() {
+    timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(fetchAllDataForTimer), userInfo: nil, repeats: true)
+  }
+  
+}
+
 extension FindController : MoveToLoginFromFind {
   
   func performLogin() {

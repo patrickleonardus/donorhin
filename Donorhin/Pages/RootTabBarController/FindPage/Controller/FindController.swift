@@ -39,6 +39,7 @@ class FindController: UIViewController {
   var trackerIdTrc: CKRecord.ID?
   var hospitalIdTrc: CKRecord.ID?
   var currStepTrc: Int?
+  var timer = Timer()
   
   
   //init var
@@ -193,6 +194,42 @@ class FindController: UIViewController {
           self.errorAlert(title: "Terjadi Kesalahan", msg: "Mohon periksa kembali koneksi internet anda dan coba lagi dalam beberapa saat")
           self.removeSpinner()
 //          self.freezeTabBarButton(set: false)
+        }
+      }
+    }
+  }
+  
+  @objc func fetchAllDataForTimer(){
+    if userId != nil {
+      self.showSpinner(onView: self.view)
+      dataLoader { (successStatus : Bool) in
+        
+        if successStatus {
+          print ("\nSuccess loading data with dataLoader!. Here are data details:")
+          print ("  History:",self.bloodRequestHistory as Any)
+          print ("  Current:",self.bloodRequestCurrent as Any)
+          print ("  All: ",self.bloodRequest)
+          self.checkCurrentRequestData()
+          
+          DispatchQueue.main.async {
+            self.tableView.delegate = self
+            self.tableView.dataSource = self
+            self.removeSpinner()
+            self.tableView.reloadData()
+            self.tableView.refreshControl?.endRefreshing()
+            
+            if self.bloodRequest.count > 0 {
+              self.timer.invalidate()
+            }
+            
+          }
+          //          self.freezeTabBarButton(set: false)
+        }
+        else if !successStatus {
+          self.timer.invalidate()
+          self.errorAlert(title: "Terjadi Kesalahan", msg: "Mohon periksa kembali koneksi internet anda dan coba lagi dalam beberapa saat")
+          self.removeSpinner()
+          //          self.freezeTabBarButton(set: false)
         }
       }
     }
@@ -462,6 +499,7 @@ class FindController: UIViewController {
       guard let formController = navigationController.viewControllers.first as? FormController else {return}
       
       formController.viewValidationDelegate = sender as? ControlValidationViewDelegate
+      formController.refreshData = sender as? FetchRequestData
       
     }
       // ini segue yang buat pindah ke tracker
@@ -663,4 +701,8 @@ protocol MoveToLoginFromDiscover {
 
 protocol MoveToLoginFromInbox {
   func performLogin()
+}
+
+protocol FetchRequestData {
+  func fetchRequestData()
 }

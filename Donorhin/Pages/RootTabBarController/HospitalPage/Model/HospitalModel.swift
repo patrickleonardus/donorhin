@@ -22,8 +22,8 @@ struct HospitalList {
   func getHospitalList(completionHandler: @escaping (([HospitalModel]) -> ())){
     DispatchQueue.main.async {
       var hospitalModel : [HospitalModel] = []
-      let nspredicate = NSPredicate(format: "province = %@", argumentArray: [self.currentPlace])
-      let query = CKQuery(recordType: "UTD", predicate: nspredicate)
+//      let nspredicate = NSPredicate(format: "province = %@", argumentArray: [self.currentPlace])
+      let query = CKQuery(recordType: "UTD", predicate: NSPredicate(value: true))
       Helper.getAllData(query) { (results) in
         if let results = results {
           for result in results {
