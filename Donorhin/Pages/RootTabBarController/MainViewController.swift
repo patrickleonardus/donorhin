@@ -12,6 +12,7 @@ class MainViewController: UITabBarController {
   
   var barSelected: Int?
   var tracker: TrackerModel?
+    
   override func viewDidLoad() {
       super.viewDidLoad()
 
@@ -29,4 +30,5 @@ class MainViewController: UITabBarController {
       }
     }
   }
+    
 }

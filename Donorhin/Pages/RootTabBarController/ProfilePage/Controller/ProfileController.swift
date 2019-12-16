@@ -283,8 +283,14 @@ class ProfileController: UIViewController, TextProtocol {
         UserDefaults.standard.removePersistentDomain(forName: domain)
         UserDefaults.standard.synchronize()
       
-      UserDefaults.standard.set(true, forKey: "launchedBefore")
-        performSegue(withIdentifier: "goToLogin", sender: self)
+        UserDefaults.standard.set(true, forKey: "launchedBefore")
+        
+        dismiss(animated: true) {
+          self.findDelegate?.performLogin()
+          self.donateDelegate?.performLogin()
+          self.discoverDelegate?.performLogin()
+          self.inboxDelegate?.performLogin()
+        }
     }
     
     @IBAction func loginAction(_ sender: Any) {

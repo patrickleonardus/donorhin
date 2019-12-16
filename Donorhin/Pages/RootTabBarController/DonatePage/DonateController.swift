@@ -239,6 +239,13 @@ class DonateController: UIViewController {
       
       stepVC.title = "Permintaan Darah 1"
     }
+    
+    else if segue.identifier == "moveToLoginFromDonate"{
+        if let navigationController = segue.destination as? UINavigationController {
+            let childViewController = navigationController.topViewController as? LoginController
+            childViewController?.rootViewController = self
+        }
+    }
   }
    
 }

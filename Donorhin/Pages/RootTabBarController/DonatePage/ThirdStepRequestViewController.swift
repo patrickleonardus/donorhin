@@ -11,7 +11,8 @@ import CloudKit
 
 class ThirdStepRequestViewController: DonateStepViewController {
   
-  @IBOutlet weak var firstLabel: UILabel!
+  @IBOutlet weak var label1: UILabel!
+  @IBOutlet weak var label2: UILabel!
   @IBOutlet weak var buttonCallRecipient: UIButton!
   @IBOutlet weak var buttonCallDonor: UIButton!
   
@@ -28,10 +29,21 @@ class ThirdStepRequestViewController: DonateStepViewController {
 	var tokenNotification: String?
   let database = CKContainer.default().publicCloudDatabase
   
+  var infoText1 : String {
+    guard let recUTDName = recipientHospitalName , let bloodType = UserDefaults.standard.string(forKey: "blood_type") else {return "" }
+    return "Sebelum Anda mendonor, anda wajib menghubungi \(recUTDName) untuk menanyakan (verifikasi) kebeneran adanya kebutuhan permintaan darah \(bloodType)"
+  }
+  
+  var infoText2 : String {
+    guard let dnrUTD = donorHospitalName else {return ""}
+    return "Informasikan \(dnrUTD) bahwa Anda akan melakukan donor darah"
+  }
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    generalStyling()
     
-    firstLabel.changeFont(ofText: "wajib", with: UIFont.boldSystemFont(ofSize: 17))
   }
   
   override func recieveRequest(_ tracker: TrackerModel?) {
@@ -39,8 +51,14 @@ class ThirdStepRequestViewController: DonateStepViewController {
     getDonorUTD()
 		self.getDetailRequest(tracker?.idRequest)
   }
+  
+  //MARK:- Styling
+  func generalStyling() {
+    label1.changeFont(ofText: "wajib", with: UIFont.boldSystemFont(ofSize: 17))
+    
+  }
 	
-	//MARK: - initiate data for send notification
+	//MARK:- initiate data for send notification
 	private func getDetailRequest(_ idRequest: CKRecord.Reference?) {
     guard let idRequest = idRequest else {return}
 		self.requestNotification = idRequest.recordID.recordName
@@ -144,6 +162,10 @@ class ThirdStepRequestViewController: DonateStepViewController {
     DispatchQueue.main.async {
       self.buttonCallDonor.setTitle(" \(String(describing: self.donorHospitalName!))", for: .normal)
       self.buttonCallRecipient.setTitle(" \(String(describing: self.recipientHospitalName!))", for: .normal)
+      
+      self.label1.text = self.infoText1
+      self.label2.text = self.infoText2
+      
     }
   }
   
