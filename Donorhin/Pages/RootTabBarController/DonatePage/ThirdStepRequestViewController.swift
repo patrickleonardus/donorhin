@@ -24,7 +24,8 @@ class ThirdStepRequestViewController: DonateStepViewController {
   var recipientHospitalPhone : String?
   
   var idUTDRecipient : CKRecord.ID?
-  
+  var requestNotification: String?
+	var tokenNotification: String?
   let database = CKContainer.default().publicCloudDatabase
   
   override func viewDidLoad() {
@@ -36,6 +37,24 @@ class ThirdStepRequestViewController: DonateStepViewController {
   override func recieveRequest(_ tracker: TrackerModel?) {
     self.tracker = tracker
     getDonorUTD()
+		self.getDetailRequest(tracker?.idRequest)
+  }
+	
+	//MARK: - initiate data for send notification
+	private func getDetailRequest(_ idRequest: CKRecord.Reference?) {
+    guard let idRequest = idRequest else {return}
+		self.requestNotification = idRequest.recordID.recordName
+		Helper.getDataByID(idRequest.recordID) { (records) in
+			if let record = records {
+				let userId = record.value(forKey: "userId") as! CKRecord.Reference
+				Helper.getDataByID(userId.recordID) {[weak self] (recordAccount) in
+					if let recordAccount = recordAccount {
+						let deviceToken = recordAccount.value(forKey: "device_token") as! String
+						self?.tokenNotification = deviceToken
+					}
+				}
+			}
+		}
   }
   
   func getDonorUTD(){
@@ -168,6 +187,10 @@ class ThirdStepRequestViewController: DonateStepViewController {
       style: .default) { (alert) in
         //TODO: Write code to accept here
         self.pageViewDelegate?.changeShowedView(toStep: 4,tracker: nil)
+				if let token = self.tokenNotification,
+					let idRequest = self.requestNotification {
+					Service.sendNotification("Pendonor sudah melakukan verifikasi", [token], idRequest, 0)
+				}
     }
     
     let cancel = UIAlertAction(
