@@ -154,7 +154,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
       let tabBarIndex = userInfo["tab_bar_index"] as? Int{
       let storyboard = UIStoryboard(name: "RootTabBarController", bundle: nil)
       let viewController = storyboard.instantiateViewController(withIdentifier: "rootStoryboard") as? MainViewController
-      let query = CKQuery(recordType: "Tracker", predicate: NSPredicate(format: "id_request == %@", CKRecord.ID(recordName: idRequest)))
+			let query = CKQuery(recordType: "Tracker", predicate: NSPredicate(format: "id_request == %@ AND id_pendonor == %@", CKRecord.ID(recordName: idRequest), CKRecord.ID(recordName: "0")))
       Helper.getAllData(query) {[weak self] (results) in
         if let results = results {
           if results.count > 0 {
