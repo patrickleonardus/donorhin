@@ -23,6 +23,7 @@ class SecondStepRequestViewController: DonateStepViewController{
   var tracker: TrackerModel?
 	var requestNotification: String?
 	var tokenNotification: String?
+	var currentUser: String = UserDefaults.standard.value(forKey: "currentUser") as! String
   var isFilled : Bool {
     get {
       let text1 = chosenDate
@@ -167,7 +168,7 @@ class SecondStepRequestViewController: DonateStepViewController{
                         self?.removeSpinner()
 												if let token = self?.tokenNotification,
 													let idRequest = self?.requestNotification {
-													Service.sendNotification("Pendonor akan mendonor di \(UTD) pada tanggal \(datestr)", [token], idRequest, 0)
+													Service.sendNotification("Pendonor akan mendonor di \(UTD) pada tanggal \(datestr)", [token], idRequest, 0, self!.currentUser)
 												}
                       }
                     }

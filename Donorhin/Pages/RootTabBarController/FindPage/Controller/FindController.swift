@@ -29,7 +29,7 @@ class FindController: UIViewController {
   
   var bloodRequestHistory: [Donor]? //Contains history finding data
   var bloodRequestCurrent: [Donor?]? //Contains current finding data
-  
+	var selectedData: TrackerModel? //variabel penampung dari notifikasi
   
   var requestDelegate : ControlValidationViewDelegate?
   
@@ -60,6 +60,9 @@ class FindController: UIViewController {
     self.registerForNotification()
     setupUI()
     configureRefreshControl()
+		if let _ = self.selectedData {
+			self.performSegue(withIdentifier: "moveToTracker", sender: self)
+		}
     fetchAllData()
     
     //mau hilangin tab bar inbox
@@ -466,13 +469,22 @@ class FindController: UIViewController {
       
       let destination = segue.destination as! TrackerController
       destination.navigationBarTitle =  navBarTitle
-      destination.input = SearchTrackerInput(
-        idRequest: requestIdTrc!,
-        idTracker: trackerIdTrc!,
-        patientUtdId: hospitalIdTrc!,
-        step: currStepTrc!
-      )
-      
+			if let selectedData = self.selectedData {
+				destination.input = SearchTrackerInput(
+					idRequest: selectedData.idRequest.recordID,
+					idTracker: selectedData.idTracker,
+					patientUtdId: selectedData.idUTDPendonor!.recordID,
+					step: selectedData.currentStep
+				)
+			}
+			else {
+				destination.input = SearchTrackerInput(
+					idRequest: requestIdTrc!,
+					idTracker: trackerIdTrc!,
+					patientUtdId: hospitalIdTrc!,
+					step: currStepTrc!
+				)
+			}
     }
     
     else if segue.identifier == "MoveToLogin"{

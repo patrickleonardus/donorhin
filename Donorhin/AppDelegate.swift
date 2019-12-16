@@ -151,22 +151,34 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     let userInfo = response.notification.request.content.userInfo
     print(userInfo)
     if let idRequest = userInfo["id_request"] as? String,
+			let sender = userInfo["sender"] as? String,
       let tabBarIndex = userInfo["tab_bar_index"] as? Int{
-      let storyboard = UIStoryboard(name: "RootTabBarController", bundle: nil)
-      let viewController = storyboard.instantiateViewController(withIdentifier: "rootStoryboard") as? MainViewController
-			let query = CKQuery(recordType: "Tracker", predicate: NSPredicate(format: "id_request == %@ AND id_pendonor == %@", CKRecord.ID(recordName: idRequest), CKRecord.ID(recordName: "0")))
-      Helper.getAllData(query) {[weak self] (results) in
-        if let results = results {
-          if results.count > 0 {
-            viewController?.barSelected = tabBarIndex
-            viewController?.tracker = results.last?.convertTrackerToTrackerModel()
-            DispatchQueue.main.async {
-              self?.window?.rootViewController = viewController
-              completionHandler()
-            }
-          }
-        }
-      }
+			let storyboard = UIStoryboard(name: "RootTabBarController", bundle: nil)
+			let viewController = storyboard.instantiateViewController(withIdentifier: "rootStoryboard") as? MainViewController
+			
+			var query: CKQuery?
+			if tabBarIndex == 0 {
+				query = CKQuery(recordType: "Tracker", predicate: NSPredicate(format: "id_request == %@ AND id_pendonor == %@", CKRecord.ID(recordName: idRequest), CKRecord.ID(recordName: sender)))
+			}
+			else if tabBarIndex == 1 {
+				query = CKQuery(recordType: "Tracker", predicate: NSPredicate(format: "id_request == %@ AND id_pendonor == %@", CKRecord.ID(recordName: idRequest), CKRecord.ID(recordName: "0")))
+			}
+			guard let newQuery = query else {return}
+			Helper.getAllData(newQuery) {[weak self] (results) in
+				if let results = results {
+					if results.count > 0 {
+						viewController?.barSelected = tabBarIndex
+						viewController?.tracker = results.last?.convertTrackerToTrackerModel()
+						DispatchQueue.main.async {
+							self?.window?.rootViewController = viewController
+							completionHandler()
+						}
+					}
+					else {
+						completionHandler()
+					}
+				}
+			}
     }
   }
   

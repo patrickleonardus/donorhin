@@ -12,6 +12,7 @@ import CloudKit
 class FourthStepRequestViewController: DonateStepViewController {
 	var requestNotification: String?
 	var tokenNotification: String?
+	var currentUser = UserDefaults.standard.value(forKey: "currentUser") as! String
 	
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -57,7 +58,7 @@ class FourthStepRequestViewController: DonateStepViewController {
       self.pageViewDelegate?.changeShowedView(toStep: 5,tracker: nil)
 			if let token = self.tokenNotification,
 				let idRequest = self.requestNotification {
-				Service.sendNotification("Pendonor sudah melakukan donor darah", [token], idRequest, 0)
+				Service.sendNotification("Pendonor sudah melakukan donor darah", [token], idRequest, 0, self.currentUser)
 			}
     }
     
