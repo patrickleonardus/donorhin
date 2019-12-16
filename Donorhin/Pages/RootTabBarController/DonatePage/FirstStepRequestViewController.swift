@@ -13,12 +13,31 @@ class FirstStepRequestViewController: DonateStepViewController {
   let currentUser = UserDefaults.standard.value(forKey: "currentUser")!
   @IBOutlet weak var descriptionLabel: UILabel!
   let database = CKContainer.default().publicCloudDatabase
+	var requestNotification: String?
+	var tokenNotification: String?
   override func viewDidLoad() {
     super.viewDidLoad()
   }
 
   override func recieveRequest(_ tracker: TrackerModel?) {
     self.tracker = tracker
+    self.getDetailRequest(tracker?.idRequest)
+  }
+  
+  private func getDetailRequest(_ idRequest: CKRecord.Reference?) {
+    guard let idRequest = idRequest else {return}
+		self.requestNotification = idRequest.recordID.recordName
+		Helper.getDataByID(idRequest.recordID) { (records) in
+			if let record = records {
+				let userId = record.value(forKey: "userId") as! CKRecord.Reference
+				Helper.getDataByID(userId.recordID) {[weak self] (recordAccount) in
+					if let recordAccount = recordAccount {
+						let deviceToken = recordAccount.value(forKey: "device_token") as! String
+						self?.tokenNotification = deviceToken
+					}
+				}
+			}
+		}
   }
   
   @IBAction func buttonAcceptTapped(_ sender: UIButton) {
@@ -54,6 +73,10 @@ class FirstStepRequestViewController: DonateStepViewController {
                       DispatchQueue.main.async {
                         self?.pageViewDelegate?.changeShowedView(toStep: 2,tracker: recordSave.convertTrackerToTrackerModel())
                         self?.removeSpinner()
+												if let token = self?.tokenNotification,
+													let idRequest = self?.requestNotification {
+													Service.sendNotification("Pendonor bersedia mendonor", [token], idRequest, 0)
+												}
                       }
                     }
                   }
@@ -68,6 +91,10 @@ class FirstStepRequestViewController: DonateStepViewController {
       alert.addAction(cancelAction)
       self.present(alert, animated: true, completion: nil)
    }
+	
+	func sendNotification() {
+		Service.sendNotification(<#T##message: String##String#>, <#T##token: [String]##[String]#>, <#T##idRequest: String##String#>, <#T##tabBarIndex: Int##Int#>)
+	}
    
    private func setupAlertDecline() {
       let alert = UIAlertController(

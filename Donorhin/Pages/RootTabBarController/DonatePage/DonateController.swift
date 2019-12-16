@@ -109,7 +109,7 @@ class DonateController: UIViewController {
       }
       
       let query = CKQuery(recordType: "Tracker", predicate: nspredicate)
-      Helper.getAllData(query) { (results) in
+      Helper.getAllData(query) {(results) in
         if let results = results {
           DispatchQueue.main.async {
             self.listRequest = results
