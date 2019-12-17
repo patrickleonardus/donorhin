@@ -177,6 +177,7 @@ class FindController: UIViewController {
           print ("  History:",self.bloodRequestHistory as Any)
           print ("  Current:",self.bloodRequestCurrent as Any)
           print ("  All: ",self.bloodRequest)
+          print(self.bloodRequestHistory!.count)
           self.checkCurrentRequestData()
           
           DispatchQueue.main.async {

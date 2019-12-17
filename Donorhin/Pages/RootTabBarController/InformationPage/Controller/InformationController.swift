@@ -96,7 +96,20 @@ class InformationController : UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
       
       if self.isMovingFromParent {
-        self.performSegue(withIdentifier: "unwindToDiscover", sender: self)
+        
+        if let vcs = self.navigationController?.viewControllers {
+          let previousVC = vcs[vcs.count - 1]
+          if previousVC is DiscoverController {
+              self.performSegue(withIdentifier: "unwindToDiscover", sender: self)
+          }
+          else if previousVC is DonateStepViewController {
+            print("sebelumnya first step")
+          }
+          else if previousVC is TrackerController {
+            print("sebelumnya tracker")
+          }
+        }
+        
       }
       
       

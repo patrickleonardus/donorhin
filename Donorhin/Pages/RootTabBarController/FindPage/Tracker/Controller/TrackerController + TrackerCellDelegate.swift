@@ -50,7 +50,7 @@ extension TrackerController : TrackerCellDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! InformationController
-        destination.navigationBarTitle =  "Info Komunitas"
+        destination.navigationBarTitle =  "Info Umum"
         destination.sectionTotal = 2
     }
 }
