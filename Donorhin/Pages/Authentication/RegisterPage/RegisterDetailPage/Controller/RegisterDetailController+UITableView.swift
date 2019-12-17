@@ -116,7 +116,7 @@ extension RegisterDetailController: UIPickerViewDataSource, UIPickerViewDelegate
     if genderCell.formTextField.isFirstResponder {
       return self.gender.count
     }
-    if bloodTypeCell.formTextField.isFirstResponder {
+    else if bloodTypeCell.formTextField.isFirstResponder {
       return self.bloodType.count
     }
     return 0
@@ -130,7 +130,7 @@ extension RegisterDetailController: UIPickerViewDataSource, UIPickerViewDelegate
       genderCell.formTextField.text = self.gender[row]
       return self.gender[row]
     }
-    if bloodTypeCell.formTextField.isFirstResponder {
+    else if bloodTypeCell.formTextField.isFirstResponder {
       self.activeTextfield = bloodTypeCell.formTextField
       bloodTypeCell.formTextField.text = self.bloodType[row]
       return self.bloodType[row]
@@ -145,7 +145,7 @@ extension RegisterDetailController: UIPickerViewDataSource, UIPickerViewDelegate
       genderCell.formTextField.text = self.gender[row]
       self.detailUserCredentials["gender"] = self.gender[row]
     }
-    if bloodTypeCell.formTextField.isFirstResponder {
+    else if bloodTypeCell.formTextField.isFirstResponder {
       bloodTypeCell.formTextField.text = self.bloodType[row]
       self.detailUserCredentials["bloodType"] = self.bloodType[row]
     }
