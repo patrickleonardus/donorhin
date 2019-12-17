@@ -141,7 +141,7 @@ extension FindController: UITableViewDataSource, UITableViewDelegate {
 	func hidePlaceDateAndCall(cell: FindBloodCustomCell,value: Bool, status:Int) {
     cell.addressSV.isHidden = value
     cell.buttonCallOutlet.isHidden = value
-		if status == 0 {
+		if status <= 1 {
 			cell.iconChevron.isHidden = true
 			cell.isUserInteractionEnabled = false
     }
