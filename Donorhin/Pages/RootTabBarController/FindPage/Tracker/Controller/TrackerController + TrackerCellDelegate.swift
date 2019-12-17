@@ -22,11 +22,12 @@ extension TrackerController : TrackerCellDelegate {
 			guard let tracker = self.input else {return}
 			Helper.getDataByID(tracker.idTracker) { (record) in
 				if let record = record {
-					let idPendonor = record.value(forKey: "id_pendonor") as! CKRecord.ID
-					Helper.getDataByID(idPendonor) { (result) in
-						if let result = result {
-							let token = result.value(forKey: "device_token") as! String
-							Service.sendNotification("Resipien sudah menerima darah", [token], tracker.idRequest.recordName, 1, self.currentUser)
+					if let idPendonor = record.value(forKey: "id_pendonor") as? CKRecord.Reference {
+						Helper.getDataByID(idPendonor.recordID) { (result) in
+							if let result = result {
+								let token = result.value(forKey: "device_token") as! String
+								Service.sendNotification("Resipien sudah menerima darah", [token], tracker.idRequest.recordName, 1, self.currentUser)
+							}
 						}
 					}
 				}
