@@ -59,7 +59,6 @@ class FormController: UIViewController{
     handleLabelUI()
     handleKeyboard()
     checkmark()
-    
     FormQuestionData().getFormQuestion { (formQuestionData) in
       self.formQuestionData = formQuestionData
     }
@@ -91,7 +90,7 @@ class FormController: UIViewController{
       }
       DispatchQueue.main.asyncAfter(deadline: .now()+2) {
         guard let idRequest = self.recordName else {return}
-				Service.sendNotification(message, tokens,idRequest,1,self.currentUser) // send notification to server
+        Service.sendNotification(message, tokens,idRequest,1,self.currentUser!) // send notification to server
       }
     }
   }
