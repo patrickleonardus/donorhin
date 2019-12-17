@@ -45,6 +45,9 @@
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eFu-Dz-OJB">
                                         <rect key="frame" x="16" y="58" width="382" height="664"/>
+                                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="separatorColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="sectionIndexBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="10"/>
@@ -55,7 +58,7 @@
                                         <rect key="frame" x="0.0" y="58" width="414" height="664"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="permintaanKososngGambar" translatesAutoresizingMaskIntoConstraints="NO" id="dNC-P9-hdm">
-                                                <rect key="frame" x="51" y="30" width="312" height="196"/>
+                                                <rect key="frame" x="51" y="30" width="312.00000000000006" height="196.00000000000006"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="196" id="V1N-AK-RCK"/>
                                                     <constraint firstAttribute="width" constant="312" id="xbt-7Q-0iJ"/>

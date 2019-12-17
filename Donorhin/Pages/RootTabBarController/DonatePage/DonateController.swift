@@ -325,16 +325,12 @@ extension DonateController: UITableViewDelegate, UITableViewDataSource {
     if indexPath.section == 0 {
       
       if listRequestCurrent.count == 0 {
-        cell.noDataView.alpha = 1
-        cell.titleLabel.alpha = 0
-        cell.subtitleLabel.alpha = 0
+        cell.personImage.image = UIImage(named: "no_data")
+        cell.titleLabel.text = "Belum Ada Permintaan Darah"
+        cell.subtitleLabel.text = ""
       }
         
       else {
-        
-        cell.noDataView.alpha = 0
-        cell.titleLabel.alpha = 1
-        cell.subtitleLabel.alpha = 1
         
         let data = listRequestCurrent[indexPath.row]
         
@@ -343,22 +339,19 @@ extension DonateController: UITableViewDelegate, UITableViewDataSource {
         cell.personImage.image = UIImage(named: "person_50")
         cell.titleLabel.text = "Permintaan Darah"
         cell.subtitleLabel.text = steps
+        cell.topConstraints.isActive = false
       }
     }
     
     else {
      
       if listRequestHistory.count == 0 {
-        cell.noDataView.alpha = 1
-        cell.titleLabel.alpha = 0
-        cell.subtitleLabel.alpha = 0
+        cell.personImage.image = UIImage(named: "no_data")
+        cell.titleLabel.text = "Belum Ada Permintaan Darah"
+        cell.subtitleLabel.text = ""
       }
         
       else {
-        
-        cell.noDataView.alpha = 0
-        cell.titleLabel.alpha = 1
-        cell.subtitleLabel.alpha = 1
         
         let data = listRequestHistory[indexPath.row]
         
@@ -375,6 +368,7 @@ extension DonateController: UITableViewDelegate, UITableViewDataSource {
         cell.personImage.image = UIImage(named: "person_50")
         cell.titleLabel.text = "Permintaan Darah ke \(indexPath.row + 1)"
         cell.subtitleLabel.text = "Selesai - \(showDate)"
+        cell.topConstraints.isActive = false
         
       }
     }
@@ -382,7 +376,7 @@ extension DonateController: UITableViewDelegate, UITableViewDataSource {
     cell.layer.backgroundColor = UIColor.white.cgColor
     cell.layer.cornerRadius = 14
     
-    cell.layer.borderWidth = 5
+    cell.layer.borderWidth = 1
     cell.layer.borderColor = Colors.backgroundView.cgColor
     
     return cell
