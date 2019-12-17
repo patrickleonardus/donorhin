@@ -326,11 +326,15 @@ extension DonateController: UITableViewDelegate, UITableViewDataSource {
       
       if listRequestCurrent.count == 0 {
         cell.noDataView.alpha = 1
+        cell.titleLabel.alpha = 0
+        cell.subtitleLabel.alpha = 0
       }
         
       else {
         
         cell.noDataView.alpha = 0
+        cell.titleLabel.alpha = 1
+        cell.subtitleLabel.alpha = 1
         
         let data = listRequestCurrent[indexPath.row]
         
@@ -346,9 +350,15 @@ extension DonateController: UITableViewDelegate, UITableViewDataSource {
      
       if listRequestHistory.count == 0 {
         cell.noDataView.alpha = 1
+        cell.titleLabel.alpha = 0
+        cell.subtitleLabel.alpha = 0
       }
         
       else {
+        
+        cell.noDataView.alpha = 0
+        cell.titleLabel.alpha = 1
+        cell.subtitleLabel.alpha = 1
         
         let data = listRequestHistory[indexPath.row]
         
@@ -383,12 +393,24 @@ extension DonateController: UITableViewDelegate, UITableViewDataSource {
     
     
     if indexPath.section == 0 {
-      self.selectedData = self.listRequestCurrent[indexPath.row].convertTrackerToTrackerModel()
-      performSegue(withIdentifier: "GoToStep", sender: tableView.cellForRow(at: indexPath))
+     
+      if listRequestCurrent.count == 0 {
+        print("No Data")
+      }
+      else if listRequestCurrent.count > 0 {
+        self.selectedData = self.listRequestCurrent[indexPath.row].convertTrackerToTrackerModel()
+        performSegue(withIdentifier: "GoToStep", sender: tableView.cellForRow(at: indexPath))
+      }
     }
     else {
-      self.selectedData = self.listRequestHistory[indexPath.row].convertTrackerToTrackerModel()
-      performSegue(withIdentifier: "GoToStep", sender: tableView.cellForRow(at: indexPath))
+      
+      if listRequestHistory.count == 0 {
+        print("No Data")
+      }
+      else if listRequestHistory.count > 0 {
+        self.selectedData = self.listRequestHistory[indexPath.row].convertTrackerToTrackerModel()
+        performSegue(withIdentifier: "GoToStep", sender: tableView.cellForRow(at: indexPath))
+      }
     }
     
     

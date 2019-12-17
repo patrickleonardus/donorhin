@@ -145,7 +145,7 @@ extension FindController: UITableViewDataSource, UITableViewDelegate {
 			cell.iconChevron.isHidden = true
 			cell.isUserInteractionEnabled = false
     }
-    else {
+    else if status > 1{
       cell.iconChevron.isHidden = false
       cell.isUserInteractionEnabled = true
     }
