@@ -187,6 +187,7 @@ class FormController: UIViewController{
   @objc func showDatePicker(sender: UITextField){
     let datePickerView : UIDatePicker = UIDatePicker()
     datePickerView.datePickerMode = UIDatePicker.Mode.date
+    datePickerView.minimumDate = Date()
     sender.inputView = datePickerView
     
     datePickerView.addTarget(self, action: #selector(datePickerValueChanged(sender:)), for: .valueChanged)
