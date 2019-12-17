@@ -66,8 +66,6 @@ class FindController: UIViewController {
 		}
     fetchAllData()
     
-    //mau hilangin tab bar inbox
-    tabBarController?.viewControllers?.remove(at: 2)
   }
   
   override func viewDidAppear(_ animated: Bool) {

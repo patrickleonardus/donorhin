@@ -92,7 +92,11 @@ class ThirdStepRequestViewController: DonateStepViewController {
   }
   
   func getDonorUTD(){
-    self.showSpinner(onView: self.view)
+    
+    let centerWidth = self.view.frame.width/2
+    let centerHeight = (self.view.frame.height/2) - (self.view.frame.height/4)
+    self.showSpinner(onView: self.view, x: Int(centerWidth), y: Int(centerHeight))
+    
     guard let idUTD = tracker?.idUTDPendonor else {return}
     
     database.fetch(withRecordID: idUTD.recordID) { (records, error) in

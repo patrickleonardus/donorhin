@@ -150,7 +150,10 @@ class SecondStepRequestViewController: DonateStepViewController{
             style: .default) {[weak self] (action) in
               guard let track = self?.tracker else {return}
               guard let recordNameUTD = self?.chosenHospital?.id else {return}
-              self?.showSpinner(onView: self!.view)
+              
+              let centerWidth = self!.view.frame.width/2
+              let centerHeight = (self!.view.frame.height/2) - (self!.view.frame.height/4)
+              self!.showSpinner(onView: self!.view, x: Int(centerWidth), y: Int(centerHeight))
               
               //FIXME: Ubah record name masih di hard code
 

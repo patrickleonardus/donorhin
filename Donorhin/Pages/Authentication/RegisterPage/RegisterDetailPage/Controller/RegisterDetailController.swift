@@ -96,11 +96,8 @@ class RegisterDetailController : UIViewController, CLLocationManagerDelegate {
                 else if rootViewController is DonateController {
                     destination.selectedIndex = 1
                 }
-                else if rootViewController is InboxController {
-                    destination.selectedIndex = 2
-                }
                 else if rootViewController is DiscoverController {
-                    destination.selectedIndex = 3
+                    destination.selectedIndex = 2
                 }
             }
         }

@@ -28,7 +28,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T3q-Wk-MoI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4344" y="1078"/>
+            <point key="canvasLocation" x="4880" y="1045"/>
         </scene>
         <!--First Step Request View Controller-->
         <scene sceneID="Z4G-5w-DDh">
@@ -51,7 +51,7 @@
                                     <color key="titleColor" red="0.70196078429999997" green="0.0" blue="0.062745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="0sT-cP-Cou" kind="show" id="P85-gQ-inw"/>
+                                    <action selector="termsButtonAction:" destination="g1d-q5-ksx" eventType="touchUpInside" id="pA5-Ys-CtB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHV-jA-3qo" customClass="CustomButtonRounded" customModule="Donorhin" customModuleProvider="target">
@@ -99,6 +99,7 @@
                     <size key="freeformSize" width="414" height="707"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="MSS-o1-XUC" id="TIw-NW-4Cz"/>
+                        <segue destination="0sT-cP-Cou" kind="show" identifier="moveToInfoFromFirstStep" id="lo6-Aa-pez"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l34-Y8-cpa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -465,7 +466,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="707"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="22" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TFC-ZX-znK">
-                                        <rect key="frame" x="0.0" y="22" width="415" height="292.5"/>
+                                        <rect key="frame" x="0.0" y="22" width="415" height="294.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="request_fifth_step" translatesAutoresizingMaskIntoConstraints="NO" id="cl2-Hy-75U">
                                                 <rect key="frame" x="22" y="0.0" width="371" height="208.5"/>
@@ -474,13 +475,13 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zHZ-as-lYk">
-                                                <rect key="frame" x="22" y="214.5" width="371" height="30"/>
+                                                <rect key="frame" x="22" y="214.5" width="371" height="32.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAf-1K-kJC" customClass="CustomButtonRounded" customModule="Donorhin" customModuleProvider="target">
-                                                <rect key="frame" x="57.5" y="247.5" width="300" height="45"/>
+                                                <rect key="frame" x="57.5" y="249.5" width="300" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="300" id="5QS-4l-kLL"/>
                                                     <constraint firstAttribute="height" constant="45" id="UlM-Yx-K09"/>

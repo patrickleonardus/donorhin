@@ -48,6 +48,18 @@ class FirstStepRequestViewController: DonateStepViewController {
   @IBAction func cancelButtonTapped(_ sender: UIButton) {
     self.setupAlertDecline()
   }
+  @IBAction func termsButtonAction(_ sender: Any) {
+    performSegue(withIdentifier: "moveToInfoFromFirstStep", sender: self)
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+    if segue.identifier == "moveToInfoFromFirstStep" {
+      let destination = segue.destination as! InformationController
+      destination.navigationBarTitle = "Daftar Syarat Pendonor"
+    }
+    
+  }
    
    private func setupAlertAccept() {
       let alert = UIAlertController(
