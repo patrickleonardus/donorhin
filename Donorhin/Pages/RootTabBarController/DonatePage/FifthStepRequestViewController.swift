@@ -18,6 +18,7 @@ class FifthStepRequestViewController: DonateStepViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+		self.removeSpinner()
     self.thankyouLetter.text = thankYouLetter2
   }
   

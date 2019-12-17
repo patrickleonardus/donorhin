@@ -164,7 +164,7 @@ class SecondStepRequestViewController: DonateStepViewController{
                     }
                     if let recordSave = recordSave {
                       DispatchQueue.main.async {
-                        self?.pageViewDelegate?.changeShowedView(toStep: 3,tracker: nil)
+												self?.pageViewDelegate?.changeShowedView(toStep: 3,tracker: recordSave.convertTrackerToTrackerModel())
                         self?.removeSpinner()
 												if let token = self?.tokenNotification,
 													let idRequest = self?.requestNotification {
