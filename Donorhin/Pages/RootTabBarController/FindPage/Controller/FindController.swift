@@ -648,8 +648,16 @@ class FindController: UIViewController {
   
   // ini buat pencet segmented controller
   @IBAction func findBloodSegmentedControlDidChange() {
-    checkCurrentRequestData()
-    tableView.reloadData()
+    
+    if findBloodSegmentedControl.selectedSegmentIndex == 0 {
+      checkCurrentRequestData()
+      tableView.reloadData()
+    }
+    else {
+      checkHistoryRequestData()
+      tableView.reloadData()
+    }
+    
   }
   
   // ini buat tombol "Cari Darah"
