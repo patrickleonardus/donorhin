@@ -145,6 +145,7 @@ extension CoordinatorInfoController : UITableViewDelegate, UITableViewDataSource
         
           cell?.firstContactLabel.isHidden = false
           cell?.secondContactLabel.isHidden = true
+          cell?.secondContactButton.isHidden = true
           cell?.firstContactButton.isHidden = false
           cell?.firstContactLabel.text = "Hubungi tim donorhin melalui Instagram :"
           cell?.firstContactButton.setTitle("@donorhin.id", for: .normal)
