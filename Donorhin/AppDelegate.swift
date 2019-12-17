@@ -43,11 +43,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func checkNotification(_ launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
 		let notificationOption = launchOptions?[.remoteNotification]
-		if let notification = notificationOption as? [String: AnyObject],
-			let aps = notification["aps"] as? [String:AnyObject]{
-			if let idRequest = aps["id_request"] as? String,
-				let sender = aps["sender"] as? String,
-				let tabBarIndex = aps["tab_bar_index"] as? Int{
+		if let notification = notificationOption as? [String: AnyObject]{
+			if let idRequest = notification["id_request"] as? String,
+				let sender = notification["sender"] as? String,
+				let tabBarIndex = notification["tab_bar_index"] as? Int{
 				let storyboard = UIStoryboard(name: "RootTabBarController", bundle: nil)
 				let viewController = storyboard.instantiateViewController(withIdentifier: "rootStoryboard") as? MainViewController
 				

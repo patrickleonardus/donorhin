@@ -86,7 +86,7 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
             cell?.profileTextField.borderStyle = .none
             cell?.profileTextField.addDoneButtonOnKeyboard()
             if indexPath.row == 0 {
-                cell?.imageCell.image = UIImage(named: "gender_profile")
+                cell?.imageCell.image = UIImage(named: "gender_black")
                 var gender : String = "Laki-Laki"
                 
                 switch UserDefaults.standard.integer(forKey: "gender"){
@@ -102,7 +102,7 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
             }
                 
             else if indexPath.row == 1 {
-                cell?.imageCell.image = UIImage(named: "birthday_profile")
+                cell?.imageCell.image = UIImage(named: "birthday_icon_black")
                 if UserDefaults.standard.object(forKey: "birth_date") == nil{
                     cell?.profileTextField.text = "-"
                 }
@@ -115,14 +115,14 @@ extension ProfileController : UITableViewDelegate, UITableViewDataSource {
             }
                 
             else if indexPath.row == 2 {
-                cell?.imageCell.image = UIImage(named: "bloodtype_profile")
+                cell?.imageCell.image = UIImage(named: "bloodtype_black")
                 cell?.profileTextField.text = UserDefaults.standard.string(forKey: "blood_type")
                 cell?.profileTextField.inputView = self.bloodTypePicker
                 cell?.profileTextField.inputAccessoryView = self.pickerToolBar
             }
                 
             else if indexPath.row == 3 {
-                cell?.imageCell.image = UIImage(named: "lastdonor_profile")
+                cell?.imageCell.image = UIImage(named: "lastdonor_black")
                 if UserDefaults.standard.object(forKey: "last_donor") == nil{
                     cell?.profileTextField.text = "-"
                     cell?.profileTextField.inputView = self.datePicker
