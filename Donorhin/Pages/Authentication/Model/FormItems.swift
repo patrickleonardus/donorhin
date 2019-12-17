@@ -29,8 +29,8 @@ enum Gender:Int {
 struct FormBuilder {
     func getItemsForLogin(completionHandler: @escaping (([FormItems]) -> ())){
         completionHandler(
-        [FormItems(img: "email", placeholder: "Email", textFieldType: .defaultTextField) ,
-         FormItems(img: "password", placeholder: "Kata Sandi", textFieldType: .password)
+        [FormItems(img: "email_black", placeholder: "Email", textFieldType: .defaultTextField) ,
+         FormItems(img: "password_black", placeholder: "Kata Sandi", textFieldType: .password)
         ])
     }
     

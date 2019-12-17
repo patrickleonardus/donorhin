@@ -267,15 +267,21 @@ class RegisterDetailController : UIViewController, CLLocationManagerDelegate {
 
 extension RegisterDetailController: UITextFieldDelegate{
   func textFieldDidBeginEditing(_ textField: UITextField) {
-    generalPicker.reloadAllComponents()
+    DispatchQueue.main.async {
+        self.generalPicker.reloadAllComponents()
+    }
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    self.view.endEditing(true)
+    DispatchQueue.main.async {
+        self.view.endEditing(true)
+    }
   }
   
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    textField.resignFirstResponder()
+    DispatchQueue.main.async {
+        textField.resignFirstResponder()
+    }
     return true
   }
 }
