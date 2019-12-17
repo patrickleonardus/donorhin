@@ -277,7 +277,7 @@ extension DonateController: UITableViewDelegate, UITableViewDataSource {
     
     if section == 0 {
       if listRequestCurrent.count == 0 {
-        numberOfSection = 0
+        numberOfSection = 1
       }
       else if listRequestCurrent.count > 0 {
         numberOfSection = listRequestCurrent.count
@@ -285,7 +285,7 @@ extension DonateController: UITableViewDelegate, UITableViewDataSource {
     }
     else {
       if listRequestHistory.count == 0 {
-        numberOfSection = 0
+        numberOfSection = 1
       }
       else if listRequestHistory.count > 0 {
         numberOfSection = listRequestHistory.count
@@ -324,32 +324,49 @@ extension DonateController: UITableViewDelegate, UITableViewDataSource {
     
     if indexPath.section == 0 {
       
-      let data = listRequestCurrent[indexPath.row]
-      
-      let steps = Steps.checkStepForDonor(data["current_step"]!)
-      
-      cell.personImage.image = UIImage(named: "person_50")
-      cell.titleLabel.text = "Permintaan Darah"
-      cell.subtitleLabel.text = steps
+      if listRequestCurrent.count == 0 {
+        cell.noDataView.alpha = 1
+      }
+        
+      else {
+        
+        cell.noDataView.alpha = 0
+        
+        let data = listRequestCurrent[indexPath.row]
+        
+        let steps = Steps.checkStepForDonor(data["current_step"]!)
+        
+        cell.personImage.image = UIImage(named: "person_50")
+        cell.titleLabel.text = "Permintaan Darah"
+        cell.subtitleLabel.text = steps
+      }
     }
     
     else {
-      
-      let data = listRequestHistory[indexPath.row]
-      
-      let rawDate = "\(String(describing: data["donor_date"]!))"
-      
-      let rawDateFormatter = DateFormatter()
-      let showDateFormatter = DateFormatter()
-      rawDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ssZZZZZ"
-      showDateFormatter.dateFormat = "dd MMMM yyyy"
-      let date = rawDateFormatter.date(from: rawDate)
-      let showDate = showDateFormatter.string(from: date!)
-      
-      
-      cell.personImage.image = UIImage(named: "person_50")
-      cell.titleLabel.text = "Permintaan Darah ke \(indexPath.row + 1)"
-      cell.subtitleLabel.text = "Selesai - \(showDate)"
+     
+      if listRequestHistory.count == 0 {
+        cell.noDataView.alpha = 1
+      }
+        
+      else {
+        
+        let data = listRequestHistory[indexPath.row]
+        
+        let rawDate = "\(String(describing: data["donor_date"]!))"
+        
+        let rawDateFormatter = DateFormatter()
+        let showDateFormatter = DateFormatter()
+        rawDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ssZZZZZ"
+        showDateFormatter.dateFormat = "dd MMMM yyyy"
+        let date = rawDateFormatter.date(from: rawDate)
+        let showDate = showDateFormatter.string(from: date!)
+        
+        
+        cell.personImage.image = UIImage(named: "person_50")
+        cell.titleLabel.text = "Permintaan Darah ke \(indexPath.row + 1)"
+        cell.subtitleLabel.text = "Selesai - \(showDate)"
+        
+      }
     }
     
     cell.layer.backgroundColor = UIColor.white.cgColor

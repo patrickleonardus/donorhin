@@ -39,6 +39,22 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YKd-AM-PhB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="90.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data sedang di-proses" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r72-R2-Xsw">
+                                <rect key="frame" x="73" y="35" width="174.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="r72-R2-Xsw" firstAttribute="centerY" secondItem="YKd-AM-PhB" secondAttribute="centerY" id="R8U-df-1nb"/>
+                            <constraint firstItem="r72-R2-Xsw" firstAttribute="centerX" secondItem="YKd-AM-PhB" secondAttribute="centerX" id="usV-ZW-fPM"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="3PZ-Gv-wrk" firstAttribute="top" secondItem="aQQ-2j-vkM" secondAttribute="bottom" constant="10" id="2RJ-VY-IdK"/>
@@ -46,13 +62,18 @@
                     <constraint firstItem="3PZ-Gv-wrk" firstAttribute="leading" secondItem="CTT-3J-9hj" secondAttribute="trailing" constant="8" id="BeY-Dp-5Pw"/>
                     <constraint firstAttribute="trailing" secondItem="aQQ-2j-vkM" secondAttribute="trailing" constant="8" id="ICp-WO-nFq"/>
                     <constraint firstAttribute="trailing" secondItem="3PZ-Gv-wrk" secondAttribute="trailing" constant="8" id="Jjl-dK-51m"/>
+                    <constraint firstItem="YKd-AM-PhB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Jsh-qg-R3Y"/>
+                    <constraint firstAttribute="trailing" secondItem="YKd-AM-PhB" secondAttribute="trailing" id="OnD-CD-SL4"/>
                     <constraint firstItem="CTT-3J-9hj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="VK1-Dl-gam"/>
+                    <constraint firstAttribute="bottom" secondItem="YKd-AM-PhB" secondAttribute="bottom" id="b0e-bX-wIH"/>
+                    <constraint firstItem="YKd-AM-PhB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="nIN-ym-u86"/>
                     <constraint firstItem="aQQ-2j-vkM" firstAttribute="leading" secondItem="CTT-3J-9hj" secondAttribute="trailing" constant="8" id="vPr-b7-wy7"/>
                     <constraint firstItem="aQQ-2j-vkM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="zl1-Tb-gTW"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="noDataView" destination="YKd-AM-PhB" id="4EW-kh-pph"/>
                 <outlet property="personImage" destination="CTT-3J-9hj" id="tPQ-oX-In9"/>
                 <outlet property="subtitleLabel" destination="3PZ-Gv-wrk" id="uMm-sO-2zW"/>
                 <outlet property="titleLabel" destination="aQQ-2j-vkM" id="dXz-fP-WfM"/>

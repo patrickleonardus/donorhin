@@ -13,11 +13,15 @@ class DonateTableViewCell: UITableViewCell {
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var subtitleLabel: UILabel!
   @IBOutlet weak var personImage: UIImageView!
+  @IBOutlet weak var noDataView: UIView!
   
   
   override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    
+    noDataView.alpha = 0
+    
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

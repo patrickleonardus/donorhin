@@ -46,8 +46,8 @@ class FormController: UIViewController{
   var patientDueDate: String?
   var patientBloodAmount: String?
   var patientEmergency: String = "0"
-  var currentPlace: String = UserDefaults.standard.value(forKey: "province") as! String
-	var currentUser: String = UserDefaults.standard.value(forKey: "currentUser") as! String
+  var currentPlace = UserDefaults.standard.string(forKey: "province")
+	var currentUser = UserDefaults.standard.string(forKey: "currentUser")
   var notification: CKRecord?
   
   //MARK: - view controller lifecycle
