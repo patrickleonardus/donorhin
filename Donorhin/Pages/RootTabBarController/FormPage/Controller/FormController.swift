@@ -367,9 +367,11 @@ class FormController: UIViewController{
           break
         case .orderedDescending:
           pushDataToCloudKit {
-            self.dismiss(animated: true, completion: {
-              self.refreshData?.fetchRequestData()
-            })
+            DispatchQueue.main.async {
+              self.dismiss(animated: true, completion: {
+                self.refreshData?.fetchRequestData()
+              })
+            }
           }
           break
         case .orderedSame :
@@ -379,9 +381,11 @@ class FormController: UIViewController{
           }
           else if patientEmergency == "1" {
             pushDataToCloudKit {
-              self.dismiss(animated: true, completion: {
-                self.refreshData?.fetchRequestData()
-              })
+              DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: {
+                  self.refreshData?.fetchRequestData()
+                })
+              }
             }
           }
           break
