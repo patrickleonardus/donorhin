@@ -146,8 +146,8 @@ extension FindController: UITableViewDataSource, UITableViewDelegate {
 			cell.isUserInteractionEnabled = !value
     }
     else {
-      cell.iconChevron.isHidden = !value
-      cell.isUserInteractionEnabled = value
+      cell.iconChevron.isHidden = false
+      cell.isUserInteractionEnabled = true
     }
     cell.dateSV.isHidden = value
   }
