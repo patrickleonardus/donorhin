@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
       UNUserNotificationCenter.current().delegate = self
-      
         // Override point for customization after application launch.
       let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
       if launchOptions == nil {
@@ -43,12 +42,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
   
   func checkNotification(_ launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-    if let options = launchOptions {
-      let storyboard = UIStoryboard(name: "RootTabBarController", bundle: nil)
-      let viewController = storyboard.instantiateViewController(withIdentifier: "rootStoryboard") as? MainViewController
-      viewController?.selectedIndex = 2
-      self.window?.rootViewController = viewController
-    }
+		let notificationOption = launchOptions?[.remoteNotification]
+		if let notification = notificationOption as? [String: AnyObject],
+			let aps = notification["aps"] as? [String:AnyObject]{
+			if let idRequest = aps["id_request"] as? String,
+				let sender = aps["sender"] as? String,
+				let tabBarIndex = aps["tab_bar_index"] as? Int{
+				let storyboard = UIStoryboard(name: "RootTabBarController", bundle: nil)
+				let viewController = storyboard.instantiateViewController(withIdentifier: "rootStoryboard") as? MainViewController
+				
+				var query: CKQuery?
+				if tabBarIndex == 0 {
+					query = CKQuery(recordType: "Tracker", predicate: NSPredicate(format: "id_request == %@ AND id_pendonor == %@", CKRecord.ID(recordName: idRequest), CKRecord.ID(recordName: sender)))
+				}
+				else if tabBarIndex == 1 {
+					query = CKQuery(recordType: "Tracker", predicate: NSPredicate(format: "id_request == %@ AND id_pendonor == %@", CKRecord.ID(recordName: idRequest), CKRecord.ID(recordName: "0")))
+				}
+				guard let newQuery = query else {return}
+				Helper.getAllData(newQuery) {[weak self] (results) in
+					if let results = results {
+						if results.count > 0 {
+							viewController?.barSelected = tabBarIndex
+							viewController?.tracker = results.last?.convertTrackerToTrackerModel()
+							DispatchQueue.main.async {
+								self?.window?.rootViewController = viewController
+							}
+						}
+					}
+				}
+			}
+		}
   }
   
   func getNotificationSettings() {
