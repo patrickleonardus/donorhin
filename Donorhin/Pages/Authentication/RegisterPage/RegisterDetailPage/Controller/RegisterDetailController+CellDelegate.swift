@@ -75,17 +75,17 @@ extension RegisterDetailController : FormCellDelegate {
         self.showSpinner(onView: self.view)
         DataFetcher().getUserDataByEmail(email: (self.userCredentials["email"]!), password: (self.userCredentials["password"]!)){ (userModel) in
             if userModel != nil {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                     print("Processing...")
                     self.checkLocation()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3){
-                        self.saveToUserDefaults(userModel: userModel)
+                    self.saveToUserDefaults(userModel: userModel)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+                      print("Data saved to user default...")
+                      if self.rootViewController != nil {
+                          self.navigationController?.pushViewController((self.rootViewController!), animated: true)
+                      }
+                      self.performSegue(withIdentifier: "goToHome", sender: self)
                     }
-                    print("Data saved to user default...")
-                    if self.rootViewController != nil {
-                        self.navigationController?.pushViewController((self.rootViewController!), animated: true)
-                    }
-                    self.performSegue(withIdentifier: "goToHome", sender: self)
                 }
             }
             else{
