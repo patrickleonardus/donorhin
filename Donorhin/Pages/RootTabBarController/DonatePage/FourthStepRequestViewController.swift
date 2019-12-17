@@ -19,6 +19,7 @@ class FourthStepRequestViewController: DonateStepViewController {
   var requestNotification: String?
 	var tokenNotification: String?
 	var currentUser = UserDefaults.standard.value(forKey: "currentUser") as! String
+	var tracker: TrackerModel?
 	
   //MARK:- Setup View
   override func viewDidLoad() {
@@ -68,6 +69,7 @@ class FourthStepRequestViewController: DonateStepViewController {
   }
 	
 	override func recieveRequest(_ tracker: TrackerModel?) {
+		self.tracker = tracker
 		self.getDetailRequest(tracker?.idRequest)
 	}
 	
@@ -104,10 +106,9 @@ class FourthStepRequestViewController: DonateStepViewController {
     
     let accept = UIAlertAction( title: "Ya", style: .default) { (action) in
       //TODO:  Write code to accept here
-      self.pageViewDelegate?.changeShowedView(toStep: 5,tracker: nil)
-			if let token = self.tokenNotification,
-				let idRequest = self.requestNotification {
-				Service.sendNotification("Pendonor sudah melakukan donor darah", [token], idRequest, 0, self.currentUser)
+			self.showSpinner(onView: self.view)
+			self.updateToDatabase {
+				self.removeSpinner()
 			}
     }
     
@@ -117,6 +118,14 @@ class FourthStepRequestViewController: DonateStepViewController {
     alert.addAction(cancel)
     self.present(alert, animated: true, completion: nil)
   }
+	
+	func updateToDatabase(completionHandler: @escaping () -> Void) {
+		self.pageViewDelegate?.changeShowedView(toStep: 5,tracker: self.tracker)
+		if let token = self.tokenNotification,
+			let idRequest = self.requestNotification {
+			Service.sendNotification("Pendonor sudah melakukan donor darah", [token], idRequest, 0, self.currentUser)
+		}
+	}
   
   private func setupAlertDecline() {
     let alert = UIAlertController(

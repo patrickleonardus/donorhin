@@ -153,7 +153,7 @@ class FindController: UIViewController {
   
   //MARK: - Notification
   private func registerForNotification() {
-    UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge]) {[weak self] (granted, err) in
+    UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound]) {[weak self] (granted, err) in
       guard granted else {return}
       self?.getNotificationSettings()
     }
