@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 extension TrackerController : TrackerCellDelegate {
    func showMoreInfo() {
@@ -18,6 +19,20 @@ extension TrackerController : TrackerCellDelegate {
   @objc func didConfirmed() {
     updateToDB {
       //TODO: Add Notif ya @idris
+			guard let tracker = self.input else {return}
+			Helper.getDataByID(tracker.idTracker) { (record) in
+				if let record = record {
+					if let idPendonor = record.value(forKey: "id_pendonor") as? CKRecord.Reference {
+						Helper.getDataByID(idPendonor.recordID) { (result) in
+							if let result = result {
+								let token = result.value(forKey: "device_token") as! String
+								Service.sendNotification("Resipien sudah menerima darah", [token], tracker.idRequest.recordName, 1, self.currentUser)
+							}
+						}
+					}
+				}
+			}
+			
     }
     self.getTrackerItems { (stepItems) in
       self.stepItems = stepItems
