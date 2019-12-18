@@ -99,12 +99,8 @@ class InformationController : UIViewController {
         
         if let vcs = self.navigationController?.viewControllers {
           let previousVC = vcs[vcs.count - 1]
-          let previous = vcs[vcs.count - 2]
           if previousVC is DiscoverController {
               self.performSegue(withIdentifier: "unwindToDiscover", sender: self)
-          }
-          else if previousVC is DonateStepViewController {
-            print("sebelumnya first step")
           }
           else if previousVC is TrackerController {
             print("sebelumnya tracker")
