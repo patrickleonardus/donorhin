@@ -51,11 +51,6 @@ class SecondStepRequestViewController: DonateStepViewController{
     generalStyling()
   }
   
-  override func recieveRequest(_ tracker: TrackerModel?) {
-    self.tracker = tracker
-		self.getDetailRequest(tracker?.idRequest)
-  }
-  
   func generalStyling () {
     UTDLabel.text = "UTD = Unit Transfusi Darah \nSalah satu unit PMI yang melayani pendonoran darah"
     UTDLabel.changeFont(ofText: "UTD = Unit Transfusi Darah", with: UIFont.boldSystemFont(ofSize: 15))
@@ -148,7 +143,7 @@ class SecondStepRequestViewController: DonateStepViewController{
           let accept = UIAlertAction(
             title: "Ya",
             style: .default) {[weak self] (action) in
-              guard let track = self?.tracker else {return}
+              guard let track = self?.trackerModel else {return}
               guard let recordNameUTD = self?.chosenHospital?.id else {return}
               
               let centerWidth = self!.view.frame.width/2
@@ -156,28 +151,20 @@ class SecondStepRequestViewController: DonateStepViewController{
               self!.showSpinner(onView: self!.view, x: Int(centerWidth), y: Int(centerHeight))
               
               //FIXME: Ubah record name masih di hard code
-
-              self?.database.fetch(withRecordID: track.idTracker, completionHandler: { [weak self] (record, error) in
-                if let record = record {
-                  record.setValue(CKRecord.Reference(recordID: recordNameUTD, action: .none), forKey: "id_UTD_pendonor")
-                  record.setValue(self?.chosenDate, forKey: "donor_date")
-                  self?.database.save(record) { (recordSave, err) in
-                    if err != nil {
-                      print ("Error while saving data", err)
-                    }
-                    if let recordSave = recordSave {
-                      DispatchQueue.main.async {
-												self?.pageViewDelegate?.changeShowedView(toStep: 3,tracker: recordSave.convertTrackerToTrackerModel())
-                        self?.removeSpinner()
-												if let token = self?.tokenNotification,
-													let idRequest = self?.requestNotification {
-													Service.sendNotification("Pendonor akan mendonor di \(UTD) pada tanggal \(datestr)", [token], idRequest, 0, self!.currentUser)
-												}
-                      }
-                    }
-                  }
-                }
-              })
+							Helper.getDataByID(track.idTracker) { (responseTracker) in
+								if let _ = responseTracker {
+									var params: [String:Any] = [:]
+									params["id_UTD_pendonor"] = CKRecord.Reference(recordID: recordNameUTD, action: .none)
+									params["donor_date"] = self?.chosenDate
+									params["current_step"] = 2
+									
+									self?.trackerModel?.currentStep = 3
+									DispatchQueue.main.async {
+										self?.pageViewDelegate?.changeShowedView(keyValuePair: params, tracker: self?.trackerModel)
+										self?.sendNotification(date: datestr, utd: UTD)
+									}
+								}
+							}
           }
           
           let cancel = UIAlertAction(
@@ -192,8 +179,15 @@ class SecondStepRequestViewController: DonateStepViewController{
         }
       }
     }
-    
   }
+	
+	//MARK: - Send Notification
+	func sendNotification(date: String, utd: String) {
+		if let token = self.tokenNotification,
+			let idRequest = self.requestNotification {
+			Service.sendNotification("Pendonor akan mendonor di \(utd) pada tanggal \(date)", [token], idRequest, 0, self.currentUser)
+		}
+	}
   
   private func setupAlertDecline() {
     let alert = UIAlertController(

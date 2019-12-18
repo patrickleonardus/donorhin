@@ -234,7 +234,6 @@ class DonateController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "GoToStep" {
       let stepVC = segue.destination as! DonateStepsViewController
-      
       stepVC.request = self.selectedData
       
       stepVC.title = "Permintaan Darah 1"

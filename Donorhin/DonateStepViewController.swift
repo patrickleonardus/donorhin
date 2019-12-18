@@ -7,13 +7,9 @@
 //
 
 import UIKit
-protocol DonateStepViewControllerDelegate {
-  func recieveRequest(_ tracker: TrackerModel?)
-}
-
-class DonateStepViewController: UIViewController, DonateStepViewControllerDelegate{
+class DonateStepViewController: UIViewController{
    
-   var pageViewDelegate :  StepViewChangingDelegate?
+	var pageViewDelegate :  StepViewChangingDelegate?
   var trackerModel : TrackerModel?
    /**
      Biar gampang pindah2 halaman
@@ -22,9 +18,5 @@ class DonateStepViewController: UIViewController, DonateStepViewControllerDelega
    override func viewDidLoad() {
       super.viewDidLoad()
    }
-  
-  func recieveRequest(_ tracker: TrackerModel?) {
-    
-  }
 }
 

@@ -30,6 +30,7 @@ class FourthStepRequestViewController: DonateStepViewController {
     let centerWidth = self.view.frame.width/2
     let centerHeight = (self.view.frame.height/2) - (self.view.frame.height/4)
     self.showSpinner(onView: self.view, x: Int(centerWidth), y: Int(centerHeight))
+		
     
   }
   
@@ -68,11 +69,6 @@ class FourthStepRequestViewController: DonateStepViewController {
     }
   }
 	
-	override func recieveRequest(_ tracker: TrackerModel?) {
-		self.tracker = tracker
-		self.getDetailRequest(tracker?.idRequest)
-	}
-	
 	//MARK: - initiate data for send notification
 	private func getDetailRequest(_ idRequest: CKRecord.Reference?) {
     guard let idRequest = idRequest else {return}
@@ -106,9 +102,17 @@ class FourthStepRequestViewController: DonateStepViewController {
     
     let accept = UIAlertAction( title: "Ya", style: .default) { (action) in
       //TODO:  Write code to accept here
-			self.showSpinner(onView: self.view)
-			self.updateToDatabase {
-				self.removeSpinner()
+			guard let track = self.trackerModel else {return}
+			Helper.getDataByID(track.idTracker) { (responseTracker) in
+				if let _ = responseTracker {
+					var params: [String:Any] = [:]
+					params["current_step"] = 4
+					self.trackerModel?.currentStep = 5
+					DispatchQueue.main.async {
+						self.pageViewDelegate?.changeShowedView(keyValuePair: params, tracker: self.trackerModel)
+						self.sendNotification()
+					}
+				}
 			}
     }
     
@@ -119,8 +123,8 @@ class FourthStepRequestViewController: DonateStepViewController {
     self.present(alert, animated: true, completion: nil)
   }
 	
-	func updateToDatabase(completionHandler: @escaping () -> Void) {
-		self.pageViewDelegate?.changeShowedView(toStep: 5,tracker: self.tracker)
+	//MARK: - Send Notification
+	func sendNotification() {
 		if let token = self.tokenNotification,
 			let idRequest = self.requestNotification {
 			Service.sendNotification("Pendonor sudah melakukan donor darah", [token], idRequest, 0, self.currentUser)

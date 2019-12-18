@@ -10,7 +10,7 @@ import UIKit
 
 //MARK: Change View Protocol
 protocol StepViewChangingDelegate {
-  func changeShowedView(toStep: Int, tracker: TrackerModel?)
+	func changeShowedView(keyValuePair package: [String:Any?], tracker: TrackerModel?)
 }
 
 //MARK: Class
@@ -57,7 +57,6 @@ class RequestStepsPageViewController: UIPageViewController {
         }
       }
       self.setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
-      firstViewController.recieveRequest(self.tracker)
       firstViewController.trackerModel = self.tracker
     }
   }
@@ -66,22 +65,23 @@ class RequestStepsPageViewController: UIPageViewController {
 //MARK:- StepViewChangingDelegate Application
 extension RequestStepsPageViewController : StepViewChangingDelegate{
   
-  func changeShowedView(toStep: Int, tracker: TrackerModel?) {
+  func changeShowedView(keyValuePair package: [String:Any?], tracker: TrackerModel?) {
+		guard let toStep = tracker?.currentStep else {return}
     if toStep < StepsEnum.received_6 {
       self.tracker = tracker
       self.tracker?.currentStep =  toStep-1
-      self.viewDidChangedDelegate?.updateStepIndicator(nextStep: toStep)
+			self.viewDidChangedDelegate?.updateStepIndicator(keyValuePair: package)
       let sb = UIStoryboard(name: "RequestStepsPageViewController", bundle: nil)
       let viewControllers = [sb.instantiateViewController(withIdentifier: "langkah\(toStep)") as! DonateStepViewController]
       self.activeVC = viewControllers.first
       self.setViewControllers(viewControllers, direction: .forward, animated: true, completion: nil)
       viewControllers.first?.pageViewDelegate = self
-      viewControllers.first?.recieveRequest(tracker)
+			viewControllers.first?.trackerModel = tracker
     }
     else {
       self.tracker = tracker
       self.tracker?.currentStep =  toStep
-      self.viewDidChangedDelegate?.updateStepIndicator(nextStep: toStep)
+			self.viewDidChangedDelegate?.updateStepIndicator(keyValuePair: package)
     }
   }
   

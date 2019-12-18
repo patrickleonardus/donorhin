@@ -14,7 +14,7 @@ protocol StepIndicatorDelegate {
    /**
     What this protocol do: Gimana biar step indicatornya ngupdate waktu di pencet button/ whatever it is.
     */
-   func updateStepIndicator(nextStep:Int)
+   func updateStepIndicator(keyValuePair package: [String:Any?])
 }
 
 //MARK: Save data to DB
@@ -63,13 +63,11 @@ class DonateStepsViewController: UIViewController {
 
 //MARK:- Step  Indicator Application
 extension DonateStepsViewController:  StepIndicatorDelegate {
-  func updateStepIndicator(nextStep: Int) {
+  func updateStepIndicator(keyValuePair package: [String:Any?]) {
     //TODO : Update data ke database disini
-    if let recordID = self.request?.idTracker {
-      let keyValue = ["current_step": nextStep-1]
-      Helper.updateToDatabase(keyValuePair: keyValue, recordID: recordID)
-      self.stepIndicator = nextStep - 1
-      self.request?.currentStep = nextStep
+    if let record = self.request {
+			Helper.updateToDatabase(keyValuePair: package, recordID: record.idTracker)
+			self.stepIndicator = record.currentStep
     }
   }
   

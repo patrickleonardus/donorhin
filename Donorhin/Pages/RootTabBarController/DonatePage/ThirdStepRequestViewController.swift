@@ -18,8 +18,6 @@ class ThirdStepRequestViewController: DonateStepViewController {
   @IBOutlet weak var confirmButton: CustomButtonRounded!
   @IBOutlet weak var cancelButton: UIButton!
   
-  var tracker: TrackerModel?
-  
   var donorHospitalName : String?
   var donorHospitalPhone : String?
   
@@ -50,6 +48,7 @@ class ThirdStepRequestViewController: DonateStepViewController {
   }
   
   override func viewWillAppear(_ animated: Bool) {
+		self.getDonorUTD()
     hideAllElement(true)
   }
   
@@ -60,12 +59,6 @@ class ThirdStepRequestViewController: DonateStepViewController {
     self.buttonCallRecipient.isHidden = hide
     self.cancelButton.isHidden = hide
     self.confirmButton.isHidden = hide
-  }
-  
-  override func recieveRequest(_ tracker: TrackerModel?) {
-    self.tracker = tracker
-    getDonorUTD()
-		self.getDetailRequest(tracker?.idRequest)
   }
   
   //MARK:- Styling
@@ -97,7 +90,7 @@ class ThirdStepRequestViewController: DonateStepViewController {
     let centerHeight = (self.view.frame.height/2) - (self.view.frame.height/4)
     self.showSpinner(onView: self.view, x: Int(centerWidth), y: Int(centerHeight))
     
-    guard let idUTD = tracker?.idUTDPendonor else {return}
+		guard let idUTD = self.trackerModel?.idUTDPendonor else {return}
     
     database.fetch(withRecordID: idUTD.recordID) { (records, error) in
       
@@ -123,7 +116,7 @@ class ThirdStepRequestViewController: DonateStepViewController {
   
   func getRequestData(){
     
-    guard let idRequest = tracker?.idRequest else {return}
+		guard let idRequest = self.trackerModel?.idRequest else {return}
     
     database.fetch(withRecordID: idRequest.recordID) { (records, error) in
       if error == nil {
@@ -223,8 +216,17 @@ class ThirdStepRequestViewController: DonateStepViewController {
       style: .default) { (alert) in
         //TODO: Write code to accept here
 				self.showSpinner(onView: self.view)
-				self.updateToDatabase {
-					self.removeSpinner()
+				guard let track = self.trackerModel else {return}
+				
+				Helper.getDataByID(track.idTracker) { (responseTracker) in
+					if let _ = responseTracker {
+						var params: [String:Any] = [:]
+						params["current_step"] = 3
+						self.trackerModel?.currentStep = 4
+						DispatchQueue.main.async {
+							self.pageViewDelegate?.changeShowedView(keyValuePair: params, tracker: self.trackerModel)
+						}
+					}
 				}
     }
 		
@@ -239,8 +241,7 @@ class ThirdStepRequestViewController: DonateStepViewController {
     self.present(alert, animated: true, completion: nil)
   }
 	
-	func updateToDatabase(completionHandler: @escaping () -> Void) {
-		self.pageViewDelegate?.changeShowedView(toStep: 4,tracker: self.tracker)
+	func updateToDatabase() {
 		if let token = self.tokenNotification,
 			let idRequest = self.requestNotification {
 			Service.sendNotification("Pendonor sudah melakukan verifikasi", [token], idRequest, 0, self.currentUser)

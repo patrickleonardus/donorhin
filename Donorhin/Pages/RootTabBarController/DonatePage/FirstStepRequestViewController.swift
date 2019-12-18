@@ -9,20 +9,13 @@
 import UIKit
 import CloudKit
 class FirstStepRequestViewController: DonateStepViewController {
-  var tracker: TrackerModel?
-  let currentUser = UserDefaults.standard.value(forKey: "currentUser")!
+	let currentUser = UserDefaults.standard.string(forKey: "currentUser")
   @IBOutlet weak var descriptionLabel: UILabel!
-  let database = CKContainer.default().publicCloudDatabase
 	var requestNotification: String?
 	var tokenNotification: String?
 	var senderTokenNotification: String?
   override func viewDidLoad() {
     super.viewDidLoad()
-  }
-
-  override func recieveRequest(_ tracker: TrackerModel?) {
-    self.tracker = tracker
-    self.getDetailRequest(tracker?.idRequest)
   }
   
 	//MARK: - initiate data for send notification
@@ -67,40 +60,28 @@ class FirstStepRequestViewController: DonateStepViewController {
          message: "Resipien akan langsung diinformasikan mengenai keputusan kesediaan Anda",
          preferredStyle: .alert
       )
-      let acceptAction = UIAlertAction(title: "Ya", style: .default) { [weak self] (action) in
-        guard let track = self?.tracker else {return}
-        let centerWidth = self!.view.frame.width/2
-        let centerHeight = (self!.view.frame.height/2) - (self!.view.frame.height/4)
-        self!.showSpinner(onView: self!.view, x: Int(centerWidth), y: Int(centerHeight))
-        let reference = CKRecord.Reference(recordID: CKRecord.ID(recordName: "0"), action: .none)
-        let idRequest = CKRecord.ID(recordName: track.idRequest.recordID.recordName)
-        let query = CKQuery(recordType: "Tracker", predicate: NSPredicate(format: "id_request == %@ AND id_pendonor == %@", idRequest,reference))
-        Helper.getAllData(query) { (results) in
-          if let results = results {
-            if results.count > 0 {
-              guard let result = results.first else {return}
-              guard let current = self!.currentUser as? String else {return}
-              self?.database.fetch(withRecordID: result.recordID, completionHandler: { [weak self] (record, error) in
-                if let record = record {
-                  record.setValue(CKRecord.Reference(recordID: CKRecord.ID(recordName: current), action: .none), forKey: "id_pendonor")
-                  record.setValue(2, forKey: "current_step")
-                  self?.database.save(record) { (recordSave, err) in
-                    if let recordSave = recordSave {
-                      DispatchQueue.main.async {
-                        self?.pageViewDelegate?.changeShowedView(toStep: 2,tracker: recordSave.convertTrackerToTrackerModel())
-                        self?.removeSpinner()
-												if let token = self?.tokenNotification,
-													let idRequest = self?.requestNotification {
-													Service.sendNotification("Pendonor bersedia mendonor", [token], idRequest, 0,self?.currentUser as! String)
-												}
-                      }
-                    }
-                  }
-                }
-              })
-            }
-          }
-        }
+      let acceptAction = UIAlertAction(title: "Ya", style: .default) { (action) in
+        guard let track = self.trackerModel,
+					let current = self.currentUser else
+				{
+					return
+				}
+        let centerWidth = self.view.frame.width/2
+        let centerHeight = (self.view.frame.height/2) - (self.view.frame.height/4)
+        self.showSpinner(onView: self.view, x: Int(centerWidth), y: Int(centerHeight))
+				
+				Helper.getDataByID(track.idTracker) { (responseTracker) in
+					if let _ = responseTracker {
+						var params: [String: Any] = [:]
+						params["id_pendonor"] = CKRecord.Reference(recordID: CKRecord.ID(recordName: current), action: .none)
+						params["current_step"] = 1
+						self.trackerModel?.idPendonor = CKRecord.Reference(recordID: CKRecord.ID(recordName: current), action: .none)
+						self.trackerModel?.currentStep = 2
+						DispatchQueue.main.async {
+							self.pageViewDelegate?.changeShowedView(keyValuePair: params, tracker: self.trackerModel)
+						}
+					}
+				}
       }
       let cancelAction = UIAlertAction(title: "Tidak", style: .cancel, handler: nil)
       alert.addAction(acceptAction)
@@ -122,4 +103,12 @@ class FirstStepRequestViewController: DonateStepViewController {
       alert.addAction(cancel)
       self.present(alert, animated: true, completion: nil)
    }
+	
+	//MARK: -  Send Notification
+	func sendNotification() {
+		if let token = self.tokenNotification,
+			let idRequest = self.requestNotification {
+			Service.sendNotification("Pendonor bersedia mendonor", [token], idRequest, 0,self.currentUser!)
+		}
+	}
 }
