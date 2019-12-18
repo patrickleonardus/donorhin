@@ -376,7 +376,7 @@ extension DonateController: UITableViewDelegate, UITableViewDataSource {
     cell.layer.backgroundColor = UIColor.white.cgColor
     cell.layer.cornerRadius = 14
     
-    cell.layer.borderWidth = 1
+    cell.layer.borderWidth = 5
     cell.layer.borderColor = Colors.backgroundView.cgColor
     
     return cell
@@ -406,10 +406,7 @@ extension DonateController: UITableViewDelegate, UITableViewDataSource {
         performSegue(withIdentifier: "GoToStep", sender: tableView.cellForRow(at: indexPath))
       }
     }
-    
-    
   }
-  
 }
 
 //extension DonateController: UITableViewDelegate, UITableViewDataSource {
