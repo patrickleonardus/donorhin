@@ -26,7 +26,7 @@ extension FindController: UITableViewDataSource, UITableViewDelegate {
       }
     } else {
       //load for history data
-      return 160
+      return 130
     }
   }
   
