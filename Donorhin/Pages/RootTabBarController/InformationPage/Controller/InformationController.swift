@@ -99,6 +99,7 @@ class InformationController : UIViewController {
         
         if let vcs = self.navigationController?.viewControllers {
           let previousVC = vcs[vcs.count - 1]
+          let previous = vcs[vcs.count - 2]
           if previousVC is DiscoverController {
               self.performSegue(withIdentifier: "unwindToDiscover", sender: self)
           }

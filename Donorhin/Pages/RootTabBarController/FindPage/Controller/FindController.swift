@@ -177,7 +177,7 @@ class FindController: UIViewController {
           print ("  History:",self.bloodRequestHistory as Any)
           print ("  Current:",self.bloodRequestCurrent as Any)
           print ("  All: ",self.bloodRequest)
-          print(self.bloodRequestHistory!.count)
+          print("Blood Req Count : ",self.bloodRequestHistory!.count)
           self.checkCurrentRequestData()
           
           DispatchQueue.main.async {
@@ -255,11 +255,11 @@ class FindController: UIViewController {
     
     group.enter()
     self.getRequestData {requestList in
+      var tmpHistory : [Donor] = []
       if let requests = requestList {
 //                print ("all request: \n \(requests)")
         for (n,request) in requests.enumerated() {
           print ("processing request \(request.idRequest.recordName); Need \(request.amount) bag of blood")
-          
           group.enter()
           self.getTrackerDataBy(requestID: request.idRequest) { (donorList) in
             if let donorList = donorList {
@@ -285,7 +285,8 @@ class FindController: UIViewController {
                 
                 //kalo udah kelar semua taro di riwayat
                 } else {
-                  self.bloodRequestHistory! = donorList
+                  tmpHistory += donorList
+                  self.bloodRequestHistory! += donorList
                 }
               }
               self.bloodRequest = donorList
@@ -302,6 +303,7 @@ class FindController: UIViewController {
             group.leave()
           }
         }
+//        self.bloodRequestHistory = tmpHistory
         success = true
         group.leave()
       } else {
