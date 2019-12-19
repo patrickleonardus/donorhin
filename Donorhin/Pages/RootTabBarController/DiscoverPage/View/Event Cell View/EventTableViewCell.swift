@@ -24,6 +24,7 @@ class EventTableViewCell: UITableViewCell{
     
     self.collectionViewDiscover.delegate = self
     self.collectionViewDiscover.dataSource = self
+    self.collectionViewDiscover.decelerationRate = UIScrollView.DecelerationRate.fast
     
     loadData()
     checkIsVerified()

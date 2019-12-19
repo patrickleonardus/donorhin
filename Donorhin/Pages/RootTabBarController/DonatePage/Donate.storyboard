@@ -177,7 +177,7 @@
                                         <color key="value" red="0.70196078429999997" green="0.0" blue="0.062745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="lineTintColor">
-                                        <color key="value" red="0.70196078429999997" green="0.0" blue="0.062745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.53979659079999998" green="0.1061993316" blue="0.1333173215" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="circleStrokeWidth">
                                         <real key="value" value="2"/>

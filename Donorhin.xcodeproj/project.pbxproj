@@ -147,6 +147,7 @@
 		E6D0748F237BEAE400CF5531 /* AddEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6D0748E237BEAE400CF5531 /* AddEvent.storyboard */; };
 		E6D07491237C05BA00CF5531 /* LabelAndTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D07490237C05BA00CF5531 /* LabelAndTextFieldCell.swift */; };
 		E6D07494237C1E1000CF5531 /* TitleModelEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D07493237C1E1000CF5531 /* TitleModelEvent.swift */; };
+		E6DD8D1923AB6DAC00FBCE91 /* SnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DD8D1823AB6DAC00FBCE91 /* SnappingLayout.swift */; };
 		E6DDAF2B237435B300D6EAD1 /* FindController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF28237435B300D6EAD1 /* FindController+ScrollView.swift */; };
 		E6DDAF312375630800D6EAD1 /* LineLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF2E2375630700D6EAD1 /* LineLayer.swift */; };
 		E6DDAF322375630800D6EAD1 /* AnnularLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDAF2F2375630800D6EAD1 /* AnnularLayer.swift */; };
@@ -333,6 +334,7 @@
 		E6D0748E237BEAE400CF5531 /* AddEvent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddEvent.storyboard; sourceTree = "<group>"; };
 		E6D07490237C05BA00CF5531 /* LabelAndTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelAndTextFieldCell.swift; sourceTree = "<group>"; };
 		E6D07493237C1E1000CF5531 /* TitleModelEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleModelEvent.swift; sourceTree = "<group>"; };
+		E6DD8D1823AB6DAC00FBCE91 /* SnappingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnappingLayout.swift; sourceTree = "<group>"; };
 		E6DDAF28237435B300D6EAD1 /* FindController+ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FindController+ScrollView.swift"; sourceTree = "<group>"; };
 		E6DDAF2E2375630700D6EAD1 /* LineLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineLayer.swift; sourceTree = "<group>"; };
 		E6DDAF2F2375630800D6EAD1 /* AnnularLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnularLayer.swift; sourceTree = "<group>"; };
@@ -668,6 +670,7 @@
 				097CFCCC238E562C0093B11E /* Date+Converter.swift */,
 				B02BFEA5238FE178000A4372 /* Cryptor.swift */,
 				E63A1D8F239AC27700809607 /* FontCustomize.swift */,
+				E6DD8D1823AB6DAC00FBCE91 /* SnappingLayout.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -1459,6 +1462,7 @@
 				E6BA6E42237B1E080017A330 /* EventListCollectionViewCell.swift in Sources */,
 				E6AC8D4B237B2A4100820100 /* FixImageOrientation.swift in Sources */,
 				E6AC8D47237B29DF00820100 /* TrackerDonorTableViewCell.swift in Sources */,
+				E6DD8D1923AB6DAC00FBCE91 /* SnappingLayout.swift in Sources */,
 				B0B1688E237D4BF9001DCE3C /* LoginController+CellDelegate.swift in Sources */,
 				E607AAF62384E22500214A90 /* HospitalModel.swift in Sources */,
 				E6FBB1BE2371947700B1B4DE /* FindController+UITableView.swift in Sources */,
