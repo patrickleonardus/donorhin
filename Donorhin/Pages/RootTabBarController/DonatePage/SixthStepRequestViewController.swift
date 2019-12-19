@@ -23,9 +23,17 @@ class SixthStepRequestViewController: DonateStepViewController {
     
   @IBAction func buttonPressed(_ sender: Any) {
     self.navigationController?.popViewController(animated: true)
-    guard let idTracker = trackerModel?.idTracker else {return}
-    let keyValue = ["current_step": StepsEnum.received_6]
-    Helper.updateToDatabase(keyValuePair: keyValue, recordID: idTracker)
+    guard let track = self.trackerModel else {return}
+		Helper.getDataByID(track.idTracker) { (responseTracker) in
+			if let _ = responseTracker {
+				var params: [String:Any] = [:]
+				params["current_step"] = 6
+				self.trackerModel?.currentStep = 7
+				DispatchQueue.main.async {
+					self.pageViewDelegate?.changeShowedView(keyValuePair: params, tracker: self.trackerModel)
+				}
+			}
+		}
   }
   
 }

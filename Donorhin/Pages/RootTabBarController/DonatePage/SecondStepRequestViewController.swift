@@ -159,6 +159,8 @@ class SecondStepRequestViewController: DonateStepViewController{
 									params["current_step"] = 2
 									
 									self?.trackerModel?.currentStep = 3
+									self?.trackerModel?.idUTDPendonor = CKRecord.Reference(recordID: recordNameUTD, action: .none)
+									self?.trackerModel?.donorDate = self?.chosenDate
 									DispatchQueue.main.async {
 										self?.pageViewDelegate?.changeShowedView(keyValuePair: params, tracker: self?.trackerModel)
 										self?.sendNotification(date: datestr, utd: UTD)
