@@ -20,6 +20,8 @@ class FindController: UIViewController {
   @IBOutlet weak var textSearching: UILabel!
   @IBOutlet weak var buttonSearching: CustomButtonRounded!
   @IBOutlet weak var topConstraint: NSLayoutConstraint!
+  @IBOutlet weak var textNoData: UILabel!
+  @IBOutlet weak var buttonFind: CustomButtonRounded!
   
   //MARK: Variables
   let cellId = "cellId"
@@ -617,12 +619,16 @@ class FindController: UIViewController {
         DispatchQueue.main.async {
           self.viewNoData.alpha = 0
           self.viewSearching.alpha = 0
+          self.buttonFind.alpha = 1
+          self.textNoData.text = "Anda belum melakukan pencarian"
         }
         
       }
       else if self.bloodRequestHistory?.count == 0 {
         DispatchQueue.main.async {
           self.viewNoData.alpha = 1
+          self.buttonFind.alpha = 0
+          self.textNoData.text = "Belum ada data riwayat"
         }
       }
     }
