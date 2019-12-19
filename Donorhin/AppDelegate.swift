@@ -14,7 +14,7 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-		let currentUser = UserDefaults.standard.string(forKey: "currentUser")!
+		let currentUser = UserDefaults.standard.string(forKey: "currentUser")
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
       UNUserNotificationCenter.current().delegate = self
         // Override point for customization after application launch.
@@ -56,7 +56,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				}
 				else if tabBarIndex == 1 {
 					if sender == "0" {
-						query = CKQuery(recordType: "Tracker", predicate: NSPredicate(format: "id_request == %@ AND id_pendonor == %@", CKRecord.ID(recordName: idRequest), CKRecord.ID(recordName: self.currentUser)))
+            if let userId = self.currentUser {
+              query = CKQuery(recordType: "Tracker", predicate: NSPredicate(format: "id_request == %@ AND id_pendonor == %@", CKRecord.ID(recordName: idRequest), CKRecord.ID(recordName: userId)))
+            }
 					} else {
 						query = CKQuery(recordType: "Tracker", predicate: NSPredicate(format: "id_request == %@ AND id_pendonor == %@", CKRecord.ID(recordName: idRequest), CKRecord.ID(recordName: "0")))
 					}
@@ -188,7 +190,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 			}
 			else if tabBarIndex == 1 {
 				if sender == "0" {
-					query = CKQuery(recordType: "Tracker", predicate: NSPredicate(format: "id_request == %@ AND id_pendonor == %@", CKRecord.ID(recordName: idRequest), CKRecord.ID(recordName: self.currentUser)))
+          if let userId = self.currentUser {
+              query = CKQuery(recordType: "Tracker", predicate: NSPredicate(format: "id_request == %@ AND id_pendonor == %@", CKRecord.ID(recordName: idRequest), CKRecord.ID(recordName: userId)))
+          }
 				} else {
 					query = CKQuery(recordType: "Tracker", predicate: NSPredicate(format: "id_request == %@ AND id_pendonor == %@", CKRecord.ID(recordName: idRequest), CKRecord.ID(recordName: "0")))
 				}
