@@ -119,9 +119,11 @@
                         <barButtonItem key="backBarButtonItem" title="Cari Darah" id="DKH-SR-vty"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="buttonFind" destination="awv-cT-Zg6" id="0Oa-yL-YV5"/>
                         <outlet property="buttonSearching" destination="GlF-nH-Ayl" id="KdG-Yr-tLG"/>
                         <outlet property="findBloodSegmentedControl" destination="CF2-4p-Gr7" id="XeO-KO-yRa"/>
                         <outlet property="tableView" destination="B93-sR-GNM" id="OZ5-fU-zcA"/>
+                        <outlet property="textNoData" destination="MvY-em-XBo" id="9Ml-GM-BuA"/>
                         <outlet property="textSearching" destination="As4-o0-lRR" id="dcZ-0t-9uX"/>
                         <outlet property="topConstraint" destination="iTd-lf-Bib" id="efS-i0-7L5"/>
                         <outlet property="viewNoData" destination="cFS-SC-sCV" id="x84-y1-cIg"/>
