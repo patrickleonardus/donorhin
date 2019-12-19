@@ -13,17 +13,18 @@ class TrackerController : UIViewController {
   
   @IBOutlet weak var trackerTableView: UITableView!
   
-  var input: SearchTrackerInput? {
+  var input: SearchTrackerInput?
+  var trackerModel : TrackerModel? {
     didSet {
-      print (input)
+      if trackerModel != nil {
+        self.input?.step = trackerModel!.currentStep
+      }
     }
   }
-  var trackerModel : TrackerModel?
   var utdDonor: UTDModel?
   var utdPatient: UTDModel?
   
   var stepItems : [StepItems]?
-//  var bloodRequest : [BloodRequest]?
   var status : [Status]?  = []
   var navigationBarTitle: String?
 	let currentUser: String = UserDefaults.standard.value(forKey: "currentUser") as! String
