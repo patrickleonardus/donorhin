@@ -14,7 +14,7 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+		let currentUser = UserDefaults.standard.string(forKey: "currentUser")!
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
       UNUserNotificationCenter.current().delegate = self
         // Override point for customization after application launch.
@@ -55,7 +55,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 					query = CKQuery(recordType: "Tracker", predicate: NSPredicate(format: "id_request == %@ AND id_pendonor == %@", CKRecord.ID(recordName: idRequest), CKRecord.ID(recordName: sender)))
 				}
 				else if tabBarIndex == 1 {
-					query = CKQuery(recordType: "Tracker", predicate: NSPredicate(format: "id_request == %@ AND id_pendonor == %@", CKRecord.ID(recordName: idRequest), CKRecord.ID(recordName: "0")))
+					if sender == "0" {
+						query = CKQuery(recordType: "Tracker", predicate: NSPredicate(format: "id_request == %@ AND id_pendonor == %@", CKRecord.ID(recordName: idRequest), CKRecord.ID(recordName: self.currentUser)))
+					} else {
+						query = CKQuery(recordType: "Tracker", predicate: NSPredicate(format: "id_request == %@ AND id_pendonor == %@", CKRecord.ID(recordName: idRequest), CKRecord.ID(recordName: "0")))
+					}
 				}
 				guard let newQuery = query else {return}
 				Helper.getAllData(newQuery) {[weak self] (results) in
@@ -183,7 +187,11 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 				query = CKQuery(recordType: "Tracker", predicate: NSPredicate(format: "id_request == %@ AND id_pendonor == %@", CKRecord.ID(recordName: idRequest), CKRecord.ID(recordName: sender)))
 			}
 			else if tabBarIndex == 1 {
-				query = CKQuery(recordType: "Tracker", predicate: NSPredicate(format: "id_request == %@ AND id_pendonor == %@", CKRecord.ID(recordName: idRequest), CKRecord.ID(recordName: "0")))
+				if sender == "0" {
+					query = CKQuery(recordType: "Tracker", predicate: NSPredicate(format: "id_request == %@ AND id_pendonor == %@", CKRecord.ID(recordName: idRequest), CKRecord.ID(recordName: self.currentUser)))
+				} else {
+					query = CKQuery(recordType: "Tracker", predicate: NSPredicate(format: "id_request == %@ AND id_pendonor == %@", CKRecord.ID(recordName: idRequest), CKRecord.ID(recordName: "0")))
+				}
 			}
 			guard let newQuery = query else {return}
 			Helper.getAllData(newQuery) {[weak self] (results) in
