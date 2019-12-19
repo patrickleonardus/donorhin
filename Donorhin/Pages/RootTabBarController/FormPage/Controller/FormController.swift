@@ -75,7 +75,7 @@ class FormController: UIViewController{
   
   //MARK: - send push notification
   func sendNotification(_ message: String,_ bloodType: String,_ idRequest: String?) {
-    let nspredicate = NSPredicate(format: "province = %@ AND blood_type = %@", argumentArray: [self.currentPlace!,bloodType])
+		let nspredicate = NSPredicate(format: "province == %@ AND blood_type == %@ AND recordName != %@", argumentArray: [self.currentPlace!,bloodType,CKRecord.ID(recordName: self.currentUser!)])
     let query = CKQuery(recordType: "Account", predicate: nspredicate)
     Helper.getAllData(query) { (results) in
       var tokens:[String] = []
