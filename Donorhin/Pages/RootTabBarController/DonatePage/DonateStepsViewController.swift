@@ -56,9 +56,6 @@ class DonateStepsViewController: UIViewController {
     }
   }
   
-  func stylingSixthStep() {
-    "Anda sudah membantu satu nyawa lagi hari ini! Terimakasih telah mendonorkan darah Anda"
-  }
 }
 
 //MARK:- Step  Indicator Application
