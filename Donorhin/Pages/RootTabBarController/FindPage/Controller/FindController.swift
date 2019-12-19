@@ -507,23 +507,25 @@ class FindController: UIViewController {
     else if segue.identifier == "moveToTracker" {
       
       let destination = segue.destination as! TrackerController
+      
       destination.navigationBarTitle =  navBarTitle
-			if let selectedData = self.selectedData {
-				destination.input = SearchTrackerInput(
-					idRequest: selectedData.idRequest.recordID,
-					idTracker: selectedData.idTracker,
-					patientUtdId: selectedData.idUTDPendonor!.recordID,
-					step: selectedData.currentStep
-				)
-			}
-			else {
-				destination.input = SearchTrackerInput(
-					idRequest: requestIdTrc!,
-					idTracker: trackerIdTrc!,
-					patientUtdId: hospitalIdTrc!,
-					step: currStepTrc!
-				)
-			}
+      if let reqID = requestIdTrc,
+         let trackerID = trackerIdTrc,
+         let hospitalID = hospitalIdTrc,
+         let curStep = currStepTrc {
+        
+        destination.input = SearchTrackerInput( idRequest: reqID, idTracker: trackerID, patientUtdId: hospitalID, step: curStep)
+        
+      } else {
+        if let selectedData = self.selectedData {
+          destination.input = SearchTrackerInput(
+            idRequest: selectedData.idRequest.recordID,
+            idTracker: selectedData.idTracker,
+            patientUtdId: selectedData.idUTDPendonor!.recordID,
+            step: selectedData.currentStep
+          )
+        }
+      }
     }
     
     else if segue.identifier == "MoveToLogin"{
