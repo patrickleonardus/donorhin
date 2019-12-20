@@ -140,6 +140,7 @@ class FourthStepRequestViewController: DonateStepViewController {
     
     let accept = UIAlertAction(title: "Ya", style: .default) { (action) in
       //TODO: write code to decline here
+			self.navigationController?.popViewController(animated: true)
     }
     
     let cancel = UIAlertAction(title: "Tidak", style: .cancel, handler: nil)

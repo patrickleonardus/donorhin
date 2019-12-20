@@ -165,6 +165,7 @@ class SecondStepRequestViewController: DonateStepViewController{
       title: "Ya",
       style: .default) { (_) in
         //TODO: Tolak request
+				self.navigationController?.popViewController(animated: true)
     }
     
     let cancel = UIAlertAction(

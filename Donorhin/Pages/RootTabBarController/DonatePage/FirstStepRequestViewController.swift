@@ -96,7 +96,7 @@ class FirstStepRequestViewController: DonateStepViewController {
          preferredStyle: .alert
       )
       let accept = UIAlertAction(title: "Ya", style: .default) { (_) in
-        self.dismiss(animated: true, completion: nil)
+				self.navigationController?.popViewController(animated: true)
       }
       let cancel = UIAlertAction(title: "Tidak", style: .cancel, handler: nil)
       alert.addAction(accept)

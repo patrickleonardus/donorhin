@@ -259,6 +259,7 @@ class ThirdStepRequestViewController: DonateStepViewController {
     title: "Ya",
     style: .default) { (action) in
       //TODO: Write code to decline here
+			self.navigationController?.popViewController(animated: true)
     }
     
     let cancel = UIAlertAction(title: "Tidak", style: .cancel, handler: nil)
