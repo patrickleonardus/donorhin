@@ -11,23 +11,25 @@ import CloudKit
 class SecondStepRequestViewController: DonateStepViewController{
   //MARK:- Variables
   @IBOutlet var tableView: UITableView!
-  @IBOutlet var tapRecognizer: UITapGestureRecognizer!
   @IBOutlet var buttonBersedia: CustomButtonRounded!
   @IBOutlet weak var UTDLabel: UILabel!
   
-  
-  
   var chosenHospital : HospitalModel?
   var chosenUTD: DonatePMIModel?
-  var picker = UIDatePicker()
   var tracker: TrackerModel?
 	var requestNotification: String?
 	var tokenNotification: String?
+  var chosenDate : Date? {
+    let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? LabelWithTextFieldTableViewCell
+    guard let date = cell?.dateList?.last else {return nil}
+    return date
+  }
+  
 	var currentUser: String = UserDefaults.standard.value(forKey: "currentUser") as! String
   var isFilled : Bool {
     get {
       let text1 = chosenDate
-      let text2 = self.tableView.cellForRow(at: IndexPath(row: 1, section: 0))?.detailTextLabel?.text
+      let text2 = chosenHospital
       if (text1 != nil && text2 != nil) {
         return true
         //TODO: Call function save to db here
@@ -36,14 +38,7 @@ class SecondStepRequestViewController: DonateStepViewController{
       }
     }
   }
-  var chosenDate : Date? {
-    didSet {
-      let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0))!
-      cell.accessoryView = .none
-      let desc = self.chosenDate?.description.prefix(10)
-      cell.detailTextLabel?.text = String(desc ?? "")
-    }
-  }
+  
   var database = CKContainer.default().publicCloudDatabase
   //MARK:- Styling View
   override func viewDidLoad() {
@@ -55,8 +50,6 @@ class SecondStepRequestViewController: DonateStepViewController{
     UTDLabel.text = "UTD = Unit Transfusi Darah \nSalah satu unit PMI yang melayani pendonoran darah"
     UTDLabel.changeFont(ofText: "UTD = Unit Transfusi Darah", with: UIFont.boldSystemFont(ofSize: 15))
     stylingTableView()
-    picker.styling()
-    self.tapRecognizer.isEnabled = false
     self.buttonBersedia.isEnabled = isFilled
   }
 	
@@ -79,6 +72,7 @@ class SecondStepRequestViewController: DonateStepViewController{
   
   //MARK:- Setting up Table View
   private func stylingTableView () {
+    self.tableView.register(UINib(nibName: "LabelWithTextFieldTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
     self.tableView.delegate = self
     self.tableView.dataSource = self
     self.tableView.isScrollEnabled = false
@@ -87,38 +81,7 @@ class SecondStepRequestViewController: DonateStepViewController{
     self.tableView.layer.cornerRadius = 10
   }
   
-  //MARK:- Setting up date picker
-  func showDatePicker () {
-    self.tapRecognizer.isEnabled = true
-    picker.datePickerMode = .date
-    picker.minimumDate = Date()
-    self.view.addSubview(picker)
-    self.constrainingDatePicker()
-    self.view.bringSubviewToFront(picker)
-    self.picker.addTarget(self, action: #selector(datePickerDidChanged), for: .valueChanged)
-  }
   
-  @objc private func datePickerDidChanged () {
-    self.chosenDate = picker.date
-    self.buttonBersedia.isEnabled = isFilled
-  }
-  
-  private func constrainingDatePicker() {
-    let safeArea = self.view.safeAreaLayoutGuide
-    picker.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      picker.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-      picker.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
-      picker.heightAnchor.constraint(equalToConstant: picker.frame.height),
-      picker.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
-    ])
-  }
-  
-  @IBAction func closeDatePicker(_ sender: Any) {
-    self.picker.removeFromSuperview()
-    self.tapRecognizer.isEnabled = false
-    self.tableView.deselectRow(at: IndexPath(row: 0, section: 0), animated: false)
-  }
   
   //MARK: - Action of pressed button
   @IBAction func buttonAcceptTapped(_ sender: UIButton) {
@@ -202,6 +165,13 @@ class SecondStepRequestViewController: DonateStepViewController{
       title: "Ya",
       style: .default) { (_) in
         //TODO: Tolak request
+				guard let track = self.trackerModel else {return}
+				
+				var params:[String:Any] = [:]
+				params["id_pendonor"] = CKRecord.ID(recordName: "0")
+				params["current_step"] = 0
+				Helper.updateToDatabase(keyValuePair: params, recordID: track.idTracker)
+				self.navigationController?.popViewController(animated: true)
     }
     
     let cancel = UIAlertAction(

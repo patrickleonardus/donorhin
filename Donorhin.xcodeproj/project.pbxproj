@@ -74,7 +74,7 @@
 		CC88A08823749D16001A982E /* FindBloodCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC88A08323749D16001A982E /* FindBloodCustomCell.swift */; };
 		CC89022E23910288004A13BC /* FindController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC89022D23910288004A13BC /* FindController.swift */; };
 		CC89CA992387F20300434812 /* RequestStepsPageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAAE4EA237C1FF700BEFB44 /* RequestStepsPageViewController.storyboard */; };
-		CC922ED62381633400044B24 /* SecondStepRVC + Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC922ED52381633400044B24 /* SecondStepRVC + Delegates.swift */; };
+		CC922ED62381633400044B24 /* SecondStepRVC + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC922ED52381633400044B24 /* SecondStepRVC + TableView.swift */; };
 		CCAAE4FD237C205900BEFB44 /* FourthStepRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAAE4F6237C205900BEFB44 /* FourthStepRequestViewController.swift */; };
 		CCAAE4FF237C205900BEFB44 /* FirstStepRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAAE4F8237C205900BEFB44 /* FirstStepRequestViewController.swift */; };
 		CCAAE500237C205900BEFB44 /* RequestStepsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAAE4F9237C205900BEFB44 /* RequestStepsPageViewController.swift */; };
@@ -85,6 +85,8 @@
 		CCBEC20323829CBB004AC408 /* Helper + DatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBEC20223829CBB004AC408 /* Helper + DatabaseModel.swift */; };
 		CCBEC2052382DE18004AC408 /* CKRecord + Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBEC2042382DE18004AC408 /* CKRecord + Converter.swift */; };
 		CCC304332385CCB80009BADC /* DonateStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC304322385CCB80009BADC /* DonateStepViewController.swift */; };
+		CCD8D1BB23AB8AF900916AD7 /* LabelWithTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD8D1B923AB8AF900916AD7 /* LabelWithTextFieldTableViewCell.swift */; };
+		CCD8D1BC23AB8AF900916AD7 /* LabelWithTextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCD8D1BA23AB8AF900916AD7 /* LabelWithTextFieldTableViewCell.xib */; };
 		E607AADA2382FD3500214A90 /* DetailEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E607AAD92382FD3500214A90 /* DetailEvent.storyboard */; };
 		E607AADE2384030800214A90 /* DetailEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E607AADD2384030800214A90 /* DetailEventController.swift */; };
 		E607AAE2238405D300214A90 /* FirstEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E607AAE1238405D300214A90 /* FirstEventCell.swift */; };
@@ -260,7 +262,7 @@
 		CC88A08123749D16001A982E /* FindBloodCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindBloodCustomCell.xib; sourceTree = "<group>"; };
 		CC88A08323749D16001A982E /* FindBloodCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindBloodCustomCell.swift; sourceTree = "<group>"; };
 		CC89022D23910288004A13BC /* FindController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindController.swift; sourceTree = "<group>"; };
-		CC922ED52381633400044B24 /* SecondStepRVC + Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecondStepRVC + Delegates.swift"; sourceTree = "<group>"; };
+		CC922ED52381633400044B24 /* SecondStepRVC + TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecondStepRVC + TableView.swift"; sourceTree = "<group>"; };
 		CCAAE4EA237C1FF700BEFB44 /* RequestStepsPageViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RequestStepsPageViewController.storyboard; sourceTree = "<group>"; };
 		CCAAE4F6237C205900BEFB44 /* FourthStepRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthStepRequestViewController.swift; sourceTree = "<group>"; };
 		CCAAE4F8237C205900BEFB44 /* FirstStepRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstStepRequestViewController.swift; sourceTree = "<group>"; };
@@ -272,6 +274,8 @@
 		CCBEC20223829CBB004AC408 /* Helper + DatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Helper + DatabaseModel.swift"; sourceTree = "<group>"; };
 		CCBEC2042382DE18004AC408 /* CKRecord + Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKRecord + Converter.swift"; sourceTree = "<group>"; };
 		CCC304322385CCB80009BADC /* DonateStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DonateStepViewController.swift; path = ../../../DonateStepViewController.swift; sourceTree = "<group>"; };
+		CCD8D1B923AB8AF900916AD7 /* LabelWithTextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithTextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		CCD8D1BA23AB8AF900916AD7 /* LabelWithTextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelWithTextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		E607AAD92382FD3500214A90 /* DetailEvent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailEvent.storyboard; sourceTree = "<group>"; };
 		E607AADD2384030800214A90 /* DetailEventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventController.swift; sourceTree = "<group>"; };
 		E607AAE1238405D300214A90 /* FirstEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstEventCell.swift; sourceTree = "<group>"; };
@@ -692,7 +696,7 @@
 				CCAAE4F9237C205900BEFB44 /* RequestStepsPageViewController.swift */,
 				CCAAE4F8237C205900BEFB44 /* FirstStepRequestViewController.swift */,
 				CCAAE4FA237C205900BEFB44 /* SecondStepRequestViewController.swift */,
-				CC922ED52381633400044B24 /* SecondStepRVC + Delegates.swift */,
+				CC922ED52381633400044B24 /* SecondStepRVC + TableView.swift */,
 				CCAAE4FB237C205900BEFB44 /* ThirdStepRequestViewController.swift */,
 				CCAAE4F6237C205900BEFB44 /* FourthStepRequestViewController.swift */,
 				CCAAE4FC237C205900BEFB44 /* FifthStepRequestViewController.swift */,
@@ -712,6 +716,8 @@
 		CCAAE4DF237C1F9200BEFB44 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CCD8D1B923AB8AF900916AD7 /* LabelWithTextFieldTableViewCell.swift */,
+				CCD8D1BA23AB8AF900916AD7 /* LabelWithTextFieldTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1298,6 +1304,7 @@
 				B0B168AC237ECE83001DCE3C /* ButtonViewCell.xib in Resources */,
 				E6FBB1A223718D8D00B1B4DE /* Authentication.storyboard in Resources */,
 				B02BFEA8239E2D61000A4372 /* CoordinatorInfo.storyboard in Resources */,
+				CCD8D1BC23AB8AF900916AD7 /* LabelWithTextFieldTableViewCell.xib in Resources */,
 				B0B16890237D6025001DCE3C /* Register.storyboard in Resources */,
 				B0B16880237D3A5F001DCE3C /* FormCustomCell.xib in Resources */,
 				E6AC8D49237B29DF00820100 /* Tracker.storyboard in Resources */,
@@ -1399,6 +1406,7 @@
 				B0FF322723829B230001C0F5 /* AgreementTableViewCell.swift in Sources */,
 				CCAAE500237C205900BEFB44 /* RequestStepsPageViewController.swift in Sources */,
 				E6BA6E3A237B1E080017A330 /* DiscoverController+UITableView.swift in Sources */,
+				CCD8D1BB23AB8AF900916AD7 /* LabelWithTextFieldTableViewCell.swift in Sources */,
 				AB498AC3237D735F006CDA7A /* Page1OnboardViewController.swift in Sources */,
 				AB498AC7237D743D006CDA7A /* Page3OnboardViewController.swift in Sources */,
 				E607AAEA2384064D00214A90 /* FifthEventCell.swift in Sources */,
@@ -1445,7 +1453,7 @@
 				E62918ED237CFC0F00E8D559 /* CheckBox.swift in Sources */,
 				E607AAF3238461CC00214A90 /* HospitalController.swift in Sources */,
 				CCAAE4FD237C205900BEFB44 /* FourthStepRequestViewController.swift in Sources */,
-				CC922ED62381633400044B24 /* SecondStepRVC + Delegates.swift in Sources */,
+				CC922ED62381633400044B24 /* SecondStepRVC + TableView.swift in Sources */,
 				CC654064238193B8005BE635 /* UIDatePicker + Styling.swift in Sources */,
 				E607AAEC23845F1800214A90 /* DetailEventController+UITableView.swift in Sources */,
 				09DC193A23754BCD004BEFB5 /* DonateModel.swift in Sources */,

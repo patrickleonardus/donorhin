@@ -259,6 +259,15 @@ class ThirdStepRequestViewController: DonateStepViewController {
     title: "Ya",
     style: .default) { (action) in
       //TODO: Write code to decline here
+			guard let track = self.trackerModel else {return}
+			
+			var params:[String:Any] = [:]
+			params["id_pendonor"] = CKRecord.ID(recordName: "0")
+			params["current_step"] = 0
+			params["id_UTD_pendonor"] = CKRecord.ID(recordName: "")
+			params["donor_date"] = ""
+			Helper.updateToDatabase(keyValuePair: params, recordID: track.idTracker)
+			self.navigationController?.popViewController(animated: true)
     }
     
     let cancel = UIAlertAction(title: "Tidak", style: .cancel, handler: nil)
