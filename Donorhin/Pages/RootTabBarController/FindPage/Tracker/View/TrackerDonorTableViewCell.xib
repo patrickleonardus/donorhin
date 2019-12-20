@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="382" height="123"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="382" height="123"/>
+                <rect key="frame" x="0.0" y="0.0" width="382" height="122.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YFd-8I-DzS" userLabel="roundedNumber">
@@ -27,9 +29,6 @@
                                     <constraint firstAttribute="width" constant="28" id="2s9-fy-nbj"/>
                                     <constraint firstAttribute="width" secondItem="zAJ-OB-HAo" secondAttribute="height" multiplier="28:29" id="fiO-eA-Hwi"/>
                                 </constraints>
-                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                </preferredSymbolConfiguration>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riH-Yp-zS1" userLabel="Number">
                                 <rect key="frame" x="23.5" y="16.5" width="15" height="29"/>
@@ -79,7 +78,7 @@
                         </constraints>
                     </view>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="UVn-l3-yXO">
-                        <rect key="frame" x="99" y="41" width="268" height="41.5"/>
+                        <rect key="frame" x="99" y="40.5" width="268" height="41.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uot-Wt-b71">
                                 <rect key="frame" x="0.0" y="0.0" width="268" height="20.5"/>
@@ -93,7 +92,6 @@
                                 <color key="tintColor" red="0.64261484150000003" green="0.1303341985" blue="0.14504945280000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title=" Button" image="Call17">
                                     <color key="titleColor" red="0.64261484150000003" green="0.1303341985" blue="0.14504945280000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                 </state>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZq-mI-z3I">
@@ -102,7 +100,6 @@
                                 <color key="tintColor" red="0.64261484150000003" green="0.1303341985" blue="0.14504945280000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title=" Button">
                                     <color key="titleColor" red="0.64261484150000003" green="0.1303341985" blue="0.14504945280000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                 </state>
                                 <connections>
                                     <action selector="buttonMoreInfoPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="rYZ-Ta-YbD"/>

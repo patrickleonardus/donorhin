@@ -126,13 +126,13 @@ class TrackerDonorTableViewCell: UITableViewCell {
    func stylingNo5(status:Status){
       self.buttonText.isHidden = true
       self.buttonMoreInfo.isHidden = false
+      redCircle.backgroundColor = Colors.red
+      active_number.text = "i"
+      number.text = "i"
+      informationText.textColor = UIColor.black
       buttonMoreInfo.setTitle("Lihat info lengkap", for: .normal)
-      if status == .toDo {
-         buttonMoreInfo.setTitleColor(Colors.gray_disabled, for: .normal)
-      } else {
-         buttonMoreInfo.setTitleColor(Colors.red, for: .normal)
-         buttonMoreInfo.isEnabled = true
-      }
+      buttonMoreInfo.setTitleColor(Colors.red, for: .normal)
+      buttonMoreInfo.isEnabled = true
    }
    
    func stylingNumber4(status:Status) {
