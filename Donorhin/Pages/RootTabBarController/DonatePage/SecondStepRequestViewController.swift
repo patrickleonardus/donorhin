@@ -165,6 +165,12 @@ class SecondStepRequestViewController: DonateStepViewController{
       title: "Ya",
       style: .default) { (_) in
         //TODO: Tolak request
+				guard let track = self.trackerModel else {return}
+				
+				var params:[String:Any] = [:]
+				params["id_pendonor"] = CKRecord.ID(recordName: "0")
+				params["current_step"] = 0
+				Helper.updateToDatabase(keyValuePair: params, recordID: track.idTracker)
 				self.navigationController?.popViewController(animated: true)
     }
     
