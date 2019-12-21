@@ -19,10 +19,10 @@ class ThirdStepRequestViewController: DonateStepViewController {
   @IBOutlet weak var cancelButton: UIButton!
   
   var donorHospitalName : String?
-  var donorHospitalPhone : String?
+  var donorHospitalPhone : [String]?
   
   var recipientHospitalName : String?
-  var recipientHospitalPhone : String?
+  var recipientHospitalPhone : [String]?
   
   var idUTDRecipient : CKRecord.ID?
   var requestNotification: String?
@@ -101,7 +101,7 @@ class ThirdStepRequestViewController: DonateStepViewController {
           guard let model = models else {fatalError()}
           
           self.donorHospitalName = model.name
-          self.donorHospitalPhone = model.phoneNumbers![0]
+          self.donorHospitalPhone = model.phoneNumbers
           self.getRequestData()
           
         }
@@ -149,7 +149,7 @@ class ThirdStepRequestViewController: DonateStepViewController {
           guard let model = models else {fatalError()}
           
           self.recipientHospitalName = model.name
-          self.recipientHospitalPhone = model.phoneNumbers![0]
+          self.recipientHospitalPhone = model.phoneNumbers
           self.removeSpinner()
           
           self.setCallButton()
@@ -187,12 +187,40 @@ class ThirdStepRequestViewController: DonateStepViewController {
   
   @objc func callDonor(){
     guard let phone  = donorHospitalPhone else {return}
-    callNumber(phoneNumber: phone)
+    
+    if phone.count > 1 {
+      let alert = UIAlertController(title: "Nomor Telepon Unit Transfusi Darah", message: "Silahkan pilih salah satu nomor telepon dibawah ini", preferredStyle: .actionSheet)
+      alert.addAction(UIAlertAction(title: "Batal", style: .cancel, handler: nil))
+      
+      for phoneNumber in 0...phone.count - 1{
+        alert.addAction(UIAlertAction(title: "✆ " + phone[phoneNumber], style: .default, handler: { (action) in
+          self.callNumber(phoneNumber: phone[phoneNumber])
+        }))
+      }
+      self.present(alert,animated: true)
+    }
+    else if phone.count == 1 {
+      callNumber(phoneNumber: phone[0])
+    }
   }
   
   @objc func callRecipient(){
     guard let phone = recipientHospitalPhone else {return}
-    callNumber(phoneNumber: phone)
+    
+    if phone.count > 1 {
+      let alert = UIAlertController(title: "Nomor Telepon Unit Transfusi Darah", message: "Silahkan pilih salah satu nomor telepon dibawah ini", preferredStyle: .actionSheet)
+      alert.addAction(UIAlertAction(title: "Batal", style: .cancel, handler: nil))
+      
+      for phoneNumber in 0...phone.count - 1{
+        alert.addAction(UIAlertAction(title: "✆ " + phone[phoneNumber], style: .default, handler: { (action) in
+          self.callNumber(phoneNumber: phone[phoneNumber])
+        }))
+      }
+      self.present(alert,animated: true)
+    }
+    else if phone.count == 1 {
+      callNumber(phoneNumber: phone[0])
+    }
   }
   
   private func callNumber(phoneNumber: String){
