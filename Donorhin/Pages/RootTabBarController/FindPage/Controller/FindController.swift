@@ -415,7 +415,7 @@ class FindController: UIViewController {
                 trackerId: tracker.idTracker,
                 donorHospitalID: idUTDPendonor.recordID,
                 donorHospitalName: donorUTD.name,
-                phoneNumber: donorUTD.phoneNumbers?[0],
+                phoneNumber: donorUTD.phoneNumbers,
                 //FIXME: Nomer HP UTD bisa lebih dari 1
                 donorDate: tracker.donorDate,
                 status: tracker.currentStep)
@@ -659,7 +659,24 @@ class FindController: UIViewController {
   // ini mau call pmi pendonor
   @objc func callButton(sender: UIButton){
     let button = (sender as! CallNumberButton)
-    callNumber(phoneNumber: button.phoneNumber!)
+    
+    if button.phoneNumber!.count > 1 {
+      
+      let alert = UIAlertController(title: "Nomor Telepon Unit Transfusi Darah", message: "Silahkan pilih salah satu nomor telepon dibawah ini", preferredStyle: .actionSheet)
+      alert.addAction(UIAlertAction(title: "Batal", style: .cancel, handler: nil))
+      
+      for phoneNumber in 0...button.phoneNumber!.count - 1 {
+        alert.addAction(UIAlertAction(title: "✆ " + button.phoneNumber![phoneNumber], style: .default, handler: { (action) in
+          self.callNumber(phoneNumber: button.phoneNumber![phoneNumber])
+        }))
+      }
+      self.present(alert,animated: true)
+    }
+    
+    else if button.phoneNumber?.count == 1{
+      callNumber(phoneNumber: button.phoneNumber![0])
+    }
+    
   }
   // ini buat pencet button profile
   @objc private func profileButton(){

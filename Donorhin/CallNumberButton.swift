@@ -9,5 +9,5 @@
 import UIKit
 
 class CallNumberButton: UIButton {
-    var phoneNumber: String?
+    var phoneNumber: [String]?
 }

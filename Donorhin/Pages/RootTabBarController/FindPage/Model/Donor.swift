@@ -14,7 +14,7 @@ struct Donor {
     var trackerId : CKRecord.ID?
     var donorHospitalID : CKRecord.ID?
     var donorHospitalName : String?
-    var phoneNumber : String?
+    var phoneNumber : [String]?
     let donorDate : Date?
     var status : Int?
 }
