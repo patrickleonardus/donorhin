@@ -115,6 +115,9 @@
 		E6291907237FCCEC00E8D559 /* FormController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6291906237FCCEC00E8D559 /* FormController+Delegate.swift */; };
 		E629190D2380593D00E8D559 /* FindController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E629190C2380593D00E8D559 /* FindController+Delegate.swift */; };
 		E629190F23805E2500E8D559 /* FormController+UIPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E629190E23805E2500E8D559 /* FormController+UIPickerView.swift */; };
+		E634153623AE6D4000704687 /* FindController+UITabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E634153523AE6D4000704687 /* FindController+UITabBar.swift */; };
+		E634153823AE6D8000704687 /* DonateController+UITabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E634153723AE6D8000704687 /* DonateController+UITabBar.swift */; };
+		E634153A23AE6DD700704687 /* DiscoverController+UITabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E634153923AE6DD700704687 /* DiscoverController+UITabBar.swift */; };
 		E63A1D782397931800809607 /* FirstTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63A1D772397931800809607 /* FirstTableViewCell.swift */; };
 		E63A1D7A2397932C00809607 /* SecondTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63A1D792397932C00809607 /* SecondTableViewCell.swift */; };
 		E63A1D7C2397CF1500809607 /* DonateController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63A1D7B2397CF1500809607 /* DonateController+Delegate.swift */; };
@@ -304,6 +307,9 @@
 		E6291906237FCCEC00E8D559 /* FormController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FormController+Delegate.swift"; sourceTree = "<group>"; };
 		E629190C2380593D00E8D559 /* FindController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FindController+Delegate.swift"; sourceTree = "<group>"; };
 		E629190E23805E2500E8D559 /* FormController+UIPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FormController+UIPickerView.swift"; sourceTree = "<group>"; };
+		E634153523AE6D4000704687 /* FindController+UITabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FindController+UITabBar.swift"; sourceTree = "<group>"; };
+		E634153723AE6D8000704687 /* DonateController+UITabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DonateController+UITabBar.swift"; sourceTree = "<group>"; };
+		E634153923AE6DD700704687 /* DiscoverController+UITabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiscoverController+UITabBar.swift"; sourceTree = "<group>"; };
 		E63A1D772397931800809607 /* FirstTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTableViewCell.swift; sourceTree = "<group>"; };
 		E63A1D792397932C00809607 /* SecondTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTableViewCell.swift; sourceTree = "<group>"; };
 		E63A1D7B2397CF1500809607 /* DonateController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DonateController+Delegate.swift"; sourceTree = "<group>"; };
@@ -423,6 +429,7 @@
 				E6FBB1B023718FDF00B1B4DE /* DonateController.swift */,
 				E6BA6E48237B23040017A330 /* DonateStepsViewController.swift */,
 				E63A1D7B2397CF1500809607 /* DonateController+Delegate.swift */,
+				E634153723AE6D8000704687 /* DonateController+UITabBar.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -884,6 +891,7 @@
 				E6D0747C237BCDCD00CF5531 /* DiscoverController+UIScrollView.swift */,
 				E6BA6E29237B1E080017A330 /* InfoTableViewCell+UITableView.swift */,
 				E6BA6E2A237B1E080017A330 /* EventTableViewCell+UICollectionView.swift */,
+				E634153923AE6DD700704687 /* DiscoverController+UITabBar.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1156,6 +1164,7 @@
 				E6FBB1BD2371947700B1B4DE /* FindController+UITableView.swift */,
 				E6DDAF28237435B300D6EAD1 /* FindController+ScrollView.swift */,
 				E629190C2380593D00E8D559 /* FindController+Delegate.swift */,
+				E634153523AE6D4000704687 /* FindController+UITabBar.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1371,11 +1380,13 @@
 				E63A1D7C2397CF1500809607 /* DonateController+Delegate.swift in Sources */,
 				B0B16882237D3E61001DCE3C /* FormTableViewCell.swift in Sources */,
 				AB7357962374313500A6099B /* FirstCell.swift in Sources */,
+				E634153823AE6D8000704687 /* DonateController+UITabBar.swift in Sources */,
 				AB498AC5237D73E7006CDA7A /* Page2OnboardViewController.swift in Sources */,
 				CCBEB45D23A22CF50032FD04 /* SixthStepRequestViewController.swift in Sources */,
 				B0FF322923829B580001C0F5 /* TwoButtonTableViewCell.swift in Sources */,
 				09FBD1F1239249C300704AAF /* Service.swift in Sources */,
 				B0B1689A237D65B8001DCE3C /* RegisterDetailController+UITableView.swift in Sources */,
+				E634153623AE6D4000704687 /* FindController+UITabBar.swift in Sources */,
 				B02BFEA6238FE178000A4372 /* Cryptor.swift in Sources */,
 				E62918FC237EBBF600E8D559 /* FormController.swift in Sources */,
 				B0FF322F23841BFA0001C0F5 /* ErrorMessageTableViewCell.swift in Sources */,
@@ -1480,6 +1491,7 @@
 				CCAAE4FF237C205900BEFB44 /* FirstStepRequestViewController.swift in Sources */,
 				E6BA6E3D237B1E080017A330 /* InfoModel.swift in Sources */,
 				B0B1688A237D473D001DCE3C /* LoginController+UITableView.swift in Sources */,
+				E634153A23AE6DD700704687 /* DiscoverController+UITabBar.swift in Sources */,
 				B0B16892237D6049001DCE3C /* RegisterController.swift in Sources */,
 				AB4BD9AC237599870016DDF1 /* OnboardingViewController.swift in Sources */,
 				E6DEF4F523A27F3100F108F3 /* String + Time Removal.swift in Sources */,

@@ -30,11 +30,14 @@ class DiscoverController: UIViewController, MoveToAddEvent, MoveToEventDetail, N
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+      tabBarController?.delegate = self
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(reloadCellCV), userInfo: nil, repeats: true)
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func viewDidAppear(_ animated: Bool) {

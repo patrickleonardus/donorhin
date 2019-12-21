@@ -60,6 +60,7 @@ class FindController: UIViewController {
   //MARK: Override View
   override func viewDidLoad() {
     super.viewDidLoad()
+    tabBarController?.delegate = self
     self.registerForNotification()
     setupUI()
     configureRefreshControl()
@@ -78,6 +79,7 @@ class FindController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     setTabBar(show: true)
     initTableView()
+    navigationController?.navigationBar.prefersLargeTitles = true
   }
   
   override func viewWillDisappear(_ animated: Bool) {
@@ -595,19 +597,26 @@ class FindController: UIViewController {
     if self.bloodRequestCurrent != nil{
       if self.bloodRequestCurrent!.count != 0 {
         DispatchQueue.main.async {
-          self.viewNoData.alpha = 0
+          UIView.animate(withDuration: 0.2, animations: {
+               self.viewNoData.alpha = 0
+          })
         }
-        
       }
       else if self.bloodRequestCurrent?.count == 0 {
         DispatchQueue.main.async {
-          self.viewNoData.alpha = 1
+          UIView.animate(withDuration: 0.2, animations: {
+            self.viewNoData.alpha = 1
+            self.buttonFind.alpha = 1
+            self.textNoData.text = "Anda belum melakukan pencarian"
+          })
         }
       }
     }
     else if self.bloodRequestCurrent == nil{
       DispatchQueue.main.async {
-        self.viewNoData.alpha = 1
+        UIView.animate(withDuration: 0.2, animations: {
+          self.viewNoData.alpha = 1
+        })
       }
     }
   }
@@ -617,24 +626,30 @@ class FindController: UIViewController {
     if self.bloodRequestHistory != nil{
       if self.bloodRequestHistory!.count != 0 {
         DispatchQueue.main.async {
-          self.viewNoData.alpha = 0
-          self.viewSearching.alpha = 0
-          self.buttonFind.alpha = 1
-          self.textNoData.text = "Anda belum melakukan pencarian"
+          UIView.animate(withDuration: 0.2, animations: {
+            self.viewNoData.alpha = 0
+            self.viewSearching.alpha = 0
+            self.buttonFind.alpha = 1
+            self.textNoData.text = "Anda belum melakukan pencarian"
+          })
         }
         
       }
       else if self.bloodRequestHistory?.count == 0 {
         DispatchQueue.main.async {
-          self.viewNoData.alpha = 1
-          self.buttonFind.alpha = 0
-          self.textNoData.text = "Belum ada data riwayat"
+          UIView.animate(withDuration: 0.2, animations: {
+            self.viewNoData.alpha = 1
+            self.buttonFind.alpha = 0
+            self.textNoData.text = "Belum ada data riwayat"
+          })
         }
       }
     }
     else if self.bloodRequestHistory == nil{
       DispatchQueue.main.async {
-        self.viewNoData.alpha = 1
+        UIView.animate(withDuration: 0.2, animations: {
+          self.viewNoData.alpha = 1
+        })
       }
     }
   }

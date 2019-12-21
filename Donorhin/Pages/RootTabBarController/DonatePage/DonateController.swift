@@ -49,6 +49,7 @@ class DonateController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     self.tableview.delegate = self
     self.tableview.dataSource = self
+    self.tabBarController?.delegate = self
     self.tableview.register(UINib(nibName: "DonateTableViewCell", bundle: nil), forCellReuseIdentifier: self.cellReuseIdentifier)
     self.checkStatusDonor()
     checkData()
