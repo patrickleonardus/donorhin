@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 extension FindController: UITableViewDataSource, UITableViewDelegate {
   
@@ -172,6 +173,62 @@ extension FindController: UITableViewDataSource, UITableViewDelegate {
     
     performSegue(withIdentifier: "moveToTracker", sender: self)
     tableView.deselectRow(at: indexPath, animated: true)
+  }
+  
+  func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    
+    var swipeConfig = UISwipeActionsConfiguration()
+    
+    if findBloodSegmentedControl.selectedSegmentIndex == 0 {
+      
+      let deleteAction = UIContextualAction(style: .destructive, title: "Batalkan Permintaan") { (action, view, completionHandler) in
+        
+        if let data = self.bloodRequestCurrent?[indexPath.row] {
+          if let idRequest = data.requestId {
+            let database = CKContainer.default().publicCloudDatabase
+            database.delete(withRecordID: idRequest, completionHandler: { (record, error) in
+              if error == nil {
+                print("Success delete current request data")
+              }
+              else if error != nil {
+                print("Error occured while deleting the data")
+              }
+            })
+            completionHandler(true)
+            
+          }
+        }
+      }
+      
+      deleteAction.backgroundColor = UIColor.red
+      swipeConfig = UISwipeActionsConfiguration(actions: [deleteAction])
+      return swipeConfig
+    }
+      
+    else {
+      let deleteAction = UIContextualAction(style: .destructive, title: "Hapus Riwayat Permintaan") { (action, view, completionHandler) in
+        
+        if let data = self.bloodRequestHistory?[indexPath.row] {
+          if let idRequest = data.requestId {
+            let database = CKContainer.default().publicCloudDatabase
+            
+            database.delete(withRecordID: idRequest, completionHandler: { (record, error) in
+              if error == nil {
+                print("Success delete history request data")
+              }
+              else if error != nil {
+                print("Error occured while deleting the data")
+              }
+            })
+            completionHandler(true)
+          }
+        }
+      }
+      deleteAction.backgroundColor = UIColor.red
+      
+      swipeConfig = UISwipeActionsConfiguration(actions: [deleteAction])
+      return swipeConfig
+    }
   }
   
 }

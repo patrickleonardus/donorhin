@@ -406,6 +406,37 @@ extension DonateController: UITableViewDelegate, UITableViewDataSource {
       }
     }
   }
+  
+  func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    
+    if indexPath.section > 0 {
+      let deleteAction = UIContextualAction(style: .destructive, title: "Hapus Riwayat") { (action, sourceView, completionHandler) in
+        
+        let data = self.listRequestHistory[indexPath.row]
+        let idTracker = data.recordID
+        
+       let database = CKContainer.default().publicCloudDatabase
+        
+        database.delete(withRecordID: idTracker, completionHandler: { (record, error) in
+          if error == nil {
+            print("Success delete data")
+          }
+          else if error != nil {
+            print("Error occured while deleting the data")
+          }
+        })
+        
+        completionHandler(true)
+      }
+      
+      deleteAction.backgroundColor = UIColor.red
+      
+      let swipeConfig = UISwipeActionsConfiguration(actions: [deleteAction])
+      return swipeConfig
+      
+    }
+    return UISwipeActionsConfiguration()
+  }
 }
 
 //extension DonateController: UITableViewDelegate, UITableViewDataSource {

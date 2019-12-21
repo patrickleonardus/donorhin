@@ -16,7 +16,7 @@ struct HospitalModel {
 }
 
 struct HospitalList {
-  var currentPlace = UserDefaults.standard.value(forKey: "province") as! String
+  var currentPlace = UserDefaults.standard.string(forKey: "province")
   
   //MARK: - get data utd from cloud kit
   func getHospitalList(completionHandler: @escaping (([HospitalModel]) -> ())){
