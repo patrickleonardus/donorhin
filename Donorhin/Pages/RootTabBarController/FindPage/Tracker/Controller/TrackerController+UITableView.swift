@@ -61,7 +61,9 @@ extension TrackerController : UITableViewDataSource {
         
         cell?.informationText?.text = data.description
         cell?.buttonText.setTitle(data.buttonStr, for: .normal)
-        
+        cell?.buttonText.titleLabel?.lineBreakMode = .byWordWrapping
+        cell?.buttonText.titleLabel?.numberOfLines = 3
+      
         cell?.backgroundColor = UIColor.white
         cell?.layer.cornerRadius = 10
         cell?.clipsToBounds = true

@@ -43,7 +43,7 @@ class DonateController: UIViewController {
     }
     
     configureRefreshControl()
-    
+    setupTabledView()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -58,7 +58,6 @@ class DonateController: UIViewController {
    
    override func viewDidAppear(_ animated: Bool) {
       profileImageNavBar(show: true)
-      setupTabledView()
    }
    
    override func viewWillDisappear(_ animated: Bool) {

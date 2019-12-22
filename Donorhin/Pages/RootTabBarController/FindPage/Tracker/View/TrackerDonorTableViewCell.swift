@@ -109,7 +109,13 @@ class TrackerDonorTableViewCell: UITableViewCell {
          self.active_number.isHidden = !hide
          self.checkMarkImage.isHidden = !hide
       }
-      
+    
+      if number == 1 {
+        stackView.setCustomSpacing(1.5, after: informationText)
+      }
+      if number == 2 {
+        stackView.setCustomSpacing(1.5, after: informationText)
+      }
       if number == 4 {stylingNumber4(status: status) }
       else if number == 1 || number == 2 {
          self.buttonText.isHidden = false

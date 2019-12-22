@@ -86,7 +86,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25k-wB-MTA">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="25k-wB-MTA">
                                 <rect key="frame" x="0.0" y="21.5" width="268" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="tintColor" red="0.64261484150000003" green="0.1303341985" blue="0.14504945280000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -110,6 +110,7 @@
                             <constraint firstItem="25k-wB-MTA" firstAttribute="leading" secondItem="UVn-l3-yXO" secondAttribute="leading" id="Ckq-7Q-hdO"/>
                             <constraint firstItem="UZq-mI-z3I" firstAttribute="leading" secondItem="UVn-l3-yXO" secondAttribute="leading" id="IWz-o2-jHh"/>
                             <constraint firstAttribute="trailing" secondItem="UZq-mI-z3I" secondAttribute="trailing" id="RYr-Uf-6kc"/>
+                            <constraint firstItem="25k-wB-MTA" firstAttribute="top" secondItem="uot-Wt-b71" secondAttribute="bottom" constant="12" id="cTj-Wr-Nrg"/>
                             <constraint firstAttribute="trailing" secondItem="uot-Wt-b71" secondAttribute="trailing" id="fbM-Fj-AIo"/>
                             <constraint firstItem="uot-Wt-b71" firstAttribute="leading" secondItem="UVn-l3-yXO" secondAttribute="leading" id="hrQ-PB-gut"/>
                             <constraint firstAttribute="trailing" secondItem="25k-wB-MTA" secondAttribute="trailing" id="wBD-ph-gJR"/>

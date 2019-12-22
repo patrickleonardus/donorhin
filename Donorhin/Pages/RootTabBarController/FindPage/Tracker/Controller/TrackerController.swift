@@ -23,6 +23,7 @@ class TrackerController : UIViewController {
   }
   var utdDonor: UTDModel?
   var utdPatient: UTDModel?
+  var reqData: RequestModel?
   
   var stepItems : [StepItems]?
   var status : [Status]?  = []
@@ -58,9 +59,11 @@ class TrackerController : UIViewController {
     DispatchQueue.main.async {
       self.loadTrackerData {
         self.loadDonorUTDData() {
-          self.loadPatientUtdData{
-            print ("loadData")
-            completionHandler()
+          self.loadRequestData{
+            self.loadPatientUtdData{
+              print ("loadData")
+              completionHandler()
+            }
           }
         }
       }
@@ -80,29 +83,32 @@ class TrackerController : UIViewController {
   }
   
   func loadDonorUTDData(completionHandler: @escaping ( () -> Void )) {
-    if input != nil {
+    if let input = input {
       DispatchQueue.main.async {
-        if let idUtdDonor = self.trackerModel?.idUTDPendonor?.recordID {
-          Helper.getDataByID(idUtdDonor) { (record) in
-            self.utdDonor = record?.convertUTDToUTDModel()
-            print("loadDonorUTDData isNil:\(self.utdDonor==nil)")
-            completionHandler()
-          }
-        } else {
-          //do something when there is no UTD Pendonor
+        Helper.getDataByID(input.patientUtdId) { (record) in
+          self.utdDonor = record?.convertUTDToUTDModel()
+          completionHandler()
         }
       }
     }
   }
   
-  func loadPatientUtdData(completionHandler: @escaping ( () -> Void )) {
+  func loadRequestData(completionHandler: @escaping ( () -> Void )) {
     if let input = input {
       DispatchQueue.main.async {
-        Helper.getDataByID(input.patientUtdId) { (record) in
-          self.utdPatient = record?.convertUTDToUTDModel()
-          print("loadPatientUtdData isNil \(self.utdPatient==nil)")
+        Helper.getDataByID(input.idRequest) { (record) in
+          self.reqData = record?.convertRequestToRequestModel()
           completionHandler()
         }
+      }
+    }
+  }
+  
+  func loadPatientUtdData(completionHandler: @escaping (() -> Void)){
+    DispatchQueue.main.async {
+      Helper.getDataByID((self.reqData?.idUTDPatient)!){ (record) in
+        self.utdPatient = record?.convertUTDToUTDModel()
+        completionHandler()
       }
     }
   }
@@ -201,13 +207,13 @@ class TrackerController : UIViewController {
         completionHandler(
           [StepItems(
             description: "Anda dapat memberitahukan PMI bahwa Anda menggunakan aplikasi untuk mencari donor",
-            buttonStr: " Hubungi \(String(describing: self.utdPatient!.name))",
+            buttonStr: "Hubungi \(String(describing: self.utdPatient!.name))",
             status: self.status![0]
             ),
            
            StepItems(
             description: "Pendonor Anda Telah Ditemukan Lokasi: \(String(describing: self.utdDonor!.name)) Mendonor pada \(date)",
-            buttonStr: " Hubungi \(String(describing: self.utdDonor!.name))",
+            buttonStr: "Hubungi \(String(describing: self.utdDonor!.name))",
             status: self.status![1]),
            
            StepItems(
