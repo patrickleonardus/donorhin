@@ -146,15 +146,46 @@ class TrackerController : UIViewController {
   }
   
   @objc func callPMIResepien(){
-    //FIXME: Tambahin action sheet later
-    guard let phone = self.utdPatient?.phoneNumbers?[0] else { fatalError() }
-    callNumber(phoneNumber: phone)
     
+    guard let phone = self.utdPatient?.phoneNumbers else { fatalError() }
+    
+    if phone.count > 1 {
+      
+      let alert = UIAlertController(title: "Nomor Telepon Unit Transfusi Darah", message: "Silahkan pilih salah satu nomor telepon dibawah ini", preferredStyle: .actionSheet)
+      alert.addAction(UIAlertAction(title: "Batal", style: .cancel, handler: nil))
+      
+      for number in 0...phone.count - 1 {
+        alert.addAction(UIAlertAction(title: "✆ " + phone[number], style: .default, handler: { (action) in
+          self.callNumber(phoneNumber: phone[number])
+        }))
+      }
+      self.present(alert,animated: true)
+    }
+    else if phone.count == 1 {
+      callNumber(phoneNumber: phone[0])
+    }
   }
   
   @objc func callPMIPendonor(){
-    guard let phone = self.utdDonor?.phoneNumbers?[0] else { fatalError() }
-    callNumber(phoneNumber: phone)
+    
+    guard let phone = self.utdDonor?.phoneNumbers else { fatalError() }
+    
+    if phone.count > 1 {
+      
+      let alert = UIAlertController(title: "Nomor Telepon Unit Transfusi Darah", message: "Silahkan pilih salah satu nomor telepon dibawah ini", preferredStyle: .actionSheet)
+      alert.addAction(UIAlertAction(title: "Batal", style: .cancel, handler: nil))
+      
+      for number in 0...phone.count - 1 {
+        alert.addAction(UIAlertAction(title: "✆ " + phone[number], style: .default, handler: { (action) in
+          self.callNumber(phoneNumber: phone[number])
+        }))
+      }
+      self.present(alert,animated: true)
+    }
+    else if phone.count == 1 {
+      callNumber(phoneNumber: phone[0])
+    }
+    
   }
   
   func getTrackerItems(completionHandler: @escaping (([StepItems]) -> ())) {
