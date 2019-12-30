@@ -26,7 +26,7 @@ class FourthStepRequestViewController: DonateStepViewController {
     print ("is tracker model nil?",self.trackerModel == nil)
     super.viewDidLoad()
     setupView()
-    
+		self.getDetailRequest()
     let centerWidth = self.view.frame.width/2
     let centerHeight = (self.view.frame.height/2) - (self.view.frame.height/4)
     self.showSpinner(onView: self.view, x: Int(centerWidth), y: Int(centerHeight))
@@ -70,10 +70,10 @@ class FourthStepRequestViewController: DonateStepViewController {
   }
 	
 	//MARK: - initiate data for send notification
-	private func getDetailRequest(_ idRequest: CKRecord.Reference?) {
-    guard let idRequest = idRequest else {return}
-		self.requestNotification = idRequest.recordID.recordName
-		Helper.getDataByID(idRequest.recordID) { (records) in
+	private func getDetailRequest() {
+		guard let idRequest = self.trackerModel else {return}
+		self.requestNotification = idRequest.idRequest.recordID.recordName
+		Helper.getDataByID(idRequest.idRequest.recordID) { (records) in
 			if let record = records {
 				let userId = record.value(forKey: "userId") as! CKRecord.Reference
 				Helper.getDataByID(userId.recordID) {[weak self] (recordAccount) in
