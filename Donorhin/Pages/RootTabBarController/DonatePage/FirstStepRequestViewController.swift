@@ -16,13 +16,15 @@ class FirstStepRequestViewController: DonateStepViewController {
 	var senderTokenNotification: String?
   override func viewDidLoad() {
     super.viewDidLoad()
+		self.getDetailRequest()
   }
   
 	//MARK: - initiate data for send notification
-  private func getDetailRequest(_ idRequest: CKRecord.Reference?) {
-    guard let idRequest = idRequest else {return}
-		self.requestNotification = idRequest.recordID.recordName
-		Helper.getDataByID(idRequest.recordID) { (records) in
+  private func getDetailRequest() {
+		guard let request = self.trackerModel else {return}
+		
+		self.requestNotification = request.idRequest.recordID.recordName
+		Helper.getDataByID(request.idRequest.recordID) { (records) in
 			if let record = records {
 				let userId = record.value(forKey: "userId") as! CKRecord.Reference
 				Helper.getDataByID(userId.recordID) {[weak self] (recordAccount) in
@@ -79,6 +81,7 @@ class FirstStepRequestViewController: DonateStepViewController {
 						self.trackerModel?.currentStep = 2
 						DispatchQueue.main.async {
 							self.pageViewDelegate?.changeShowedView(keyValuePair: params, tracker: self.trackerModel)
+							self.sendNotification()
 						}
 					}
 				}
