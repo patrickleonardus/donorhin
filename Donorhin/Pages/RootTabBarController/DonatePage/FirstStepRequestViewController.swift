@@ -14,6 +14,9 @@ class FirstStepRequestViewController: DonateStepViewController {
 	var requestNotification: String?
 	var tokenNotification: String?
 	var senderTokenNotification: String?
+	var dateNeed: Date?
+	var bloodType: String?
+	
   override func viewDidLoad() {
     super.viewDidLoad()
 		self.getDetailRequest()
@@ -22,15 +25,26 @@ class FirstStepRequestViewController: DonateStepViewController {
 	//MARK: - initiate data for send notification
   private func getDetailRequest() {
 		guard let request = self.trackerModel else {return}
-		
+		self.showSpinner(onView: self.view)
 		self.requestNotification = request.idRequest.recordID.recordName
 		Helper.getDataByID(request.idRequest.recordID) { (records) in
 			if let record = records {
 				let userId = record.value(forKey: "userId") as! CKRecord.Reference
+				self.dateNeed = record.value(forKey: "date_need") as? Date
+				self.bloodType = record.value(forKey: "blood_type") as? String
+				
+				if let dateNeed = self.dateNeed, let bloodType = self.bloodType {
+					self.descriptionLabel.text = "Terdapat kebutuhan kantong darah \(bloodType) untukk tanggal \(dateNeed.dateToString()). Apakah Anda siap mendonor?"
+				}
+
 				Helper.getDataByID(userId.recordID) {[weak self] (recordAccount) in
 					if let recordAccount = recordAccount {
 						let deviceToken = recordAccount.value(forKey: "device_token") as! String
 						self?.tokenNotification = deviceToken
+						self?.removeSpinner()
+					}
+					else {
+						self?.removeSpinner()
 					}
 				}
 			}
