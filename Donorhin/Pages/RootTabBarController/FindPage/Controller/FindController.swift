@@ -616,6 +616,8 @@ class FindController: UIViewController {
       DispatchQueue.main.async {
         UIView.animate(withDuration: 0.2, animations: {
           self.viewNoData.alpha = 1
+          self.buttonFind.alpha = 1
+          self.textNoData.text = "Anda belum melakukan pencarian"
         })
       }
     }
@@ -649,6 +651,8 @@ class FindController: UIViewController {
       DispatchQueue.main.async {
         UIView.animate(withDuration: 0.2, animations: {
           self.viewNoData.alpha = 1
+          self.buttonFind.alpha = 0
+          self.textNoData.text = "Belum ada data riwayat"
         })
       }
     }
