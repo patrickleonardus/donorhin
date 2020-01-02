@@ -38,10 +38,8 @@ class RegisterController : UIViewController{
     }
     
     override func viewWillAppear(_ animated: Bool) {
-      self.navigationController?.navigationBar.isHidden = false
-        self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
         self.navigationController?.navigationBar.prefersLargeTitles = false
-        
+        self.navigationController?.navigationBar.isHidden = false
         navigationItem.title = "Daftar"
     }
   

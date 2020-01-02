@@ -111,7 +111,8 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
     
     func setNavBarTitle() {
         navigationItem.title =  "Masuk"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     func validationCredential(email: String, password: String) {

@@ -72,18 +72,14 @@ extension RegisterDetailController : FormCellDelegate {
     }
     
     func loginAccount() {
-        self.showSpinner(onView: self.view)
         DataFetcher().getUserDataByEmail(email: (self.userCredentials["email"]!), password: (self.userCredentials["password"]!)){ (userModel) in
             if userModel != nil {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                DispatchQueue.main.async{
                     print("Processing...")
                     self.checkLocation()
                     self.saveToUserDefaults(userModel: userModel)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 6){
                       print("Data saved to user default...")
-                      if self.rootViewController != nil {
-                          self.navigationController?.pushViewController((self.rootViewController!), animated: true)
-                      }
                       self.performSegue(withIdentifier: "goToHome", sender: self)
                     }
                 }
@@ -102,7 +98,9 @@ extension RegisterDetailController : FormCellDelegate {
         let alert = UIAlertController(title: "Pendaftaran Berhasil", message: "Harap pilih lanjut untuk masuk ke akun", preferredStyle: UIAlertController.Style.alert)
         let continue_action = UIAlertAction(title: "Lanjut", style: UIAlertAction.Style.default) { UIAlertAction in
             self.showSpinner(onView: self.view)
-            self.loginAccount()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+                self.loginAccount()
+            }
         }
         alert.addAction(continue_action)
         self.present(alert, animated: true, completion: nil)

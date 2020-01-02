@@ -99,6 +99,9 @@ class RegisterDetailController : UIViewController, CLLocationManagerDelegate {
                 else if rootViewController is DiscoverController {
                     destination.selectedIndex = 2
                 }
+                else {
+                    destination.selectedIndex = 0
+                }
             }
         }
     }
@@ -166,9 +169,7 @@ class RegisterDetailController : UIViewController, CLLocationManagerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         setTabBar(show: false)
-        self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
         self.navigationController?.navigationBar.prefersLargeTitles = false
-      self.navigationController?.navigationBar.isHidden = false
     }
     
     func saveToUserDefaults(userModel:UserModel?) {
