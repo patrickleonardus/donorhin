@@ -105,6 +105,9 @@ class LoginController : UIViewController, CLLocationManagerDelegate {
                 else if rootViewController is DiscoverController {
                     destination.selectedIndex = 2
                 }
+                else{
+                    destination.selectedIndex = 0
+                }
             }
         }
     }
