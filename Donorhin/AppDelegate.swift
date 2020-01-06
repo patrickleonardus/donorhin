@@ -10,11 +10,14 @@ import UIKit
 import CoreData
 import CloudKit
 import UserNotifications
+import CoreLocation
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
-		let currentUser = UserDefaults.standard.string(forKey: "currentUser")
+	var window: UIWindow?
+	let currentUser = UserDefaults.standard.string(forKey: "currentUser")
+	
+	var locationManager = CLLocationManager()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
       UNUserNotificationCenter.current().delegate = self
         // Override point for customization after application launch.
@@ -38,8 +41,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
       self.getNotificationSettings()
       self.window?.tintColor = Colors.red
+			
+			/// cek current location
+			self.updateLocation()
+			
       return true
     }
+	
+	func updateLocation() {
+		if CLLocationManager.locationServicesEnabled() {
+			self.locationManager.delegate = self
+			locationManager.desiredAccuracy = kCLLocationAccuracyBest
+			locationManager.startUpdatingLocation()
+		}
+	}
   
   func checkNotification(_ launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
 		let notificationOption = launchOptions?[.remoteNotification]
@@ -221,3 +236,24 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
   }
 }
 
+extension AppDelegate: CLLocationManagerDelegate {
+	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+		let location = locations.last
+		self.locationManager.stopUpdatingLocation()
+		var packages = [String:Any]()
+		
+		if let location = location, let currentUser = self.currentUser {
+			CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)) { (placemarks, err) in
+				if let placemarks = placemarks {
+					if placemarks.count > 0 {
+						let province = placemarks[0].administrativeArea!
+						packages["location"] = location
+						packages["province"] = province
+						Helper.updateToDatabase(keyValuePair: packages, recordID: CKRecord.ID(recordName: currentUser))
+						UserDefaults.standard.set(province,forKey: "province")
+					}
+				}
+			}
+		}
+	}
+}
