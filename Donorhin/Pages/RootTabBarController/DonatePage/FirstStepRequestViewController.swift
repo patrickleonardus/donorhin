@@ -31,10 +31,13 @@ class FirstStepRequestViewController: DonateStepViewController {
 			if let record = records {
 				let userId = record.value(forKey: "userId") as! CKRecord.Reference
 				self.dateNeed = record.value(forKey: "date_need") as? Date
-				self.bloodType = record.value(forKey: "blood_type") as? String
+				self.bloodType = record.value(forKey: "patient_blood_type") as? String
 				
 				if let dateNeed = self.dateNeed, let bloodType = self.bloodType {
-					self.descriptionLabel.text = "Terdapat kebutuhan kantong darah \(bloodType) untukk tanggal \(dateNeed.dateToString()). Apakah Anda siap mendonor?"
+					DispatchQueue.main.async {
+						self.descriptionLabel.text = "Terdapat kebutuhan kantong darah \(bloodType) untuk tanggal \(dateNeed.dateToString()). Apakah Anda siap mendonor?"
+					}
+					
 				}
 
 				Helper.getDataByID(userId.recordID) {[weak self] (recordAccount) in
